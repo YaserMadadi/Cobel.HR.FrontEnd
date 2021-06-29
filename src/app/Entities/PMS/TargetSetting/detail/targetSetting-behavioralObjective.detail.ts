@@ -60,7 +60,7 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
     this.currentBehavioralObjective = this.BehavioralObjectiveList[i];
     if (BehavioralObjective.NotConfirm(this.currentBehavioralObjective))
       this.currentBehavioralObjective = new BehavioralObjective();
-  }
+  }  
 
   public onDblClicked(masterUI: BehavioralObjectiveMasterUI) {
     if (BehavioralObjective.NotConfirm(this.currentBehavioralObjective))
