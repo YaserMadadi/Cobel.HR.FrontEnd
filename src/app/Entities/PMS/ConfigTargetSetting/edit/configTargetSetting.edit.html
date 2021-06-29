@@ -1,0 +1,156 @@
+﻿<XDialog Header='Edit Form of Config Target Setting' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, configTargetSettingEditUI)' 
+    #configTargetSettingEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Position -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Position_Id")'></guide>
+        <label for='position' class='col-form-label'>Position : </label>
+        <span class='help-block col-form-label' *ngIf='!position.valid && position.touched && !position.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #position='ngModel' 
+                    #positionCombo='kendoDropDownList' 
+                    name='position' 
+                    title='Position'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !position.valid && position.touched }" 
+                    [data]='positionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='positionComponent.filterable'
+                    (filterChange)='positionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.position"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='positionComponent.addable'>
+                      <button class='btn btn-primary' (click)='positionComponent.onAdd(positionCombo, positionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- FromDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("FromDate")'></guide>
+        <label for='fromDate' class='col-form-label'>From Date : </label>
+        <span class='help-block col-form-label' *ngIf='!fromDate.valid && fromDate.touched && !fromDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=From Date 
+                    [ngClass]="{ 'error' : !fromDate.valid && fromDate.touched }" 
+                    class='form-control' 
+                    #fromDate='ngModel' 
+                    name='fromDate'
+                    [ngModel]="currentInstance.fromDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.fromDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- QuantitativeWeight -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("QuantitativeWeight")'></guide>
+        <label for='quantitativeWeight' class='col-form-label'>Quantitative Weight : </label>
+        <span class='help-block col-form-label' *ngIf='!quantitativeWeight.valid && quantitativeWeight.touched && !quantitativeWeight.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #quantitativeWeight='ngModel' 
+            name='quantitativeWeight' 
+            title='Quantitative Weight' 
+            placeholder='Quantitative Weight'
+            class='form-control'
+            [ngClass]="{ 'error' : !quantitativeWeight.valid && quantitativeWeight.touched }" 
+            [value]='currentInstance.quantitativeWeight' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.quantitativeWeight'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- QualitativeWeight -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("QualitativeWeight")'></guide>
+        <label for='qualitativeWeight' class='col-form-label'>Qualitative Weight : </label>
+        <span class='help-block col-form-label' *ngIf='!qualitativeWeight.valid && qualitativeWeight.touched && !qualitativeWeight.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #qualitativeWeight='ngModel' 
+            name='qualitativeWeight' 
+            title='Qualitative Weight' 
+            placeholder='Qualitative Weight'
+            class='form-control'
+            [ngClass]="{ 'error' : !qualitativeWeight.valid && qualitativeWeight.touched }" 
+            [value]='currentInstance.qualitativeWeight' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.qualitativeWeight'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- QualitativeNonBehavioralWeight -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("QualitativeNonBehavioralWeight")'></guide>
+        <label for='qualitativeNonBehavioralWeight' class='col-form-label'>Qualitative Non Behavioral Weight : </label>
+        <span class='help-block col-form-label' *ngIf='!qualitativeNonBehavioralWeight.valid && qualitativeNonBehavioralWeight.touched && !qualitativeNonBehavioralWeight.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #qualitativeNonBehavioralWeight='ngModel' 
+            name='qualitativeNonBehavioralWeight' 
+            title='Qualitative Non Behavioral Weight' 
+            placeholder='Qualitative Non Behavioral Weight'
+            class='form-control'
+            [ngClass]="{ 'error' : !qualitativeNonBehavioralWeight.valid && qualitativeNonBehavioralWeight.touched }" 
+            [value]='currentInstance.qualitativeNonBehavioralWeight' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.qualitativeNonBehavioralWeight'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- QualitativeBehavioralWeight -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("QualitativeBehavioralWeight")'></guide>
+        <label for='qualitativeBehavioralWeight' class='col-form-label'>Qualitative Behavioral Weight : </label>
+        <span class='help-block col-form-label' *ngIf='!qualitativeBehavioralWeight.valid && qualitativeBehavioralWeight.touched && !qualitativeBehavioralWeight.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #qualitativeBehavioralWeight='ngModel' 
+            name='qualitativeBehavioralWeight' 
+            title='Qualitative Behavioral Weight' 
+            placeholder='Qualitative Behavioral Weight'
+            class='form-control'
+            [ngClass]="{ 'error' : !qualitativeBehavioralWeight.valid && qualitativeBehavioralWeight.touched }" 
+            [value]='currentInstance.qualitativeBehavioralWeight' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.qualitativeBehavioralWeight'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!configTargetSettingEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!configTargetSettingEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, configTargetSettingEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-position-edit #positionEditUI 
+    (onClosed)='positionComponent.onClosed($event)'>
+</hr-position-edit>

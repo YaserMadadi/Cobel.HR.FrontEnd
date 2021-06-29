@@ -1,0 +1,51 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(unitEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(unitEditUI)' [ngClass]="{ 'disabled' : currentUnit.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(unitDeleteUI)' [ngClass]="{ 'disabled' : currentUnit.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('HR','PositionCategory')"> Position Category</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let unit of UnitList; let i = index' 
+                (dblclick)='onDblClicked(unitMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : unit.id === currentUnit.id, 'free-row': unit.id !== currentUnit.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ unit.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-unit-edit #unitEditUI
+    [Department]='Department' 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-unit-edit>
+  <hr-unit-delete #unitDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-unit-delete>
+  <hr-unit-master #unitMasterUI >
+  </hr-unit-master>
+</div>

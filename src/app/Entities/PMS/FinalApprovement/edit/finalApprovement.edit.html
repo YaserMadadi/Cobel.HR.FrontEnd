@@ -1,0 +1,112 @@
+﻿<XDialog Header='Edit Form of Final Approvement' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, finalApprovementEditUI)' 
+    #finalApprovementEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- TargetSetting -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("TargetSetting_Id")'></guide>
+        <label for='targetSetting' class='col-form-label'>Target Setting : </label>
+        <span class='help-block col-form-label' *ngIf='!targetSetting.valid && targetSetting.touched && !targetSetting.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #targetSetting='ngModel' 
+                    #targetSettingCombo='kendoDropDownList' 
+                    name='targetSetting' 
+                    title='Target Setting'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !targetSetting.valid && targetSetting.touched }" 
+                    [data]='targetSettingComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='targetSettingComponent.filterable'
+                    (filterChange)='targetSettingComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.targetSetting"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='targetSettingComponent.addable'>
+                      <button class='btn btn-primary' (click)='targetSettingComponent.onAdd(targetSettingCombo, targetSettingEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Approver -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Approver_Id")'></guide>
+        <label for='approver' class='col-form-label'>Approver : </label>
+        <span class='help-block col-form-label' *ngIf='!approver.valid && approver.touched && !approver.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #approver='ngModel' 
+                    #approverCombo='kendoDropDownList' 
+                    name='approver' 
+                    title='Approver'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !approver.valid && approver.touched }" 
+                    [data]='approverComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='approverComponent.filterable'
+                    (filterChange)='approverComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.approver"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='approverComponent.addable'>
+                      <button class='btn btn-primary' (click)='approverComponent.onAdd(approverCombo, approverEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Date -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Date")'></guide>
+        <label for='date' class='col-form-label'>Date : </label>
+        <span class='help-block col-form-label' *ngIf='!date.valid && date.touched && !date.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Date 
+                    [ngClass]="{ 'error' : !date.valid && date.touched }" 
+                    class='form-control' 
+                    #date='ngModel' 
+                    name='date'
+                    [ngModel]="currentInstance.date | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.date = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- IsActive -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsActive")'></guide>
+        <label for='isActive' class='col-form-label'>Is Active : </label>
+        <!--IsActive do not Required-->
+        <input type='checkbox' 
+                #isActive 
+                id = 'isActive'
+                name = 'isActive'
+                kendoCheckBox
+                [checked] = 'currentInstance.isActive'
+                [(ngModel)] = 'currentInstance.isActive' /> 
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!finalApprovementEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!finalApprovementEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, finalApprovementEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<pms-targetSetting-edit #targetSettingEditUI 
+    (onClosed)='targetSettingComponent.onClosed($event)'>
+</pms-targetSetting-edit>
+<hr-employee-edit #approverEditUI 
+    (onClosed)='approverComponent.onClosed($event)'>
+</hr-employee-edit>

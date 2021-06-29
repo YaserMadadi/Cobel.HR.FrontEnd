@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(fieldOfStudyEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(fieldOfStudyEditUI)' [ngClass]="{ 'disabled' : currentFieldOfStudy.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(fieldOfStudyDeleteUI)' [ngClass]="{ 'disabled' : currentFieldOfStudy.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Field Of Study</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let fieldOfStudy of FieldOfStudyList; let i = index' 
+                (dblclick)='onDblClicked(fieldOfStudyMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : fieldOfStudy.id === currentFieldOfStudy.id, 'free-row': fieldOfStudy.id !== currentFieldOfStudy.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ fieldOfStudy.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <base-fieldOfStudy-edit #fieldOfStudyEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </base-fieldOfStudy-edit>
+  <base-fieldOfStudy-delete #fieldOfStudyDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </base-fieldOfStudy-delete>
+  <base-fieldOfStudy-master #fieldOfStudyMasterUI >
+  </base-fieldOfStudy-master>
+</div>

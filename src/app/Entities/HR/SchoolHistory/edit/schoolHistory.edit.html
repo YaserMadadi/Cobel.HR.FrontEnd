@@ -1,0 +1,99 @@
+﻿<XDialog Header='Edit Form of School History' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, schoolHistoryEditUI)' 
+    #schoolHistoryEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Person -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Person_Id")'></guide>
+        <label for='person' class='col-form-label'>Person : </label>
+        <span class='help-block col-form-label' *ngIf='!person.valid && person.touched && !person.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- SchoolLevel -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("SchoolLevel_Id")'></guide>
+        <label for='schoolLevel' class='col-form-label'>School Level : </label>
+        <span class='help-block col-form-label' *ngIf='!schoolLevel.valid && schoolLevel.touched && !schoolLevel.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #schoolLevel='ngModel' 
+                    #schoolLevelCombo='kendoDropDownList' 
+                    name='schoolLevel' 
+                    title='School Level'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !schoolLevel.valid && schoolLevel.touched }" 
+                    [data]='schoolLevelComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='schoolLevelComponent.filterable'
+                    (filterChange)='schoolLevelComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.schoolLevel"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='schoolLevelComponent.addable'>
+                      <button class='btn btn-primary' (click)='schoolLevelComponent.onAdd(schoolLevelCombo, schoolLevelEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- SchoolName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("SchoolName")'></guide>
+        <label for='schoolName' class='col-form-label'>School Name : </label>
+        <span class='help-block col-form-label' *ngIf='!schoolName.valid && schoolName.touched && !schoolName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='School Name' 
+                    [ngClass]="{ 'error' : !schoolName.valid && schoolName.touched }" 
+                    class='form-control ' 
+                    #schoolName='ngModel' 
+                    name='schoolName' 
+                    placeholder='... School Name' 
+                    [(ngModel)]='currentInstance.schoolName' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!schoolHistoryEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!schoolHistoryEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, schoolHistoryEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-person-edit #personEditUI 
+    (onClosed)='personComponent.onClosed($event)'>
+</hr-person-edit>
+<base-schoolLevel-edit #schoolLevelEditUI 
+    (onClosed)='schoolLevelComponent.onClosed($event)'>
+</base-schoolLevel-edit>

@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(feedbackSessionEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(feedbackSessionEditUI)' [ngClass]="{ 'disabled' : currentFeedbackSession.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(feedbackSessionDeleteUI)' [ngClass]="{ 'disabled' : currentFeedbackSession.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Feedback Session</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let feedbackSession of FeedbackSessionList; let i = index' 
+                (dblclick)='onDblClicked(feedbackSessionMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : feedbackSession.id === currentFeedbackSession.id, 'free-row': feedbackSession.id !== currentFeedbackSession.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ feedbackSession.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <lad-feedbackSession-edit #feedbackSessionEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </lad-feedbackSession-edit>
+  <lad-feedbackSession-delete #feedbackSessionDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </lad-feedbackSession-delete>
+  <lad-feedbackSession-master #feedbackSessionMasterUI >
+  </lad-feedbackSession-master>
+</div>

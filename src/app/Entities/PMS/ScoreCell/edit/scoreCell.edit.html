@@ -1,0 +1,170 @@
+﻿<XDialog Header='Edit Form of Score Cell' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, scoreCellEditUI)' 
+    #scoreCellEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- CellNumber -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("CellNumber")'></guide>
+        <label for='cellNumber' class='col-form-label'>Cell Number : </label>
+        <span class='help-block col-form-label' *ngIf='!cellNumber.valid && cellNumber.touched && !cellNumber.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Cell Number' 
+                    [ngClass]="{ 'error' : !cellNumber.valid && cellNumber.touched }" 
+                    class='form-control ' 
+                    #cellNumber='ngModel' 
+                    name='cellNumber' 
+                    placeholder='... Cell Number' 
+                    [(ngModel)]='currentInstance.cellNumber' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  required  />
+      </div>
+			<!-- Min_X -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Min_X")'></guide>
+        <label for='min_X' class='col-form-label'>Min_ X : </label>
+        <span class='help-block col-form-label' *ngIf='!min_X.valid && min_X.touched && !min_X.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #min_X='ngModel' 
+            name='min_X' 
+            title='Min_ X' 
+            placeholder='Min_ X'
+            class='form-control'
+            [ngClass]="{ 'error' : !min_X.valid && min_X.touched }" 
+            [value]='currentInstance.min_X' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.min_X'
+            [format]="'n2'" 
+            [decimals]='2'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- Max_X -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Max_X")'></guide>
+        <label for='max_X' class='col-form-label'>Max_ X : </label>
+        <span class='help-block col-form-label' *ngIf='!max_X.valid && max_X.touched && !max_X.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #max_X='ngModel' 
+            name='max_X' 
+            title='Max_ X' 
+            placeholder='Max_ X'
+            class='form-control'
+            [ngClass]="{ 'error' : !max_X.valid && max_X.touched }" 
+            [value]='currentInstance.max_X' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.max_X'
+            [format]="'n2'" 
+            [decimals]='2'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- Min_Y -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Min_Y")'></guide>
+        <label for='min_Y' class='col-form-label'>Min_ Y : </label>
+        <span class='help-block col-form-label' *ngIf='!min_Y.valid && min_Y.touched && !min_Y.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #min_Y='ngModel' 
+            name='min_Y' 
+            title='Min_ Y' 
+            placeholder='Min_ Y'
+            class='form-control'
+            [ngClass]="{ 'error' : !min_Y.valid && min_Y.touched }" 
+            [value]='currentInstance.min_Y' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.min_Y'
+            [format]="'n2'" 
+            [decimals]='2'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- Max_Y -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Max_Y")'></guide>
+        <label for='max_Y' class='col-form-label'>Max_ Y : </label>
+        <span class='help-block col-form-label' *ngIf='!max_Y.valid && max_Y.touched && !max_Y.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #max_Y='ngModel' 
+            name='max_Y' 
+            title='Max_ Y' 
+            placeholder='Max_ Y'
+            class='form-control'
+            [ngClass]="{ 'error' : !max_Y.valid && max_Y.touched }" 
+            [value]='currentInstance.max_Y' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.max_Y'
+            [format]="'n2'" 
+            [decimals]='2'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- Min_Pi -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Min_Pi")'></guide>
+        <label for='min_Pi' class='col-form-label'>Min_ Pi : </label>
+        <span class='help-block col-form-label' *ngIf='!min_Pi.valid && min_Pi.touched && !min_Pi.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #min_Pi='ngModel' 
+            name='min_Pi' 
+            title='Min_ Pi' 
+            placeholder='Min_ Pi'
+            class='form-control'
+            [ngClass]="{ 'error' : !min_Pi.valid && min_Pi.touched }" 
+            [value]='currentInstance.min_Pi' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.min_Pi'
+            [format]="'n2'" 
+            [decimals]='2'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- Max_Pi -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Max_Pi")'></guide>
+        <label for='max_Pi' class='col-form-label'>Max_ Pi : </label>
+        <span class='help-block col-form-label' *ngIf='!max_Pi.valid && max_Pi.touched && !max_Pi.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #max_Pi='ngModel' 
+            name='max_Pi' 
+            title='Max_ Pi' 
+            placeholder='Max_ Pi'
+            class='form-control'
+            [ngClass]="{ 'error' : !max_Pi.valid && max_Pi.touched }" 
+            [value]='currentInstance.max_Pi' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.max_Pi'
+            [format]="'n2'" 
+            [decimals]='2'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!scoreCellEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!scoreCellEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, scoreCellEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>

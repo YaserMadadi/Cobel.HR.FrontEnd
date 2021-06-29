@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(functionalKPIEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(functionalKPIEditUI)' [ngClass]="{ 'disabled' : currentFunctionalKPI.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(functionalKPIDeleteUI)' [ngClass]="{ 'disabled' : currentFunctionalKPI.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('PMS','FunctionalObjective')"> Functional Objective</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Functional K P I</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let functionalKPI of FunctionalKPIList; let i = index' 
+                (dblclick)='onDblClicked(functionalKPIMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : functionalKPI.id === currentFunctionalKPI.id, 'free-row': functionalKPI.id !== currentFunctionalKPI.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ functionalKPI.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-functionalKPI-edit #functionalKPIEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-functionalKPI-edit>
+  <pms-functionalKPI-delete #functionalKPIDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-functionalKPI-delete>
+  <pms-functionalKPI-master #functionalKPIMasterUI >
+  </pms-functionalKPI-master>
+</div>

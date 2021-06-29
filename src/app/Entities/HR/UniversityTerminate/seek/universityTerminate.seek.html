@@ -1,0 +1,57 @@
+﻿<XDialog Header='Search form of University Terminate' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='universityHistory' class='col-sm-3 col-form-label'>University History : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #universityHistory='ngModel' 
+                    #universityHistoryCombo='kendoDropDownList' 
+                    name='universityHistory' 
+                    title='University History'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !universityHistory.valid && universityHistory.touched }" 
+                    [data]='universityHistoryComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='universityHistoryComponent.filterable'
+                    (filterChange)='universityHistoryComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.universityHistory"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='universityHistoryComponent.addable'>
+                      <button class='btn btn-primary' (click)='universityHistoryComponent.onAdd(universityHistoryCombo, universityHistoryEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='finishedDate' class='col-sm-3 col-form-label'>Finished Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #finishedDate='ngModel' id='finishedDate' name='finishedDate'
+										 title='Finished Date'
+										 autocomplete='off'
+										 placeholder='Finished Date'
+										[(ngModel)]='universityTerminate.finishedDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='average' class='col-sm-3 col-form-label'>Average : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #average='ngModel' id='average' name='average'
+										 title='Average'
+										 autocomplete='off'
+										 placeholder='Average'
+										[(ngModel)]='universityTerminate.average'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

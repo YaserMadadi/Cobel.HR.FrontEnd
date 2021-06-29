@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(finalApprovementEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(finalApprovementEditUI)' [ngClass]="{ 'disabled' : currentFinalApprovement.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(finalApprovementDeleteUI)' [ngClass]="{ 'disabled' : currentFinalApprovement.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('HR','Employee')"> Employee</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Final Approvement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let finalApprovement of FinalApprovementList; let i = index' 
+                (dblclick)='onDblClicked(finalApprovementMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : finalApprovement.id === currentFinalApprovement.id, 'free-row': finalApprovement.id !== currentFinalApprovement.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ finalApprovement.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-finalApprovement-edit #finalApprovementEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-finalApprovement-edit>
+  <pms-finalApprovement-delete #finalApprovementDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-finalApprovement-delete>
+  <pms-finalApprovement-master #finalApprovementMasterUI >
+  </pms-finalApprovement-master>
+</div>

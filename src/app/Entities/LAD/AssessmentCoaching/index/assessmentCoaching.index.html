@@ -1,0 +1,80 @@
+﻿<fieldset class='border'>
+  <legend>Assessment Coaching :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(assessmentCoachingEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(assessmentCoachingTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(assessmentCoachingEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(assessmentCoachingDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("LAD", "Assessment", currentInstance.assessment?.id)'>Manage Assessment</a>
+		<a class='dropdown-item pointer' (click)='navigate("LAD", "Coaching", currentInstance.coaching?.id)'>Manage Coaching</a>
+    </dropDownMenu>
+  
+  <table #assessmentCoachingTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Assessment'>Assessment</th>
+        <th title='Coaching'>Coaching</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #assessment='ngModel' id='assessment' name='assessment'
+										 title='Assessment'
+										 autocomplete='off'
+										 placeholder='Assessment'
+										[(ngModel)]='filterInstance.assessment.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #coaching='ngModel' id='coaching' name='coaching'
+										 title='Coaching'
+										 autocomplete='off'
+										 placeholder='Coaching'
+										[(ngModel)]='filterInstance.coaching.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(assessmentCoachingMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.assessment?.descriptor }}</td>
+				<td>{{ p.coaching?.descriptor }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- AssessmentCoaching -->
+<lad-assessmentCoaching-master #assessmentCoachingMasterUI>
+</lad-assessmentCoaching-master>
+
+<lad-assessmentCoaching-edit #assessmentCoachingEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</lad-assessmentCoaching-edit>
+
+<lad-assessmentCoaching-delete #assessmentCoachingDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</lad-assessmentCoaching-delete>

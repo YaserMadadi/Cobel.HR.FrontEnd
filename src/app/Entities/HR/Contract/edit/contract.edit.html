@@ -1,0 +1,144 @@
+﻿<XDialog Header='Edit Form of Contract' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, contractEditUI)' 
+    #contractEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Employee -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Employee_Id")'></guide>
+        <label for='employee' class='col-form-label'>Employee : </label>
+        <span class='help-block col-form-label' *ngIf='!employee.valid && employee.touched && !employee.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- ContractType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ContractType_Id")'></guide>
+        <label for='contractType' class='col-form-label'>Contract Type : </label>
+        <span class='help-block col-form-label' *ngIf='!contractType.valid && contractType.touched && !contractType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #contractType='ngModel' 
+                    #contractTypeCombo='kendoDropDownList' 
+                    name='contractType' 
+                    title='Contract Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !contractType.valid && contractType.touched }" 
+                    [data]='contractTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='contractTypeComponent.filterable'
+                    (filterChange)='contractTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.contractType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='contractTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='contractTypeComponent.onAdd(contractTypeCombo, contractTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Number -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Number")'></guide>
+        <label for='number' class='col-form-label'>Number : </label>
+        <span class='help-block col-form-label' *ngIf='!number.valid && number.touched && !number.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Number' 
+                    [ngClass]="{ 'error' : !number.valid && number.touched }" 
+                    class='form-control ' 
+                    #number='ngModel' 
+                    name='number' 
+                    placeholder='... Number' 
+                    [(ngModel)]='currentInstance.number' 
+                    [disabled]='IsLocked'
+                    maxlength='10'  dir='ltr'  required  />
+      </div>
+			<!-- FromDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("FromDate")'></guide>
+        <label for='fromDate' class='col-form-label'>From Date : </label>
+        <span class='help-block col-form-label' *ngIf='!fromDate.valid && fromDate.touched && !fromDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=From Date 
+                    [ngClass]="{ 'error' : !fromDate.valid && fromDate.touched }" 
+                    class='form-control' 
+                    #fromDate='ngModel' 
+                    name='fromDate'
+                    [ngModel]="currentInstance.fromDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.fromDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- ToDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ToDate")'></guide>
+        <label for='toDate' class='col-form-label'>To Date : </label>
+        <span class='help-block col-form-label' *ngIf='!toDate.valid && toDate.touched && !toDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=To Date 
+                    [ngClass]="{ 'error' : !toDate.valid && toDate.touched }" 
+                    class='form-control' 
+                    #toDate='ngModel' 
+                    name='toDate'
+                    [ngModel]="currentInstance.toDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.toDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- IsSigned -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsSigned")'></guide>
+        <label for='isSigned' class='col-form-label'>Is Signed : </label>
+        <!--IsSigned do not Required-->
+        <input type='checkbox' 
+                #isSigned 
+                id = 'isSigned'
+                name = 'isSigned'
+                kendoCheckBox
+                [checked] = 'currentInstance.isSigned'
+                [(ngModel)] = 'currentInstance.isSigned' /> 
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!contractEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!contractEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, contractEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-employee-edit #employeeEditUI 
+    (onClosed)='employeeComponent.onClosed($event)'>
+</hr-employee-edit>
+<base-hr-contractType-edit #contractTypeEditUI 
+    (onClosed)='contractTypeComponent.onClosed($event)'>
+</base-hr-contractType-edit>

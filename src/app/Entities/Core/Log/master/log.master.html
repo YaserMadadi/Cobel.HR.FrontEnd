@@ -1,0 +1,57 @@
+﻿<XDialog Header='Log Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Log : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Entity Name : 
+                        <guide (onClick)='onGuid("EntityName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.entityName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Record I D : 
+                        <guide (onClick)='onGuid("RecordID")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.recordID | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Person : 
+                        <guide (onClick)='onGuid("Person_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.person?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Effect Date : 
+                        <guide (onClick)='onGuid("EffectDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.effectDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Old Value : 
+                        <guide (onClick)='onGuid("OldValue")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.oldValue }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>New Value : 
+                        <guide (onClick)='onGuid("NewValue")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.newValue }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Action Mode : 
+                        <guide (onClick)='onGuid("ActionMode")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.actionMode }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

@@ -1,0 +1,91 @@
+$color: transparent;
+$disabled-color: #88a2af;
+button.xbtn{
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: transparent;
+    padding: 6px 16px;
+    color: #202020;
+    font-style: italic;
+    font-size: 13px;
+
+    &:focus{
+        outline: 0px solid #607D8B;
+    }
+
+    &:disabled{
+        pointer-events:none;
+    }
+
+    &.btn-delete{
+        $color:#f31700;
+        color: $color;
+        &:hover{
+            border-color: $color;
+        }
+        &:disabled{
+            color: $disabled-color;
+        }
+        &:focus {
+            border-color: $color;
+        }
+    }
+
+    &.btn-add{
+        // $color:#2196f3;
+        $color: #202020;
+        color: $color;
+        &:hover{
+            border-color: $color;
+        }
+        &:disabled{
+            color: $disabled-color;
+        }
+        &:focus {
+            border-color: $color;
+        }
+    }
+
+    &.btn-edit{
+        $color : #202020;
+        color: $color;
+        &:hover{
+            border-color: $color;
+        }
+        &:disabled{
+            color: $disabled-color;
+        }
+        &:focus {
+            border-color: $color;
+        }
+    }
+
+    &.btn-refresh{
+        $color: #2196f3;//#8BC34A;
+        color: $color;
+        &:hover{
+            border-color: $color;
+        }
+        &:disabled{
+            color: $disabled-color;
+        }
+        &:focus {
+            border-color: $color;
+        }
+    }
+
+    
+    &.btn-extra{
+        $color: #ff8201;
+        color: $color;
+        &:hover{
+            border-color: $color;
+        }
+        &:disabled{
+            color: $disabled-color;
+        }
+        &:focus {
+            border-color: $color;
+        }
+    }
+}

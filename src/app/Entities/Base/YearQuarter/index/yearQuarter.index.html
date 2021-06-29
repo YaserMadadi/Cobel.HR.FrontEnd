@@ -1,0 +1,96 @@
+﻿<fieldset class='border'>
+  <legend>Year Quarter :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(yearQuarterEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(yearQuarterTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(yearQuarterEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(yearQuarterDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("Base", "Year", currentInstance.year?.id)'>Manage Year</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "Quarter", currentInstance.quarter?.id)'>Manage Quarter</a>
+    </dropDownMenu>
+  
+  <table #yearQuarterTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Title'>Title</th>
+        <th title='Year'>Year</th>
+        <th title='Quarter'>Quarter</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='filterInstance.title'
+										 type='text'
+										 maxlength='800'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #year='ngModel' id='year' name='year'
+										 title='Year'
+										 autocomplete='off'
+										 placeholder='Year'
+										[(ngModel)]='filterInstance.year.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #quarter='ngModel' id='quarter' name='quarter'
+										 title='Quarter'
+										 autocomplete='off'
+										 placeholder='Quarter'
+										[(ngModel)]='filterInstance.quarter.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(yearQuarterMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.title }}</td>
+				<td>{{ p.year?.descriptor }}</td>
+				<td>{{ p.quarter?.descriptor }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- YearQuarter -->
+<base-yearQuarter-master #yearQuarterMasterUI>
+</base-yearQuarter-master>
+
+<base-yearQuarter-edit #yearQuarterEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</base-yearQuarter-edit>
+
+<base-yearQuarter-delete #yearQuarterDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</base-yearQuarter-delete>
+
+
+<lad-assessmentTraining-edit #assessmentTrainingEditUI> <!--  (onClosed)='assessmentTrainingEditUI_Closed($event)' -->
+</lad-assessmentTraining-edit>

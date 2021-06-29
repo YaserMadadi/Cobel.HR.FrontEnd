@@ -1,0 +1,81 @@
+﻿<XDialog Header='Search form of Critical Incident Recognition' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='criticalIncident' class='col-sm-3 col-form-label'>Critical Incident : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #criticalIncident='ngModel' 
+                    #criticalIncidentCombo='kendoDropDownList' 
+                    name='criticalIncident' 
+                    title='Critical Incident'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !criticalIncident.valid && criticalIncident.touched }" 
+                    [data]='criticalIncidentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='criticalIncidentComponent.filterable'
+                    (filterChange)='criticalIncidentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.criticalIncident"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='criticalIncidentComponent.addable'>
+                      <button class='btn btn-primary' (click)='criticalIncidentComponent.onAdd(criticalIncidentCombo, criticalIncidentEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='time' class='col-sm-3 col-form-label'>Time : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #time='ngModel' id='time' name='time'
+										 title='Time'
+										 autocomplete='off'
+										 placeholder='Time'
+										[(ngModel)]='criticalIncidentRecognition.time'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='writer' class='col-sm-3 col-form-label'>Writer : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #writer='ngModel' 
+                    #writerCombo='kendoDropDownList' 
+                    name='writer' 
+                    title='Writer'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !writer.valid && writer.touched }" 
+                    [data]='writerComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='writerComponent.filterable'
+                    (filterChange)='writerComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.writer"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='writerComponent.addable'>
+                      <button class='btn btn-primary' (click)='writerComponent.onAdd(writerCombo, writerEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='comment' class='col-sm-3 col-form-label'>Comment : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #comment='ngModel' id='comment' name='comment'
+										 title='Comment'
+										 autocomplete='off'
+										 placeholder='Comment'
+										[(ngModel)]='criticalIncidentRecognition.comment'
+										 type='text'
+										 maxlength='4000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

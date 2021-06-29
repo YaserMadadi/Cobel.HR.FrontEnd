@@ -1,0 +1,350 @@
+﻿<fieldset class='border'>
+  <legend>Person :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(personEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(personTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(personEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(personDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("Base", "Gender", currentInstance.gender?.id)'>Manage Gender</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "City", currentInstance.birthCity?.id)'>Manage City</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "Religion", currentInstance.religion?.id)'>Manage Religion</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "HealthStatus", currentInstance.healthStatus?.id)'>Manage Health Status</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "Country", currentInstance.nationality?.id)'>Manage Country</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.HR", "MaritalStatus", currentInstance.maritalStatus?.id)'>Manage Marital Status</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='userAccount_Clicked(userAccountEditUI)'>Add User Account</a>
+		<a class='dropdown-item pointer' (click)='workExperience_Clicked(workExperienceEditUI)'>Add Work Experience</a>
+		<a class='dropdown-item pointer' (click)='universityHistory_Clicked(universityHistoryEditUI)'>Add University History</a>
+		<a class='dropdown-item pointer' (click)='schoolHistory_Clicked(schoolHistoryEditUI)'>Add School History</a>
+		<a class='dropdown-item pointer' (click)='personDrivingLicense_Clicked(personDrivingLicenseEditUI)'>Add Person Driving License</a>
+		<a class='dropdown-item pointer' (click)='personConnection_Clicked(personConnectionEditUI)'>Add Person Connection</a>
+		<a class='dropdown-item pointer' (click)='personCertificate_Clicked(personCertificateEditUI)'>Add Person Certificate</a>
+		<a class='dropdown-item pointer' (click)='passport_Clicked(passportEditUI)'>Add Passport</a>
+		<a class='dropdown-item pointer' (click)='militaryService_Clicked(militaryServiceEditUI)'>Add Military Service</a>
+		<a class='dropdown-item pointer' (click)='maritalInfo_Clicked(maritalInfoEditUI)'>Add Marital Info</a>
+		<a class='dropdown-item pointer' (click)='languageAbility_Clicked(languageAbilityEditUI)'>Add Language Ability</a>
+		<a class='dropdown-item pointer' (click)='employee_Clicked(employeeEditUI)'>Add Employee</a>
+		<a class='dropdown-item pointer' (click)='habitancy_Clicked(habitancyEditUI)'>Add Habitancy</a>
+		<a class='dropdown-item pointer' (click)='log_Clicked(logEditUI)'>Add Log</a>
+	
+  </dropDownMenu>
+  <table #personTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='National Code'>National Code</th>
+        <th title='English First Name'>English First Name</th>
+        <th title='English Last Name'>English Last Name</th>
+        <th title='English Nick Name'>English Nick Name</th>
+        <th title='Persian First Name'>Persian First Name</th>
+        <th title='Persian Last Name'>Persian Last Name</th>
+        <th title='Persian Nick Name'>Persian Nick Name</th>
+        <th title='Gender'>Gender</th>
+        <th title='English Father Name'>English Father Name</th>
+        <th title='Persian Father Name'>Persian Father Name</th>
+        <th title='Documented Birth Date'>Documented Birth Date</th>
+        <th title='Real Birth Date'>Real Birth Date</th>
+        <th title='Birth City'>Birth City</th>
+        <th title='Religion'>Religion</th>
+        <th title='Health Status'>Health Status</th>
+        <th title='Nationality'>Nationality</th>
+        <th title='Birth Certificate Number'>Birth Certificate Number</th>
+        <th title='Birth Certificate Serial Number'>Birth Certificate Serial Number</th>
+        <th title='Marital Status'>Marital Status</th>
+        <th title='Child Count'>Child Count</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #nationalCode='ngModel' id='nationalCode' name='nationalCode'
+										 title='National Code'
+										 autocomplete='off'
+										 placeholder='National Code'
+										[(ngModel)]='filterInstance.nationalCode'
+										 type='text'
+										 maxlength='10'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #englishFirstName='ngModel' id='englishFirstName' name='englishFirstName'
+										 title='English First Name'
+										 autocomplete='off'
+										 placeholder='English First Name'
+										[(ngModel)]='filterInstance.englishFirstName'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #englishLastName='ngModel' id='englishLastName' name='englishLastName'
+										 title='English Last Name'
+										 autocomplete='off'
+										 placeholder='English Last Name'
+										[(ngModel)]='filterInstance.englishLastName'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #englishNickName='ngModel' id='englishNickName' name='englishNickName'
+										 title='English Nick Name'
+										 autocomplete='off'
+										 placeholder='English Nick Name'
+										[(ngModel)]='filterInstance.englishNickName'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #persianFirstName='ngModel' id='persianFirstName' name='persianFirstName'
+										 title='Persian First Name'
+										 autocomplete='off'
+										 placeholder='Persian First Name'
+										[(ngModel)]='filterInstance.persianFirstName'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #persianLastName='ngModel' id='persianLastName' name='persianLastName'
+										 title='Persian Last Name'
+										 autocomplete='off'
+										 placeholder='Persian Last Name'
+										[(ngModel)]='filterInstance.persianLastName'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #persianNickName='ngModel' id='persianNickName' name='persianNickName'
+										 title='Persian Nick Name'
+										 autocomplete='off'
+										 placeholder='Persian Nick Name'
+										[(ngModel)]='filterInstance.persianNickName'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #gender='ngModel' id='gender' name='gender'
+										 title='Gender'
+										 autocomplete='off'
+										 placeholder='Gender'
+										[(ngModel)]='filterInstance.gender.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #englishFatherName='ngModel' id='englishFatherName' name='englishFatherName'
+										 title='English Father Name'
+										 autocomplete='off'
+										 placeholder='English Father Name'
+										[(ngModel)]='filterInstance.englishFatherName'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #persianFatherName='ngModel' id='persianFatherName' name='persianFatherName'
+										 title='Persian Father Name'
+										 autocomplete='off'
+										 placeholder='Persian Father Name'
+										[(ngModel)]='filterInstance.persianFatherName'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #documentedBirthDate='ngModel' id='documentedBirthDate' name='documentedBirthDate'
+										 title='Documented Birth Date'
+										 autocomplete='off'
+										 placeholder='Documented Birth Date'
+										[(ngModel)]='filterInstance.documentedBirthDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #realBirthDate='ngModel' id='realBirthDate' name='realBirthDate'
+										 title='Real Birth Date'
+										 autocomplete='off'
+										 placeholder='Real Birth Date'
+										[(ngModel)]='filterInstance.realBirthDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #birthCity='ngModel' id='birthCity' name='birthCity'
+										 title='Birth City'
+										 autocomplete='off'
+										 placeholder='Birth City'
+										[(ngModel)]='filterInstance.birthCity.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #religion='ngModel' id='religion' name='religion'
+										 title='Religion'
+										 autocomplete='off'
+										 placeholder='Religion'
+										[(ngModel)]='filterInstance.religion.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #healthStatus='ngModel' id='healthStatus' name='healthStatus'
+										 title='Health Status'
+										 autocomplete='off'
+										 placeholder='Health Status'
+										[(ngModel)]='filterInstance.healthStatus.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #nationality='ngModel' id='nationality' name='nationality'
+										 title='Nationality'
+										 autocomplete='off'
+										 placeholder='Nationality'
+										[(ngModel)]='filterInstance.nationality.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #birthCertificateNumber='ngModel' id='birthCertificateNumber' name='birthCertificateNumber'
+										 title='Birth Certificate Number'
+										 autocomplete='off'
+										 placeholder='Birth Certificate Number'
+										[(ngModel)]='filterInstance.birthCertificateNumber'
+										 type='text'
+										 maxlength='20'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #birthCertificateSerialNumber='ngModel' id='birthCertificateSerialNumber' name='birthCertificateSerialNumber'
+										 title='Birth Certificate Serial Number'
+										 autocomplete='off'
+										 placeholder='Birth Certificate Serial Number'
+										[(ngModel)]='filterInstance.birthCertificateSerialNumber'
+										 type='text'
+										 maxlength='20'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #maritalStatus='ngModel' id='maritalStatus' name='maritalStatus'
+										 title='Marital Status'
+										 autocomplete='off'
+										 placeholder='Marital Status'
+										[(ngModel)]='filterInstance.maritalStatus.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #childCount='ngModel' id='childCount' name='childCount'
+										 title='Child Count'
+										 autocomplete='off'
+										 placeholder='Child Count'
+										[(ngModel)]='filterInstance.childCount'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(personMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.nationalCode }}</td>
+				<td>{{ p.englishFirstName }}</td>
+				<td>{{ p.englishLastName }}</td>
+				<td>{{ p.englishNickName }}</td>
+				<td>{{ p.persianFirstName }}</td>
+				<td>{{ p.persianLastName }}</td>
+				<td>{{ p.persianNickName }}</td>
+				<td>{{ p.gender?.descriptor }}</td>
+				<td>{{ p.englishFatherName }}</td>
+				<td>{{ p.persianFatherName }}</td>
+				<td>{{ p.documentedBirthDate | date:'fullDate' }}</td>
+				<td>{{ p.realBirthDate | date:'fullDate' }}</td>
+				<td>{{ p.birthCity?.descriptor }}</td>
+				<td>{{ p.religion?.descriptor }}</td>
+				<td>{{ p.healthStatus?.descriptor }}</td>
+				<td>{{ p.nationality?.descriptor }}</td>
+				<td>{{ p.birthCertificateNumber }}</td>
+				<td>{{ p.birthCertificateSerialNumber }}</td>
+				<td>{{ p.maritalStatus?.descriptor }}</td>
+				<td>{{ p.childCount | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- Person -->
+<hr-person-master #personMasterUI>
+</hr-person-master>
+
+<hr-person-edit #personEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</hr-person-edit>
+
+<hr-person-delete #personDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</hr-person-delete>
+
+
+<lad-coachingQuestionary-edit #coachingQuestionaryEditUI> <!--  (onClosed)='coachingQuestionaryEditUI_Closed($event)' -->
+</lad-coachingQuestionary-edit> 
+<core-userAccount-edit #userAccountEditUI> <!--  (onClosed)='userAccountEditUI_Closed($event)' -->
+</core-userAccount-edit> 
+<hr-workExperience-edit #workExperienceEditUI> <!--  (onClosed)='workExperienceEditUI_Closed($event)' -->
+</hr-workExperience-edit> 
+<hr-universityHistory-edit #universityHistoryEditUI> <!--  (onClosed)='universityHistoryEditUI_Closed($event)' -->
+</hr-universityHistory-edit> 
+<hr-schoolHistory-edit #schoolHistoryEditUI> <!--  (onClosed)='schoolHistoryEditUI_Closed($event)' -->
+</hr-schoolHistory-edit> 
+<hr-relative-edit #relativeEditUI> <!--  (onClosed)='relativeEditUI_Closed($event)' -->
+</hr-relative-edit> 
+<hr-personDrivingLicense-edit #personDrivingLicenseEditUI> <!--  (onClosed)='personDrivingLicenseEditUI_Closed($event)' -->
+</hr-personDrivingLicense-edit> 
+<hr-personConnection-edit #personConnectionEditUI> <!--  (onClosed)='personConnectionEditUI_Closed($event)' -->
+</hr-personConnection-edit> 
+<hr-personCertificate-edit #personCertificateEditUI> <!--  (onClosed)='personCertificateEditUI_Closed($event)' -->
+</hr-personCertificate-edit> 
+<hr-passport-edit #passportEditUI> <!--  (onClosed)='passportEditUI_Closed($event)' -->
+</hr-passport-edit> 
+<hr-militaryService-edit #militaryServiceEditUI> <!--  (onClosed)='militaryServiceEditUI_Closed($event)' -->
+</hr-militaryService-edit> 
+<hr-maritalInfo-edit #maritalInfoEditUI> <!--  (onClosed)='maritalInfoEditUI_Closed($event)' -->
+</hr-maritalInfo-edit> 
+<hr-languageAbility-edit #languageAbilityEditUI> <!--  (onClosed)='languageAbilityEditUI_Closed($event)' -->
+</hr-languageAbility-edit> 
+<hr-employee-edit #employeeEditUI> <!--  (onClosed)='employeeEditUI_Closed($event)' -->
+</hr-employee-edit> 
+<hr-habitancy-edit #habitancyEditUI> <!--  (onClosed)='habitancyEditUI_Closed($event)' -->
+</hr-habitancy-edit> 
+<core-impersonate-edit #impersonateEditUI> <!--  (onClosed)='impersonateEditUI_Closed($event)' -->
+</core-impersonate-edit> 
+<core-log-edit #logEditUI> <!--  (onClosed)='logEditUI_Closed($event)' -->
+</core-log-edit>

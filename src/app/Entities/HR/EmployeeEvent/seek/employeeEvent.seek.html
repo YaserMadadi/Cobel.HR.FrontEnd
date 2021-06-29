@@ -1,0 +1,119 @@
+﻿<XDialog Header='Search form of Employee Event' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='employee' class='col-sm-3 col-form-label'>Employee : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='date' class='col-sm-3 col-form-label'>Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='employeeEvent.date'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='time' class='col-sm-3 col-form-label'>Time : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #time='ngModel' id='time' name='time'
+										 title='Time'
+										 autocomplete='off'
+										 placeholder='Time'
+										[(ngModel)]='employeeEvent.time'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='eventType' class='col-sm-3 col-form-label'>Event Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #eventType='ngModel' 
+                    #eventTypeCombo='kendoDropDownList' 
+                    name='eventType' 
+                    title='Event Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !eventType.valid && eventType.touched }" 
+                    [data]='eventTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='eventTypeComponent.filterable'
+                    (filterChange)='eventTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.eventType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='eventTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='eventTypeComponent.onAdd(eventTypeCombo, eventTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='title' class='col-sm-3 col-form-label'>Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='employeeEvent.title'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='content' class='col-sm-3 col-form-label'>Content : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #content='ngModel' id='content' name='content'
+										 title='Content'
+										 autocomplete='off'
+										 placeholder='Content'
+										[(ngModel)]='employeeEvent.content'
+										 type='text'
+										 maxlength='4000'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='link' class='col-sm-3 col-form-label'>Link : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #link='ngModel' id='link' name='link'
+										 title='Link'
+										 autocomplete='off'
+										 placeholder='Link'
+										[(ngModel)]='employeeEvent.link'
+										 type='text'
+										 maxlength='4000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

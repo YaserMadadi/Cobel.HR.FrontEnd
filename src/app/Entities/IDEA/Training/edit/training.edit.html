@@ -1,0 +1,117 @@
+﻿<XDialog Header='Edit Form of Training' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, trainingEditUI)' 
+    #trainingEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Employee -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Employee_Id")'></guide>
+        <label for='employee' class='col-form-label'>Employee : </label>
+        <span class='help-block col-form-label' *ngIf='!employee.valid && employee.touched && !employee.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Course -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Course_Id")'></guide>
+        <label for='course' class='col-form-label'>Course : </label>
+        <span class='help-block col-form-label' *ngIf='!course.valid && course.touched && !course.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #course='ngModel' 
+                    #courseCombo='kendoDropDownList' 
+                    name='course' 
+                    title='Course'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !course.valid && course.touched }" 
+                    [data]='courseComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='courseComponent.filterable'
+                    (filterChange)='courseComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.course"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='courseComponent.addable'>
+                      <button class='btn btn-primary' (click)='courseComponent.onAdd(courseCombo, courseEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- ExecutiveYear -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ExecutiveYear")'></guide>
+        <label for='executiveYear' class='col-form-label'>Executive Year : </label>
+        <span class='help-block col-form-label' *ngIf='!executiveYear.valid && executiveYear.touched && !executiveYear.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #executiveYear='ngModel' 
+            name='executiveYear' 
+            title='Executive Year' 
+            placeholder='Executive Year'
+            class='form-control'
+            [ngClass]="{ 'error' : !executiveYear.valid && executiveYear.touched }" 
+            [value]='currentInstance.executiveYear' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.executiveYear'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- TrainingStatus -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("TrainingStatus")'></guide>
+        <label for='trainingStatus' class='col-form-label'>Training Status : </label>
+        <!--TrainingStatus do not Required-->
+        <input type='checkbox' 
+                #trainingStatus 
+                id = 'trainingStatus'
+                name = 'trainingStatus'
+                kendoCheckBox
+                [checked] = 'currentInstance.trainingStatus'
+                [(ngModel)] = 'currentInstance.trainingStatus' /> 
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!trainingEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!trainingEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, trainingEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-employee-edit #employeeEditUI 
+    (onClosed)='employeeComponent.onClosed($event)'>
+</hr-employee-edit>
+<idea-course-edit #courseEditUI 
+    (onClosed)='courseComponent.onClosed($event)'>
+</idea-course-edit>

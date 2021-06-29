@@ -1,0 +1,78 @@
+﻿<fieldset class='border'>
+  <legend>Feedback Session :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(feedbackSessionEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(feedbackSessionTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(feedbackSessionEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(feedbackSessionDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("LAD", "Assessment", currentInstance.assessment?.id)'>Manage Assessment</a>
+    </dropDownMenu>
+  
+  <table #feedbackSessionTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Assessment'>Assessment</th>
+        <th title='Date'>Date</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #assessment='ngModel' id='assessment' name='assessment'
+										 title='Assessment'
+										 autocomplete='off'
+										 placeholder='Assessment'
+										[(ngModel)]='filterInstance.assessment.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='filterInstance.date'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(feedbackSessionMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.assessment?.descriptor }}</td>
+				<td>{{ p.date | date:'fullDate' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- FeedbackSession -->
+<lad-feedbackSession-master #feedbackSessionMasterUI>
+</lad-feedbackSession-master>
+
+<lad-feedbackSession-edit #feedbackSessionEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</lad-feedbackSession-edit>
+
+<lad-feedbackSession-delete #feedbackSessionDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</lad-feedbackSession-delete>

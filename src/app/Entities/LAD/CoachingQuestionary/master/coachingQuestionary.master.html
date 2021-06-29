@@ -1,0 +1,64 @@
+﻿<XDialog Header='Coaching Questionary Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Coaching Questionary : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Questionary Type : 
+                        <guide (onClick)='onGuid("QuestionaryType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.questionaryType?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Assessment : 
+                        <guide (onClick)='onGuid("Assessment_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.assessment?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Responsible Person : 
+                        <guide (onClick)='onGuid("ResponsiblePerson_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.responsiblePerson?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Done : 
+                        <guide (onClick)='onGuid("IsDone")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isDone }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Average : 
+                        <guide (onClick)='onGuid("Average")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.average }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Coaching Questionary Detail'>
+                <coachingQuestionary-coachingQuestionaryDetail-detail 
+                    #ladCoachingQuestionaryCoachingQuestionaryDetailDetail
+                    [CoachingQuestionary]='currentInstance'>
+                </coachingQuestionary-coachingQuestionaryDetail-detail>
+            </tab>
+			<tab heading='Coaching Questionary Answered'>
+                <coachingQuestionary-coachingQuestionaryAnswered-detail 
+                    #ladCoachingQuestionaryCoachingQuestionaryAnsweredDetail
+                    [CoachingQuestionary]='currentInstance'>
+                </coachingQuestionary-coachingQuestionaryAnswered-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

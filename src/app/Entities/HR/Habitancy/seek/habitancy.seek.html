@@ -1,0 +1,106 @@
+﻿<XDialog Header='Search form of Habitancy' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='person' class='col-sm-3 col-form-label'>Person : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='habitancyType' class='col-sm-3 col-form-label'>Habitancy Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #habitancyType='ngModel' 
+                    #habitancyTypeCombo='kendoDropDownList' 
+                    name='habitancyType' 
+                    title='Habitancy Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !habitancyType.valid && habitancyType.touched }" 
+                    [data]='habitancyTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='habitancyTypeComponent.filterable'
+                    (filterChange)='habitancyTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.habitancyType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='habitancyTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='habitancyTypeComponent.onAdd(habitancyTypeCombo, habitancyTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='city' class='col-sm-3 col-form-label'>City : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #city='ngModel' 
+                    #cityCombo='kendoDropDownList' 
+                    name='city' 
+                    title='City'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !city.valid && city.touched }" 
+                    [data]='cityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='cityComponent.filterable'
+                    (filterChange)='cityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.city"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='cityComponent.addable'>
+                      <button class='btn btn-primary' (click)='cityComponent.onAdd(cityCombo, cityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='address' class='col-sm-3 col-form-label'>Address : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #address='ngModel' id='address' name='address'
+										 title='Address'
+										 autocomplete='off'
+										 placeholder='Address'
+										[(ngModel)]='habitancy.address'
+										 type='text'
+										 maxlength='800'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='postalCode' class='col-sm-3 col-form-label'>Postal Code : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #postalCode='ngModel' id='postalCode' name='postalCode'
+										 title='Postal Code'
+										 autocomplete='off'
+										 placeholder='Postal Code'
+										[(ngModel)]='habitancy.postalCode'
+										 type='text'
+										 maxlength='20'
+										 dir='ltr' />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

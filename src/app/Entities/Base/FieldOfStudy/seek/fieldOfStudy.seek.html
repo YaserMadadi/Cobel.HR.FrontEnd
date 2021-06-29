@@ -1,0 +1,78 @@
+﻿<XDialog Header='Search form of Field Of Study' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='universityFieldCategory' class='col-sm-3 col-form-label'>University Field Category : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #universityFieldCategory='ngModel' 
+                    #universityFieldCategoryCombo='kendoDropDownList' 
+                    name='universityFieldCategory' 
+                    title='University Field Category'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !universityFieldCategory.valid && universityFieldCategory.touched }" 
+                    [data]='universityFieldCategoryComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='universityFieldCategoryComponent.filterable'
+                    (filterChange)='universityFieldCategoryComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.universityFieldCategory"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='universityFieldCategoryComponent.addable'>
+                      <button class='btn btn-primary' (click)='universityFieldCategoryComponent.onAdd(universityFieldCategoryCombo, universityFieldCategoryEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='major' class='col-sm-3 col-form-label'>Major : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #major='ngModel' id='major' name='major'
+										 title='Major'
+										 autocomplete='off'
+										 placeholder='Major'
+										[(ngModel)]='fieldOfStudy.major'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='minor' class='col-sm-3 col-form-label'>Minor : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #minor='ngModel' id='minor' name='minor'
+										 title='Minor'
+										 autocomplete='off'
+										 placeholder='Minor'
+										[(ngModel)]='fieldOfStudy.minor'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='code' class='col-sm-3 col-form-label'>Code : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #code='ngModel' id='code' name='code'
+										 title='Code'
+										 autocomplete='off'
+										 placeholder='Code'
+										[(ngModel)]='fieldOfStudy.code'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='isActive' class='col-sm-3 col-form-label'>Is Active : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

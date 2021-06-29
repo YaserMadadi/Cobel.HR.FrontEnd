@@ -1,0 +1,76 @@
+﻿<XDialog Header='Search form of Person Connection' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='person' class='col-sm-3 col-form-label'>Person : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='connectionType' class='col-sm-3 col-form-label'>Connection Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #connectionType='ngModel' 
+                    #connectionTypeCombo='kendoDropDownList' 
+                    name='connectionType' 
+                    title='Connection Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !connectionType.valid && connectionType.touched }" 
+                    [data]='connectionTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='connectionTypeComponent.filterable'
+                    (filterChange)='connectionTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.connectionType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='connectionTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='connectionTypeComponent.onAdd(connectionTypeCombo, connectionTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='value' class='col-sm-3 col-form-label'>Value : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #value='ngModel' id='value' name='value'
+										 title='Value'
+										 autocomplete='off'
+										 placeholder='Value'
+										[(ngModel)]='personConnection.value'
+										 type='text'
+										 maxlength='12'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='isEmergencyConnection' class='col-sm-3 col-form-label'>Is Emergency Connection : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(configQualitativeKPIEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(configQualitativeKPIEditUI)' [ngClass]="{ 'disabled' : currentConfigQualitativeKPI.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(configQualitativeKPIDeleteUI)' [ngClass]="{ 'disabled' : currentConfigQualitativeKPI.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Config Qualitative KPI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let configQualitativeKPI of ConfigQualitativeKPIList; let i = index' 
+                (dblclick)='onDblClicked(configQualitativeKPIMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : configQualitativeKPI.id === currentConfigQualitativeKPI.id, 'free-row': configQualitativeKPI.id !== currentConfigQualitativeKPI.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ configQualitativeKPI.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-configQualitativeKPI-edit #configQualitativeKPIEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-configQualitativeKPI-edit>
+  <pms-configQualitativeKPI-delete #configQualitativeKPIDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-configQualitativeKPI-delete>
+  <pms-configQualitativeKPI-master #configQualitativeKPIMasterUI >
+  </pms-configQualitativeKPI-master>
+</div>

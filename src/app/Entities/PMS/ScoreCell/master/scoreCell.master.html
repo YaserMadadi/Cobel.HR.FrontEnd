@@ -1,0 +1,76 @@
+﻿<XDialog Header='Score Cell Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Score Cell : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Cell Number : 
+                        <guide (onClick)='onGuid("CellNumber")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.cellNumber }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Min_ X : 
+                        <guide (onClick)='onGuid("Min_X")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.min_X }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Max_ X : 
+                        <guide (onClick)='onGuid("Max_X")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.max_X }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Min_ Y : 
+                        <guide (onClick)='onGuid("Min_Y")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.min_Y }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Max_ Y : 
+                        <guide (onClick)='onGuid("Max_Y")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.max_Y }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Min_ Pi : 
+                        <guide (onClick)='onGuid("Min_Pi")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.min_Pi }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Max_ Pi : 
+                        <guide (onClick)='onGuid("Max_Pi")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.max_Pi }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Operational Appraise'>
+                <scoreCell-operationalAppraise-detail 
+                    #pmsScoreCellOperationalAppraiseDetail
+                    [ScoreCell]='currentInstance'>
+                </scoreCell-operationalAppraise-detail>
+            </tab>
+			<tab heading='Non Operational Appraise'>
+                <scoreCell-nonOperationalAppraise-detail 
+                    #pmsScoreCellNonOperationalAppraiseDetail
+                    [ScoreCell]='currentInstance'>
+                </scoreCell-nonOperationalAppraise-detail>
+            </tab>
+			<tab heading='Cell Action'>
+                <scoreCell-cellAction-detail 
+                    #pmsScoreCellCellActionDetail
+                    [ScoreCell]='currentInstance'>
+                </scoreCell-cellAction-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

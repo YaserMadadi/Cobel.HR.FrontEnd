@@ -1,0 +1,93 @@
+﻿<XDialog Header='Edit Form of University Terminate' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, universityTerminateEditUI)' 
+    #universityTerminateEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- UniversityHistory -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("UniversityHistory_Id")'></guide>
+        <label for='universityHistory' class='col-form-label'>University History : </label>
+        <span class='help-block col-form-label' *ngIf='!universityHistory.valid && universityHistory.touched && !universityHistory.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #universityHistory='ngModel' 
+                    #universityHistoryCombo='kendoDropDownList' 
+                    name='universityHistory' 
+                    title='University History'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !universityHistory.valid && universityHistory.touched }" 
+                    [data]='universityHistoryComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='universityHistoryComponent.filterable'
+                    (filterChange)='universityHistoryComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.universityHistory"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='universityHistoryComponent.addable'>
+                      <button class='btn btn-primary' (click)='universityHistoryComponent.onAdd(universityHistoryCombo, universityHistoryEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- FinishedDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("FinishedDate")'></guide>
+        <label for='finishedDate' class='col-form-label'>Finished Date : </label>
+        <span class='help-block col-form-label' *ngIf='!finishedDate.valid && finishedDate.touched && !finishedDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Finished Date 
+                    [ngClass]="{ 'error' : !finishedDate.valid && finishedDate.touched }" 
+                    class='form-control' 
+                    #finishedDate='ngModel' 
+                    name='finishedDate'
+                    [ngModel]="currentInstance.finishedDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.finishedDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- Average -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Average")'></guide>
+        <label for='average' class='col-form-label'>Average : </label>
+        <span class='help-block col-form-label' *ngIf='!average.valid && average.touched && !average.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #average='ngModel' 
+            name='average' 
+            title='Average' 
+            placeholder='Average'
+            class='form-control'
+            [ngClass]="{ 'error' : !average.valid && average.touched }" 
+            [value]='currentInstance.average' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.average'
+            [format]="'n2'" 
+            [decimals]='2'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!universityTerminateEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!universityTerminateEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, universityTerminateEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-universityHistory-edit #universityHistoryEditUI 
+    (onClosed)='universityHistoryComponent.onClosed($event)'>
+</hr-universityHistory-edit>

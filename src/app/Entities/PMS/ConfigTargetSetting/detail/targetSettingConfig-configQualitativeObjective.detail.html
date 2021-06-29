@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(configQualitativeObjectiveEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(configQualitativeObjectiveEditUI)' [ngClass]="{ 'disabled' : currentConfigQualitativeObjective.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(configQualitativeObjectiveDeleteUI)' [ngClass]="{ 'disabled' : currentConfigQualitativeObjective.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Config Qualitative Objective</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let configQualitativeObjective of ConfigQualitativeObjectiveList; let i = index' 
+                (dblclick)='onDblClicked(configQualitativeObjectiveMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : configQualitativeObjective.id === currentConfigQualitativeObjective.id, 'free-row': configQualitativeObjective.id !== currentConfigQualitativeObjective.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ configQualitativeObjective.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-configQualitativeObjective-edit #configQualitativeObjectiveEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-configQualitativeObjective-edit>
+  <pms-configQualitativeObjective-delete #configQualitativeObjectiveDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-configQualitativeObjective-delete>
+  <pms-configQualitativeObjective-master #configQualitativeObjectiveMasterUI >
+  </pms-configQualitativeObjective-master>
+</div>

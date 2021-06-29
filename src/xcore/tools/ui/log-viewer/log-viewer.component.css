@@ -1,0 +1,15 @@
+thead {
+    background-color: #2f353a;
+    color: #ffc107;
+    width: 100%;
+    
+}
+
+table{
+    background-color: white;
+    
+}
+
+.table thead th{
+    font-size: 14px;
+}

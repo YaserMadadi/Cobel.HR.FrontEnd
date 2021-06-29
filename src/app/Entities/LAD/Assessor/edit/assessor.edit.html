@@ -1,0 +1,88 @@
+﻿<XDialog Header='Edit Form of Assessor' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, assessorEditUI)' 
+    #assessorEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Gender -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Gender_Id")'></guide>
+        <label for='gender' class='col-form-label'>Gender : </label>
+        <span class='help-block col-form-label' *ngIf='!gender.valid && gender.touched && !gender.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #gender='ngModel' 
+                    #genderCombo='kendoDropDownList' 
+                    name='gender' 
+                    title='Gender'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !gender.valid && gender.touched }" 
+                    [data]='genderComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='genderComponent.filterable'
+                    (filterChange)='genderComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.gender"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='genderComponent.addable'>
+                      <button class='btn btn-primary' (click)='genderComponent.onAdd(genderCombo, genderEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- FirstName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("FirstName")'></guide>
+        <label for='firstName' class='col-form-label'>First Name : </label>
+        <span class='help-block col-form-label' *ngIf='!firstName.valid && firstName.touched && !firstName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='First Name' 
+                    [ngClass]="{ 'error' : !firstName.valid && firstName.touched }" 
+                    class='form-control ' 
+                    #firstName='ngModel' 
+                    name='firstName' 
+                    placeholder='... First Name' 
+                    [(ngModel)]='currentInstance.firstName' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  required  />
+      </div>
+			<!-- LastName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("LastName")'></guide>
+        <label for='lastName' class='col-form-label'>Last Name : </label>
+        <span class='help-block col-form-label' *ngIf='!lastName.valid && lastName.touched && !lastName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Last Name' 
+                    [ngClass]="{ 'error' : !lastName.valid && lastName.touched }" 
+                    class='form-control ' 
+                    #lastName='ngModel' 
+                    name='lastName' 
+                    placeholder='... Last Name' 
+                    [(ngModel)]='currentInstance.lastName' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!assessorEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!assessorEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, assessorEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<base-gender-edit #genderEditUI 
+    (onClosed)='genderComponent.onClosed($event)'>
+</base-gender-edit>

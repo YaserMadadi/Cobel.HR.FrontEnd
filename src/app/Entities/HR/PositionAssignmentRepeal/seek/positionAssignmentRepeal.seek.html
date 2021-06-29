@@ -1,0 +1,59 @@
+﻿<XDialog Header='Search form of Position Assignment Repeal' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='positionAssignment' class='col-sm-3 col-form-label'>Position Assignment : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #positionAssignment='ngModel' 
+                    #positionAssignmentCombo='kendoDropDownList' 
+                    name='positionAssignment' 
+                    title='Position Assignment'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !positionAssignment.valid && positionAssignment.touched }" 
+                    [data]='positionAssignmentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='positionAssignmentComponent.filterable'
+                    (filterChange)='positionAssignmentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.positionAssignment"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='positionAssignmentComponent.addable'>
+                      <button class='btn btn-primary' (click)='positionAssignmentComponent.onAdd(positionAssignmentCombo, positionAssignmentEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='date' class='col-sm-3 col-form-label'>Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='positionAssignmentRepeal.date'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='comment' class='col-sm-3 col-form-label'>Comment : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #comment='ngModel' id='comment' name='comment'
+										 title='Comment'
+										 autocomplete='off'
+										 placeholder='Comment'
+										[(ngModel)]='positionAssignmentRepeal.comment'
+										 type='text'
+										 maxlength='4000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

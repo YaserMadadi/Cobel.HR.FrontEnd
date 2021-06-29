@@ -1,0 +1,86 @@
+﻿<XDialog Header='Search form of Property' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='entity' class='col-sm-3 col-form-label'>Entity : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #entity='ngModel' 
+                    #entityCombo='kendoDropDownList' 
+                    name='entity' 
+                    title='Entity'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !entity.valid && entity.touched }" 
+                    [data]='entityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='entityComponent.filterable'
+                    (filterChange)='entityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.entity"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='entityComponent.addable'>
+                      <button class='btn btn-primary' (click)='entityComponent.onAdd(entityCombo, entityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='title' class='col-sm-3 col-form-label'>Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='property.title'
+										 type='text'
+										 maxlength='200'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='persianSynonym' class='col-sm-3 col-form-label'>Persian Synonym : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #persianSynonym='ngModel' id='persianSynonym' name='persianSynonym'
+										 title='Persian Synonym'
+										 autocomplete='off'
+										 placeholder='Persian Synonym'
+										[(ngModel)]='property.persianSynonym'
+										 type='text'
+										 maxlength='2000'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='description' class='col-sm-3 col-form-label'>Description : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #description='ngModel' id='description' name='description'
+										 title='Description'
+										 autocomplete='off'
+										 placeholder='Description'
+										[(ngModel)]='property.description'
+										 type='text'
+										 maxlength='4000'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='fileName' class='col-sm-3 col-form-label'>File Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #fileName='ngModel' id='fileName' name='fileName'
+										 title='File Name'
+										 autocomplete='off'
+										 placeholder='File Name'
+										[(ngModel)]='property.fileName'
+										 type='text'
+										 maxlength='4000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

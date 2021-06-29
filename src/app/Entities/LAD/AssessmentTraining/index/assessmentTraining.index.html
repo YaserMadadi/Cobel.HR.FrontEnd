@@ -1,0 +1,104 @@
+﻿<fieldset class='border'>
+  <legend>Assessment Training :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(assessmentTrainingEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(assessmentTrainingTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(assessmentTrainingEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(assessmentTrainingDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("LAD", "Assessment", currentInstance.assessment?.id)'>Manage Assessment</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "YearQuarter", currentInstance.deadLine?.id)'>Manage Year Quarter</a>
+    </dropDownMenu>
+  
+  <table #assessmentTrainingTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Assessment'>Assessment</th>
+        <th title='Course'>Course</th>
+        <th title='Dead Line'>Dead Line</th>
+        <th title='Responsible'>Responsible</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #assessment='ngModel' id='assessment' name='assessment'
+										 title='Assessment'
+										 autocomplete='off'
+										 placeholder='Assessment'
+										[(ngModel)]='filterInstance.assessment.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #course='ngModel' id='course' name='course'
+										 title='Course'
+										 autocomplete='off'
+										 placeholder='Course'
+										[(ngModel)]='filterInstance.course'
+										 type='text'
+										 maxlength='800'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #deadLine='ngModel' id='deadLine' name='deadLine'
+										 title='Dead Line'
+										 autocomplete='off'
+										 placeholder='Dead Line'
+										[(ngModel)]='filterInstance.deadLine.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #responsible='ngModel' id='responsible' name='responsible'
+										 title='Responsible'
+										 autocomplete='off'
+										 placeholder='Responsible'
+										[(ngModel)]='filterInstance.responsible'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(assessmentTrainingMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.assessment?.descriptor }}</td>
+				<td>{{ p.course }}</td>
+				<td>{{ p.deadLine?.descriptor }}</td>
+				<td>{{ p.responsible }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- AssessmentTraining -->
+<lad-assessmentTraining-master #assessmentTrainingMasterUI>
+</lad-assessmentTraining-master>
+
+<lad-assessmentTraining-edit #assessmentTrainingEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</lad-assessmentTraining-edit>
+
+<lad-assessmentTraining-delete #assessmentTrainingDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</lad-assessmentTraining-delete>

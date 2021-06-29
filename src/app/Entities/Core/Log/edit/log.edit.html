@@ -1,0 +1,157 @@
+﻿<XDialog Header='Edit Form of Log' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, logEditUI)' 
+    #logEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- EntityName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EntityName")'></guide>
+        <label for='entityName' class='col-form-label'>Entity Name : </label>
+        <span class='help-block col-form-label' *ngIf='!entityName.valid && entityName.touched && !entityName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Entity Name' 
+                    [ngClass]="{ 'error' : !entityName.valid && entityName.touched }" 
+                    class='form-control ' 
+                    #entityName='ngModel' 
+                    name='entityName' 
+                    placeholder='... Entity Name' 
+                    [(ngModel)]='currentInstance.entityName' 
+                    [disabled]='IsLocked'
+                    maxlength='500'  dir='ltr'  required  />
+      </div>
+			<!-- RecordID -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("RecordID")'></guide>
+        <label for='recordID' class='col-form-label'>Record I D : </label>
+        <span class='help-block col-form-label' *ngIf='!recordID.valid && recordID.touched && !recordID.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #recordID='ngModel' 
+            name='recordID' 
+            title='Record I D' 
+            placeholder='Record I D'
+            class='form-control'
+            [ngClass]="{ 'error' : !recordID.valid && recordID.touched }" 
+            [value]='currentInstance.recordID' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.recordID'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- Person -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Person_Id")'></guide>
+        <label for='person' class='col-form-label'>Person : </label>
+        <span class='help-block col-form-label' *ngIf='!person.valid && person.touched && !person.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- EffectDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EffectDate")'></guide>
+        <label for='effectDate' class='col-form-label'>Effect Date : </label>
+        <span class='help-block col-form-label' *ngIf='!effectDate.valid && effectDate.touched && !effectDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Effect Date 
+                    [ngClass]="{ 'error' : !effectDate.valid && effectDate.touched }" 
+                    class='form-control' 
+                    #effectDate='ngModel' 
+                    name='effectDate'
+                    [ngModel]="currentInstance.effectDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.effectDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- OldValue -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("OldValue")'></guide>
+        <label for='oldValue' class='col-form-label'>Old Value : </label>
+        <span class='help-block col-form-label' *ngIf='!oldValue.valid && oldValue.touched && !oldValue.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Old Value' 
+                    [ngClass]="{ 'error' : !oldValue.valid && oldValue.touched }" 
+                    class='form-control ' 
+                    #oldValue='ngModel' 
+                    name='oldValue' 
+                    placeholder='... Old Value' 
+                    [(ngModel)]='currentInstance.oldValue' 
+                    [disabled]='IsLocked'
+                    maxlength='-1'  required  />
+      </div>
+			<!-- NewValue -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("NewValue")'></guide>
+        <label for='newValue' class='col-form-label'>New Value : </label>
+        <span class='help-block col-form-label' *ngIf='!newValue.valid && newValue.touched && !newValue.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='New Value' 
+                    [ngClass]="{ 'error' : !newValue.valid && newValue.touched }" 
+                    class='form-control ' 
+                    #newValue='ngModel' 
+                    name='newValue' 
+                    placeholder='... New Value' 
+                    [(ngModel)]='currentInstance.newValue' 
+                    [disabled]='IsLocked'
+                    maxlength='-1'  required  />
+      </div>
+			<!-- ActionMode -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ActionMode")'></guide>
+        <label for='actionMode' class='col-form-label'>Action Mode : </label>
+        <span class='help-block col-form-label' *ngIf='!actionMode.valid && actionMode.touched && !actionMode.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Action Mode' 
+                    [ngClass]="{ 'error' : !actionMode.valid && actionMode.touched }" 
+                    class='form-control ' 
+                    #actionMode='ngModel' 
+                    name='actionMode' 
+                    placeholder='... Action Mode' 
+                    [(ngModel)]='currentInstance.actionMode' 
+                    [disabled]='IsLocked'
+                    maxlength='100'  dir='ltr'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!logEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!logEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, logEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-person-edit #personEditUI 
+    (onClosed)='personComponent.onClosed($event)'>
+</hr-person-edit>

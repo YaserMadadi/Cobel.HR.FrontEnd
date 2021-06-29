@@ -1,0 +1,76 @@
+﻿<XDialog Header='Coaching Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Coaching : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee : 
+                        <guide (onClick)='onGuid("Employee_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employee?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Agreement Date : 
+                        <guide (onClick)='onGuid("AgreementDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.agreementDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Porpuse : 
+                        <guide (onClick)='onGuid("Porpuse")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.porpuse }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Coach : 
+                        <guide (onClick)='onGuid("Coach_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.coach?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Session Count : 
+                        <guide (onClick)='onGuid("SessionCount")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.sessionCount | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Effectiveness : 
+                        <guide (onClick)='onGuid("Effectiveness")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.effectiveness | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Runned Session Count : 
+                        <guide (onClick)='onGuid("RunnedSessionCount")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.runnedSessionCount | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Finished : 
+                        <guide (onClick)='onGuid("IsFinished")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isFinished }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Coaching Session'>
+                <coaching-coachingSession-detail 
+                    #ladCoachingCoachingSessionDetail
+                    [Coaching]='currentInstance'>
+                </coaching-coachingSession-detail>
+            </tab>
+			<tab heading='Assessment Coaching'>
+                <coaching-assessmentCoaching-detail 
+                    #ladCoachingAssessmentCoachingDetail
+                    [Coaching]='currentInstance'>
+                </coaching-assessmentCoaching-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

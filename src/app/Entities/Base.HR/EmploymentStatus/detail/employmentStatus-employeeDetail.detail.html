@@ -1,0 +1,51 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(employeeDetailEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(employeeDetailEditUI)' [ngClass]="{ 'disabled' : currentEmployeeDetail.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(employeeDetailDeleteUI)' [ngClass]="{ 'disabled' : currentEmployeeDetail.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('HR','Employee')"> Employee</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base','HoldingSection')"> Holding Section</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Employee Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let employeeDetail of EmployeeDetailList; let i = index' 
+                (dblclick)='onDblClicked(employeeDetailMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : employeeDetail.id === currentEmployeeDetail.id, 'free-row': employeeDetail.id !== currentEmployeeDetail.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ employeeDetail.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-employeeDetail-edit #employeeDetailEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-employeeDetail-edit>
+  <hr-employeeDetail-delete #employeeDetailDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-employeeDetail-delete>
+  <hr-employeeDetail-master #employeeDetailMasterUI >
+  </hr-employeeDetail-master>
+</div>

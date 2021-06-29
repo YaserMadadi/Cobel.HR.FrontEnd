@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(rotationAssessmentEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(rotationAssessmentEditUI)' [ngClass]="{ 'disabled' : currentRotationAssessment.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(rotationAssessmentDeleteUI)' [ngClass]="{ 'disabled' : currentRotationAssessment.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('LAD','Assessment')"> Assessment</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Rotation Assessment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let rotationAssessment of RotationAssessmentList; let i = index' 
+                (dblclick)='onDblClicked(rotationAssessmentMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : rotationAssessment.id === currentRotationAssessment.id, 'free-row': rotationAssessment.id !== currentRotationAssessment.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ rotationAssessment.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <lad-rotationAssessment-edit #rotationAssessmentEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </lad-rotationAssessment-edit>
+  <lad-rotationAssessment-delete #rotationAssessmentDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </lad-rotationAssessment-delete>
+  <lad-rotationAssessment-master #rotationAssessmentMasterUI >
+  </lad-rotationAssessment-master>
+</div>

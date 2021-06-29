@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(maritalInfoEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(maritalInfoEditUI)' [ngClass]="{ 'disabled' : currentMaritalInfo.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(maritalInfoDeleteUI)' [ngClass]="{ 'disabled' : currentMaritalInfo.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Marital Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let maritalInfo of MaritalInfoList; let i = index' 
+                (dblclick)='onDblClicked(maritalInfoMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : maritalInfo.id === currentMaritalInfo.id, 'free-row': maritalInfo.id !== currentMaritalInfo.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ maritalInfo.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-maritalInfo-edit #maritalInfoEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-maritalInfo-edit>
+  <hr-maritalInfo-delete #maritalInfoDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-maritalInfo-delete>
+  <hr-maritalInfo-master #maritalInfoMasterUI >
+  </hr-maritalInfo-master>
+</div>

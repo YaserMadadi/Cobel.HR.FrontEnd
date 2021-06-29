@@ -1,0 +1,43 @@
+﻿<XDialog Header='Delete Confirmation Form of Relative' 
+    [IsShown]='IsShown' 
+    (OnClosed)='onCancel()'
+    [ModalType]='3'>
+    <div class='delete-frame'>
+        <p></p>
+        <p>You are going to Delete the record of Relative! </p>
+        <br>
+        <div class='margin20'>
+            
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Peson : </label>
+            <label class='col-sm-8'>{{ currentInstance?.peson?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>First Name : </label>
+            <label class='col-sm-8'>{{ currentInstance?.firstName }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Last Name : </label>
+            <label class='col-sm-8'>{{ currentInstance?.lastName }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>National Code : </label>
+            <label class='col-sm-8'>{{ currentInstance?.nationalCode }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Birth Date : </label>
+            <label class='col-sm-8'>{{ currentInstance?.birthDate | date:'fullDate' }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Relation Type : </label>
+            <label class='col-sm-8'>{{ currentInstance?.relationType?.descriptor }}</label>
+        </div>
+        </div>
+        <br>
+        <p>Do You Confirm?  </p>
+    </div>
+    <div class='modal-footer'>
+      <button class='xbtn btn-delete modal-footer-button' type='button' (click)='onDelete()'>Ok, Delete it</button>
+      <button class='xbtn btn-edit modal-footer-button' type='button' (click)='onCancel()'>Cancel</button>
+    </div>
+</XDialog>

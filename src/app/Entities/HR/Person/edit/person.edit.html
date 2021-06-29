@@ -1,0 +1,420 @@
+﻿<XDialog Header='Edit Form of Person' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, personEditUI)' 
+    #personEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- NationalCode -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("NationalCode")'></guide>
+        <label for='nationalCode' class='col-form-label'>National Code : </label>
+        <span class='help-block col-form-label' *ngIf='!nationalCode.valid && nationalCode.touched && !nationalCode.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='National Code' 
+                    [ngClass]="{ 'error' : !nationalCode.valid && nationalCode.touched }" 
+                    class='form-control ' 
+                    #nationalCode='ngModel' 
+                    name='nationalCode' 
+                    placeholder='... National Code' 
+                    [(ngModel)]='currentInstance.nationalCode' 
+                    [disabled]='IsLocked'
+                    maxlength='10'  dir='ltr'  required  />
+      </div>
+			<!-- EnglishFirstName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EnglishFirstName")'></guide>
+        <label for='englishFirstName' class='col-form-label'>English First Name : </label>
+        <span class='help-block col-form-label' *ngIf='!englishFirstName.valid && englishFirstName.touched && !englishFirstName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='English First Name' 
+                    [ngClass]="{ 'error' : !englishFirstName.valid && englishFirstName.touched }" 
+                    class='form-control ' 
+                    #englishFirstName='ngModel' 
+                    name='englishFirstName' 
+                    placeholder='... English First Name' 
+                    [(ngModel)]='currentInstance.englishFirstName' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  dir='ltr'  required  />
+      </div>
+			<!-- EnglishLastName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EnglishLastName")'></guide>
+        <label for='englishLastName' class='col-form-label'>English Last Name : </label>
+        <span class='help-block col-form-label' *ngIf='!englishLastName.valid && englishLastName.touched && !englishLastName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='English Last Name' 
+                    [ngClass]="{ 'error' : !englishLastName.valid && englishLastName.touched }" 
+                    class='form-control ' 
+                    #englishLastName='ngModel' 
+                    name='englishLastName' 
+                    placeholder='... English Last Name' 
+                    [(ngModel)]='currentInstance.englishLastName' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  dir='ltr'  required  />
+      </div>
+			<!-- EnglishNickName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EnglishNickName")'></guide>
+        <label for='englishNickName' class='col-form-label'>English Nick Name : </label>
+        <span class='help-block col-form-label' *ngIf='!englishNickName.valid && englishNickName.touched && !englishNickName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='English Nick Name' 
+                    [ngClass]="{ 'error' : !englishNickName.valid && englishNickName.touched }" 
+                    class='form-control ' 
+                    #englishNickName='ngModel' 
+                    name='englishNickName' 
+                    placeholder='... English Nick Name' 
+                    [(ngModel)]='currentInstance.englishNickName' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  dir='ltr'  required  />
+      </div>
+			<!-- PersianFirstName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PersianFirstName")'></guide>
+        <label for='persianFirstName' class='col-form-label'>Persian First Name : </label>
+        <span class='help-block col-form-label' *ngIf='!persianFirstName.valid && persianFirstName.touched && !persianFirstName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Persian First Name' 
+                    [ngClass]="{ 'error' : !persianFirstName.valid && persianFirstName.touched }" 
+                    class='form-control ' 
+                    #persianFirstName='ngModel' 
+                    name='persianFirstName' 
+                    placeholder='... Persian First Name' 
+                    [(ngModel)]='currentInstance.persianFirstName' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- PersianLastName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PersianLastName")'></guide>
+        <label for='persianLastName' class='col-form-label'>Persian Last Name : </label>
+        <span class='help-block col-form-label' *ngIf='!persianLastName.valid && persianLastName.touched && !persianLastName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Persian Last Name' 
+                    [ngClass]="{ 'error' : !persianLastName.valid && persianLastName.touched }" 
+                    class='form-control ' 
+                    #persianLastName='ngModel' 
+                    name='persianLastName' 
+                    placeholder='... Persian Last Name' 
+                    [(ngModel)]='currentInstance.persianLastName' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- PersianNickName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PersianNickName")'></guide>
+        <label for='persianNickName' class='col-form-label'>Persian Nick Name : </label>
+        <span class='help-block col-form-label' *ngIf='!persianNickName.valid && persianNickName.touched && !persianNickName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Persian Nick Name' 
+                    [ngClass]="{ 'error' : !persianNickName.valid && persianNickName.touched }" 
+                    class='form-control ' 
+                    #persianNickName='ngModel' 
+                    name='persianNickName' 
+                    placeholder='... Persian Nick Name' 
+                    [(ngModel)]='currentInstance.persianNickName' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- Gender -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Gender_Id")'></guide>
+        <label for='gender' class='col-form-label'>Gender : </label>
+        <span class='help-block col-form-label' *ngIf='!gender.valid && gender.touched && !gender.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #gender='ngModel' 
+                    #genderCombo='kendoDropDownList' 
+                    name='gender' 
+                    title='Gender'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !gender.valid && gender.touched }" 
+                    [data]='genderComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='genderComponent.filterable'
+                    (filterChange)='genderComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.gender"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='genderComponent.addable'>
+                      <button class='btn btn-primary' (click)='genderComponent.onAdd(genderCombo, genderEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- EnglishFatherName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EnglishFatherName")'></guide>
+        <label for='englishFatherName' class='col-form-label'>English Father Name : </label>
+        <span class='help-block col-form-label' *ngIf='!englishFatherName.valid && englishFatherName.touched && !englishFatherName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='English Father Name' 
+                    [ngClass]="{ 'error' : !englishFatherName.valid && englishFatherName.touched }" 
+                    class='form-control ' 
+                    #englishFatherName='ngModel' 
+                    name='englishFatherName' 
+                    placeholder='... English Father Name' 
+                    [(ngModel)]='currentInstance.englishFatherName' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  dir='ltr'  required  />
+      </div>
+			<!-- PersianFatherName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PersianFatherName")'></guide>
+        <label for='persianFatherName' class='col-form-label'>Persian Father Name : </label>
+        <span class='help-block col-form-label' *ngIf='!persianFatherName.valid && persianFatherName.touched && !persianFatherName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Persian Father Name' 
+                    [ngClass]="{ 'error' : !persianFatherName.valid && persianFatherName.touched }" 
+                    class='form-control ' 
+                    #persianFatherName='ngModel' 
+                    name='persianFatherName' 
+                    placeholder='... Persian Father Name' 
+                    [(ngModel)]='currentInstance.persianFatherName' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- DocumentedBirthDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("DocumentedBirthDate")'></guide>
+        <label for='documentedBirthDate' class='col-form-label'>Documented Birth Date : </label>
+        <span class='help-block col-form-label' *ngIf='!documentedBirthDate.valid && documentedBirthDate.touched && !documentedBirthDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Documented Birth Date 
+                    [ngClass]="{ 'error' : !documentedBirthDate.valid && documentedBirthDate.touched }" 
+                    class='form-control' 
+                    #documentedBirthDate='ngModel' 
+                    name='documentedBirthDate'
+                    [ngModel]="currentInstance.documentedBirthDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.documentedBirthDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- RealBirthDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("RealBirthDate")'></guide>
+        <label for='realBirthDate' class='col-form-label'>Real Birth Date : </label>
+        <span class='help-block col-form-label' *ngIf='!realBirthDate.valid && realBirthDate.touched && !realBirthDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Real Birth Date 
+                    [ngClass]="{ 'error' : !realBirthDate.valid && realBirthDate.touched }" 
+                    class='form-control' 
+                    #realBirthDate='ngModel' 
+                    name='realBirthDate'
+                    [ngModel]="currentInstance.realBirthDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.realBirthDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- BirthCity -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("BirthCity_Id")'></guide>
+        <label for='birthCity' class='col-form-label'>Birth City : </label>
+        <span class='help-block col-form-label' *ngIf='!birthCity.valid && birthCity.touched && !birthCity.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #birthCity='ngModel' 
+                    #birthCityCombo='kendoDropDownList' 
+                    name='birthCity' 
+                    title='Birth City'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !birthCity.valid && birthCity.touched }" 
+                    [data]='birthCityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='birthCityComponent.filterable'
+                    (filterChange)='birthCityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.birthCity"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='birthCityComponent.addable'>
+                      <button class='btn btn-primary' (click)='birthCityComponent.onAdd(birthCityCombo, birthCityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Religion -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Religion_Id")'></guide>
+        <label for='religion' class='col-form-label'>Religion : </label>
+        <span class='help-block col-form-label' *ngIf='!religion.valid && religion.touched && !religion.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #religion='ngModel' 
+                    #religionCombo='kendoDropDownList' 
+                    name='religion' 
+                    title='Religion'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !religion.valid && religion.touched }" 
+                    [data]='religionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='religionComponent.filterable'
+                    (filterChange)='religionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.religion"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='religionComponent.addable'>
+                      <button class='btn btn-primary' (click)='religionComponent.onAdd(religionCombo, religionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- HealthStatus -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("HealthStatus_Id")'></guide>
+        <label for='healthStatus' class='col-form-label'>Health Status : </label>
+        <span class='help-block col-form-label' *ngIf='!healthStatus.valid && healthStatus.touched && !healthStatus.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #healthStatus='ngModel' 
+                    #healthStatusCombo='kendoDropDownList' 
+                    name='healthStatus' 
+                    title='Health Status'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !healthStatus.valid && healthStatus.touched }" 
+                    [data]='healthStatusComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='healthStatusComponent.filterable'
+                    (filterChange)='healthStatusComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.healthStatus"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='healthStatusComponent.addable'>
+                      <button class='btn btn-primary' (click)='healthStatusComponent.onAdd(healthStatusCombo, healthStatusEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Nationality -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Nationality_Id")'></guide>
+        <label for='nationality' class='col-form-label'>Nationality : </label>
+        <span class='help-block col-form-label' *ngIf='!nationality.valid && nationality.touched && !nationality.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #nationality='ngModel' 
+                    #nationalityCombo='kendoDropDownList' 
+                    name='nationality' 
+                    title='Nationality'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !nationality.valid && nationality.touched }" 
+                    [data]='nationalityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='nationalityComponent.filterable'
+                    (filterChange)='nationalityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.nationality"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='nationalityComponent.addable'>
+                      <button class='btn btn-primary' (click)='nationalityComponent.onAdd(nationalityCombo, nationalityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- BirthCertificateNumber -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("BirthCertificateNumber")'></guide>
+        <label for='birthCertificateNumber' class='col-form-label'>Birth Certificate Number : </label>
+        <span class='help-block col-form-label' *ngIf='!birthCertificateNumber.valid && birthCertificateNumber.touched && !birthCertificateNumber.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Birth Certificate Number' 
+                    [ngClass]="{ 'error' : !birthCertificateNumber.valid && birthCertificateNumber.touched }" 
+                    class='form-control ' 
+                    #birthCertificateNumber='ngModel' 
+                    name='birthCertificateNumber' 
+                    placeholder='... Birth Certificate Number' 
+                    [(ngModel)]='currentInstance.birthCertificateNumber' 
+                    [disabled]='IsLocked'
+                    maxlength='20'  dir='ltr'  required  />
+      </div>
+			<!-- BirthCertificateSerialNumber -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("BirthCertificateSerialNumber")'></guide>
+        <label for='birthCertificateSerialNumber' class='col-form-label'>Birth Certificate Serial Number : </label>
+        <span class='help-block col-form-label' *ngIf='!birthCertificateSerialNumber.valid && birthCertificateSerialNumber.touched && !birthCertificateSerialNumber.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Birth Certificate Serial Number' 
+                    [ngClass]="{ 'error' : !birthCertificateSerialNumber.valid && birthCertificateSerialNumber.touched }" 
+                    class='form-control ' 
+                    #birthCertificateSerialNumber='ngModel' 
+                    name='birthCertificateSerialNumber' 
+                    placeholder='... Birth Certificate Serial Number' 
+                    [(ngModel)]='currentInstance.birthCertificateSerialNumber' 
+                    [disabled]='IsLocked'
+                    maxlength='20'  dir='ltr'  required  />
+      </div>
+			<!-- MaritalStatus -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("MaritalStatus_Id")'></guide>
+        <label for='maritalStatus' class='col-form-label'>Marital Status : </label>
+        <span class='help-block col-form-label' *ngIf='!maritalStatus.valid && maritalStatus.touched && !maritalStatus.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #maritalStatus='ngModel' 
+                    #maritalStatusCombo='kendoDropDownList' 
+                    name='maritalStatus' 
+                    title='Marital Status'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !maritalStatus.valid && maritalStatus.touched }" 
+                    [data]='maritalStatusComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='maritalStatusComponent.filterable'
+                    (filterChange)='maritalStatusComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.maritalStatus"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='maritalStatusComponent.addable'>
+                      <button class='btn btn-primary' (click)='maritalStatusComponent.onAdd(maritalStatusCombo, maritalStatusEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- ChildCount -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ChildCount")'></guide>
+        <label for='childCount' class='col-form-label'>Child Count : </label>
+        <span class='help-block col-form-label' *ngIf='!childCount.valid && childCount.touched && !childCount.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #childCount='ngModel' 
+            name='childCount' 
+            title='Child Count' 
+            placeholder='Child Count'
+            class='form-control'
+            [ngClass]="{ 'error' : !childCount.valid && childCount.touched }" 
+            [value]='currentInstance.childCount' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.childCount'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!personEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!personEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, personEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<base-gender-edit #genderEditUI 
+    (onClosed)='genderComponent.onClosed($event)'>
+</base-gender-edit>
+<base-city-edit #birthCityEditUI 
+    (onClosed)='birthCityComponent.onClosed($event)'>
+</base-city-edit>
+<base-religion-edit #religionEditUI 
+    (onClosed)='religionComponent.onClosed($event)'>
+</base-religion-edit>
+<base-healthStatus-edit #healthStatusEditUI 
+    (onClosed)='healthStatusComponent.onClosed($event)'>
+</base-healthStatus-edit>
+<base-country-edit #nationalityEditUI 
+    (onClosed)='nationalityComponent.onClosed($event)'>
+</base-country-edit>
+<base-hr-maritalStatus-edit #maritalStatusEditUI 
+    (onClosed)='maritalStatusComponent.onClosed($event)'>
+</base-hr-maritalStatus-edit>

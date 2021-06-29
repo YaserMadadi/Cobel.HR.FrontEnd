@@ -1,0 +1,39 @@
+﻿<XDialog Header='Answer Type Item Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Answer Type Item : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Answer Type : 
+                        <guide (onClick)='onGuid("AnswerType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.answerType?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Value : 
+                        <guide (onClick)='onGuid("Value")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.value | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

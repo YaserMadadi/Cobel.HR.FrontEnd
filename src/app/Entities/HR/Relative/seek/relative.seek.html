@@ -1,0 +1,108 @@
+﻿<XDialog Header='Search form of Relative' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='peson' class='col-sm-3 col-form-label'>Peson : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #peson='ngModel' 
+                    #pesonCombo='kendoDropDownList' 
+                    name='peson' 
+                    title='Peson'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !peson.valid && peson.touched }" 
+                    [data]='pesonComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='pesonComponent.filterable'
+                    (filterChange)='pesonComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.peson"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='pesonComponent.addable'>
+                      <button class='btn btn-primary' (click)='pesonComponent.onAdd(pesonCombo, pesonEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='firstName' class='col-sm-3 col-form-label'>First Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #firstName='ngModel' id='firstName' name='firstName'
+										 title='First Name'
+										 autocomplete='off'
+										 placeholder='First Name'
+										[(ngModel)]='relative.firstName'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='lastName' class='col-sm-3 col-form-label'>Last Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #lastName='ngModel' id='lastName' name='lastName'
+										 title='Last Name'
+										 autocomplete='off'
+										 placeholder='Last Name'
+										[(ngModel)]='relative.lastName'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='nationalCode' class='col-sm-3 col-form-label'>National Code : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #nationalCode='ngModel' id='nationalCode' name='nationalCode'
+										 title='National Code'
+										 autocomplete='off'
+										 placeholder='National Code'
+										[(ngModel)]='relative.nationalCode'
+										 type='text'
+										 maxlength='10'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='birthDate' class='col-sm-3 col-form-label'>Birth Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #birthDate='ngModel' id='birthDate' name='birthDate'
+										 title='Birth Date'
+										 autocomplete='off'
+										 placeholder='Birth Date'
+										[(ngModel)]='relative.birthDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='relationType' class='col-sm-3 col-form-label'>Relation Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #relationType='ngModel' 
+                    #relationTypeCombo='kendoDropDownList' 
+                    name='relationType' 
+                    title='Relation Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !relationType.valid && relationType.touched }" 
+                    [data]='relationTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='relationTypeComponent.filterable'
+                    (filterChange)='relationTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.relationType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='relationTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='relationTypeComponent.onAdd(relationTypeCombo, relationTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

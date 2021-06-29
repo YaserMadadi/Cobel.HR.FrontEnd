@@ -1,0 +1,96 @@
+﻿<XDialog Header='Search form of Qualitative KPI' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='qualitativeObjective' class='col-sm-3 col-form-label'>Qualitative Objective : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #qualitativeObjective='ngModel' 
+                    #qualitativeObjectiveCombo='kendoDropDownList' 
+                    name='qualitativeObjective' 
+                    title='Qualitative Objective'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !qualitativeObjective.valid && qualitativeObjective.touched }" 
+                    [data]='qualitativeObjectiveComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='qualitativeObjectiveComponent.filterable'
+                    (filterChange)='qualitativeObjectiveComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.qualitativeObjective"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='qualitativeObjectiveComponent.addable'>
+                      <button class='btn btn-primary' (click)='qualitativeObjectiveComponent.onAdd(qualitativeObjectiveCombo, qualitativeObjectiveEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='title' class='col-sm-3 col-form-label'>Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='qualitativeKPI.title'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='weight' class='col-sm-3 col-form-label'>Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #weight='ngModel' id='weight' name='weight'
+										 title='Weight'
+										 autocomplete='off'
+										 placeholder='Weight'
+										[(ngModel)]='qualitativeKPI.weight'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='target' class='col-sm-3 col-form-label'>Target : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #target='ngModel' id='target' name='target'
+										 title='Target'
+										 autocomplete='off'
+										 placeholder='Target'
+										[(ngModel)]='qualitativeKPI.target'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='finalScore' class='col-sm-3 col-form-label'>Final Score : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #finalScore='ngModel' id='finalScore' name='finalScore'
+										 title='Final Score'
+										 autocomplete='off'
+										 placeholder='Final Score'
+										[(ngModel)]='qualitativeKPI.finalScore'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='description' class='col-sm-3 col-form-label'>Description : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #description='ngModel' id='description' name='description'
+										 title='Description'
+										 autocomplete='off'
+										 placeholder='Description'
+										[(ngModel)]='qualitativeKPI.description'
+										 type='text'
+										 maxlength='800'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

@@ -1,0 +1,83 @@
+﻿<XDialog Header='Edit Form of Military Service' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, militaryServiceEditUI)' 
+    #militaryServiceEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Person -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Person_Id")'></guide>
+        <label for='person' class='col-form-label'>Person : </label>
+        <span class='help-block col-form-label' *ngIf='!person.valid && person.touched && !person.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- MilitaryServiceStatus -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("MilitaryServiceStatus_Id")'></guide>
+        <label for='militaryServiceStatus' class='col-form-label'>Military Service Status : </label>
+        <span class='help-block col-form-label' *ngIf='!militaryServiceStatus.valid && militaryServiceStatus.touched && !militaryServiceStatus.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #militaryServiceStatus='ngModel' 
+                    #militaryServiceStatusCombo='kendoDropDownList' 
+                    name='militaryServiceStatus' 
+                    title='Military Service Status'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !militaryServiceStatus.valid && militaryServiceStatus.touched }" 
+                    [data]='militaryServiceStatusComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='militaryServiceStatusComponent.filterable'
+                    (filterChange)='militaryServiceStatusComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.militaryServiceStatus"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='militaryServiceStatusComponent.addable'>
+                      <button class='btn btn-primary' (click)='militaryServiceStatusComponent.onAdd(militaryServiceStatusCombo, militaryServiceStatusEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!militaryServiceEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!militaryServiceEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, militaryServiceEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-person-edit #personEditUI 
+    (onClosed)='personComponent.onClosed($event)'>
+</hr-person-edit>
+<base-militaryServiceStatus-edit #militaryServiceStatusEditUI 
+    (onClosed)='militaryServiceStatusComponent.onClosed($event)'>
+</base-militaryServiceStatus-edit>

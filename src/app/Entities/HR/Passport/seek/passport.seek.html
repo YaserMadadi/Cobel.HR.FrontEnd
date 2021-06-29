@@ -1,0 +1,71 @@
+﻿<XDialog Header='Search form of Passport' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='person' class='col-sm-3 col-form-label'>Person : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='passportNumber' class='col-sm-3 col-form-label'>Passport Number : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #passportNumber='ngModel' id='passportNumber' name='passportNumber'
+										 title='Passport Number'
+										 autocomplete='off'
+										 placeholder='Passport Number'
+										[(ngModel)]='passport.passportNumber'
+										 type='text'
+										 maxlength='20'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='issueDate' class='col-sm-3 col-form-label'>Issue Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #issueDate='ngModel' id='issueDate' name='issueDate'
+										 title='Issue Date'
+										 autocomplete='off'
+										 placeholder='Issue Date'
+										[(ngModel)]='passport.issueDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='expireDate' class='col-sm-3 col-form-label'>Expire Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #expireDate='ngModel' id='expireDate' name='expireDate'
+										 title='Expire Date'
+										 autocomplete='off'
+										 placeholder='Expire Date'
+										[(ngModel)]='passport.expireDate'
+										 type='date'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

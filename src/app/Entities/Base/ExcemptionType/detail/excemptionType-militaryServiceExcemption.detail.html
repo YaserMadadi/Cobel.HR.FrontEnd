@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(militaryServiceExcemptionEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(militaryServiceExcemptionEditUI)' [ngClass]="{ 'disabled' : currentMilitaryServiceExcemption.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(militaryServiceExcemptionDeleteUI)' [ngClass]="{ 'disabled' : currentMilitaryServiceExcemption.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('HR','MilitaryService')"> Military Service</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Military Service Excemption</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let militaryServiceExcemption of MilitaryServiceExcemptionList; let i = index' 
+                (dblclick)='onDblClicked(militaryServiceExcemptionMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : militaryServiceExcemption.id === currentMilitaryServiceExcemption.id, 'free-row': militaryServiceExcemption.id !== currentMilitaryServiceExcemption.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ militaryServiceExcemption.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-militaryServiceExcemption-edit #militaryServiceExcemptionEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-militaryServiceExcemption-edit>
+  <hr-militaryServiceExcemption-delete #militaryServiceExcemptionDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-militaryServiceExcemption-delete>
+  <hr-militaryServiceExcemption-master #militaryServiceExcemptionMasterUI >
+  </hr-militaryServiceExcemption-master>
+</div>

@@ -1,0 +1,80 @@
+﻿<fieldset class='border'>
+  <legend>Development Plan Competency :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(developmentPlanCompetencyEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(developmentPlanCompetencyTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(developmentPlanCompetencyEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(developmentPlanCompetencyDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "IndividualDevelopmentPlan", currentInstance.individualDevelopmentPlan?.id)'>Manage Individual Development Plan</a>
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "CompetencyItem", currentInstance.competencyItem?.id)'>Manage Competency Item</a>
+    </dropDownMenu>
+  
+  <table #developmentPlanCompetencyTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Individual Development Plan'>Individual Development Plan</th>
+        <th title='Competency Item'>Competency Item</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #individualDevelopmentPlan='ngModel' id='individualDevelopmentPlan' name='individualDevelopmentPlan'
+										 title='Individual Development Plan'
+										 autocomplete='off'
+										 placeholder='Individual Development Plan'
+										[(ngModel)]='filterInstance.individualDevelopmentPlan.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #competencyItem='ngModel' id='competencyItem' name='competencyItem'
+										 title='Competency Item'
+										 autocomplete='off'
+										 placeholder='Competency Item'
+										[(ngModel)]='filterInstance.competencyItem.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(developmentPlanCompetencyMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.individualDevelopmentPlan?.descriptor }}</td>
+				<td>{{ p.competencyItem?.descriptor }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- DevelopmentPlanCompetency -->
+<pms-developmentPlanCompetency-master #developmentPlanCompetencyMasterUI>
+</pms-developmentPlanCompetency-master>
+
+<pms-developmentPlanCompetency-edit #developmentPlanCompetencyEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-developmentPlanCompetency-edit>
+
+<pms-developmentPlanCompetency-delete #developmentPlanCompetencyDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-developmentPlanCompetency-delete>

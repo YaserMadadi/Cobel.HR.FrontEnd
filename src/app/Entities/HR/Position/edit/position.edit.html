@@ -1,0 +1,182 @@
+﻿<XDialog Header='Edit Form of Position' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, positionEditUI)' 
+    #positionEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Parent -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Parent_Id")'></guide>
+        <label for='parent' class='col-form-label'>Parent : </label>
+        <span class='help-block col-form-label' *ngIf='!parent.valid && parent.touched && !parent.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #parent='ngModel' 
+                    #parentCombo='kendoDropDownList' 
+                    name='parent' 
+                    title='Parent'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !parent.valid && parent.touched }" 
+                    [data]='parentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='parentComponent.filterable'
+                    (filterChange)='parentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.parent"
+                     required 
+                    [disabled]='IsLocked'>
+                    
+                </kendo-dropdownlist>
+      </div>
+			<!-- PositionTitle -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PositionTitle")'></guide>
+        <label for='positionTitle' class='col-form-label'>Position Title : </label>
+        <span class='help-block col-form-label' *ngIf='!positionTitle.valid && positionTitle.touched && !positionTitle.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Position Title' 
+                    [ngClass]="{ 'error' : !positionTitle.valid && positionTitle.touched }" 
+                    class='form-control ' 
+                    #positionTitle='ngModel' 
+                    name='positionTitle' 
+                    placeholder='... Position Title' 
+                    [(ngModel)]='currentInstance.positionTitle' 
+                    [disabled]='IsLocked'
+                    maxlength='800'  required  />
+      </div>
+			<!-- Level -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Level_Id")'></guide>
+        <label for='level' class='col-form-label'>Level : </label>
+        <span class='help-block col-form-label' *ngIf='!level.valid && level.touched && !level.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #level='ngModel' 
+                    #levelCombo='kendoDropDownList' 
+                    name='level' 
+                    title='Level'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !level.valid && level.touched }" 
+                    [data]='levelComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='levelComponent.filterable'
+                    (filterChange)='levelComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.level"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='levelComponent.addable'>
+                      <button class='btn btn-primary' (click)='levelComponent.onAdd(levelCombo, levelEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Unit -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Unit_Id")'></guide>
+        <label for='unit' class='col-form-label'>Unit : </label>
+        <span class='help-block col-form-label' *ngIf='!unit.valid && unit.touched && !unit.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #unit='ngModel' 
+                    #unitCombo='kendoDropDownList' 
+                    name='unit' 
+                    title='Unit'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !unit.valid && unit.touched }" 
+                    [data]='unitComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='unitComponent.filterable'
+                    (filterChange)='unitComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.unit"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='unitComponent.addable'>
+                      <button class='btn btn-primary' (click)='unitComponent.onAdd(unitCombo, unitEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- PositionCategory -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PositionCategory_Id")'></guide>
+        <label for='positionCategory' class='col-form-label'>Position Category : </label>
+        <span class='help-block col-form-label' *ngIf='!positionCategory.valid && positionCategory.touched && !positionCategory.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #positionCategory='ngModel' 
+                    #positionCategoryCombo='kendoDropDownList' 
+                    name='positionCategory' 
+                    title='Position Category'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !positionCategory.valid && positionCategory.touched }" 
+                    [data]='positionCategoryComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='positionCategoryComponent.filterable'
+                    (filterChange)='positionCategoryComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.positionCategory"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='positionCategoryComponent.addable'>
+                      <button class='btn btn-primary' (click)='positionCategoryComponent.onAdd(positionCategoryCombo, positionCategoryEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Capacity -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Capacity")'></guide>
+        <label for='capacity' class='col-form-label'>Capacity : </label>
+        <span class='help-block col-form-label' *ngIf='!capacity.valid && capacity.touched && !capacity.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #capacity='ngModel' 
+            name='capacity' 
+            title='Capacity' 
+            placeholder='Capacity'
+            class='form-control'
+            [ngClass]="{ 'error' : !capacity.valid && capacity.touched }" 
+            [value]='currentInstance.capacity' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.capacity'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- IsActive -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsActive")'></guide>
+        <label for='isActive' class='col-form-label'>Is Active : </label>
+        <!--IsActive do not Required-->
+        <input type='checkbox' 
+                #isActive 
+                id = 'isActive'
+                name = 'isActive'
+                kendoCheckBox
+                [checked] = 'currentInstance.isActive'
+                [(ngModel)] = 'currentInstance.isActive' /> 
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!positionEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!positionEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, positionEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-level-edit #levelEditUI 
+    (onClosed)='levelComponent.onClosed($event)'>
+</hr-level-edit>
+<hr-unit-edit #unitEditUI 
+    (onClosed)='unitComponent.onClosed($event)'>
+</hr-unit-edit>
+<hr-positionCategory-edit #positionCategoryEditUI 
+    (onClosed)='positionCategoryComponent.onClosed($event)'>
+</hr-positionCategory-edit>

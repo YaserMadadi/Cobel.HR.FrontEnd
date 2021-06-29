@@ -1,0 +1,122 @@
+﻿<XDialog Header='Edit Form of Field Of Study' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, fieldOfStudyEditUI)' 
+    #fieldOfStudyEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- UniversityFieldCategory -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("UniversityFieldCategory_Id")'></guide>
+        <label for='universityFieldCategory' class='col-form-label'>University Field Category : </label>
+        <span class='help-block col-form-label' *ngIf='!universityFieldCategory.valid && universityFieldCategory.touched && !universityFieldCategory.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #universityFieldCategory='ngModel' 
+                    #universityFieldCategoryCombo='kendoDropDownList' 
+                    name='universityFieldCategory' 
+                    title='University Field Category'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !universityFieldCategory.valid && universityFieldCategory.touched }" 
+                    [data]='universityFieldCategoryComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='universityFieldCategoryComponent.filterable'
+                    (filterChange)='universityFieldCategoryComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.universityFieldCategory"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='universityFieldCategoryComponent.addable'>
+                      <button class='btn btn-primary' (click)='universityFieldCategoryComponent.onAdd(universityFieldCategoryCombo, universityFieldCategoryEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Major -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Major")'></guide>
+        <label for='major' class='col-form-label'>Major : </label>
+        <span class='help-block col-form-label' *ngIf='!major.valid && major.touched && !major.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Major' 
+                    [ngClass]="{ 'error' : !major.valid && major.touched }" 
+                    class='form-control ' 
+                    #major='ngModel' 
+                    name='major' 
+                    placeholder='... Major' 
+                    [(ngModel)]='currentInstance.major' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- Minor -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Minor")'></guide>
+        <label for='minor' class='col-form-label'>Minor : </label>
+        <span class='help-block col-form-label' *ngIf='!minor.valid && minor.touched && !minor.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Minor' 
+                    [ngClass]="{ 'error' : !minor.valid && minor.touched }" 
+                    class='form-control ' 
+                    #minor='ngModel' 
+                    name='minor' 
+                    placeholder='... Minor' 
+                    [(ngModel)]='currentInstance.minor' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- Code -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Code")'></guide>
+        <label for='code' class='col-form-label'>Code : </label>
+        <span class='help-block col-form-label' *ngIf='!code.valid && code.touched && !code.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #code='ngModel' 
+            name='code' 
+            title='Code' 
+            placeholder='Code'
+            class='form-control'
+            [ngClass]="{ 'error' : !code.valid && code.touched }" 
+            [value]='currentInstance.code' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.code'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- IsActive -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsActive")'></guide>
+        <label for='isActive' class='col-form-label'>Is Active : </label>
+        <!--IsActive do not Required-->
+        <input type='checkbox' 
+                #isActive 
+                id = 'isActive'
+                name = 'isActive'
+                kendoCheckBox
+                [checked] = 'currentInstance.isActive'
+                [(ngModel)] = 'currentInstance.isActive' /> 
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!fieldOfStudyEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!fieldOfStudyEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, fieldOfStudyEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<base-universityFieldCategory-edit #universityFieldCategoryEditUI 
+    (onClosed)='universityFieldCategoryComponent.onClosed($event)'>
+</base-universityFieldCategory-edit>

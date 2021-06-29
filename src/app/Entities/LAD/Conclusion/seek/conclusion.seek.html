@@ -1,0 +1,70 @@
+﻿<XDialog Header='Search form of Conclusion' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='assessment' class='col-sm-3 col-form-label'>Assessment : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #assessment='ngModel' 
+                    #assessmentCombo='kendoDropDownList' 
+                    name='assessment' 
+                    title='Assessment'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessment.valid && assessment.touched }" 
+                    [data]='assessmentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessmentComponent.filterable'
+                    (filterChange)='assessmentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessment"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessmentComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessmentComponent.onAdd(assessmentCombo, assessmentEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='conclusionType' class='col-sm-3 col-form-label'>Conclusion Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #conclusionType='ngModel' 
+                    #conclusionTypeCombo='kendoDropDownList' 
+                    name='conclusionType' 
+                    title='Conclusion Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !conclusionType.valid && conclusionType.touched }" 
+                    [data]='conclusionTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='conclusionTypeComponent.filterable'
+                    (filterChange)='conclusionTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.conclusionType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='conclusionTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='conclusionTypeComponent.onAdd(conclusionTypeCombo, conclusionTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='note' class='col-sm-3 col-form-label'>Note : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #note='ngModel' id='note' name='note'
+										 title='Note'
+										 autocomplete='off'
+										 placeholder='Note'
+										[(ngModel)]='conclusion.note'
+										 type='text'
+										 maxlength='4000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

@@ -1,0 +1,137 @@
+﻿<fieldset class='border'>
+  <legend>Score Cell :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(scoreCellEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(scoreCellTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(scoreCellEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(scoreCellDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='operationalAppraise_Clicked(operationalAppraiseEditUI)'>Add Operational Appraise</a>
+		<a class='dropdown-item pointer' (click)='nonOperationalAppraise_Clicked(nonOperationalAppraiseEditUI)'>Add Non Operational Appraise</a>
+		<a class='dropdown-item pointer' (click)='cellAction_Clicked(cellActionEditUI)'>Add Cell Action</a>
+	
+  </dropDownMenu>
+  <table #scoreCellTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Cell Number'>Cell Number</th>
+        <th title='Min_ X'>Min_ X</th>
+        <th title='Max_ X'>Max_ X</th>
+        <th title='Min_ Y'>Min_ Y</th>
+        <th title='Max_ Y'>Max_ Y</th>
+        <th title='Min_ Pi'>Min_ Pi</th>
+        <th title='Max_ Pi'>Max_ Pi</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #cellNumber='ngModel' id='cellNumber' name='cellNumber'
+										 title='Cell Number'
+										 autocomplete='off'
+										 placeholder='Cell Number'
+										[(ngModel)]='filterInstance.cellNumber'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #min_X='ngModel' id='min_X' name='min_X'
+										 title='Min_ X'
+										 autocomplete='off'
+										 placeholder='Min_ X'
+										[(ngModel)]='filterInstance.min_X'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #max_X='ngModel' id='max_X' name='max_X'
+										 title='Max_ X'
+										 autocomplete='off'
+										 placeholder='Max_ X'
+										[(ngModel)]='filterInstance.max_X'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #min_Y='ngModel' id='min_Y' name='min_Y'
+										 title='Min_ Y'
+										 autocomplete='off'
+										 placeholder='Min_ Y'
+										[(ngModel)]='filterInstance.min_Y'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #max_Y='ngModel' id='max_Y' name='max_Y'
+										 title='Max_ Y'
+										 autocomplete='off'
+										 placeholder='Max_ Y'
+										[(ngModel)]='filterInstance.max_Y'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #min_Pi='ngModel' id='min_Pi' name='min_Pi'
+										 title='Min_ Pi'
+										 autocomplete='off'
+										 placeholder='Min_ Pi'
+										[(ngModel)]='filterInstance.min_Pi'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #max_Pi='ngModel' id='max_Pi' name='max_Pi'
+										 title='Max_ Pi'
+										 autocomplete='off'
+										 placeholder='Max_ Pi'
+										[(ngModel)]='filterInstance.max_Pi'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(scoreCellMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.cellNumber }}</td>
+				<td>{{ p.min_X }}</td>
+				<td>{{ p.max_X }}</td>
+				<td>{{ p.min_Y }}</td>
+				<td>{{ p.max_Y }}</td>
+				<td>{{ p.min_Pi }}</td>
+				<td>{{ p.max_Pi }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- ScoreCell -->
+<pms-scoreCell-master #scoreCellMasterUI>
+</pms-scoreCell-master>
+
+<pms-scoreCell-edit #scoreCellEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-scoreCell-edit>
+
+<pms-scoreCell-delete #scoreCellDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-scoreCell-delete>
+
+
+<pms-operationalAppraise-edit #operationalAppraiseEditUI> <!--  (onClosed)='operationalAppraiseEditUI_Closed($event)' -->
+</pms-operationalAppraise-edit> 
+<pms-nonOperationalAppraise-edit #nonOperationalAppraiseEditUI> <!--  (onClosed)='nonOperationalAppraiseEditUI_Closed($event)' -->
+</pms-nonOperationalAppraise-edit> 
+<pms-cellAction-edit #cellActionEditUI> <!--  (onClosed)='cellActionEditUI_Closed($event)' -->
+</pms-cellAction-edit>

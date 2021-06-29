@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(assessmentScoreEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(assessmentScoreEditUI)' [ngClass]="{ 'disabled' : currentAssessmentScore.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(assessmentScoreDeleteUI)' [ngClass]="{ 'disabled' : currentAssessmentScore.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('PMS','CompetencyItem')"> Competency Item</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Assessment Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let assessmentScore of AssessmentScoreList; let i = index' 
+                (dblclick)='onDblClicked(assessmentScoreMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : assessmentScore.id === currentAssessmentScore.id, 'free-row': assessmentScore.id !== currentAssessmentScore.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ assessmentScore.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <lad-assessmentScore-edit #assessmentScoreEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </lad-assessmentScore-edit>
+  <lad-assessmentScore-delete #assessmentScoreDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </lad-assessmentScore-delete>
+  <lad-assessmentScore-master #assessmentScoreMasterUI >
+  </lad-assessmentScore-master>
+</div>

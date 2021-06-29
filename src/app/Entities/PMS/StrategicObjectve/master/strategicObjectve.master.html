@@ -1,0 +1,33 @@
+﻿<XDialog Header='Strategic Objectve Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Strategic Objectve : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>From Date : 
+                        <guide (onClick)='onGuid("FromDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.fromDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

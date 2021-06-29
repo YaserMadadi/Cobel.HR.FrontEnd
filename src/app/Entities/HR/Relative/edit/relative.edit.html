@@ -1,0 +1,147 @@
+﻿<XDialog Header='Edit Form of Relative' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, relativeEditUI)' 
+    #relativeEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Peson -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Peson_Id")'></guide>
+        <label for='peson' class='col-form-label'>Peson : </label>
+        <span class='help-block col-form-label' *ngIf='!peson.valid && peson.touched && !peson.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #peson='ngModel' 
+                    #pesonCombo='kendoDropDownList' 
+                    name='peson' 
+                    title='Peson'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !peson.valid && peson.touched }" 
+                    [data]='pesonComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='pesonComponent.filterable'
+                    (filterChange)='pesonComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.peson"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='pesonComponent.addable'>
+                      <button class='btn btn-primary' (click)='pesonComponent.onAdd(pesonCombo, pesonEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- FirstName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("FirstName")'></guide>
+        <label for='firstName' class='col-form-label'>First Name : </label>
+        <span class='help-block col-form-label' *ngIf='!firstName.valid && firstName.touched && !firstName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='First Name' 
+                    [ngClass]="{ 'error' : !firstName.valid && firstName.touched }" 
+                    class='form-control ' 
+                    #firstName='ngModel' 
+                    name='firstName' 
+                    placeholder='... First Name' 
+                    [(ngModel)]='currentInstance.firstName' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- LastName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("LastName")'></guide>
+        <label for='lastName' class='col-form-label'>Last Name : </label>
+        <span class='help-block col-form-label' *ngIf='!lastName.valid && lastName.touched && !lastName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Last Name' 
+                    [ngClass]="{ 'error' : !lastName.valid && lastName.touched }" 
+                    class='form-control ' 
+                    #lastName='ngModel' 
+                    name='lastName' 
+                    placeholder='... Last Name' 
+                    [(ngModel)]='currentInstance.lastName' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- NationalCode -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("NationalCode")'></guide>
+        <label for='nationalCode' class='col-form-label'>National Code : </label>
+        <span class='help-block col-form-label' *ngIf='!nationalCode.valid && nationalCode.touched && !nationalCode.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='National Code' 
+                    [ngClass]="{ 'error' : !nationalCode.valid && nationalCode.touched }" 
+                    class='form-control ' 
+                    #nationalCode='ngModel' 
+                    name='nationalCode' 
+                    placeholder='... National Code' 
+                    [(ngModel)]='currentInstance.nationalCode' 
+                    [disabled]='IsLocked'
+                    maxlength='10'  dir='ltr'  required  />
+      </div>
+			<!-- BirthDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("BirthDate")'></guide>
+        <label for='birthDate' class='col-form-label'>Birth Date : </label>
+        <span class='help-block col-form-label' *ngIf='!birthDate.valid && birthDate.touched && !birthDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Birth Date 
+                    [ngClass]="{ 'error' : !birthDate.valid && birthDate.touched }" 
+                    class='form-control' 
+                    #birthDate='ngModel' 
+                    name='birthDate'
+                    [ngModel]="currentInstance.birthDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.birthDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- RelationType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("RelationType_Id")'></guide>
+        <label for='relationType' class='col-form-label'>Relation Type : </label>
+        <span class='help-block col-form-label' *ngIf='!relationType.valid && relationType.touched && !relationType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #relationType='ngModel' 
+                    #relationTypeCombo='kendoDropDownList' 
+                    name='relationType' 
+                    title='Relation Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !relationType.valid && relationType.touched }" 
+                    [data]='relationTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='relationTypeComponent.filterable'
+                    (filterChange)='relationTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.relationType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='relationTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='relationTypeComponent.onAdd(relationTypeCombo, relationTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!relativeEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!relativeEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, relativeEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-person-edit #pesonEditUI 
+    (onClosed)='pesonComponent.onClosed($event)'>
+</hr-person-edit>
+<base-hr-relativeType-edit #relationTypeEditUI 
+    (onClosed)='relationTypeComponent.onClosed($event)'>
+</base-hr-relativeType-edit>

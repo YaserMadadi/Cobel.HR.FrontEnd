@@ -1,0 +1,104 @@
+﻿<XDialog Header='Edit Form of Passport' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, passportEditUI)' 
+    #passportEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Person -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Person_Id")'></guide>
+        <label for='person' class='col-form-label'>Person : </label>
+        <span class='help-block col-form-label' *ngIf='!person.valid && person.touched && !person.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- PassportNumber -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PassportNumber")'></guide>
+        <label for='passportNumber' class='col-form-label'>Passport Number : </label>
+        <span class='help-block col-form-label' *ngIf='!passportNumber.valid && passportNumber.touched && !passportNumber.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Passport Number' 
+                    [ngClass]="{ 'error' : !passportNumber.valid && passportNumber.touched }" 
+                    class='form-control ' 
+                    #passportNumber='ngModel' 
+                    name='passportNumber' 
+                    placeholder='... Passport Number' 
+                    [(ngModel)]='currentInstance.passportNumber' 
+                    [disabled]='IsLocked'
+                    maxlength='20'  dir='ltr'  required  />
+      </div>
+			<!-- IssueDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IssueDate")'></guide>
+        <label for='issueDate' class='col-form-label'>Issue Date : </label>
+        <span class='help-block col-form-label' *ngIf='!issueDate.valid && issueDate.touched && !issueDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Issue Date 
+                    [ngClass]="{ 'error' : !issueDate.valid && issueDate.touched }" 
+                    class='form-control' 
+                    #issueDate='ngModel' 
+                    name='issueDate'
+                    [ngModel]="currentInstance.issueDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.issueDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- ExpireDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ExpireDate")'></guide>
+        <label for='expireDate' class='col-form-label'>Expire Date : </label>
+        <span class='help-block col-form-label' *ngIf='!expireDate.valid && expireDate.touched && !expireDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Expire Date 
+                    [ngClass]="{ 'error' : !expireDate.valid && expireDate.touched }" 
+                    class='form-control' 
+                    #expireDate='ngModel' 
+                    name='expireDate'
+                    [ngModel]="currentInstance.expireDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.expireDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!passportEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!passportEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, passportEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-person-edit #personEditUI 
+    (onClosed)='personComponent.onClosed($event)'>
+</hr-person-edit>

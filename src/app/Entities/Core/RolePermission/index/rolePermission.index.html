@@ -1,0 +1,105 @@
+﻿<fieldset class='border'>
+  <legend>Role Permission :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(rolePermissionEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(rolePermissionTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(rolePermissionEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(rolePermissionDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("Core", "Role", currentInstance.role?.id)'>Manage Role</a>
+		<a class='dropdown-item pointer' (click)='navigate("Core", "Entity", currentInstance.entity?.id)'>Manage Entity</a>
+    </dropDownMenu>
+  
+  <table #rolePermissionTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Role'>Role</th>
+        <th title='Entity'>Entity</th>
+        <th width='100px' title='Add Permission'>Add Permission</th>
+        <th width='100px' title='Edit Permission'>Edit Permission</th>
+        <th width='100px' title='Delete Permission'>Delete Permission</th>
+        <th width='100px' title='View Index Permission'>View Index Permission</th>
+        <th width='100px' title='View Log Permission'>View Log Permission</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #role='ngModel' id='role' name='role'
+										 title='Role'
+										 autocomplete='off'
+										 placeholder='Role'
+										[(ngModel)]='filterInstance.role.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #entity='ngModel' id='entity' name='entity'
+										 title='Entity'
+										 autocomplete='off'
+										 placeholder='Entity'
+										[(ngModel)]='filterInstance.entity.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          
+        </th>
+        <th>
+          
+        </th>
+        <th>
+          
+        </th>
+        <th>
+          
+        </th>
+        <th>
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(rolePermissionMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.role?.descriptor }}</td>
+				<td>{{ p.entity?.descriptor }}</td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.addPermission' /></td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.editPermission' /></td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.deletePermission' /></td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.viewIndexPermission' /></td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.viewLogPermission' /></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- RolePermission -->
+<core-rolePermission-master #rolePermissionMasterUI>
+</core-rolePermission-master>
+
+<core-rolePermission-edit #rolePermissionEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</core-rolePermission-edit>
+
+<core-rolePermission-delete #rolePermissionDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</core-rolePermission-delete>

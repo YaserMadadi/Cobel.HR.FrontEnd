@@ -1,0 +1,137 @@
+﻿<fieldset class='border'>
+  <legend>Work Experience :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(workExperienceEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(workExperienceTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(workExperienceEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(workExperienceDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Person", currentInstance.person?.id)'>Manage Person</a>
+    </dropDownMenu>
+  
+  <table #workExperienceTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Person'>Person</th>
+        <th title='Persian Company Name'>Persian Company Name</th>
+        <th title='English Company Name'>English Company Name</th>
+        <th title='Persian Position Name'>Persian Position Name</th>
+        <th title='English Position Name'>English Position Name</th>
+        <th title='From Date'>From Date</th>
+        <th title='To Date'>To Date</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #person='ngModel' id='person' name='person'
+										 title='Person'
+										 autocomplete='off'
+										 placeholder='Person'
+										[(ngModel)]='filterInstance.person.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #persianCompanyName='ngModel' id='persianCompanyName' name='persianCompanyName'
+										 title='Persian Company Name'
+										 autocomplete='off'
+										 placeholder='Persian Company Name'
+										[(ngModel)]='filterInstance.persianCompanyName'
+										 type='text'
+										 maxlength='800'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #englishCompanyName='ngModel' id='englishCompanyName' name='englishCompanyName'
+										 title='English Company Name'
+										 autocomplete='off'
+										 placeholder='English Company Name'
+										[(ngModel)]='filterInstance.englishCompanyName'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #persianPositionName='ngModel' id='persianPositionName' name='persianPositionName'
+										 title='Persian Position Name'
+										 autocomplete='off'
+										 placeholder='Persian Position Name'
+										[(ngModel)]='filterInstance.persianPositionName'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #englishPositionName='ngModel' id='englishPositionName' name='englishPositionName'
+										 title='English Position Name'
+										 autocomplete='off'
+										 placeholder='English Position Name'
+										[(ngModel)]='filterInstance.englishPositionName'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #fromDate='ngModel' id='fromDate' name='fromDate'
+										 title='From Date'
+										 autocomplete='off'
+										 placeholder='From Date'
+										[(ngModel)]='filterInstance.fromDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #toDate='ngModel' id='toDate' name='toDate'
+										 title='To Date'
+										 autocomplete='off'
+										 placeholder='To Date'
+										[(ngModel)]='filterInstance.toDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(workExperienceMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.person?.descriptor }}</td>
+				<td>{{ p.persianCompanyName }}</td>
+				<td>{{ p.englishCompanyName }}</td>
+				<td>{{ p.persianPositionName }}</td>
+				<td>{{ p.englishPositionName }}</td>
+				<td>{{ p.fromDate | date:'fullDate' }}</td>
+				<td>{{ p.toDate | date:'fullDate' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- WorkExperience -->
+<hr-workExperience-master #workExperienceMasterUI>
+</hr-workExperience-master>
+
+<hr-workExperience-edit #workExperienceEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</hr-workExperience-edit>
+
+<hr-workExperience-delete #workExperienceDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</hr-workExperience-delete>

@@ -1,0 +1,27 @@
+﻿<XDialog Header='Development Plan Competency Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Development Plan Competency : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Individual Development Plan : 
+                        <guide (onClick)='onGuid("IndividualDevelopmentPlan_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.individualDevelopmentPlan?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Competency Item : 
+                        <guide (onClick)='onGuid("CompetencyItem_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.competencyItem?.descriptor }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

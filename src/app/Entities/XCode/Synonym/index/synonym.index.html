@@ -1,0 +1,87 @@
+﻿<fieldset class='border'>
+  <legend>Synonym :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(synonymEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(synonymTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(synonymEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(synonymDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+  
+  <table #synonymTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Schema'>Schema</th>
+        <th title='Name'>Name</th>
+        <th title='Value'>Value</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #schema='ngModel' id='schema' name='schema'
+										 title='Schema'
+										 autocomplete='off'
+										 placeholder='Schema'
+										[(ngModel)]='filterInstance.schema'
+										 type='text'
+										 maxlength='100'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #name='ngModel' id='name' name='name'
+										 title='Name'
+										 autocomplete='off'
+										 placeholder='Name'
+										[(ngModel)]='filterInstance.name'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #value='ngModel' id='value' name='value'
+										 title='Value'
+										 autocomplete='off'
+										 placeholder='Value'
+										[(ngModel)]='filterInstance.value'
+										 type='text'
+										 maxlength='4000'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(synonymMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.schema }}</td>
+				<td>{{ p.name }}</td>
+				<td>{{ p.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- Synonym -->
+<xcode-synonym-master #synonymMasterUI>
+</xcode-synonym-master>
+
+<xcode-synonym-edit #synonymEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</xcode-synonym-edit>
+
+<xcode-synonym-delete #synonymDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</xcode-synonym-delete>

@@ -1,0 +1,43 @@
+﻿<XDialog Header='Search form of Holding Section' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='title' class='col-sm-3 col-form-label'>Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='holdingSection.title'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='domainName' class='col-sm-3 col-form-label'>Domain Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #domainName='ngModel' id='domainName' name='domainName'
+										 title='Domain Name'
+										 autocomplete='off'
+										 placeholder='Domain Name'
+										[(ngModel)]='holdingSection.domainName'
+										 type='text'
+										 maxlength='100'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='isActive' class='col-sm-3 col-form-label'>Is Active : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

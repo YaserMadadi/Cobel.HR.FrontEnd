@@ -1,0 +1,57 @@
+﻿<XDialog Header='Work Experience Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Work Experience : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Person : 
+                        <guide (onClick)='onGuid("Person_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.person?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Persian Company Name : 
+                        <guide (onClick)='onGuid("PersianCompanyName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.persianCompanyName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>English Company Name : 
+                        <guide (onClick)='onGuid("EnglishCompanyName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.englishCompanyName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Persian Position Name : 
+                        <guide (onClick)='onGuid("PersianPositionName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.persianPositionName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>English Position Name : 
+                        <guide (onClick)='onGuid("EnglishPositionName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.englishPositionName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>From Date : 
+                        <guide (onClick)='onGuid("FromDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.fromDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>To Date : 
+                        <guide (onClick)='onGuid("ToDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.toDate | date:'fullDate' }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

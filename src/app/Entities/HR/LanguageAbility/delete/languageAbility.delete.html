@@ -1,0 +1,47 @@
+﻿<XDialog Header='Delete Confirmation Form of Language Ability' 
+    [IsShown]='IsShown' 
+    (OnClosed)='onCancel()'
+    [ModalType]='3'>
+    <div class='delete-frame'>
+        <p></p>
+        <p>You are going to Delete the record of Language Ability! </p>
+        <br>
+        <div class='margin20'>
+            
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Person : </label>
+            <label class='col-sm-8'>{{ currentInstance?.person?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Language : </label>
+            <label class='col-sm-8'>{{ currentInstance?.language?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Writing Level : </label>
+            <label class='col-sm-8'>{{ currentInstance?.writingLevel?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Reading Level : </label>
+            <label class='col-sm-8'>{{ currentInstance?.readingLevel?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Speacking Level : </label>
+            <label class='col-sm-8'>{{ currentInstance?.speackingLevel?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Listening Level : </label>
+            <label class='col-sm-8'>{{ currentInstance?.listeningLevel?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Comment : </label>
+            <label class='col-sm-8'>{{ currentInstance?.comment }}</label>
+        </div>
+        </div>
+        <br>
+        <p>Do You Confirm?  </p>
+    </div>
+    <div class='modal-footer'>
+      <button class='xbtn btn-delete modal-footer-button' type='button' (click)='onDelete()'>Ok, Delete it</button>
+      <button class='xbtn btn-edit modal-footer-button' type='button' (click)='onCancel()'>Cancel</button>
+    </div>
+</XDialog>

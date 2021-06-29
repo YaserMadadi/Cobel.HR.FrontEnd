@@ -1,0 +1,122 @@
+﻿<fieldset class='border'>
+  <legend>Behavioral KPI :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(behavioralKPIEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(behavioralKPITable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(behavioralKPIEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(behavioralKPIDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "BehavioralObjective", currentInstance.behavioralObjective?.id)'>Manage Behavioral Objective</a>
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "CompetencyItemKPI", currentInstance.competencyItemKPI?.id)'>Manage Competency Item KPI</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='behavioralAppraise_Clicked(behavioralAppraiseEditUI)'>Add Behavioral Appraise</a>
+	
+  </dropDownMenu>
+  <table #behavioralKPITable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Behavioral Objective'>Behavioral Objective</th>
+        <th title='Competency Item KPI'>Competency Item KPI</th>
+        <th title='Weight'>Weight</th>
+        <th title='Employee Score'>Employee Score</th>
+        <th title='Manager Score'>Manager Score</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #behavioralObjective='ngModel' id='behavioralObjective' name='behavioralObjective'
+										 title='Behavioral Objective'
+										 autocomplete='off'
+										 placeholder='Behavioral Objective'
+										[(ngModel)]='filterInstance.behavioralObjective.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #competencyItemKPI='ngModel' id='competencyItemKPI' name='competencyItemKPI'
+										 title='Competency Item KPI'
+										 autocomplete='off'
+										 placeholder='Competency Item KPI'
+										[(ngModel)]='filterInstance.competencyItemKPI.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #weight='ngModel' id='weight' name='weight'
+										 title='Weight'
+										 autocomplete='off'
+										 placeholder='Weight'
+										[(ngModel)]='filterInstance.weight'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #employeeScore='ngModel' id='employeeScore' name='employeeScore'
+										 title='Employee Score'
+										 autocomplete='off'
+										 placeholder='Employee Score'
+										[(ngModel)]='filterInstance.employeeScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #managerScore='ngModel' id='managerScore' name='managerScore'
+										 title='Manager Score'
+										 autocomplete='off'
+										 placeholder='Manager Score'
+										[(ngModel)]='filterInstance.managerScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(behavioralKPIMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.behavioralObjective?.descriptor }}</td>
+				<td>{{ p.competencyItemKPI?.descriptor }}</td>
+				<td>{{ p.weight | number }}</td>
+				<td>{{ p.employeeScore | number }}</td>
+				<td>{{ p.managerScore | number }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- BehavioralKPI -->
+<pms-behavioralKPI-master #behavioralKPIMasterUI>
+</pms-behavioralKPI-master>
+
+<pms-behavioralKPI-edit #behavioralKPIEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-behavioralKPI-edit>
+
+<pms-behavioralKPI-delete #behavioralKPIDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-behavioralKPI-delete>
+
+
+<pms-behavioralAppraise-edit #behavioralAppraiseEditUI> <!--  (onClosed)='behavioralAppraiseEditUI_Closed($event)' -->
+</pms-behavioralAppraise-edit>

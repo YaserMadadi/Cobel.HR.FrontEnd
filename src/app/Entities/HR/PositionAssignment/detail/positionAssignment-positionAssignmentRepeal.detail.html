@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(positionAssignmentRepealEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(positionAssignmentRepealEditUI)' [ngClass]="{ 'disabled' : currentPositionAssignmentRepeal.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(positionAssignmentRepealDeleteUI)' [ngClass]="{ 'disabled' : currentPositionAssignmentRepeal.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Position Assignment Repeal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let positionAssignmentRepeal of PositionAssignmentRepealList; let i = index' 
+                (dblclick)='onDblClicked(positionAssignmentRepealMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : positionAssignmentRepeal.id === currentPositionAssignmentRepeal.id, 'free-row': positionAssignmentRepeal.id !== currentPositionAssignmentRepeal.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ positionAssignmentRepeal.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-positionAssignmentRepeal-edit #positionAssignmentRepealEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-positionAssignmentRepeal-edit>
+  <hr-positionAssignmentRepeal-delete #positionAssignmentRepealDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-positionAssignmentRepeal-delete>
+  <hr-positionAssignmentRepeal-master #positionAssignmentRepealMasterUI >
+  </hr-positionAssignmentRepeal-master>
+</div>

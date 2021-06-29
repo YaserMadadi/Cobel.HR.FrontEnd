@@ -1,0 +1,54 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(universityHistoryEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(universityHistoryEditUI)' [ngClass]="{ 'disabled' : currentUniversityHistory.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(universityHistoryDeleteUI)' [ngClass]="{ 'disabled' : currentUniversityHistory.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('Base','UniversityDegree')"> University Degree</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base','University')"> University</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base','FieldOfStudy')"> Field Of Study</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base','EducationSystem')"> Education System</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base','CertificationType')"> Certification Type</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> University History</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let universityHistory of UniversityHistoryList; let i = index' 
+                (dblclick)='onDblClicked(universityHistoryMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : universityHistory.id === currentUniversityHistory.id, 'free-row': universityHistory.id !== currentUniversityHistory.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ universityHistory.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-universityHistory-edit #universityHistoryEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-universityHistory-edit>
+  <hr-universityHistory-delete #universityHistoryDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-universityHistory-delete>
+  <hr-universityHistory-master #universityHistoryMasterUI >
+  </hr-universityHistory-master>
+</div>

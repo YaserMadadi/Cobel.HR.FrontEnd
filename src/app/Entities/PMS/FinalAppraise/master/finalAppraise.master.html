@@ -1,0 +1,63 @@
+﻿<XDialog Header='Final Appraise Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Final Appraise : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Target Setting : 
+                        <guide (onClick)='onGuid("TargetSetting_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.targetSetting?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Manager Functional Score : 
+                        <guide (onClick)='onGuid("ManagerFunctionalScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.managerFunctionalScore | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Manager Behavioral Score : 
+                        <guide (onClick)='onGuid("ManagerBehavioralScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.managerBehavioralScore | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Final Functional Score : 
+                        <guide (onClick)='onGuid("FinalFunctionalScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.finalFunctionalScore | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Final Behavioral Score : 
+                        <guide (onClick)='onGuid("FinalBehavioralScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.finalBehavioralScore | number }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>IsApproved : 
+                        <guide (onClick)='onGuid("IsApproved")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isApproved }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Score Cell : 
+                        <guide (onClick)='onGuid("ScoreCell_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.scoreCell?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Comment : 
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

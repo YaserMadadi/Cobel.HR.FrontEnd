@@ -1,0 +1,39 @@
+﻿<XDialog Header='Critical Incident Recognition Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Critical Incident Recognition : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Critical Incident : 
+                        <guide (onClick)='onGuid("CriticalIncident_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.criticalIncident?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Time : 
+                        <guide (onClick)='onGuid("Time")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.time | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Writer : 
+                        <guide (onClick)='onGuid("Writer_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.writer?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Comment : 
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

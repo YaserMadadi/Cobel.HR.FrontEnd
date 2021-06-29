@@ -1,0 +1,60 @@
+﻿<XDialog Header='Search form of Property Option' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='property' class='col-sm-3 col-form-label'>Property : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #property='ngModel' 
+                    #propertyCombo='kendoDropDownList' 
+                    name='property' 
+                    title='Property'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !property.valid && property.touched }" 
+                    [data]='propertyComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='propertyComponent.filterable'
+                    (filterChange)='propertyComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.property"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='propertyComponent.addable'>
+                      <button class='btn btn-primary' (click)='propertyComponent.onAdd(propertyCombo, propertyEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='title' class='col-sm-3 col-form-label'>Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='propertyOption.title'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='description' class='col-sm-3 col-form-label'>Description : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #description='ngModel' id='description' name='description'
+										 title='Description'
+										 autocomplete='off'
+										 placeholder='Description'
+										[(ngModel)]='propertyOption.description'
+										 type='text'
+										 maxlength='2000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

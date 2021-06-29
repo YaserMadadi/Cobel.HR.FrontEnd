@@ -1,0 +1,119 @@
+﻿<XDialog Header='Edit Form of Behavioral KPI'
+         [IsShown]='IsShown'
+         (OnClosed)='onClose()'
+         [ModalType]='1'>
+  <form (ngSubmit)='onSave(currentInstance, behavioralKPIEditUI)'
+        #behavioralKPIEditUI='ngForm'
+        autocomplete='off'>
+    <div class='form-margin'>
+      <!-- BehavioralObjective -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("BehavioralObjective_Id")'></guide>
+        <label for='behavioralObjective'
+               class='col-form-label'>Behavioral Objective : </label>
+        <span class='help-block col-form-label'
+              *ngIf='!behavioralObjective.valid && behavioralObjective.touched && !behavioralObjective.disabled'>( Value
+          is not Valid! )</span>
+        <kendo-dropdownlist #behavioralObjective='ngModel'
+                            #behavioralObjectiveCombo='kendoDropDownList'
+                            name='behavioralObjective'
+                            title='Behavioral Objective'
+                            class='form-control'
+                            [ngClass]="{ 'error' : !behavioralObjective.valid && behavioralObjective.touched }"
+                            [data]='behavioralObjectiveComponent.list'
+                            [textField]="'descriptor'"
+                            [valueField]="'id'"
+                            [filterable]='behavioralObjectiveComponent.filterable'
+                            (filterChange)='behavioralObjectiveComponent.DoFilter($event)'
+                            [(ngModel)]="currentInstance.behavioralObjective"
+                            required
+                            [disabled]='IsLocked'>
+          <ng-template kendoDropDownListFooterTemplate
+                       *ngIf='behavioralObjectiveComponent.addable'>
+            <button class='btn btn-primary'
+                    (click)='behavioralObjectiveComponent.onAdd(behavioralObjectiveCombo, behavioralObjectiveEditUI)'>Add
+              New</button>
+          </ng-template>
+        </kendo-dropdownlist>
+      </div>
+      <!-- CompetencyItemKPI -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("CompetencyItemKPI_Id")'></guide>
+        <label for='competencyItemKPI'
+               class='col-form-label'>Competency Item KPI : </label>
+        <span class='help-block col-form-label'
+              *ngIf='!competencyItemKPI.valid && competencyItemKPI.touched && !competencyItemKPI.disabled'>( Value is
+          not Valid! )</span>
+        <kendo-dropdownlist #competencyItemKPI='ngModel'
+                            #competencyItemKPICombo='kendoDropDownList'
+                            name='competencyItemKPI'
+                            title='Competency Item KPI'
+                            class='form-control'
+                            [ngClass]="{ 'error' : !competencyItemKPI.valid && competencyItemKPI.touched }"
+                            [data]='competencyItemKPIComponent.list'
+                            [textField]="'descriptor'"
+                            [valueField]="'id'"
+                            [filterable]='competencyItemKPIComponent.filterable'
+                            (filterChange)='competencyItemKPIComponent.DoFilter($event)'
+                            [(ngModel)]="currentInstance.competencyItemKPI"
+                            required
+                            [disabled]='IsLocked'>
+          <ng-template kendoDropDownListFooterTemplate
+                       *ngIf='competencyItemKPIComponent.addable'>
+            <button class='btn btn-primary'
+                    (click)='competencyItemKPIComponent.onAdd(competencyItemKPICombo, competencyItemKPIEditUI)'>Add
+              New</button>
+          </ng-template>
+        </kendo-dropdownlist>
+      </div>
+      <!-- Weight -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Weight")'></guide>
+        <label for='weight'
+               class='col-form-label'>Weight : </label>
+        <span class='help-block col-form-label'
+              *ngIf='!weight.valid && weight.touched && !weight.disabled'>( Value is not Valid! )</span>
+
+        <kendo-numerictextbox #weight='ngModel'
+                              name='weight'
+                              title='Weight'
+                              placeholder='Weight'
+                              class='form-control'
+                              [ngClass]="{ 'error' : !weight.valid && weight.touched }"
+                              [value]='currentInstance.weight'
+                              [min]='-2147483648'
+                              [max]='2147483647'
+                              [(ngModel)]='currentInstance.weight'
+                              [format]="'n2'"
+                              [decimals]='2'
+                              [spinners]='false'
+                              [disabled]='IsLocked'
+                              required></kendo-numerictextbox>
+      </div>
+      <!-- FinalScore -->
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button'
+              type='submit'
+              class='xbtn btn-add modal-footer-button'
+              [disabled]='!behavioralKPIEditUI.valid || IsLocked'>Ok, Save it</button>
+      <button id='add-continue-button'
+              type='button'
+              class='xbtn btn-refresh modal-footer-button'
+              [disabled]='!behavioralKPIEditUI.valid || IsLocked'
+              [hidden]='IsEditMode'
+              (click)='onSave(currentInstance, behavioralKPIEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+              class='xbtn btn-delete modal-footer-button'
+              [disabled]='IsLocked'
+              (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<pms-behavioralObjective-edit #behavioralObjectiveEditUI
+                              (onClosed)='behavioralObjectiveComponent.onClosed($event)'>
+</pms-behavioralObjective-edit>
+<pms-competencyItemKPI-edit #competencyItemKPIEditUI
+                            (onClosed)='competencyItemKPIComponent.onClosed($event)'>
+</pms-competencyItemKPI-edit>

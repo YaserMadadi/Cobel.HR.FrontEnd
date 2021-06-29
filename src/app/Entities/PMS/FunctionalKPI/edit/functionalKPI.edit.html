@@ -1,0 +1,178 @@
+﻿<XDialog Header='Edit Form of Functional KPI' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, functionalKPIEditUI)' 
+    #functionalKPIEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- FunctionalObjective -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("FunctionalObjective_Id")'></guide>
+        <label for='functionalObjective' class='col-form-label'>Functional Objective : </label>
+        <span class='help-block col-form-label' *ngIf='!functionalObjective.valid && functionalObjective.touched && !functionalObjective.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #functionalObjective='ngModel' 
+                    #functionalObjectiveCombo='kendoDropDownList' 
+                    name='functionalObjective' 
+                    title='Functional Objective'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !functionalObjective.valid && functionalObjective.touched }" 
+                    [data]='functionalObjectiveComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='functionalObjectiveComponent.filterable'
+                    (filterChange)='functionalObjectiveComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.functionalObjective"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='functionalObjectiveComponent.addable'>
+                      <button class='btn btn-primary' (click)='functionalObjectiveComponent.onAdd(functionalObjectiveCombo, functionalObjectiveEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("title")'></guide>
+        <label for='title' class='col-form-label'>KPI Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='KPI Title' 
+                    [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                    class='form-control ' 
+                    #title='ngModel' 
+                    name='title' 
+                    placeholder='... KPI Title' 
+                    [(ngModel)]='currentInstance.title' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- Weight -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Weight")'></guide>
+        <label for='weight' class='col-form-label'>Weight : </label>
+        <span class='help-block col-form-label' *ngIf='!weight.valid && weight.touched && !weight.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #weight='ngModel' 
+            name='weight' 
+            title='Weight' 
+            placeholder='Weight'
+            class='form-control'
+            [ngClass]="{ 'error' : !weight.valid && weight.touched }" 
+            [value]='currentInstance.weight' 
+            [min]='0' [max]='100' 
+            [(ngModel)]='currentInstance.weight'
+            [format]="'n2'" 
+            [decimals]='2'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- MeasurementUnit -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("MeasurementUnit_Id")'></guide>
+        <label for='measurementUnit' class='col-form-label'>Measurement Unit : </label>
+        <span class='help-block col-form-label' *ngIf='!measurementUnit.valid && measurementUnit.touched && !measurementUnit.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #measurementUnit='ngModel' 
+                    #measurementUnitCombo='kendoDropDownList' 
+                    name='measurementUnit' 
+                    title='Measurement Unit'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !measurementUnit.valid && measurementUnit.touched }" 
+                    [data]='measurementUnitComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='measurementUnitComponent.filterable'
+                    (filterChange)='measurementUnitComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.measurementUnit"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='measurementUnitComponent.addable'>
+                      <button class='btn btn-primary' (click)='measurementUnitComponent.onAdd(measurementUnitCombo, measurementUnitEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- MidTarget -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("MidTarget")'></guide>
+        <label for='midTarget' class='col-form-label'>Mid Target : </label>
+        <span class='help-block col-form-label' *ngIf='!midTarget.valid && midTarget.touched && !midTarget.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #midTarget='ngModel' 
+            name='midTarget' 
+            title='Mid Target' 
+            placeholder='Mid Target'
+            class='form-control'
+            [ngClass]="{ 'error' : !midTarget.valid && midTarget.touched }" 
+            [value]='currentInstance.midTarget' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.midTarget'
+            [format]="'n1'" 
+            [decimals]='1'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- AnnualTarget -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("AnnualTarget")'></guide>
+        <label for='annualTarget' class='col-form-label'>Annual Target : </label>
+        <span class='help-block col-form-label' *ngIf='!annualTarget.valid && annualTarget.touched && !annualTarget.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #annualTarget='ngModel' 
+            name='annualTarget' 
+            title='Annual Target' 
+            placeholder='Annual Target'
+            class='form-control'
+            [ngClass]="{ 'error' : !annualTarget.valid && annualTarget.touched }" 
+            [value]='currentInstance.annualTarget' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.annualTarget'
+            [format]="'n1'" 
+            [decimals]='1'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- Description -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Description")'></guide>
+        <label for='description' class='col-form-label'>Description : </label>
+        <span class='help-block col-form-label' *ngIf='!description.valid && description.touched && !description.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Description' 
+                    [ngClass]="{ 'error' : !description.valid && description.touched }" 
+                    class='form-control ' 
+                    #description='ngModel' 
+                    name='description' 
+                    placeholder='... Description' 
+                    [(ngModel)]='currentInstance.description' 
+                    [disabled]='IsLocked'
+                    maxlength='1000'  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!functionalKPIEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!functionalKPIEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, functionalKPIEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<pms-functionalObjective-edit #functionalObjectiveEditUI 
+    (onClosed)='functionalObjectiveComponent.onClosed($event)'>
+</pms-functionalObjective-edit>
+<base-pms-measurementUnit-edit #measurementUnitEditUI 
+    (onClosed)='measurementUnitComponent.onClosed($event)'>
+</base-pms-measurementUnit-edit>

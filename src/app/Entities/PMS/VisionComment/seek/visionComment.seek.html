@@ -1,0 +1,94 @@
+﻿<XDialog Header='Search form of Vision Comment' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='vision' class='col-sm-3 col-form-label'>Vision : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #vision='ngModel' 
+                    #visionCombo='kendoDropDownList' 
+                    name='vision' 
+                    title='Vision'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !vision.valid && vision.touched }" 
+                    [data]='visionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='visionComponent.filterable'
+                    (filterChange)='visionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.vision"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='visionComponent.addable'>
+                      <button class='btn btn-primary' (click)='visionComponent.onAdd(visionCombo, visionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='time' class='col-sm-3 col-form-label'>Time : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #time='ngModel' id='time' name='time'
+										 title='Time'
+										 autocomplete='off'
+										 placeholder='Time'
+										[(ngModel)]='visionComment.time'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='commentator' class='col-sm-3 col-form-label'>Commentator : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #commentator='ngModel' 
+                    #commentatorCombo='kendoDropDownList' 
+                    name='commentator' 
+                    title='Commentator'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !commentator.valid && commentator.touched }" 
+                    [data]='commentatorComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='commentatorComponent.filterable'
+                    (filterChange)='commentatorComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.commentator"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='commentatorComponent.addable'>
+                      <button class='btn btn-primary' (click)='commentatorComponent.onAdd(commentatorCombo, commentatorEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='title' class='col-sm-3 col-form-label'>Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='visionComment.title'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='content' class='col-sm-3 col-form-label'>Content : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #content='ngModel' id='content' name='content'
+										 title='Content'
+										 autocomplete='off'
+										 placeholder='Content'
+										[(ngModel)]='visionComment.content'
+										 type='text'
+										 maxlength='2000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

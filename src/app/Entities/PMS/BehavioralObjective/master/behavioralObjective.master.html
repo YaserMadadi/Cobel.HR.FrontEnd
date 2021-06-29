@@ -1,0 +1,76 @@
+﻿<XDialog Header='Behavioral Objective Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Behavioral Objective : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Target Setting : 
+                        <guide (onClick)='onGuid("TargetSetting_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.targetSetting?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Competency Item : 
+                        <guide (onClick)='onGuid("CompetencyItem_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.competencyItem?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Expected Level : 
+                        <guide (onClick)='onGuid("ExpectedLevel_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.expectedLevel?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Weight : 
+                        <guide (onClick)='onGuid("Weight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.weight | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>KPI Total Weight : 
+                        <guide (onClick)='onGuid("totalKPIWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.totalKPIWeight | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Description : 
+                        <guide (onClick)='onGuid("Description")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.description }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee Score : 
+                        <guide (onClick)='onGuid("FinalScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employeeScore | number }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Manager Score : 
+                        <guide (onClick)='onGuid("FinalScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.managerScore | number }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Behavioral KPI'>
+                <behavioralObjective-behavioralKPI-detail 
+                    #pmsBehavioralObjectiveBehavioralKPIDetail
+                    [BehavioralObjective]='currentInstance'>
+                </behavioralObjective-behavioralKPI-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

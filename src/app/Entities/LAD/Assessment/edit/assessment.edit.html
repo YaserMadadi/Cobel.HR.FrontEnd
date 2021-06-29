@@ -1,0 +1,126 @@
+﻿<XDialog Header='Edit Form of Assessment' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, assessmentEditUI)' 
+    #assessmentEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Employee -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Employee_Id")'></guide>
+        <label for='employee' class='col-form-label'>Employee : </label>
+        <span class='help-block col-form-label' *ngIf='!employee.valid && employee.touched && !employee.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- AssessmentType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("AssessmentType_Id")'></guide>
+        <label for='assessmentType' class='col-form-label'>Assessment Type : </label>
+        <span class='help-block col-form-label' *ngIf='!assessmentType.valid && assessmentType.touched && !assessmentType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #assessmentType='ngModel' 
+                    #assessmentTypeCombo='kendoDropDownList' 
+                    name='assessmentType' 
+                    title='Assessment Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessmentType.valid && assessmentType.touched }" 
+                    [data]='assessmentTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessmentTypeComponent.filterable'
+                    (filterChange)='assessmentTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessmentType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessmentTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessmentTypeComponent.onAdd(assessmentTypeCombo, assessmentTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Assessor -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Assessor_Id")'></guide>
+        <label for='assessor' class='col-form-label'>Assessor : </label>
+        <span class='help-block col-form-label' *ngIf='!assessor.valid && assessor.touched && !assessor.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #assessor='ngModel' 
+                    #assessorCombo='kendoDropDownList' 
+                    name='assessor' 
+                    title='Assessor'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessor.valid && assessor.touched }" 
+                    [data]='assessorComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessorComponent.filterable'
+                    (filterChange)='assessorComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessor"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessorComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessorComponent.onAdd(assessorCombo, assessorEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- AssessmentDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("AssessmentDate")'></guide>
+        <label for='assessmentDate' class='col-form-label'>Assessment Date : </label>
+        <span class='help-block col-form-label' *ngIf='!assessmentDate.valid && assessmentDate.touched && !assessmentDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Assessment Date 
+                    [ngClass]="{ 'error' : !assessmentDate.valid && assessmentDate.touched }" 
+                    class='form-control' 
+                    #assessmentDate='ngModel' 
+                    name='assessmentDate'
+                    [ngModel]="currentInstance.assessmentDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.assessmentDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!assessmentEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!assessmentEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, assessmentEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-employee-edit #employeeEditUI 
+    (onClosed)='employeeComponent.onClosed($event)'>
+</hr-employee-edit>
+<lad-assessmentType-edit #assessmentTypeEditUI 
+    (onClosed)='assessmentTypeComponent.onClosed($event)'>
+</lad-assessmentType-edit>
+<lad-assessor-edit #assessorEditUI 
+    (onClosed)='assessorComponent.onClosed($event)'>
+</lad-assessor-edit>

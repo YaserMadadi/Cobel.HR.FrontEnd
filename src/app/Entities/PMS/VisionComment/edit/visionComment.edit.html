@@ -1,0 +1,131 @@
+﻿<XDialog Header='Edit Form of Vision Comment' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, visionCommentEditUI)' 
+    #visionCommentEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Vision -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Vision_Id")'></guide>
+        <label for='vision' class='col-form-label'>Vision : </label>
+        <span class='help-block col-form-label' *ngIf='!vision.valid && vision.touched && !vision.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #vision='ngModel' 
+                    #visionCombo='kendoDropDownList' 
+                    name='vision' 
+                    title='Vision'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !vision.valid && vision.touched }" 
+                    [data]='visionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='visionComponent.filterable'
+                    (filterChange)='visionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.vision"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='visionComponent.addable'>
+                      <button class='btn btn-primary' (click)='visionComponent.onAdd(visionCombo, visionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Time -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Time")'></guide>
+        <label for='time' class='col-form-label'>Time : </label>
+        <span class='help-block col-form-label' *ngIf='!time.valid && time.touched && !time.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Time 
+                    [ngClass]="{ 'error' : !time.valid && time.touched }" 
+                    class='form-control' 
+                    #time='ngModel' 
+                    name='time'
+                    [ngModel]="currentInstance.time | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.time = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- Commentator -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Commentator_Id")'></guide>
+        <label for='commentator' class='col-form-label'>Commentator : </label>
+        <span class='help-block col-form-label' *ngIf='!commentator.valid && commentator.touched && !commentator.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #commentator='ngModel' 
+                    #commentatorCombo='kendoDropDownList' 
+                    name='commentator' 
+                    title='Commentator'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !commentator.valid && commentator.touched }" 
+                    [data]='commentatorComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='commentatorComponent.filterable'
+                    (filterChange)='commentatorComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.commentator"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='commentatorComponent.addable'>
+                      <button class='btn btn-primary' (click)='commentatorComponent.onAdd(commentatorCombo, commentatorEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Title")'></guide>
+        <label for='title' class='col-form-label'>Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Title' 
+                    [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                    class='form-control ' 
+                    #title='ngModel' 
+                    name='title' 
+                    placeholder='... Title' 
+                    [(ngModel)]='currentInstance.title' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  required  />
+      </div>
+			<!-- Content -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Content")'></guide>
+        <label for='content' class='col-form-label'>Content : </label>
+        <span class='help-block col-form-label' *ngIf='!content.valid && content.touched && !content.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Content' 
+                    [ngClass]="{ 'error' : !content.valid && content.touched }" 
+                    class='form-control ' 
+                    #content='ngModel' 
+                    name='content' 
+                    placeholder='... Content' 
+                    [(ngModel)]='currentInstance.content' 
+                    [disabled]='IsLocked'
+                    maxlength='2000'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!visionCommentEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!visionCommentEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, visionCommentEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<pms-vision-edit #visionEditUI 
+    (onClosed)='visionComponent.onClosed($event)'>
+</pms-vision-edit>
+<hr-employee-edit #commentatorEditUI 
+    (onClosed)='commentatorComponent.onClosed($event)'>
+</hr-employee-edit>

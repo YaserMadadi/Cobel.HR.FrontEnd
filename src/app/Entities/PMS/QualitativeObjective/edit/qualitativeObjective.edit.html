@@ -1,0 +1,135 @@
+﻿<XDialog Header='Edit Form of Qualitative Objective' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, qualitativeObjectiveEditUI)' 
+    #qualitativeObjectiveEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- TargetSetting -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("TargetSetting_Id")'></guide>
+        <label for='targetSetting' class='col-form-label'>Target Setting : </label>
+        <span class='help-block col-form-label' *ngIf='!targetSetting.valid && targetSetting.touched && !targetSetting.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #targetSetting='ngModel' 
+                    #targetSettingCombo='kendoDropDownList' 
+                    name='targetSetting' 
+                    title='Target Setting'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !targetSetting.valid && targetSetting.touched }" 
+                    [data]='targetSettingComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='targetSettingComponent.filterable'
+                    (filterChange)='targetSettingComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.targetSetting"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='targetSettingComponent.addable'>
+                      <button class='btn btn-primary' (click)='targetSettingComponent.onAdd(targetSettingCombo, targetSettingEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Title")'></guide>
+        <label for='title' class='col-form-label'>Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Title' 
+                    [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                    class='form-control ' 
+                    #title='ngModel' 
+                    name='title' 
+                    placeholder='... Title' 
+                    [(ngModel)]='currentInstance.title' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- Weight -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Weight")'></guide>
+        <label for='weight' class='col-form-label'>Weight : </label>
+        <span class='help-block col-form-label' *ngIf='!weight.valid && weight.touched && !weight.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #weight='ngModel' 
+            name='weight' 
+            title='Weight' 
+            placeholder='Weight'
+            class='form-control'
+            [ngClass]="{ 'error' : !weight.valid && weight.touched }" 
+            [value]='currentInstance.weight' 
+            [min]='0' [max]='100' 
+            [(ngModel)]='currentInstance.weight'
+            [format]="'n2'" 
+            [decimals]='2'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- TotalKPIWeight -->
+      <!-- <div class='form-group'>
+        <guide (onClick)='onGuid("TotalKPIWeight")'></guide>
+        <label for='totalKPIWeight' class='col-form-label'>Total KPI Weight : </label>
+        <span class='help-block col-form-label' *ngIf='!totalKPIWeight.valid && totalKPIWeight.touched && !totalKPIWeight.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #totalKPIWeight='ngModel' 
+            name='totalKPIWeight' 
+            title='Total KPI Weight' 
+            placeholder='Total KPI Weight'
+            class='form-control'
+            [ngClass]="{ 'error' : !totalKPIWeight.valid && totalKPIWeight.touched }" 
+            [value]='currentInstance.totalKPIWeight' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.totalKPIWeight'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div> -->
+			<!-- FinalScore -->
+      <!-- <div class='form-group'>
+        <guide (onClick)='onGuid("FinalScore")'></guide>
+        <label for='finalScore' class='col-form-label'>Final Score : </label>
+        <span class='help-block col-form-label' *ngIf='!finalScore.valid && finalScore.touched && !finalScore.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #finalScore='ngModel' 
+            name='finalScore' 
+            title='Final Score' 
+            placeholder='Final Score'
+            class='form-control'
+            [ngClass]="{ 'error' : !finalScore.valid && finalScore.touched }" 
+            [value]='currentInstance.finalScore' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.finalScore'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div> -->
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!qualitativeObjectiveEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!qualitativeObjectiveEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, qualitativeObjectiveEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<pms-targetSetting-edit #targetSettingEditUI 
+    (onClosed)='targetSettingComponent.onClosed($event)'>
+</pms-targetSetting-edit>

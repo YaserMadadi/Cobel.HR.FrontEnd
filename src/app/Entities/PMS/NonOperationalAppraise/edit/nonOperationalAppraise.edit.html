@@ -1,0 +1,205 @@
+﻿<XDialog Header='Edit Form of Non Operational Appraise' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, nonOperationalAppraiseEditUI)' 
+    #nonOperationalAppraiseEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- TargetSetting -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("TargetSetting_Id")'></guide>
+        <label for='targetSetting' class='col-form-label'>Target Setting : </label>
+        <span class='help-block col-form-label' *ngIf='!targetSetting.valid && targetSetting.touched && !targetSetting.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #targetSetting='ngModel' 
+                    #targetSettingCombo='kendoDropDownList' 
+                    name='targetSetting' 
+                    title='Target Setting'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !targetSetting.valid && targetSetting.touched }" 
+                    [data]='targetSettingComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='targetSettingComponent.filterable'
+                    (filterChange)='targetSettingComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.targetSetting"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='targetSettingComponent.addable'>
+                      <button class='btn btn-primary' (click)='targetSettingComponent.onAdd(targetSettingCombo, targetSettingEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Date -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Date")'></guide>
+        <label for='date' class='col-form-label'>Date : </label>
+        <span class='help-block col-form-label' *ngIf='!date.valid && date.touched && !date.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Date 
+                    [ngClass]="{ 'error' : !date.valid && date.touched }" 
+                    class='form-control' 
+                    #date='ngModel' 
+                    name='date'
+                    [ngModel]="currentInstance.date | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.date = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- Approver -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Approver_Id")'></guide>
+        <label for='approver' class='col-form-label'>Approver : </label>
+        <span class='help-block col-form-label' *ngIf='!approver.valid && approver.touched && !approver.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #approver='ngModel' 
+                    #approverCombo='kendoDropDownList' 
+                    name='approver' 
+                    title='Approver'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !approver.valid && approver.touched }" 
+                    [data]='approverComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='approverComponent.filterable'
+                    (filterChange)='approverComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.approver"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='approverComponent.addable'>
+                      <button class='btn btn-primary' (click)='approverComponent.onAdd(approverCombo, approverEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- FunctionalScore -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("FunctionalScore")'></guide>
+        <label for='functionalScore' class='col-form-label'>Functional Score : </label>
+        <span class='help-block col-form-label' *ngIf='!functionalScore.valid && functionalScore.touched && !functionalScore.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #functionalScore='ngModel' 
+            name='functionalScore' 
+            title='Functional Score' 
+            placeholder='Functional Score'
+            class='form-control'
+            [ngClass]="{ 'error' : !functionalScore.valid && functionalScore.touched }" 
+            [value]='currentInstance.functionalScore' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.functionalScore'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- BehavioralScore -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("BehavioralScore")'></guide>
+        <label for='behavioralScore' class='col-form-label'>Behavioral Score : </label>
+        <span class='help-block col-form-label' *ngIf='!behavioralScore.valid && behavioralScore.touched && !behavioralScore.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #behavioralScore='ngModel' 
+            name='behavioralScore' 
+            title='Behavioral Score' 
+            placeholder='Behavioral Score'
+            class='form-control'
+            [ngClass]="{ 'error' : !behavioralScore.valid && behavioralScore.touched }" 
+            [value]='currentInstance.behavioralScore' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.behavioralScore'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- TotalScore -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("TotalScore")'></guide>
+        <label for='totalScore' class='col-form-label'>Total Score : </label>
+        <span class='help-block col-form-label' *ngIf='!totalScore.valid && totalScore.touched && !totalScore.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #totalScore='ngModel' 
+            name='totalScore' 
+            title='Total Score' 
+            placeholder='Total Score'
+            class='form-control'
+            [ngClass]="{ 'error' : !totalScore.valid && totalScore.touched }" 
+            [value]='currentInstance.totalScore' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.totalScore'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- ScoreCell -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ScoreCell_Id")'></guide>
+        <label for='scoreCell' class='col-form-label'>Score Cell : </label>
+        <span class='help-block col-form-label' *ngIf='!scoreCell.valid && scoreCell.touched && !scoreCell.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #scoreCell='ngModel' 
+                    #scoreCellCombo='kendoDropDownList' 
+                    name='scoreCell' 
+                    title='Score Cell'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !scoreCell.valid && scoreCell.touched }" 
+                    [data]='scoreCellComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='scoreCellComponent.filterable'
+                    (filterChange)='scoreCellComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.scoreCell"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='scoreCellComponent.addable'>
+                      <button class='btn btn-primary' (click)='scoreCellComponent.onAdd(scoreCellCombo, scoreCellEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Comment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Comment")'></guide>
+        <label for='comment' class='col-form-label'>Comment : </label>
+        <span class='help-block col-form-label' *ngIf='!comment.valid && comment.touched && !comment.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Comment' 
+                    [ngClass]="{ 'error' : !comment.valid && comment.touched }" 
+                    class='form-control ' 
+                    #comment='ngModel' 
+                    name='comment' 
+                    placeholder='... Comment' 
+                    [(ngModel)]='currentInstance.comment' 
+                    [disabled]='IsLocked'
+                    maxlength='800'  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!nonOperationalAppraiseEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!nonOperationalAppraiseEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, nonOperationalAppraiseEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<pms-targetSetting-edit #targetSettingEditUI 
+    (onClosed)='targetSettingComponent.onClosed($event)'>
+</pms-targetSetting-edit>
+<hr-employee-edit #approverEditUI 
+    (onClosed)='approverComponent.onClosed($event)'>
+</hr-employee-edit>
+<pms-scoreCell-edit #scoreCellEditUI 
+    (onClosed)='scoreCellComponent.onClosed($event)'>
+</pms-scoreCell-edit>

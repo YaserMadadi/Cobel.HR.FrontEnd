@@ -1,0 +1,153 @@
+﻿<XDialog Header='Edit Form of Promotion Assessment' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, promotionAssessmentEditUI)' 
+    #promotionAssessmentEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Assessment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Assessment_Id")'></guide>
+        <label for='assessment' class='col-form-label'>Assessment : </label>
+        <span class='help-block col-form-label' *ngIf='!assessment.valid && assessment.touched && !assessment.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #assessment='ngModel' 
+                    #assessmentCombo='kendoDropDownList' 
+                    name='assessment' 
+                    title='Assessment'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessment.valid && assessment.touched }" 
+                    [data]='assessmentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessmentComponent.filterable'
+                    (filterChange)='assessmentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessment"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessmentComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessmentComponent.onAdd(assessmentCombo, assessmentEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- CurrentPosition -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("CurrentPosition_Id")'></guide>
+        <label for='currentPosition' class='col-form-label'>Current Position : </label>
+        <span class='help-block col-form-label' *ngIf='!currentPosition.valid && currentPosition.touched && !currentPosition.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #currentPosition='ngModel' 
+                    #currentPositionCombo='kendoDropDownList' 
+                    name='currentPosition' 
+                    title='Current Position'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !currentPosition.valid && currentPosition.touched }" 
+                    [data]='currentPositionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='currentPositionComponent.filterable'
+                    (filterChange)='currentPositionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.currentPosition"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='currentPositionComponent.addable'>
+                      <button class='btn btn-primary' (click)='currentPositionComponent.onAdd(currentPositionCombo, currentPositionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- ProposedPosition -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ProposedPosition_Id")'></guide>
+        <label for='proposedPosition' class='col-form-label'>Proposed Position : </label>
+        <span class='help-block col-form-label' *ngIf='!proposedPosition.valid && proposedPosition.touched && !proposedPosition.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #proposedPosition='ngModel' 
+                    #proposedPositionCombo='kendoDropDownList' 
+                    name='proposedPosition' 
+                    title='Proposed Position'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !proposedPosition.valid && proposedPosition.touched }" 
+                    [data]='proposedPositionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='proposedPositionComponent.filterable'
+                    (filterChange)='proposedPositionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.proposedPosition"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='proposedPositionComponent.addable'>
+                      <button class='btn btn-primary' (click)='proposedPositionComponent.onAdd(proposedPositionCombo, proposedPositionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- PromotionResult -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PromotionResult_Id")'></guide>
+        <label for='promotionResult' class='col-form-label'>Promotion Result : </label>
+        <span class='help-block col-form-label' *ngIf='!promotionResult.valid && promotionResult.touched && !promotionResult.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #promotionResult='ngModel' 
+                    #promotionResultCombo='kendoDropDownList' 
+                    name='promotionResult' 
+                    title='Promotion Result'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !promotionResult.valid && promotionResult.touched }" 
+                    [data]='promotionResultComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='promotionResultComponent.filterable'
+                    (filterChange)='promotionResultComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.promotionResult"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='promotionResultComponent.addable'>
+                      <button class='btn btn-primary' (click)='promotionResultComponent.onAdd(promotionResultCombo, promotionResultEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Comment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Comment")'></guide>
+        <label for='comment' class='col-form-label'>Comment : </label>
+        <span class='help-block col-form-label' *ngIf='!comment.valid && comment.touched && !comment.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Comment' 
+                    [ngClass]="{ 'error' : !comment.valid && comment.touched }" 
+                    class='form-control ' 
+                    #comment='ngModel' 
+                    name='comment' 
+                    placeholder='... Comment' 
+                    [(ngModel)]='currentInstance.comment' 
+                    [disabled]='IsLocked'
+                    maxlength='2000'  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!promotionAssessmentEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!promotionAssessmentEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, promotionAssessmentEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<lad-assessment-edit #assessmentEditUI 
+    (onClosed)='assessmentComponent.onClosed($event)'>
+</lad-assessment-edit>
+<hr-position-edit #currentPositionEditUI 
+    (onClosed)='currentPositionComponent.onClosed($event)'>
+</hr-position-edit>
+<hr-position-edit #proposedPositionEditUI 
+    (onClosed)='proposedPositionComponent.onClosed($event)'>
+</hr-position-edit>
+<lad-promotionResult-edit #promotionResultEditUI 
+    (onClosed)='promotionResultComponent.onClosed($event)'>
+</lad-promotionResult-edit>

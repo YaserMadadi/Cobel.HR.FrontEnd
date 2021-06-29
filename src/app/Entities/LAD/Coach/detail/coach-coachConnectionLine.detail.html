@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(coachConnectionLineEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(coachConnectionLineEditUI)' [ngClass]="{ 'disabled' : currentCoachConnectionLine.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(coachConnectionLineDeleteUI)' [ngClass]="{ 'disabled' : currentCoachConnectionLine.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('Base','ConnectionType')"> Connection Type</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Coach Connection Line</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let coachConnectionLine of CoachConnectionLineList; let i = index' 
+                (dblclick)='onDblClicked(coachConnectionLineMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : coachConnectionLine.id === currentCoachConnectionLine.id, 'free-row': coachConnectionLine.id !== currentCoachConnectionLine.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ coachConnectionLine.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <lad-coachConnectionLine-edit #coachConnectionLineEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </lad-coachConnectionLine-edit>
+  <lad-coachConnectionLine-delete #coachConnectionLineDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </lad-coachConnectionLine-delete>
+  <lad-coachConnectionLine-master #coachConnectionLineMasterUI >
+  </lad-coachConnectionLine-master>
+</div>

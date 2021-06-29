@@ -1,0 +1,57 @@
+﻿<XDialog Header='Role Permission Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Role Permission : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Role : 
+                        <guide (onClick)='onGuid("Role_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.role?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Entity : 
+                        <guide (onClick)='onGuid("Entity_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.entity?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Add Permission : 
+                        <guide (onClick)='onGuid("AddPermission")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.addPermission }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Edit Permission : 
+                        <guide (onClick)='onGuid("EditPermission")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.editPermission }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Delete Permission : 
+                        <guide (onClick)='onGuid("DeletePermission")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.deletePermission }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>View Index Permission : 
+                        <guide (onClick)='onGuid("ViewIndexPermission")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.viewIndexPermission }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>View Log Permission : 
+                        <guide (onClick)='onGuid("ViewLogPermission")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.viewLogPermission }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

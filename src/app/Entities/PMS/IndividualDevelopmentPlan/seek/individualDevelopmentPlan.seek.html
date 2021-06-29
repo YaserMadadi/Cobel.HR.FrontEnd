@@ -1,0 +1,176 @@
+﻿<XDialog Header='Search form of Individual Development Plan' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='vision' class='col-sm-3 col-form-label'>Vision : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #vision='ngModel' 
+                    #visionCombo='kendoDropDownList' 
+                    name='vision' 
+                    title='Vision'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !vision.valid && vision.touched }" 
+                    [data]='visionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='visionComponent.filterable'
+                    (filterChange)='visionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.vision"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='visionComponent.addable'>
+                      <button class='btn btn-primary' (click)='visionComponent.onAdd(visionCombo, visionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='priority' class='col-sm-3 col-form-label'>Priority : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #priority='ngModel' 
+                    #priorityCombo='kendoDropDownList' 
+                    name='priority' 
+                    title='Priority'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !priority.valid && priority.touched }" 
+                    [data]='priorityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='priorityComponent.filterable'
+                    (filterChange)='priorityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.priority"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='priorityComponent.addable'>
+                      <button class='btn btn-primary' (click)='priorityComponent.onAdd(priorityCombo, priorityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='subject' class='col-sm-3 col-form-label'>Subject : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #subject='ngModel' 
+                    #subjectCombo='kendoDropDownList' 
+                    name='subject' 
+                    title='Subject'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !subject.valid && subject.touched }" 
+                    [data]='subjectComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='subjectComponent.filterable'
+                    (filterChange)='subjectComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.subject"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='subjectComponent.addable'>
+                      <button class='btn btn-primary' (click)='subjectComponent.onAdd(subjectCombo, subjectEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='title' class='col-sm-3 col-form-label'>Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='individualDevelopmentPlan.title'
+										 type='text'
+										 maxlength='800'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='currentSituation' class='col-sm-3 col-form-label'>Current Situation : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #currentSituation='ngModel' 
+                    #currentSituationCombo='kendoDropDownList' 
+                    name='currentSituation' 
+                    title='Current Situation'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !currentSituation.valid && currentSituation.touched }" 
+                    [data]='currentSituationComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='currentSituationComponent.filterable'
+                    (filterChange)='currentSituationComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.currentSituation"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='currentSituationComponent.addable'>
+                      <button class='btn btn-primary' (click)='currentSituationComponent.onAdd(currentSituationCombo, currentSituationEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='desirableSituation' class='col-sm-3 col-form-label'>Desirable Situation : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #desirableSituation='ngModel' 
+                    #desirableSituationCombo='kendoDropDownList' 
+                    name='desirableSituation' 
+                    title='Desirable Situation'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !desirableSituation.valid && desirableSituation.touched }" 
+                    [data]='desirableSituationComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='desirableSituationComponent.filterable'
+                    (filterChange)='desirableSituationComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.desirableSituation"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='desirableSituationComponent.addable'>
+                      <button class='btn btn-primary' (click)='desirableSituationComponent.onAdd(desirableSituationCombo, desirableSituationEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='fromDate' class='col-sm-3 col-form-label'>From Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #fromDate='ngModel' id='fromDate' name='fromDate'
+										 title='From Date'
+										 autocomplete='off'
+										 placeholder='From Date'
+										[(ngModel)]='individualDevelopmentPlan.fromDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='toDate' class='col-sm-3 col-form-label'>To Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #toDate='ngModel' id='toDate' name='toDate'
+										 title='To Date'
+										 autocomplete='off'
+										 placeholder='To Date'
+										[(ngModel)]='individualDevelopmentPlan.toDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='effectiveNessIndex' class='col-sm-3 col-form-label'>Effective Ness Index : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #effectiveNessIndex='ngModel' id='effectiveNessIndex' name='effectiveNessIndex'
+										 title='Effective Ness Index'
+										 autocomplete='off'
+										 placeholder='Effective Ness Index'
+										[(ngModel)]='individualDevelopmentPlan.effectiveNessIndex'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

@@ -1,0 +1,99 @@
+﻿<XDialog Header='Delete Confirmation Form of Person' 
+    [IsShown]='IsShown' 
+    (OnClosed)='onCancel()'
+    [ModalType]='3'>
+    <div class='delete-frame'>
+        <p></p>
+        <p>You are going to Delete the record of Person! </p>
+        <br>
+        <div class='margin20'>
+            
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>National Code : </label>
+            <label class='col-sm-8'>{{ currentInstance?.nationalCode }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>English First Name : </label>
+            <label class='col-sm-8'>{{ currentInstance?.englishFirstName }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>English Last Name : </label>
+            <label class='col-sm-8'>{{ currentInstance?.englishLastName }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>English Nick Name : </label>
+            <label class='col-sm-8'>{{ currentInstance?.englishNickName }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Persian First Name : </label>
+            <label class='col-sm-8'>{{ currentInstance?.persianFirstName }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Persian Last Name : </label>
+            <label class='col-sm-8'>{{ currentInstance?.persianLastName }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Persian Nick Name : </label>
+            <label class='col-sm-8'>{{ currentInstance?.persianNickName }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Gender : </label>
+            <label class='col-sm-8'>{{ currentInstance?.gender?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>English Father Name : </label>
+            <label class='col-sm-8'>{{ currentInstance?.englishFatherName }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Persian Father Name : </label>
+            <label class='col-sm-8'>{{ currentInstance?.persianFatherName }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Documented Birth Date : </label>
+            <label class='col-sm-8'>{{ currentInstance?.documentedBirthDate | date:'fullDate' }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Real Birth Date : </label>
+            <label class='col-sm-8'>{{ currentInstance?.realBirthDate | date:'fullDate' }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Birth City : </label>
+            <label class='col-sm-8'>{{ currentInstance?.birthCity?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Religion : </label>
+            <label class='col-sm-8'>{{ currentInstance?.religion?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Health Status : </label>
+            <label class='col-sm-8'>{{ currentInstance?.healthStatus?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Nationality : </label>
+            <label class='col-sm-8'>{{ currentInstance?.nationality?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Birth Certificate Number : </label>
+            <label class='col-sm-8'>{{ currentInstance?.birthCertificateNumber }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Birth Certificate Serial Number : </label>
+            <label class='col-sm-8'>{{ currentInstance?.birthCertificateSerialNumber }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Marital Status : </label>
+            <label class='col-sm-8'>{{ currentInstance?.maritalStatus?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Child Count : </label>
+            <label class='col-sm-8'>{{ currentInstance?.childCount | number }}</label>
+        </div>
+        </div>
+        <br>
+        <p>Do You Confirm?  </p>
+    </div>
+    <div class='modal-footer'>
+      <button class='xbtn btn-delete modal-footer-button' type='button' (click)='onDelete()'>Ok, Delete it</button>
+      <button class='xbtn btn-edit modal-footer-button' type='button' (click)='onCancel()'>Cancel</button>
+    </div>
+</XDialog>

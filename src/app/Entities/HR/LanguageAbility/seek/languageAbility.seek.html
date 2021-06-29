@@ -1,0 +1,162 @@
+﻿<XDialog Header='Search form of Language Ability' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='person' class='col-sm-3 col-form-label'>Person : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='language' class='col-sm-3 col-form-label'>Language : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #language='ngModel' 
+                    #languageCombo='kendoDropDownList' 
+                    name='language' 
+                    title='Language'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !language.valid && language.touched }" 
+                    [data]='languageComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='languageComponent.filterable'
+                    (filterChange)='languageComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.language"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='languageComponent.addable'>
+                      <button class='btn btn-primary' (click)='languageComponent.onAdd(languageCombo, languageEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='writingLevel' class='col-sm-3 col-form-label'>Writing Level : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #writingLevel='ngModel' 
+                    #writingLevelCombo='kendoDropDownList' 
+                    name='writingLevel' 
+                    title='Writing Level'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !writingLevel.valid && writingLevel.touched }" 
+                    [data]='writingLevelComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='writingLevelComponent.filterable'
+                    (filterChange)='writingLevelComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.writingLevel"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='writingLevelComponent.addable'>
+                      <button class='btn btn-primary' (click)='writingLevelComponent.onAdd(writingLevelCombo, writingLevelEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='readingLevel' class='col-sm-3 col-form-label'>Reading Level : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #readingLevel='ngModel' 
+                    #readingLevelCombo='kendoDropDownList' 
+                    name='readingLevel' 
+                    title='Reading Level'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !readingLevel.valid && readingLevel.touched }" 
+                    [data]='readingLevelComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='readingLevelComponent.filterable'
+                    (filterChange)='readingLevelComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.readingLevel"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='readingLevelComponent.addable'>
+                      <button class='btn btn-primary' (click)='readingLevelComponent.onAdd(readingLevelCombo, readingLevelEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='speackingLevel' class='col-sm-3 col-form-label'>Speacking Level : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #speackingLevel='ngModel' 
+                    #speackingLevelCombo='kendoDropDownList' 
+                    name='speackingLevel' 
+                    title='Speacking Level'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !speackingLevel.valid && speackingLevel.touched }" 
+                    [data]='speackingLevelComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='speackingLevelComponent.filterable'
+                    (filterChange)='speackingLevelComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.speackingLevel"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='speackingLevelComponent.addable'>
+                      <button class='btn btn-primary' (click)='speackingLevelComponent.onAdd(speackingLevelCombo, speackingLevelEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='listeningLevel' class='col-sm-3 col-form-label'>Listening Level : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #listeningLevel='ngModel' 
+                    #listeningLevelCombo='kendoDropDownList' 
+                    name='listeningLevel' 
+                    title='Listening Level'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !listeningLevel.valid && listeningLevel.touched }" 
+                    [data]='listeningLevelComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='listeningLevelComponent.filterable'
+                    (filterChange)='listeningLevelComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.listeningLevel"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='listeningLevelComponent.addable'>
+                      <button class='btn btn-primary' (click)='listeningLevelComponent.onAdd(listeningLevelCombo, listeningLevelEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='comment' class='col-sm-3 col-form-label'>Comment : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #comment='ngModel' id='comment' name='comment'
+										 title='Comment'
+										 autocomplete='off'
+										 placeholder='Comment'
+										[(ngModel)]='languageAbility.comment'
+										 type='text'
+										 maxlength='2000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

@@ -1,0 +1,52 @@
+﻿<XDialog Header='Field Of Study Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Field Of Study : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>University Field Category : 
+                        <guide (onClick)='onGuid("UniversityFieldCategory_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.universityFieldCategory?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Major : 
+                        <guide (onClick)='onGuid("Major")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.major }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Minor : 
+                        <guide (onClick)='onGuid("Minor")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.minor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Code : 
+                        <guide (onClick)='onGuid("Code")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.code | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='University History'>
+                <fieldOfStudy-universityHistory-detail 
+                    #baseFieldOfStudyUniversityHistoryDetail
+                    [FieldOfStudy]='currentInstance'>
+                </fieldOfStudy-universityHistory-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

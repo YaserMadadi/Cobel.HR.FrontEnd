@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(conclusionEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(conclusionEditUI)' [ngClass]="{ 'disabled' : currentConclusion.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(conclusionDeleteUI)' [ngClass]="{ 'disabled' : currentConclusion.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('LAD','Assessment')"> Assessment</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Conclusion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let conclusion of ConclusionList; let i = index' 
+                (dblclick)='onDblClicked(conclusionMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : conclusion.id === currentConclusion.id, 'free-row': conclusion.id !== currentConclusion.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ conclusion.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <lad-conclusion-edit #conclusionEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </lad-conclusion-edit>
+  <lad-conclusion-delete #conclusionDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </lad-conclusion-delete>
+  <lad-conclusion-master #conclusionMasterUI >
+  </lad-conclusion-master>
+</div>

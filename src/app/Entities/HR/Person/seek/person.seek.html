@@ -1,0 +1,328 @@
+﻿<XDialog Header='Search form of Person' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='nationalCode' class='col-sm-3 col-form-label'>National Code : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #nationalCode='ngModel' id='nationalCode' name='nationalCode'
+										 title='National Code'
+										 autocomplete='off'
+										 placeholder='National Code'
+										[(ngModel)]='person.nationalCode'
+										 type='text'
+										 maxlength='10'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='englishFirstName' class='col-sm-3 col-form-label'>English First Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #englishFirstName='ngModel' id='englishFirstName' name='englishFirstName'
+										 title='English First Name'
+										 autocomplete='off'
+										 placeholder='English First Name'
+										[(ngModel)]='person.englishFirstName'
+										 type='text'
+										 maxlength='200'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='englishLastName' class='col-sm-3 col-form-label'>English Last Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #englishLastName='ngModel' id='englishLastName' name='englishLastName'
+										 title='English Last Name'
+										 autocomplete='off'
+										 placeholder='English Last Name'
+										[(ngModel)]='person.englishLastName'
+										 type='text'
+										 maxlength='200'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='englishNickName' class='col-sm-3 col-form-label'>English Nick Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #englishNickName='ngModel' id='englishNickName' name='englishNickName'
+										 title='English Nick Name'
+										 autocomplete='off'
+										 placeholder='English Nick Name'
+										[(ngModel)]='person.englishNickName'
+										 type='text'
+										 maxlength='200'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='persianFirstName' class='col-sm-3 col-form-label'>Persian First Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #persianFirstName='ngModel' id='persianFirstName' name='persianFirstName'
+										 title='Persian First Name'
+										 autocomplete='off'
+										 placeholder='Persian First Name'
+										[(ngModel)]='person.persianFirstName'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='persianLastName' class='col-sm-3 col-form-label'>Persian Last Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #persianLastName='ngModel' id='persianLastName' name='persianLastName'
+										 title='Persian Last Name'
+										 autocomplete='off'
+										 placeholder='Persian Last Name'
+										[(ngModel)]='person.persianLastName'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='persianNickName' class='col-sm-3 col-form-label'>Persian Nick Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #persianNickName='ngModel' id='persianNickName' name='persianNickName'
+										 title='Persian Nick Name'
+										 autocomplete='off'
+										 placeholder='Persian Nick Name'
+										[(ngModel)]='person.persianNickName'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='gender' class='col-sm-3 col-form-label'>Gender : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #gender='ngModel' 
+                    #genderCombo='kendoDropDownList' 
+                    name='gender' 
+                    title='Gender'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !gender.valid && gender.touched }" 
+                    [data]='genderComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='genderComponent.filterable'
+                    (filterChange)='genderComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.gender"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='genderComponent.addable'>
+                      <button class='btn btn-primary' (click)='genderComponent.onAdd(genderCombo, genderEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='englishFatherName' class='col-sm-3 col-form-label'>English Father Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #englishFatherName='ngModel' id='englishFatherName' name='englishFatherName'
+										 title='English Father Name'
+										 autocomplete='off'
+										 placeholder='English Father Name'
+										[(ngModel)]='person.englishFatherName'
+										 type='text'
+										 maxlength='200'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='persianFatherName' class='col-sm-3 col-form-label'>Persian Father Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #persianFatherName='ngModel' id='persianFatherName' name='persianFatherName'
+										 title='Persian Father Name'
+										 autocomplete='off'
+										 placeholder='Persian Father Name'
+										[(ngModel)]='person.persianFatherName'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='documentedBirthDate' class='col-sm-3 col-form-label'>Documented Birth Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #documentedBirthDate='ngModel' id='documentedBirthDate' name='documentedBirthDate'
+										 title='Documented Birth Date'
+										 autocomplete='off'
+										 placeholder='Documented Birth Date'
+										[(ngModel)]='person.documentedBirthDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='realBirthDate' class='col-sm-3 col-form-label'>Real Birth Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #realBirthDate='ngModel' id='realBirthDate' name='realBirthDate'
+										 title='Real Birth Date'
+										 autocomplete='off'
+										 placeholder='Real Birth Date'
+										[(ngModel)]='person.realBirthDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='birthCity' class='col-sm-3 col-form-label'>Birth City : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #birthCity='ngModel' 
+                    #birthCityCombo='kendoDropDownList' 
+                    name='birthCity' 
+                    title='Birth City'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !birthCity.valid && birthCity.touched }" 
+                    [data]='birthCityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='birthCityComponent.filterable'
+                    (filterChange)='birthCityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.birthCity"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='birthCityComponent.addable'>
+                      <button class='btn btn-primary' (click)='birthCityComponent.onAdd(birthCityCombo, birthCityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='religion' class='col-sm-3 col-form-label'>Religion : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #religion='ngModel' 
+                    #religionCombo='kendoDropDownList' 
+                    name='religion' 
+                    title='Religion'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !religion.valid && religion.touched }" 
+                    [data]='religionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='religionComponent.filterable'
+                    (filterChange)='religionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.religion"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='religionComponent.addable'>
+                      <button class='btn btn-primary' (click)='religionComponent.onAdd(religionCombo, religionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='healthStatus' class='col-sm-3 col-form-label'>Health Status : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #healthStatus='ngModel' 
+                    #healthStatusCombo='kendoDropDownList' 
+                    name='healthStatus' 
+                    title='Health Status'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !healthStatus.valid && healthStatus.touched }" 
+                    [data]='healthStatusComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='healthStatusComponent.filterable'
+                    (filterChange)='healthStatusComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.healthStatus"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='healthStatusComponent.addable'>
+                      <button class='btn btn-primary' (click)='healthStatusComponent.onAdd(healthStatusCombo, healthStatusEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='nationality' class='col-sm-3 col-form-label'>Nationality : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #nationality='ngModel' 
+                    #nationalityCombo='kendoDropDownList' 
+                    name='nationality' 
+                    title='Nationality'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !nationality.valid && nationality.touched }" 
+                    [data]='nationalityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='nationalityComponent.filterable'
+                    (filterChange)='nationalityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.nationality"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='nationalityComponent.addable'>
+                      <button class='btn btn-primary' (click)='nationalityComponent.onAdd(nationalityCombo, nationalityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='birthCertificateNumber' class='col-sm-3 col-form-label'>Birth Certificate Number : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #birthCertificateNumber='ngModel' id='birthCertificateNumber' name='birthCertificateNumber'
+										 title='Birth Certificate Number'
+										 autocomplete='off'
+										 placeholder='Birth Certificate Number'
+										[(ngModel)]='person.birthCertificateNumber'
+										 type='text'
+										 maxlength='20'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='birthCertificateSerialNumber' class='col-sm-3 col-form-label'>Birth Certificate Serial Number : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #birthCertificateSerialNumber='ngModel' id='birthCertificateSerialNumber' name='birthCertificateSerialNumber'
+										 title='Birth Certificate Serial Number'
+										 autocomplete='off'
+										 placeholder='Birth Certificate Serial Number'
+										[(ngModel)]='person.birthCertificateSerialNumber'
+										 type='text'
+										 maxlength='20'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='maritalStatus' class='col-sm-3 col-form-label'>Marital Status : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #maritalStatus='ngModel' 
+                    #maritalStatusCombo='kendoDropDownList' 
+                    name='maritalStatus' 
+                    title='Marital Status'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !maritalStatus.valid && maritalStatus.touched }" 
+                    [data]='maritalStatusComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='maritalStatusComponent.filterable'
+                    (filterChange)='maritalStatusComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.maritalStatus"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='maritalStatusComponent.addable'>
+                      <button class='btn btn-primary' (click)='maritalStatusComponent.onAdd(maritalStatusCombo, maritalStatusEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='childCount' class='col-sm-3 col-form-label'>Child Count : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #childCount='ngModel' id='childCount' name='childCount'
+										 title='Child Count'
+										 autocomplete='off'
+										 placeholder='Child Count'
+										[(ngModel)]='person.childCount'
+										 type='number'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

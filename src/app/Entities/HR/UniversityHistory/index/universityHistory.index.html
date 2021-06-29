@@ -1,0 +1,151 @@
+﻿<fieldset class='border'>
+  <legend>University History :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(universityHistoryEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(universityHistoryTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(universityHistoryEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(universityHistoryDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Person", currentInstance.person?.id)'>Manage Person</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "UniversityDegree", currentInstance.universityDegree?.id)'>Manage University Degree</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "University", currentInstance.university?.id)'>Manage University</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "FieldOfStudy", currentInstance.fieldOfStudy?.id)'>Manage Field Of Study</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "EducationSystem", currentInstance.educationSystem?.id)'>Manage Education System</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "CertificationType", currentInstance.certificationType?.id)'>Manage Certification Type</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='universityTerminate_Clicked(universityTerminateEditUI)'>Add University Terminate</a>
+	
+  </dropDownMenu>
+  <table #universityHistoryTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Person'>Person</th>
+        <th title='University Degree'>University Degree</th>
+        <th title='University'>University</th>
+        <th title='Field Of Study'>Field Of Study</th>
+        <th title='Education System'>Education System</th>
+        <th title='Certification Type'>Certification Type</th>
+        <th title='Start Date'>Start Date</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #person='ngModel' id='person' name='person'
+										 title='Person'
+										 autocomplete='off'
+										 placeholder='Person'
+										[(ngModel)]='filterInstance.person.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #universityDegree='ngModel' id='universityDegree' name='universityDegree'
+										 title='University Degree'
+										 autocomplete='off'
+										 placeholder='University Degree'
+										[(ngModel)]='filterInstance.universityDegree.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #university='ngModel' id='university' name='university'
+										 title='University'
+										 autocomplete='off'
+										 placeholder='University'
+										[(ngModel)]='filterInstance.university.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #fieldOfStudy='ngModel' id='fieldOfStudy' name='fieldOfStudy'
+										 title='Field Of Study'
+										 autocomplete='off'
+										 placeholder='Field Of Study'
+										[(ngModel)]='filterInstance.fieldOfStudy.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #educationSystem='ngModel' id='educationSystem' name='educationSystem'
+										 title='Education System'
+										 autocomplete='off'
+										 placeholder='Education System'
+										[(ngModel)]='filterInstance.educationSystem.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #certificationType='ngModel' id='certificationType' name='certificationType'
+										 title='Certification Type'
+										 autocomplete='off'
+										 placeholder='Certification Type'
+										[(ngModel)]='filterInstance.certificationType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #startDate='ngModel' id='startDate' name='startDate'
+										 title='Start Date'
+										 autocomplete='off'
+										 placeholder='Start Date'
+										[(ngModel)]='filterInstance.startDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(universityHistoryMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.person?.descriptor }}</td>
+				<td>{{ p.universityDegree?.descriptor }}</td>
+				<td>{{ p.university?.descriptor }}</td>
+				<td>{{ p.fieldOfStudy?.descriptor }}</td>
+				<td>{{ p.educationSystem?.descriptor }}</td>
+				<td>{{ p.certificationType?.descriptor }}</td>
+				<td>{{ p.startDate | date:'fullDate' }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- UniversityHistory -->
+<hr-universityHistory-master #universityHistoryMasterUI>
+</hr-universityHistory-master>
+
+<hr-universityHistory-edit #universityHistoryEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</hr-universityHistory-edit>
+
+<hr-universityHistory-delete #universityHistoryDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</hr-universityHistory-delete>
+
+
+<hr-universityTerminate-edit #universityTerminateEditUI> <!--  (onClosed)='universityTerminateEditUI_Closed($event)' -->
+</hr-universityTerminate-edit>

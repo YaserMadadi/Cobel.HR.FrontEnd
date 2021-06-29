@@ -1,0 +1,57 @@
+﻿<XDialog Header='Search form of Appraisal Approver Config' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='departmentCategory' class='col-sm-3 col-form-label'>Department Category : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #departmentCategory='ngModel' 
+                    #departmentCategoryCombo='kendoDropDownList' 
+                    name='departmentCategory' 
+                    title='Department Category'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !departmentCategory.valid && departmentCategory.touched }" 
+                    [data]='departmentCategoryComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='departmentCategoryComponent.filterable'
+                    (filterChange)='departmentCategoryComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.departmentCategory"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='departmentCategoryComponent.addable'>
+                      <button class='btn btn-primary' (click)='departmentCategoryComponent.onAdd(departmentCategoryCombo, departmentCategoryEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='approverType' class='col-sm-3 col-form-label'>Approver Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #approverType='ngModel' 
+                    #approverTypeCombo='kendoDropDownList' 
+                    name='approverType' 
+                    title='Approver Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !approverType.valid && approverType.touched }" 
+                    [data]='approverTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='approverTypeComponent.filterable'
+                    (filterChange)='approverTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.approverType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='approverTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='approverTypeComponent.onAdd(approverTypeCombo, approverTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

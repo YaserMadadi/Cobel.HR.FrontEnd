@@ -1,0 +1,120 @@
+﻿<XDialog Header='Edit Form of Coaching Questionary Answered' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, coachingQuestionaryAnsweredEditUI)' 
+    #coachingQuestionaryAnsweredEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- CoachingQuestionary -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("CoachingQuestionary_Id")'></guide>
+        <label for='coachingQuestionary' class='col-form-label'>Coaching Questionary : </label>
+        <span class='help-block col-form-label' *ngIf='!coachingQuestionary.valid && coachingQuestionary.touched && !coachingQuestionary.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #coachingQuestionary='ngModel' 
+                    #coachingQuestionaryCombo='kendoDropDownList' 
+                    name='coachingQuestionary' 
+                    title='Coaching Questionary'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !coachingQuestionary.valid && coachingQuestionary.touched }" 
+                    [data]='coachingQuestionaryComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='coachingQuestionaryComponent.filterable'
+                    (filterChange)='coachingQuestionaryComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.coachingQuestionary"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='coachingQuestionaryComponent.addable'>
+                      <button class='btn btn-primary' (click)='coachingQuestionaryComponent.onAdd(coachingQuestionaryCombo, coachingQuestionaryEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- QuestionaryItem -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("QuestionaryItem_Id")'></guide>
+        <label for='questionaryItem' class='col-form-label'>Questionary Item : </label>
+        <span class='help-block col-form-label' *ngIf='!questionaryItem.valid && questionaryItem.touched && !questionaryItem.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #questionaryItem='ngModel' 
+                    #questionaryItemCombo='kendoDropDownList' 
+                    name='questionaryItem' 
+                    title='Questionary Item'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !questionaryItem.valid && questionaryItem.touched }" 
+                    [data]='questionaryItemComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='questionaryItemComponent.filterable'
+                    (filterChange)='questionaryItemComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.questionaryItem"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='questionaryItemComponent.addable'>
+                      <button class='btn btn-primary' (click)='questionaryItemComponent.onAdd(questionaryItemCombo, questionaryItemEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- AnswerValue -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("AnswerValue")'></guide>
+        <label for='answerValue' class='col-form-label'>Answer Value : </label>
+        <span class='help-block col-form-label' *ngIf='!answerValue.valid && answerValue.touched && !answerValue.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #answerValue='ngModel' 
+            name='answerValue' 
+            title='Answer Value' 
+            placeholder='Answer Value'
+            class='form-control'
+            [ngClass]="{ 'error' : !answerValue.valid && answerValue.touched }" 
+            [value]='currentInstance.answerValue' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.answerValue'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- AnswerText -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("AnswerText")'></guide>
+        <label for='answerText' class='col-form-label'>Answer Text : </label>
+        <span class='help-block col-form-label' *ngIf='!answerText.valid && answerText.touched && !answerText.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Answer Text' 
+                    [ngClass]="{ 'error' : !answerText.valid && answerText.touched }" 
+                    class='form-control ' 
+                    #answerText='ngModel' 
+                    name='answerText' 
+                    placeholder='... Answer Text' 
+                    [(ngModel)]='currentInstance.answerText' 
+                    [disabled]='IsLocked'
+                    maxlength='2000'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!coachingQuestionaryAnsweredEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!coachingQuestionaryAnsweredEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, coachingQuestionaryAnsweredEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<lad-coachingQuestionary-edit #coachingQuestionaryEditUI 
+    (onClosed)='coachingQuestionaryComponent.onClosed($event)'>
+</lad-coachingQuestionary-edit>
+<lad-questionaryItem-edit #questionaryItemEditUI 
+    (onClosed)='questionaryItemComponent.onClosed($event)'>
+</lad-questionaryItem-edit>

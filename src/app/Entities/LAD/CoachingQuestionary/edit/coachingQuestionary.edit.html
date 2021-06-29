@@ -1,0 +1,152 @@
+﻿<XDialog Header='Edit Form of Coaching Questionary' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, coachingQuestionaryEditUI)' 
+    #coachingQuestionaryEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- QuestionaryType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("QuestionaryType_Id")'></guide>
+        <label for='questionaryType' class='col-form-label'>Questionary Type : </label>
+        <span class='help-block col-form-label' *ngIf='!questionaryType.valid && questionaryType.touched && !questionaryType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #questionaryType='ngModel' 
+                    #questionaryTypeCombo='kendoDropDownList' 
+                    name='questionaryType' 
+                    title='Questionary Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !questionaryType.valid && questionaryType.touched }" 
+                    [data]='questionaryTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='questionaryTypeComponent.filterable'
+                    (filterChange)='questionaryTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.questionaryType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='questionaryTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='questionaryTypeComponent.onAdd(questionaryTypeCombo, questionaryTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Assessment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Assessment_Id")'></guide>
+        <label for='assessment' class='col-form-label'>Assessment : </label>
+        <span class='help-block col-form-label' *ngIf='!assessment.valid && assessment.touched && !assessment.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #assessment='ngModel' 
+                    #assessmentCombo='kendoDropDownList' 
+                    name='assessment' 
+                    title='Assessment'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessment.valid && assessment.touched }" 
+                    [data]='assessmentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessmentComponent.filterable'
+                    (filterChange)='assessmentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessment"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessmentComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessmentComponent.onAdd(assessmentCombo, assessmentEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- ResponsiblePerson -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ResponsiblePerson_Id")'></guide>
+        <label for='responsiblePerson' class='col-form-label'>Responsible Person : </label>
+        <span class='help-block col-form-label' *ngIf='!responsiblePerson.valid && responsiblePerson.touched && !responsiblePerson.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #responsiblePerson='ngModel' 
+                    #responsiblePersonCombo='kendoDropDownList' 
+                    name='responsiblePerson' 
+                    title='Responsible Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !responsiblePerson.valid && responsiblePerson.touched }" 
+                    [data]='responsiblePersonComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='responsiblePersonComponent.filterable'
+                    (filterChange)='responsiblePersonComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.responsiblePerson"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='responsiblePersonComponent.addable'>
+                      <button class='btn btn-primary' (click)='responsiblePersonComponent.onAdd(responsiblePersonCombo, responsiblePersonEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- IsActive -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsActive")'></guide>
+        <label for='isActive' class='col-form-label'>Is Active : </label>
+        <!--IsActive do not Required-->
+        <input type='checkbox' 
+                #isActive 
+                id = 'isActive'
+                name = 'isActive'
+                kendoCheckBox
+                [checked] = 'currentInstance.isActive'
+                [(ngModel)] = 'currentInstance.isActive' /> 
+      </div>
+			<!-- IsDone -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsDone")'></guide>
+        <label for='isDone' class='col-form-label'>Is Done : </label>
+        <!--IsDone do not Required-->
+        <input type='checkbox' 
+                #isDone 
+                id = 'isDone'
+                name = 'isDone'
+                kendoCheckBox
+                [checked] = 'currentInstance.isDone'
+                [(ngModel)] = 'currentInstance.isDone' /> 
+      </div>
+			<!-- Average -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Average")'></guide>
+        <label for='average' class='col-form-label'>Average : </label>
+        <span class='help-block col-form-label' *ngIf='!average.valid && average.touched && !average.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Average' 
+                    [ngClass]="{ 'error' : !average.valid && average.touched }" 
+                    class='form-control ' 
+                    #average='ngModel' 
+                    name='average' 
+                    placeholder='... Average' 
+                    [(ngModel)]='currentInstance.average' 
+                    [disabled]='IsLocked'
+                    maxlength='20'  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!coachingQuestionaryEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!coachingQuestionaryEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, coachingQuestionaryEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<lad-questionaryType-edit #questionaryTypeEditUI 
+    (onClosed)='questionaryTypeComponent.onClosed($event)'>
+</lad-questionaryType-edit>
+<lad-assessment-edit #assessmentEditUI 
+    (onClosed)='assessmentComponent.onClosed($event)'>
+</lad-assessment-edit>
+<hr-person-edit #responsiblePersonEditUI 
+    (onClosed)='responsiblePersonComponent.onClosed($event)'>
+</hr-person-edit>

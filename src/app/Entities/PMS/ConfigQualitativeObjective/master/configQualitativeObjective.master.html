@@ -1,0 +1,46 @@
+﻿<XDialog Header='Config Qualitative Objective Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Config Qualitative Objective : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Target Setting Config : 
+                        <guide (onClick)='onGuid("TargetSettingConfig_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.configTargetSetting?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Weight : 
+                        <guide (onClick)='onGuid("Weight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.weight | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Total KPI Weight : 
+                        <guide (onClick)='onGuid("TotalKPIWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.totalKPIWeight | number }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Config Qualitative KPI'>
+                <qualitativeObjectiveConfig-configQualitativeKPI-detail 
+                    #pmsQualitativeObjectiveConfigConfigQualitativeKPIDetail
+                    [QualitativeObjectiveConfig]='currentInstance'>
+                </qualitativeObjectiveConfig-configQualitativeKPI-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

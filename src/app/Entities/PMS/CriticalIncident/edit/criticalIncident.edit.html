@@ -1,0 +1,115 @@
+﻿<XDialog Header='Edit Form of Critical Incident' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, criticalIncidentEditUI)' 
+    #criticalIncidentEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Employee -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Employee_Id")'></guide>
+        <label for='employee' class='col-form-label'>Employee : </label>
+        <span class='help-block col-form-label' *ngIf='!employee.valid && employee.touched && !employee.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- CriticalIncidentType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("CriticalIncidentType_Id")'></guide>
+        <label for='criticalIncidentType' class='col-form-label'>Critical Incident Type : </label>
+        <span class='help-block col-form-label' *ngIf='!criticalIncidentType.valid && criticalIncidentType.touched && !criticalIncidentType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #criticalIncidentType='ngModel' 
+                    #criticalIncidentTypeCombo='kendoDropDownList' 
+                    name='criticalIncidentType' 
+                    title='Critical Incident Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !criticalIncidentType.valid && criticalIncidentType.touched }" 
+                    [data]='criticalIncidentTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='criticalIncidentTypeComponent.filterable'
+                    (filterChange)='criticalIncidentTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.criticalIncidentType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='criticalIncidentTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='criticalIncidentTypeComponent.onAdd(criticalIncidentTypeCombo, criticalIncidentTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- IssueDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IssueDate")'></guide>
+        <label for='issueDate' class='col-form-label'>Issue Date : </label>
+        <span class='help-block col-form-label' *ngIf='!issueDate.valid && issueDate.touched && !issueDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Issue Date 
+                    [ngClass]="{ 'error' : !issueDate.valid && issueDate.touched }" 
+                    class='form-control' 
+                    #issueDate='ngModel' 
+                    name='issueDate'
+                    [ngModel]="currentInstance.issueDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.issueDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- Comment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Comment")'></guide>
+        <label for='comment' class='col-form-label'>Comment : </label>
+        <span class='help-block col-form-label' *ngIf='!comment.valid && comment.touched && !comment.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Comment' 
+                    [ngClass]="{ 'error' : !comment.valid && comment.touched }" 
+                    class='form-control ' 
+                    #comment='ngModel' 
+                    name='comment' 
+                    placeholder='... Comment' 
+                    [(ngModel)]='currentInstance.comment' 
+                    [disabled]='IsLocked'
+                    maxlength='800'  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!criticalIncidentEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!criticalIncidentEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, criticalIncidentEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-employee-edit #employeeEditUI 
+    (onClosed)='employeeComponent.onClosed($event)'>
+</hr-employee-edit>
+<pms-criticalIncidentType-edit #criticalIncidentTypeEditUI 
+    (onClosed)='criticalIncidentTypeComponent.onClosed($event)'>
+</pms-criticalIncidentType-edit>

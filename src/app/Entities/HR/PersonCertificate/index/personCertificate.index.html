@@ -1,0 +1,92 @@
+﻿<fieldset class='border'>
+  <legend>Person Certificate :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(personCertificateEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(personCertificateTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(personCertificateEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(personCertificateDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Person", currentInstance.person?.id)'>Manage Person</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "FieldCategory", currentInstance.fieldCategory?.id)'>Manage Field Category</a>
+    </dropDownMenu>
+  
+  <table #personCertificateTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Person'>Person</th>
+        <th title='Field Category'>Field Category</th>
+        <th title='Title'>Title</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #person='ngModel' id='person' name='person'
+										 title='Person'
+										 autocomplete='off'
+										 placeholder='Person'
+										[(ngModel)]='filterInstance.person.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #fieldCategory='ngModel' id='fieldCategory' name='fieldCategory'
+										 title='Field Category'
+										 autocomplete='off'
+										 placeholder='Field Category'
+										[(ngModel)]='filterInstance.fieldCategory.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='filterInstance.title'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(personCertificateMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.person?.descriptor }}</td>
+				<td>{{ p.fieldCategory?.descriptor }}</td>
+				<td>{{ p.title }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- PersonCertificate -->
+<hr-personCertificate-master #personCertificateMasterUI>
+</hr-personCertificate-master>
+
+<hr-personCertificate-edit #personCertificateEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</hr-personCertificate-edit>
+
+<hr-personCertificate-delete #personCertificateDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</hr-personCertificate-delete>

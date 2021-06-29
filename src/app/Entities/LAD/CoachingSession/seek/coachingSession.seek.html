@@ -1,0 +1,59 @@
+﻿<XDialog Header='Search form of Coaching Session' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='coaching' class='col-sm-3 col-form-label'>Coaching : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #coaching='ngModel' 
+                    #coachingCombo='kendoDropDownList' 
+                    name='coaching' 
+                    title='Coaching'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !coaching.valid && coaching.touched }" 
+                    [data]='coachingComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='coachingComponent.filterable'
+                    (filterChange)='coachingComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.coaching"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='coachingComponent.addable'>
+                      <button class='btn btn-primary' (click)='coachingComponent.onAdd(coachingCombo, coachingEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='date' class='col-sm-3 col-form-label'>Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='coachingSession.date'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='note' class='col-sm-3 col-form-label'>Note : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #note='ngModel' id='note' name='note'
+										 title='Note'
+										 autocomplete='off'
+										 placeholder='Note'
+										[(ngModel)]='coachingSession.note'
+										 type='text'
+										 maxlength='1000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

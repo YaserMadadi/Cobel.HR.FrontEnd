@@ -1,0 +1,138 @@
+﻿<fieldset class='border'>
+  <legend>Qualitative Appraise :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(qualitativeAppraiseEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(qualitativeAppraiseTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(qualitativeAppraiseEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(qualitativeAppraiseDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "QualitativeKPI", currentInstance.qualitativeKPI?.id)'>Manage Qualitative KPI</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Employee", currentInstance.appraiser?.id)'>Manage Employee</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "AppraiseType", currentInstance.appraiseType?.id)'>Manage Appraise Type</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "AppraiseTime", currentInstance.appraiseTime?.id)'>Manage Appraise Time</a>
+    </dropDownMenu>
+  
+  <table #qualitativeAppraiseTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Qualitative KPI'>Qualitative KPI</th>
+        <th title='Date'>Date</th>
+        <th title='Appraiser'>Appraiser</th>
+        <th title='Appraise Type'>Appraise Type</th>
+        <th title='Appraise Time'>Appraise Time</th>
+        <th title='Actual'>Actual</th>
+        <th title='Score'>Score</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #qualitativeKPI='ngModel' id='qualitativeKPI' name='qualitativeKPI'
+										 title='Qualitative KPI'
+										 autocomplete='off'
+										 placeholder='Qualitative KPI'
+										[(ngModel)]='filterInstance.qualitativeKPI.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='filterInstance.date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #appraiser='ngModel' id='appraiser' name='appraiser'
+										 title='Appraiser'
+										 autocomplete='off'
+										 placeholder='Appraiser'
+										[(ngModel)]='filterInstance.appraiser.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #appraiseType='ngModel' id='appraiseType' name='appraiseType'
+										 title='Appraise Type'
+										 autocomplete='off'
+										 placeholder='Appraise Type'
+										[(ngModel)]='filterInstance.appraiseType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #appraiseTime='ngModel' id='appraiseTime' name='appraiseTime'
+										 title='Appraise Time'
+										 autocomplete='off'
+										 placeholder='Appraise Time'
+										[(ngModel)]='filterInstance.appraiseTime.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #actual='ngModel' id='actual' name='actual'
+										 title='Actual'
+										 autocomplete='off'
+										 placeholder='Actual'
+										[(ngModel)]='filterInstance.actual'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #score='ngModel' id='score' name='score'
+										 title='Score'
+										 autocomplete='off'
+										 placeholder='Score'
+										[(ngModel)]='filterInstance.score'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(qualitativeAppraiseMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.qualitativeKPI?.descriptor }}</td>
+				<td>{{ p.date | date:'fullDate' }}</td>
+				<td>{{ p.appraiser?.descriptor }}</td>
+				<td>{{ p.appraiseType?.descriptor }}</td>
+				<td>{{ p.appraiseTime?.descriptor }}</td>
+				<td>{{ p.actual | number }}</td>
+				<td>{{ p.score | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- QualitativeAppraise -->
+<pms-qualitativeAppraise-master #qualitativeAppraiseMasterUI>
+</pms-qualitativeAppraise-master>
+
+<pms-qualitativeAppraise-edit #qualitativeAppraiseEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-qualitativeAppraise-edit>
+
+<pms-qualitativeAppraise-delete #qualitativeAppraiseDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-qualitativeAppraise-delete>

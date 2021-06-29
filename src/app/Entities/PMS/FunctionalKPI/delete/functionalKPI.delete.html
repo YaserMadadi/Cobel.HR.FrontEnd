@@ -1,0 +1,60 @@
+﻿<XDialog Header='Delete Confirmation Form of Functional KPI'
+    [IsShown]='IsShown'
+    (OnClosed)='onCancel()'
+    [ModalType]='3'>
+    <div class='delete-frame'>
+        <p></p>
+        <p>You are going to Delete the record of Functional KPI! </p>
+        <br>
+        <div class='margin20'>
+
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Functional Objective : </label>
+                <label class='col-sm-8'>{{ currentInstance?.functionalObjective?.descriptor }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>KPI Title : </label>
+                <label class='col-sm-8'>{{ currentInstance?.title }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Weight : </label>
+                <label class='col-sm-8'>{{ currentInstance?.weight | number }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Measurement Unit : </label>
+                <label class='col-sm-8'>{{ currentInstance?.measurementUnit?.descriptor }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Mid Target : </label>
+                <label class='col-sm-8'>{{ currentInstance?.midTarget | number }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Annual Target : </label>
+                <label class='col-sm-8'>{{ currentInstance?.annualTarget | number }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Employee Score : </label>
+                <label class='col-sm-8'>{{ currentInstance?.employeeScore | number }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Manager Score : </label>
+                <label class='col-sm-8'>{{ currentInstance?.managerScore | number }}</label>
+            </div>
+
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Description : </label>
+                <label class='col-sm-8'>{{ currentInstance?.description }}</label>
+            </div>
+        </div>
+        <br>
+        <p>Do You Confirm? </p>
+    </div>
+    <div class='modal-footer'>
+        <button class='xbtn btn-delete modal-footer-button'
+            type='button'
+            (click)='onDelete()'>Ok, Delete it</button>
+        <button class='xbtn btn-edit modal-footer-button'
+            type='button'
+            (click)='onCancel()'>Cancel</button>
+    </div>
+</XDialog>

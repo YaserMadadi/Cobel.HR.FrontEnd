@@ -1,0 +1,34 @@
+﻿<XDialog Header='Critical Incident Type Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Critical Incident Type : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Critical Incident'>
+                <criticalIncidentType-criticalIncident-detail 
+                    #pmsCriticalIncidentTypeCriticalIncidentDetail
+                    [CriticalIncidentType]='currentInstance'>
+                </criticalIncidentType-criticalIncident-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

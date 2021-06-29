@@ -1,0 +1,139 @@
+﻿<fieldset class='border'>
+  <legend>Vision :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(visionEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(visionTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(visionEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(visionDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Employee", currentInstance.employee?.id)'>Manage Employee</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='visionComment_Clicked(visionCommentEditUI)'>Add Vision Comment</a>
+		<a class='dropdown-item pointer' (click)='visionApproved_Clicked(visionApprovedEditUI)'>Add Vision Approved</a>
+		<a class='dropdown-item pointer' (click)='individualDevelopmentPlan_Clicked(individualDevelopmentPlanEditUI)'>Add Individual Development Plan</a>
+	
+  </dropDownMenu>
+  <table #visionTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Employee'>Employee</th>
+        <th title='Title'>Title</th>
+        <th title='Date'>Date</th>
+        <th title='Employee Approvement Status'>Employee Approvement Status</th>
+        <th title='Direct Manager Approvement Status'>Direct Manager Approvement Status</th>
+        <th title='B U Head Approvement Status'>B U Head Approvement Status</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #employee='ngModel' id='employee' name='employee'
+										 title='Employee'
+										 autocomplete='off'
+										 placeholder='Employee'
+										[(ngModel)]='filterInstance.employee.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='filterInstance.title'
+										 type='text'
+										 maxlength='4000'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='filterInstance.date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #employeeApprovementStatus='ngModel' id='employeeApprovementStatus' name='employeeApprovementStatus'
+										 title='Employee Approvement Status'
+										 autocomplete='off'
+										 placeholder='Employee Approvement Status'
+										[(ngModel)]='filterInstance.employeeApprovementStatus'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #directManagerApprovementStatus='ngModel' id='directManagerApprovementStatus' name='directManagerApprovementStatus'
+										 title='Direct Manager Approvement Status'
+										 autocomplete='off'
+										 placeholder='Direct Manager Approvement Status'
+										[(ngModel)]='filterInstance.directManagerApprovementStatus'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #buheadApprovementStatus='ngModel' id='buheadApprovementStatus' name='buheadApprovementStatus'
+										 title='B U Head Approvement Status'
+										 autocomplete='off'
+										 placeholder='B U Head Approvement Status'
+										[(ngModel)]='filterInstance.buheadApprovementStatus'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(visionMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.employee?.descriptor }}</td>
+				<td>{{ p.title }}</td>
+				<td>{{ p.date | date:'fullDate' }}</td>
+				<td>{{ p.employeeApprovementStatus }}</td>
+				<td>{{ p.directManagerApprovementStatus }}</td>
+				<td>{{ p.buheadApprovementStatus }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- Vision -->
+<pms-vision-master #visionMasterUI>
+</pms-vision-master>
+
+<pms-vision-edit #visionEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-vision-edit>
+
+<pms-vision-delete #visionDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-vision-delete>
+
+
+<pms-visionComment-edit #visionCommentEditUI> <!--  (onClosed)='visionCommentEditUI_Closed($event)' -->
+</pms-visionComment-edit> 
+<pms-visionApproved-edit #visionApprovedEditUI> <!--  (onClosed)='visionApprovedEditUI_Closed($event)' -->
+</pms-visionApproved-edit> 
+<pms-individualDevelopmentPlan-edit #individualDevelopmentPlanEditUI> <!--  (onClosed)='individualDevelopmentPlanEditUI_Closed($event)' -->
+</pms-individualDevelopmentPlan-edit>

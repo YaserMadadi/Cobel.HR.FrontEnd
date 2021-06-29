@@ -1,0 +1,148 @@
+﻿<XDialog Header='Edit Form of Role Permission' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, rolePermissionEditUI)' 
+    #rolePermissionEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Role -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Role_Id")'></guide>
+        <label for='role' class='col-form-label'>Role : </label>
+        <span class='help-block col-form-label' *ngIf='!role.valid && role.touched && !role.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #role='ngModel' 
+                    #roleCombo='kendoDropDownList' 
+                    name='role' 
+                    title='Role'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !role.valid && role.touched }" 
+                    [data]='roleComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='roleComponent.filterable'
+                    (filterChange)='roleComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.role"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='roleComponent.addable'>
+                      <button class='btn btn-primary' (click)='roleComponent.onAdd(roleCombo, roleEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Entity -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Entity_Id")'></guide>
+        <label for='entity' class='col-form-label'>Entity : </label>
+        <span class='help-block col-form-label' *ngIf='!entity.valid && entity.touched && !entity.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #entity='ngModel' 
+                    #entityCombo='kendoDropDownList' 
+                    name='entity' 
+                    title='Entity'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !entity.valid && entity.touched }" 
+                    [data]='entityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='entityComponent.filterable'
+                    (filterChange)='entityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.entity"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='entityComponent.addable'>
+                      <button class='btn btn-primary' (click)='entityComponent.onAdd(entityCombo, entityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- AddPermission -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("AddPermission")'></guide>
+        <label for='addPermission' class='col-form-label'>Add Permission : </label>
+        <!--AddPermission do not Required-->
+        <input type='checkbox' 
+                #addPermission 
+                id = 'addPermission'
+                name = 'addPermission'
+                kendoCheckBox
+                [checked] = 'currentInstance.addPermission'
+                [(ngModel)] = 'currentInstance.addPermission' /> 
+      </div>
+			<!-- EditPermission -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EditPermission")'></guide>
+        <label for='editPermission' class='col-form-label'>Edit Permission : </label>
+        <!--EditPermission do not Required-->
+        <input type='checkbox' 
+                #editPermission 
+                id = 'editPermission'
+                name = 'editPermission'
+                kendoCheckBox
+                [checked] = 'currentInstance.editPermission'
+                [(ngModel)] = 'currentInstance.editPermission' /> 
+      </div>
+			<!-- DeletePermission -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("DeletePermission")'></guide>
+        <label for='deletePermission' class='col-form-label'>Delete Permission : </label>
+        <!--DeletePermission do not Required-->
+        <input type='checkbox' 
+                #deletePermission 
+                id = 'deletePermission'
+                name = 'deletePermission'
+                kendoCheckBox
+                [checked] = 'currentInstance.deletePermission'
+                [(ngModel)] = 'currentInstance.deletePermission' /> 
+      </div>
+			<!-- ViewIndexPermission -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ViewIndexPermission")'></guide>
+        <label for='viewIndexPermission' class='col-form-label'>View Index Permission : </label>
+        <!--ViewIndexPermission do not Required-->
+        <input type='checkbox' 
+                #viewIndexPermission 
+                id = 'viewIndexPermission'
+                name = 'viewIndexPermission'
+                kendoCheckBox
+                [checked] = 'currentInstance.viewIndexPermission'
+                [(ngModel)] = 'currentInstance.viewIndexPermission' /> 
+      </div>
+			<!-- ViewLogPermission -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ViewLogPermission")'></guide>
+        <label for='viewLogPermission' class='col-form-label'>View Log Permission : </label>
+        <!--ViewLogPermission do not Required-->
+        <input type='checkbox' 
+                #viewLogPermission 
+                id = 'viewLogPermission'
+                name = 'viewLogPermission'
+                kendoCheckBox
+                [checked] = 'currentInstance.viewLogPermission'
+                [(ngModel)] = 'currentInstance.viewLogPermission' /> 
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!rolePermissionEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!rolePermissionEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, rolePermissionEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<core-role-edit #roleEditUI 
+    (onClosed)='roleComponent.onClosed($event)'>
+</core-role-edit>
+<core-entity-edit #entityEditUI 
+    (onClosed)='entityComponent.onClosed($event)'>
+</core-entity-edit>

@@ -1,0 +1,223 @@
+﻿<XDialog Header='Edit Form of University History' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, universityHistoryEditUI)' 
+    #universityHistoryEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Person -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Person_Id")'></guide>
+        <label for='person' class='col-form-label'>Person : </label>
+        <span class='help-block col-form-label' *ngIf='!person.valid && person.touched && !person.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- UniversityDegree -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("UniversityDegree_Id")'></guide>
+        <label for='universityDegree' class='col-form-label'>University Degree : </label>
+        <span class='help-block col-form-label' *ngIf='!universityDegree.valid && universityDegree.touched && !universityDegree.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #universityDegree='ngModel' 
+                    #universityDegreeCombo='kendoDropDownList' 
+                    name='universityDegree' 
+                    title='University Degree'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !universityDegree.valid && universityDegree.touched }" 
+                    [data]='universityDegreeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='universityDegreeComponent.filterable'
+                    (filterChange)='universityDegreeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.universityDegree"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='universityDegreeComponent.addable'>
+                      <button class='btn btn-primary' (click)='universityDegreeComponent.onAdd(universityDegreeCombo, universityDegreeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- University -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("University_Id")'></guide>
+        <label for='university' class='col-form-label'>University : </label>
+        <span class='help-block col-form-label' *ngIf='!university.valid && university.touched && !university.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #university='ngModel' 
+                    #universityCombo='kendoDropDownList' 
+                    name='university' 
+                    title='University'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !university.valid && university.touched }" 
+                    [data]='universityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='universityComponent.filterable'
+                    (filterChange)='universityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.university"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='universityComponent.addable'>
+                      <button class='btn btn-primary' (click)='universityComponent.onAdd(universityCombo, universityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- FieldOfStudy -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("FieldOfStudy_Id")'></guide>
+        <label for='fieldOfStudy' class='col-form-label'>Field Of Study : </label>
+        <span class='help-block col-form-label' *ngIf='!fieldOfStudy.valid && fieldOfStudy.touched && !fieldOfStudy.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #fieldOfStudy='ngModel' 
+                    #fieldOfStudyCombo='kendoDropDownList' 
+                    name='fieldOfStudy' 
+                    title='Field Of Study'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !fieldOfStudy.valid && fieldOfStudy.touched }" 
+                    [data]='fieldOfStudyComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='fieldOfStudyComponent.filterable'
+                    (filterChange)='fieldOfStudyComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.fieldOfStudy"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='fieldOfStudyComponent.addable'>
+                      <button class='btn btn-primary' (click)='fieldOfStudyComponent.onAdd(fieldOfStudyCombo, fieldOfStudyEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- EducationSystem -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EducationSystem_Id")'></guide>
+        <label for='educationSystem' class='col-form-label'>Education System : </label>
+        <span class='help-block col-form-label' *ngIf='!educationSystem.valid && educationSystem.touched && !educationSystem.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #educationSystem='ngModel' 
+                    #educationSystemCombo='kendoDropDownList' 
+                    name='educationSystem' 
+                    title='Education System'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !educationSystem.valid && educationSystem.touched }" 
+                    [data]='educationSystemComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='educationSystemComponent.filterable'
+                    (filterChange)='educationSystemComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.educationSystem"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='educationSystemComponent.addable'>
+                      <button class='btn btn-primary' (click)='educationSystemComponent.onAdd(educationSystemCombo, educationSystemEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- CertificationType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("CertificationType_Id")'></guide>
+        <label for='certificationType' class='col-form-label'>Certification Type : </label>
+        <span class='help-block col-form-label' *ngIf='!certificationType.valid && certificationType.touched && !certificationType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #certificationType='ngModel' 
+                    #certificationTypeCombo='kendoDropDownList' 
+                    name='certificationType' 
+                    title='Certification Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !certificationType.valid && certificationType.touched }" 
+                    [data]='certificationTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='certificationTypeComponent.filterable'
+                    (filterChange)='certificationTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.certificationType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='certificationTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='certificationTypeComponent.onAdd(certificationTypeCombo, certificationTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- StartDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("StartDate")'></guide>
+        <label for='startDate' class='col-form-label'>Start Date : </label>
+        <span class='help-block col-form-label' *ngIf='!startDate.valid && startDate.touched && !startDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Start Date 
+                    [ngClass]="{ 'error' : !startDate.valid && startDate.touched }" 
+                    class='form-control' 
+                    #startDate='ngModel' 
+                    name='startDate'
+                    [ngModel]="currentInstance.startDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.startDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- Comment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Comment")'></guide>
+        <label for='comment' class='col-form-label'>Comment : </label>
+        <span class='help-block col-form-label' *ngIf='!comment.valid && comment.touched && !comment.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Comment' 
+                    [ngClass]="{ 'error' : !comment.valid && comment.touched }" 
+                    class='form-control ' 
+                    #comment='ngModel' 
+                    name='comment' 
+                    placeholder='... Comment' 
+                    [(ngModel)]='currentInstance.comment' 
+                    [disabled]='IsLocked'
+                    maxlength='2000'  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!universityHistoryEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!universityHistoryEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, universityHistoryEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-person-edit #personEditUI 
+    (onClosed)='personComponent.onClosed($event)'>
+</hr-person-edit>
+<base-universityDegree-edit #universityDegreeEditUI 
+    (onClosed)='universityDegreeComponent.onClosed($event)'>
+</base-universityDegree-edit>
+<base-university-edit #universityEditUI 
+    (onClosed)='universityComponent.onClosed($event)'>
+</base-university-edit>
+<base-fieldOfStudy-edit #fieldOfStudyEditUI 
+    (onClosed)='fieldOfStudyComponent.onClosed($event)'>
+</base-fieldOfStudy-edit>
+<base-educationSystem-edit #educationSystemEditUI 
+    (onClosed)='educationSystemComponent.onClosed($event)'>
+</base-educationSystem-edit>
+<base-certificationType-edit #certificationTypeEditUI 
+    (onClosed)='certificationTypeComponent.onClosed($event)'>
+</base-certificationType-edit>

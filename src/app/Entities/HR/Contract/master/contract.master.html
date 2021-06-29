@@ -1,0 +1,51 @@
+﻿<XDialog Header='Contract Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Contract : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee : 
+                        <guide (onClick)='onGuid("Employee_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employee?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Contract Type : 
+                        <guide (onClick)='onGuid("ContractType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.contractType?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Number : 
+                        <guide (onClick)='onGuid("Number")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>From Date : 
+                        <guide (onClick)='onGuid("FromDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.fromDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>To Date : 
+                        <guide (onClick)='onGuid("ToDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.toDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Signed : 
+                        <guide (onClick)='onGuid("IsSigned")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isSigned }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

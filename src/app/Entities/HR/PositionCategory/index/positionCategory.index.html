@@ -1,0 +1,81 @@
+﻿<fieldset class='border'>
+  <legend>Position Category :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(positionCategoryEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(positionCategoryTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(positionCategoryEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(positionCategoryDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='position_Clicked(positionEditUI)'>Add Position</a>
+		<a class='dropdown-item pointer' (click)='unit_Clicked(unitEditUI)'>Add Unit</a>
+	
+  </dropDownMenu>
+  <table #positionCategoryTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Title'>Title</th>
+        <th width='100px' title='Is Active'>Is Active</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='filterInstance.title'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(positionCategoryMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.title }}</td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isActive' /></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- PositionCategory -->
+<hr-positionCategory-master #positionCategoryMasterUI>
+</hr-positionCategory-master>
+
+<hr-positionCategory-edit #positionCategoryEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</hr-positionCategory-edit>
+
+<hr-positionCategory-delete #positionCategoryDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</hr-positionCategory-delete>
+
+
+<hr-position-edit #positionEditUI> <!--  (onClosed)='positionEditUI_Closed($event)' -->
+</hr-position-edit> 
+<hr-unit-edit #unitEditUI> <!--  (onClosed)='unitEditUI_Closed($event)' -->
+</hr-unit-edit> 
+<pms-appraisalApproverConfig-edit #appraisalApproverConfigEditUI> <!--  (onClosed)='appraisalApproverConfigEditUI_Closed($event)' -->
+</pms-appraisalApproverConfig-edit>

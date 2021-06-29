@@ -1,0 +1,112 @@
+﻿<XDialog Header='Edit Form of Person Connection' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, personConnectionEditUI)' 
+    #personConnectionEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Person -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Person_Id")'></guide>
+        <label for='person' class='col-form-label'>Person : </label>
+        <span class='help-block col-form-label' *ngIf='!person.valid && person.touched && !person.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- ConnectionType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ConnectionType_Id")'></guide>
+        <label for='connectionType' class='col-form-label'>Connection Type : </label>
+        <span class='help-block col-form-label' *ngIf='!connectionType.valid && connectionType.touched && !connectionType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #connectionType='ngModel' 
+                    #connectionTypeCombo='kendoDropDownList' 
+                    name='connectionType' 
+                    title='Connection Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !connectionType.valid && connectionType.touched }" 
+                    [data]='connectionTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='connectionTypeComponent.filterable'
+                    (filterChange)='connectionTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.connectionType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='connectionTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='connectionTypeComponent.onAdd(connectionTypeCombo, connectionTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Value -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Value")'></guide>
+        <label for='value' class='col-form-label'>Value : </label>
+        <span class='help-block col-form-label' *ngIf='!value.valid && value.touched && !value.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Value' 
+                    [ngClass]="{ 'error' : !value.valid && value.touched }" 
+                    class='form-control ' 
+                    #value='ngModel' 
+                    name='value' 
+                    placeholder='... Value' 
+                    [(ngModel)]='currentInstance.value' 
+                    [disabled]='IsLocked'
+                    maxlength='12'  dir='ltr'  required  />
+      </div>
+			<!-- IsEmergencyConnection -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsEmergencyConnection")'></guide>
+        <label for='isEmergencyConnection' class='col-form-label'>Is Emergency Connection : </label>
+        <!--IsEmergencyConnection do not Required-->
+        <input type='checkbox' 
+                #isEmergencyConnection 
+                id = 'isEmergencyConnection'
+                name = 'isEmergencyConnection'
+                kendoCheckBox
+                [checked] = 'currentInstance.isEmergencyConnection'
+                [(ngModel)] = 'currentInstance.isEmergencyConnection' /> 
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!personConnectionEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!personConnectionEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, personConnectionEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-person-edit #personEditUI 
+    (onClosed)='personComponent.onClosed($event)'>
+</hr-person-edit>
+<base-connectionType-edit #connectionTypeEditUI 
+    (onClosed)='connectionTypeComponent.onClosed($event)'>
+</base-connectionType-edit>

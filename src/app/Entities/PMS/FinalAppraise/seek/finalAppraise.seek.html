@@ -1,0 +1,95 @@
+﻿<XDialog Header='Search form of Final Appraise' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='targetSetting' class='col-sm-3 col-form-label'>Target Setting : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #targetSetting='ngModel' 
+                    #targetSettingCombo='kendoDropDownList' 
+                    name='targetSetting' 
+                    title='Target Setting'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !targetSetting.valid && targetSetting.touched }" 
+                    [data]='targetSettingComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='targetSettingComponent.filterable'
+                    (filterChange)='targetSettingComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.targetSetting"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='targetSettingComponent.addable'>
+                      <button class='btn btn-primary' (click)='targetSettingComponent.onAdd(targetSettingCombo, targetSettingEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='managerFunctionalScore' class='col-sm-3 col-form-label'>Manager Functional Score : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #managerFunctionalScore='ngModel' id='managerFunctionalScore' name='managerFunctionalScore'
+										 title='Manager Functional Score'
+										 autocomplete='off'
+										 placeholder='Manager Functional Score'
+										[(ngModel)]='finalAppraise.managerFunctionalScore'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='managerBehavioralScore' class='col-sm-3 col-form-label'>Manager Behavioral Score : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #managerBehavioralScore='ngModel' id='managerBehavioralScore' name='managerBehavioralScore'
+										 title='Manager Behavioral Score'
+										 autocomplete='off'
+										 placeholder='Manager Behavioral Score'
+										[(ngModel)]='finalAppraise.managerBehavioralScore'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='finalFunctionalScore' class='col-sm-3 col-form-label'>Final Functional Score : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #finalFunctionalScore='ngModel' id='finalFunctionalScore' name='finalFunctionalScore'
+										 title='Final Functional Score'
+										 autocomplete='off'
+										 placeholder='Final Functional Score'
+										[(ngModel)]='finalAppraise.finalFunctionalScore'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='finalBehavioralScore' class='col-sm-3 col-form-label'>Final Behavioral Score : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #finalBehavioralScore='ngModel' id='finalBehavioralScore' name='finalBehavioralScore'
+										 title='Final Behavioral Score'
+										 autocomplete='off'
+										 placeholder='Final Behavioral Score'
+										[(ngModel)]='finalAppraise.finalBehavioralScore'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='comment' class='col-sm-3 col-form-label'>Comment : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #comment='ngModel' id='comment' name='comment'
+										 title='Comment'
+										 autocomplete='off'
+										 placeholder='Comment'
+										[(ngModel)]='finalAppraise.comment'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

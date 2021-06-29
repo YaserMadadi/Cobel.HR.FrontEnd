@@ -1,0 +1,92 @@
+﻿<XDialog Header='Search form of Assessment' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='employee' class='col-sm-3 col-form-label'>Employee : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='assessmentType' class='col-sm-3 col-form-label'>Assessment Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #assessmentType='ngModel' 
+                    #assessmentTypeCombo='kendoDropDownList' 
+                    name='assessmentType' 
+                    title='Assessment Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessmentType.valid && assessmentType.touched }" 
+                    [data]='assessmentTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessmentTypeComponent.filterable'
+                    (filterChange)='assessmentTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessmentType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessmentTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessmentTypeComponent.onAdd(assessmentTypeCombo, assessmentTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='assessor' class='col-sm-3 col-form-label'>Assessor : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #assessor='ngModel' 
+                    #assessorCombo='kendoDropDownList' 
+                    name='assessor' 
+                    title='Assessor'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessor.valid && assessor.touched }" 
+                    [data]='assessorComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessorComponent.filterable'
+                    (filterChange)='assessorComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessor"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessorComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessorComponent.onAdd(assessorCombo, assessorEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='assessmentDate' class='col-sm-3 col-form-label'>Assessment Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #assessmentDate='ngModel' id='assessmentDate' name='assessmentDate'
+										 title='Assessment Date'
+										 autocomplete='off'
+										 placeholder='Assessment Date'
+										[(ngModel)]='assessment.assessmentDate'
+										 type='date'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(functionalKPICommentEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(functionalKPICommentEditUI)' [ngClass]="{ 'disabled' : currentFunctionalKPIComment.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(functionalKPICommentDeleteUI)' [ngClass]="{ 'disabled' : currentFunctionalKPIComment.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('PMS','FunctionalKPI')"> Functional K P I</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Functional K P I Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let functionalKPIComment of FunctionalKPICommentList; let i = index' 
+                (dblclick)='onDblClicked(functionalKPICommentMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : functionalKPIComment.id === currentFunctionalKPIComment.id, 'free-row': functionalKPIComment.id !== currentFunctionalKPIComment.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ functionalKPIComment.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-functionalKPIComment-edit #functionalKPICommentEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-functionalKPIComment-edit>
+  <pms-functionalKPIComment-delete #functionalKPICommentDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-functionalKPIComment-delete>
+  <pms-functionalKPIComment-master #functionalKPICommentMasterUI >
+  </pms-functionalKPIComment-master>
+</div>

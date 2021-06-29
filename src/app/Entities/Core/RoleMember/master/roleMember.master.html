@@ -1,0 +1,27 @@
+﻿<XDialog Header='Role Member Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Role Member : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee : 
+                        <guide (onClick)='onGuid("Employee_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employee?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Role : 
+                        <guide (onClick)='onGuid("Role_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.role?.descriptor }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

@@ -1,0 +1,71 @@
+﻿<XDialog Header='Search form of Config Qualitative Objective' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='targetSettingConfig' class='col-sm-3 col-form-label'>Target Setting Config : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #targetSettingConfig='ngModel' 
+                    #targetSettingConfigCombo='kendoDropDownList' 
+                    name='targetSettingConfig' 
+                    title='Target Setting Config'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !targetSettingConfig.valid && targetSettingConfig.touched }" 
+                    [data]='targetSettingConfigComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='targetSettingConfigComponent.filterable'
+                    (filterChange)='targetSettingConfigComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.targetSettingConfig"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='targetSettingConfigComponent.addable'>
+                      <button class='btn btn-primary' (click)='targetSettingConfigComponent.onAdd(targetSettingConfigCombo, targetSettingConfigEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='title' class='col-sm-3 col-form-label'>Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='configQualitativeObjective.title'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='weight' class='col-sm-3 col-form-label'>Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #weight='ngModel' id='weight' name='weight'
+										 title='Weight'
+										 autocomplete='off'
+										 placeholder='Weight'
+										[(ngModel)]='configQualitativeObjective.weight'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='totalKPIWeight' class='col-sm-3 col-form-label'>Total KPI Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #totalKPIWeight='ngModel' id='totalKPIWeight' name='totalKPIWeight'
+										 title='Total KPI Weight'
+										 autocomplete='off'
+										 placeholder='Total KPI Weight'
+										[(ngModel)]='configQualitativeObjective.totalKPIWeight'
+										 type='number'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

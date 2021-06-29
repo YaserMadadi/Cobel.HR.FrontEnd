@@ -1,0 +1,146 @@
+﻿<XDialog Header='Edit Form of Assessment Score' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, assessmentScoreEditUI)' 
+    #assessmentScoreEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Assessment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Assessment_Id")'></guide>
+        <label for='assessment' class='col-form-label'>Assessment : </label>
+        <span class='help-block col-form-label' *ngIf='!assessment.valid && assessment.touched && !assessment.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #assessment='ngModel' 
+                    #assessmentCombo='kendoDropDownList' 
+                    name='assessment' 
+                    title='Assessment'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessment.valid && assessment.touched }" 
+                    [data]='assessmentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessmentComponent.filterable'
+                    (filterChange)='assessmentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessment"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessmentComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessmentComponent.onAdd(assessmentCombo, assessmentEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- CompetencyItem -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("CompetencyItem_Id")'></guide>
+        <label for='competencyItem' class='col-form-label'>Competency Item : </label>
+        <span class='help-block col-form-label' *ngIf='!competencyItem.valid && competencyItem.touched && !competencyItem.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #competencyItem='ngModel' 
+                    #competencyItemCombo='kendoDropDownList' 
+                    name='competencyItem' 
+                    title='Competency Item'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !competencyItem.valid && competencyItem.touched }" 
+                    [data]='competencyItemComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='competencyItemComponent.filterable'
+                    (filterChange)='competencyItemComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.competencyItem"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='competencyItemComponent.addable'>
+                      <button class='btn btn-primary' (click)='competencyItemComponent.onAdd(competencyItemCombo, competencyItemEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- ExpectedScore -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ExpectedScore")'></guide>
+        <label for='expectedScore' class='col-form-label'>Expected Score : </label>
+        <span class='help-block col-form-label' *ngIf='!expectedScore.valid && expectedScore.touched && !expectedScore.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #expectedScore='ngModel' 
+            name='expectedScore' 
+            title='Expected Score' 
+            placeholder='Expected Score'
+            class='form-control'
+            [ngClass]="{ 'error' : !expectedScore.valid && expectedScore.touched }" 
+            [value]='currentInstance.expectedScore' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.expectedScore'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- EmployeeScore -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EmployeeScore")'></guide>
+        <label for='employeeScore' class='col-form-label'>Employee Score : </label>
+        <span class='help-block col-form-label' *ngIf='!employeeScore.valid && employeeScore.touched && !employeeScore.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #employeeScore='ngModel' 
+            name='employeeScore' 
+            title='Employee Score' 
+            placeholder='Employee Score'
+            class='form-control'
+            [ngClass]="{ 'error' : !employeeScore.valid && employeeScore.touched }" 
+            [value]='currentInstance.employeeScore' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.employeeScore'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- ManagerScore -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ManagerScore")'></guide>
+        <label for='managerScore' class='col-form-label'>Manager Score : </label>
+        <span class='help-block col-form-label' *ngIf='!managerScore.valid && managerScore.touched && !managerScore.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #managerScore='ngModel' 
+            name='managerScore' 
+            title='Manager Score' 
+            placeholder='Manager Score'
+            class='form-control'
+            [ngClass]="{ 'error' : !managerScore.valid && managerScore.touched }" 
+            [value]='currentInstance.managerScore' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.managerScore'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!assessmentScoreEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!assessmentScoreEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, assessmentScoreEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<lad-assessment-edit #assessmentEditUI 
+    (onClosed)='assessmentComponent.onClosed($event)'>
+</lad-assessment-edit>
+<pms-competencyItem-edit #competencyItemEditUI 
+    (onClosed)='competencyItemComponent.onClosed($event)'>
+</pms-competencyItem-edit>

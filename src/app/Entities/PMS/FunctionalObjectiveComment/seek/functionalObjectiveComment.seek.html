@@ -1,0 +1,70 @@
+﻿<XDialog Header='Search form of Functional Objective Comment' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='functionalObjective' class='col-sm-3 col-form-label'>Functional Objective : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #functionalObjective='ngModel' 
+                    #functionalObjectiveCombo='kendoDropDownList' 
+                    name='functionalObjective' 
+                    title='Functional Objective'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !functionalObjective.valid && functionalObjective.touched }" 
+                    [data]='functionalObjectiveComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='functionalObjectiveComponent.filterable'
+                    (filterChange)='functionalObjectiveComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.functionalObjective"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='functionalObjectiveComponent.addable'>
+                      <button class='btn btn-primary' (click)='functionalObjectiveComponent.onAdd(functionalObjectiveCombo, functionalObjectiveEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='comment' class='col-sm-3 col-form-label'>Comment : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #comment='ngModel' id='comment' name='comment'
+										 title='Comment'
+										 autocomplete='off'
+										 placeholder='Comment'
+										[(ngModel)]='functionalObjectiveComment.comment'
+										 type='text'
+										 maxlength='4000'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='commenter' class='col-sm-3 col-form-label'>Commenter : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #commenter='ngModel' 
+                    #commenterCombo='kendoDropDownList' 
+                    name='commenter' 
+                    title='Commenter'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !commenter.valid && commenter.touched }" 
+                    [data]='commenterComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='commenterComponent.filterable'
+                    (filterChange)='commenterComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.commenter"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='commenterComponent.addable'>
+                      <button class='btn btn-primary' (click)='commenterComponent.onAdd(commenterCombo, commenterEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

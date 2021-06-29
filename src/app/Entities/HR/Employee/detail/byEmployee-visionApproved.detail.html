@@ -1,0 +1,51 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(visionApprovedEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(visionApprovedEditUI)' [ngClass]="{ 'disabled' : currentVisionApproved.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(visionApprovedDeleteUI)' [ngClass]="{ 'disabled' : currentVisionApproved.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('PMS','Vision')"> Vision</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base.PMS','ApprovementType')"> Approvement Type</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Vision Approved</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let visionApproved of VisionApprovedList; let i = index' 
+                (dblclick)='onDblClicked(visionApprovedMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : visionApproved.id === currentVisionApproved.id, 'free-row': visionApproved.id !== currentVisionApproved.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ visionApproved.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-visionApproved-edit #visionApprovedEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-visionApproved-edit>
+  <pms-visionApproved-delete #visionApprovedDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-visionApproved-delete>
+  <pms-visionApproved-master #visionApprovedMasterUI >
+  </pms-visionApproved-master>
+</div>

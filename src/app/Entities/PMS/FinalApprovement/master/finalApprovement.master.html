@@ -1,0 +1,39 @@
+﻿<XDialog Header='Final Approvement Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Final Approvement : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Target Setting : 
+                        <guide (onClick)='onGuid("TargetSetting_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.targetSetting?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Approver : 
+                        <guide (onClick)='onGuid("Approver_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.approver?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Date : 
+                        <guide (onClick)='onGuid("Date")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.date | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

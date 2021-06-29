@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(roleMemberEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(roleMemberEditUI)' [ngClass]="{ 'disabled' : currentRoleMember.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(roleMemberDeleteUI)' [ngClass]="{ 'disabled' : currentRoleMember.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('HR','Employee')"> Employee</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Role Member</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let roleMember of RoleMemberList; let i = index' 
+                (dblclick)='onDblClicked(roleMemberMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : roleMember.id === currentRoleMember.id, 'free-row': roleMember.id !== currentRoleMember.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ roleMember.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <core-roleMember-edit #roleMemberEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </core-roleMember-edit>
+  <core-roleMember-delete #roleMemberDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </core-roleMember-delete>
+  <core-roleMember-master #roleMemberMasterUI >
+  </core-roleMember-master>
+</div>

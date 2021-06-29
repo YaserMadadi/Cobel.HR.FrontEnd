@@ -1,0 +1,57 @@
+﻿<XDialog Header='Employee Detail Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Employee Detail : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee : 
+                        <guide (onClick)='onGuid("Employee_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employee?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Holding Section : 
+                        <guide (onClick)='onGuid("HoldingSection_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.holdingSection?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee Code : 
+                        <guide (onClick)='onGuid("EmployeeCode")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employeeCode | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employment Status : 
+                        <guide (onClick)='onGuid("EmploymentStatus_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employmentStatus?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Start Working Date : 
+                        <guide (onClick)='onGuid("StartWorkingDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.startWorkingDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Termination Date : 
+                        <guide (onClick)='onGuid("TerminationDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.terminationDate }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

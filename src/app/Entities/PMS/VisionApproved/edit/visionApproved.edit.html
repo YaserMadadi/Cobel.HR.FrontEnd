@@ -1,0 +1,126 @@
+﻿<XDialog Header='Edit Form of Vision Approved' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, visionApprovedEditUI)' 
+    #visionApprovedEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Vision -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Vision_Id")'></guide>
+        <label for='vision' class='col-form-label'>Vision : </label>
+        <span class='help-block col-form-label' *ngIf='!vision.valid && vision.touched && !vision.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #vision='ngModel' 
+                    #visionCombo='kendoDropDownList' 
+                    name='vision' 
+                    title='Vision'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !vision.valid && vision.touched }" 
+                    [data]='visionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='visionComponent.filterable'
+                    (filterChange)='visionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.vision"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='visionComponent.addable'>
+                      <button class='btn btn-primary' (click)='visionComponent.onAdd(visionCombo, visionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- ByEmployee -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ByEmployee_Id")'></guide>
+        <label for='byEmployee' class='col-form-label'>By Employee : </label>
+        <span class='help-block col-form-label' *ngIf='!byEmployee.valid && byEmployee.touched && !byEmployee.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #byEmployee='ngModel' 
+                    #byEmployeeCombo='kendoDropDownList' 
+                    name='byEmployee' 
+                    title='By Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !byEmployee.valid && byEmployee.touched }" 
+                    [data]='byEmployeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='byEmployeeComponent.filterable'
+                    (filterChange)='byEmployeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.byEmployee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='byEmployeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='byEmployeeComponent.onAdd(byEmployeeCombo, byEmployeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- ApprovementType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ApprovementType_Id")'></guide>
+        <label for='approvementType' class='col-form-label'>Approvement Type : </label>
+        <span class='help-block col-form-label' *ngIf='!approvementType.valid && approvementType.touched && !approvementType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #approvementType='ngModel' 
+                    #approvementTypeCombo='kendoDropDownList' 
+                    name='approvementType' 
+                    title='Approvement Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !approvementType.valid && approvementType.touched }" 
+                    [data]='approvementTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='approvementTypeComponent.filterable'
+                    (filterChange)='approvementTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.approvementType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='approvementTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='approvementTypeComponent.onAdd(approvementTypeCombo, approvementTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Date -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Date")'></guide>
+        <label for='date' class='col-form-label'>Date : </label>
+        <span class='help-block col-form-label' *ngIf='!date.valid && date.touched && !date.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Date 
+                    [ngClass]="{ 'error' : !date.valid && date.touched }" 
+                    class='form-control' 
+                    #date='ngModel' 
+                    name='date'
+                    [ngModel]="currentInstance.date | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.date = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!visionApprovedEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!visionApprovedEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, visionApprovedEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<pms-vision-edit #visionEditUI 
+    (onClosed)='visionComponent.onClosed($event)'>
+</pms-vision-edit>
+<hr-employee-edit #byEmployeeEditUI 
+    (onClosed)='byEmployeeComponent.onClosed($event)'>
+</hr-employee-edit>
+<base-pms-approvementType-edit #approvementTypeEditUI 
+    (onClosed)='approvementTypeComponent.onClosed($event)'>
+</base-pms-approvementType-edit>

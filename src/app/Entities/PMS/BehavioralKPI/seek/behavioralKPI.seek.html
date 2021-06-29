@@ -1,0 +1,81 @@
+﻿<XDialog Header='Search form of Behavioral KPI' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='behavioralObjective' class='col-sm-3 col-form-label'>Behavioral Objective : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #behavioralObjective='ngModel' 
+                    #behavioralObjectiveCombo='kendoDropDownList' 
+                    name='behavioralObjective' 
+                    title='Behavioral Objective'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !behavioralObjective.valid && behavioralObjective.touched }" 
+                    [data]='behavioralObjectiveComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='behavioralObjectiveComponent.filterable'
+                    (filterChange)='behavioralObjectiveComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.behavioralObjective"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='behavioralObjectiveComponent.addable'>
+                      <button class='btn btn-primary' (click)='behavioralObjectiveComponent.onAdd(behavioralObjectiveCombo, behavioralObjectiveEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='competencyItemKPI' class='col-sm-3 col-form-label'>Competency Item KPI : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #competencyItemKPI='ngModel' 
+                    #competencyItemKPICombo='kendoDropDownList' 
+                    name='competencyItemKPI' 
+                    title='Competency Item KPI'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !competencyItemKPI.valid && competencyItemKPI.touched }" 
+                    [data]='competencyItemKPIComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='competencyItemKPIComponent.filterable'
+                    (filterChange)='competencyItemKPIComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.competencyItemKPI"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='competencyItemKPIComponent.addable'>
+                      <button class='btn btn-primary' (click)='competencyItemKPIComponent.onAdd(competencyItemKPICombo, competencyItemKPIEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='weight' class='col-sm-3 col-form-label'>Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #weight='ngModel' id='weight' name='weight'
+										 title='Weight'
+										 autocomplete='off'
+										 placeholder='Weight'
+										[(ngModel)]='behavioralKPI.weight'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='finalScore' class='col-sm-3 col-form-label'>Final Score : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #finalScore='ngModel' id='finalScore' name='finalScore'
+										 title='Final Score'
+										 autocomplete='off'
+										 placeholder='Final Score'
+										[(ngModel)]='behavioralKPI.finalScore'
+										 type='number'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

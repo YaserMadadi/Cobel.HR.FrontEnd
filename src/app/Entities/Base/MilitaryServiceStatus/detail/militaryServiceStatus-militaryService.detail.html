@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(militaryServiceEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(militaryServiceEditUI)' [ngClass]="{ 'disabled' : currentMilitaryService.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(militaryServiceDeleteUI)' [ngClass]="{ 'disabled' : currentMilitaryService.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('HR','Person')"> Person</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Military Service</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let militaryService of MilitaryServiceList; let i = index' 
+                (dblclick)='onDblClicked(militaryServiceMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : militaryService.id === currentMilitaryService.id, 'free-row': militaryService.id !== currentMilitaryService.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ militaryService.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-militaryService-edit #militaryServiceEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-militaryService-edit>
+  <hr-militaryService-delete #militaryServiceDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-militaryService-delete>
+  <hr-militaryService-master #militaryServiceMasterUI >
+  </hr-militaryService-master>
+</div>

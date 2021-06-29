@@ -1,0 +1,45 @@
+﻿<XDialog Header='Vision Comment Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Vision Comment : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Vision : 
+                        <guide (onClick)='onGuid("Vision_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.vision?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Time : 
+                        <guide (onClick)='onGuid("Time")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.time | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Commentator : 
+                        <guide (onClick)='onGuid("Commentator_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.commentator?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Content : 
+                        <guide (onClick)='onGuid("Content")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.content }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

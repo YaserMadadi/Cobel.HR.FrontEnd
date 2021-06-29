@@ -1,0 +1,63 @@
+﻿<XDialog Header='Edit Form of Message' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, messageEditUI)' 
+    #messageEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Title")'></guide>
+        <label for='title' class='col-form-label'>Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <textarea type='text' title='Title' name='title' 
+                            class='form-control' 
+                            [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                            #title='ngModel' 
+                            placeholder='... Title' 
+                            [(ngModel)]='currentInstance.title'
+                            [disabled]='IsLocked'
+                            maxlength='4000'  required  ></textarea>
+      </div>
+			<!-- Code -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Code")'></guide>
+        <label for='code' class='col-form-label'>Code : </label>
+        <span class='help-block col-form-label' *ngIf='!code.valid && code.touched && !code.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #code='ngModel' 
+            name='code' 
+            title='Code' 
+            placeholder='Code'
+            class='form-control'
+            [ngClass]="{ 'error' : !code.valid && code.touched }" 
+            [value]='currentInstance.code' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.code'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!messageEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!messageEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, messageEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>

@@ -1,0 +1,39 @@
+﻿<XDialog Header='Assessment Training Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Assessment Training : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Assessment : 
+                        <guide (onClick)='onGuid("Assessment_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.assessment?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Course : 
+                        <guide (onClick)='onGuid("Course")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.course }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Dead Line : 
+                        <guide (onClick)='onGuid("DeadLine_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.deadLine?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Responsible : 
+                        <guide (onClick)='onGuid("Responsible")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.responsible }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

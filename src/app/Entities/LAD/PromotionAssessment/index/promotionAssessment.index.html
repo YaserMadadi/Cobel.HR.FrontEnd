@@ -1,0 +1,118 @@
+﻿<fieldset class='border'>
+  <legend>Promotion Assessment :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(promotionAssessmentEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(promotionAssessmentTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(promotionAssessmentEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(promotionAssessmentDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("LAD", "Assessment", currentInstance.assessment?.id)'>Manage Assessment</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Position", currentInstance.currentPosition?.id)'>Manage Position</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Position", currentInstance.proposedPosition?.id)'>Manage Position</a>
+		<a class='dropdown-item pointer' (click)='navigate("LAD", "PromotionResult", currentInstance.promotionResult?.id)'>Manage Promotion Result</a>
+    </dropDownMenu>
+  
+  <table #promotionAssessmentTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Assessment'>Assessment</th>
+        <th title='Promoted Date'>Promoted Date</th>
+        <th title='Current Position'>Current Position</th>
+        <th title='Proposed Position'>Proposed Position</th>
+        <th title='Promotion Result'>Promotion Result</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #assessment='ngModel' id='assessment' name='assessment'
+										 title='Assessment'
+										 autocomplete='off'
+										 placeholder='Assessment'
+										[(ngModel)]='filterInstance.assessment.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #promotedDate='ngModel' id='promotedDate' name='promotedDate'
+										 title='Promoted Date'
+										 autocomplete='off'
+										 placeholder='Promoted Date'
+										[(ngModel)]='filterInstance.promotedDate'
+										 type='text'
+										 maxlength='33'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #currentPosition='ngModel' id='currentPosition' name='currentPosition'
+										 title='Current Position'
+										 autocomplete='off'
+										 placeholder='Current Position'
+										[(ngModel)]='filterInstance.currentPosition.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #proposedPosition='ngModel' id='proposedPosition' name='proposedPosition'
+										 title='Proposed Position'
+										 autocomplete='off'
+										 placeholder='Proposed Position'
+										[(ngModel)]='filterInstance.proposedPosition.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #promotionResult='ngModel' id='promotionResult' name='promotionResult'
+										 title='Promotion Result'
+										 autocomplete='off'
+										 placeholder='Promotion Result'
+										[(ngModel)]='filterInstance.promotionResult.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(promotionAssessmentMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.assessment?.descriptor }}</td>
+				<td>{{ p.promotedDate }}</td>
+				<td>{{ p.currentPosition?.descriptor }}</td>
+				<td>{{ p.proposedPosition?.descriptor }}</td>
+				<td>{{ p.promotionResult?.descriptor }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- PromotionAssessment -->
+<lad-promotionAssessment-master #promotionAssessmentMasterUI>
+</lad-promotionAssessment-master>
+
+<lad-promotionAssessment-edit #promotionAssessmentEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</lad-promotionAssessment-edit>
+
+<lad-promotionAssessment-delete #promotionAssessmentDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</lad-promotionAssessment-delete>

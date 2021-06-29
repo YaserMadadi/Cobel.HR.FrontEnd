@@ -1,0 +1,51 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(nonOperationalAppraiseEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(nonOperationalAppraiseEditUI)' [ngClass]="{ 'disabled' : currentNonOperationalAppraise.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(nonOperationalAppraiseDeleteUI)' [ngClass]="{ 'disabled' : currentNonOperationalAppraise.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('PMS','TargetSetting')"> Target Setting</a>
+				<a class='dropdown-item pointer' (click)="navigate('PMS','ScoreCell')"> Score Cell</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Non Operational Appraise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let nonOperationalAppraise of NonOperationalAppraiseList; let i = index' 
+                (dblclick)='onDblClicked(nonOperationalAppraiseMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : nonOperationalAppraise.id === currentNonOperationalAppraise.id, 'free-row': nonOperationalAppraise.id !== currentNonOperationalAppraise.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ nonOperationalAppraise.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-nonOperationalAppraise-edit #nonOperationalAppraiseEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-nonOperationalAppraise-edit>
+  <pms-nonOperationalAppraise-delete #nonOperationalAppraiseDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-nonOperationalAppraise-delete>
+  <pms-nonOperationalAppraise-master #nonOperationalAppraiseMasterUI >
+  </pms-nonOperationalAppraise-master>
+</div>

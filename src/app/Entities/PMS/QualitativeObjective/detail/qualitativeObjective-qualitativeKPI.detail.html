@@ -1,0 +1,52 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(qualitativeKPIEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(qualitativeKPIEditUI)' [ngClass]="{ 'disabled' : currentQualitativeKPI.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(qualitativeKPIDeleteUI)' [ngClass]="{ 'disabled' : currentQualitativeKPI.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Qualitative KPI</th>
+            <th> Employee Score</th>
+            <th> Manager Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let qualitativeKPI of QualitativeKPIList; let i = index' 
+                (dblclick)='onDblClicked(qualitativeKPIMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : qualitativeKPI.id === currentQualitativeKPI.id, 'free-row': qualitativeKPI.id !== currentQualitativeKPI.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ qualitativeKPI.descriptor }}
+            </td>
+            <td>{{ qualitativeKPI.employeeScore }}</td>
+            <td>{{ qualitativeKPI.managerScore }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-qualitativeKPI-edit #qualitativeKPIEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-qualitativeKPI-edit>
+  <pms-qualitativeKPI-delete #qualitativeKPIDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-qualitativeKPI-delete>
+  <pms-qualitativeKPI-master #qualitativeKPIMasterUI >
+  </pms-qualitativeKPI-master>
+</div>

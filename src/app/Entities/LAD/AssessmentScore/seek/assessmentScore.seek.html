@@ -1,0 +1,93 @@
+﻿<XDialog Header='Search form of Assessment Score' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='assessment' class='col-sm-3 col-form-label'>Assessment : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #assessment='ngModel' 
+                    #assessmentCombo='kendoDropDownList' 
+                    name='assessment' 
+                    title='Assessment'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessment.valid && assessment.touched }" 
+                    [data]='assessmentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessmentComponent.filterable'
+                    (filterChange)='assessmentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessment"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessmentComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessmentComponent.onAdd(assessmentCombo, assessmentEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='competencyItem' class='col-sm-3 col-form-label'>Competency Item : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #competencyItem='ngModel' 
+                    #competencyItemCombo='kendoDropDownList' 
+                    name='competencyItem' 
+                    title='Competency Item'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !competencyItem.valid && competencyItem.touched }" 
+                    [data]='competencyItemComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='competencyItemComponent.filterable'
+                    (filterChange)='competencyItemComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.competencyItem"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='competencyItemComponent.addable'>
+                      <button class='btn btn-primary' (click)='competencyItemComponent.onAdd(competencyItemCombo, competencyItemEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='expectedScore' class='col-sm-3 col-form-label'>Expected Score : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #expectedScore='ngModel' id='expectedScore' name='expectedScore'
+										 title='Expected Score'
+										 autocomplete='off'
+										 placeholder='Expected Score'
+										[(ngModel)]='assessmentScore.expectedScore'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='employeeScore' class='col-sm-3 col-form-label'>Employee Score : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #employeeScore='ngModel' id='employeeScore' name='employeeScore'
+										 title='Employee Score'
+										 autocomplete='off'
+										 placeholder='Employee Score'
+										[(ngModel)]='assessmentScore.employeeScore'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='managerScore' class='col-sm-3 col-form-label'>Manager Score : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #managerScore='ngModel' id='managerScore' name='managerScore'
+										 title='Manager Score'
+										 autocomplete='off'
+										 placeholder='Manager Score'
+										[(ngModel)]='assessmentScore.managerScore'
+										 type='number'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

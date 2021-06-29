@@ -1,0 +1,70 @@
+﻿<XDialog Header='Search form of Military Service Inclusive' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='militaryService' class='col-sm-3 col-form-label'>Military Service : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #militaryService='ngModel' 
+                    #militaryServiceCombo='kendoDropDownList' 
+                    name='militaryService' 
+                    title='Military Service'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !militaryService.valid && militaryService.touched }" 
+                    [data]='militaryServiceComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='militaryServiceComponent.filterable'
+                    (filterChange)='militaryServiceComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.militaryService"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='militaryServiceComponent.addable'>
+                      <button class='btn btn-primary' (click)='militaryServiceComponent.onAdd(militaryServiceCombo, militaryServiceEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='inclusiveType' class='col-sm-3 col-form-label'>Inclusive Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #inclusiveType='ngModel' 
+                    #inclusiveTypeCombo='kendoDropDownList' 
+                    name='inclusiveType' 
+                    title='Inclusive Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !inclusiveType.valid && inclusiveType.touched }" 
+                    [data]='inclusiveTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='inclusiveTypeComponent.filterable'
+                    (filterChange)='inclusiveTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.inclusiveType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='inclusiveTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='inclusiveTypeComponent.onAdd(inclusiveTypeCombo, inclusiveTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='comment' class='col-sm-3 col-form-label'>Comment : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #comment='ngModel' id='comment' name='comment'
+										 title='Comment'
+										 autocomplete='off'
+										 placeholder='Comment'
+										[(ngModel)]='militaryServiceInclusive.comment'
+										 type='text'
+										 maxlength='2000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

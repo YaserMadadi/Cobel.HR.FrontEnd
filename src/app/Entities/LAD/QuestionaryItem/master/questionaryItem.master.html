@@ -1,0 +1,52 @@
+﻿<XDialog Header='Questionary Item Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Questionary Item : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Questionary Type : 
+                        <guide (onClick)='onGuid("QuestionaryType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.questionaryType?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Question Title : 
+                        <guide (onClick)='onGuid("QuestionTitle")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.questionTitle }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Priority : 
+                        <guide (onClick)='onGuid("Priority")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.priority | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Answer Type : 
+                        <guide (onClick)='onGuid("AnswerType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.answerType?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Help Context : 
+                        <guide (onClick)='onGuid("HelpContext")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.helpContext }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Coaching Questionary Answered'>
+                <questionaryItem-coachingQuestionaryAnswered-detail 
+                    #ladQuestionaryItemCoachingQuestionaryAnsweredDetail
+                    [QuestionaryItem]='currentInstance'>
+                </questionaryItem-coachingQuestionaryAnswered-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

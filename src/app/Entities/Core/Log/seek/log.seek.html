@@ -1,0 +1,109 @@
+﻿<XDialog Header='Search form of Log' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='entityName' class='col-sm-3 col-form-label'>Entity Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #entityName='ngModel' id='entityName' name='entityName'
+										 title='Entity Name'
+										 autocomplete='off'
+										 placeholder='Entity Name'
+										[(ngModel)]='log.entityName'
+										 type='text'
+										 maxlength='500'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='recordID' class='col-sm-3 col-form-label'>Record I D : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #recordID='ngModel' id='recordID' name='recordID'
+										 title='Record I D'
+										 autocomplete='off'
+										 placeholder='Record I D'
+										[(ngModel)]='log.recordID'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='person' class='col-sm-3 col-form-label'>Person : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='effectDate' class='col-sm-3 col-form-label'>Effect Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #effectDate='ngModel' id='effectDate' name='effectDate'
+										 title='Effect Date'
+										 autocomplete='off'
+										 placeholder='Effect Date'
+										[(ngModel)]='log.effectDate'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='oldValue' class='col-sm-3 col-form-label'>Old Value : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #oldValue='ngModel' id='oldValue' name='oldValue'
+										 title='Old Value'
+										 autocomplete='off'
+										 placeholder='Old Value'
+										[(ngModel)]='log.oldValue'
+										 type='text'
+										 maxlength='-1'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='newValue' class='col-sm-3 col-form-label'>New Value : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #newValue='ngModel' id='newValue' name='newValue'
+										 title='New Value'
+										 autocomplete='off'
+										 placeholder='New Value'
+										[(ngModel)]='log.newValue'
+										 type='text'
+										 maxlength='-1'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='actionMode' class='col-sm-3 col-form-label'>Action Mode : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #actionMode='ngModel' id='actionMode' name='actionMode'
+										 title='Action Mode'
+										 autocomplete='off'
+										 placeholder='Action Mode'
+										[(ngModel)]='log.actionMode'
+										 type='text'
+										 maxlength='100'
+										 dir='ltr' />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

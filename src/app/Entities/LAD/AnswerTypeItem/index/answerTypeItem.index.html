@@ -1,0 +1,95 @@
+﻿<fieldset class='border'>
+  <legend>Answer Type Item :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(answerTypeItemEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(answerTypeItemTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(answerTypeItemEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(answerTypeItemDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("LAD", "AnswerType", currentInstance.answerType?.id)'>Manage Answer Type</a>
+    </dropDownMenu>
+  
+  <table #answerTypeItemTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Answer Type'>Answer Type</th>
+        <th title='Title'>Title</th>
+        <th title='Value'>Value</th>
+        <th width='100px' title='Is Active'>Is Active</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #answerType='ngModel' id='answerType' name='answerType'
+										 title='Answer Type'
+										 autocomplete='off'
+										 placeholder='Answer Type'
+										[(ngModel)]='filterInstance.answerType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='filterInstance.title'
+										 type='text'
+										 maxlength='1000'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #value='ngModel' id='value' name='value'
+										 title='Value'
+										 autocomplete='off'
+										 placeholder='Value'
+										[(ngModel)]='filterInstance.value'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(answerTypeItemMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.answerType?.descriptor }}</td>
+				<td>{{ p.title }}</td>
+				<td>{{ p.value | number }}</td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isActive' /></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- AnswerTypeItem -->
+<lad-answerTypeItem-master #answerTypeItemMasterUI>
+</lad-answerTypeItem-master>
+
+<lad-answerTypeItem-edit #answerTypeItemEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</lad-answerTypeItem-edit>
+
+<lad-answerTypeItem-delete #answerTypeItemDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</lad-answerTypeItem-delete>

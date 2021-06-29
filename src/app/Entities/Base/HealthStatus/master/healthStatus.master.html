@@ -1,0 +1,40 @@
+﻿<XDialog Header='Health Status Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Health Status : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>English Title : 
+                        <guide (onClick)='onGuid("EnglishTitle")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.englishTitle }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Persian Title : 
+                        <guide (onClick)='onGuid("PersianTitle")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.persianTitle }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Person'>
+                <healthStatus-person-detail 
+                    #baseHealthStatusPersonDetail
+                    [HealthStatus]='currentInstance'>
+                </healthStatus-person-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

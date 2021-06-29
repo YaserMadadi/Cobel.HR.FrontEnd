@@ -1,0 +1,104 @@
+﻿<fieldset class='border'>
+  <legend>Position Assignment :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(positionAssignmentEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(positionAssignmentTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(positionAssignmentEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(positionAssignmentDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Employee", currentInstance.employee?.id)'>Manage Employee</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Position", currentInstance.position?.id)'>Manage Position</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='positionAssignmentRepeal_Clicked(positionAssignmentRepealEditUI)'>Add Position Assignment Repeal</a>
+	
+  </dropDownMenu>
+  <table #positionAssignmentTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Employee'>Employee</th>
+        <th title='Position'>Position</th>
+        <th title='From Date'>From Date</th>
+        <th width='100px' title='Is Alive'>Is Alive</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #employee='ngModel' id='employee' name='employee'
+										 title='Employee'
+										 autocomplete='off'
+										 placeholder='Employee'
+										[(ngModel)]='filterInstance.employee.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #position='ngModel' id='position' name='position'
+										 title='Position'
+										 autocomplete='off'
+										 placeholder='Position'
+										[(ngModel)]='filterInstance.position.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #fromDate='ngModel' id='fromDate' name='fromDate'
+										 title='From Date'
+										 autocomplete='off'
+										 placeholder='From Date'
+										[(ngModel)]='filterInstance.fromDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(positionAssignmentMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.employee?.descriptor }}</td>
+				<td>{{ p.position?.descriptor }}</td>
+				<td>{{ p.fromDate | date:'fullDate' }}</td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isAlive' /></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- PositionAssignment -->
+<hr-positionAssignment-master #positionAssignmentMasterUI>
+</hr-positionAssignment-master>
+
+<hr-positionAssignment-edit #positionAssignmentEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</hr-positionAssignment-edit>
+
+<hr-positionAssignment-delete #positionAssignmentDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</hr-positionAssignment-delete>
+
+
+<hr-positionAssignmentRepeal-edit #positionAssignmentRepealEditUI> <!--  (onClosed)='positionAssignmentRepealEditUI_Closed($event)' -->
+</hr-positionAssignmentRepeal-edit>

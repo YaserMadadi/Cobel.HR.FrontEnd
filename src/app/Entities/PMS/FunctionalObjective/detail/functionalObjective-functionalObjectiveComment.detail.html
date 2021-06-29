@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(functionalObjectiveCommentEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(functionalObjectiveCommentEditUI)' [ngClass]="{ 'disabled' : currentFunctionalObjectiveComment.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(functionalObjectiveCommentDeleteUI)' [ngClass]="{ 'disabled' : currentFunctionalObjectiveComment.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('HR','Employee')"> Employee</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Functional Objective Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let functionalObjectiveComment of FunctionalObjectiveCommentList; let i = index' 
+                (dblclick)='onDblClicked(functionalObjectiveCommentMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : functionalObjectiveComment.id === currentFunctionalObjectiveComment.id, 'free-row': functionalObjectiveComment.id !== currentFunctionalObjectiveComment.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ functionalObjectiveComment.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-functionalObjectiveComment-edit #functionalObjectiveCommentEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-functionalObjectiveComment-edit>
+  <pms-functionalObjectiveComment-delete #functionalObjectiveCommentDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-functionalObjectiveComment-delete>
+  <pms-functionalObjectiveComment-master #functionalObjectiveCommentMasterUI >
+  </pms-functionalObjectiveComment-master>
+</div>

@@ -1,0 +1,132 @@
+﻿<fieldset class='border'>
+  <legend>Language Ability :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(languageAbilityEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(languageAbilityTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(languageAbilityEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(languageAbilityDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Person", currentInstance.person?.id)'>Manage Person</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "Language", currentInstance.language?.id)'>Manage Language</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "AbilityLevel", currentInstance.writingLevel?.id)'>Manage Ability Level</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "AbilityLevel", currentInstance.readingLevel?.id)'>Manage Ability Level</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "AbilityLevel", currentInstance.speackingLevel?.id)'>Manage Ability Level</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "AbilityLevel", currentInstance.listeningLevel?.id)'>Manage Ability Level</a>
+    </dropDownMenu>
+  
+  <table #languageAbilityTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Person'>Person</th>
+        <th title='Language'>Language</th>
+        <th title='Writing Level'>Writing Level</th>
+        <th title='Reading Level'>Reading Level</th>
+        <th title='Speacking Level'>Speacking Level</th>
+        <th title='Listening Level'>Listening Level</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #person='ngModel' id='person' name='person'
+										 title='Person'
+										 autocomplete='off'
+										 placeholder='Person'
+										[(ngModel)]='filterInstance.person.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #language='ngModel' id='language' name='language'
+										 title='Language'
+										 autocomplete='off'
+										 placeholder='Language'
+										[(ngModel)]='filterInstance.language.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #writingLevel='ngModel' id='writingLevel' name='writingLevel'
+										 title='Writing Level'
+										 autocomplete='off'
+										 placeholder='Writing Level'
+										[(ngModel)]='filterInstance.writingLevel.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #readingLevel='ngModel' id='readingLevel' name='readingLevel'
+										 title='Reading Level'
+										 autocomplete='off'
+										 placeholder='Reading Level'
+										[(ngModel)]='filterInstance.readingLevel.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #speackingLevel='ngModel' id='speackingLevel' name='speackingLevel'
+										 title='Speacking Level'
+										 autocomplete='off'
+										 placeholder='Speacking Level'
+										[(ngModel)]='filterInstance.speackingLevel.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #listeningLevel='ngModel' id='listeningLevel' name='listeningLevel'
+										 title='Listening Level'
+										 autocomplete='off'
+										 placeholder='Listening Level'
+										[(ngModel)]='filterInstance.listeningLevel.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(languageAbilityMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.person?.descriptor }}</td>
+				<td>{{ p.language?.descriptor }}</td>
+				<td>{{ p.writingLevel?.descriptor }}</td>
+				<td>{{ p.readingLevel?.descriptor }}</td>
+				<td>{{ p.speackingLevel?.descriptor }}</td>
+				<td>{{ p.listeningLevel?.descriptor }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- LanguageAbility -->
+<hr-languageAbility-master #languageAbilityMasterUI>
+</hr-languageAbility-master>
+
+<hr-languageAbility-edit #languageAbilityEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</hr-languageAbility-edit>
+
+<hr-languageAbility-delete #languageAbilityDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</hr-languageAbility-delete>

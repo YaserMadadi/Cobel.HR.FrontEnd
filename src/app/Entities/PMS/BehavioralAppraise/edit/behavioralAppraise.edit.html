@@ -1,0 +1,190 @@
+﻿<XDialog Header='Edit Form of Behavioral Appraise' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, behavioralAppraiseEditUI)' 
+    #behavioralAppraiseEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- BehavioralKPI -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("BehavioralKPI_Id")'></guide>
+        <label for='behavioralKPI' class='col-form-label'>Behavioral KPI : </label>
+        <span class='help-block col-form-label' *ngIf='!behavioralKPI.valid && behavioralKPI.touched && !behavioralKPI.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #behavioralKPI='ngModel' 
+                    #behavioralKPICombo='kendoDropDownList' 
+                    name='behavioralKPI' 
+                    title='Behavioral KPI'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !behavioralKPI.valid && behavioralKPI.touched }" 
+                    [data]='behavioralKPIComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='behavioralKPIComponent.filterable'
+                    (filterChange)='behavioralKPIComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.behavioralKPI"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='behavioralKPIComponent.addable'>
+                      <button class='btn btn-primary' (click)='behavioralKPIComponent.onAdd(behavioralKPICombo, behavioralKPIEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- AppraiseType -->
+      <div class='form-group' *ngIf='false'>
+        <guide (onClick)='onGuid("AppraiseType_Id")'></guide>
+        <label for='appraiseType' class='col-form-label'>Appraise Type : </label>
+        <span class='help-block col-form-label' *ngIf='!appraiseType.valid && appraiseType.touched && !appraiseType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #appraiseType='ngModel' 
+                    #appraiseTypeCombo='kendoDropDownList' 
+                    name='appraiseType' 
+                    title='Appraise Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !appraiseType.valid && appraiseType.touched }" 
+                    [data]='appraiseTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='appraiseTypeComponent.filterable'
+                    (filterChange)='appraiseTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.appraiseType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='appraiseTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='appraiseTypeComponent.onAdd(appraiseTypeCombo, appraiseTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- AppraiseTime -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("AppraiseTime_Id")'></guide>
+        <label for='appraiseTime' class='col-form-label'>Appraise Time : </label>
+        <span class='help-block col-form-label' *ngIf='!appraiseTime.valid && appraiseTime.touched && !appraiseTime.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #appraiseTime='ngModel' 
+                    #appraiseTimeCombo='kendoDropDownList' 
+                    name='appraiseTime' 
+                    title='Appraise Time'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !appraiseTime.valid && appraiseTime.touched }" 
+                    [data]='appraiseTimeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='appraiseTimeComponent.filterable'
+                    (filterChange)='appraiseTimeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.appraiseTime"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='appraiseTimeComponent.addable'>
+                      <button class='btn btn-primary' (click)='appraiseTimeComponent.onAdd(appraiseTimeCombo, appraiseTimeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Date -->
+      <!-- <div class='form-group'>
+        <guide (onClick)='onGuid("Date")'></guide>
+        <label for='date' class='col-form-label'>Date : </label>
+        <span class='help-block col-form-label' *ngIf='!date.valid && date.touched && !date.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Date 
+                    [ngClass]="{ 'error' : !date.valid && date.touched }" 
+                    class='form-control' 
+                    #date='ngModel' 
+                    name='date'
+                    [ngModel]="currentInstance.date | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.date = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div> -->
+			<!-- Appraiser -->
+      <!-- <div class='form-group'>
+        <guide (onClick)='onGuid("Appraiser_Id")'></guide>
+        <label for='appraiser' class='col-form-label'>Appraiser : </label>
+        <span class='help-block col-form-label' *ngIf='!appraiser.valid && appraiser.touched && !appraiser.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #appraiser='ngModel' 
+                    #appraiserCombo='kendoDropDownList' 
+                    name='appraiser' 
+                    title='Appraiser'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !appraiser.valid && appraiser.touched }" 
+                    [data]='appraiserComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='appraiserComponent.filterable'
+                    (filterChange)='appraiserComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.appraiser"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='appraiserComponent.addable'>
+                      <button class='btn btn-primary' (click)='appraiserComponent.onAdd(appraiserCombo, appraiserEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div> -->
+			<!-- Score -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Score")'></guide>
+        <label for='score' class='col-form-label'>Score : </label>
+        <span class='help-block col-form-label' *ngIf='!score.valid && score.touched && !score.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #score='ngModel' 
+            name='score' 
+            title='Score' 
+            placeholder='Score'
+            class='form-control'
+            [ngClass]="{ 'error' : !score.valid && score.touched }" 
+            [value]='currentInstance.score' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.score'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- Comment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Comment")'></guide>
+        <label for='comment' class='col-form-label'>Comment : </label>
+        <span class='help-block col-form-label' *ngIf='!comment.valid && comment.touched && !comment.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Comment' 
+                    [ngClass]="{ 'error' : !comment.valid && comment.touched }" 
+                    class='form-control ' 
+                    #comment='ngModel' 
+                    name='comment' 
+                    placeholder='... Comment' 
+                    [(ngModel)]='currentInstance.comment' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!behavioralAppraiseEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!behavioralAppraiseEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, behavioralAppraiseEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<pms-behavioralKPI-edit #behavioralKPIEditUI 
+    (onClosed)='behavioralKPIComponent.onClosed($event)'>
+</pms-behavioralKPI-edit>
+<base-pms-appraiseType-edit #appraiseTypeEditUI 
+    (onClosed)='appraiseTypeComponent.onClosed($event)'>
+</base-pms-appraiseType-edit>
+<base-pms-appraiseTime-edit #appraiseTimeEditUI 
+    (onClosed)='appraiseTimeComponent.onClosed($event)'>
+</base-pms-appraiseTime-edit>
+<hr-employee-edit #appraiserEditUI 
+    (onClosed)='appraiserComponent.onClosed($event)'>
+</hr-employee-edit>

@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(competencyItemKPIEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(competencyItemKPIEditUI)' [ngClass]="{ 'disabled' : currentCompetencyItemKPI.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(competencyItemKPIDeleteUI)' [ngClass]="{ 'disabled' : currentCompetencyItemKPI.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Competency Item KPI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let competencyItemKPI of CompetencyItemKPIList; let i = index' 
+                (dblclick)='onDblClicked(competencyItemKPIMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : competencyItemKPI.id === currentCompetencyItemKPI.id, 'free-row': competencyItemKPI.id !== currentCompetencyItemKPI.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ competencyItemKPI.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-competencyItemKPI-edit #competencyItemKPIEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-competencyItemKPI-edit>
+  <pms-competencyItemKPI-delete #competencyItemKPIDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-competencyItemKPI-delete>
+  <pms-competencyItemKPI-master #competencyItemKPIMasterUI >
+  </pms-competencyItemKPI-master>
+</div>

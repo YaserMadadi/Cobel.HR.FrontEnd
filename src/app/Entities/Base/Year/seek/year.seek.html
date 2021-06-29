@@ -1,0 +1,36 @@
+﻿<XDialog Header='Search form of Year' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='yearTitle' class='col-sm-3 col-form-label'>Year Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #yearTitle='ngModel' id='yearTitle' name='yearTitle'
+										 title='Year Title'
+										 autocomplete='off'
+										 placeholder='Year Title'
+										[(ngModel)]='year.yearTitle'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='description' class='col-sm-3 col-form-label'>Description : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #description='ngModel' id='description' name='description'
+										 title='Description'
+										 autocomplete='off'
+										 placeholder='Description'
+										[(ngModel)]='year.description'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

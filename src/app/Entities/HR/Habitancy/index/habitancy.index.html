@@ -1,0 +1,117 @@
+﻿<fieldset class='border'>
+  <legend>Habitancy :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(habitancyEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(habitancyTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(habitancyEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(habitancyDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Person", currentInstance.person?.id)'>Manage Person</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "HabitancyType", currentInstance.habitancyType?.id)'>Manage Habitancy Type</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "City", currentInstance.city?.id)'>Manage City</a>
+    </dropDownMenu>
+  
+  <table #habitancyTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Person'>Person</th>
+        <th title='Habitancy Type'>Habitancy Type</th>
+        <th title='City'>City</th>
+        <th title='Address'>Address</th>
+        <th title='Postal Code'>Postal Code</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #person='ngModel' id='person' name='person'
+										 title='Person'
+										 autocomplete='off'
+										 placeholder='Person'
+										[(ngModel)]='filterInstance.person.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #habitancyType='ngModel' id='habitancyType' name='habitancyType'
+										 title='Habitancy Type'
+										 autocomplete='off'
+										 placeholder='Habitancy Type'
+										[(ngModel)]='filterInstance.habitancyType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #city='ngModel' id='city' name='city'
+										 title='City'
+										 autocomplete='off'
+										 placeholder='City'
+										[(ngModel)]='filterInstance.city.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #address='ngModel' id='address' name='address'
+										 title='Address'
+										 autocomplete='off'
+										 placeholder='Address'
+										[(ngModel)]='filterInstance.address'
+										 type='text'
+										 maxlength='800'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #postalCode='ngModel' id='postalCode' name='postalCode'
+										 title='Postal Code'
+										 autocomplete='off'
+										 placeholder='Postal Code'
+										[(ngModel)]='filterInstance.postalCode'
+										 type='text'
+										 maxlength='20'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(habitancyMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.person?.descriptor }}</td>
+				<td>{{ p.habitancyType?.descriptor }}</td>
+				<td>{{ p.city?.descriptor }}</td>
+				<td>{{ p.address }}</td>
+				<td>{{ p.postalCode }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- Habitancy -->
+<hr-habitancy-master #habitancyMasterUI>
+</hr-habitancy-master>
+
+<hr-habitancy-edit #habitancyEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</hr-habitancy-edit>
+
+<hr-habitancy-delete #habitancyDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</hr-habitancy-delete>

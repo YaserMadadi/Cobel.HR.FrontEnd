@@ -1,0 +1,173 @@
+﻿<fieldset class='border'>
+  <legend>Individual Development Plan :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(individualDevelopmentPlanEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(individualDevelopmentPlanTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(individualDevelopmentPlanEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(individualDevelopmentPlanDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "Vision", currentInstance.vision?.id)'>Manage Vision</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "DevelopmentPlanPriority", currentInstance.priority?.id)'>Manage Development Plan Priority</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "Subject", currentInstance.subject?.id)'>Manage Subject</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "CurrentSituation", currentInstance.currentSituation?.id)'>Manage Current Situation</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "DesirableSituation", currentInstance.desirableSituation?.id)'>Manage Desirable Situation</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='developmentPlanCompetency_Clicked(developmentPlanCompetencyEditUI)'>Add Development Plan Competency</a>
+	
+  </dropDownMenu>
+  <table #individualDevelopmentPlanTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Vision'>Vision</th>
+        <th title='Priority'>Priority</th>
+        <th title='Subject'>Subject</th>
+        <th title='Title'>Title</th>
+        <th title='Current Situation'>Current Situation</th>
+        <th title='Desirable Situation'>Desirable Situation</th>
+        <th title='From Date'>From Date</th>
+        <th title='To Date'>To Date</th>
+        <th title='Effective Ness Index'>Effective Ness Index</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #vision='ngModel' id='vision' name='vision'
+										 title='Vision'
+										 autocomplete='off'
+										 placeholder='Vision'
+										[(ngModel)]='filterInstance.vision.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #priority='ngModel' id='priority' name='priority'
+										 title='Priority'
+										 autocomplete='off'
+										 placeholder='Priority'
+										[(ngModel)]='filterInstance.priority.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #subject='ngModel' id='subject' name='subject'
+										 title='Subject'
+										 autocomplete='off'
+										 placeholder='Subject'
+										[(ngModel)]='filterInstance.subject.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='filterInstance.title'
+										 type='text'
+										 maxlength='800'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #currentSituation='ngModel' id='currentSituation' name='currentSituation'
+										 title='Current Situation'
+										 autocomplete='off'
+										 placeholder='Current Situation'
+										[(ngModel)]='filterInstance.currentSituation.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #desirableSituation='ngModel' id='desirableSituation' name='desirableSituation'
+										 title='Desirable Situation'
+										 autocomplete='off'
+										 placeholder='Desirable Situation'
+										[(ngModel)]='filterInstance.desirableSituation.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #fromDate='ngModel' id='fromDate' name='fromDate'
+										 title='From Date'
+										 autocomplete='off'
+										 placeholder='From Date'
+										[(ngModel)]='filterInstance.fromDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #toDate='ngModel' id='toDate' name='toDate'
+										 title='To Date'
+										 autocomplete='off'
+										 placeholder='To Date'
+										[(ngModel)]='filterInstance.toDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #effectiveNessIndex='ngModel' id='effectiveNessIndex' name='effectiveNessIndex'
+										 title='Effective Ness Index'
+										 autocomplete='off'
+										 placeholder='Effective Ness Index'
+										[(ngModel)]='filterInstance.effectiveNessIndex'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(individualDevelopmentPlanMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.vision?.descriptor }}</td>
+				<td>{{ p.priority?.descriptor }}</td>
+				<td>{{ p.subject?.descriptor }}</td>
+				<td>{{ p.title }}</td>
+				<td>{{ p.currentSituation?.descriptor }}</td>
+				<td>{{ p.desirableSituation?.descriptor }}</td>
+				<td>{{ p.fromDate | date:'fullDate' }}</td>
+				<td>{{ p.toDate | date:'fullDate' }}</td>
+				<td>{{ p.effectiveNessIndex }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- IndividualDevelopmentPlan -->
+<pms-individualDevelopmentPlan-master #individualDevelopmentPlanMasterUI>
+</pms-individualDevelopmentPlan-master>
+
+<pms-individualDevelopmentPlan-edit #individualDevelopmentPlanEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-individualDevelopmentPlan-edit>
+
+<pms-individualDevelopmentPlan-delete #individualDevelopmentPlanDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-individualDevelopmentPlan-delete>
+
+
+<pms-developmentPlanCompetency-edit #developmentPlanCompetencyEditUI> <!--  (onClosed)='developmentPlanCompetencyEditUI_Closed($event)' -->
+</pms-developmentPlanCompetency-edit>

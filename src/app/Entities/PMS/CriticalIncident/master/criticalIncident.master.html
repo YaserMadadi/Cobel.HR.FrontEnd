@@ -1,0 +1,46 @@
+﻿<XDialog Header='Critical Incident Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Critical Incident : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee : 
+                        <guide (onClick)='onGuid("Employee_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employee?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Critical Incident Type : 
+                        <guide (onClick)='onGuid("CriticalIncidentType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.criticalIncidentType?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Issue Date : 
+                        <guide (onClick)='onGuid("IssueDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.issueDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Comment : 
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Critical Incident Recognition'>
+                <criticalIncident-criticalIncidentRecognition-detail 
+                    #pmsCriticalIncidentCriticalIncidentRecognitionDetail
+                    [CriticalIncident]='currentInstance'>
+                </criticalIncident-criticalIncidentRecognition-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

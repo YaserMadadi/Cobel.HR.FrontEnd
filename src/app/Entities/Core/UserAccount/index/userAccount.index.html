@@ -1,0 +1,84 @@
+﻿<fieldset class='border'>
+  <legend>User Account :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(userAccountEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(userAccountTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(userAccountEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(userAccountDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Person", currentInstance.person?.id)'>Manage Person</a>
+    </dropDownMenu>
+  
+  <table #userAccountTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Person'>Person</th>
+        <th title='User Name'>User Name</th>
+        <th width='100px' title='Is Active'>Is Active</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #person='ngModel' id='person' name='person'
+										 title='Person'
+										 autocomplete='off'
+										 placeholder='Person'
+										[(ngModel)]='filterInstance.person.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #userName='ngModel' id='userName' name='userName'
+										 title='User Name'
+										 autocomplete='off'
+										 placeholder='User Name'
+										[(ngModel)]='filterInstance.userName'
+										 type='text'
+										 maxlength='100'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(userAccountMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.person?.descriptor }}</td>
+				<td>{{ p.userName }}</td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isActive' /></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- UserAccount -->
+<core-userAccount-master #userAccountMasterUI>
+</core-userAccount-master>
+
+<core-userAccount-edit #userAccountEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</core-userAccount-edit>
+
+<core-userAccount-delete #userAccountDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</core-userAccount-delete>

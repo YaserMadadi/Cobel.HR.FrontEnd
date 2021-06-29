@@ -1,0 +1,60 @@
+﻿<XDialog Header='Search form of Coach' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='gender' class='col-sm-3 col-form-label'>Gender : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #gender='ngModel' 
+                    #genderCombo='kendoDropDownList' 
+                    name='gender' 
+                    title='Gender'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !gender.valid && gender.touched }" 
+                    [data]='genderComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='genderComponent.filterable'
+                    (filterChange)='genderComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.gender"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='genderComponent.addable'>
+                      <button class='btn btn-primary' (click)='genderComponent.onAdd(genderCombo, genderEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='firstName' class='col-sm-3 col-form-label'>First Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #firstName='ngModel' id='firstName' name='firstName'
+										 title='First Name'
+										 autocomplete='off'
+										 placeholder='First Name'
+										[(ngModel)]='coach.firstName'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='lastName' class='col-sm-3 col-form-label'>Last Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #lastName='ngModel' id='lastName' name='lastName'
+										 title='Last Name'
+										 autocomplete='off'
+										 placeholder='Last Name'
+										[(ngModel)]='coach.lastName'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

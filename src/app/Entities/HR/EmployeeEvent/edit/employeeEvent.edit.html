@@ -1,0 +1,159 @@
+﻿<XDialog Header='Edit Form of Employee Event' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, employeeEventEditUI)' 
+    #employeeEventEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Employee -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Employee_Id")'></guide>
+        <label for='employee' class='col-form-label'>Employee : </label>
+        <span class='help-block col-form-label' *ngIf='!employee.valid && employee.touched && !employee.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Date -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Date")'></guide>
+        <label for='date' class='col-form-label'>Date : </label>
+        <span class='help-block col-form-label' *ngIf='!date.valid && date.touched && !date.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Date 
+                    [ngClass]="{ 'error' : !date.valid && date.touched }" 
+                    class='form-control' 
+                    #date='ngModel' 
+                    name='date'
+                    [ngModel]="currentInstance.date | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.date = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- Time -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Time")'></guide>
+        <label for='time' class='col-form-label'>Time : </label>
+        <span class='help-block col-form-label' *ngIf='!time.valid && time.touched && !time.disabled'>( Value is not Valid! )</span>
+        <input type='time' 
+                    title=Time 
+                    [ngClass]="{ 'error' : !time.valid && time.touched }" 
+                    class='form-control ' 
+                    #time='ngModel' 
+                    name='time'
+                    [(ngModel)]='currentInstance.time' 
+                    [disabled]='IsLocked'
+                     required 
+                    min='09:00' max='18:00'>
+      </div>
+			<!-- EventType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EventType_Id")'></guide>
+        <label for='eventType' class='col-form-label'>Event Type : </label>
+        <span class='help-block col-form-label' *ngIf='!eventType.valid && eventType.touched && !eventType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #eventType='ngModel' 
+                    #eventTypeCombo='kendoDropDownList' 
+                    name='eventType' 
+                    title='Event Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !eventType.valid && eventType.touched }" 
+                    [data]='eventTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='eventTypeComponent.filterable'
+                    (filterChange)='eventTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.eventType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='eventTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='eventTypeComponent.onAdd(eventTypeCombo, eventTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Title")'></guide>
+        <label for='title' class='col-form-label'>Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Title' 
+                    [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                    class='form-control ' 
+                    #title='ngModel' 
+                    name='title' 
+                    placeholder='... Title' 
+                    [(ngModel)]='currentInstance.title' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  required  />
+      </div>
+			<!-- Content -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Content")'></guide>
+        <label for='content' class='col-form-label'>Content : </label>
+        <span class='help-block col-form-label' *ngIf='!content.valid && content.touched && !content.disabled'>( Value is not Valid! )</span>
+        <textarea type='text' title='Content' name='content' 
+                            class='form-control' 
+                            [ngClass]="{ 'error' : !content.valid && content.touched }" 
+                            #content='ngModel' 
+                            placeholder='... Content' 
+                            [(ngModel)]='currentInstance.content'
+                            [disabled]='IsLocked'
+                            maxlength='4000'  required  ></textarea>
+      </div>
+			<!-- Link -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Link")'></guide>
+        <label for='link' class='col-form-label'>Link : </label>
+        <span class='help-block col-form-label' *ngIf='!link.valid && link.touched && !link.disabled'>( Value is not Valid! )</span>
+        <textarea type='text' title='Link' name='link' 
+                            class='form-control' 
+                            [ngClass]="{ 'error' : !link.valid && link.touched }" 
+                            #link='ngModel' 
+                            placeholder='... Link' 
+                            [(ngModel)]='currentInstance.link'
+                            [disabled]='IsLocked'
+                            maxlength='4000'  required  ></textarea>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!employeeEventEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!employeeEventEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, employeeEventEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-employee-edit #employeeEditUI 
+    (onClosed)='employeeComponent.onClosed($event)'>
+</hr-employee-edit>
+<base-hr-eventType-edit #eventTypeEditUI 
+    (onClosed)='eventTypeComponent.onClosed($event)'>
+</base-hr-eventType-edit>

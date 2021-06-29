@@ -1,0 +1,56 @@
+﻿<XDialog Header='Edit Form of Cell Action' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, cellActionEditUI)' 
+    #cellActionEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- ScoreCell -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ScoreCell_Id")'></guide>
+        <label for='scoreCell' class='col-form-label'>Score Cell : </label>
+        <span class='help-block col-form-label' *ngIf='!scoreCell.valid && scoreCell.touched && !scoreCell.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #scoreCell='ngModel' 
+                    #scoreCellCombo='kendoDropDownList' 
+                    name='scoreCell' 
+                    title='Score Cell'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !scoreCell.valid && scoreCell.touched }" 
+                    [data]='scoreCellComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='scoreCellComponent.filterable'
+                    (filterChange)='scoreCellComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.scoreCell"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='scoreCellComponent.addable'>
+                      <button class='btn btn-primary' (click)='scoreCellComponent.onAdd(scoreCellCombo, scoreCellEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!cellActionEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!cellActionEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, cellActionEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<pms-scoreCell-edit #scoreCellEditUI 
+    (onClosed)='scoreCellComponent.onClosed($event)'>
+</pms-scoreCell-edit>

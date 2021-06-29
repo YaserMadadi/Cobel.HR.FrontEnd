@@ -1,0 +1,174 @@
+﻿<XDialog Header='Search form of University History' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='person' class='col-sm-3 col-form-label'>Person : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='universityDegree' class='col-sm-3 col-form-label'>University Degree : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #universityDegree='ngModel' 
+                    #universityDegreeCombo='kendoDropDownList' 
+                    name='universityDegree' 
+                    title='University Degree'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !universityDegree.valid && universityDegree.touched }" 
+                    [data]='universityDegreeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='universityDegreeComponent.filterable'
+                    (filterChange)='universityDegreeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.universityDegree"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='universityDegreeComponent.addable'>
+                      <button class='btn btn-primary' (click)='universityDegreeComponent.onAdd(universityDegreeCombo, universityDegreeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='university' class='col-sm-3 col-form-label'>University : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #university='ngModel' 
+                    #universityCombo='kendoDropDownList' 
+                    name='university' 
+                    title='University'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !university.valid && university.touched }" 
+                    [data]='universityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='universityComponent.filterable'
+                    (filterChange)='universityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.university"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='universityComponent.addable'>
+                      <button class='btn btn-primary' (click)='universityComponent.onAdd(universityCombo, universityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='fieldOfStudy' class='col-sm-3 col-form-label'>Field Of Study : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #fieldOfStudy='ngModel' 
+                    #fieldOfStudyCombo='kendoDropDownList' 
+                    name='fieldOfStudy' 
+                    title='Field Of Study'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !fieldOfStudy.valid && fieldOfStudy.touched }" 
+                    [data]='fieldOfStudyComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='fieldOfStudyComponent.filterable'
+                    (filterChange)='fieldOfStudyComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.fieldOfStudy"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='fieldOfStudyComponent.addable'>
+                      <button class='btn btn-primary' (click)='fieldOfStudyComponent.onAdd(fieldOfStudyCombo, fieldOfStudyEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='educationSystem' class='col-sm-3 col-form-label'>Education System : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #educationSystem='ngModel' 
+                    #educationSystemCombo='kendoDropDownList' 
+                    name='educationSystem' 
+                    title='Education System'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !educationSystem.valid && educationSystem.touched }" 
+                    [data]='educationSystemComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='educationSystemComponent.filterable'
+                    (filterChange)='educationSystemComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.educationSystem"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='educationSystemComponent.addable'>
+                      <button class='btn btn-primary' (click)='educationSystemComponent.onAdd(educationSystemCombo, educationSystemEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='certificationType' class='col-sm-3 col-form-label'>Certification Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #certificationType='ngModel' 
+                    #certificationTypeCombo='kendoDropDownList' 
+                    name='certificationType' 
+                    title='Certification Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !certificationType.valid && certificationType.touched }" 
+                    [data]='certificationTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='certificationTypeComponent.filterable'
+                    (filterChange)='certificationTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.certificationType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='certificationTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='certificationTypeComponent.onAdd(certificationTypeCombo, certificationTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='startDate' class='col-sm-3 col-form-label'>Start Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #startDate='ngModel' id='startDate' name='startDate'
+										 title='Start Date'
+										 autocomplete='off'
+										 placeholder='Start Date'
+										[(ngModel)]='universityHistory.startDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='comment' class='col-sm-3 col-form-label'>Comment : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #comment='ngModel' id='comment' name='comment'
+										 title='Comment'
+										 autocomplete='off'
+										 placeholder='Comment'
+										[(ngModel)]='universityHistory.comment'
+										 type='text'
+										 maxlength='2000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

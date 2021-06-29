@@ -1,0 +1,70 @@
+﻿<XDialog Header='Search form of Military Service Excemption' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='militaryService' class='col-sm-3 col-form-label'>Military Service : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #militaryService='ngModel' 
+                    #militaryServiceCombo='kendoDropDownList' 
+                    name='militaryService' 
+                    title='Military Service'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !militaryService.valid && militaryService.touched }" 
+                    [data]='militaryServiceComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='militaryServiceComponent.filterable'
+                    (filterChange)='militaryServiceComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.militaryService"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='militaryServiceComponent.addable'>
+                      <button class='btn btn-primary' (click)='militaryServiceComponent.onAdd(militaryServiceCombo, militaryServiceEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='excemptionType' class='col-sm-3 col-form-label'>Excemption Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #excemptionType='ngModel' 
+                    #excemptionTypeCombo='kendoDropDownList' 
+                    name='excemptionType' 
+                    title='Excemption Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !excemptionType.valid && excemptionType.touched }" 
+                    [data]='excemptionTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='excemptionTypeComponent.filterable'
+                    (filterChange)='excemptionTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.excemptionType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='excemptionTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='excemptionTypeComponent.onAdd(excemptionTypeCombo, excemptionTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='comment' class='col-sm-3 col-form-label'>Comment : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #comment='ngModel' id='comment' name='comment'
+										 title='Comment'
+										 autocomplete='off'
+										 placeholder='Comment'
+										[(ngModel)]='militaryServiceExcemption.comment'
+										 type='text'
+										 maxlength='2000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

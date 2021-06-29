@@ -1,0 +1,79 @@
+﻿<fieldset class='border'>
+  <legend>Strategic Objectve :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(strategicObjectveEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(strategicObjectveTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(strategicObjectveEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(strategicObjectveDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+  
+  <table #strategicObjectveTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='From Date'>From Date</th>
+        <th title='Title'>Title</th>
+        <th width='100px' title='Is Active'>Is Active</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #fromDate='ngModel' id='fromDate' name='fromDate'
+										 title='From Date'
+										 autocomplete='off'
+										 placeholder='From Date'
+										[(ngModel)]='filterInstance.fromDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='filterInstance.title'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(strategicObjectveMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.fromDate | date:'fullDate' }}</td>
+				<td>{{ p.title }}</td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isActive' /></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- StrategicObjectve -->
+<pms-strategicObjectve-master #strategicObjectveMasterUI>
+</pms-strategicObjectve-master>
+
+<pms-strategicObjectve-edit #strategicObjectveEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-strategicObjectve-edit>
+
+<pms-strategicObjectve-delete #strategicObjectveDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-strategicObjectve-delete>

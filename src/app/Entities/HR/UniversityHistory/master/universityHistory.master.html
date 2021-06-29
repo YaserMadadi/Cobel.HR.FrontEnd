@@ -1,0 +1,70 @@
+﻿<XDialog Header='University History Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>University History : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Person : 
+                        <guide (onClick)='onGuid("Person_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.person?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>University Degree : 
+                        <guide (onClick)='onGuid("UniversityDegree_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.universityDegree?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>University : 
+                        <guide (onClick)='onGuid("University_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.university?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Field Of Study : 
+                        <guide (onClick)='onGuid("FieldOfStudy_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.fieldOfStudy?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Education System : 
+                        <guide (onClick)='onGuid("EducationSystem_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.educationSystem?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Certification Type : 
+                        <guide (onClick)='onGuid("CertificationType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.certificationType?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Start Date : 
+                        <guide (onClick)='onGuid("StartDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.startDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Comment : 
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='University Terminate'>
+                <universityHistory-universityTerminate-detail 
+                    #hrUniversityHistoryUniversityTerminateDetail
+                    [UniversityHistory]='currentInstance'>
+                </universityHistory-universityTerminate-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

@@ -1,0 +1,94 @@
+﻿<XDialog Header='Search form of Config Target Setting' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='position' class='col-sm-3 col-form-label'>Position : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #position='ngModel' 
+                    #positionCombo='kendoDropDownList' 
+                    name='position' 
+                    title='Position'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !position.valid && position.touched }" 
+                    [data]='positionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='positionComponent.filterable'
+                    (filterChange)='positionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.position"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='positionComponent.addable'>
+                      <button class='btn btn-primary' (click)='positionComponent.onAdd(positionCombo, positionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='fromDate' class='col-sm-3 col-form-label'>From Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #fromDate='ngModel' id='fromDate' name='fromDate'
+										 title='From Date'
+										 autocomplete='off'
+										 placeholder='From Date'
+										[(ngModel)]='configTargetSetting.fromDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='quantitativeWeight' class='col-sm-3 col-form-label'>Quantitative Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #quantitativeWeight='ngModel' id='quantitativeWeight' name='quantitativeWeight'
+										 title='Quantitative Weight'
+										 autocomplete='off'
+										 placeholder='Quantitative Weight'
+										[(ngModel)]='configTargetSetting.quantitativeWeight'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='qualitativeWeight' class='col-sm-3 col-form-label'>Qualitative Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #qualitativeWeight='ngModel' id='qualitativeWeight' name='qualitativeWeight'
+										 title='Qualitative Weight'
+										 autocomplete='off'
+										 placeholder='Qualitative Weight'
+										[(ngModel)]='configTargetSetting.qualitativeWeight'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='qualitativeNonBehavioralWeight' class='col-sm-3 col-form-label'>Qualitative Non Behavioral Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #qualitativeNonBehavioralWeight='ngModel' id='qualitativeNonBehavioralWeight' name='qualitativeNonBehavioralWeight'
+										 title='Qualitative Non Behavioral Weight'
+										 autocomplete='off'
+										 placeholder='Qualitative Non Behavioral Weight'
+										[(ngModel)]='configTargetSetting.qualitativeNonBehavioralWeight'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='qualitativeBehavioralWeight' class='col-sm-3 col-form-label'>Qualitative Behavioral Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #qualitativeBehavioralWeight='ngModel' id='qualitativeBehavioralWeight' name='qualitativeBehavioralWeight'
+										 title='Qualitative Behavioral Weight'
+										 autocomplete='off'
+										 placeholder='Qualitative Behavioral Weight'
+										[(ngModel)]='configTargetSetting.qualitativeBehavioralWeight'
+										 type='number'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

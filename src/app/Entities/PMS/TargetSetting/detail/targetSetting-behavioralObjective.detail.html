@@ -1,0 +1,55 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(behavioralObjectiveEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(behavioralObjectiveEditUI)' [ngClass]="{ 'disabled' : currentBehavioralObjective.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(behavioralObjectiveDeleteUI)' [ngClass]="{ 'disabled' : currentBehavioralObjective.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('PMS','CompetencyItem')"> Competency Item</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base.PMS','ExpectedLevel')"> Expected Level</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Behavioral Objective</th>
+            <th>Employee Score</th>
+            <th>Manager Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let behavioralObjective of BehavioralObjectiveList; let i = index' 
+                (dblclick)='onDblClicked(behavioralObjectiveMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : behavioralObjective.id === currentBehavioralObjective.id, 'free-row': behavioralObjective.id !== currentBehavioralObjective.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ behavioralObjective.descriptor }}
+            </td>
+            <td>{{ behavioralObjective.employeeScore }}</td>
+            <td>{{ behavioralObjective.managerScore }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-behavioralObjective-edit #behavioralObjectiveEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-behavioralObjective-edit>
+  <pms-behavioralObjective-delete #behavioralObjectiveDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-behavioralObjective-delete>
+  <pms-behavioralObjective-master #behavioralObjectiveMasterUI >
+  </pms-behavioralObjective-master>
+</div>

@@ -1,0 +1,41 @@
+.tablediv {
+    padding: 20px;
+}
+
+table,
+tr td {
+    border: 0px
+}
+
+tbody {
+    display: block;
+    height: 600px;
+    overflow: auto;
+}
+
+thead,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    /* even columns width , fix width of table too*/
+}
+
+thead {
+    width: calc( 100% - 1em)/* scrollbar is average 1em/16px width, remove it from thead width */
+}
+
+
+.pointer:hover {
+    background-color: #d4de6c;
+}
+
+.pointer{
+    background-color:  white;
+    color: white;
+}
+
+
+a:not([href]):not([tabindex]):hover {
+    background-color: #d4de6c;
+}

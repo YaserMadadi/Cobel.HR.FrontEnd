@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(universityTerminateEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(universityTerminateEditUI)' [ngClass]="{ 'disabled' : currentUniversityTerminate.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(universityTerminateDeleteUI)' [ngClass]="{ 'disabled' : currentUniversityTerminate.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> University Terminate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let universityTerminate of UniversityTerminateList; let i = index' 
+                (dblclick)='onDblClicked(universityTerminateMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : universityTerminate.id === currentUniversityTerminate.id, 'free-row': universityTerminate.id !== currentUniversityTerminate.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ universityTerminate.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-universityTerminate-edit #universityTerminateEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-universityTerminate-edit>
+  <hr-universityTerminate-delete #universityTerminateDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-universityTerminate-delete>
+  <hr-universityTerminate-master #universityTerminateMasterUI >
+  </hr-universityTerminate-master>
+</div>

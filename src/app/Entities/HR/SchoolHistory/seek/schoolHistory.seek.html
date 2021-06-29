@@ -1,0 +1,70 @@
+﻿<XDialog Header='Search form of School History' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='person' class='col-sm-3 col-form-label'>Person : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='schoolLevel' class='col-sm-3 col-form-label'>School Level : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #schoolLevel='ngModel' 
+                    #schoolLevelCombo='kendoDropDownList' 
+                    name='schoolLevel' 
+                    title='School Level'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !schoolLevel.valid && schoolLevel.touched }" 
+                    [data]='schoolLevelComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='schoolLevelComponent.filterable'
+                    (filterChange)='schoolLevelComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.schoolLevel"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='schoolLevelComponent.addable'>
+                      <button class='btn btn-primary' (click)='schoolLevelComponent.onAdd(schoolLevelCombo, schoolLevelEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='schoolName' class='col-sm-3 col-form-label'>School Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #schoolName='ngModel' id='schoolName' name='schoolName'
+										 title='School Name'
+										 autocomplete='off'
+										 placeholder='School Name'
+										[(ngModel)]='schoolHistory.schoolName'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

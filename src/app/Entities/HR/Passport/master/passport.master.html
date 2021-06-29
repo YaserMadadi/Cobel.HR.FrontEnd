@@ -1,0 +1,39 @@
+﻿<XDialog Header='Passport Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Passport : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Person : 
+                        <guide (onClick)='onGuid("Person_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.person?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Passport Number : 
+                        <guide (onClick)='onGuid("PassportNumber")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.passportNumber }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Issue Date : 
+                        <guide (onClick)='onGuid("IssueDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.issueDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Expire Date : 
+                        <guide (onClick)='onGuid("ExpireDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.expireDate | date:'fullDate' }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

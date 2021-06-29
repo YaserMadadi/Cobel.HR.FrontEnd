@@ -1,0 +1,99 @@
+﻿<XDialog Header='Edit Form of Year Quarter' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, yearQuarterEditUI)' 
+    #yearQuarterEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Title")'></guide>
+        <label for='title' class='col-form-label'>Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Title' 
+                    [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                    class='form-control ' 
+                    #title='ngModel' 
+                    name='title' 
+                    placeholder='... Title' 
+                    [(ngModel)]='currentInstance.title' 
+                    [disabled]='IsLocked'
+                    maxlength='800'  required  />
+      </div>
+			<!-- Year -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Year_Id")'></guide>
+        <label for='year' class='col-form-label'>Year : </label>
+        <span class='help-block col-form-label' *ngIf='!year.valid && year.touched && !year.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #year='ngModel' 
+                    #yearCombo='kendoDropDownList' 
+                    name='year' 
+                    title='Year'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !year.valid && year.touched }" 
+                    [data]='yearComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='yearComponent.filterable'
+                    (filterChange)='yearComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.year"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='yearComponent.addable'>
+                      <button class='btn btn-primary' (click)='yearComponent.onAdd(yearCombo, yearEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Quarter -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Quarter_Id")'></guide>
+        <label for='quarter' class='col-form-label'>Quarter : </label>
+        <span class='help-block col-form-label' *ngIf='!quarter.valid && quarter.touched && !quarter.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #quarter='ngModel' 
+                    #quarterCombo='kendoDropDownList' 
+                    name='quarter' 
+                    title='Quarter'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !quarter.valid && quarter.touched }" 
+                    [data]='quarterComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='quarterComponent.filterable'
+                    (filterChange)='quarterComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.quarter"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='quarterComponent.addable'>
+                      <button class='btn btn-primary' (click)='quarterComponent.onAdd(quarterCombo, quarterEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!yearQuarterEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!yearQuarterEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, yearQuarterEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<base-year-edit #yearEditUI 
+    (onClosed)='yearComponent.onClosed($event)'>
+</base-year-edit>
+<base-quarter-edit #quarterEditUI 
+    (onClosed)='quarterComponent.onClosed($event)'>
+</base-quarter-edit>

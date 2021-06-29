@@ -1,0 +1,142 @@
+﻿<XDialog Header='Edit Form of Habitancy' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, habitancyEditUI)' 
+    #habitancyEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Person -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Person_Id")'></guide>
+        <label for='person' class='col-form-label'>Person : </label>
+        <span class='help-block col-form-label' *ngIf='!person.valid && person.touched && !person.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- HabitancyType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("HabitancyType_Id")'></guide>
+        <label for='habitancyType' class='col-form-label'>Habitancy Type : </label>
+        <span class='help-block col-form-label' *ngIf='!habitancyType.valid && habitancyType.touched && !habitancyType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #habitancyType='ngModel' 
+                    #habitancyTypeCombo='kendoDropDownList' 
+                    name='habitancyType' 
+                    title='Habitancy Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !habitancyType.valid && habitancyType.touched }" 
+                    [data]='habitancyTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='habitancyTypeComponent.filterable'
+                    (filterChange)='habitancyTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.habitancyType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='habitancyTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='habitancyTypeComponent.onAdd(habitancyTypeCombo, habitancyTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- City -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("City_Id")'></guide>
+        <label for='city' class='col-form-label'>City : </label>
+        <span class='help-block col-form-label' *ngIf='!city.valid && city.touched && !city.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #city='ngModel' 
+                    #cityCombo='kendoDropDownList' 
+                    name='city' 
+                    title='City'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !city.valid && city.touched }" 
+                    [data]='cityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='cityComponent.filterable'
+                    (filterChange)='cityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.city"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='cityComponent.addable'>
+                      <button class='btn btn-primary' (click)='cityComponent.onAdd(cityCombo, cityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Address -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Address")'></guide>
+        <label for='address' class='col-form-label'>Address : </label>
+        <span class='help-block col-form-label' *ngIf='!address.valid && address.touched && !address.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Address' 
+                    [ngClass]="{ 'error' : !address.valid && address.touched }" 
+                    class='form-control ' 
+                    #address='ngModel' 
+                    name='address' 
+                    placeholder='... Address' 
+                    [(ngModel)]='currentInstance.address' 
+                    [disabled]='IsLocked'
+                    maxlength='800'  required  />
+      </div>
+			<!-- PostalCode -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PostalCode")'></guide>
+        <label for='postalCode' class='col-form-label'>Postal Code : </label>
+        <span class='help-block col-form-label' *ngIf='!postalCode.valid && postalCode.touched && !postalCode.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Postal Code' 
+                    [ngClass]="{ 'error' : !postalCode.valid && postalCode.touched }" 
+                    class='form-control ' 
+                    #postalCode='ngModel' 
+                    name='postalCode' 
+                    placeholder='... Postal Code' 
+                    [(ngModel)]='currentInstance.postalCode' 
+                    [disabled]='IsLocked'
+                    maxlength='20'  dir='ltr'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!habitancyEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!habitancyEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, habitancyEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-person-edit #personEditUI 
+    (onClosed)='personComponent.onClosed($event)'>
+</hr-person-edit>
+<base-habitancyType-edit #habitancyTypeEditUI 
+    (onClosed)='habitancyTypeComponent.onClosed($event)'>
+</base-habitancyType-edit>
+<base-city-edit #cityEditUI 
+    (onClosed)='cityComponent.onClosed($event)'>
+</base-city-edit>

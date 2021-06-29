@@ -1,0 +1,20 @@
+.ssrs-reportviewer {
+  overflow-x:hidden;
+  overflow-Y:hidden;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  border: rgb(192, 192, 192) solid 1px;
+}
+
+input[type=button]{
+  direction: rtl;
+}
+
+#ReportViewerControl.ParametersFrame{
+  direction: rtl;
+}
+
+#ParametersRowReportViewerControl{
+  direction: rtl;
+}

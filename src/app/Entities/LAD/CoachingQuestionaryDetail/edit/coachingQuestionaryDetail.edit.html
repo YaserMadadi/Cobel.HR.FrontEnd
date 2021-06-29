@@ -1,0 +1,104 @@
+﻿<XDialog Header='Edit Form of Coaching Questionary Detail' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, coachingQuestionaryDetailEditUI)' 
+    #coachingQuestionaryDetailEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- CoachingQuestionary -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("CoachingQuestionary_Id")'></guide>
+        <label for='coachingQuestionary' class='col-form-label'>Coaching Questionary : </label>
+        <span class='help-block col-form-label' *ngIf='!coachingQuestionary.valid && coachingQuestionary.touched && !coachingQuestionary.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #coachingQuestionary='ngModel' 
+                    #coachingQuestionaryCombo='kendoDropDownList' 
+                    name='coachingQuestionary' 
+                    title='Coaching Questionary'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !coachingQuestionary.valid && coachingQuestionary.touched }" 
+                    [data]='coachingQuestionaryComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='coachingQuestionaryComponent.filterable'
+                    (filterChange)='coachingQuestionaryComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.coachingQuestionary"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='coachingQuestionaryComponent.addable'>
+                      <button class='btn btn-primary' (click)='coachingQuestionaryComponent.onAdd(coachingQuestionaryCombo, coachingQuestionaryEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Date -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Date")'></guide>
+        <label for='date' class='col-form-label'>Date : </label>
+        <span class='help-block col-form-label' *ngIf='!date.valid && date.touched && !date.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Date 
+                    [ngClass]="{ 'error' : !date.valid && date.touched }" 
+                    class='form-control' 
+                    #date='ngModel' 
+                    name='date'
+                    [ngModel]="currentInstance.date | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.date = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- From -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("From")'></guide>
+        <label for='from' class='col-form-label'>From : </label>
+        <span class='help-block col-form-label' *ngIf='!from.valid && from.touched && !from.disabled'>( Value is not Valid! )</span>
+        <input type='time' 
+                    title=From 
+                    [ngClass]="{ 'error' : !from.valid && from.touched }" 
+                    class='form-control ' 
+                    #from='ngModel' 
+                    name='from'
+                    [(ngModel)]='currentInstance.from' 
+                    [disabled]='IsLocked'
+                     required 
+                    min='09:00' max='18:00'>
+      </div>
+			<!-- To -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("To")'></guide>
+        <label for='to' class='col-form-label'>To : </label>
+        <span class='help-block col-form-label' *ngIf='!to.valid && to.touched && !to.disabled'>( Value is not Valid! )</span>
+        <input type='time' 
+                    title=To 
+                    [ngClass]="{ 'error' : !to.valid && to.touched }" 
+                    class='form-control ' 
+                    #to='ngModel' 
+                    name='to'
+                    [(ngModel)]='currentInstance.to' 
+                    [disabled]='IsLocked'
+                     required 
+                    min='09:00' max='18:00'>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!coachingQuestionaryDetailEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!coachingQuestionaryDetailEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, coachingQuestionaryDetailEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<lad-coachingQuestionary-edit #coachingQuestionaryEditUI 
+    (onClosed)='coachingQuestionaryComponent.onClosed($event)'>
+</lad-coachingQuestionary-edit>

@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(cellActionEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(cellActionEditUI)' [ngClass]="{ 'disabled' : currentCellAction.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(cellActionDeleteUI)' [ngClass]="{ 'disabled' : currentCellAction.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Cell Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let cellAction of CellActionList; let i = index' 
+                (dblclick)='onDblClicked(cellActionMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : cellAction.id === currentCellAction.id, 'free-row': cellAction.id !== currentCellAction.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ cellAction.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-cellAction-edit #cellActionEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-cellAction-edit>
+  <pms-cellAction-delete #cellActionDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-cellAction-delete>
+  <pms-cellAction-master #cellActionMasterUI >
+  </pms-cellAction-master>
+</div>

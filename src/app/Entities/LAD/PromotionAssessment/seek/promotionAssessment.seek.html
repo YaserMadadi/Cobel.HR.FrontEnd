@@ -1,0 +1,129 @@
+﻿<XDialog Header='Search form of Promotion Assessment' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='assessment' class='col-sm-3 col-form-label'>Assessment : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #assessment='ngModel' 
+                    #assessmentCombo='kendoDropDownList' 
+                    name='assessment' 
+                    title='Assessment'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessment.valid && assessment.touched }" 
+                    [data]='assessmentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessmentComponent.filterable'
+                    (filterChange)='assessmentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessment"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessmentComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessmentComponent.onAdd(assessmentCombo, assessmentEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='promotedDate' class='col-sm-3 col-form-label'>Promoted Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #promotedDate='ngModel' id='promotedDate' name='promotedDate'
+										 title='Promoted Date'
+										 autocomplete='off'
+										 placeholder='Promoted Date'
+										[(ngModel)]='promotionAssessment.promotedDate'
+										 type='text'
+										 maxlength='33'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='currentPosition' class='col-sm-3 col-form-label'>Current Position : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #currentPosition='ngModel' 
+                    #currentPositionCombo='kendoDropDownList' 
+                    name='currentPosition' 
+                    title='Current Position'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !currentPosition.valid && currentPosition.touched }" 
+                    [data]='currentPositionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='currentPositionComponent.filterable'
+                    (filterChange)='currentPositionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.currentPosition"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='currentPositionComponent.addable'>
+                      <button class='btn btn-primary' (click)='currentPositionComponent.onAdd(currentPositionCombo, currentPositionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='proposedPosition' class='col-sm-3 col-form-label'>Proposed Position : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #proposedPosition='ngModel' 
+                    #proposedPositionCombo='kendoDropDownList' 
+                    name='proposedPosition' 
+                    title='Proposed Position'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !proposedPosition.valid && proposedPosition.touched }" 
+                    [data]='proposedPositionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='proposedPositionComponent.filterable'
+                    (filterChange)='proposedPositionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.proposedPosition"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='proposedPositionComponent.addable'>
+                      <button class='btn btn-primary' (click)='proposedPositionComponent.onAdd(proposedPositionCombo, proposedPositionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='promotionResult' class='col-sm-3 col-form-label'>Promotion Result : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #promotionResult='ngModel' 
+                    #promotionResultCombo='kendoDropDownList' 
+                    name='promotionResult' 
+                    title='Promotion Result'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !promotionResult.valid && promotionResult.touched }" 
+                    [data]='promotionResultComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='promotionResultComponent.filterable'
+                    (filterChange)='promotionResultComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.promotionResult"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='promotionResultComponent.addable'>
+                      <button class='btn btn-primary' (click)='promotionResultComponent.onAdd(promotionResultCombo, promotionResultEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='comment' class='col-sm-3 col-form-label'>Comment : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #comment='ngModel' id='comment' name='comment'
+										 title='Comment'
+										 autocomplete='off'
+										 placeholder='Comment'
+										[(ngModel)]='promotionAssessment.comment'
+										 type='text'
+										 maxlength='2000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

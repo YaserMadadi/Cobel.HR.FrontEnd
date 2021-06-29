@@ -1,0 +1,63 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group '
+           role='group'
+           aria-label='Basic example'>
+        <button type='button'
+                *ngIf='false'
+                name='addButton'
+                class='xbtn btn-add'
+                (click)='onAdd(quantitativeAppraiseEditUI)'>Add</button>
+        <button type='button'
+                *ngIf='false'
+                name='editButton'
+                class='xbtn btn-edit'
+                (click)='onEdit(quantitativeAppraiseEditUI)'
+                [ngClass]="{ 'disabled' : currentQuantitativeAppraise.id == 0 }">Edit</button>
+        <button type='button'
+                *ngIf='false'
+                name='deleteButton'
+                class='xbtn btn-delete'
+                (click)='onDelete(quantitativeAppraiseDeleteUI)'
+                [ngClass]="{ 'disabled' : currentQuantitativeAppraise.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button'
+                name='refreshButton'
+                class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover'>
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Quantitative Appraise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let quantitativeAppraise of QuantitativeAppraiseList; let i = index'
+              (dblclick)='onDblClicked(quantitativeAppraiseMasterUI)'
+              (click)='onSelect(i)'
+              [ngClass]="{ 'selected-row' : quantitativeAppraise.id === currentQuantitativeAppraise.id, 'free-row': quantitativeAppraise.id !== currentQuantitativeAppraise.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+              {{ quantitativeAppraise.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-quantitativeAppraise-edit #quantitativeAppraiseEditUI
+                                 (onClosed)='onEditModal_Closed($event)'>
+  </pms-quantitativeAppraise-edit>
+  <pms-quantitativeAppraise-delete #quantitativeAppraiseDeleteUI
+                                   (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-quantitativeAppraise-delete>
+  <pms-quantitativeAppraise-master #quantitativeAppraiseMasterUI>
+  </pms-quantitativeAppraise-master>
+</div>

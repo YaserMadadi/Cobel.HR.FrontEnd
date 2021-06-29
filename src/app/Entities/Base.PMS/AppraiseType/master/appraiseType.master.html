@@ -1,0 +1,46 @@
+﻿<XDialog Header='Appraise Type Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Appraise Type : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Behavioral Appraise'>
+                <appraiseType-behavioralAppraise-detail 
+                    #base_pmsAppraiseTypeBehavioralAppraiseDetail
+                    [AppraiseType]='currentInstance'>
+                </appraiseType-behavioralAppraise-detail>
+            </tab>
+			<tab heading='Functional Appraise'>
+                <appraiseType-functionalAppraise-detail 
+                    #base_pmsAppraiseTypeFunctionalAppraiseDetail
+                    [AppraiseType]='currentInstance'>
+                </appraiseType-functionalAppraise-detail>
+            </tab>
+			<tab heading='Qualitative Appraise'>
+                <appraiseType-qualitativeAppraise-detail 
+                    #base_pmsAppraiseTypeQualitativeAppraiseDetail
+                    [AppraiseType]='currentInstance'>
+                </appraiseType-qualitativeAppraise-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

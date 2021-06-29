@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(userAccountEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(userAccountEditUI)' [ngClass]="{ 'disabled' : currentUserAccount.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(userAccountDeleteUI)' [ngClass]="{ 'disabled' : currentUserAccount.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> User Account</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let userAccount of UserAccountList; let i = index' 
+                (dblclick)='onDblClicked(userAccountMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : userAccount.id === currentUserAccount.id, 'free-row': userAccount.id !== currentUserAccount.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ userAccount.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <core-userAccount-edit #userAccountEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </core-userAccount-edit>
+  <core-userAccount-delete #userAccountDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </core-userAccount-delete>
+  <core-userAccount-master #userAccountMasterUI >
+  </core-userAccount-master>
+</div>

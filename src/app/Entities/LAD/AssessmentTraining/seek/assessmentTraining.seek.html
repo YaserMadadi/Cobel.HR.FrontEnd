@@ -1,0 +1,83 @@
+﻿<XDialog Header='Search form of Assessment Training' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='assessment' class='col-sm-3 col-form-label'>Assessment : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #assessment='ngModel' 
+                    #assessmentCombo='kendoDropDownList' 
+                    name='assessment' 
+                    title='Assessment'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessment.valid && assessment.touched }" 
+                    [data]='assessmentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessmentComponent.filterable'
+                    (filterChange)='assessmentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessment"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessmentComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessmentComponent.onAdd(assessmentCombo, assessmentEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='course' class='col-sm-3 col-form-label'>Course : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #course='ngModel' id='course' name='course'
+										 title='Course'
+										 autocomplete='off'
+										 placeholder='Course'
+										[(ngModel)]='assessmentTraining.course'
+										 type='text'
+										 maxlength='800'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='deadLine' class='col-sm-3 col-form-label'>Dead Line : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #deadLine='ngModel' 
+                    #deadLineCombo='kendoDropDownList' 
+                    name='deadLine' 
+                    title='Dead Line'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !deadLine.valid && deadLine.touched }" 
+                    [data]='deadLineComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='deadLineComponent.filterable'
+                    (filterChange)='deadLineComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.deadLine"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='deadLineComponent.addable'>
+                      <button class='btn btn-primary' (click)='deadLineComponent.onAdd(deadLineCombo, deadLineEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='responsible' class='col-sm-3 col-form-label'>Responsible : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #responsible='ngModel' id='responsible' name='responsible'
+										 title='Responsible'
+										 autocomplete='off'
+										 placeholder='Responsible'
+										[(ngModel)]='assessmentTraining.responsible'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

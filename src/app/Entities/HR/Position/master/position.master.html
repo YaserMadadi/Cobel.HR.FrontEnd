@@ -1,0 +1,106 @@
+﻿<XDialog Header='Position Management form'
+         [IsShown]='IsShown'
+         (OnClosed)='onClose()'
+         [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Position : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Parent :
+                        <guide (onClick)='onGuid("Parent_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.parent?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Position Title :
+                        <guide (onClick)='onGuid("PositionTitle")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.positionTitle }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Level :
+                        <guide (onClick)='onGuid("Level_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.level?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Unit :
+                        <guide (onClick)='onGuid("Unit_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.unit?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Position Category :
+                        <guide (onClick)='onGuid("PositionCategory_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.positionCategory?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Capacity :
+                        <guide (onClick)='onGuid("Capacity")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.capacity | number }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active :
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right'
+                    (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr />
+        <tabset #tabset>
+            <tab heading='Children Position'>
+                <position-childPosition-detail #positionChildPositionDetail
+                    [Parent]='currentInstance'>
+
+                </position-childPosition-detail>
+            </tab>
+            <tab heading='Promotion Assessment'
+                 *ngIf='false'>
+                <proposedPosition-promotionAssessment-detail #hrProposedPositionPromotionAssessmentDetail
+                                                             [ProposedPosition]='currentInstance'>
+                </proposedPosition-promotionAssessment-detail>
+            </tab>
+            <tab heading='Promotion Assessment'
+                 *ngIf='false'>
+                <currentPosition-promotionAssessment-detail #hrCurrentPositionPromotionAssessmentDetail
+                                                            [CurrentPosition]='currentInstance'>
+                </currentPosition-promotionAssessment-detail>
+            </tab>
+            <tab heading='Config Target Setting'
+                 *ngIf='false'>
+                <position-configTargetSetting-detail #hrPositionConfigTargetSettingDetail
+                                                     [Position]='currentInstance'>
+                </position-configTargetSetting-detail>
+            </tab>
+            <tab heading='Target Setting'
+                 *ngIf='false'>
+                <position-targetSetting-detail #hrPositionTargetSettingDetail
+                                               [Position]='currentInstance'>
+                </position-targetSetting-detail>
+            </tab>
+            <tab heading='Position Assignment'>
+                <position-positionAssignment-detail #hrPositionPositionAssignmentDetail
+                                                    [Position]='currentInstance'>
+                </position-positionAssignment-detail>
+            </tab>
+            <tab heading='Rotation Assessment'
+                 *ngIf='false'>
+                <proposedPosition-rotationAssessment-detail #hrProposedPositionRotationAssessmentDetail
+                                                            [ProposedPosition]='currentInstance'>
+                </proposedPosition-rotationAssessment-detail>
+            </tab>
+            <tab heading='Rotation Assessment'
+                 *ngIf='false'>
+                <currentPosition-rotationAssessment-detail #hrCurrentPositionRotationAssessmentDetail
+                                                           [CurrentPosition]='currentInstance'>
+                </currentPosition-rotationAssessment-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

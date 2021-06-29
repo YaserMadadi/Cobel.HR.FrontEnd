@@ -1,0 +1,54 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(languageAbilityEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(languageAbilityEditUI)' [ngClass]="{ 'disabled' : currentLanguageAbility.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(languageAbilityDeleteUI)' [ngClass]="{ 'disabled' : currentLanguageAbility.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('Base','Language')"> Language</a>
+				<a class='dropdown-item pointer' (click)="navigate('HR','AbilityLevel')"> Ability Level</a>
+				<a class='dropdown-item pointer' (click)="navigate('HR','AbilityLevel')"> Ability Level</a>
+				<a class='dropdown-item pointer' (click)="navigate('HR','AbilityLevel')"> Ability Level</a>
+				<a class='dropdown-item pointer' (click)="navigate('HR','AbilityLevel')"> Ability Level</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Language Ability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let languageAbility of LanguageAbilityList; let i = index' 
+                (dblclick)='onDblClicked(languageAbilityMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : languageAbility.id === currentLanguageAbility.id, 'free-row': languageAbility.id !== currentLanguageAbility.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ languageAbility.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-languageAbility-edit #languageAbilityEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-languageAbility-edit>
+  <hr-languageAbility-delete #languageAbilityDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-languageAbility-delete>
+  <hr-languageAbility-master #languageAbilityMasterUI >
+  </hr-languageAbility-master>
+</div>

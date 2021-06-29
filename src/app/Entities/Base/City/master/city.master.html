@@ -1,0 +1,52 @@
+﻿<XDialog Header='City Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>City : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Province : 
+                        <guide (onClick)='onGuid("Province_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.province?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Person'>
+                <birthCity-person-detail 
+                    #baseBirthCityPersonDetail
+                    [BirthCity]='currentInstance'>
+                </birthCity-person-detail>
+            </tab>
+			<tab heading='Habitancy'>
+                <city-habitancy-detail 
+                    #baseCityHabitancyDetail
+                    [City]='currentInstance'>
+                </city-habitancy-detail>
+            </tab>
+			<tab heading='University'>
+                <city-university-detail 
+                    #baseCityUniversityDetail
+                    [City]='currentInstance'>
+                </city-university-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

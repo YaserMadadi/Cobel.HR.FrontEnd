@@ -1,0 +1,136 @@
+﻿<fieldset class='border'>
+  <legend>Log :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(logEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(logTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(logEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(logDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Person", currentInstance.person?.id)'>Manage Person</a>
+    </dropDownMenu>
+  
+  <table #logTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Entity Name'>Entity Name</th>
+        <th title='Record I D'>Record I D</th>
+        <th title='Person'>Person</th>
+        <th title='Effect Date'>Effect Date</th>
+        <th title='Old Value'>Old Value</th>
+        <th title='New Value'>New Value</th>
+        <th title='Action Mode'>Action Mode</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #entityName='ngModel' id='entityName' name='entityName'
+										 title='Entity Name'
+										 autocomplete='off'
+										 placeholder='Entity Name'
+										[(ngModel)]='filterInstance.entityName'
+										 type='text'
+										 maxlength='500'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #recordID='ngModel' id='recordID' name='recordID'
+										 title='Record I D'
+										 autocomplete='off'
+										 placeholder='Record I D'
+										[(ngModel)]='filterInstance.recordID'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #person='ngModel' id='person' name='person'
+										 title='Person'
+										 autocomplete='off'
+										 placeholder='Person'
+										[(ngModel)]='filterInstance.person.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #effectDate='ngModel' id='effectDate' name='effectDate'
+										 title='Effect Date'
+										 autocomplete='off'
+										 placeholder='Effect Date'
+										[(ngModel)]='filterInstance.effectDate'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #oldValue='ngModel' id='oldValue' name='oldValue'
+										 title='Old Value'
+										 autocomplete='off'
+										 placeholder='Old Value'
+										[(ngModel)]='filterInstance.oldValue'
+										 type='text'
+										 maxlength='-1'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #newValue='ngModel' id='newValue' name='newValue'
+										 title='New Value'
+										 autocomplete='off'
+										 placeholder='New Value'
+										[(ngModel)]='filterInstance.newValue'
+										 type='text'
+										 maxlength='-1'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #actionMode='ngModel' id='actionMode' name='actionMode'
+										 title='Action Mode'
+										 autocomplete='off'
+										 placeholder='Action Mode'
+										[(ngModel)]='filterInstance.actionMode'
+										 type='text'
+										 maxlength='100'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(logMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.entityName }}</td>
+				<td>{{ p.recordID | number }}</td>
+				<td>{{ p.person?.descriptor }}</td>
+				<td>{{ p.effectDate | date:'fullDate' }}</td>
+				<td>{{ p.oldValue }}</td>
+				<td>{{ p.newValue }}</td>
+				<td>{{ p.actionMode }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- Log -->
+<core-log-master #logMasterUI>
+</core-log-master>
+
+<core-log-edit #logEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</core-log-edit>
+
+<core-log-delete #logDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</core-log-delete>

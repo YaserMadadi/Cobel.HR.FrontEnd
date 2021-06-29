@@ -1,0 +1,91 @@
+﻿<fieldset class='border'>
+  <legend>Military Service :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(militaryServiceEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(militaryServiceTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(militaryServiceEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(militaryServiceDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Person", currentInstance.person?.id)'>Manage Person</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "MilitaryServiceStatus", currentInstance.militaryServiceStatus?.id)'>Manage Military Service Status</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='militaryServiceInclusive_Clicked(militaryServiceInclusiveEditUI)'>Add Military Service Inclusive</a>
+		<a class='dropdown-item pointer' (click)='militaryServiceExcemption_Clicked(militaryServiceExcemptionEditUI)'>Add Military Service Excemption</a>
+	
+  </dropDownMenu>
+  <table #militaryServiceTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Person'>Person</th>
+        <th title='Military Service Status'>Military Service Status</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #person='ngModel' id='person' name='person'
+										 title='Person'
+										 autocomplete='off'
+										 placeholder='Person'
+										[(ngModel)]='filterInstance.person.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #militaryServiceStatus='ngModel' id='militaryServiceStatus' name='militaryServiceStatus'
+										 title='Military Service Status'
+										 autocomplete='off'
+										 placeholder='Military Service Status'
+										[(ngModel)]='filterInstance.militaryServiceStatus.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(militaryServiceMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.person?.descriptor }}</td>
+				<td>{{ p.militaryServiceStatus?.descriptor }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- MilitaryService -->
+<hr-militaryService-master #militaryServiceMasterUI>
+</hr-militaryService-master>
+
+<hr-militaryService-edit #militaryServiceEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</hr-militaryService-edit>
+
+<hr-militaryService-delete #militaryServiceDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</hr-militaryService-delete>
+
+
+<hr-militaryServiceInclusive-edit #militaryServiceInclusiveEditUI> <!--  (onClosed)='militaryServiceInclusiveEditUI_Closed($event)' -->
+</hr-militaryServiceInclusive-edit> 
+<hr-militaryServiceExcemption-edit #militaryServiceExcemptionEditUI> <!--  (onClosed)='militaryServiceExcemptionEditUI_Closed($event)' -->
+</hr-militaryServiceExcemption-edit>

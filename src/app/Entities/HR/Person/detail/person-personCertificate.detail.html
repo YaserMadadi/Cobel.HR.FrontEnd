@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(personCertificateEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(personCertificateEditUI)' [ngClass]="{ 'disabled' : currentPersonCertificate.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(personCertificateDeleteUI)' [ngClass]="{ 'disabled' : currentPersonCertificate.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('Base','FieldCategory')"> Field Category</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Person Certificate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let personCertificate of PersonCertificateList; let i = index' 
+                (dblclick)='onDblClicked(personCertificateMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : personCertificate.id === currentPersonCertificate.id, 'free-row': personCertificate.id !== currentPersonCertificate.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ personCertificate.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-personCertificate-edit #personCertificateEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-personCertificate-edit>
+  <hr-personCertificate-delete #personCertificateDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-personCertificate-delete>
+  <hr-personCertificate-master #personCertificateMasterUI >
+  </hr-personCertificate-master>
+</div>

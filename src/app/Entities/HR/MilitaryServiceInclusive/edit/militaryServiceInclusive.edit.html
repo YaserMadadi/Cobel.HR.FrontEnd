@@ -1,0 +1,99 @@
+﻿<XDialog Header='Edit Form of Military Service Inclusive' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, militaryServiceInclusiveEditUI)' 
+    #militaryServiceInclusiveEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- MilitaryService -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("MilitaryService_Id")'></guide>
+        <label for='militaryService' class='col-form-label'>Military Service : </label>
+        <span class='help-block col-form-label' *ngIf='!militaryService.valid && militaryService.touched && !militaryService.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #militaryService='ngModel' 
+                    #militaryServiceCombo='kendoDropDownList' 
+                    name='militaryService' 
+                    title='Military Service'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !militaryService.valid && militaryService.touched }" 
+                    [data]='militaryServiceComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='militaryServiceComponent.filterable'
+                    (filterChange)='militaryServiceComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.militaryService"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='militaryServiceComponent.addable'>
+                      <button class='btn btn-primary' (click)='militaryServiceComponent.onAdd(militaryServiceCombo, militaryServiceEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- InclusiveType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("InclusiveType_Id")'></guide>
+        <label for='inclusiveType' class='col-form-label'>Inclusive Type : </label>
+        <span class='help-block col-form-label' *ngIf='!inclusiveType.valid && inclusiveType.touched && !inclusiveType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #inclusiveType='ngModel' 
+                    #inclusiveTypeCombo='kendoDropDownList' 
+                    name='inclusiveType' 
+                    title='Inclusive Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !inclusiveType.valid && inclusiveType.touched }" 
+                    [data]='inclusiveTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='inclusiveTypeComponent.filterable'
+                    (filterChange)='inclusiveTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.inclusiveType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='inclusiveTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='inclusiveTypeComponent.onAdd(inclusiveTypeCombo, inclusiveTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Comment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Comment")'></guide>
+        <label for='comment' class='col-form-label'>Comment : </label>
+        <span class='help-block col-form-label' *ngIf='!comment.valid && comment.touched && !comment.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Comment' 
+                    [ngClass]="{ 'error' : !comment.valid && comment.touched }" 
+                    class='form-control ' 
+                    #comment='ngModel' 
+                    name='comment' 
+                    placeholder='... Comment' 
+                    [(ngModel)]='currentInstance.comment' 
+                    [disabled]='IsLocked'
+                    maxlength='2000'  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!militaryServiceInclusiveEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!militaryServiceInclusiveEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, militaryServiceInclusiveEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-militaryService-edit #militaryServiceEditUI 
+    (onClosed)='militaryServiceComponent.onClosed($event)'>
+</hr-militaryService-edit>
+<base-inclusiveType-edit #inclusiveTypeEditUI 
+    (onClosed)='inclusiveTypeComponent.onClosed($event)'>
+</base-inclusiveType-edit>

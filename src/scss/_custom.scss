@@ -1,0 +1,430 @@
+// Here you can add other styles
+
+
+.app2 {
+    font-family: "Segoe UI";   
+    font-style: italic; 
+
+}
+
+// .border {
+//     background-color: white;
+//     padding: 30px;
+//     border-radius: 7px;
+//     margin: -10px;
+
+// }
+
+legend{
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 13px;
+    background: white;
+    border: 1px solid #a4b7c1;
+    border-radius: 4px;
+    padding: 10px 40px;
+}
+//D:\Dropbox\Cobel\Solution.Cobel\Cobel.IDP\Cobel.WebPortal\node_modules\bootstrap\scss\bootstrap.scss
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@font-face{
+    font-family: 'Entezar3';
+    src: url('../assets/fonts/Entezar3_v2.0.1.ttf');
+    
+}
+
+@font-face{
+    font-family: 'Samim';
+    src: url('../assets/fonts/Samim-FD.ttf');
+    
+}
+
+body{
+    font-family: Samim;
+  }
+
+.ltr{
+    direction: ltr;
+}
+
+.radio-group{
+    padding-right: 20px;
+    padding-left: 10px;
+    vertical-align: text-bottom; 
+}
+
+.btn{
+    border-radius: 5px;
+    min-width: 90px;
+    margin: 3px;
+}
+
+// table th{
+//     border: none !important;
+    
+// }
+
+.thead{
+    border-top: 1px solid #525816;
+    border-bottom: 1px solid #525816;
+    background: #2d607f;
+    color: white;
+    height: 30px;
+}
+
+.sidebar .nav-link.active .nav-icon{
+    color: #f44336;
+}
+
+.sidebar-fixed .sidebar{
+    z-index: 998;
+}
+
+.header-fixed .app-header{
+    z-index: 998;
+}
+
+.cdk-overlay-pane{
+    z-index: 11000;
+}
+
+.sidebar .nav-link .nav-icon {
+    color: #f44336;
+}
+
+.row-number{
+    width: 40px;
+}
+
+.delete-frame{
+    margin: 20px;
+    border: 1px solid gray;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.header-row{
+    height: 30px;
+}
+
+.btn-primary,
+.btn-outline-primary:hover{
+    border-color: #176f8e;
+}
+
+.btn-warning,
+.btn-outline-warning:hover{
+    border-color: #bf9004;
+}
+
+.btn-danger,
+.btn-outline-danger:hover{
+    border-color: #ab4d4c;
+}
+
+.btn-info,
+.btn-outline-info:hover{
+    border-color: #97a22b;
+}
+
+.btn-success,
+.btn-outline-success:hover{
+    border-color: #137759;
+}
+
+.btn-secondary,
+.btn-outline-secondary:hover{
+    border-color: #656565;
+}
+
+.btn-outline-info:hover{
+    border-color: #6b731d;
+}
+
+.btn-primary:hover,
+.btn-danger:hover,
+.btn-info:hover,
+.btn-success:hover,
+.btn-warning:hover{
+    border-color:#292929;
+}
+
+.btn-icon{
+    min-width: 30px;
+    width:30px;
+}
+
+
+
+
+
+.fico{
+    font-size: 17px;
+}
+
+
+
+.table-hover tbody tr:hover{
+    background-color: #CDDC39;
+    color: #212b31;
+    i{
+        color: #212b31;
+    }
+}
+
+sub{
+    font-family: samim;
+    font-size: 11px;
+}
+
+.fa{
+    
+    vertical-align: middle;
+}
+
+.ml-auto,
+.mx-auto {
+  margin-right: auto !important;
+}
+
+.indexTable{
+
+    font-size: 13px;
+    border-top: 0px solid #FF5722;
+    margin-top: 10px;
+    line-height: 24px;
+    //text-align: center;
+}
+
+.table {
+    max-width: 99%;
+    width: 100%;
+    margin: 4px;
+    vertical-align: middle;
+
+}
+
+td{
+    vertical-align: middle;
+}
+
+.border {
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid white;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.free-row{
+    border: 2px solid white;
+    cursor: pointer;
+    height: 30px;
+    >td>i{
+        color: #607D8B;
+        font-size: 19px;
+        padding-top: 1px;
+    }
+}
+
+
+.selected-row{
+    background-color: #29363d;
+    border: 2px solid white;
+    color: white;
+    height: 30px;
+    cursor: pointer;
+    i{
+        color: #ffc107;
+        font-size: 19px;
+        padding-top: 1px;
+    }
+}
+
+
+.help-block{
+    color: #ff0068;
+    font-size: 11px;
+}
+
+.error {
+    border-left-color: #F44336;
+    border-left-style: solid;
+    border-left-width: 4px; 
+}
+
+.table-title{
+    vertical-align: bottom;
+    text-align: center; 
+}
+
+.form-margin{
+    margin:20px;
+}
+
+.edit-dialog{
+    background-color: rgba(27, 206, 108, 0.93);
+}
+
+.titleControl{
+    text-align: right;
+    //font-weight: bold;
+}
+
+.detail-grid{
+    min-height: 340px;
+    background-color: #ffffff;
+    border: #90b3c7 solid 1px;
+    margin: 10px;
+    border-radius: 3px;
+}
+
+.detail-part{
+    background-color: #e4e5e6;
+}
+
+.modal-footer {
+    padding: 15px 0;
+    direction: rtl;
+}
+
+.modal-footer-button{
+   width: 30%;
+   height:40px;
+}
+
+.modal-body{
+    padding-bottom: 16px;
+    background-color: #d7dee2;
+}
+
+.master-content{
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: .3rem;
+}
+
+.form-control {
+    font-size: 12px;
+    height: auto;
+}
+
+.dp-material{
+    @extend form-control !optional;
+    display: block;
+    width: 100%;
+    border: 1px solid #beced4;
+    border-radius: 4px;
+}
+
+.dp-picker-input{
+     border: 0 solid #beced4;
+     border-radius: 4px;
+     padding-right: 10px;
+}
+
+th{
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.k-dropdown-wrap > .k-input{
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.dp-material{
+    padding: 2px;
+    border: 0px;
+}
+
+.tab-content{
+    background-color: #efefef;
+}
+
+
+.k-numeric-wrap {
+    border: 0px;
+}
+
+.readonly{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;  
+}
+
+.pointer{
+    cursor: pointer;
+    color: #c1cc68;
+}
+
+body{
+    text-align: left;
+}
+
+.fieldset{
+    background-color: white;
+}
+
+legend{
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 13px;
+    background: white;
+    border: 1px solid #a4b7c1;
+    border-radius: 4px;
+    padding: 10px 40px;
+}
+
+.first-row{ 
+    padding-top: 40px;
+}
+
+// table thead tr :first-child{
+//     background-color: blue;
+// }
+
+#close-button{
+    margin-left: 0px;
+    margin-top: -10px;
+}
+
+#button-section{
+    margin: 10px;
+}
+
+.k-multiselect {
+    height: auto;
+}
+
+.vr{
+    border-left: 1px #333333 solid;
+    border-radius: 0;
+    display: initial;
+    margin: 5px;
+    height: 20px;
+}
+
+.table td{
+    border: 0px;
+}
+
+
+.header-fixed .app-body {
+    margin-top: 65px;
+}
+
+.app-header {
+    height: 65px;
+}
+
+
+  
+

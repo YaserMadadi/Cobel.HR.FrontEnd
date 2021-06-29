@@ -1,0 +1,126 @@
+﻿<fieldset class='border'>
+  <legend>Coaching Questionary :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(coachingQuestionaryEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(coachingQuestionaryTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(coachingQuestionaryEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(coachingQuestionaryDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("LAD", "QuestionaryType", currentInstance.questionaryType?.id)'>Manage Questionary Type</a>
+		<a class='dropdown-item pointer' (click)='navigate("LAD", "Assessment", currentInstance.assessment?.id)'>Manage Assessment</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Person", currentInstance.responsiblePerson?.id)'>Manage Person</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='coachingQuestionaryDetail_Clicked(coachingQuestionaryDetailEditUI)'>Add Coaching Questionary Detail</a>
+		<a class='dropdown-item pointer' (click)='coachingQuestionaryAnswered_Clicked(coachingQuestionaryAnsweredEditUI)'>Add Coaching Questionary Answered</a>
+	
+  </dropDownMenu>
+  <table #coachingQuestionaryTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Questionary Type'>Questionary Type</th>
+        <th title='Assessment'>Assessment</th>
+        <th title='Responsible Person'>Responsible Person</th>
+        <th width='100px' title='Is Active'>Is Active</th>
+        <th width='100px' title='Is Done'>Is Done</th>
+        <th title='Average'>Average</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #questionaryType='ngModel' id='questionaryType' name='questionaryType'
+										 title='Questionary Type'
+										 autocomplete='off'
+										 placeholder='Questionary Type'
+										[(ngModel)]='filterInstance.questionaryType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #assessment='ngModel' id='assessment' name='assessment'
+										 title='Assessment'
+										 autocomplete='off'
+										 placeholder='Assessment'
+										[(ngModel)]='filterInstance.assessment.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #responsiblePerson='ngModel' id='responsiblePerson' name='responsiblePerson'
+										 title='Responsible Person'
+										 autocomplete='off'
+										 placeholder='Responsible Person'
+										[(ngModel)]='filterInstance.responsiblePerson.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          
+        </th>
+        <th>
+          
+        </th>
+        <th>
+          <input class='form-control' #average='ngModel' id='average' name='average'
+										 title='Average'
+										 autocomplete='off'
+										 placeholder='Average'
+										[(ngModel)]='filterInstance.average'
+										 type='text'
+										 maxlength='20'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(coachingQuestionaryMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.questionaryType?.descriptor }}</td>
+				<td>{{ p.assessment?.descriptor }}</td>
+				<td>{{ p.responsiblePerson?.descriptor }}</td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isActive' /></td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isDone' /></td>
+				<td>{{ p.average }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- CoachingQuestionary -->
+<lad-coachingQuestionary-master #coachingQuestionaryMasterUI>
+</lad-coachingQuestionary-master>
+
+<lad-coachingQuestionary-edit #coachingQuestionaryEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</lad-coachingQuestionary-edit>
+
+<lad-coachingQuestionary-delete #coachingQuestionaryDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</lad-coachingQuestionary-delete>
+
+
+<lad-coachingQuestionaryDetail-edit #coachingQuestionaryDetailEditUI> <!--  (onClosed)='coachingQuestionaryDetailEditUI_Closed($event)' -->
+</lad-coachingQuestionaryDetail-edit> 
+<lad-coachingQuestionaryAnswered-edit #coachingQuestionaryAnsweredEditUI> <!--  (onClosed)='coachingQuestionaryAnsweredEditUI_Closed($event)' -->
+</lad-coachingQuestionaryAnswered-edit>

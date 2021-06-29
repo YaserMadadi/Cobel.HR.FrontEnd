@@ -1,0 +1,43 @@
+﻿<XDialog Header='Search form of Health Status' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='englishTitle' class='col-sm-3 col-form-label'>English Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #englishTitle='ngModel' id='englishTitle' name='englishTitle'
+										 title='English Title'
+										 autocomplete='off'
+										 placeholder='English Title'
+										[(ngModel)]='healthStatus.englishTitle'
+										 type='text'
+										 maxlength='100'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='persianTitle' class='col-sm-3 col-form-label'>Persian Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #persianTitle='ngModel' id='persianTitle' name='persianTitle'
+										 title='Persian Title'
+										 autocomplete='off'
+										 placeholder='Persian Title'
+										[(ngModel)]='healthStatus.persianTitle'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='isActive' class='col-sm-3 col-form-label'>Is Active : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

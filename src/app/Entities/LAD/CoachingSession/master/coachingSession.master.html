@@ -1,0 +1,33 @@
+﻿<XDialog Header='Coaching Session Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Coaching Session : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Coaching : 
+                        <guide (onClick)='onGuid("Coaching_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.coaching?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Date : 
+                        <guide (onClick)='onGuid("Date")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.date | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Note : 
+                        <guide (onClick)='onGuid("Note")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.note }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

@@ -1,0 +1,74 @@
+﻿<XDialog Header='Edit Form of Synonym' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, synonymEditUI)' 
+    #synonymEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Schema -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Schema")'></guide>
+        <label for='schema' class='col-form-label'>Schema : </label>
+        <span class='help-block col-form-label' *ngIf='!schema.valid && schema.touched && !schema.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Schema' 
+                    [ngClass]="{ 'error' : !schema.valid && schema.touched }" 
+                    class='form-control ' 
+                    #schema='ngModel' 
+                    name='schema' 
+                    placeholder='... Schema' 
+                    [(ngModel)]='currentInstance.schema' 
+                    [disabled]='IsLocked'
+                    maxlength='100'  dir='ltr'  required  />
+      </div>
+			<!-- Name -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Name")'></guide>
+        <label for='name' class='col-form-label'>Name : </label>
+        <span class='help-block col-form-label' *ngIf='!name.valid && name.touched && !name.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Name' 
+                    [ngClass]="{ 'error' : !name.valid && name.touched }" 
+                    class='form-control ' 
+                    #name='ngModel' 
+                    name='name' 
+                    placeholder='... Name' 
+                    [(ngModel)]='currentInstance.name' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  dir='ltr'  required  />
+      </div>
+			<!-- Value -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Value")'></guide>
+        <label for='value' class='col-form-label'>Value : </label>
+        <span class='help-block col-form-label' *ngIf='!value.valid && value.touched && !value.disabled'>( Value is not Valid! )</span>
+        <textarea type='text' title='Value' name='value' 
+                            class='form-control' 
+                            [ngClass]="{ 'error' : !value.valid && value.touched }" 
+                            #value='ngModel' 
+                            placeholder='... Value' 
+                            [(ngModel)]='currentInstance.value'
+                            [disabled]='IsLocked'
+                            maxlength='4000'  required  ></textarea>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!synonymEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!synonymEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, synonymEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>

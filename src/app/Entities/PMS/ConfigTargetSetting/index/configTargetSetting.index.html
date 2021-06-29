@@ -1,0 +1,126 @@
+﻿<fieldset class='border'>
+  <legend>Config Target Setting :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(configTargetSettingEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(configTargetSettingTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(configTargetSettingEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(configTargetSettingDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Position", currentInstance.position?.id)'>Manage Position</a>
+    </dropDownMenu>
+  
+  <table #configTargetSettingTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Position'>Position</th>
+        <th title='From Date'>From Date</th>
+        <th title='Quantitative Weight'>Quantitative Weight</th>
+        <th title='Qualitative Weight'>Qualitative Weight</th>
+        <th title='Qualitative Non Behavioral Weight'>Qualitative Non Behavioral Weight</th>
+        <th title='Qualitative Behavioral Weight'>Qualitative Behavioral Weight</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #position='ngModel' id='position' name='position'
+										 title='Position'
+										 autocomplete='off'
+										 placeholder='Position'
+										[(ngModel)]='filterInstance.position.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #fromDate='ngModel' id='fromDate' name='fromDate'
+										 title='From Date'
+										 autocomplete='off'
+										 placeholder='From Date'
+										[(ngModel)]='filterInstance.fromDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #quantitativeWeight='ngModel' id='quantitativeWeight' name='quantitativeWeight'
+										 title='Quantitative Weight'
+										 autocomplete='off'
+										 placeholder='Quantitative Weight'
+										[(ngModel)]='filterInstance.quantitativeWeight'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #qualitativeWeight='ngModel' id='qualitativeWeight' name='qualitativeWeight'
+										 title='Qualitative Weight'
+										 autocomplete='off'
+										 placeholder='Qualitative Weight'
+										[(ngModel)]='filterInstance.qualitativeWeight'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #qualitativeNonBehavioralWeight='ngModel' id='qualitativeNonBehavioralWeight' name='qualitativeNonBehavioralWeight'
+										 title='Qualitative Non Behavioral Weight'
+										 autocomplete='off'
+										 placeholder='Qualitative Non Behavioral Weight'
+										[(ngModel)]='filterInstance.qualitativeNonBehavioralWeight'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #qualitativeBehavioralWeight='ngModel' id='qualitativeBehavioralWeight' name='qualitativeBehavioralWeight'
+										 title='Qualitative Behavioral Weight'
+										 autocomplete='off'
+										 placeholder='Qualitative Behavioral Weight'
+										[(ngModel)]='filterInstance.qualitativeBehavioralWeight'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(configTargetSettingMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.position?.descriptor }}</td>
+				<td>{{ p.fromDate | date:'fullDate' }}</td>
+				<td>{{ p.quantitativeWeight | number }}</td>
+				<td>{{ p.qualitativeWeight | number }}</td>
+				<td>{{ p.qualitativeNonBehavioralWeight | number }}</td>
+				<td>{{ p.qualitativeBehavioralWeight | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- ConfigTargetSetting -->
+<pms-configTargetSetting-master #configTargetSettingMasterUI>
+</pms-configTargetSetting-master>
+
+<pms-configTargetSetting-edit #configTargetSettingEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-configTargetSetting-edit>
+
+<pms-configTargetSetting-delete #configTargetSettingDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-configTargetSetting-delete>
+
+
+<pms-configQualitativeObjective-edit #configQualitativeObjectiveEditUI> <!--  (onClosed)='configQualitativeObjectiveEditUI_Closed($event)' -->
+</pms-configQualitativeObjective-edit>

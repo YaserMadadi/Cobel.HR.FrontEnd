@@ -1,0 +1,33 @@
+﻿<XDialog Header='University Terminate Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>University Terminate : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>University History : 
+                        <guide (onClick)='onGuid("UniversityHistory_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.universityHistory?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Finished Date : 
+                        <guide (onClick)='onGuid("FinishedDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.finishedDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Average : 
+                        <guide (onClick)='onGuid("Average")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.average }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

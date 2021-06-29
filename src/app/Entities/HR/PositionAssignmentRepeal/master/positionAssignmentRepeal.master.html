@@ -1,0 +1,33 @@
+﻿<XDialog Header='Position Assignment Repeal Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Position Assignment Repeal : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Position Assignment : 
+                        <guide (onClick)='onGuid("PositionAssignment_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.positionAssignment?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Date : 
+                        <guide (onClick)='onGuid("Date")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.date | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Comment : 
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

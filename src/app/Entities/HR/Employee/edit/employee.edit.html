@@ -1,0 +1,243 @@
+﻿<XDialog Header='Edit Form of Employee' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, employeeEditUI)' 
+    #employeeEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Person -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Person_Id")'></guide>
+        <label for='person' class='col-form-label'>Person : </label>
+        <span class='help-block col-form-label' *ngIf='!person.valid && person.touched && !person.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- LastEmployeeCode -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("LastEmployeeCode")'></guide>
+        <label for='lastEmployeeCode' class='col-form-label'>Last Employee Code : </label>
+        <span class='help-block col-form-label' *ngIf='!lastEmployeeCode.valid && lastEmployeeCode.touched && !lastEmployeeCode.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #lastEmployeeCode='ngModel' 
+            name='lastEmployeeCode' 
+            title='Last Employee Code' 
+            placeholder='Last Employee Code'
+            class='form-control'
+            [ngClass]="{ 'error' : !lastEmployeeCode.valid && lastEmployeeCode.touched }" 
+            [value]='currentInstance.lastEmployeeCode' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.lastEmployeeCode'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- LastHoldingSection -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("LastHoldingSection_Id")'></guide>
+        <label for='lastHoldingSection' class='col-form-label'>Last Holding Section : </label>
+        <span class='help-block col-form-label' *ngIf='!lastHoldingSection.valid && lastHoldingSection.touched && !lastHoldingSection.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #lastHoldingSection='ngModel' 
+                    #lastHoldingSectionCombo='kendoDropDownList' 
+                    name='lastHoldingSection' 
+                    title='Last Holding Section'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !lastHoldingSection.valid && lastHoldingSection.touched }" 
+                    [data]='lastHoldingSectionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='lastHoldingSectionComponent.filterable'
+                    (filterChange)='lastHoldingSectionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.lastHoldingSection"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='lastHoldingSectionComponent.addable'>
+                      <button class='btn btn-primary' (click)='lastHoldingSectionComponent.onAdd(lastHoldingSectionCombo, lastHoldingSectionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- SAMAccountID -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("SAMAccountID")'></guide>
+        <label for='samaccountID' class='col-form-label'>S A M Account I D : </label>
+        <span class='help-block col-form-label' *ngIf='!samaccountID.valid && samaccountID.touched && !samaccountID.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='S A M Account I D' 
+                    [ngClass]="{ 'error' : !samaccountID.valid && samaccountID.touched }" 
+                    class='form-control ' 
+                    #samaccountID='ngModel' 
+                    name='samaccountID' 
+                    placeholder='... S A M Account I D' 
+                    [(ngModel)]='currentInstance.samaccountID' 
+                    [disabled]='IsLocked'
+                    maxlength='100'  dir='ltr'  required  />
+      </div>
+			<!-- EmailAddress -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EmailAddress")'></guide>
+        <label for='emailAddress' class='col-form-label'>Email Address : </label>
+        <span class='help-block col-form-label' *ngIf='!emailAddress.valid && emailAddress.touched && !emailAddress.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Email Address' 
+                    [ngClass]="{ 'error' : !emailAddress.valid && emailAddress.touched }" 
+                    class='form-control ' 
+                    #emailAddress='ngModel' 
+                    name='emailAddress' 
+                    placeholder='... Email Address' 
+                    [(ngModel)]='currentInstance.emailAddress' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  dir='ltr'  required  email  />
+      </div>
+			<!-- EmploymentStatus -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EmploymentStatus_Id")'></guide>
+        <label for='employmentStatus' class='col-form-label'>Employment Status : </label>
+        <span class='help-block col-form-label' *ngIf='!employmentStatus.valid && employmentStatus.touched && !employmentStatus.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #employmentStatus='ngModel' 
+                    #employmentStatusCombo='kendoDropDownList' 
+                    name='employmentStatus' 
+                    title='Employment Status'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employmentStatus.valid && employmentStatus.touched }" 
+                    [data]='employmentStatusComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employmentStatusComponent.filterable'
+                    (filterChange)='employmentStatusComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employmentStatus"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employmentStatusComponent.addable'>
+                      <button class='btn btn-primary' (click)='employmentStatusComponent.onAdd(employmentStatusCombo, employmentStatusEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- LastCity -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("LastCity")'></guide>
+        <label for='lastCity' class='col-form-label'>Last City : </label>
+        <span class='help-block col-form-label' *ngIf='!lastCity.valid && lastCity.touched && !lastCity.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Last City' 
+                    [ngClass]="{ 'error' : !lastCity.valid && lastCity.touched }" 
+                    class='form-control ' 
+                    #lastCity='ngModel' 
+                    name='lastCity' 
+                    placeholder='... Last City' 
+                    [(ngModel)]='currentInstance.lastCity' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  dir='ltr'  required  />
+      </div>
+			<!-- LastDepartment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("LastDepartment")'></guide>
+        <label for='lastDepartment' class='col-form-label'>Last Department : </label>
+        <span class='help-block col-form-label' *ngIf='!lastDepartment.valid && lastDepartment.touched && !lastDepartment.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Last Department' 
+                    [ngClass]="{ 'error' : !lastDepartment.valid && lastDepartment.touched }" 
+                    class='form-control ' 
+                    #lastDepartment='ngModel' 
+                    name='lastDepartment' 
+                    placeholder='... Last Department' 
+                    [(ngModel)]='currentInstance.lastDepartment' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  dir='ltr'  required  />
+      </div>
+			<!-- LastPosition -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("LastPosition")'></guide>
+        <label for='lastPosition' class='col-form-label'>Last Position : </label>
+        <span class='help-block col-form-label' *ngIf='!lastPosition.valid && lastPosition.touched && !lastPosition.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Last Position' 
+                    [ngClass]="{ 'error' : !lastPosition.valid && lastPosition.touched }" 
+                    class='form-control ' 
+                    #lastPosition='ngModel' 
+                    name='lastPosition' 
+                    placeholder='... Last Position' 
+                    [(ngModel)]='currentInstance.lastPosition' 
+                    [disabled]='IsLocked'
+                    maxlength='300'  dir='ltr'  required  />
+      </div>
+			<!-- StartWorkingInHoldingDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("StartWorkingInHoldingDate")'></guide>
+        <label for='startWorkingInHoldingDate' class='col-form-label'>Start Working In Holding Date : </label>
+        <span class='help-block col-form-label' *ngIf='!startWorkingInHoldingDate.valid && startWorkingInHoldingDate.touched && !startWorkingInHoldingDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Start Working In Holding Date 
+                    [ngClass]="{ 'error' : !startWorkingInHoldingDate.valid && startWorkingInHoldingDate.touched }" 
+                    class='form-control' 
+                    #startWorkingInHoldingDate='ngModel' 
+                    name='startWorkingInHoldingDate'
+                    [ngModel]="currentInstance.startWorkingInHoldingDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.startWorkingInHoldingDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- LastTerminationDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("LastTerminationDate")'></guide>
+        <label for='lastTerminationDate' class='col-form-label'>Last Termination Date : </label>
+        <span class='help-block col-form-label' *ngIf='!lastTerminationDate.valid && lastTerminationDate.touched && !lastTerminationDate.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Last Termination Date' 
+                    [ngClass]="{ 'error' : !lastTerminationDate.valid && lastTerminationDate.touched }" 
+                    class='form-control ' 
+                    #lastTerminationDate='ngModel' 
+                    name='lastTerminationDate' 
+                    placeholder='... Last Termination Date' 
+                    [(ngModel)]='currentInstance.lastTerminationDate' 
+                    [disabled]='IsLocked'
+                    maxlength='10'  dir='ltr'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!employeeEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!employeeEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, employeeEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-person-edit #personEditUI 
+    (onClosed)='personComponent.onClosed($event)'>
+</hr-person-edit>
+<base-holdingSection-edit #lastHoldingSectionEditUI 
+    (onClosed)='lastHoldingSectionComponent.onClosed($event)'>
+</base-holdingSection-edit>
+<base-hr-employmentStatus-edit #employmentStatusEditUI 
+    (onClosed)='employmentStatusComponent.onClosed($event)'>
+</base-hr-employmentStatus-edit>

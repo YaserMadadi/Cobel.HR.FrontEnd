@@ -1,0 +1,138 @@
+﻿<fieldset class='border'>
+  <legend>Functional Appraise :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(functionalAppraiseEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(functionalAppraiseTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(functionalAppraiseEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(functionalAppraiseDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "FunctionalKPI", currentInstance.functionalKPI?.id)'>Manage Functional KPI</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Employee", currentInstance.appraiser?.id)'>Manage Employee</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "AppraiseType", currentInstance.appraiseType?.id)'>Manage Appraise Type</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "AppraiseTime", currentInstance.appraiseTime?.id)'>Manage Appraise Time</a>
+    </dropDownMenu>
+  
+  <table #functionalAppraiseTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Functional KPI'>Functional KPI</th>
+        <th title='Date'>Date</th>
+        <th title='Appraiser'>Appraiser</th>
+        <th title='Appraise Type'>Appraise Type</th>
+        <th title='Appraise Time'>Appraise Time</th>
+        <th title='Actual Value'>Actual Value</th>
+        <th title='Score'>Score</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #functionalKPI='ngModel' id='functionalKPI' name='functionalKPI'
+										 title='Functional KPI'
+										 autocomplete='off'
+										 placeholder='Functional KPI'
+										[(ngModel)]='filterInstance.functionalKPI.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='filterInstance.date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #appraiser='ngModel' id='appraiser' name='appraiser'
+										 title='Appraiser'
+										 autocomplete='off'
+										 placeholder='Appraiser'
+										[(ngModel)]='filterInstance.appraiser.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #appraiseType='ngModel' id='appraiseType' name='appraiseType'
+										 title='Appraise Type'
+										 autocomplete='off'
+										 placeholder='Appraise Type'
+										[(ngModel)]='filterInstance.appraiseType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #appraiseTime='ngModel' id='appraiseTime' name='appraiseTime'
+										 title='Appraise Time'
+										 autocomplete='off'
+										 placeholder='Appraise Time'
+										[(ngModel)]='filterInstance.appraiseTime.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #actualValue='ngModel' id='actualValue' name='actualValue'
+										 title='Actual Value'
+										 autocomplete='off'
+										 placeholder='Actual Value'
+										[(ngModel)]='filterInstance.actualValue'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #score='ngModel' id='score' name='score'
+										 title='Score'
+										 autocomplete='off'
+										 placeholder='Score'
+										[(ngModel)]='filterInstance.score'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(functionalAppraiseMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.functionalKPI?.descriptor }}</td>
+				<td>{{ p.date | date:'fullDate' }}</td>
+				<td>{{ p.appraiser?.descriptor }}</td>
+				<td>{{ p.appraiseType?.descriptor }}</td>
+				<td>{{ p.appraiseTime?.descriptor }}</td>
+				<td>{{ p.actualValue | number }}</td>
+				<td>{{ p.score | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- FunctionalAppraise -->
+<pms-functionalAppraise-master #functionalAppraiseMasterUI>
+</pms-functionalAppraise-master>
+
+<pms-functionalAppraise-edit #functionalAppraiseEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-functionalAppraise-edit>
+
+<pms-functionalAppraise-delete #functionalAppraiseDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-functionalAppraise-delete>

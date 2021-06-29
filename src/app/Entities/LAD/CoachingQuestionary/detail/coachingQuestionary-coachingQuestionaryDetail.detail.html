@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(coachingQuestionaryDetailEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(coachingQuestionaryDetailEditUI)' [ngClass]="{ 'disabled' : currentCoachingQuestionaryDetail.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(coachingQuestionaryDetailDeleteUI)' [ngClass]="{ 'disabled' : currentCoachingQuestionaryDetail.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Coaching Questionary Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let coachingQuestionaryDetail of CoachingQuestionaryDetailList; let i = index' 
+                (dblclick)='onDblClicked(coachingQuestionaryDetailMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : coachingQuestionaryDetail.id === currentCoachingQuestionaryDetail.id, 'free-row': coachingQuestionaryDetail.id !== currentCoachingQuestionaryDetail.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ coachingQuestionaryDetail.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <lad-coachingQuestionaryDetail-edit #coachingQuestionaryDetailEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </lad-coachingQuestionaryDetail-edit>
+  <lad-coachingQuestionaryDetail-delete #coachingQuestionaryDetailDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </lad-coachingQuestionaryDetail-delete>
+  <lad-coachingQuestionaryDetail-master #coachingQuestionaryDetailMasterUI >
+  </lad-coachingQuestionaryDetail-master>
+</div>

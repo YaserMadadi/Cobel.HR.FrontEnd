@@ -1,0 +1,132 @@
+﻿<fieldset class='border'>
+  <legend>Qualitative KPI :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(qualitativeKPIEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(qualitativeKPITable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(qualitativeKPIEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(qualitativeKPIDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "QualitativeObjective", currentInstance.qualitativeObjective?.id)'>Manage Qualitative Objective</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='qualitativeAppraise_Clicked(qualitativeAppraiseEditUI)'>Add Qualitative Appraise</a>
+	
+  </dropDownMenu>
+  <table #qualitativeKPITable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Qualitative Objective'>Qualitative Objective</th>
+        <th title='Title'>Title</th>
+        <th title='Weight'>Weight</th>
+        <th title='Target'>Target</th>
+        <th title='Employee Score'>Employee Score</th>
+        <th title='Manager Score'>Manager Score</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #qualitativeObjective='ngModel' id='qualitativeObjective' name='qualitativeObjective'
+										 title='Qualitative Objective'
+										 autocomplete='off'
+										 placeholder='Qualitative Objective'
+										[(ngModel)]='filterInstance.qualitativeObjective.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='filterInstance.title'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #weight='ngModel' id='weight' name='weight'
+										 title='Weight'
+										 autocomplete='off'
+										 placeholder='Weight'
+										[(ngModel)]='filterInstance.weight'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #target='ngModel' id='target' name='target'
+										 title='Target'
+										 autocomplete='off'
+										 placeholder='Target'
+										[(ngModel)]='filterInstance.target'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #employeeScore='ngModel' id='employeeScore' name='employeeScore'
+										 title='Employee Score'
+										 autocomplete='off'
+										 placeholder='Employee Score'
+										[(ngModel)]='filterInstance.employeeScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #managerScore='ngModel' id='managerScore' name='managerScore'
+										 title='Manager Score'
+										 autocomplete='off'
+										 placeholder='Manager Score'
+										[(ngModel)]='filterInstance.managerScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(qualitativeKPIMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.qualitativeObjective?.descriptor }}</td>
+				<td>{{ p.title }}</td>
+				<td>{{ p.weight | number }}</td>
+				<td>{{ p.target | number }}</td>
+				<td>{{ p.employeeScore | number }}</td>
+				<td>{{ p.managerScore | number }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- QualitativeKPI -->
+<pms-qualitativeKPI-master #qualitativeKPIMasterUI>
+</pms-qualitativeKPI-master>
+
+<pms-qualitativeKPI-edit #qualitativeKPIEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-qualitativeKPI-edit>
+
+<pms-qualitativeKPI-delete #qualitativeKPIDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-qualitativeKPI-delete>
+
+
+<pms-qualitativeAppraise-edit #qualitativeAppraiseEditUI> <!--  (onClosed)='qualitativeAppraiseEditUI_Closed($event)' -->
+</pms-qualitativeAppraise-edit>

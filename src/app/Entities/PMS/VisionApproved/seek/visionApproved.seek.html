@@ -1,0 +1,91 @@
+﻿<XDialog Header='Search form of Vision Approved' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='vision' class='col-sm-3 col-form-label'>Vision : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #vision='ngModel' 
+                    #visionCombo='kendoDropDownList' 
+                    name='vision' 
+                    title='Vision'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !vision.valid && vision.touched }" 
+                    [data]='visionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='visionComponent.filterable'
+                    (filterChange)='visionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.vision"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='visionComponent.addable'>
+                      <button class='btn btn-primary' (click)='visionComponent.onAdd(visionCombo, visionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='byEmployee' class='col-sm-3 col-form-label'>By Employee : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #byEmployee='ngModel' 
+                    #byEmployeeCombo='kendoDropDownList' 
+                    name='byEmployee' 
+                    title='By Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !byEmployee.valid && byEmployee.touched }" 
+                    [data]='byEmployeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='byEmployeeComponent.filterable'
+                    (filterChange)='byEmployeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.byEmployee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='byEmployeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='byEmployeeComponent.onAdd(byEmployeeCombo, byEmployeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='approvementType' class='col-sm-3 col-form-label'>Approvement Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #approvementType='ngModel' 
+                    #approvementTypeCombo='kendoDropDownList' 
+                    name='approvementType' 
+                    title='Approvement Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !approvementType.valid && approvementType.touched }" 
+                    [data]='approvementTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='approvementTypeComponent.filterable'
+                    (filterChange)='approvementTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.approvementType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='approvementTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='approvementTypeComponent.onAdd(approvementTypeCombo, approvementTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='date' class='col-sm-3 col-form-label'>Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='visionApproved.date'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

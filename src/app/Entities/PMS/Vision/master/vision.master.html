@@ -1,0 +1,70 @@
+﻿<XDialog Header='Vision Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Vision : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee : 
+                        <guide (onClick)='onGuid("Employee_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employee?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Date : 
+                        <guide (onClick)='onGuid("Date")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.date | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee Approvement Status : 
+                        <guide (onClick)='onGuid("EmployeeApprovementStatus")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employeeApprovementStatus }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Direct Manager Approvement Status : 
+                        <guide (onClick)='onGuid("DirectManagerApprovementStatus")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.directManagerApprovementStatus }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>B U Head Approvement Status : 
+                        <guide (onClick)='onGuid("BUHeadApprovementStatus")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.buheadApprovementStatus }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Vision Comment'>
+                <vision-visionComment-detail 
+                    #pmsVisionVisionCommentDetail
+                    [Vision]='currentInstance'>
+                </vision-visionComment-detail>
+            </tab>
+			<tab heading='Vision Approved'>
+                <vision-visionApproved-detail 
+                    #pmsVisionVisionApprovedDetail
+                    [Vision]='currentInstance'>
+                </vision-visionApproved-detail>
+            </tab>
+			<tab heading='Individual Development Plan'>
+                <vision-individualDevelopmentPlan-detail 
+                    #pmsVisionIndividualDevelopmentPlanDetail
+                    [Vision]='currentInstance'>
+                </vision-individualDevelopmentPlan-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

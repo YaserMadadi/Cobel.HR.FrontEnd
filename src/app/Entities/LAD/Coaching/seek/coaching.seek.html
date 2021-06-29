@@ -1,0 +1,124 @@
+﻿<XDialog Header='Search form of Coaching' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='employee' class='col-sm-3 col-form-label'>Employee : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='agreementDate' class='col-sm-3 col-form-label'>Agreement Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #agreementDate='ngModel' id='agreementDate' name='agreementDate'
+										 title='Agreement Date'
+										 autocomplete='off'
+										 placeholder='Agreement Date'
+										[(ngModel)]='coaching.agreementDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='porpuse' class='col-sm-3 col-form-label'>Porpuse : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #porpuse='ngModel' id='porpuse' name='porpuse'
+										 title='Porpuse'
+										 autocomplete='off'
+										 placeholder='Porpuse'
+										[(ngModel)]='coaching.porpuse'
+										 type='text'
+										 maxlength='1000'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='coach' class='col-sm-3 col-form-label'>Coach : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #coach='ngModel' 
+                    #coachCombo='kendoDropDownList' 
+                    name='coach' 
+                    title='Coach'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !coach.valid && coach.touched }" 
+                    [data]='coachComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='coachComponent.filterable'
+                    (filterChange)='coachComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.coach"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='coachComponent.addable'>
+                      <button class='btn btn-primary' (click)='coachComponent.onAdd(coachCombo, coachEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='sessionCount' class='col-sm-3 col-form-label'>Session Count : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #sessionCount='ngModel' id='sessionCount' name='sessionCount'
+										 title='Session Count'
+										 autocomplete='off'
+										 placeholder='Session Count'
+										[(ngModel)]='coaching.sessionCount'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='effectiveness' class='col-sm-3 col-form-label'>Effectiveness : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #effectiveness='ngModel' id='effectiveness' name='effectiveness'
+										 title='Effectiveness'
+										 autocomplete='off'
+										 placeholder='Effectiveness'
+										[(ngModel)]='coaching.effectiveness'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='runnedSessionCount' class='col-sm-3 col-form-label'>Runned Session Count : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #runnedSessionCount='ngModel' id='runnedSessionCount' name='runnedSessionCount'
+										 title='Runned Session Count'
+										 autocomplete='off'
+										 placeholder='Runned Session Count'
+										[(ngModel)]='coaching.runnedSessionCount'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='isFinished' class='col-sm-3 col-form-label'>Is Finished : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

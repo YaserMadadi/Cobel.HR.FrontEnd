@@ -1,0 +1,113 @@
+﻿<fieldset class='border'>
+  <legend>Assessment Score :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(assessmentScoreEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(assessmentScoreTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(assessmentScoreEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(assessmentScoreDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("LAD", "Assessment", currentInstance.assessment?.id)'>Manage Assessment</a>
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "CompetencyItem", currentInstance.competencyItem?.id)'>Manage Competency Item</a>
+    </dropDownMenu>
+  
+  <table #assessmentScoreTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Assessment'>Assessment</th>
+        <th title='Competency Item'>Competency Item</th>
+        <th title='Expected Score'>Expected Score</th>
+        <th title='Employee Score'>Employee Score</th>
+        <th title='Manager Score'>Manager Score</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #assessment='ngModel' id='assessment' name='assessment'
+										 title='Assessment'
+										 autocomplete='off'
+										 placeholder='Assessment'
+										[(ngModel)]='filterInstance.assessment.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #competencyItem='ngModel' id='competencyItem' name='competencyItem'
+										 title='Competency Item'
+										 autocomplete='off'
+										 placeholder='Competency Item'
+										[(ngModel)]='filterInstance.competencyItem.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #expectedScore='ngModel' id='expectedScore' name='expectedScore'
+										 title='Expected Score'
+										 autocomplete='off'
+										 placeholder='Expected Score'
+										[(ngModel)]='filterInstance.expectedScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #employeeScore='ngModel' id='employeeScore' name='employeeScore'
+										 title='Employee Score'
+										 autocomplete='off'
+										 placeholder='Employee Score'
+										[(ngModel)]='filterInstance.employeeScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #managerScore='ngModel' id='managerScore' name='managerScore'
+										 title='Manager Score'
+										 autocomplete='off'
+										 placeholder='Manager Score'
+										[(ngModel)]='filterInstance.managerScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(assessmentScoreMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.assessment?.descriptor }}</td>
+				<td>{{ p.competencyItem?.descriptor }}</td>
+				<td>{{ p.expectedScore | number }}</td>
+				<td>{{ p.employeeScore | number }}</td>
+				<td>{{ p.managerScore | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- AssessmentScore -->
+<lad-assessmentScore-master #assessmentScoreMasterUI>
+</lad-assessmentScore-master>
+
+<lad-assessmentScore-edit #assessmentScoreEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</lad-assessmentScore-edit>
+
+<lad-assessmentScore-delete #assessmentScoreDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</lad-assessmentScore-delete>

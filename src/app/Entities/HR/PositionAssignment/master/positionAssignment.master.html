@@ -1,0 +1,52 @@
+﻿<XDialog Header='Position Assignment Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Position Assignment : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee : 
+                        <guide (onClick)='onGuid("Employee_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employee?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Position : 
+                        <guide (onClick)='onGuid("Position_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.position?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>From Date : 
+                        <guide (onClick)='onGuid("FromDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.fromDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Comment : 
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Alive : 
+                        <guide (onClick)='onGuid("IsAlive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isAlive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Position Assignment Repeal'>
+                <positionAssignment-positionAssignmentRepeal-detail 
+                    #hrPositionAssignmentPositionAssignmentRepealDetail
+                    [PositionAssignment]='currentInstance'>
+                </positionAssignment-positionAssignmentRepeal-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(assessmentTrainingEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(assessmentTrainingEditUI)' [ngClass]="{ 'disabled' : currentAssessmentTraining.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(assessmentTrainingDeleteUI)' [ngClass]="{ 'disabled' : currentAssessmentTraining.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('LAD','Assessment')"> Assessment</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Assessment Training</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let assessmentTraining of AssessmentTrainingList; let i = index' 
+                (dblclick)='onDblClicked(assessmentTrainingMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : assessmentTraining.id === currentAssessmentTraining.id, 'free-row': assessmentTraining.id !== currentAssessmentTraining.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ assessmentTraining.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <lad-assessmentTraining-edit #assessmentTrainingEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </lad-assessmentTraining-edit>
+  <lad-assessmentTraining-delete #assessmentTrainingDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </lad-assessmentTraining-delete>
+  <lad-assessmentTraining-master #assessmentTrainingMasterUI >
+  </lad-assessmentTraining-master>
+</div>

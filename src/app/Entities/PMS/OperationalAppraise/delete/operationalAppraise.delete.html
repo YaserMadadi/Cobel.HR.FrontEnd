@@ -1,0 +1,51 @@
+﻿<XDialog Header='Delete Confirmation Form of Operational Appraise' 
+    [IsShown]='IsShown' 
+    (OnClosed)='onCancel()'
+    [ModalType]='3'>
+    <div class='delete-frame'>
+        <p></p>
+        <p>You are going to Delete the record of Operational Appraise! </p>
+        <br>
+        <div class='margin20'>
+            
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Target Setting : </label>
+            <label class='col-sm-8'>{{ currentInstance?.targetSetting?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Date : </label>
+            <label class='col-sm-8'>{{ currentInstance?.date | date:'fullDate' }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Approver : </label>
+            <label class='col-sm-8'>{{ currentInstance?.approver?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Quantitative Score : </label>
+            <label class='col-sm-8'>{{ currentInstance?.quantitativeScore | number }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Qualitative Score : </label>
+            <label class='col-sm-8'>{{ currentInstance?.qualitativeScore | number }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Total Score : </label>
+            <label class='col-sm-8'>{{ currentInstance?.totalScore | number }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Score Cell : </label>
+            <label class='col-sm-8'>{{ currentInstance?.scoreCell?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Comment : </label>
+            <label class='col-sm-8'>{{ currentInstance?.comment }}</label>
+        </div>
+        </div>
+        <br>
+        <p>Do You Confirm?  </p>
+    </div>
+    <div class='modal-footer'>
+      <button class='xbtn btn-delete modal-footer-button' type='button' (click)='onDelete()'>Ok, Delete it</button>
+      <button class='xbtn btn-edit modal-footer-button' type='button' (click)='onCancel()'>Cancel</button>
+    </div>
+</XDialog>

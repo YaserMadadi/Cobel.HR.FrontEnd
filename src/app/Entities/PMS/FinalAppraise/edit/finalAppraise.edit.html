@@ -1,0 +1,166 @@
+﻿<XDialog Header='Edit Form of Final Appraise'
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1'>
+  <form (ngSubmit)='onSave(currentInstance, finalAppraiseEditUI)'
+    #finalAppraiseEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- TargetSetting -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("TargetSetting_Id")'></guide>
+        <label for='targetSetting'
+          class='col-form-label'>Target Setting : </label>
+        <label>{{ currentInstance.targetSetting.descriptor }}</label>
+      </div>
+      <!-- ManagerFunctionalScore -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ManagerFunctionalScore")'></guide>
+        <label for='managerFunctionalScore'
+          class='col-form-label'>Manager Functional Score : </label>
+        <label class='form-control'>{{ currentInstance.managerFunctionalScore }}</label>
+      </div>
+      <!-- FinalFunctionalScore -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("FinalFunctionalScore")'></guide>
+        <label for='finalFunctionalScore'
+          class='col-form-label'>Final Functional Score : </label>
+        <div class="input-group mb-3">
+          <span class="input-group-text"
+            id="basic-addon1">{{ functionalMinValue }}</span>
+          <!-- <div class="col-auto"><input type="text" readonly class="form-control-plaintext" id="minValue" placeholder="MinValue"></div> -->
+          <input type="number"
+            class='form-control'
+            [min]='functionalMinValue'
+            [max]='functionalMaxValue'
+            step="0.1"
+            [(ngModel)]='currentInstance.finalFunctionalScore'
+            #finalFunctionalScore='ngModel'
+            name='finalFunctionalScore'>
+          <span class="input-group-text"
+            id="basic-addon1">{{ functionalMaxValue }}</span>
+        </div>
+        <!-- <div class="col4"><input type="text" readonly class="form-control-plaintext" id="minValue" placeholder="MinValue"></div> -->
+      </div>
+
+
+      <!-- <kendo-numerictextbox #finalFunctionalScore='ngModel' 
+            name='finalFunctionalScore' 
+            title='Final Functional Score' 
+            placeholder='Final Functional Score'
+            class='form-control'
+            [ngClass]="{ 'error' : !finalFunctionalScore.valid && finalFunctionalScore.touched }" 
+            [value]='currentInstance.finalFunctionalScore' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.finalFunctionalScore'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox> -->
+
+      <!-- ManagerBehavioralScore -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ManagerBehavioralScore")'></guide>
+        <label for='managerBehavioralScore'
+          class='col-form-label'>Manager Behavioral Score : </label>
+        <label class='form-control'>{{ currentInstance.managerBehavioralScore }}</label>
+      </div>
+
+      <!-- FinalBehavioralScore -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("FinalBehavioralScore")'></guide>
+        <label for='finalBehavioralScore'
+          class='col-form-label'>Final Behavioral Score : </label>
+        <div class="input-group mb-3">
+          <span class="input-group-text"
+            id="basic-addon1">{{ behavioralMinValue }}</span>
+          <!-- <div class="col-auto"><input type="text" readonly class="form-control-plaintext" id="minValue" placeholder="MinValue"></div> -->
+          <input type="number"
+            class='form-control'
+            [min]='behavioralMinValue'
+            [max]='behavioralMaxValue'
+            step="0.1"
+            [(ngModel)]='currentInstance.finalBehavioralScore'
+            #fialBehavioralScore='ngModel'
+            name='finalBehavioralScore'>
+          <span class="input-group-text"
+            id="basic-addon1">{{ behavioralMaxValue }}</span>
+        </div>
+        <!-- <span class='help-block col-form-label'
+        *ngIf='!finalBehavioralScore.valid && finalBehavioralScore.touched && !finalBehavioralScore.disabled'>( Value is
+        not Valid! )</span>
+
+      <kendo-numerictextbox #finalBehavioralScore='ngModel'
+        name='finalBehavioralScore'
+        title='Final Behavioral Score'
+        placeholder='Final Behavioral Score'
+        class='form-control'
+        [ngClass]="{ 'error' : !finalBehavioralScore.valid && finalBehavioralScore.touched }"
+        [value]='currentInstance.finalBehavioralScore'
+        [min]='-2147483648'
+        [max]='2147483647'
+        [(ngModel)]='currentInstance.finalBehavioralScore'
+        [format]="'n0'"
+        [decimals]='0'
+        [spinners]='false'
+        [disabled]='IsLocked'
+        required></kendo-numerictextbox> -->
+      </div>
+      <!-- Comment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Comment")'></guide>
+        <label for='comment'
+          class='col-form-label'>Comment : </label>
+        <span class='help-block col-form-label'
+          *ngIf='!comment.valid && comment.touched && !comment.disabled'>( Value is not Valid! )</span>
+        <input type='text'
+          title='Comment'
+          [ngClass]="{ 'error' : !comment.valid && comment.touched }"
+          class='form-control '
+          #comment='ngModel'
+          name='comment'
+          placeholder='... Comment'
+          [(ngModel)]='currentInstance.comment'
+          [disabled]='IsLocked'
+          maxlength='400' />
+      </div>
+      <!-- IsApproved -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsApproved")'></guide>
+        <label for='isApproved'
+          class='col-form-label'>IsApproved : </label>
+        <!--IsApproved do not Required-->
+        <input type='checkbox'
+          #isApproved
+          id='isApproved'
+          name='isApproved'
+          kendoCheckBox
+          [checked]='currentInstance.isApproved'
+          [(ngModel)]='currentInstance.isApproved' />
+      </div>
+
+
+      <div class='modal-footer'>
+        <button id='add-button'
+          type='submit'
+          class='xbtn btn-add modal-footer-button'
+          [disabled]='!finalAppraiseEditUI.valid || IsLocked'>Ok, Save it</button>
+        <button id='add-continue-button'
+          type='button'
+          class='xbtn btn-refresh modal-footer-button'
+          [disabled]='!finalAppraiseEditUI.valid || IsLocked'
+          [hidden]='IsEditMode'
+          (click)='onSave(currentInstance, finalAppraiseEditUI, true)'>Save and Continue</button>
+        <button id='cancle-button'
+          class='xbtn btn-delete modal-footer-button'
+          [disabled]='IsLocked'
+          (click)='onClose()'>Cancle</button>
+      </div>
+    </div>
+  </form>
+</XDialog>
+
+<pms-targetSetting-edit #targetSettingEditUI
+  (onClosed)='targetSettingComponent.onClosed($event)'>
+</pms-targetSetting-edit>

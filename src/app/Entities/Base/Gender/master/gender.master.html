@@ -1,0 +1,58 @@
+﻿<XDialog Header='Gender Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Gender : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Persian Title : 
+                        <guide (onClick)='onGuid("PersianTitle")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.persianTitle }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>English Title : 
+                        <guide (onClick)='onGuid("EnglishTitle")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.englishTitle }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Persian Pre Fix : 
+                        <guide (onClick)='onGuid("PersianPreFix")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.persianPreFix }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>English Pre Fix : 
+                        <guide (onClick)='onGuid("EnglishPreFix")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.englishPreFix }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Person'>
+                <gender-person-detail 
+                    #baseGenderPersonDetail
+                    [Gender]='currentInstance'>
+                </gender-person-detail>
+            </tab>
+			<tab heading='Coach'>
+                <gender-coach-detail 
+                    #baseGenderCoachDetail
+                    [Gender]='currentInstance'>
+                </gender-coach-detail>
+            </tab>
+			<tab heading='Assessor'>
+                <gender-assessor-detail 
+                    #baseGenderAssessorDetail
+                    [Gender]='currentInstance'>
+                </gender-assessor-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

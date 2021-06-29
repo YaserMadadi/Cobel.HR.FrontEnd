@@ -1,0 +1,217 @@
+﻿<XDialog Header='Employee Management form'
+         [IsShown]='IsShown'
+         (OnClosed)='onClose()'
+         [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Employee : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Person :
+                        <guide (onClick)='onGuid("Person_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.person?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Last Employee Code :
+                        <guide (onClick)='onGuid("LastEmployeeCode")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.lastEmployeeCode | number }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Last Holding Section :
+                        <guide (onClick)='onGuid("LastHoldingSection_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.lastHoldingSection?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>S A M Account I D :
+                        <guide (onClick)='onGuid("SAMAccountID")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.samaccountID }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Email Address :
+                        <guide (onClick)='onGuid("EmailAddress")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.emailAddress }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employment Status :
+                        <guide (onClick)='onGuid("EmploymentStatus_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employmentStatus?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Last City :
+                        <guide (onClick)='onGuid("LastCity")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.lastCity }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Last Department :
+                        <guide (onClick)='onGuid("LastDepartment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.lastDepartment }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Last Position :
+                        <guide (onClick)='onGuid("LastPosition")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.lastPosition }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Start Working In Holding Date :
+                        <guide (onClick)='onGuid("StartWorkingInHoldingDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.startWorkingInHoldingDate | date:'fullDate' }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Last Termination Date :
+                        <guide (onClick)='onGuid("LastTerminationDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.lastTerminationDate }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right'
+                    (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr />
+        <tabset #tabset>
+            <!-- <tab heading='Vision Comment'>
+                <commentator-visionComment-detail 
+                    #hrCommentatorVisionCommentDetail
+                    [Commentator]='currentInstance'>
+                </commentator-visionComment-detail>
+            </tab> -->
+            <tab heading='Employee Detail'>
+                <employee-employeeDetail-detail #hrEmployeeEmployeeDetailDetail
+                                                [Employee]='currentInstance'>
+                </employee-employeeDetail-detail>
+            </tab>
+
+            <!-- <tab heading='Vision Approved' >
+                <byEmployee-visionApproved-detail 
+                    #hrByEmployeeVisionApprovedDetail
+                    [ByEmployee]='currentInstance'>
+                </byEmployee-visionApproved-detail>
+            </tab> -->
+            <!-- <tab heading='Functional Objective Comment'>
+                <commenter-functionalObjectiveComment-detail 
+                    #hrCommenterFunctionalObjectiveCommentDetail
+                    [Commenter]='currentInstance'>
+                </commenter-functionalObjectiveComment-detail>
+            </tab> -->
+            <tab heading='Vision'>
+                <employee-vision-detail #hrEmployeeVisionDetail
+                                        [Employee]='currentInstance'>
+                </employee-vision-detail>
+            </tab>
+            <!-- <tab heading='Behavioral Appraise'>
+                <appraiser-behavioralAppraise-detail #hrAppraiserBehavioralAppraiseDetail
+                                                     [Appraiser]='currentInstance'>
+                </appraiser-behavioralAppraise-detail>
+            </tab> -->
+            <tab heading='Functional K P I Comment'
+                 *ngIf='false'>
+                <commenter-functionalKPIComment-detail #hrCommenterFunctionalKPICommentDetail
+                                                       [Commenter]='currentInstance'>
+                </commenter-functionalKPIComment-detail>
+            </tab>
+            <tab heading='Coaching'
+                 *ngIf='false'>
+                <employee-coaching-detail #hrEmployeeCoachingDetail
+                                          [Employee]='currentInstance'>
+                </employee-coaching-detail>
+            </tab>
+            <tab heading='Final Approvement'
+                 *ngIf='false'>
+                <approver-finalApprovement-detail #hrApproverFinalApprovementDetail
+                                                  [Approver]='currentInstance'>
+                </approver-finalApprovement-detail>
+            </tab>
+            <tab heading='Assessment'
+                 *ngIf='false'>
+                <employee-assessment-detail #hrEmployeeAssessmentDetail
+                                            [Employee]='currentInstance'>
+                </employee-assessment-detail>
+            </tab>
+            <tab heading='Target Setting'>
+                <employee-targetSetting-detail #hrEmployeeTargetSettingDetail
+                                               [Employee]='currentInstance'>
+                </employee-targetSetting-detail>
+            </tab>
+            <!-- <tab heading='Employee Notification'>
+                <employee-employeeNotification-detail 
+                    #hrEmployeeEmployeeNotificationDetail
+                    [Employee]='currentInstance'>
+                </employee-employeeNotification-detail>
+            </tab> -->
+            <tab heading='Training'
+                 *ngIf='false'>
+                <employee-training-detail #hrEmployeeTrainingDetail
+                                          [Employee]='currentInstance'>
+                </employee-training-detail>
+            </tab>
+            <!-- <tab heading='Critical Incident Recognition'>
+                <writer-criticalIncidentRecognition-detail 
+                    #hrWriterCriticalIncidentRecognitionDetail
+                    [Writer]='currentInstance'>
+                </writer-criticalIncidentRecognition-detail>
+            </tab> -->
+            <tab heading='Functional Appraise'
+                 *ngIf='false'>
+                <appraiser-functionalAppraise-detail #hrAppraiserFunctionalAppraiseDetail
+                                                     [Appraiser]='currentInstance'>
+                </appraiser-functionalAppraise-detail>
+            </tab>
+            <tab heading='Critical Incident'
+                 *ngIf='false'>
+                <employee-criticalIncident-detail #hrEmployeeCriticalIncidentDetail
+                                                  [Employee]='currentInstance'>
+                </employee-criticalIncident-detail>
+            </tab>
+            <!-- <tab heading='Employee Event'>
+                <employee-employeeEvent-detail 
+                    #hrEmployeeEmployeeEventDetail
+                    [Employee]='currentInstance'>
+                </employee-employeeEvent-detail>
+            </tab> -->
+            <tab heading='Contract'
+                 *ngIf='false'>
+                <employee-contract-detail #hrEmployeeContractDetail
+                                          [Employee]='currentInstance'>
+                </employee-contract-detail>
+            </tab>
+            <tab heading='Operational Appraise'
+                 *ngIf='false'>
+                <approver-operationalAppraise-detail #hrApproverOperationalAppraiseDetail
+                                                     [Approver]='currentInstance'>
+                </approver-operationalAppraise-detail>
+            </tab>
+            <tab heading='Position Assignment'>
+                <employee-positionAssignment-detail #hrEmployeePositionAssignmentDetail
+                                                    [Employee]='currentInstance'>
+                </employee-positionAssignment-detail>
+            </tab>
+            <tab heading='Role Member'
+                 *ngIf='false'>
+                <employee-roleMember-detail #hrEmployeeRoleMemberDetail
+                                            [Employee]='currentInstance'>
+                </employee-roleMember-detail>
+            </tab>
+            <tab heading='Non Operational Appraise'
+                 *ngIf='false'>
+                <approver-nonOperationalAppraise-detail #hrApproverNonOperationalAppraiseDetail
+                                                        [Approver]='currentInstance'>
+                </approver-nonOperationalAppraise-detail>
+            </tab>
+            <tab heading='Qualitative Appraise'
+                 *ngIf='false'>
+                <appraiser-qualitativeAppraise-detail #hrAppraiserQualitativeAppraiseDetail
+                                                      [Appraiser]='currentInstance'>
+                </appraiser-qualitativeAppraise-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

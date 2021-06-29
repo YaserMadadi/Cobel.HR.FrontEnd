@@ -1,0 +1,97 @@
+﻿<XDialog Header='Edit Form of Functional Objective Comment' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, functionalObjectiveCommentEditUI)' 
+    #functionalObjectiveCommentEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- FunctionalObjective -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("FunctionalObjective_Id")'></guide>
+        <label for='functionalObjective' class='col-form-label'>Functional Objective : </label>
+        <span class='help-block col-form-label' *ngIf='!functionalObjective.valid && functionalObjective.touched && !functionalObjective.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #functionalObjective='ngModel' 
+                    #functionalObjectiveCombo='kendoDropDownList' 
+                    name='functionalObjective' 
+                    title='Functional Objective'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !functionalObjective.valid && functionalObjective.touched }" 
+                    [data]='functionalObjectiveComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='functionalObjectiveComponent.filterable'
+                    (filterChange)='functionalObjectiveComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.functionalObjective"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='functionalObjectiveComponent.addable'>
+                      <button class='btn btn-primary' (click)='functionalObjectiveComponent.onAdd(functionalObjectiveCombo, functionalObjectiveEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Comment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Comment")'></guide>
+        <label for='comment' class='col-form-label'>Comment : </label>
+        <span class='help-block col-form-label' *ngIf='!comment.valid && comment.touched && !comment.disabled'>( Value is not Valid! )</span>
+        <textarea type='text' title='Comment' name='comment' 
+                            class='form-control' 
+                            [ngClass]="{ 'error' : !comment.valid && comment.touched }" 
+                            #comment='ngModel' 
+                            placeholder='... Comment' 
+                            [(ngModel)]='currentInstance.comment'
+                            [disabled]='IsLocked'
+                            maxlength='4000'  ></textarea>
+      </div>
+			<!-- Commenter -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Commenter_Id")'></guide>
+        <label for='commenter' class='col-form-label'>Commenter : </label>
+        <span class='help-block col-form-label' *ngIf='!commenter.valid && commenter.touched && !commenter.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #commenter='ngModel' 
+                    #commenterCombo='kendoDropDownList' 
+                    name='commenter' 
+                    title='Commenter'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !commenter.valid && commenter.touched }" 
+                    [data]='commenterComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='commenterComponent.filterable'
+                    (filterChange)='commenterComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.commenter"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='commenterComponent.addable'>
+                      <button class='btn btn-primary' (click)='commenterComponent.onAdd(commenterCombo, commenterEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!functionalObjectiveCommentEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!functionalObjectiveCommentEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, functionalObjectiveCommentEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<pms-functionalObjective-edit #functionalObjectiveEditUI 
+    (onClosed)='functionalObjectiveComponent.onClosed($event)'>
+</pms-functionalObjective-edit>
+<hr-employee-edit #commenterEditUI 
+    (onClosed)='commenterComponent.onClosed($event)'>
+</hr-employee-edit>

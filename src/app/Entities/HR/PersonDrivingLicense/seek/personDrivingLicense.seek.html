@@ -1,0 +1,69 @@
+﻿<XDialog Header='Search form of Person Driving License' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='person' class='col-sm-3 col-form-label'>Person : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='drivingLicenseType' class='col-sm-3 col-form-label'>Driving License Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #drivingLicenseType='ngModel' 
+                    #drivingLicenseTypeCombo='kendoDropDownList' 
+                    name='drivingLicenseType' 
+                    title='Driving License Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !drivingLicenseType.valid && drivingLicenseType.touched }" 
+                    [data]='drivingLicenseTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='drivingLicenseTypeComponent.filterable'
+                    (filterChange)='drivingLicenseTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.drivingLicenseType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='drivingLicenseTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='drivingLicenseTypeComponent.onAdd(drivingLicenseTypeCombo, drivingLicenseTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='expireDate' class='col-sm-3 col-form-label'>Expire Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #expireDate='ngModel' id='expireDate' name='expireDate'
+										 title='Expire Date'
+										 autocomplete='off'
+										 placeholder='Expire Date'
+										[(ngModel)]='personDrivingLicense.expireDate'
+										 type='date'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

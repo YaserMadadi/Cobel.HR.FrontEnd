@@ -1,0 +1,25 @@
+<XDialog Header='Life History of Record' [IsShown]='IsShown' (OnClosed)='onClose()' [ModalType]='1'>
+    <div class='form-margin'>
+        <table class='table table-hover indexTable'>
+            <thead>
+                <tr>
+                    <th width='80px'>RowIndex</th>
+                    <th width='180px'>Date</th>
+                    <th> Time</th>
+                    <th>Action</th>
+                    <th>User</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let log of logList; let i = index' (dblclick)='ViewDetail(entityCompratorUI, log)'>
+                    <td width='80px'>{{ i + 1 }}</td>
+                    <td width='180px'>{{ log.date | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ log.time }}</td>
+                    <td>{{ log.actionType }}</td>
+                    <td>{{ log.person.descriptor }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</XDialog>
+<!-- <entity-comparator #entityCompratorUI></entity-comparator> -->

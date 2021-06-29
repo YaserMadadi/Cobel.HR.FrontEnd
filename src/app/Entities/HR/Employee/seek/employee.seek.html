@@ -1,0 +1,182 @@
+﻿<XDialog Header='Search form of Employee' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='person' class='col-sm-3 col-form-label'>Person : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='lastEmployeeCode' class='col-sm-3 col-form-label'>Last Employee Code : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #lastEmployeeCode='ngModel' id='lastEmployeeCode' name='lastEmployeeCode'
+										 title='Last Employee Code'
+										 autocomplete='off'
+										 placeholder='Last Employee Code'
+										[(ngModel)]='employee.lastEmployeeCode'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='lastHoldingSection' class='col-sm-3 col-form-label'>Last Holding Section : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #lastHoldingSection='ngModel' 
+                    #lastHoldingSectionCombo='kendoDropDownList' 
+                    name='lastHoldingSection' 
+                    title='Last Holding Section'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !lastHoldingSection.valid && lastHoldingSection.touched }" 
+                    [data]='lastHoldingSectionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='lastHoldingSectionComponent.filterable'
+                    (filterChange)='lastHoldingSectionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.lastHoldingSection"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='lastHoldingSectionComponent.addable'>
+                      <button class='btn btn-primary' (click)='lastHoldingSectionComponent.onAdd(lastHoldingSectionCombo, lastHoldingSectionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='samaccountID' class='col-sm-3 col-form-label'>S A M Account I D : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #samaccountID='ngModel' id='samaccountID' name='samaccountID'
+										 title='S A M Account I D'
+										 autocomplete='off'
+										 placeholder='S A M Account I D'
+										[(ngModel)]='employee.samaccountID'
+										 type='text'
+										 maxlength='100'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='emailAddress' class='col-sm-3 col-form-label'>Email Address : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #emailAddress='ngModel' id='emailAddress' name='emailAddress'
+										 title='Email Address'
+										 autocomplete='off'
+										 placeholder='Email Address'
+										[(ngModel)]='employee.emailAddress'
+										 type='text'
+										 maxlength='200'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='employmentStatus' class='col-sm-3 col-form-label'>Employment Status : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #employmentStatus='ngModel' 
+                    #employmentStatusCombo='kendoDropDownList' 
+                    name='employmentStatus' 
+                    title='Employment Status'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employmentStatus.valid && employmentStatus.touched }" 
+                    [data]='employmentStatusComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employmentStatusComponent.filterable'
+                    (filterChange)='employmentStatusComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employmentStatus"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employmentStatusComponent.addable'>
+                      <button class='btn btn-primary' (click)='employmentStatusComponent.onAdd(employmentStatusCombo, employmentStatusEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='lastCity' class='col-sm-3 col-form-label'>Last City : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #lastCity='ngModel' id='lastCity' name='lastCity'
+										 title='Last City'
+										 autocomplete='off'
+										 placeholder='Last City'
+										[(ngModel)]='employee.lastCity'
+										 type='text'
+										 maxlength='200'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='lastDepartment' class='col-sm-3 col-form-label'>Last Department : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #lastDepartment='ngModel' id='lastDepartment' name='lastDepartment'
+										 title='Last Department'
+										 autocomplete='off'
+										 placeholder='Last Department'
+										[(ngModel)]='employee.lastDepartment'
+										 type='text'
+										 maxlength='200'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='lastPosition' class='col-sm-3 col-form-label'>Last Position : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #lastPosition='ngModel' id='lastPosition' name='lastPosition'
+										 title='Last Position'
+										 autocomplete='off'
+										 placeholder='Last Position'
+										[(ngModel)]='employee.lastPosition'
+										 type='text'
+										 maxlength='300'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='startWorkingInHoldingDate' class='col-sm-3 col-form-label'>Start Working In Holding Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #startWorkingInHoldingDate='ngModel' id='startWorkingInHoldingDate' name='startWorkingInHoldingDate'
+										 title='Start Working In Holding Date'
+										 autocomplete='off'
+										 placeholder='Start Working In Holding Date'
+										[(ngModel)]='employee.startWorkingInHoldingDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='lastTerminationDate' class='col-sm-3 col-form-label'>Last Termination Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #lastTerminationDate='ngModel' id='lastTerminationDate' name='lastTerminationDate'
+										 title='Last Termination Date'
+										 autocomplete='off'
+										 placeholder='Last Termination Date'
+										[(ngModel)]='employee.lastTerminationDate'
+										 type='text'
+										 maxlength='10'
+										 dir='ltr' />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

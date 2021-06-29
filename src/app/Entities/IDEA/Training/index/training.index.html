@@ -1,0 +1,108 @@
+﻿<fieldset class='border'>
+  <legend>Training :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(trainingEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(trainingTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(trainingEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(trainingDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Employee", currentInstance.employee?.id)'>Manage Employee</a>
+		<a class='dropdown-item pointer' (click)='navigate("IDEA", "Course", currentInstance.course?.id)'>Manage Course</a>
+    </dropDownMenu>
+  
+  <table #trainingTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Id'>Id</th>
+        <th title='Employee'>Employee</th>
+        <th title='Course'>Course</th>
+        <th title='Executive Year'>Executive Year</th>
+        <th width='100px' title='Training Status'>Training Status</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #id='ngModel' id='id' name='id'
+										 title='Id'
+										 autocomplete='off'
+										 placeholder='Id'
+										[(ngModel)]='filterInstance.id'
+										 type='text'
+										 maxlength='800'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #employee='ngModel' id='employee' name='employee'
+										 title='Employee'
+										 autocomplete='off'
+										 placeholder='Employee'
+										[(ngModel)]='filterInstance.employee.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #course='ngModel' id='course' name='course'
+										 title='Course'
+										 autocomplete='off'
+										 placeholder='Course'
+										[(ngModel)]='filterInstance.course.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #executiveYear='ngModel' id='executiveYear' name='executiveYear'
+										 title='Executive Year'
+										 autocomplete='off'
+										 placeholder='Executive Year'
+										[(ngModel)]='filterInstance.executiveYear'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(trainingMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.id }}</td>
+				<td>{{ p.employee?.descriptor }}</td>
+				<td>{{ p.course?.descriptor }}</td>
+				<td>{{ p.executiveYear | number }}</td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.trainingStatus' /></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- Training -->
+<idea-training-master #trainingMasterUI>
+</idea-training-master>
+
+<idea-training-edit #trainingEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</idea-training-edit>
+
+<idea-training-delete #trainingDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</idea-training-delete>

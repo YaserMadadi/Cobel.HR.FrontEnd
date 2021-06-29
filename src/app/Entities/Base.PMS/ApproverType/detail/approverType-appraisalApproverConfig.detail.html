@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(appraisalApproverConfigEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(appraisalApproverConfigEditUI)' [ngClass]="{ 'disabled' : currentAppraisalApproverConfig.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(appraisalApproverConfigDeleteUI)' [ngClass]="{ 'disabled' : currentAppraisalApproverConfig.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('HR','PositionCategory')"> Position Category</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Appraisal Approver Config</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let appraisalApproverConfig of AppraisalApproverConfigList; let i = index' 
+                (dblclick)='onDblClicked(appraisalApproverConfigMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : appraisalApproverConfig.id === currentAppraisalApproverConfig.id, 'free-row': appraisalApproverConfig.id !== currentAppraisalApproverConfig.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ appraisalApproverConfig.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-appraisalApproverConfig-edit #appraisalApproverConfigEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-appraisalApproverConfig-edit>
+  <pms-appraisalApproverConfig-delete #appraisalApproverConfigDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-appraisalApproverConfig-delete>
+  <pms-appraisalApproverConfig-master #appraisalApproverConfigMasterUI >
+  </pms-appraisalApproverConfig-master>
+</div>

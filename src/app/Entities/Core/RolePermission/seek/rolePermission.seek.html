@@ -1,0 +1,87 @@
+﻿<XDialog Header='Search form of Role Permission' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='role' class='col-sm-3 col-form-label'>Role : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #role='ngModel' 
+                    #roleCombo='kendoDropDownList' 
+                    name='role' 
+                    title='Role'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !role.valid && role.touched }" 
+                    [data]='roleComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='roleComponent.filterable'
+                    (filterChange)='roleComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.role"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='roleComponent.addable'>
+                      <button class='btn btn-primary' (click)='roleComponent.onAdd(roleCombo, roleEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='entity' class='col-sm-3 col-form-label'>Entity : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #entity='ngModel' 
+                    #entityCombo='kendoDropDownList' 
+                    name='entity' 
+                    title='Entity'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !entity.valid && entity.touched }" 
+                    [data]='entityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='entityComponent.filterable'
+                    (filterChange)='entityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.entity"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='entityComponent.addable'>
+                      <button class='btn btn-primary' (click)='entityComponent.onAdd(entityCombo, entityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='addPermission' class='col-sm-3 col-form-label'>Add Permission : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='editPermission' class='col-sm-3 col-form-label'>Edit Permission : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='deletePermission' class='col-sm-3 col-form-label'>Delete Permission : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='viewIndexPermission' class='col-sm-3 col-form-label'>View Index Permission : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='viewLogPermission' class='col-sm-3 col-form-label'>View Log Permission : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

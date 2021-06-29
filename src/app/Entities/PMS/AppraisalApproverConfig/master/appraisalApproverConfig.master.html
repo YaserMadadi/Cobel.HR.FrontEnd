@@ -1,0 +1,27 @@
+﻿<XDialog Header='Appraisal Approver Config Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Appraisal Approver Config : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Department Category : 
+                        <guide (onClick)='onGuid("DepartmentCategory_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.departmentCategory?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Approver Type : 
+                        <guide (onClick)='onGuid("ApproverType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.approverType?.descriptor }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

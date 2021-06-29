@@ -1,0 +1,51 @@
+﻿<XDialog Header='Promotion Assessment Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Promotion Assessment : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Assessment : 
+                        <guide (onClick)='onGuid("Assessment_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.assessment?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Promoted Date : 
+                        <guide (onClick)='onGuid("PromotedDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.promotedDate }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Current Position : 
+                        <guide (onClick)='onGuid("CurrentPosition_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.currentPosition?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Proposed Position : 
+                        <guide (onClick)='onGuid("ProposedPosition_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.proposedPosition?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Promotion Result : 
+                        <guide (onClick)='onGuid("PromotionResult_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.promotionResult?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Comment : 
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

@@ -1,0 +1,53 @@
+﻿<XDialog Header='Behavioral KPI Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Behavioral KPI : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Behavioral Objective : 
+                        <guide (onClick)='onGuid("BehavioralObjective_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.behavioralObjective?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Competency Item KPI : 
+                        <guide (onClick)='onGuid("CompetencyItemKPI_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.competencyItemKPI?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Weight : 
+                        <guide (onClick)='onGuid("Weight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.weight | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee Score : 
+                        <guide (onClick)='onGuid("EmployeeScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employeeScore | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Manager Score : 
+                        <guide (onClick)='onGuid("ManagerScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.managerScore | number }}</label>
+                </div>
+
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Behavioral Appraise'>
+                <behavioralKPI-behavioralAppraise-detail 
+                    #pmsBehavioralKPIBehavioralAppraiseDetail
+                    [BehavioralKPI]='currentInstance'>
+                </behavioralKPI-behavioralAppraise-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

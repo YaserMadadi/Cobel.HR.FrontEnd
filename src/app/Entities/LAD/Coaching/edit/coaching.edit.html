@@ -1,0 +1,136 @@
+﻿<XDialog Header='Edit Form of Coaching' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, coachingEditUI)' 
+    #coachingEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Employee -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Employee_Id")'></guide>
+        <label for='employee' class='col-form-label'>Employee : </label>
+        <span class='help-block col-form-label' *ngIf='!employee.valid && employee.touched && !employee.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- AgreementDate -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("AgreementDate")'></guide>
+        <label for='agreementDate' class='col-form-label'>Agreement Date : </label>
+        <span class='help-block col-form-label' *ngIf='!agreementDate.valid && agreementDate.touched && !agreementDate.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Agreement Date 
+                    [ngClass]="{ 'error' : !agreementDate.valid && agreementDate.touched }" 
+                    class='form-control' 
+                    #agreementDate='ngModel' 
+                    name='agreementDate'
+                    [ngModel]="currentInstance.agreementDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.agreementDate = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- Porpuse -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Porpuse")'></guide>
+        <label for='porpuse' class='col-form-label'>Porpuse : </label>
+        <span class='help-block col-form-label' *ngIf='!porpuse.valid && porpuse.touched && !porpuse.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Porpuse' 
+                    [ngClass]="{ 'error' : !porpuse.valid && porpuse.touched }" 
+                    class='form-control ' 
+                    #porpuse='ngModel' 
+                    name='porpuse' 
+                    placeholder='... Porpuse' 
+                    [(ngModel)]='currentInstance.porpuse' 
+                    [disabled]='IsLocked'
+                    maxlength='1000'  required  />
+      </div>
+			<!-- Coach -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Coach_Id")'></guide>
+        <label for='coach' class='col-form-label'>Coach : </label>
+        <span class='help-block col-form-label' *ngIf='!coach.valid && coach.touched && !coach.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #coach='ngModel' 
+                    #coachCombo='kendoDropDownList' 
+                    name='coach' 
+                    title='Coach'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !coach.valid && coach.touched }" 
+                    [data]='coachComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='coachComponent.filterable'
+                    (filterChange)='coachComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.coach"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='coachComponent.addable'>
+                      <button class='btn btn-primary' (click)='coachComponent.onAdd(coachCombo, coachEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- SessionCount -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("SessionCount")'></guide>
+        <label for='sessionCount' class='col-form-label'>Session Count : </label>
+        <span class='help-block col-form-label' *ngIf='!sessionCount.valid && sessionCount.touched && !sessionCount.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #sessionCount='ngModel' 
+            name='sessionCount' 
+            title='Session Count' 
+            placeholder='Session Count'
+            class='form-control'
+            [ngClass]="{ 'error' : !sessionCount.valid && sessionCount.touched }" 
+            [value]='currentInstance.sessionCount' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.sessionCount'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!coachingEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!coachingEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, coachingEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-employee-edit #employeeEditUI 
+    (onClosed)='employeeComponent.onClosed($event)'>
+</hr-employee-edit>
+<lad-coach-edit #coachEditUI 
+    (onClosed)='coachComponent.onClosed($event)'>
+</lad-coach-edit>

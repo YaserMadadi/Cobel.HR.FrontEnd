@@ -1,0 +1,119 @@
+﻿<fieldset class='border'>
+  <legend>Contract :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(contractEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(contractTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(contractEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(contractDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Employee", currentInstance.employee?.id)'>Manage Employee</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.HR", "ContractType", currentInstance.contractType?.id)'>Manage Contract Type</a>
+    </dropDownMenu>
+  
+  <table #contractTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Employee'>Employee</th>
+        <th title='Contract Type'>Contract Type</th>
+        <th title='Number'>Number</th>
+        <th title='From Date'>From Date</th>
+        <th title='To Date'>To Date</th>
+        <th width='100px' title='Is Signed'>Is Signed</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #employee='ngModel' id='employee' name='employee'
+										 title='Employee'
+										 autocomplete='off'
+										 placeholder='Employee'
+										[(ngModel)]='filterInstance.employee.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #contractType='ngModel' id='contractType' name='contractType'
+										 title='Contract Type'
+										 autocomplete='off'
+										 placeholder='Contract Type'
+										[(ngModel)]='filterInstance.contractType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #number='ngModel' id='number' name='number'
+										 title='Number'
+										 autocomplete='off'
+										 placeholder='Number'
+										[(ngModel)]='filterInstance.number'
+										 type='text'
+										 maxlength='10'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #fromDate='ngModel' id='fromDate' name='fromDate'
+										 title='From Date'
+										 autocomplete='off'
+										 placeholder='From Date'
+										[(ngModel)]='filterInstance.fromDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #toDate='ngModel' id='toDate' name='toDate'
+										 title='To Date'
+										 autocomplete='off'
+										 placeholder='To Date'
+										[(ngModel)]='filterInstance.toDate'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(contractMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.employee?.descriptor }}</td>
+				<td>{{ p.contractType?.descriptor }}</td>
+				<td>{{ p.number }}</td>
+				<td>{{ p.fromDate | date:'fullDate' }}</td>
+				<td>{{ p.toDate | date:'fullDate' }}</td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isSigned' /></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- Contract -->
+<hr-contract-master #contractMasterUI>
+</hr-contract-master>
+
+<hr-contract-edit #contractEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</hr-contract-edit>
+
+<hr-contract-delete #contractDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</hr-contract-delete>

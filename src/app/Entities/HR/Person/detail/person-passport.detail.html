@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(passportEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(passportEditUI)' [ngClass]="{ 'disabled' : currentPassport.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(passportDeleteUI)' [ngClass]="{ 'disabled' : currentPassport.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Passport</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let passport of PassportList; let i = index' 
+                (dblclick)='onDblClicked(passportMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : passport.id === currentPassport.id, 'free-row': passport.id !== currentPassport.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ passport.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-passport-edit #passportEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-passport-edit>
+  <hr-passport-delete #passportDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-passport-delete>
+  <hr-passport-master #passportMasterUI >
+  </hr-passport-master>
+</div>

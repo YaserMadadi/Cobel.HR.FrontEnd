@@ -1,0 +1,33 @@
+﻿<XDialog Header='Config Qualitative KPI Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Config Qualitative KPI : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Qualitative Objective Config : 
+                        <guide (onClick)='onGuid("QualitativeObjectiveConfig_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.configQualitativeObjective?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Weight : 
+                        <guide (onClick)='onGuid("Weight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.weight | number }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

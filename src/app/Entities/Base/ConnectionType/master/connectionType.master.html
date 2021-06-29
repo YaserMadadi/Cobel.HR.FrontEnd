@@ -1,0 +1,46 @@
+﻿<XDialog Header='Connection Type Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Connection Type : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Coach Connection Line'>
+                <connectionType-coachConnectionLine-detail 
+                    #baseConnectionTypeCoachConnectionLineDetail
+                    [ConnectionType]='currentInstance'>
+                </connectionType-coachConnectionLine-detail>
+            </tab>
+			<tab heading='Assessor Connection Line'>
+                <connectionType-assessorConnectionLine-detail 
+                    #baseConnectionTypeAssessorConnectionLineDetail
+                    [ConnectionType]='currentInstance'>
+                </connectionType-assessorConnectionLine-detail>
+            </tab>
+			<tab heading='Person Connection'>
+                <connectionType-personConnection-detail 
+                    #baseConnectionTypePersonConnectionDetail
+                    [ConnectionType]='currentInstance'>
+                </connectionType-personConnection-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

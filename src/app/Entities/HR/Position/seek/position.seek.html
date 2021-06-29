@@ -1,0 +1,132 @@
+﻿<XDialog Header='Search form of Position' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='parent' class='col-sm-3 col-form-label'>Parent : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #parent='ngModel' 
+                    #parentCombo='kendoDropDownList' 
+                    name='parent' 
+                    title='Parent'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !parent.valid && parent.touched }" 
+                    [data]='parentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='parentComponent.filterable'
+                    (filterChange)='parentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.parent"
+                     required 
+                    [disabled]='IsLocked'>
+                    
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='positionTitle' class='col-sm-3 col-form-label'>Position Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #positionTitle='ngModel' id='positionTitle' name='positionTitle'
+										 title='Position Title'
+										 autocomplete='off'
+										 placeholder='Position Title'
+										[(ngModel)]='position.positionTitle'
+										 type='text'
+										 maxlength='800'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='level' class='col-sm-3 col-form-label'>Level : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #level='ngModel' 
+                    #levelCombo='kendoDropDownList' 
+                    name='level' 
+                    title='Level'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !level.valid && level.touched }" 
+                    [data]='levelComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='levelComponent.filterable'
+                    (filterChange)='levelComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.level"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='levelComponent.addable'>
+                      <button class='btn btn-primary' (click)='levelComponent.onAdd(levelCombo, levelEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='unit' class='col-sm-3 col-form-label'>Unit : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #unit='ngModel' 
+                    #unitCombo='kendoDropDownList' 
+                    name='unit' 
+                    title='Unit'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !unit.valid && unit.touched }" 
+                    [data]='unitComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='unitComponent.filterable'
+                    (filterChange)='unitComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.unit"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='unitComponent.addable'>
+                      <button class='btn btn-primary' (click)='unitComponent.onAdd(unitCombo, unitEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='positionCategory' class='col-sm-3 col-form-label'>Position Category : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #positionCategory='ngModel' 
+                    #positionCategoryCombo='kendoDropDownList' 
+                    name='positionCategory' 
+                    title='Position Category'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !positionCategory.valid && positionCategory.touched }" 
+                    [data]='positionCategoryComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='positionCategoryComponent.filterable'
+                    (filterChange)='positionCategoryComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.positionCategory"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='positionCategoryComponent.addable'>
+                      <button class='btn btn-primary' (click)='positionCategoryComponent.onAdd(positionCategoryCombo, positionCategoryEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='capacity' class='col-sm-3 col-form-label'>Capacity : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #capacity='ngModel' id='capacity' name='capacity'
+										 title='Capacity'
+										 autocomplete='off'
+										 placeholder='Capacity'
+										[(ngModel)]='position.capacity'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='isActive' class='col-sm-3 col-form-label'>Is Active : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

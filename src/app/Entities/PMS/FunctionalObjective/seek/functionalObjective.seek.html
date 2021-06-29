@@ -1,0 +1,117 @@
+﻿<XDialog Header='Search form of Functional Objective' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='targetSetting' class='col-sm-3 col-form-label'>Target Setting : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #targetSetting='ngModel' 
+                    #targetSettingCombo='kendoDropDownList' 
+                    name='targetSetting' 
+                    title='Target Setting'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !targetSetting.valid && targetSetting.touched }" 
+                    [data]='targetSettingComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='targetSettingComponent.filterable'
+                    (filterChange)='targetSettingComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.targetSetting"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='targetSettingComponent.addable'>
+                      <button class='btn btn-primary' (click)='targetSettingComponent.onAdd(targetSettingCombo, targetSettingEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='parentalFunctionalObjective' class='col-sm-3 col-form-label'>Parental Functional Objective : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #parentalFunctionalObjective='ngModel' 
+                    #parentalFunctionalObjectiveCombo='kendoDropDownList' 
+                    name='parentalFunctionalObjective' 
+                    title='Parental Functional Objective'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !parentalFunctionalObjective.valid && parentalFunctionalObjective.touched }" 
+                    [data]='parentalFunctionalObjectiveComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='parentalFunctionalObjectiveComponent.filterable'
+                    (filterChange)='parentalFunctionalObjectiveComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.parentalFunctionalObjective"
+                    
+                    [disabled]='IsLocked'>
+                    
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='individualObjective' class='col-sm-3 col-form-label'>Individual Objective : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #individualObjective='ngModel' id='individualObjective' name='individualObjective'
+										 title='Individual Objective'
+										 autocomplete='off'
+										 placeholder='Individual Objective'
+										[(ngModel)]='functionalObjective.individualObjective'
+										 type='text'
+										 maxlength='400'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='weight' class='col-sm-3 col-form-label'>Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #weight='ngModel' id='weight' name='weight'
+										 title='Weight'
+										 autocomplete='off'
+										 placeholder='Weight'
+										[(ngModel)]='functionalObjective.weight'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='description' class='col-sm-3 col-form-label'>Description : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #description='ngModel' id='description' name='description'
+										 title='Description'
+										 autocomplete='off'
+										 placeholder='Description'
+										[(ngModel)]='functionalObjective.description'
+										 type='text'
+										 maxlength='800'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='totalKPIWeight' class='col-sm-3 col-form-label'>Total KPI Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #totalKPIWeight='ngModel' id='totalKPIWeight' name='totalKPIWeight'
+										 title='Total KPI Weight'
+										 autocomplete='off'
+										 placeholder='Total KPI Weight'
+										[(ngModel)]='functionalObjective.totalKPIWeight'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='totalScore' class='col-sm-3 col-form-label'>Total Score : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #totalScore='ngModel' id='totalScore' name='totalScore'
+										 title='Total Score'
+										 autocomplete='off'
+										 placeholder='Total Score'
+										[(ngModel)]='functionalObjective.totalScore'
+										 type='number'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

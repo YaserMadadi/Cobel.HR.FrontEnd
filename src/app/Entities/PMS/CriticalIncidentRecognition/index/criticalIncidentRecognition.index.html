@@ -1,0 +1,90 @@
+﻿<fieldset class='border'>
+  <legend>Critical Incident Recognition :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(criticalIncidentRecognitionEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(criticalIncidentRecognitionTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(criticalIncidentRecognitionEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(criticalIncidentRecognitionDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "CriticalIncident", currentInstance.criticalIncident?.id)'>Manage Critical Incident</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Employee", currentInstance.writer?.id)'>Manage Employee</a>
+    </dropDownMenu>
+  
+  <table #criticalIncidentRecognitionTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Critical Incident'>Critical Incident</th>
+        <th title='Time'>Time</th>
+        <th title='Writer'>Writer</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #criticalIncident='ngModel' id='criticalIncident' name='criticalIncident'
+										 title='Critical Incident'
+										 autocomplete='off'
+										 placeholder='Critical Incident'
+										[(ngModel)]='filterInstance.criticalIncident.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #time='ngModel' id='time' name='time'
+										 title='Time'
+										 autocomplete='off'
+										 placeholder='Time'
+										[(ngModel)]='filterInstance.time'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #writer='ngModel' id='writer' name='writer'
+										 title='Writer'
+										 autocomplete='off'
+										 placeholder='Writer'
+										[(ngModel)]='filterInstance.writer.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(criticalIncidentRecognitionMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.criticalIncident?.descriptor }}</td>
+				<td>{{ p.time | date:'fullDate' }}</td>
+				<td>{{ p.writer?.descriptor }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- CriticalIncidentRecognition -->
+<pms-criticalIncidentRecognition-master #criticalIncidentRecognitionMasterUI>
+</pms-criticalIncidentRecognition-master>
+
+<pms-criticalIncidentRecognition-edit #criticalIncidentRecognitionEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-criticalIncidentRecognition-edit>
+
+<pms-criticalIncidentRecognition-delete #criticalIncidentRecognitionDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-criticalIncidentRecognition-delete>

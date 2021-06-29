@@ -1,0 +1,63 @@
+﻿<XDialog Header='Functional Appraise Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Functional Appraise : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Functional KPI : 
+                        <guide (onClick)='onGuid("FunctionalKPI_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.functionalKPI?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Date : 
+                        <guide (onClick)='onGuid("Date")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.date | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Appraiser : 
+                        <guide (onClick)='onGuid("Appraiser_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.appraiser?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Appraise Type : 
+                        <guide (onClick)='onGuid("AppraiseType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.appraiseType?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Appraise Time : 
+                        <guide (onClick)='onGuid("AppraiseTime_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.appraiseTime?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Actual Value : 
+                        <guide (onClick)='onGuid("ActualValue")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.actualValue | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Score : 
+                        <guide (onClick)='onGuid("Score")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.score | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Comment : 
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

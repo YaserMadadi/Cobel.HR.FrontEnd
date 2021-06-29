@@ -1,0 +1,114 @@
+﻿<XDialog Header='Target Setting Management form'
+    [IsShown]='IsShown'
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Target Setting : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee :
+                        <guide (onClick)='onGuid("Employee_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employee?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Position :
+                        <guide (onClick)='onGuid("Position_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.position?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Year :
+                        <guide (onClick)='onGuid("Year_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.year?.descriptor }}</label>
+                </div>
+                <div class='form-group row'
+                    *ngIf='false'>
+                    <label class='col-sm-4 titleControl'>Date :
+                        <guide (onClick)='onGuid("Date")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.date | date:'fullDate' }}</label>
+                </div>
+                <div class='form-group row'
+                    *ngIf='false'>
+                    <label class='col-sm-4 titleControl'>Comment :
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+                <div class='form-group row'
+                    *ngIf='false'>
+                    <label class='col-sm-4 titleControl'>Is Locked :
+                        <guide (onClick)='onGuid("IsLocked")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isLocked }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right'
+                (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr />
+        <tabset #tabset>
+            <tab heading='Functional Objective'
+                *ngIf='position.positionCategory.id == 2'>
+                <targetSetting-functionalObjective-detail #pmsTargetSettingFunctionalObjectiveDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-functionalObjective-detail>
+            </tab>
+            <tab heading='Behavioral Objective'
+                *ngIf='position.positionCategory.id == 2 || position.positionCategory.id == 1'>
+                <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-behavioralObjective-detail>
+            </tab>
+            <tab heading='Qualitative Objective'
+                *ngIf='position.positionCategory.id == 1'>
+                <targetSetting-qualitativeObjective-detail #pmsTargetSettingQualitativeObjectiveDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-qualitativeObjective-detail>
+            </tab>
+            <tab heading='Quantitative Appraise'
+                *ngIf='position.positionCategory.id == 1'>
+                <targetSetting-quantitativeAppraise-detail #pmsTargetSettingQuantitativeAppraiseDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-quantitativeAppraise-detail>
+            </tab>
+            <tab heading='Appraisal Result'
+                *ngIf='position.positionCategory.id == 2 || position.positionCategory.id == 1'>
+                <targetSetting-appraiseResult-detail #pmsTargetSettingAppraiseResultDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-appraiseResult-detail>
+            </tab>
+            <!-- <tab heading='Final Approvement'>
+                <targetSetting-finalApprovement-detail 
+                    #pmsTargetSettingFinalApprovementDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-finalApprovement-detail>
+            </tab> -->
+
+            <!-- <tab heading='Operational Appraise'>
+                <targetSetting-operationalAppraise-detail 
+                    #pmsTargetSettingOperationalAppraiseDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-operationalAppraise-detail>
+            </tab> -->
+            <tab heading='Final Appraise'
+                *ngIf='position.positionCategory.id == 2'>
+                <targetSetting-finalAppraise-detail #pmsTargetSettingFinalAppraiseDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-finalAppraise-detail>
+            </tab>
+
+            <!--
+			<tab heading='Non Operational Appraise'>
+                <targetSetting-nonOperationalAppraise-detail 
+                    #pmsTargetSettingNonOperationalAppraiseDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-nonOperationalAppraise-detail>
+            </tab> -->
+
+        </tabset>
+    </div>
+</XDialog>

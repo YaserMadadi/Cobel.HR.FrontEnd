@@ -1,0 +1,63 @@
+﻿<XDialog Header='Operational Appraise Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Operational Appraise : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Target Setting : 
+                        <guide (onClick)='onGuid("TargetSetting_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.targetSetting?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Date : 
+                        <guide (onClick)='onGuid("Date")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.date | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Approver : 
+                        <guide (onClick)='onGuid("Approver_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.approver?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Quantitative Score : 
+                        <guide (onClick)='onGuid("QuantitativeScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.quantitativeScore | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Qualitative Score : 
+                        <guide (onClick)='onGuid("QualitativeScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.qualitativeScore | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Total Score : 
+                        <guide (onClick)='onGuid("TotalScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.totalScore | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Score Cell : 
+                        <guide (onClick)='onGuid("ScoreCell_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.scoreCell?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Comment : 
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

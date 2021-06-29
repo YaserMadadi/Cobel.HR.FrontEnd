@@ -1,0 +1,151 @@
+﻿<XDialog Header='Search form of Qualitative Appraise' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='qualitativeKPI' class='col-sm-3 col-form-label'>Qualitative KPI : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #qualitativeKPI='ngModel' 
+                    #qualitativeKPICombo='kendoDropDownList' 
+                    name='qualitativeKPI' 
+                    title='Qualitative KPI'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !qualitativeKPI.valid && qualitativeKPI.touched }" 
+                    [data]='qualitativeKPIComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='qualitativeKPIComponent.filterable'
+                    (filterChange)='qualitativeKPIComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.qualitativeKPI"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='qualitativeKPIComponent.addable'>
+                      <button class='btn btn-primary' (click)='qualitativeKPIComponent.onAdd(qualitativeKPICombo, qualitativeKPIEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='date' class='col-sm-3 col-form-label'>Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='qualitativeAppraise.date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='appraiser' class='col-sm-3 col-form-label'>Appraiser : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #appraiser='ngModel' 
+                    #appraiserCombo='kendoDropDownList' 
+                    name='appraiser' 
+                    title='Appraiser'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !appraiser.valid && appraiser.touched }" 
+                    [data]='appraiserComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='appraiserComponent.filterable'
+                    (filterChange)='appraiserComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.appraiser"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='appraiserComponent.addable'>
+                      <button class='btn btn-primary' (click)='appraiserComponent.onAdd(appraiserCombo, appraiserEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='appraiseType' class='col-sm-3 col-form-label'>Appraise Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #appraiseType='ngModel' 
+                    #appraiseTypeCombo='kendoDropDownList' 
+                    name='appraiseType' 
+                    title='Appraise Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !appraiseType.valid && appraiseType.touched }" 
+                    [data]='appraiseTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='appraiseTypeComponent.filterable'
+                    (filterChange)='appraiseTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.appraiseType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='appraiseTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='appraiseTypeComponent.onAdd(appraiseTypeCombo, appraiseTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='appraiseTime' class='col-sm-3 col-form-label'>Appraise Time : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #appraiseTime='ngModel' 
+                    #appraiseTimeCombo='kendoDropDownList' 
+                    name='appraiseTime' 
+                    title='Appraise Time'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !appraiseTime.valid && appraiseTime.touched }" 
+                    [data]='appraiseTimeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='appraiseTimeComponent.filterable'
+                    (filterChange)='appraiseTimeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.appraiseTime"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='appraiseTimeComponent.addable'>
+                      <button class='btn btn-primary' (click)='appraiseTimeComponent.onAdd(appraiseTimeCombo, appraiseTimeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='actual' class='col-sm-3 col-form-label'>Actual : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #actual='ngModel' id='actual' name='actual'
+										 title='Actual'
+										 autocomplete='off'
+										 placeholder='Actual'
+										[(ngModel)]='qualitativeAppraise.actual'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='score' class='col-sm-3 col-form-label'>Score : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #score='ngModel' id='score' name='score'
+										 title='Score'
+										 autocomplete='off'
+										 placeholder='Score'
+										[(ngModel)]='qualitativeAppraise.score'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='comment' class='col-sm-3 col-form-label'>Comment : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #comment='ngModel' id='comment' name='comment'
+										 title='Comment'
+										 autocomplete='off'
+										 placeholder='Comment'
+										[(ngModel)]='qualitativeAppraise.comment'
+										 type='text'
+										 maxlength='800'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

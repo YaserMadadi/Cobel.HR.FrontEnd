@@ -1,0 +1,65 @@
+﻿<XDialog Header='Search form of Answer Type Item' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='answerType' class='col-sm-3 col-form-label'>Answer Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #answerType='ngModel' 
+                    #answerTypeCombo='kendoDropDownList' 
+                    name='answerType' 
+                    title='Answer Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !answerType.valid && answerType.touched }" 
+                    [data]='answerTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='answerTypeComponent.filterable'
+                    (filterChange)='answerTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.answerType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='answerTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='answerTypeComponent.onAdd(answerTypeCombo, answerTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='title' class='col-sm-3 col-form-label'>Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='answerTypeItem.title'
+										 type='text'
+										 maxlength='1000'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='value' class='col-sm-3 col-form-label'>Value : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #value='ngModel' id='value' name='value'
+										 title='Value'
+										 autocomplete='off'
+										 placeholder='Value'
+										[(ngModel)]='answerTypeItem.value'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='isActive' class='col-sm-3 col-form-label'>Is Active : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

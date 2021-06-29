@@ -1,0 +1,134 @@
+﻿<XDialog Header='Edit Form of Vision' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, visionEditUI)' 
+    #visionEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Employee -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Employee_Id")'></guide>
+        <label for='employee' class='col-form-label'>Employee : </label>
+        <span class='help-block col-form-label' *ngIf='!employee.valid && employee.touched && !employee.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Title")'></guide>
+        <label for='title' class='col-form-label'>Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <textarea type='text' title='Title' name='title' 
+                            class='form-control' 
+                            [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                            #title='ngModel' 
+                            placeholder='... Title' 
+                            [(ngModel)]='currentInstance.title'
+                            [disabled]='IsLocked'
+                            maxlength='4000'  required  ></textarea>
+      </div>
+			<!-- Date -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Date")'></guide>
+        <label for='date' class='col-form-label'>Date : </label>
+        <span class='help-block col-form-label' *ngIf='!date.valid && date.touched && !date.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Date 
+                    [ngClass]="{ 'error' : !date.valid && date.touched }" 
+                    class='form-control' 
+                    #date='ngModel' 
+                    name='date'
+                    [ngModel]="currentInstance.date | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.date = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- EmployeeApprovementStatus -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EmployeeApprovementStatus")'></guide>
+        <label for='employeeApprovementStatus' class='col-form-label'>Employee Approvement Status : </label>
+        <span class='help-block col-form-label' *ngIf='!employeeApprovementStatus.valid && employeeApprovementStatus.touched && !employeeApprovementStatus.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Employee Approvement Status' 
+                    [ngClass]="{ 'error' : !employeeApprovementStatus.valid && employeeApprovementStatus.touched }" 
+                    class='form-control ' 
+                    #employeeApprovementStatus='ngModel' 
+                    name='employeeApprovementStatus' 
+                    placeholder='... Employee Approvement Status' 
+                    [(ngModel)]='currentInstance.employeeApprovementStatus' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  required  />
+      </div>
+			<!-- DirectManagerApprovementStatus -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("DirectManagerApprovementStatus")'></guide>
+        <label for='directManagerApprovementStatus' class='col-form-label'>Direct Manager Approvement Status : </label>
+        <span class='help-block col-form-label' *ngIf='!directManagerApprovementStatus.valid && directManagerApprovementStatus.touched && !directManagerApprovementStatus.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Direct Manager Approvement Status' 
+                    [ngClass]="{ 'error' : !directManagerApprovementStatus.valid && directManagerApprovementStatus.touched }" 
+                    class='form-control ' 
+                    #directManagerApprovementStatus='ngModel' 
+                    name='directManagerApprovementStatus' 
+                    placeholder='... Direct Manager Approvement Status' 
+                    [(ngModel)]='currentInstance.directManagerApprovementStatus' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  required  />
+      </div>
+			<!-- BUHeadApprovementStatus -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("BUHeadApprovementStatus")'></guide>
+        <label for='buheadApprovementStatus' class='col-form-label'>B U Head Approvement Status : </label>
+        <span class='help-block col-form-label' *ngIf='!buheadApprovementStatus.valid && buheadApprovementStatus.touched && !buheadApprovementStatus.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='B U Head Approvement Status' 
+                    [ngClass]="{ 'error' : !buheadApprovementStatus.valid && buheadApprovementStatus.touched }" 
+                    class='form-control ' 
+                    #buheadApprovementStatus='ngModel' 
+                    name='buheadApprovementStatus' 
+                    placeholder='... B U Head Approvement Status' 
+                    [(ngModel)]='currentInstance.buheadApprovementStatus' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!visionEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!visionEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, visionEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-employee-edit #employeeEditUI 
+    (onClosed)='employeeComponent.onClosed($event)'>
+</hr-employee-edit>

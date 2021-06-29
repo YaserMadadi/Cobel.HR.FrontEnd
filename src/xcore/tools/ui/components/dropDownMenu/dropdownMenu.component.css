@@ -1,0 +1,35 @@
+
+.tt{
+    color:white;
+ 
+}
+
+.cdk-overlay-connected-position-bounding-box{
+    z-index: 11000;
+}
+
+.cdk-overlay-pane{
+    z-index: 11000;
+}
+
+.mat-menu-item:hover:not([disabled]){
+    background: var(--yellow);
+}
+
+.mat-menu-content:not(:empty){
+    padding-top: 0px;
+    padding-bottom: 0px;
+    color:white;
+}
+
+a{
+    color:white;
+}
+
+a:not([href]):not([tabindex]):hover{
+    color: #d4de6c;
+}
+
+.dropdown-item{
+    background-color: red;
+}

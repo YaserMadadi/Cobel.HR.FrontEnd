@@ -1,0 +1,159 @@
+﻿<fieldset class='border'>
+  <legend>Functional KPI :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(functionalKPIEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(functionalKPITable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(functionalKPIEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(functionalKPIDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "FunctionalObjective", currentInstance.functionalObjective?.id)'>Manage Functional Objective</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "MeasurementUnit", currentInstance.measurementUnit?.id)'>Manage Measurement Unit</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='functionalKPIComment_Clicked(functionalKPICommentEditUI)'>Add Functional KPI Comment</a>
+		<a class='dropdown-item pointer' (click)='functionalAppraise_Clicked(functionalAppraiseEditUI)'>Add Functional Appraise</a>
+	
+  </dropDownMenu>
+  <table #functionalKPITable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Functional Objective'>Functional Objective</th>
+        <th title='KPI Title'>KPI Title</th>
+        <th title='Weight'>Weight</th>
+        <th title='Measurement Unit'>Measurement Unit</th>
+        <th title='Mid Target'>Mid Target</th>
+        <th title='Annual Target'>Annual Target</th>
+        <th title='Employee Score'>Employee Score</th>
+        <th title='Manager Score'>Manager Score</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #functionalObjective='ngModel' id='functionalObjective' name='functionalObjective'
+										 title='Functional Objective'
+										 autocomplete='off'
+										 placeholder='Functional Objective'
+										[(ngModel)]='filterInstance.functionalObjective.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='KPI Title'
+										 autocomplete='off'
+										 placeholder='KPI Title'
+										[(ngModel)]='filterInstance.title'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #weight='ngModel' id='weight' name='weight'
+										 title='Weight'
+										 autocomplete='off'
+										 placeholder='Weight'
+										[(ngModel)]='filterInstance.weight'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #measurementUnit='ngModel' id='measurementUnit' name='measurementUnit'
+										 title='Measurement Unit'
+										 autocomplete='off'
+										 placeholder='Measurement Unit'
+										[(ngModel)]='filterInstance.measurementUnit.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #midTarget='ngModel' id='midTarget' name='midTarget'
+										 title='Mid Target'
+										 autocomplete='off'
+										 placeholder='Mid Target'
+										[(ngModel)]='filterInstance.midTarget'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #annualTarget='ngModel' id='annualTarget' name='annualTarget'
+										 title='Annual Target'
+										 autocomplete='off'
+										 placeholder='Annual Target'
+										[(ngModel)]='filterInstance.annualTarget'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #employeeScore='ngModel' id='employeeScore' name='employeeScore'
+										 title='Employee Score'
+										 autocomplete='off'
+										 placeholder='Employee Score'
+										[(ngModel)]='filterInstance.employeeScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #managerScore='ngModel' id='managerScore' name='managerScore'
+										 title='Manager Score'
+										 autocomplete='off'
+										 placeholder='Manager Score'
+										[(ngModel)]='filterInstance.managerScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(functionalKPIMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.functionalObjective?.descriptor }}</td>
+				<td>{{ p.title }}</td>
+				<td>{{ p.weight | number }}</td>
+				<td>{{ p.measurementUnit?.descriptor }}</td>
+				<td>{{ p.midTarget | number }}</td>
+				<td>{{ p.annualTarget | number }}</td>
+        <td>{{ p.employeeScore | number }}</td>
+				<td>{{ p.managerScore | number }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- FunctionalKPI -->
+<pms-functionalKPI-master #functionalKPIMasterUI>
+</pms-functionalKPI-master>
+
+<pms-functionalKPI-edit #functionalKPIEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-functionalKPI-edit>
+
+<pms-functionalKPI-delete #functionalKPIDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-functionalKPI-delete>
+
+
+<pms-functionalKPIComment-edit #functionalKPICommentEditUI> <!--  (onClosed)='functionalKPICommentEditUI_Closed($event)' -->
+</pms-functionalKPIComment-edit> 
+<pms-functionalAppraise-edit #functionalAppraiseEditUI> <!--  (onClosed)='functionalAppraiseEditUI_Closed($event)' -->
+</pms-functionalAppraise-edit>

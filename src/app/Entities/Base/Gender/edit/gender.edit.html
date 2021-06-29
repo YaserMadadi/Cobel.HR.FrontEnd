@@ -1,0 +1,92 @@
+﻿<XDialog Header='Edit Form of Gender' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, genderEditUI)' 
+    #genderEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- PersianTitle -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PersianTitle")'></guide>
+        <label for='persianTitle' class='col-form-label'>Persian Title : </label>
+        <span class='help-block col-form-label' *ngIf='!persianTitle.valid && persianTitle.touched && !persianTitle.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Persian Title' 
+                    [ngClass]="{ 'error' : !persianTitle.valid && persianTitle.touched }" 
+                    class='form-control ' 
+                    #persianTitle='ngModel' 
+                    name='persianTitle' 
+                    placeholder='... Persian Title' 
+                    [(ngModel)]='currentInstance.persianTitle' 
+                    [disabled]='IsLocked'
+                    maxlength='20'  required  />
+      </div>
+			<!-- EnglishTitle -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EnglishTitle")'></guide>
+        <label for='englishTitle' class='col-form-label'>English Title : </label>
+        <span class='help-block col-form-label' *ngIf='!englishTitle.valid && englishTitle.touched && !englishTitle.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='English Title' 
+                    [ngClass]="{ 'error' : !englishTitle.valid && englishTitle.touched }" 
+                    class='form-control ' 
+                    #englishTitle='ngModel' 
+                    name='englishTitle' 
+                    placeholder='... English Title' 
+                    [(ngModel)]='currentInstance.englishTitle' 
+                    [disabled]='IsLocked'
+                    maxlength='10'  dir='ltr'  required  />
+      </div>
+			<!-- PersianPreFix -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PersianPreFix")'></guide>
+        <label for='persianPreFix' class='col-form-label'>Persian Pre Fix : </label>
+        <span class='help-block col-form-label' *ngIf='!persianPreFix.valid && persianPreFix.touched && !persianPreFix.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Persian Pre Fix' 
+                    [ngClass]="{ 'error' : !persianPreFix.valid && persianPreFix.touched }" 
+                    class='form-control ' 
+                    #persianPreFix='ngModel' 
+                    name='persianPreFix' 
+                    placeholder='... Persian Pre Fix' 
+                    [(ngModel)]='currentInstance.persianPreFix' 
+                    [disabled]='IsLocked'
+                    maxlength='40'  required  />
+      </div>
+			<!-- EnglishPreFix -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("EnglishPreFix")'></guide>
+        <label for='englishPreFix' class='col-form-label'>English Pre Fix : </label>
+        <span class='help-block col-form-label' *ngIf='!englishPreFix.valid && englishPreFix.touched && !englishPreFix.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='English Pre Fix' 
+                    [ngClass]="{ 'error' : !englishPreFix.valid && englishPreFix.touched }" 
+                    class='form-control ' 
+                    #englishPreFix='ngModel' 
+                    name='englishPreFix' 
+                    placeholder='... English Pre Fix' 
+                    [(ngModel)]='currentInstance.englishPreFix' 
+                    [disabled]='IsLocked'
+                    maxlength='20'  dir='ltr'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!genderEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!genderEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, genderEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>

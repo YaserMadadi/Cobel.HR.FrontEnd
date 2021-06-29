@@ -1,0 +1,57 @@
+﻿<XDialog Header='Language Ability Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Language Ability : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Person : 
+                        <guide (onClick)='onGuid("Person_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.person?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Language : 
+                        <guide (onClick)='onGuid("Language_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.language?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Writing Level : 
+                        <guide (onClick)='onGuid("WritingLevel_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.writingLevel?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Reading Level : 
+                        <guide (onClick)='onGuid("ReadingLevel_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.readingLevel?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Speacking Level : 
+                        <guide (onClick)='onGuid("SpeackingLevel_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.speackingLevel?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Listening Level : 
+                        <guide (onClick)='onGuid("ListeningLevel_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.listeningLevel?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Comment : 
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

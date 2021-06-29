@@ -1,0 +1,123 @@
+﻿<XDialog Header='Search form of Employee Detail' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='employee' class='col-sm-3 col-form-label'>Employee : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='holdingSection' class='col-sm-3 col-form-label'>Holding Section : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #holdingSection='ngModel' 
+                    #holdingSectionCombo='kendoDropDownList' 
+                    name='holdingSection' 
+                    title='Holding Section'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !holdingSection.valid && holdingSection.touched }" 
+                    [data]='holdingSectionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='holdingSectionComponent.filterable'
+                    (filterChange)='holdingSectionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.holdingSection"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='holdingSectionComponent.addable'>
+                      <button class='btn btn-primary' (click)='holdingSectionComponent.onAdd(holdingSectionCombo, holdingSectionEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='employeeCode' class='col-sm-3 col-form-label'>Employee Code : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #employeeCode='ngModel' id='employeeCode' name='employeeCode'
+										 title='Employee Code'
+										 autocomplete='off'
+										 placeholder='Employee Code'
+										[(ngModel)]='employeeDetail.employeeCode'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='employmentStatus' class='col-sm-3 col-form-label'>Employment Status : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #employmentStatus='ngModel' 
+                    #employmentStatusCombo='kendoDropDownList' 
+                    name='employmentStatus' 
+                    title='Employment Status'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employmentStatus.valid && employmentStatus.touched }" 
+                    [data]='employmentStatusComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employmentStatusComponent.filterable'
+                    (filterChange)='employmentStatusComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employmentStatus"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employmentStatusComponent.addable'>
+                      <button class='btn btn-primary' (click)='employmentStatusComponent.onAdd(employmentStatusCombo, employmentStatusEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='startWorkingDate' class='col-sm-3 col-form-label'>Start Working Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #startWorkingDate='ngModel' id='startWorkingDate' name='startWorkingDate'
+										 title='Start Working Date'
+										 autocomplete='off'
+										 placeholder='Start Working Date'
+										[(ngModel)]='employeeDetail.startWorkingDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='terminationDate' class='col-sm-3 col-form-label'>Termination Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #terminationDate='ngModel' id='terminationDate' name='terminationDate'
+										 title='Termination Date'
+										 autocomplete='off'
+										 placeholder='Termination Date'
+										[(ngModel)]='employeeDetail.terminationDate'
+										 type='text'
+										 maxlength='10'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='isActive' class='col-sm-3 col-form-label'>Is Active : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

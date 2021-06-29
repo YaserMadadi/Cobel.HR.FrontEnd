@@ -1,0 +1,86 @@
+﻿<XDialog Header='Edit Form of Position Assignment Repeal' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, positionAssignmentRepealEditUI)' 
+    #positionAssignmentRepealEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- PositionAssignment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PositionAssignment_Id")'></guide>
+        <label for='positionAssignment' class='col-form-label'>Position Assignment : </label>
+        <span class='help-block col-form-label' *ngIf='!positionAssignment.valid && positionAssignment.touched && !positionAssignment.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #positionAssignment='ngModel' 
+                    #positionAssignmentCombo='kendoDropDownList' 
+                    name='positionAssignment' 
+                    title='Position Assignment'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !positionAssignment.valid && positionAssignment.touched }" 
+                    [data]='positionAssignmentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='positionAssignmentComponent.filterable'
+                    (filterChange)='positionAssignmentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.positionAssignment"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='positionAssignmentComponent.addable'>
+                      <button class='btn btn-primary' (click)='positionAssignmentComponent.onAdd(positionAssignmentCombo, positionAssignmentEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Date -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Date")'></guide>
+        <label for='date' class='col-form-label'>Date : </label>
+        <span class='help-block col-form-label' *ngIf='!date.valid && date.touched && !date.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Date 
+                    [ngClass]="{ 'error' : !date.valid && date.touched }" 
+                    class='form-control' 
+                    #date='ngModel' 
+                    name='date'
+                    [ngModel]="currentInstance.date | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.date = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- Comment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Comment")'></guide>
+        <label for='comment' class='col-form-label'>Comment : </label>
+        <span class='help-block col-form-label' *ngIf='!comment.valid && comment.touched && !comment.disabled'>( Value is not Valid! )</span>
+        <textarea type='text' title='Comment' name='comment' 
+                            class='form-control' 
+                            [ngClass]="{ 'error' : !comment.valid && comment.touched }" 
+                            #comment='ngModel' 
+                            placeholder='... Comment' 
+                            [(ngModel)]='currentInstance.comment'
+                            [disabled]='IsLocked'
+                            maxlength='4000'  ></textarea>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!positionAssignmentRepealEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!positionAssignmentRepealEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, positionAssignmentRepealEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-positionAssignment-edit #positionAssignmentEditUI 
+    (onClosed)='positionAssignmentComponent.onClosed($event)'>
+</hr-positionAssignment-edit>

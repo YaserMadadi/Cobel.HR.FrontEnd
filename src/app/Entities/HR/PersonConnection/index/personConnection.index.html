@@ -1,0 +1,97 @@
+﻿<fieldset class='border'>
+  <legend>Person Connection :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(personConnectionEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(personConnectionTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(personConnectionEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(personConnectionDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Person", currentInstance.person?.id)'>Manage Person</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base", "ConnectionType", currentInstance.connectionType?.id)'>Manage Connection Type</a>
+    </dropDownMenu>
+  
+  <table #personConnectionTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Person'>Person</th>
+        <th title='Connection Type'>Connection Type</th>
+        <th title='Value'>Value</th>
+        <th width='100px' title='Is Emergency Connection'>Is Emergency Connection</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #person='ngModel' id='person' name='person'
+										 title='Person'
+										 autocomplete='off'
+										 placeholder='Person'
+										[(ngModel)]='filterInstance.person.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #connectionType='ngModel' id='connectionType' name='connectionType'
+										 title='Connection Type'
+										 autocomplete='off'
+										 placeholder='Connection Type'
+										[(ngModel)]='filterInstance.connectionType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #value='ngModel' id='value' name='value'
+										 title='Value'
+										 autocomplete='off'
+										 placeholder='Value'
+										[(ngModel)]='filterInstance.value'
+										 type='text'
+										 maxlength='12'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(personConnectionMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.person?.descriptor }}</td>
+				<td>{{ p.connectionType?.descriptor }}</td>
+				<td>{{ p.value }}</td>
+				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isEmergencyConnection' /></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- PersonConnection -->
+<hr-personConnection-master #personConnectionMasterUI>
+</hr-personConnection-master>
+
+<hr-personConnection-edit #personConnectionEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</hr-personConnection-edit>
+
+<hr-personConnection-delete #personConnectionDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</hr-personConnection-delete>

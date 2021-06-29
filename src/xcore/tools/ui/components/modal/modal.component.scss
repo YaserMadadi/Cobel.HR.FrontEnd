@@ -1,0 +1,130 @@
+
+.modal {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+.modal-header {
+    padding: 2px 16px;
+    padding-top: 10px;
+    color: white;
+    background-color: #0b77be;
+    background-image: linear-gradient(0deg, #003858, #3b719a, #7eb4dc,#3b719a, #003858);
+
+    h6{
+        font-family: 'Segoe UI';
+        font-size: 14px;
+        font-style: italic;
+    }
+
+    &.modal-edit-header{
+        background-color: #25bb59;
+        background-image: linear-gradient(0deg, #006b26, #02a93c, #c4e8c5, #02a93c, #006b26);
+        color:#091f04;
+    }
+    
+    &.modal-delete-header{
+        background-color: #FF0000;
+        background-image: linear-gradient(0deg, #770303, #b32c2c, #e8d1d1, #b32c2c, #770303);
+        color: #230101;
+    }
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.5s;
+    animation: animatezoom 0.5s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+
+
+
+/* Modal Body */
+.modal-body {
+    padding: 2px 16px;
+    background-color: #ececec;
+}
+
+
+
+.modal-content{
+    background-color: #fefefe;
+    margin: 4% auto; /* 4% from the top and centered */
+    border: 1px solid rgba(0, 0, 0, 0.74);
+    width: 90%; /* Could be more or less, depending on screen size */
+    min-width: 500px;
+
+    &.modal-edit-content{
+        //border: 1px solid #FF9800;
+        border-color: black;
+        width: 60%; /* Could be more or less, depending on screen size */
+        min-width: 400px;
+    }
+
+    &.modal-delete-content{
+        margin: 8% auto; /* 4% from the top and centered */
+       // border: 1px solid rgba(255, 0, 0, 0.77);
+        width: 60%; /* Could be more or less, depending on screen size */
+        min-width: 400px;
+    }
+}
+
+/* Modal Content */
+
+
+.modal-edit-content {
+    background-color: #fefefe;
+    margin: 8% auto; /* 8% from the top and centered */
+    /* padding: 20px; */
+    border: 1px solid #FF9800;
+    width: 80%; /* Could be more or less, depending on screen size */
+
+}
+
+.close{
+    cursor: pointer;
+    padding: 11px 30px;
+    //border: 1px solid transparent;
+    border: 0px;
+    font-family: tahoma;
+    font-size: 16px;
+    &:hover{
+        //border: 1px dashed #1470ab;    
+        border: 0px;
+        border-radius: 6px;   
+    }
+}
+
+.modal-footer{
+    padding: 15px 0;
+    direction: rtl;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}

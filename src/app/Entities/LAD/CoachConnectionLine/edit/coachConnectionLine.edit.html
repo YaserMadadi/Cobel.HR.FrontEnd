@@ -1,0 +1,99 @@
+﻿<XDialog Header='Edit Form of Coach Connection Line' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, coachConnectionLineEditUI)' 
+    #coachConnectionLineEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Coach -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Coach_Id")'></guide>
+        <label for='coach' class='col-form-label'>Coach : </label>
+        <span class='help-block col-form-label' *ngIf='!coach.valid && coach.touched && !coach.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #coach='ngModel' 
+                    #coachCombo='kendoDropDownList' 
+                    name='coach' 
+                    title='Coach'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !coach.valid && coach.touched }" 
+                    [data]='coachComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='coachComponent.filterable'
+                    (filterChange)='coachComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.coach"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='coachComponent.addable'>
+                      <button class='btn btn-primary' (click)='coachComponent.onAdd(coachCombo, coachEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- ConnectionType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ConnectionType_Id")'></guide>
+        <label for='connectionType' class='col-form-label'>Connection Type : </label>
+        <span class='help-block col-form-label' *ngIf='!connectionType.valid && connectionType.touched && !connectionType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #connectionType='ngModel' 
+                    #connectionTypeCombo='kendoDropDownList' 
+                    name='connectionType' 
+                    title='Connection Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !connectionType.valid && connectionType.touched }" 
+                    [data]='connectionTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='connectionTypeComponent.filterable'
+                    (filterChange)='connectionTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.connectionType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='connectionTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='connectionTypeComponent.onAdd(connectionTypeCombo, connectionTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Number -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Number")'></guide>
+        <label for='number' class='col-form-label'>Number : </label>
+        <span class='help-block col-form-label' *ngIf='!number.valid && number.touched && !number.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Number' 
+                    [ngClass]="{ 'error' : !number.valid && number.touched }" 
+                    class='form-control ' 
+                    #number='ngModel' 
+                    name='number' 
+                    placeholder='... Number' 
+                    [(ngModel)]='currentInstance.number' 
+                    [disabled]='IsLocked'
+                    maxlength='20'  dir='ltr'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!coachConnectionLineEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!coachConnectionLineEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, coachConnectionLineEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<lad-coach-edit #coachEditUI 
+    (onClosed)='coachComponent.onClosed($event)'>
+</lad-coach-edit>
+<base-connectionType-edit #connectionTypeEditUI 
+    (onClosed)='connectionTypeComponent.onClosed($event)'>
+</base-connectionType-edit>

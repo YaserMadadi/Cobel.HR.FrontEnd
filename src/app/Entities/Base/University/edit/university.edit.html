@@ -1,0 +1,85 @@
+﻿<XDialog Header='Edit Form of University' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, universityEditUI)' 
+    #universityEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Title")'></guide>
+        <label for='title' class='col-form-label'>Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Title' 
+                    [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                    class='form-control ' 
+                    #title='ngModel' 
+                    name='title' 
+                    placeholder='... Title' 
+                    [(ngModel)]='currentInstance.title' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- City -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("City_Id")'></guide>
+        <label for='city' class='col-form-label'>City : </label>
+        <span class='help-block col-form-label' *ngIf='!city.valid && city.touched && !city.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #city='ngModel' 
+                    #cityCombo='kendoDropDownList' 
+                    name='city' 
+                    title='City'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !city.valid && city.touched }" 
+                    [data]='cityComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='cityComponent.filterable'
+                    (filterChange)='cityComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.city"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='cityComponent.addable'>
+                      <button class='btn btn-primary' (click)='cityComponent.onAdd(cityCombo, cityEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- IsExternal -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsExternal")'></guide>
+        <label for='isExternal' class='col-form-label'>Is External : </label>
+        <!--IsExternal do not Required-->
+        <input type='checkbox' 
+                #isExternal 
+                id = 'isExternal'
+                name = 'isExternal'
+                kendoCheckBox
+                [checked] = 'currentInstance.isExternal'
+                [(ngModel)] = 'currentInstance.isExternal' /> 
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!universityEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!universityEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, universityEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<base-city-edit #cityEditUI 
+    (onClosed)='cityComponent.onClosed($event)'>
+</base-city-edit>

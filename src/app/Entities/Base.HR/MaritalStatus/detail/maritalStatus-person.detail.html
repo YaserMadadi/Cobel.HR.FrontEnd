@@ -1,0 +1,54 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(personEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(personEditUI)' [ngClass]="{ 'disabled' : currentPerson.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(personDeleteUI)' [ngClass]="{ 'disabled' : currentPerson.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('Base','Gender')"> Gender</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base','City')"> City</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base','Religion')"> Religion</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base','HealthStatus')"> Health Status</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base','Country')"> Country</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Person</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let person of PersonList; let i = index' 
+                (dblclick)='onDblClicked(personMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : person.id === currentPerson.id, 'free-row': person.id !== currentPerson.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ person.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-person-edit #personEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-person-edit>
+  <hr-person-delete #personDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-person-delete>
+  <hr-person-master #personMasterUI >
+  </hr-person-master>
+</div>

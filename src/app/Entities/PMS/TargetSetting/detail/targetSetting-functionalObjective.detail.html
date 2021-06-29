@@ -1,0 +1,55 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(functionalObjectiveEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(functionalObjectiveEditUI)' [ngClass]="{ 'disabled' : currentFunctionalObjective.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(functionalObjectiveDeleteUI)' [ngClass]="{ 'disabled' : currentFunctionalObjective.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('PMS','FunctionalObjective')"> Functional Objective</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Functional Objective</th>
+            <th> Employee Score</th>
+            <th> Manager Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let functionalObjective of FunctionalObjectiveList; let i = index' 
+                (dblclick)='onDblClicked(functionalObjectiveMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : functionalObjective.id === currentFunctionalObjective.id, 'free-row': functionalObjective.id !== currentFunctionalObjective.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ functionalObjective.descriptor }}
+            </td>
+            <td>{{ functionalObjective.employeeScore }}</td>
+            <td>{{ functionalObjective.managerScore }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-functionalObjective-edit #functionalObjectiveEditUI 
+    [TargetSetting]='TargetSetting'
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-functionalObjective-edit>
+  <pms-functionalObjective-delete #functionalObjectiveDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-functionalObjective-delete>
+  <pms-functionalObjective-master #functionalObjectiveMasterUI >
+  </pms-functionalObjective-master>
+</div>

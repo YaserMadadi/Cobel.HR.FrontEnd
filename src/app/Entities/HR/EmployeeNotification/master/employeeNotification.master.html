@@ -1,0 +1,51 @@
+﻿<XDialog Header='Employee Notification Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Employee Notification : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee : 
+                        <guide (onClick)='onGuid("Employee_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employee?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Content : 
+                        <guide (onClick)='onGuid("Content")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.content }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Send Time : 
+                        <guide (onClick)='onGuid("SendTime")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.sendTime | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>View Time : 
+                        <guide (onClick)='onGuid("ViewTime")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.viewTime | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Link : 
+                        <guide (onClick)='onGuid("Link")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.link }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

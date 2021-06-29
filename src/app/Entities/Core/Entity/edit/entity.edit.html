@@ -1,0 +1,89 @@
+﻿<XDialog Header='Edit Form of Entity' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, entityEditUI)' 
+    #entityEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Schema -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Schema")'></guide>
+        <label for='schema' class='col-form-label'>Schema : </label>
+        <span class='help-block col-form-label' *ngIf='!schema.valid && schema.touched && !schema.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Schema' 
+                    [ngClass]="{ 'error' : !schema.valid && schema.touched }" 
+                    class='form-control ' 
+                    #schema='ngModel' 
+                    name='schema' 
+                    placeholder='... Schema' 
+                    [(ngModel)]='currentInstance.schema' 
+                    [disabled]='IsLocked'
+                    maxlength='100'  dir='ltr'  required  />
+      </div>
+			<!-- Name -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Name")'></guide>
+        <label for='name' class='col-form-label'>Name : </label>
+        <span class='help-block col-form-label' *ngIf='!name.valid && name.touched && !name.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Name' 
+                    [ngClass]="{ 'error' : !name.valid && name.touched }" 
+                    class='form-control ' 
+                    #name='ngModel' 
+                    name='name' 
+                    placeholder='... Name' 
+                    [(ngModel)]='currentInstance.name' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  dir='ltr'  required  />
+      </div>
+			<!-- Synonym -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Synonym")'></guide>
+        <label for='synonym' class='col-form-label'>Synonym : </label>
+        <span class='help-block col-form-label' *ngIf='!synonym.valid && synonym.touched && !synonym.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Synonym' 
+                    [ngClass]="{ 'error' : !synonym.valid && synonym.touched }" 
+                    class='form-control ' 
+                    #synonym='ngModel' 
+                    name='synonym' 
+                    placeholder='... Synonym' 
+                    [(ngModel)]='currentInstance.synonym' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- IsActive -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsActive")'></guide>
+        <label for='isActive' class='col-form-label'>Is Active : </label>
+        <!--IsActive do not Required-->
+        <input type='checkbox' 
+                #isActive 
+                id = 'isActive'
+                name = 'isActive'
+                kendoCheckBox
+                [checked] = 'currentInstance.isActive'
+                [(ngModel)] = 'currentInstance.isActive' /> 
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!entityEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!entityEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, entityEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>

@@ -1,0 +1,136 @@
+﻿<fieldset class='border'>
+  <legend>Operational Appraise :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(operationalAppraiseEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(operationalAppraiseTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(operationalAppraiseEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(operationalAppraiseDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "TargetSetting", currentInstance.targetSetting?.id)'>Manage Target Setting</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Employee", currentInstance.approver?.id)'>Manage Employee</a>
+		<a class='dropdown-item pointer' (click)='navigate("PMS", "ScoreCell", currentInstance.scoreCell?.id)'>Manage Score Cell</a>
+    </dropDownMenu>
+  
+  <table #operationalAppraiseTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Target Setting'>Target Setting</th>
+        <th title='Date'>Date</th>
+        <th title='Approver'>Approver</th>
+        <th title='Quantitative Score'>Quantitative Score</th>
+        <th title='Qualitative Score'>Qualitative Score</th>
+        <th title='Total Score'>Total Score</th>
+        <th title='Score Cell'>Score Cell</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #targetSetting='ngModel' id='targetSetting' name='targetSetting'
+										 title='Target Setting'
+										 autocomplete='off'
+										 placeholder='Target Setting'
+										[(ngModel)]='filterInstance.targetSetting.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='filterInstance.date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #approver='ngModel' id='approver' name='approver'
+										 title='Approver'
+										 autocomplete='off'
+										 placeholder='Approver'
+										[(ngModel)]='filterInstance.approver.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #quantitativeScore='ngModel' id='quantitativeScore' name='quantitativeScore'
+										 title='Quantitative Score'
+										 autocomplete='off'
+										 placeholder='Quantitative Score'
+										[(ngModel)]='filterInstance.quantitativeScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #qualitativeScore='ngModel' id='qualitativeScore' name='qualitativeScore'
+										 title='Qualitative Score'
+										 autocomplete='off'
+										 placeholder='Qualitative Score'
+										[(ngModel)]='filterInstance.qualitativeScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #totalScore='ngModel' id='totalScore' name='totalScore'
+										 title='Total Score'
+										 autocomplete='off'
+										 placeholder='Total Score'
+										[(ngModel)]='filterInstance.totalScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #scoreCell='ngModel' id='scoreCell' name='scoreCell'
+										 title='Score Cell'
+										 autocomplete='off'
+										 placeholder='Score Cell'
+										[(ngModel)]='filterInstance.scoreCell.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(operationalAppraiseMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.targetSetting?.descriptor }}</td>
+				<td>{{ p.date | date:'fullDate' }}</td>
+				<td>{{ p.approver?.descriptor }}</td>
+				<td>{{ p.quantitativeScore | number }}</td>
+				<td>{{ p.qualitativeScore | number }}</td>
+				<td>{{ p.totalScore | number }}</td>
+				<td>{{ p.scoreCell?.descriptor }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- OperationalAppraise -->
+<pms-operationalAppraise-master #operationalAppraiseMasterUI>
+</pms-operationalAppraise-master>
+
+<pms-operationalAppraise-edit #operationalAppraiseEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-operationalAppraise-edit>
+
+<pms-operationalAppraise-delete #operationalAppraiseDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-operationalAppraise-delete>

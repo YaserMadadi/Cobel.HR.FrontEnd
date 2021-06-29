@@ -1,0 +1,13 @@
+<div id='div' class='modal' *ngIf='IsShown'>
+    <div class='modal-content' [ngClass]="{ 'modal-edit-content' : modalType == 1 , 'modal-delete-content': modalType == 3}">
+        <div class='modal-header' [ngClass]="{ 'modal-edit-header' : modalType == 1, 'modal-delete-header': modalType == 3}">
+            <h6>{{Header}}</h6>
+            <button id='close-button' class='close' (click)='onCloseButton_Press()'>&times;</button>
+        </div>
+        <div class="modal-body" [style.height.px]='Height'>
+            <ng-content>
+
+            </ng-content>
+        </div>
+    </div>
+</div>

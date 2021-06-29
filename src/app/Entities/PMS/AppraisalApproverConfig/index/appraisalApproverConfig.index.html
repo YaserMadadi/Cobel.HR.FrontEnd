@@ -1,0 +1,80 @@
+﻿<fieldset class='border'>
+  <legend>Appraisal Approver Config :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(appraisalApproverConfigEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(appraisalApproverConfigTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(appraisalApproverConfigEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(appraisalApproverConfigDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "PositionCategory", currentInstance.departmentCategory?.id)'>Manage Position Category</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "ApproverType", currentInstance.approverType?.id)'>Manage Approver Type</a>
+    </dropDownMenu>
+  
+  <table #appraisalApproverConfigTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Department Category'>Department Category</th>
+        <th title='Approver Type'>Approver Type</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #departmentCategory='ngModel' id='departmentCategory' name='departmentCategory'
+										 title='Department Category'
+										 autocomplete='off'
+										 placeholder='Department Category'
+										[(ngModel)]='filterInstance.departmentCategory.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #approverType='ngModel' id='approverType' name='approverType'
+										 title='Approver Type'
+										 autocomplete='off'
+										 placeholder='Approver Type'
+										[(ngModel)]='filterInstance.approverType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(appraisalApproverConfigMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.departmentCategory?.descriptor }}</td>
+				<td>{{ p.approverType?.descriptor }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- AppraisalApproverConfig -->
+<pms-appraisalApproverConfig-master #appraisalApproverConfigMasterUI>
+</pms-appraisalApproverConfig-master>
+
+<pms-appraisalApproverConfig-edit #appraisalApproverConfigEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-appraisalApproverConfig-edit>
+
+<pms-appraisalApproverConfig-delete #appraisalApproverConfigDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-appraisalApproverConfig-delete>

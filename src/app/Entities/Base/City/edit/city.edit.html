@@ -1,0 +1,85 @@
+﻿<XDialog Header='Edit Form of City' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, cityEditUI)' 
+    #cityEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Title")'></guide>
+        <label for='title' class='col-form-label'>Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Title' 
+                    [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                    class='form-control ' 
+                    #title='ngModel' 
+                    name='title' 
+                    placeholder='... Title' 
+                    [(ngModel)]='currentInstance.title' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- Province -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Province_Id")'></guide>
+        <label for='province' class='col-form-label'>Province : </label>
+        <span class='help-block col-form-label' *ngIf='!province.valid && province.touched && !province.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #province='ngModel' 
+                    #provinceCombo='kendoDropDownList' 
+                    name='province' 
+                    title='Province'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !province.valid && province.touched }" 
+                    [data]='provinceComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='provinceComponent.filterable'
+                    (filterChange)='provinceComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.province"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='provinceComponent.addable'>
+                      <button class='btn btn-primary' (click)='provinceComponent.onAdd(provinceCombo, provinceEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- IsActive -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsActive")'></guide>
+        <label for='isActive' class='col-form-label'>Is Active : </label>
+        <!--IsActive do not Required-->
+        <input type='checkbox' 
+                #isActive 
+                id = 'isActive'
+                name = 'isActive'
+                kendoCheckBox
+                [checked] = 'currentInstance.isActive'
+                [(ngModel)] = 'currentInstance.isActive' /> 
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!cityEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!cityEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, cityEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<base-province-edit #provinceEditUI 
+    (onClosed)='provinceComponent.onClosed($event)'>
+</base-province-edit>

@@ -1,0 +1,98 @@
+﻿<fieldset class='border'>
+  <legend>Coaching Questionary Detail :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(coachingQuestionaryDetailEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(coachingQuestionaryDetailTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(coachingQuestionaryDetailEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(coachingQuestionaryDetailDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("LAD", "CoachingQuestionary", currentInstance.coachingQuestionary?.id)'>Manage Coaching Questionary</a>
+    </dropDownMenu>
+  
+  <table #coachingQuestionaryDetailTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Coaching Questionary'>Coaching Questionary</th>
+        <th title='Date'>Date</th>
+        <th title='From'>From</th>
+        <th title='To'>To</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #coachingQuestionary='ngModel' id='coachingQuestionary' name='coachingQuestionary'
+										 title='Coaching Questionary'
+										 autocomplete='off'
+										 placeholder='Coaching Questionary'
+										[(ngModel)]='filterInstance.coachingQuestionary.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='filterInstance.date'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #from='ngModel' id='from' name='from'
+										 title='From'
+										 autocomplete='off'
+										 placeholder='From'
+										[(ngModel)]='filterInstance.from'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #to='ngModel' id='to' name='to'
+										 title='To'
+										 autocomplete='off'
+										 placeholder='To'
+										[(ngModel)]='filterInstance.to'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(coachingQuestionaryDetailMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.coachingQuestionary?.descriptor }}</td>
+				<td>{{ p.date | date:'fullDate' }}</td>
+				<td>{{ p.from }}</td>
+				<td>{{ p.to }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- CoachingQuestionaryDetail -->
+<lad-coachingQuestionaryDetail-master #coachingQuestionaryDetailMasterUI>
+</lad-coachingQuestionaryDetail-master>
+
+<lad-coachingQuestionaryDetail-edit #coachingQuestionaryDetailEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</lad-coachingQuestionaryDetail-edit>
+
+<lad-coachingQuestionaryDetail-delete #coachingQuestionaryDetailDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</lad-coachingQuestionaryDetail-delete>

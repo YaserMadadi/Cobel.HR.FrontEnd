@@ -1,0 +1,63 @@
+﻿<XDialog Header='Search form of Gender' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='persianTitle' class='col-sm-3 col-form-label'>Persian Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #persianTitle='ngModel' id='persianTitle' name='persianTitle'
+										 title='Persian Title'
+										 autocomplete='off'
+										 placeholder='Persian Title'
+										[(ngModel)]='gender.persianTitle'
+										 type='text'
+										 maxlength='20'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='englishTitle' class='col-sm-3 col-form-label'>English Title : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #englishTitle='ngModel' id='englishTitle' name='englishTitle'
+										 title='English Title'
+										 autocomplete='off'
+										 placeholder='English Title'
+										[(ngModel)]='gender.englishTitle'
+										 type='text'
+										 maxlength='10'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='persianPreFix' class='col-sm-3 col-form-label'>Persian Pre Fix : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #persianPreFix='ngModel' id='persianPreFix' name='persianPreFix'
+										 title='Persian Pre Fix'
+										 autocomplete='off'
+										 placeholder='Persian Pre Fix'
+										[(ngModel)]='gender.persianPreFix'
+										 type='text'
+										 maxlength='40'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='englishPreFix' class='col-sm-3 col-form-label'>English Pre Fix : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #englishPreFix='ngModel' id='englishPreFix' name='englishPreFix'
+										 title='English Pre Fix'
+										 autocomplete='off'
+										 placeholder='English Pre Fix'
+										[(ngModel)]='gender.englishPreFix'
+										 type='text'
+										 maxlength='20'
+										 dir='ltr' />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

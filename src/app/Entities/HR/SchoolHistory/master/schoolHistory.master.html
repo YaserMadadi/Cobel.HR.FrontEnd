@@ -1,0 +1,33 @@
+﻿<XDialog Header='School History Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>School History : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Person : 
+                        <guide (onClick)='onGuid("Person_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.person?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>School Level : 
+                        <guide (onClick)='onGuid("SchoolLevel_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.schoolLevel?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>School Name : 
+                        <guide (onClick)='onGuid("SchoolName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.schoolName }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

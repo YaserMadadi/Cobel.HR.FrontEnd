@@ -1,0 +1,45 @@
+﻿<XDialog Header='Training Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Training : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Id : 
+                        <guide (onClick)='onGuid("Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.id }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee : 
+                        <guide (onClick)='onGuid("Employee_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employee?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Course : 
+                        <guide (onClick)='onGuid("Course_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.course?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Executive Year : 
+                        <guide (onClick)='onGuid("ExecutiveYear")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.executiveYear | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Training Status : 
+                        <guide (onClick)='onGuid("TrainingStatus")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.trainingStatus }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

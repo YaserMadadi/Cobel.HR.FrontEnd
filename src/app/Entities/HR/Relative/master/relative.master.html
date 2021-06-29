@@ -1,0 +1,51 @@
+﻿<XDialog Header='Relative Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Relative : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Peson : 
+                        <guide (onClick)='onGuid("Peson_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.peson?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>First Name : 
+                        <guide (onClick)='onGuid("FirstName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.firstName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Last Name : 
+                        <guide (onClick)='onGuid("LastName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.lastName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>National Code : 
+                        <guide (onClick)='onGuid("NationalCode")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.nationalCode }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Birth Date : 
+                        <guide (onClick)='onGuid("BirthDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.birthDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Relation Type : 
+                        <guide (onClick)='onGuid("RelationType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.relationType?.descriptor }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

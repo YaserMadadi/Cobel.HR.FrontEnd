@@ -1,0 +1,115 @@
+﻿<XDialog Header='Edit Form of Assessment Training' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, assessmentTrainingEditUI)' 
+    #assessmentTrainingEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Assessment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Assessment_Id")'></guide>
+        <label for='assessment' class='col-form-label'>Assessment : </label>
+        <span class='help-block col-form-label' *ngIf='!assessment.valid && assessment.touched && !assessment.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #assessment='ngModel' 
+                    #assessmentCombo='kendoDropDownList' 
+                    name='assessment' 
+                    title='Assessment'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !assessment.valid && assessment.touched }" 
+                    [data]='assessmentComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='assessmentComponent.filterable'
+                    (filterChange)='assessmentComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.assessment"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='assessmentComponent.addable'>
+                      <button class='btn btn-primary' (click)='assessmentComponent.onAdd(assessmentCombo, assessmentEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Course -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Course")'></guide>
+        <label for='course' class='col-form-label'>Course : </label>
+        <span class='help-block col-form-label' *ngIf='!course.valid && course.touched && !course.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Course' 
+                    [ngClass]="{ 'error' : !course.valid && course.touched }" 
+                    class='form-control ' 
+                    #course='ngModel' 
+                    name='course' 
+                    placeholder='... Course' 
+                    [(ngModel)]='currentInstance.course' 
+                    [disabled]='IsLocked'
+                    maxlength='800'  required  />
+      </div>
+			<!-- DeadLine -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("DeadLine_Id")'></guide>
+        <label for='deadLine' class='col-form-label'>Dead Line : </label>
+        <span class='help-block col-form-label' *ngIf='!deadLine.valid && deadLine.touched && !deadLine.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #deadLine='ngModel' 
+                    #deadLineCombo='kendoDropDownList' 
+                    name='deadLine' 
+                    title='Dead Line'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !deadLine.valid && deadLine.touched }" 
+                    [data]='deadLineComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='deadLineComponent.filterable'
+                    (filterChange)='deadLineComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.deadLine"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='deadLineComponent.addable'>
+                      <button class='btn btn-primary' (click)='deadLineComponent.onAdd(deadLineCombo, deadLineEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Responsible -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Responsible")'></guide>
+        <label for='responsible' class='col-form-label'>Responsible : </label>
+        <span class='help-block col-form-label' *ngIf='!responsible.valid && responsible.touched && !responsible.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Responsible' 
+                    [ngClass]="{ 'error' : !responsible.valid && responsible.touched }" 
+                    class='form-control ' 
+                    #responsible='ngModel' 
+                    name='responsible' 
+                    placeholder='... Responsible' 
+                    [(ngModel)]='currentInstance.responsible' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!assessmentTrainingEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!assessmentTrainingEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, assessmentTrainingEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<lad-assessment-edit #assessmentEditUI 
+    (onClosed)='assessmentComponent.onClosed($event)'>
+</lad-assessment-edit>
+<base-yearQuarter-edit #deadLineEditUI 
+    (onClosed)='deadLineComponent.onClosed($event)'>
+</base-yearQuarter-edit>

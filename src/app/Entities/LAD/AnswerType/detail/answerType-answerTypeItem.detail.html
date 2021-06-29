@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(answerTypeItemEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(answerTypeItemEditUI)' [ngClass]="{ 'disabled' : currentAnswerTypeItem.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(answerTypeItemDeleteUI)' [ngClass]="{ 'disabled' : currentAnswerTypeItem.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Answer Type Item</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let answerTypeItem of AnswerTypeItemList; let i = index' 
+                (dblclick)='onDblClicked(answerTypeItemMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : answerTypeItem.id === currentAnswerTypeItem.id, 'free-row': answerTypeItem.id !== currentAnswerTypeItem.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ answerTypeItem.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <lad-answerTypeItem-edit #answerTypeItemEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </lad-answerTypeItem-edit>
+  <lad-answerTypeItem-delete #answerTypeItemDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </lad-answerTypeItem-delete>
+  <lad-answerTypeItem-master #answerTypeItemMasterUI >
+  </lad-answerTypeItem-master>
+</div>

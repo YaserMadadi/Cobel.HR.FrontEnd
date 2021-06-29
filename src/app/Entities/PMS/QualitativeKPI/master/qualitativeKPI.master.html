@@ -1,0 +1,64 @@
+﻿<XDialog Header='Qualitative KPI Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Qualitative KPI : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Qualitative Objective : 
+                        <guide (onClick)='onGuid("QualitativeObjective_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.qualitativeObjective?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Weight : 
+                        <guide (onClick)='onGuid("Weight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.weight | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Target : 
+                        <guide (onClick)='onGuid("Target")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.target | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee Score : 
+                        <guide (onClick)='onGuid("EmployeeScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.employeeScore | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Manager Score : 
+                        <guide (onClick)='onGuid("ManagerScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.managerScore | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Description : 
+                        <guide (onClick)='onGuid("Description")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.description }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Qualitative Appraise'>
+                <qualitativeKPI-qualitativeAppraise-detail 
+                    #pmsQualitativeKPIQualitativeAppraiseDetail
+                    [QualitativeKPI]='currentInstance'>
+                </qualitativeKPI-qualitativeAppraise-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

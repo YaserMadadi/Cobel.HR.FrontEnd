@@ -1,0 +1,238 @@
+﻿<XDialog Header='Person Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Person : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>National Code : 
+                        <guide (onClick)='onGuid("NationalCode")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.nationalCode }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>English First Name : 
+                        <guide (onClick)='onGuid("EnglishFirstName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.englishFirstName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>English Last Name : 
+                        <guide (onClick)='onGuid("EnglishLastName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.englishLastName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>English Nick Name : 
+                        <guide (onClick)='onGuid("EnglishNickName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.englishNickName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Persian First Name : 
+                        <guide (onClick)='onGuid("PersianFirstName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.persianFirstName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Persian Last Name : 
+                        <guide (onClick)='onGuid("PersianLastName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.persianLastName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Persian Nick Name : 
+                        <guide (onClick)='onGuid("PersianNickName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.persianNickName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Gender : 
+                        <guide (onClick)='onGuid("Gender_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.gender?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>English Father Name : 
+                        <guide (onClick)='onGuid("EnglishFatherName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.englishFatherName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Persian Father Name : 
+                        <guide (onClick)='onGuid("PersianFatherName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.persianFatherName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Documented Birth Date : 
+                        <guide (onClick)='onGuid("DocumentedBirthDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.documentedBirthDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Real Birth Date : 
+                        <guide (onClick)='onGuid("RealBirthDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.realBirthDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Birth City : 
+                        <guide (onClick)='onGuid("BirthCity_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.birthCity?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Religion : 
+                        <guide (onClick)='onGuid("Religion_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.religion?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Health Status : 
+                        <guide (onClick)='onGuid("HealthStatus_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.healthStatus?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Nationality : 
+                        <guide (onClick)='onGuid("Nationality_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.nationality?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Birth Certificate Number : 
+                        <guide (onClick)='onGuid("BirthCertificateNumber")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.birthCertificateNumber }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Birth Certificate Serial Number : 
+                        <guide (onClick)='onGuid("BirthCertificateSerialNumber")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.birthCertificateSerialNumber }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Marital Status : 
+                        <guide (onClick)='onGuid("MaritalStatus_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.maritalStatus?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Child Count : 
+                        <guide (onClick)='onGuid("ChildCount")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.childCount | number }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <!-- <tab heading='Coaching Questionary'>
+                <responsiblePerson-coachingQuestionary-detail 
+                    #hrResponsiblePersonCoachingQuestionaryDetail
+                    [ResponsiblePerson]='currentInstance'>
+                </responsiblePerson-coachingQuestionary-detail>
+            </tab> -->
+			<tab heading='User Account' *ngIf='false'>
+                <person-userAccount-detail 
+                    #hrPersonUserAccountDetail
+                    [Person]='currentInstance'>
+                </person-userAccount-detail>
+            </tab>
+			<tab heading='Work Experience'>
+                <person-workExperience-detail 
+                    #hrPersonWorkExperienceDetail
+                    [Person]='currentInstance'>
+                </person-workExperience-detail>
+            </tab>
+			<tab heading='University History'>
+                <person-universityHistory-detail 
+                    #hrPersonUniversityHistoryDetail
+                    [Person]='currentInstance'>
+                </person-universityHistory-detail>
+            </tab>
+			<tab heading='School History'>
+                <person-schoolHistory-detail 
+                    #hrPersonSchoolHistoryDetail
+                    [Person]='currentInstance'>
+                </person-schoolHistory-detail>
+            </tab>
+			<tab heading='Relative'>
+                <peson-relative-detail 
+                    #hrPesonRelativeDetail
+                    [Peson]='currentInstance'>
+                </peson-relative-detail>
+            </tab>
+			<tab heading='Person Driving License'>
+                <person-personDrivingLicense-detail 
+                    #hrPersonPersonDrivingLicenseDetail
+                    [Person]='currentInstance'>
+                </person-personDrivingLicense-detail>
+            </tab>
+			<tab heading='Person Connection'>
+                <person-personConnection-detail 
+                    #hrPersonPersonConnectionDetail
+                    [Person]='currentInstance'>
+                </person-personConnection-detail>
+            </tab>
+			<tab heading='Person Certificate'>
+                <person-personCertificate-detail 
+                    #hrPersonPersonCertificateDetail
+                    [Person]='currentInstance'>
+                </person-personCertificate-detail>
+            </tab>
+			<tab heading='Passport'>
+                <person-passport-detail 
+                    #hrPersonPassportDetail
+                    [Person]='currentInstance'>
+                </person-passport-detail>
+            </tab>
+			<tab heading='Military Service'>
+                <person-militaryService-detail 
+                    #hrPersonMilitaryServiceDetail
+                    [Person]='currentInstance'>
+                </person-militaryService-detail>
+            </tab>
+			<tab heading='Marital Info'>
+                <person-maritalInfo-detail 
+                    #hrPersonMaritalInfoDetail
+                    [Person]='currentInstance'>
+                </person-maritalInfo-detail>
+            </tab>
+			<tab heading='Language Ability'>
+                <person-languageAbility-detail 
+                    #hrPersonLanguageAbilityDetail
+                    [Person]='currentInstance'>
+                </person-languageAbility-detail>
+            </tab>
+			<tab heading='Employee'>
+                <person-employee-detail 
+                    #hrPersonEmployeeDetail
+                    [Person]='currentInstance'>
+                </person-employee-detail>
+            </tab>
+			<tab heading='Habitancy'>
+                <person-habitancy-detail 
+                    #hrPersonHabitancyDetail
+                    [Person]='currentInstance'>
+                </person-habitancy-detail>
+            </tab>
+			<tab heading='Impersonate' *ngIf='false'>
+                <person-impersonate-detail 
+                    #hrPersonImpersonateDetail
+                    [Person]='currentInstance'>
+                </person-impersonate-detail> 
+            </tab>
+			<!-- <tab heading='Log'>
+                <person-log-detail 
+                    #hrPersonLogDetail
+                    [Person]='currentInstance'>
+                </person-log-detail>
+            </tab> -->
+        </tabset>
+    </div>
+</XDialog>

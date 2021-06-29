@@ -1,0 +1,47 @@
+﻿<XDialog Header='Delete Confirmation Form of Role Permission' 
+    [IsShown]='IsShown' 
+    (OnClosed)='onCancel()'
+    [ModalType]='3'>
+    <div class='delete-frame'>
+        <p></p>
+        <p>You are going to Delete the record of Role Permission! </p>
+        <br>
+        <div class='margin20'>
+            
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Role : </label>
+            <label class='col-sm-8'>{{ currentInstance?.role?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Entity : </label>
+            <label class='col-sm-8'>{{ currentInstance?.entity?.descriptor }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Add Permission : </label>
+            <label class='col-sm-8'>{{ currentInstance?.addPermission }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Edit Permission : </label>
+            <label class='col-sm-8'>{{ currentInstance?.editPermission }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>Delete Permission : </label>
+            <label class='col-sm-8'>{{ currentInstance?.deletePermission }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>View Index Permission : </label>
+            <label class='col-sm-8'>{{ currentInstance?.viewIndexPermission }}</label>
+        </div>
+        <div class='form-group row'>
+            <label class='col-sm-4 titleControl'>View Log Permission : </label>
+            <label class='col-sm-8'>{{ currentInstance?.viewLogPermission }}</label>
+        </div>
+        </div>
+        <br>
+        <p>Do You Confirm?  </p>
+    </div>
+    <div class='modal-footer'>
+      <button class='xbtn btn-delete modal-footer-button' type='button' (click)='onDelete()'>Ok, Delete it</button>
+      <button class='xbtn btn-edit modal-footer-button' type='button' (click)='onCancel()'>Cancel</button>
+    </div>
+</XDialog>

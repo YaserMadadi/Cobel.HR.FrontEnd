@@ -1,0 +1,102 @@
+﻿<fieldset class='border'>
+  <legend>Assessor :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(assessorEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(assessorTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(assessorEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(assessorDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("Base", "Gender", currentInstance.gender?.id)'>Manage Gender</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='assessorConnectionLine_Clicked(assessorConnectionLineEditUI)'>Add Assessor Connection Line</a>
+		<a class='dropdown-item pointer' (click)='assessment_Clicked(assessmentEditUI)'>Add Assessment</a>
+	
+  </dropDownMenu>
+  <table #assessorTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Gender'>Gender</th>
+        <th title='First Name'>First Name</th>
+        <th title='Last Name'>Last Name</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #gender='ngModel' id='gender' name='gender'
+										 title='Gender'
+										 autocomplete='off'
+										 placeholder='Gender'
+										[(ngModel)]='filterInstance.gender.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #firstName='ngModel' id='firstName' name='firstName'
+										 title='First Name'
+										 autocomplete='off'
+										 placeholder='First Name'
+										[(ngModel)]='filterInstance.firstName'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #lastName='ngModel' id='lastName' name='lastName'
+										 title='Last Name'
+										 autocomplete='off'
+										 placeholder='Last Name'
+										[(ngModel)]='filterInstance.lastName'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(assessorMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.gender?.descriptor }}</td>
+				<td>{{ p.firstName }}</td>
+				<td>{{ p.lastName }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- Assessor -->
+<lad-assessor-master #assessorMasterUI>
+</lad-assessor-master>
+
+<lad-assessor-edit #assessorEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</lad-assessor-edit>
+
+<lad-assessor-delete #assessorDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</lad-assessor-delete>
+
+
+<lad-assessorConnectionLine-edit #assessorConnectionLineEditUI> <!--  (onClosed)='assessorConnectionLineEditUI_Closed($event)' -->
+</lad-assessorConnectionLine-edit> 
+<lad-assessment-edit #assessmentEditUI> <!--  (onClosed)='assessmentEditUI_Closed($event)' -->
+</lad-assessment-edit>

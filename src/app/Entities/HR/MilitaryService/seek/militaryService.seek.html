@@ -1,0 +1,57 @@
+﻿<XDialog Header='Search form of Military Service' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='person' class='col-sm-3 col-form-label'>Person : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='personComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='personComponent.filterable'
+                    (filterChange)='personComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.person"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='personComponent.addable'>
+                      <button class='btn btn-primary' (click)='personComponent.onAdd(personCombo, personEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='militaryServiceStatus' class='col-sm-3 col-form-label'>Military Service Status : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #militaryServiceStatus='ngModel' 
+                    #militaryServiceStatusCombo='kendoDropDownList' 
+                    name='militaryServiceStatus' 
+                    title='Military Service Status'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !militaryServiceStatus.valid && militaryServiceStatus.touched }" 
+                    [data]='militaryServiceStatusComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='militaryServiceStatusComponent.filterable'
+                    (filterChange)='militaryServiceStatusComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.militaryServiceStatus"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='militaryServiceStatusComponent.addable'>
+                      <button class='btn btn-primary' (click)='militaryServiceStatusComponent.onAdd(militaryServiceStatusCombo, militaryServiceStatusEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

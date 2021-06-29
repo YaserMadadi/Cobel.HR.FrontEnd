@@ -1,0 +1,99 @@
+﻿<XDialog Header='Edit Form of Military Service Excemption' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, militaryServiceExcemptionEditUI)' 
+    #militaryServiceExcemptionEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- MilitaryService -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("MilitaryService_Id")'></guide>
+        <label for='militaryService' class='col-form-label'>Military Service : </label>
+        <span class='help-block col-form-label' *ngIf='!militaryService.valid && militaryService.touched && !militaryService.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #militaryService='ngModel' 
+                    #militaryServiceCombo='kendoDropDownList' 
+                    name='militaryService' 
+                    title='Military Service'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !militaryService.valid && militaryService.touched }" 
+                    [data]='militaryServiceComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='militaryServiceComponent.filterable'
+                    (filterChange)='militaryServiceComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.militaryService"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='militaryServiceComponent.addable'>
+                      <button class='btn btn-primary' (click)='militaryServiceComponent.onAdd(militaryServiceCombo, militaryServiceEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- ExcemptionType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ExcemptionType_Id")'></guide>
+        <label for='excemptionType' class='col-form-label'>Excemption Type : </label>
+        <span class='help-block col-form-label' *ngIf='!excemptionType.valid && excemptionType.touched && !excemptionType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #excemptionType='ngModel' 
+                    #excemptionTypeCombo='kendoDropDownList' 
+                    name='excemptionType' 
+                    title='Excemption Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !excemptionType.valid && excemptionType.touched }" 
+                    [data]='excemptionTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='excemptionTypeComponent.filterable'
+                    (filterChange)='excemptionTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.excemptionType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='excemptionTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='excemptionTypeComponent.onAdd(excemptionTypeCombo, excemptionTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Comment -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Comment")'></guide>
+        <label for='comment' class='col-form-label'>Comment : </label>
+        <span class='help-block col-form-label' *ngIf='!comment.valid && comment.touched && !comment.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Comment' 
+                    [ngClass]="{ 'error' : !comment.valid && comment.touched }" 
+                    class='form-control ' 
+                    #comment='ngModel' 
+                    name='comment' 
+                    placeholder='... Comment' 
+                    [(ngModel)]='currentInstance.comment' 
+                    [disabled]='IsLocked'
+                    maxlength='2000'  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!militaryServiceExcemptionEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!militaryServiceExcemptionEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, militaryServiceExcemptionEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-militaryService-edit #militaryServiceEditUI 
+    (onClosed)='militaryServiceComponent.onClosed($event)'>
+</hr-militaryService-edit>
+<base-excemptionType-edit #excemptionTypeEditUI 
+    (onClosed)='excemptionTypeComponent.onClosed($event)'>
+</base-excemptionType-edit>

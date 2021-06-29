@@ -1,0 +1,33 @@
+﻿<XDialog Header='Military Service Inclusive Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Military Service Inclusive : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Military Service : 
+                        <guide (onClick)='onGuid("MilitaryService_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.militaryService?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Inclusive Type : 
+                        <guide (onClick)='onGuid("InclusiveType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.inclusiveType?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Comment : 
+                        <guide (onClick)='onGuid("Comment")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.comment }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

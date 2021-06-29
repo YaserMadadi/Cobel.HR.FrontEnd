@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(positionAssignmentEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(positionAssignmentEditUI)' [ngClass]="{ 'disabled' : currentPositionAssignment.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(positionAssignmentDeleteUI)' [ngClass]="{ 'disabled' : currentPositionAssignment.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('HR','Employee')"> Employee</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Position Assignment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let positionAssignment of PositionAssignmentList; let i = index' 
+                (dblclick)='onDblClicked(positionAssignmentMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : positionAssignment.id === currentPositionAssignment.id, 'free-row': positionAssignment.id !== currentPositionAssignment.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ positionAssignment.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <hr-positionAssignment-edit #positionAssignmentEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </hr-positionAssignment-edit>
+  <hr-positionAssignment-delete #positionAssignmentDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </hr-positionAssignment-delete>
+  <hr-positionAssignment-master #positionAssignmentMasterUI >
+  </hr-positionAssignment-master>
+</div>

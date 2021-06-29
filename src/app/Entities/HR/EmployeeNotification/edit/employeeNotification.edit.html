@@ -1,0 +1,132 @@
+﻿<XDialog Header='Edit Form of Employee Notification' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, employeeNotificationEditUI)' 
+    #employeeNotificationEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Employee -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Employee_Id")'></guide>
+        <label for='employee' class='col-form-label'>Employee : </label>
+        <span class='help-block col-form-label' *ngIf='!employee.valid && employee.touched && !employee.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Title")'></guide>
+        <label for='title' class='col-form-label'>Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Title' 
+                    [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                    class='form-control ' 
+                    #title='ngModel' 
+                    name='title' 
+                    placeholder='... Title' 
+                    [(ngModel)]='currentInstance.title' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- Content -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Content")'></guide>
+        <label for='content' class='col-form-label'>Content : </label>
+        <span class='help-block col-form-label' *ngIf='!content.valid && content.touched && !content.disabled'>( Value is not Valid! )</span>
+        <textarea type='text' title='Content' name='content' 
+                            class='form-control' 
+                            [ngClass]="{ 'error' : !content.valid && content.touched }" 
+                            #content='ngModel' 
+                            placeholder='... Content' 
+                            [(ngModel)]='currentInstance.content'
+                            [disabled]='IsLocked'
+                            maxlength='4000'  required  ></textarea>
+      </div>
+			<!-- SendTime -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("SendTime")'></guide>
+        <label for='sendTime' class='col-form-label'>Send Time : </label>
+        <span class='help-block col-form-label' *ngIf='!sendTime.valid && sendTime.touched && !sendTime.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Send Time 
+                    [ngClass]="{ 'error' : !sendTime.valid && sendTime.touched }" 
+                    class='form-control' 
+                    #sendTime='ngModel' 
+                    name='sendTime'
+                    [ngModel]="currentInstance.sendTime | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.sendTime = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- ViewTime -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ViewTime")'></guide>
+        <label for='viewTime' class='col-form-label'>View Time : </label>
+        <span class='help-block col-form-label' *ngIf='!viewTime.valid && viewTime.touched && !viewTime.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=View Time 
+                    [ngClass]="{ 'error' : !viewTime.valid && viewTime.touched }" 
+                    class='form-control' 
+                    #viewTime='ngModel' 
+                    name='viewTime'
+                    [ngModel]="currentInstance.viewTime | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.viewTime = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- Link -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Link")'></guide>
+        <label for='link' class='col-form-label'>Link : </label>
+        <span class='help-block col-form-label' *ngIf='!link.valid && link.touched && !link.disabled'>( Value is not Valid! )</span>
+        <textarea type='text' title='Link' name='link' 
+                            class='form-control' 
+                            [ngClass]="{ 'error' : !link.valid && link.touched }" 
+                            #link='ngModel' 
+                            placeholder='... Link' 
+                            [(ngModel)]='currentInstance.link'
+                            [disabled]='IsLocked'
+                            maxlength='4000'  required  ></textarea>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!employeeNotificationEditUI.valid || IsLocked' >Ok, Save it</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!employeeNotificationEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, employeeNotificationEditUI, true)'>Save and Continue</button>
+      <button id='cancle-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancle</button>
+    </div>
+  </form>
+</XDialog>
+
+<hr-employee-edit #employeeEditUI 
+    (onClosed)='employeeComponent.onClosed($event)'>
+</hr-employee-edit>

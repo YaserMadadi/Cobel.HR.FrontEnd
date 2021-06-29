@@ -1,0 +1,90 @@
+﻿<XDialog Header='Search form of Score Cell' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='cellNumber' class='col-sm-3 col-form-label'>Cell Number : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #cellNumber='ngModel' id='cellNumber' name='cellNumber'
+										 title='Cell Number'
+										 autocomplete='off'
+										 placeholder='Cell Number'
+										[(ngModel)]='scoreCell.cellNumber'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='min_X' class='col-sm-3 col-form-label'>Min_ X : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #min_X='ngModel' id='min_X' name='min_X'
+										 title='Min_ X'
+										 autocomplete='off'
+										 placeholder='Min_ X'
+										[(ngModel)]='scoreCell.min_X'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='max_X' class='col-sm-3 col-form-label'>Max_ X : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #max_X='ngModel' id='max_X' name='max_X'
+										 title='Max_ X'
+										 autocomplete='off'
+										 placeholder='Max_ X'
+										[(ngModel)]='scoreCell.max_X'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='min_Y' class='col-sm-3 col-form-label'>Min_ Y : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #min_Y='ngModel' id='min_Y' name='min_Y'
+										 title='Min_ Y'
+										 autocomplete='off'
+										 placeholder='Min_ Y'
+										[(ngModel)]='scoreCell.min_Y'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='max_Y' class='col-sm-3 col-form-label'>Max_ Y : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #max_Y='ngModel' id='max_Y' name='max_Y'
+										 title='Max_ Y'
+										 autocomplete='off'
+										 placeholder='Max_ Y'
+										[(ngModel)]='scoreCell.max_Y'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='min_Pi' class='col-sm-3 col-form-label'>Min_ Pi : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #min_Pi='ngModel' id='min_Pi' name='min_Pi'
+										 title='Min_ Pi'
+										 autocomplete='off'
+										 placeholder='Min_ Pi'
+										[(ngModel)]='scoreCell.min_Pi'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='max_Pi' class='col-sm-3 col-form-label'>Max_ Pi : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #max_Pi='ngModel' id='max_Pi' name='max_Pi'
+										 title='Max_ Pi'
+										 autocomplete='off'
+										 placeholder='Max_ Pi'
+										[(ngModel)]='scoreCell.max_Pi'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

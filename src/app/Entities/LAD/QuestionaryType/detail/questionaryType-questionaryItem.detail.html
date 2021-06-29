@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(questionaryItemEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(questionaryItemEditUI)' [ngClass]="{ 'disabled' : currentQuestionaryItem.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(questionaryItemDeleteUI)' [ngClass]="{ 'disabled' : currentQuestionaryItem.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('LAD','AnswerType')"> Answer Type</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Questionary Item</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let questionaryItem of QuestionaryItemList; let i = index' 
+                (dblclick)='onDblClicked(questionaryItemMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : questionaryItem.id === currentQuestionaryItem.id, 'free-row': questionaryItem.id !== currentQuestionaryItem.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ questionaryItem.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <lad-questionaryItem-edit #questionaryItemEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </lad-questionaryItem-edit>
+  <lad-questionaryItem-delete #questionaryItemDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </lad-questionaryItem-delete>
+  <lad-questionaryItem-master #questionaryItemMasterUI >
+  </lad-questionaryItem-master>
+</div>

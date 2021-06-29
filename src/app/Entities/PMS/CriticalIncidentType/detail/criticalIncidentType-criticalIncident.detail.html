@@ -1,0 +1,50 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(criticalIncidentEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(criticalIncidentEditUI)' [ngClass]="{ 'disabled' : currentCriticalIncident.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(criticalIncidentDeleteUI)' [ngClass]="{ 'disabled' : currentCriticalIncident.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      <dropDownMenu MenuTitle='Quick Access'>
+				<a class='dropdown-item pointer' (click)="navigate('HR','Employee')"> Employee</a>
+			</dropDownMenu>
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Critical Incident</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let criticalIncident of CriticalIncidentList; let i = index' 
+                (dblclick)='onDblClicked(criticalIncidentMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : criticalIncident.id === currentCriticalIncident.id, 'free-row': criticalIncident.id !== currentCriticalIncident.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ criticalIncident.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-criticalIncident-edit #criticalIncidentEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-criticalIncident-edit>
+  <pms-criticalIncident-delete #criticalIncidentDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-criticalIncident-delete>
+  <pms-criticalIncident-master #criticalIncidentMasterUI >
+  </pms-criticalIncident-master>
+</div>

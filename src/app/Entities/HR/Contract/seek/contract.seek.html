@@ -1,0 +1,100 @@
+﻿<XDialog Header='Search form of Contract' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='employee' class='col-sm-3 col-form-label'>Employee : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #employee='ngModel' 
+                    #employeeCombo='kendoDropDownList' 
+                    name='employee' 
+                    title='Employee'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !employee.valid && employee.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.employee"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
+                      <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='contractType' class='col-sm-3 col-form-label'>Contract Type : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #contractType='ngModel' 
+                    #contractTypeCombo='kendoDropDownList' 
+                    name='contractType' 
+                    title='Contract Type'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !contractType.valid && contractType.touched }" 
+                    [data]='contractTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='contractTypeComponent.filterable'
+                    (filterChange)='contractTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.contractType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='contractTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='contractTypeComponent.onAdd(contractTypeCombo, contractTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='number' class='col-sm-3 col-form-label'>Number : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #number='ngModel' id='number' name='number'
+										 title='Number'
+										 autocomplete='off'
+										 placeholder='Number'
+										[(ngModel)]='contract.number'
+										 type='text'
+										 maxlength='10'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='fromDate' class='col-sm-3 col-form-label'>From Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #fromDate='ngModel' id='fromDate' name='fromDate'
+										 title='From Date'
+										 autocomplete='off'
+										 placeholder='From Date'
+										[(ngModel)]='contract.fromDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='toDate' class='col-sm-3 col-form-label'>To Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #toDate='ngModel' id='toDate' name='toDate'
+										 title='To Date'
+										 autocomplete='off'
+										 placeholder='To Date'
+										[(ngModel)]='contract.toDate'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='isSigned' class='col-sm-3 col-form-label'>Is Signed : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

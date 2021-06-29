@@ -1,0 +1,82 @@
+﻿<XDialog Header='Search form of Coaching Questionary Answered' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='coachingQuestionary' class='col-sm-3 col-form-label'>Coaching Questionary : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #coachingQuestionary='ngModel' 
+                    #coachingQuestionaryCombo='kendoDropDownList' 
+                    name='coachingQuestionary' 
+                    title='Coaching Questionary'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !coachingQuestionary.valid && coachingQuestionary.touched }" 
+                    [data]='coachingQuestionaryComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='coachingQuestionaryComponent.filterable'
+                    (filterChange)='coachingQuestionaryComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.coachingQuestionary"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='coachingQuestionaryComponent.addable'>
+                      <button class='btn btn-primary' (click)='coachingQuestionaryComponent.onAdd(coachingQuestionaryCombo, coachingQuestionaryEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='questionaryItem' class='col-sm-3 col-form-label'>Questionary Item : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #questionaryItem='ngModel' 
+                    #questionaryItemCombo='kendoDropDownList' 
+                    name='questionaryItem' 
+                    title='Questionary Item'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !questionaryItem.valid && questionaryItem.touched }" 
+                    [data]='questionaryItemComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='questionaryItemComponent.filterable'
+                    (filterChange)='questionaryItemComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.questionaryItem"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='questionaryItemComponent.addable'>
+                      <button class='btn btn-primary' (click)='questionaryItemComponent.onAdd(questionaryItemCombo, questionaryItemEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='answerValue' class='col-sm-3 col-form-label'>Answer Value : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #answerValue='ngModel' id='answerValue' name='answerValue'
+										 title='Answer Value'
+										 autocomplete='off'
+										 placeholder='Answer Value'
+										[(ngModel)]='coachingQuestionaryAnswered.answerValue'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='answerText' class='col-sm-3 col-form-label'>Answer Text : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #answerText='ngModel' id='answerText' name='answerText'
+										 title='Answer Text'
+										 autocomplete='off'
+										 placeholder='Answer Text'
+										[(ngModel)]='coachingQuestionaryAnswered.answerText'
+										 type='text'
+										 maxlength='2000'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

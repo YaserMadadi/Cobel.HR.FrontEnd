@@ -1,0 +1,58 @@
+﻿<XDialog Header='Config Target Setting Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Config Target Setting : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Position : 
+                        <guide (onClick)='onGuid("Position_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.position?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>From Date : 
+                        <guide (onClick)='onGuid("FromDate")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.fromDate | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Quantitative Weight : 
+                        <guide (onClick)='onGuid("QuantitativeWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.quantitativeWeight | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Qualitative Weight : 
+                        <guide (onClick)='onGuid("QualitativeWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.qualitativeWeight | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Qualitative Non Behavioral Weight : 
+                        <guide (onClick)='onGuid("QualitativeNonBehavioralWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.qualitativeNonBehavioralWeight | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Qualitative Behavioral Weight : 
+                        <guide (onClick)='onGuid("QualitativeBehavioralWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.qualitativeBehavioralWeight | number }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Config Qualitative Objective'>
+                <targetSettingConfig-configQualitativeObjective-detail 
+                    #pmsTargetSettingConfigConfigQualitativeObjectiveDetail
+                    [TargetSettingConfig]='currentInstance'>
+                </targetSettingConfig-configQualitativeObjective-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>
