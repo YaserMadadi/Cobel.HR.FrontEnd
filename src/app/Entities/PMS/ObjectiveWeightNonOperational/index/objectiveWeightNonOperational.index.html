@@ -1,0 +1,89 @@
+﻿<fieldset class='border'>
+  <legend>Objective Weight Non Operational :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(objectiveWeightNonOperationalEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(objectiveWeightNonOperationalTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(objectiveWeightNonOperationalEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(objectiveWeightNonOperationalDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("HR", "Level", currentInstance.level?.id)'>Manage Level</a>
+    </dropDownMenu>
+  
+  <table #objectiveWeightNonOperationalTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Level'>Level</th>
+        <th title='Functional Weight'>Functional Weight</th>
+        <th title='Behavioral Weight'>Behavioral Weight</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #level='ngModel' id='level' name='level'
+										 title='Level'
+										 autocomplete='off'
+										 placeholder='Level'
+										[(ngModel)]='filterInstance.level.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #functionalWeight='ngModel' id='functionalWeight' name='functionalWeight'
+										 title='Functional Weight'
+										 autocomplete='off'
+										 placeholder='Functional Weight'
+										[(ngModel)]='filterInstance.functionalWeight'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #behavioralWeight='ngModel' id='behavioralWeight' name='behavioralWeight'
+										 title='Behavioral Weight'
+										 autocomplete='off'
+										 placeholder='Behavioral Weight'
+										[(ngModel)]='filterInstance.behavioralWeight'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(objectiveWeightNonOperationalMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.level?.descriptor }}</td>
+				<td>{{ p.functionalWeight | number }}</td>
+				<td>{{ p.behavioralWeight | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- ObjectiveWeightNonOperational -->
+<pms-objectiveWeightNonOperational-master #objectiveWeightNonOperationalMasterUI>
+</pms-objectiveWeightNonOperational-master>
+
+<pms-objectiveWeightNonOperational-edit #objectiveWeightNonOperationalEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-objectiveWeightNonOperational-edit>
+
+<pms-objectiveWeightNonOperational-delete #objectiveWeightNonOperationalDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-objectiveWeightNonOperational-delete>

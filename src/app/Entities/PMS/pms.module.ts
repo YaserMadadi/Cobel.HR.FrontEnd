@@ -24,6 +24,7 @@ import { FunctionalObjectiveModule } from './FunctionalObjective/functionalObjec
 import { FunctionalObjectiveCommentModule } from './FunctionalObjectiveComment/functionalObjectiveComment.module';
 import { IndividualDevelopmentPlanModule } from './IndividualDevelopmentPlan/individualDevelopmentPlan.module';
 import { NonOperationalAppraiseModule } from './NonOperationalAppraise/nonOperationalAppraise.module';
+import { ObjectiveWeightNonOperationalModule } from './ObjectiveWeightNonOperational/objectiveWeightNonOperational.module';
 import { OperationalAppraiseModule } from './OperationalAppraise/operationalAppraise.module';
 import { QualitativeAppraiseModule } from './QualitativeAppraise/qualitativeAppraise.module';
 import { QualitativeKPIModule } from './QualitativeKPI/qualitativeKPI.module';
@@ -64,6 +65,7 @@ import { PMS_RouteModule } from './pms.route.module';
 		FunctionalObjectiveCommentModule,
 		IndividualDevelopmentPlanModule,
 		NonOperationalAppraiseModule,
+		ObjectiveWeightNonOperationalModule,
 		OperationalAppraiseModule,
 		QualitativeAppraiseModule,
 		QualitativeKPIModule,
@@ -102,6 +104,7 @@ import { PMS_RouteModule } from './pms.route.module';
 		FunctionalObjectiveCommentModule,
 		IndividualDevelopmentPlanModule,
 		NonOperationalAppraiseModule,
+		ObjectiveWeightNonOperationalModule,
 		OperationalAppraiseModule,
 		QualitativeAppraiseModule,
 		QualitativeKPIModule,

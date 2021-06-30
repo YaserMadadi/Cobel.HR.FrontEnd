@@ -1,0 +1,58 @@
+﻿<XDialog Header='Search form of Objective Weight Non Operational' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='level' class='col-sm-3 col-form-label'>Level : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #level='ngModel' 
+                    #levelCombo='kendoDropDownList' 
+                    name='level' 
+                    title='Level'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !level.valid && level.touched }" 
+                    [data]='levelComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='levelComponent.filterable'
+                    (filterChange)='levelComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.level"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='levelComponent.addable'>
+                      <button class='btn btn-primary' (click)='levelComponent.onAdd(levelCombo, levelEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='functionalWeight' class='col-sm-3 col-form-label'>Functional Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #functionalWeight='ngModel' id='functionalWeight' name='functionalWeight'
+										 title='Functional Weight'
+										 autocomplete='off'
+										 placeholder='Functional Weight'
+										[(ngModel)]='objectiveWeightNonOperational.functionalWeight'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='behavioralWeight' class='col-sm-3 col-form-label'>Behavioral Weight : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #behavioralWeight='ngModel' id='behavioralWeight' name='behavioralWeight'
+										 title='Behavioral Weight'
+										 autocomplete='off'
+										 placeholder='Behavioral Weight'
+										[(ngModel)]='objectiveWeightNonOperational.behavioralWeight'
+										 type='number'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

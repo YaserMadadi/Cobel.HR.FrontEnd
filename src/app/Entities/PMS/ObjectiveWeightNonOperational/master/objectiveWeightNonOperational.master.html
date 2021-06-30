@@ -1,0 +1,33 @@
+﻿<XDialog Header='Objective Weight Non Operational Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Objective Weight Non Operational : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Level : 
+                        <guide (onClick)='onGuid("Level_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.level?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Functional Weight : 
+                        <guide (onClick)='onGuid("FunctionalWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.functionalWeight | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Behavioral Weight : 
+                        <guide (onClick)='onGuid("BehavioralWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.behavioralWeight | number }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

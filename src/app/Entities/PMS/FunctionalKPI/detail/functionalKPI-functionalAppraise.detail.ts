@@ -10,6 +10,8 @@ import { FunctionalAppraise } from '../../FunctionalAppraise/functionalAppraise'
 import { FunctionalAppraiseMasterUI } from '../../FunctionalAppraise/master/functionalAppraise.master';
 import { FunctionalAppraiseEditUI } from '../../FunctionalAppraise/edit/functionalAppraise.edit';
 import { FunctionalAppraiseDeleteUI } from '../../FunctionalAppraise/delete/functionalAppraise.delete';
+import { AuthService } from '../../../../../xcore/security/auth_service';
+import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
 
 
 
@@ -71,6 +73,10 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
   }
 
   public onEdit(editUI: FunctionalAppraiseEditUI) {
+    if(this.currentFunctionalAppraise.appraiser.id != AuthService.currentEmployee.id){
+      MessageController.ShowMessage('You are not allowed to edit this record of Appraisal!', toastType.error);
+      return;
+    }
     if (FunctionalAppraise.NotConfirm(this.currentFunctionalAppraise))
       return;
     editUI.ShowDialog(this.currentFunctionalAppraise);

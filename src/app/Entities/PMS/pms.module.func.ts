@@ -24,6 +24,7 @@ import { FunctionalObjective_ModuleFunc } from './FunctionalObjective/functional
 import { FunctionalObjectiveComment_ModuleFunc } from './FunctionalObjectiveComment/functionalObjectiveComment.module.func';
 import { IndividualDevelopmentPlan_ModuleFunc } from './IndividualDevelopmentPlan/individualDevelopmentPlan.module.func';
 import { NonOperationalAppraise_ModuleFunc } from './NonOperationalAppraise/nonOperationalAppraise.module.func';
+import { ObjectiveWeightNonOperational_ModuleFunc } from './ObjectiveWeightNonOperational/objectiveWeightNonOperational.module.func';
 import { OperationalAppraise_ModuleFunc } from './OperationalAppraise/operationalAppraise.module.func';
 import { QualitativeAppraise_ModuleFunc } from './QualitativeAppraise/qualitativeAppraise.module.func';
 import { QualitativeKPI_ModuleFunc } from './QualitativeKPI/qualitativeKPI.module.func';
@@ -64,6 +65,7 @@ import { VisionComment_ModuleFunc } from './VisionComment/visionComment.module.f
 		FunctionalObjectiveComment_ModuleFunc,
 		IndividualDevelopmentPlan_ModuleFunc,
 		NonOperationalAppraise_ModuleFunc,
+		ObjectiveWeightNonOperational_ModuleFunc,
 		OperationalAppraise_ModuleFunc,
 		QualitativeAppraise_ModuleFunc,
 		QualitativeKPI_ModuleFunc,
@@ -102,6 +104,7 @@ import { VisionComment_ModuleFunc } from './VisionComment/visionComment.module.f
 		FunctionalObjectiveComment_ModuleFunc,
 		IndividualDevelopmentPlan_ModuleFunc,
 		NonOperationalAppraise_ModuleFunc,
+		ObjectiveWeightNonOperational_ModuleFunc,
 		OperationalAppraise_ModuleFunc,
 		QualitativeAppraise_ModuleFunc,
 		QualitativeKPI_ModuleFunc,

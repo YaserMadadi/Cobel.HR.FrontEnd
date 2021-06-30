@@ -1,7 +1,6 @@
 ﻿import { Component, Injectable, Input } from '@angular/core';
 
 import { DetailView } from '../../../../../xcore/tools/ui/view-base/detail.view';
-import { Info } from '../../../../../xcore/Info';
 
 import { BehavioralKPI } from '../behavioralKPI';
 import { BehavioralKPIService } from '../behavioralKPI.service';
@@ -10,8 +9,8 @@ import { BehavioralAppraise } from '../../BehavioralAppraise/behavioralAppraise'
 import { BehavioralAppraiseMasterUI } from '../../BehavioralAppraise/master/behavioralAppraise.master';
 import { BehavioralAppraiseEditUI } from '../../BehavioralAppraise/edit/behavioralAppraise.edit';
 import { BehavioralAppraiseDeleteUI } from '../../BehavioralAppraise/delete/behavioralAppraise.delete';
-
-
+import { AuthService } from '../../../../../xcore/security/auth_service';
+import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
 
 @Component({
   selector: 'behavioralKPI-behavioralAppraise-detail',
@@ -72,6 +71,10 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
   }
 
   public onEdit(editUI: BehavioralAppraiseEditUI) {
+    if(this.currentBehavioralAppraise.appraiser.id != AuthService.currentEmployee.id){
+      MessageController.ShowMessage('You are not allowed to edit this record of Appraisal!', toastType.error);
+      return;
+    }
     if (BehavioralAppraise.NotConfirm(this.currentBehavioralAppraise))
       return;
     editUI.ShowDialog(this.currentBehavioralAppraise);

@@ -44,13 +44,27 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
 
   onShown() {
     console.log('TargetSetting Current Instance : ', this.currentInstance);
-    // this.targetSettingService.RetrieveById(this.currentInstance.id)
-    //   .then(targetSetting => {
-    //     this.currentInstance = targetSetting;
-
-    //});
     this.targetSettingService.PositionService.RetrieveById(this.currentInstance.position.id)
-      .then(position => this.position = position);
-
+      .then(position => {
+        this.position = position;
+        if (this.position.positionCategory.id == 2) { // PositionCategory.Id = 2 : NonOperation
+          this.targetSettingService
+            .PositionService
+            .LevelService
+            .ServiceCollection
+            .CollectionOfObjectiveWeightNonOperational(this.position.level)
+            .then(objectiveWeightList => {
+              if (objectiveWeightList.length <= 0)
+                return;
+              this.functionalHeading = `Functional Objective ( ${objectiveWeightList[0].functionalWeight}% )`;
+              this.behavioralHeading = `Behavioral Objective ( ${objectiveWeightList[0].behavioralWeight}% )`;
+            });
+        }
+      });
   }
+
+  functionalHeading: string;
+
+  behavioralHeading: string;
+
 }

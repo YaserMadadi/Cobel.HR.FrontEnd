@@ -9,35 +9,36 @@ import { QualitativeAppraiseIndexUI } from './QualitativeAppraise/index/qualitat
 import { ScoreCellIndexUI } from './ScoreCell/index/scoreCell.index';
 import { CellActionIndexUI } from './CellAction/index/cellAction.index';
 import { NonOperationalAppraiseIndexUI } from './NonOperationalAppraise/index/nonOperationalAppraise.index';
-import { FunctionalObjectiveIndexUI } from './FunctionalObjective/index/functionalObjective.index';
 import { StrategicObjectveIndexUI } from './StrategicObjectve/index/strategicObjectve.index';
 import { OperationalAppraiseIndexUI } from './OperationalAppraise/index/operationalAppraise.index';
 import { CriticalIncidentTypeIndexUI } from './CriticalIncidentType/index/criticalIncidentType.index';
 import { TargetSettingIndexUI } from './TargetSetting/index/targetSetting.index';
+import { BehavioralObjectiveIndexUI } from './BehavioralObjective/index/behavioralObjective.index';
 import { CriticalIncidentIndexUI } from './CriticalIncident/index/criticalIncident.index';
 import { CompetencyItemIndexUI } from './CompetencyItem/index/competencyItem.index';
 import { QuantitativeAppraiseIndexUI } from './QuantitativeAppraise/index/quantitativeAppraise.index';
 import { FunctionalAppraiseIndexUI } from './FunctionalAppraise/index/functionalAppraise.index';
-import { BehavioralKPIIndexUI } from './BehavioralKPI/index/behavioralKPI.index';
-import { FinalAppraiseIndexUI } from './FinalAppraise/index/finalAppraise.index';
 import { FunctionalObjectiveCommentIndexUI } from './FunctionalObjectiveComment/index/functionalObjectiveComment.index';
 import { CriticalIncidentRecognitionIndexUI } from './CriticalIncidentRecognition/index/criticalIncidentRecognition.index';
-import { FunctionalKPIIndexUI } from './FunctionalKPI/index/functionalKPI.index';
+import { ObjectiveWeightNonOperationalIndexUI } from './ObjectiveWeightNonOperational/index/objectiveWeightNonOperational.index';
+import { QualitativeObjectiveIndexUI } from './QualitativeObjective/index/qualitativeObjective.index';
+import { BehavioralKPIIndexUI } from './BehavioralKPI/index/behavioralKPI.index';
+import { VisionIndexUI } from './Vision/index/vision.index';
 import { FunctionalKPICommentIndexUI } from './FunctionalKPIComment/index/functionalKPIComment.index';
 import { AppraisalApproverConfigIndexUI } from './AppraisalApproverConfig/index/appraisalApproverConfig.index';
 import { FinalApprovementIndexUI } from './FinalApprovement/index/finalApprovement.index';
 import { CompetencyItemKPIIndexUI } from './CompetencyItemKPI/index/competencyItemKPI.index';
-import { QualitativeObjectiveIndexUI } from './QualitativeObjective/index/qualitativeObjective.index';
+import { FunctionalKPIIndexUI } from './FunctionalKPI/index/functionalKPI.index';
+import { AppraiseResultIndexUI } from './AppraiseResult/index/appraiseResult.index';
 import { ConfigQualitativeKPIIndexUI } from './ConfigQualitativeKPI/index/configQualitativeKPI.index';
 import { ConfigQualitativeObjectiveIndexUI } from './ConfigQualitativeObjective/index/configQualitativeObjective.index';
 import { ConfigTargetSettingIndexUI } from './ConfigTargetSetting/index/configTargetSetting.index';
-import { QualitativeKPIIndexUI } from './QualitativeKPI/index/qualitativeKPI.index';
-import { VisionIndexUI } from './Vision/index/vision.index';
+import { FunctionalObjectiveIndexUI } from './FunctionalObjective/index/functionalObjective.index';
 import { BehavioralAppraiseIndexUI } from './BehavioralAppraise/index/behavioralAppraise.index';
 import { VisionApprovedIndexUI } from './VisionApproved/index/visionApproved.index';
+import { QualitativeKPIIndexUI } from './QualitativeKPI/index/qualitativeKPI.index';
 import { VisionCommentIndexUI } from './VisionComment/index/visionComment.index';
-import { BehavioralObjectiveIndexUI } from './BehavioralObjective/index/behavioralObjective.index';
-import { AppraiseResultIndexUI } from './AppraiseResult/index/appraiseResult.index';
+import { FinalAppraiseIndexUI } from './FinalAppraise/index/finalAppraise.index';
 
 const pms_routes : Routes = [
   { path: 'AppraisalApproverConfig', redirectTo: 'AppraisalApproverConfig/0' },
@@ -88,10 +89,12 @@ const pms_routes : Routes = [
 	{ path: 'IndividualDevelopmentPlan/:id', component: IndividualDevelopmentPlanIndexUI, canActivate: [AuthGuard], data: { title: 'IndividualDevelopmentPlan' }  },
 	{ path: 'NonOperationalAppraise', redirectTo: 'NonOperationalAppraise/0' },
 	{ path: 'NonOperationalAppraise/:id', component: NonOperationalAppraiseIndexUI, canActivate: [AuthGuard], data: { title: 'NonOperationalAppraise' }  },
+	{ path: 'ObjectiveWeightNonOperational', redirectTo: 'ObjectiveWeightNonOperational/0' },
+	{ path: 'ObjectiveWeightNonOperational/:id', component: ObjectiveWeightNonOperationalIndexUI, canActivate: [AuthGuard], data: { title: 'ObjectiveWeightNonOperational' }  },
 	{ path: 'OperationalAppraise', redirectTo: 'OperationalAppraise/0' },
 	{ path: 'OperationalAppraise/:id', component: OperationalAppraiseIndexUI, canActivate: [AuthGuard], data: { title: 'OperationalAppraise' }  },
 	{ path: 'QualitativeAppraise', redirectTo: 'QualitativeAppraise/0' },
-	{ path: 'QualitativeAppraise/:id', component: QualitativeAppraiseIndexUI, canActivate: [AuthGuard], data: { title: 'QualitativeAppraise' }  },
+	{ path: 'QualitativeAppraise/:id', component: QualitativeAppraiseIndexUI, canActivate: [AuthGuard], data: { title: 'QualitativeAppraise' }  }, 
 	{ path: 'QualitativeKPI', redirectTo: 'QualitativeKPI/0' },
 	{ path: 'QualitativeKPI/:id', component: QualitativeKPIIndexUI, canActivate: [AuthGuard], data: { title: 'QualitativeKPI' }  },
 	{ path: 'QualitativeObjective', redirectTo: 'QualitativeObjective/0' },

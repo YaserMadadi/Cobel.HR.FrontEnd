@@ -1,0 +1,48 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(objectiveWeightNonOperationalEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(objectiveWeightNonOperationalEditUI)' [ngClass]="{ 'disabled' : currentObjectiveWeightNonOperational.id == 0 }">Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(objectiveWeightNonOperationalDeleteUI)' [ngClass]="{ 'disabled' : currentObjectiveWeightNonOperational.id == 0 }">Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Objective Weight Non Operational</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let objectiveWeightNonOperational of ObjectiveWeightNonOperationalList; let i = index' 
+                (dblclick)='onDblClicked(objectiveWeightNonOperationalMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : objectiveWeightNonOperational.id === currentObjectiveWeightNonOperational.id, 'free-row': objectiveWeightNonOperational.id !== currentObjectiveWeightNonOperational.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ objectiveWeightNonOperational.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-objectiveWeightNonOperational-edit #objectiveWeightNonOperationalEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-objectiveWeightNonOperational-edit>
+  <pms-objectiveWeightNonOperational-delete #objectiveWeightNonOperationalDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-objectiveWeightNonOperational-delete>
+  <pms-objectiveWeightNonOperational-master #objectiveWeightNonOperationalMasterUI >
+  </pms-objectiveWeightNonOperational-master>
+</div>

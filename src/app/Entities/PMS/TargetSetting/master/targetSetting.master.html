@@ -51,13 +51,13 @@
         </fieldset>
         <hr />
         <tabset #tabset>
-            <tab heading='Functional Objective'
+            <tab [heading]='functionalHeading'
                 *ngIf='position.positionCategory.id == 2'>
                 <targetSetting-functionalObjective-detail #pmsTargetSettingFunctionalObjectiveDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-functionalObjective-detail>
             </tab>
-            <tab heading='Behavioral Objective'
+            <tab [heading]='behavioralHeading'
                 *ngIf='position.positionCategory.id == 2 || position.positionCategory.id == 1'>
                 <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail
                     [TargetSetting]='currentInstance'>
@@ -94,7 +94,7 @@
                     [TargetSetting]='currentInstance'>
                 </targetSetting-operationalAppraise-detail>
             </tab> -->
-            <tab heading='Final Appraise'
+            <tab heading='Appraisal Results by Director'
                 *ngIf='position.positionCategory.id == 2'>
                 <targetSetting-finalAppraise-detail #pmsTargetSettingFinalAppraiseDetail
                     [TargetSetting]='currentInstance'>

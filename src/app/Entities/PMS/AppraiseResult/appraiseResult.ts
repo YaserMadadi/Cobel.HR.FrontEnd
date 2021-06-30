@@ -6,6 +6,7 @@ import { BusinessObject } from '../../../../xcore/business-object';
 import { TargetSetting } from '../TargetSetting/targetSetting';
 import { AppraiseType } from '../../Base.PMS/AppraiseType/appraiseType';
 import { AppraiseTime } from '../../Base.PMS/AppraiseTime/appraiseTime';
+import { ScoreCell } from '../ScoreCell/scoreCell';
 
 
 @Directive()
@@ -46,6 +47,8 @@ export class AppraiseResult extends BusinessObject implements OnInit {
 	public behavioralScore: number = 0;
 	
 	public totalScore: number = 0;
+
+  public scoreCell: ScoreCell = new ScoreCell();
 
 	//#endregion
 

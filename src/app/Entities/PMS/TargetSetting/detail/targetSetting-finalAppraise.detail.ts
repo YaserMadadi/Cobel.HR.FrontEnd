@@ -12,6 +12,7 @@ import { FinalAppraiseEditUI } from '../../FinalAppraise/edit/finalAppraise.edit
 import { FinalAppraiseDeleteUI } from '../../FinalAppraise/delete/finalAppraise.delete';
 import { MessageController } from '../../../../../xcore/tools/controller.message';
 import { MessageType } from '../../../../../xcore/tools/Enum';
+import { AuthService } from '../../../../../xcore/security/auth_service';
 
 
 
@@ -75,7 +76,8 @@ export class TargetSetting_FinalAppraise_DetailUI extends DetailView<TargetSetti
   public onEdit(editUI: FinalAppraiseEditUI) {
     if (FinalAppraise.NotConfirm(this.currentFinalAppraise))
       return;
-    if (this.currentFinalAppraise.isApproved) {
+    if (AuthService.currentPositionList.filter(i => i.id == 2131 || i.parent.id == 2131).length == 0  //Position.Id = 2131 : HR position responsible
+      && this.currentFinalAppraise.isApproved) {
       MessageController.ShowMessage(MessageType.NotEditable);
       return;
     }
