@@ -100,7 +100,12 @@
                     [TargetSetting]='currentInstance'>
                 </targetSetting-finalAppraise-detail>
             </tab>
-
+            <tab heading='IDP Form'
+                *ngIf='position.positionCategory.id == 2'>
+                <targetSetting-vision-detail #pmsTargetSettingVisionDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-vision-detail>
+            </tab>
             <!--
 			<tab heading='Non Operational Appraise'>
                 <targetSetting-nonOperationalAppraise-detail 

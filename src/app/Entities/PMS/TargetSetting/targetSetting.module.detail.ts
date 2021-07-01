@@ -26,6 +26,10 @@ import { TargetSetting_QuantitativeAppraise_DetailUI } from './detail/targetSett
 import { QuantitativeAppraise_ModuleMaster } from '../QuantitativeAppraise/quantitativeAppraise.module.master';
 import { TargetSetting_AppraiseResult_DetailUI } from './detail/targetSetting-appraiseResult.detail';
 import { AppraiseResult_ModuleMaster } from '../AppraiseResult/appraiseResult.module.master';
+import { Vision_ModuleMaster } from '../Vision/vision.module.master';
+import { Employee_ModuleDetail } from '../../HR/Employee/employee.module.detail';
+import { Employee_ModuleMaster } from '../../HR/Employee/employee.module.master';
+import { TargetSetting_Vision_DetailUI } from './detail/targetSetting-vision.detail';
 
 @NgModule({
 	declarations: [
@@ -37,7 +41,8 @@ import { AppraiseResult_ModuleMaster } from '../AppraiseResult/appraiseResult.mo
 		TargetSetting_NonOperationalAppraise_DetailUI,
 		TargetSetting_OperationalAppraise_DetailUI,
 		TargetSetting_QualitativeObjective_DetailUI,
-		TargetSetting_QuantitativeAppraise_DetailUI
+		TargetSetting_QuantitativeAppraise_DetailUI,
+		TargetSetting_Vision_DetailUI,
 	],
 	imports: [
 		FormsModule,
@@ -52,6 +57,7 @@ import { AppraiseResult_ModuleMaster } from '../AppraiseResult/appraiseResult.mo
 		OperationalAppraise_ModuleMaster,
 		QualitativeObjective_ModuleMaster,
 		QuantitativeAppraise_ModuleMaster,
+		Vision_ModuleMaster,
 	],
 	exports: [
 		TargetSetting_BehavioralObjective_DetailUI,
@@ -62,7 +68,8 @@ import { AppraiseResult_ModuleMaster } from '../AppraiseResult/appraiseResult.mo
 		TargetSetting_NonOperationalAppraise_DetailUI,
 		TargetSetting_OperationalAppraise_DetailUI,
 		TargetSetting_QualitativeObjective_DetailUI,
-		TargetSetting_QuantitativeAppraise_DetailUI
+		TargetSetting_QuantitativeAppraise_DetailUI,
+		TargetSetting_Vision_DetailUI,
 	],
 	providers: [
 		//TargetSettingService,

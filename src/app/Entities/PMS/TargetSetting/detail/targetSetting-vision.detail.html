@@ -1,0 +1,70 @@
+﻿<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group '
+        role='group'
+        aria-label='Basic example'>
+        <!-- <button type='button'
+          name='addButton'
+          class='xbtn btn-add'
+          (click)='onAdd(appraiseResultEditUI)'
+          *ngIf='false'>Add</button>
+        <button type='button'
+          name='editButton'
+          class='xbtn btn-edit'
+          (click)='onEdit(appraiseResultEditUI)'
+          [ngClass]="{ 'disabled' : currentAppraiseResult.id == 0 }"
+          *ngIf='false'>Edit</button>
+        <button type='button'
+          name='deleteButton'
+          class='xbtn btn-delete'
+          (click)='onDelete(appraiseResultDeleteUI)'
+          [ngClass]="{ 'disabled' : currentAppraiseResult.id == 0 }"
+          *ngIf='false'>Delete</button> -->
+      </div>
+      <div class='float-right'>
+        <button type='button'
+          name='refreshButton'
+          class='xbtn btn-refresh'
+          (click)='onReload()'>Refresh</button>
+      </div>
+      <!-- <dropDownMenu MenuTitle='Quick Access'>
+        <a class='dropdown-item pointer'
+          (click)="navigate('Base.PMS','AppraiseType')"> AppraiseType</a>
+        <a class='dropdown-item pointer'
+          (click)="navigate('Base.PMS','AppraiseTime')"> AppraiseTime</a>
+        <a class='dropdown-item pointer'
+          (click)="navigate('Base.PMS','AppraiseCategory')"> AppraiseCategory</a>
+      </dropDownMenu> -->
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover'>
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Vision</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let vision of VisionList; let i = index'
+            (dblclick)='onDblClicked(visionMasterUI)'
+            (click)='onSelect(i)'
+            [ngClass]="{ 'selected-row' : vision.id === currentVision.id, 'free-row': vision.id !== currentVision.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+              {{ vision.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <pms-vision-edit #visionEditUI
+    (onClosed)='onEditModal_Closed($event)'>
+  </pms-vision-edit>
+  <pms-vision-delete #visionDeleteUI
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </pms-vision-delete>
+  <pms-vision-master #visionMasterUI>
+  </pms-vision-master>
+</div>

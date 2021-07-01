@@ -14,14 +14,17 @@ import { OperationalAppraise } from '../OperationalAppraise/operationalAppraise'
 import { NonOperationalAppraise } from '../NonOperationalAppraise/nonOperationalAppraise';
 import { QualitativeObjective } from '../QualitativeObjective/qualitativeObjective';
 import { AppraiseResult } from '../AppraiseResult/appraiseResult';
+import { Vision } from '../Vision/vision';
+import { Employee } from '../../HR/Employee/employee';
+import { EndPointController } from '../../../../xcore/tools/controller.endPoint';
 
 
 @Injectable({ providedIn: 'root' })
 export class TargetSettingServiceCollection extends ServiceCollection<TargetSetting> {
 
   constructor(public API_Operation: API_Operation<TargetSetting>) {
-        super(API_Operation);
-    }
+    super(API_Operation);
+  }
 
   //region CollectionMethods
 
@@ -61,5 +64,13 @@ export class TargetSettingServiceCollection extends ServiceCollection<TargetSett
     return super.CollectionOf<QuantitativeAppraise>(targetSetting, quantitativeAppraise);
   }
 
-	//endregion
+  //endregion
+
+  CollectionOfVision(targetSetting: TargetSetting, vision: Vision = Vision.SeekInstance()): Promise<Vision[]> {
+
+    let url = this.api_operation.FullUrl(`PMS/TargetSetting/${targetSetting.employee.id}/Vision`);
+    console.log('URL : ', url);
+    return this.API_Operation.http.get<Vision[]>(url, EndPointController.Options).toPromise();
+    //return super.CollectionOf<Vision>(targetSetting, vision);
+  }
 }

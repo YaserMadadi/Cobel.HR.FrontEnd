@@ -267,66 +267,78 @@ export class MenuItem {
         name:'PMS',
         children:[
           {
-            name: 'Appraise',
+            name: 'Appraisal',
             url: '/PMS/TargetSetting',  
             icon: 'icon-speedometer',
           },
-          {
-            name:'Configuration',
-            title: true
-          },
-          {
-            name: 'Config Target Setting',
-            url: '/PMS/ConfigTargetSetting',  
-            icon: 'icon-speedometer',
-          },
-          {
-            name: 'Competency Item',
-            url: '/PMS/CompetencyItem',  
-            icon: 'icon-speedometer',
-          },
+          // {
+          //   name:'Configuration',
+          //   title: true
+          // },
+          // {
+          //   name: 'Config Target Setting',
+          //   url: '/PMS/ConfigTargetSetting',  
+          //   icon: 'icon-speedometer',
+          // },
+          // {
+          //   name: 'Competency Item',
+          //   url: '/PMS/CompetencyItem',  
+          //   icon: 'icon-speedometer',
+          // },
         ]
       },
-      {
-        name:'HR Core',
-        icon:'',
-        children:[
-          {
-            name: 'Department',
-            url: '/HR/Department',
-            icon: 'icon-speedometer',
-          },
-          {
-            name: 'Level',
-            url: '/HR/Level',
-            icon: 'icon-speedometer',
+    //   {
+    //     name:'HR Core',
+    //     icon:'',
+    //     children:[
+    //       {
+    //         name: 'Department',
+    //         url: '/HR/Department',
+    //         icon: 'icon-speedometer',
+    //       },
+    //       {
+    //         name: 'Level',
+    //         url: '/HR/Level',
+    //         icon: 'icon-speedometer',
            
-          },
-          {
-            name: 'Organization Chart ( Positions )',
-            url: '/HR/Position',
-            icon: 'icon-speedometer',
-          },
-          {
-            name: 'Unit',
-            url: '/HR/Unit',
-            icon: 'icon-speedometer',
-          },
-          {
-            name: 'Person',
-            url: '/HR/Person',
-            icon: 'icon-speedometer',
-          },
-          {
-            name: 'Employee',
-            url: '/HR/Employee',
-            icon: 'icon-speedometer',
-          },
-        ]
-    },
+    //       },
+    //       {
+    //         name: 'Organization Chart ( Positions )',
+    //         url: '/HR/Position',
+    //         icon: 'icon-speedometer',
+    //       },
+    //       {
+    //         name: 'Unit',
+    //         url: '/HR/Unit',
+    //         icon: 'icon-speedometer',
+    //       },
+    //       {
+    //         name: 'Person',
+    //         url: '/HR/Person',
+    //         icon: 'icon-speedometer',
+    //       },
+    //       {
+    //         name: 'Employee',
+    //         url: '/HR/Employee',
+    //         icon: 'icon-speedometer',
+    //       },
+    //     ]
+    // },
      
       
-      //  {
+      
+
+    ];
+  }
+
+  public navItems: INavData[] = [
+
+
+  ];
+
+}
+
+//  {
       //   name: 'Employee',
       //   url: '/HR/Employee',
       //   icon: 'icon-speedometer',
@@ -542,14 +554,4 @@ export class MenuItem {
       //     },
       //   ]
       // }
-
-    ];
-  }
-
-  public navItems: INavData[] = [
-
-
-  ];
-
-}
 

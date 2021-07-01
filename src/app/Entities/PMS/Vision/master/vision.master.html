@@ -47,13 +47,13 @@
         </fieldset>
         <hr/>
         <tabset #tabset>
-            <tab heading='Vision Comment'>
+            <tab heading='Vision Comment' *ngIf='false'>
                 <vision-visionComment-detail 
                     #pmsVisionVisionCommentDetail
                     [Vision]='currentInstance'>
                 </vision-visionComment-detail>
             </tab>
-			<tab heading='Vision Approved'>
+			<tab heading='Vision Approved' *ngIf='false'>
                 <vision-visionApproved-detail 
                     #pmsVisionVisionApprovedDetail
                     [Vision]='currentInstance'>
