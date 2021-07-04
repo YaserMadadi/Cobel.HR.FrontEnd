@@ -67,6 +67,7 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
 
   public onAdd(editUI: BehavioralAppraiseEditUI) {
     editUI.BehavioralKPI = this.behavioralKPI;
+    editUI.SetDefault();
     editUI.ShowDialog(new BehavioralAppraise());
   }
 

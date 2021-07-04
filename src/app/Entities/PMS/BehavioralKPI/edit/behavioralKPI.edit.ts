@@ -84,4 +84,8 @@ export class BehavioralKPIEditUI extends EditModal<BehavioralKPI> implements IEd
     this.BehavioralObjective = new BehavioralObjective();
 		this.CompetencyItemKPI = new CompetencyItemKPI();
   }
+
+  SetDefault(){
+    
+  }
 }

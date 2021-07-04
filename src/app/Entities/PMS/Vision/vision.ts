@@ -42,11 +42,11 @@ export class Vision extends BusinessObject implements OnInit {
 	
 	public date: Date = new Date();
 	
-	public employeeApprovementStatus: string = '';
+	public isApprovedByEmployee: boolean = false;
 	
-	public directManagerApprovementStatus: string = '';
+	public isApprovedByDirectManager: boolean = false;
 	
-	public buheadApprovementStatus: string = '';
+	public isApprovedByBuHead: boolean = false;
 
 	//#endregion
 
@@ -74,10 +74,7 @@ export class Vision extends BusinessObject implements OnInit {
 
   public static Validate(vision: Vision) : boolean {
     let result = Validator.Validate(vision.employee) &&
-					Validator.Validate(vision.title) &&
-					Validator.Validate(vision.employeeApprovementStatus) &&
-					Validator.Validate(vision.directManagerApprovementStatus) &&
-					Validator.Validate(vision.buheadApprovementStatus);
+					Validator.Validate(vision.title);
     if(result === false)
       console.log('Vision is unvalid : ', vision);
     return result;

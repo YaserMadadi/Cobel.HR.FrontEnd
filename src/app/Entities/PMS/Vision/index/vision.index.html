@@ -64,31 +64,31 @@
 										 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #employeeApprovementStatus='ngModel' id='employeeApprovementStatus' name='employeeApprovementStatus'
+          <input class='form-control' #isApprovedByEmployee='ngModel' id='isApprovedByEmployee' name='isApprovedByEmployee'
 										 title='Employee Approvement Status'
 										 autocomplete='off'
 										 placeholder='Employee Approvement Status'
-										[(ngModel)]='filterInstance.employeeApprovementStatus'
+										[(ngModel)]='filterInstance.isApprovedByEmployee'
 										 type='text'
 										 maxlength='200'
 										 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #directManagerApprovementStatus='ngModel' id='directManagerApprovementStatus' name='directManagerApprovementStatus'
+          <input class='form-control' #isApprovedByDirectManager='ngModel' id='isApprovedByDirectManager' name='isApprovedByDirectManager'
 										 title='Direct Manager Approvement Status'
 										 autocomplete='off'
 										 placeholder='Direct Manager Approvement Status'
-										[(ngModel)]='filterInstance.directManagerApprovementStatus'
+										[(ngModel)]='filterInstance.isApprovedByDirectManager'
 										 type='text'
 										 maxlength='200'
 										 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #buheadApprovementStatus='ngModel' id='buheadApprovementStatus' name='buheadApprovementStatus'
+          <input class='form-control' #isApprovedByBuHead='ngModel' id='isApprovedByBuHead' name='isApprovedByBuHead'
 										 title='B U Head Approvement Status'
 										 autocomplete='off'
 										 placeholder='B U Head Approvement Status'
-										[(ngModel)]='filterInstance.buheadApprovementStatus'
+										[(ngModel)]='filterInstance.isApprovedByBuHead'
 										 type='text'
 										 maxlength='200'
 										 (keyup)='doFilter($event)' />
@@ -101,9 +101,9 @@
 				<td>{{ p.employee?.descriptor }}</td>
 				<td>{{ p.title }}</td>
 				<td>{{ p.date | date:'fullDate' }}</td>
-				<td>{{ p.employeeApprovementStatus }}</td>
-				<td>{{ p.directManagerApprovementStatus }}</td>
-				<td>{{ p.buheadApprovementStatus }}</td>
+				<td>{{ p.isApprovedByEmployee }}</td>
+				<td>{{ p.isApprovedByDirectManager }}</td>
+				<td>{{ p.isApprovedByBuHead }}</td>
       </tr>
     </tbody>
   </table>

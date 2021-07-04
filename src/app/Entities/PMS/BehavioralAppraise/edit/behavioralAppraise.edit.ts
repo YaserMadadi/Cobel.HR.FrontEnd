@@ -27,92 +27,92 @@ import { $ } from 'protractor';
   styleUrls: ['./behavioralAppraise.edit.css']
 })
 export class BehavioralAppraiseEditUI extends EditModal<BehavioralAppraise> implements IEditModal<BehavioralAppraise>  {
-  
+
   constructor(private behavioralAppraiseService: BehavioralAppraiseService) {
-    super(behavioralAppraiseService); 
+    super(behavioralAppraiseService);
     this.currentInstance = new BehavioralAppraise();
   }
 
-  
+
 
   //#region Foreign Entities
-	
-	//#region -- BehavioralKPI --
 
-  behavioralKPIComponent : ForeignComponent<BehavioralKPI> = new ForeignComponent<BehavioralKPI>(this.behavioralAppraiseService.BehavioralKPIService);
+  //#region -- BehavioralKPI --
+
+  behavioralKPIComponent: ForeignComponent<BehavioralKPI> = new ForeignComponent<BehavioralKPI>(this.behavioralAppraiseService.BehavioralKPIService);
 
   @Input()
   public set BehavioralKPI(value: BehavioralKPI) {
     this.currentInstance.behavioralKPI = this.behavioralKPIComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- BehavioralKPI --
-	//#region -- AppraiseType --
+  //#region -- AppraiseType --
 
-  appraiseTypeComponent : ForeignComponent<AppraiseType> = new ForeignComponent<AppraiseType>(this.behavioralAppraiseService.AppraiseTypeService,false);
+  appraiseTypeComponent: ForeignComponent<AppraiseType> = new ForeignComponent<AppraiseType>(this.behavioralAppraiseService.AppraiseTypeService, false);
 
   @Input()
   public set AppraiseType(value: AppraiseType) {
     this.currentInstance.appraiseType = this.appraiseTypeComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- AppraiseType --
-	//#region -- AppraiseTime --
+  //#region -- AppraiseTime --
 
-  appraiseTimeComponent : ForeignComponent<AppraiseTime> = new ForeignComponent<AppraiseTime>(this.behavioralAppraiseService.AppraiseTimeService,false);
+  appraiseTimeComponent: ForeignComponent<AppraiseTime> = new ForeignComponent<AppraiseTime>(this.behavioralAppraiseService.AppraiseTimeService, false);
 
   @Input()
   public set AppraiseTime(value: AppraiseTime) {
     this.currentInstance.appraiseTime = this.appraiseTimeComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- AppraiseTime --
-	//#region -- Appraiser --
+  //#region -- Appraiser --
 
-  appraiserComponent : ForeignComponent<Employee> = new ForeignComponent<Employee>(this.behavioralAppraiseService.EmployeeService);
+  appraiserComponent: ForeignComponent<Employee> = new ForeignComponent<Employee>(this.behavioralAppraiseService.EmployeeService);
 
   @Input()
   public set Appraiser(value: Employee) {
     this.currentInstance.appraiser = this.appraiserComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- Appraiser --
-	//#endregion
+  //#endregion
 
   @ViewChild('behavioralAppraiseEditUI')
   private behavioralAppraiseEditUI: NgForm;
 
   Init(behavioralAppraise: BehavioralAppraise = new BehavioralAppraise()) {
-    if (behavioralAppraise.isNew)
-      this.behavioralAppraiseEditUI.reset();
+    // if (behavioralAppraise.isNew)
+    //   this.behavioralAppraiseEditUI.reset();
     this.InitBehavioralAppraise(behavioralAppraise);
     this.loadLists();
   }
 
   private loadLists() {
-    
+
     this.appraiseTypeComponent.LoadList();
-		this.appraiseTimeComponent.LoadList();
+    this.appraiseTimeComponent.LoadList();
     this.currentInstance.appraiseTime.id = 1;
     this.currentInstance.appraiseType.id = 2;
   }
-  
+
   InitBehavioralAppraise(behavioralAppraise: BehavioralAppraise) {
     if (!behavioralAppraise.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.behavioralKPIComponent.instance = behavioralAppraise.behavioralKPI;
-			this.appraiseTypeComponent.instance = behavioralAppraise.appraiseType;
-			this.appraiseTimeComponent.instance = behavioralAppraise.appraiseTime;
-			//this.appraiserComponent.instance = behavioralAppraise.appraiser;
+      this.appraiseTypeComponent.instance = behavioralAppraise.appraiseType;
+      this.appraiseTimeComponent.instance = behavioralAppraise.appraiseTime;
+      //this.appraiserComponent.instance = behavioralAppraise.appraiser;
     } else {
       behavioralAppraise.behavioralKPI = this.behavioralKPIComponent.instance;
-			behavioralAppraise.appraiseType = this.appraiseTypeComponent.instance;
-			behavioralAppraise.appraiseTime = this.appraiseTimeComponent.instance;
-			behavioralAppraise.appraiser = AuthService.currentEmployee;
+      behavioralAppraise.appraiseType = this.appraiseTypeComponent.instance;
+      behavioralAppraise.appraiseTime = this.appraiseTimeComponent.instance;
+      behavioralAppraise.appraiser = AuthService.currentEmployee;
     }
     this.currentInstance = behavioralAppraise;
     this.currentInstance.date = new Date();
@@ -120,8 +120,14 @@ export class BehavioralAppraiseEditUI extends EditModal<BehavioralAppraise> impl
 
   ResetForm() {
     //this.BehavioralKPI = new BehavioralKPI();
-		this.AppraiseType = new AppraiseType();
-	//	this.AppraiseTime = new AppraiseTime(1);
-		this.Appraiser = new Employee();
+    this.AppraiseType = new AppraiseType();
+    //	this.AppraiseTime = new AppraiseTime(1);
+    this.Appraiser = AuthService.currentEmployee;
+  }
+
+  SetDefault() {
+    if (AppraiseTime.NotConfirm(this.currentInstance.appraiseTime))
+      return;
+    this.currentInstance.appraiseTime.id = 1;
   }
 }

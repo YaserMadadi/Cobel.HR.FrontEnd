@@ -60,51 +60,51 @@
                     [disabled]='IsLocked'
                      required >
       </div>
-			<!-- EmployeeApprovementStatus -->
+			<!-- isApprovedByEmployee -->
       <div class='form-group'>
-        <guide (onClick)='onGuid("EmployeeApprovementStatus")'></guide>
-        <label for='employeeApprovementStatus' class='col-form-label'>Employee Approvement Status : </label>
-        <span class='help-block col-form-label' *ngIf='!employeeApprovementStatus.valid && employeeApprovementStatus.touched && !employeeApprovementStatus.disabled'>( Value is not Valid! )</span>
+        <guide (onClick)='onGuid("isApprovedByEmployee")'></guide>
+        <label for='isApprovedByEmployee' class='col-form-label'>Employee Approvement Status : </label>
+        <span class='help-block col-form-label' *ngIf='!isApprovedByEmployee.valid && isApprovedByEmployee.touched && !isApprovedByEmployee.disabled'>( Value is not Valid! )</span>
         <input type='text' 
                     title='Employee Approvement Status' 
-                    [ngClass]="{ 'error' : !employeeApprovementStatus.valid && employeeApprovementStatus.touched }" 
+                    [ngClass]="{ 'error' : !isApprovedByEmployee.valid && isApprovedByEmployee.touched }" 
                     class='form-control ' 
-                    #employeeApprovementStatus='ngModel' 
-                    name='employeeApprovementStatus' 
+                    #isApprovedByEmployee='ngModel' 
+                    name='isApprovedByEmployee' 
                     placeholder='... Employee Approvement Status' 
-                    [(ngModel)]='currentInstance.employeeApprovementStatus' 
+                    [(ngModel)]='currentInstance.isApprovedByEmployee' 
                     [disabled]='IsLocked'
                     maxlength='200'  required  />
       </div>
-			<!-- DirectManagerApprovementStatus -->
+			<!-- isApprovedByDirectManager -->
       <div class='form-group'>
-        <guide (onClick)='onGuid("DirectManagerApprovementStatus")'></guide>
-        <label for='directManagerApprovementStatus' class='col-form-label'>Direct Manager Approvement Status : </label>
-        <span class='help-block col-form-label' *ngIf='!directManagerApprovementStatus.valid && directManagerApprovementStatus.touched && !directManagerApprovementStatus.disabled'>( Value is not Valid! )</span>
+        <guide (onClick)='onGuid("isApprovedByDirectManager")'></guide>
+        <label for='isApprovedByDirectManager' class='col-form-label'>Direct Manager Approvement Status : </label>
+        <span class='help-block col-form-label' *ngIf='!isApprovedByDirectManager.valid && isApprovedByDirectManager.touched && !isApprovedByDirectManager.disabled'>( Value is not Valid! )</span>
         <input type='text' 
                     title='Direct Manager Approvement Status' 
-                    [ngClass]="{ 'error' : !directManagerApprovementStatus.valid && directManagerApprovementStatus.touched }" 
+                    [ngClass]="{ 'error' : !isApprovedByDirectManager.valid && isApprovedByDirectManager.touched }" 
                     class='form-control ' 
-                    #directManagerApprovementStatus='ngModel' 
-                    name='directManagerApprovementStatus' 
+                    #isApprovedByDirectManager='ngModel' 
+                    name='isApprovedByDirectManager' 
                     placeholder='... Direct Manager Approvement Status' 
-                    [(ngModel)]='currentInstance.directManagerApprovementStatus' 
+                    [(ngModel)]='currentInstance.isApprovedByDirectManager' 
                     [disabled]='IsLocked'
                     maxlength='200'  required  />
       </div>
-			<!-- BUHeadApprovementStatus -->
+			<!-- isApprovedByBuHead -->
       <div class='form-group'>
-        <guide (onClick)='onGuid("BUHeadApprovementStatus")'></guide>
-        <label for='buheadApprovementStatus' class='col-form-label'>B U Head Approvement Status : </label>
-        <span class='help-block col-form-label' *ngIf='!buheadApprovementStatus.valid && buheadApprovementStatus.touched && !buheadApprovementStatus.disabled'>( Value is not Valid! )</span>
+        <guide (onClick)='onGuid("isApprovedByBuHead")'></guide>
+        <label for='isApprovedByBuHead' class='col-form-label'>B U Head Approvement Status : </label>
+        <span class='help-block col-form-label' *ngIf='!isApprovedByBuHead.valid && isApprovedByBuHead.touched && !isApprovedByBuHead.disabled'>( Value is not Valid! )</span>
         <input type='text' 
                     title='B U Head Approvement Status' 
-                    [ngClass]="{ 'error' : !buheadApprovementStatus.valid && buheadApprovementStatus.touched }" 
+                    [ngClass]="{ 'error' : !isApprovedByBuHead.valid && isApprovedByBuHead.touched }" 
                     class='form-control ' 
-                    #buheadApprovementStatus='ngModel' 
-                    name='buheadApprovementStatus' 
+                    #isApprovedByBuHead='ngModel' 
+                    name='isApprovedByBuHead' 
                     placeholder='... B U Head Approvement Status' 
-                    [(ngModel)]='currentInstance.buheadApprovementStatus' 
+                    [(ngModel)]='currentInstance.isApprovedByBuHead' 
                     [disabled]='IsLocked'
                     maxlength='200'  required  />
       </div>

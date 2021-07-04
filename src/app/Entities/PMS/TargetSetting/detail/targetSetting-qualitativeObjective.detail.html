@@ -21,7 +21,7 @@
           <tr class='header-row'>
             <th class='row-number'>Row</th>
             <th> Qualitative Objective</th>
-            <th> Employee Score</th>
+            <th *ngIf='false'> Employee Score</th>
             <th> Manager Score</th>
             
           </tr>
@@ -35,7 +35,7 @@
             <td>
                 {{ qualitativeObjective.descriptor }}
             </td>
-            <td>{{ qualitativeObjective.employeeScore }}</td>
+            <td *ngIf='false'>{{ qualitativeObjective.employeeScore }}</td>
             <td>{{ qualitativeObjective.managerScore }}</td>
           </tr>
         </tbody>

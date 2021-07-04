@@ -43,7 +43,6 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
   public position: Position = new Position();
 
   onShown() {
-    console.log('TargetSetting Current Instance : ', this.currentInstance);
     this.targetSettingService.PositionService.RetrieveById(this.currentInstance.position.id)
       .then(position => {
         this.position = position;
@@ -59,12 +58,15 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
               this.functionalHeading = `Functional Objective ( ${objectiveWeightList[0].functionalWeight}% )`;
               this.behavioralHeading = `Behavioral Objective ( ${objectiveWeightList[0].behavioralWeight}% )`;
             });
+        } else { // PositionCategory.Id = 1 : Operational
+            this.behavioralHeading = 'Behavioral Objective';
+            this.functionalHeading = 'Functional Objective';
         }
       });
   }
 
-  functionalHeading: string;
+  functionalHeading: string = 'Functional Objective';
 
-  behavioralHeading: string;
+  behavioralHeading: string = 'Behavioral Objective';
 
 }

@@ -106,7 +106,7 @@ const pms_routes : Routes = [
 	{ path: 'StrategicObjectve', redirectTo: 'StrategicObjectve/0' },
 	{ path: 'StrategicObjectve/:id', component: StrategicObjectveIndexUI, canActivate: [AuthGuard], data: { title: 'StrategicObjectve' }  },
 	{ path: 'TargetSetting', redirectTo: 'TargetSetting/0' },
-	{ path: 'TargetSetting/:id', component: TargetSettingIndexUI, canActivate: [AuthGuard], data: { title: 'TargetSetting' }  },
+	{ path: 'TargetSetting/:id', component: TargetSettingIndexUI, canActivate: [AuthGuard], data: { title: 'Performance Management' }  },
 	{ path: 'Vision', redirectTo: 'Vision/0' },
 	{ path: 'Vision/:id', component: VisionIndexUI, canActivate: [AuthGuard], data: { title: 'Vision' }  },
 	{ path: 'VisionApproved', redirectTo: 'VisionApproved/0' },

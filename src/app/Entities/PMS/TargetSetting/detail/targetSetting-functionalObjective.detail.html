@@ -23,7 +23,7 @@
           <tr class='header-row'>
             <th class='row-number'>Row</th>
             <th> Functional Objective</th>
-            <th> Employee Score</th>
+            <th *ngIf='false'> Employee Score</th>
             <th> Manager Score</th>
           </tr>
         </thead>
@@ -36,7 +36,7 @@
             <td>
                 {{ functionalObjective.descriptor }}
             </td>
-            <td>{{ functionalObjective.employeeScore }}</td>
+            <td *ngIf='false'>{{ functionalObjective.employeeScore }}</td>
             <td>{{ functionalObjective.managerScore }}</td>
           </tr>
         </tbody>

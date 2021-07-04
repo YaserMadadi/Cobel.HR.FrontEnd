@@ -39,7 +39,7 @@
           <tr class='header-row'>
             <th class='row-number'>Row</th>
             <th> Behavioral KPI</th>
-            <th>Employee Score</th>
+            <th *ngIf='false'>Employee Score</th>
             <th>Manager Score</th>
           </tr>
         </thead>
@@ -52,7 +52,7 @@
             <td>
               {{ behavioralKPI.descriptor }}
             </td>
-            <td>{{ behavioralKPI.employeeScore }}</td>
+            <td *ngIf='false'>{{ behavioralKPI.employeeScore }}</td>
             <td>{{ behavioralKPI.managerScore }}</td>
           </tr>
         </tbody>

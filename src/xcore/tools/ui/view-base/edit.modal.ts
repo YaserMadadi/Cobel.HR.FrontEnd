@@ -90,6 +90,10 @@ export class EditModal<T extends BusinessObject> implements IEditModal<T>{
 
     }
 
+    public SetDefault() {
+
+    }
+
     public Lock() {
         this.IsLocked = true;
     }
@@ -105,7 +109,7 @@ export class EditModal<T extends BusinessObject> implements IEditModal<T>{
 
     // @HostListener('mousewheel', ['$event']) onMouseWheelChrome(event: any) {
     //     console.log('chrome');
-        
+
     //     event.preventDefault();
     //     event.target.blur();
     //     this.disableScroll(event);

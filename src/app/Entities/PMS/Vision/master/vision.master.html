@@ -26,21 +26,21 @@
                 </div>
 				<div class='form-group row'>
                     <label class='col-sm-4 titleControl'>Employee Approvement Status : 
-                        <guide (onClick)='onGuid("EmployeeApprovementStatus")'></guide>
+                        <guide (onClick)='onGuid("isApprovedByEmployee")'></guide>
                     </label>
-                    <label class='col-sm-8'>{{ currentInstance.employeeApprovementStatus }}</label>
+                    <label class='col-sm-8'>{{ currentInstance.isApprovedByEmployee }}</label>
                 </div>
 				<div class='form-group row'>
                     <label class='col-sm-4 titleControl'>Direct Manager Approvement Status : 
-                        <guide (onClick)='onGuid("DirectManagerApprovementStatus")'></guide>
+                        <guide (onClick)='onGuid("isApprovedByDirectManager")'></guide>
                     </label>
-                    <label class='col-sm-8'>{{ currentInstance.directManagerApprovementStatus }}</label>
+                    <label class='col-sm-8'>{{ currentInstance.isApprovedByDirectManager }}</label>
                 </div>
 				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>B U Head Approvement Status : 
-                        <guide (onClick)='onGuid("BUHeadApprovementStatus")'></guide>
+                    <label class='col-sm-4 titleControl'>BuHead Approvement Status : 
+                        <guide (onClick)='onGuid("isApprovedByBuHead")'></guide>
                     </label>
-                    <label class='col-sm-8'>{{ currentInstance.buheadApprovementStatus }}</label>
+                    <label class='col-sm-8'>{{ currentInstance.isApprovedByBuHead }}</label>
                 </div>
             </div>
             <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>

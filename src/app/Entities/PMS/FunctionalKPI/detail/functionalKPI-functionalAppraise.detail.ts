@@ -69,6 +69,7 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
 
   public onAdd(editUI: FunctionalAppraiseEditUI) {
     editUI.FunctionalKPI = this.functionalKPI;
+    editUI.SetDefault();
     editUI.ShowDialog(new FunctionalAppraise());
   }
 
