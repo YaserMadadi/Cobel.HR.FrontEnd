@@ -72,8 +72,8 @@ export class BehavioralObjectiveEditUI extends EditModal<BehavioralObjective> im
   Init(behavioralObjective: BehavioralObjective = new BehavioralObjective()) {
     if (behavioralObjective.isNew)
       this.behavioralObjectiveEditUI.reset();
-      this.InitBehavioralObjective(behavioralObjective);
-      this.loadLists();
+    this.InitBehavioralObjective(behavioralObjective);
+    this.loadLists();
   }
 
   private loadLists() {
@@ -92,8 +92,8 @@ export class BehavioralObjectiveEditUI extends EditModal<BehavioralObjective> im
       behavioralObjective.targetSetting = this.targetSettingComponent.instance;
       behavioralObjective.competencyItem = this.competencyItemComponent.instance;
       behavioralObjective.expectedLevel = this.expectedLevelComponent.instance;
-      this.currentInstance = behavioralObjective;
     }
+    this.currentInstance = behavioralObjective;
   }
 
   updateText() {

@@ -28,6 +28,7 @@
         <th title='Functional Score'>Functional Score</th>
         <th title='Behavioral Score'>Behavioral Score</th>
         <th title='Total Score'>Total Score</th>
+        <th title='Cell'>Cell</th>
       </tr>
       <tr name='secondRow'>
         <th class='row-number'></th>
@@ -88,6 +89,7 @@
 										 type='number'
 										 (keyup)='doFilter($event)' />
         </th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -99,6 +101,7 @@
 				<td>{{ p.functionalScore | number }}</td>
 				<td>{{ p.behavioralScore | number }}</td>
 				<td>{{ p.totalScore | number }}</td>
+				<td>{{ p.scoreCell?.descriptor | number }}</td>
       </tr>
     </tbody>
   </table>

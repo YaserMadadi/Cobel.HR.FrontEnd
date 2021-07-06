@@ -13,6 +13,7 @@ import { FunctionalKPIDeleteUI } from '../../FunctionalKPI/delete/functionalKPI.
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageType } from '../../../../../xcore/tools/Enum';
 import { MessageController } from '../../../../../xcore/tools/controller.message';
+import { TargetSetting } from '../../TargetSetting/targetSetting';
 
 
 
@@ -68,32 +69,42 @@ export class FunctionalObjective_FunctionalKPI_DetailUI extends DetailView<Funct
     masterUI.ShowDialog(this.currentFunctionalKPI);
   }
 
-  public onAdd(editUI: FunctionalKPIEditUI) {
-    editUI.FunctionalObjective = this.functionalObjective;
-    if (AuthService.currentPositionList.filter(item => item.childCount > 0).length > 0)
-      editUI.ShowDialog(new FunctionalKPI());
-    else
+  private async loadTargetSetting(): Promise<Boolean> {
+    let targetSetting = await this.functionalObjectiveService.TargetSettingService.RetrieveById(this.functionalObjective.targetSetting.id);
+    if (targetSetting.employee.id == AuthService.currentEmployee.id) {
       MessageController.ShowMessage(MessageType.AddPermissionDenied);
-
+      return false;
+    }
+    return true;
   }
 
-  public onEdit(editUI: FunctionalKPIEditUI) {
-    if (FunctionalKPI.NotConfirm(this.currentFunctionalKPI))
+  public async onAdd(editUI: FunctionalKPIEditUI) {
+    let result = await this.loadTargetSetting();
+    if (!result)
       return;
-    if (AuthService.currentPositionList.filter(item => item.childCount > 0).length > 0)
-      editUI.ShowDialog(this.currentFunctionalKPI);
-    else
-      MessageController.ShowMessage(MessageType.EditPermissionDenied);
-
+    editUI.FunctionalObjective = this.functionalObjective;
+    editUI.ShowDialog(new FunctionalKPI());
   }
 
-  public onDelete(deleteUI: FunctionalKPIDeleteUI) {
+  public async onEdit(editUI: FunctionalKPIEditUI) {
+    let result = await this.loadTargetSetting();
+    if (!result)
+      return;
+
     if (FunctionalKPI.NotConfirm(this.currentFunctionalKPI))
       return;
-    if (AuthService.currentPositionList.filter(item => item.childCount > 0).length > 0)
-      deleteUI.ShowDialog(this.currentFunctionalKPI);
-    else
-      MessageController.ShowMessage(MessageType.DeletePermissionDenied);
+
+    //editUI.FunctionalObjective = this.functionalObjective;
+    editUI.ShowDialog(this.currentFunctionalKPI);
+  }
+
+  public async onDelete(deleteUI: FunctionalKPIDeleteUI) {
+    let result = await this.loadTargetSetting();
+    if (!result)
+      return;
+    if (FunctionalKPI.NotConfirm(this.currentFunctionalKPI))
+      return;
+    deleteUI.ShowDialog(this.currentFunctionalKPI);
   }
 
   public onEditModal_Closed(functionalKPI: FunctionalKPI) {

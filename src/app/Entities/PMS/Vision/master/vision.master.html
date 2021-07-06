@@ -1,67 +1,61 @@
-﻿<XDialog Header='Vision Management form'
-    [IsShown]='IsShown' 
-    (OnClosed)='onClose()'
-    [ModalType]='2'>
+﻿<XDialog Header='Vision Management form' [IsShown]='IsShown' (OnClosed)='onClose()' [ModalType]='2'>
     <div class='master-content'>
         <fieldset class='border rounded'>
             <legend>Vision : </legend>
             <div>
                 <div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Employee : 
+                    <label class='col-sm-4 titleControl'>Employee :
                         <guide (onClick)='onGuid("Employee_Id")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.employee?.descriptor }}</label>
                 </div>
-				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Title : 
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title :
                         <guide (onClick)='onGuid("Title")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.title }}</label>
                 </div>
-				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Date : 
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Date :
                         <guide (onClick)='onGuid("Date")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.date | date:'fullDate' }}</label>
                 </div>
-				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Employee Approvement Status : 
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Employee Approvement Status :
                         <guide (onClick)='onGuid("isApprovedByEmployee")'></guide>
                     </label>
-                    <label class='col-sm-8'>{{ currentInstance.isApprovedByEmployee }}</label>
+                    <label class='col-sm-8'>{{ (currentInstance.isApprovedByEmployee?"Approved":"Not
+                        Approved")}}</label>
                 </div>
-				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Direct Manager Approvement Status : 
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Direct Manager Approvement Status :
                         <guide (onClick)='onGuid("isApprovedByDirectManager")'></guide>
                     </label>
-                    <label class='col-sm-8'>{{ currentInstance.isApprovedByDirectManager }}</label>
+                    <label class='col-sm-8'>{{ (currentInstance.isApprovedByDirectManager?"Approved":"Not Approved")
+                        }}</label>
                 </div>
-				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>BuHead Approvement Status : 
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>BuHead Approvement Status :
                         <guide (onClick)='onGuid("isApprovedByBuHead")'></guide>
                     </label>
-                    <label class='col-sm-8'>{{ currentInstance.isApprovedByBuHead }}</label>
+                    <label class='col-sm-8'>{{ (currentInstance.isApprovedByBuHead?"Approved":"Not Approved") }}</label>
                 </div>
             </div>
             <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
         </fieldset>
-        <hr/>
+        <hr />
         <tabset #tabset>
             <tab heading='Vision Comment' *ngIf='false'>
-                <vision-visionComment-detail 
-                    #pmsVisionVisionCommentDetail
-                    [Vision]='currentInstance'>
+                <vision-visionComment-detail #pmsVisionVisionCommentDetail [Vision]='currentInstance'>
                 </vision-visionComment-detail>
             </tab>
-			<tab heading='Vision Approved' *ngIf='false'>
-                <vision-visionApproved-detail 
-                    #pmsVisionVisionApprovedDetail
-                    [Vision]='currentInstance'>
+            <tab heading='Vision Approved' *ngIf='false'>
+                <vision-visionApproved-detail #pmsVisionVisionApprovedDetail [Vision]='currentInstance'>
                 </vision-visionApproved-detail>
             </tab>
-			<tab heading='Individual Development Plan'>
-                <vision-individualDevelopmentPlan-detail 
-                    #pmsVisionIndividualDevelopmentPlanDetail
+            <tab heading='Individual Development Plan'>
+                <vision-individualDevelopmentPlan-detail #pmsVisionIndividualDevelopmentPlanDetail
                     [Vision]='currentInstance'>
                 </vision-individualDevelopmentPlan-detail>
             </tab>

@@ -13,7 +13,6 @@ import { QualitativeObjectiveDeleteUI } from '../../QualitativeObjective/delete/
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController } from '../../../../../xcore/tools/controller.message';
 import { MessageType } from '../../../../../xcore/tools/Enum';
-import { BehavioralObjective } from '../../BehavioralObjective/behavioralObjective';
 
 
 
@@ -69,27 +68,38 @@ export class TargetSetting_QualitativeObjective_DetailUI extends DetailView<Targ
     masterUI.ShowDialog(this.currentQualitativeObjective);
   }
 
-  public onAdd(editUI: QualitativeObjectiveEditUI) {
-    if (AuthService.currentPositionList.filter(item => item.childCount > 0).length > 0) {
-      editUI.TargetSetting = this.targetSetting;
-      editUI.ShowDialog(new QualitativeObjective());
-    }
-    else
+  private async loadTargetSetting(): Promise<Boolean> {
+    let targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
+    if (targetSetting.employee.id == AuthService.currentEmployee.id) {
       MessageController.ShowMessage(MessageType.AddPermissionDenied);
+      return false;
+    }
+    return true;
   }
 
-  public onEdit(editUI: QualitativeObjectiveEditUI) {
+  public async onAdd(editUI: QualitativeObjectiveEditUI) {
+    let result = await this.loadTargetSetting();
+    if (!result)
+      return;
+    editUI.TargetSetting = this.targetSetting;
+    editUI.ShowDialog(new QualitativeObjective());
+  }
+
+  public async onEdit(editUI: QualitativeObjectiveEditUI) {
+    let result = await this.loadTargetSetting();
+    if (!result)
+      return;
+
     if (QualitativeObjective.NotConfirm(this.currentQualitativeObjective))
       return;
-    if (AuthService.currentPositionList.filter(item => item.childCount > 0).length > 0) {
-      editUI.TargetSetting = this.targetSetting;
-      editUI.ShowDialog(this.currentQualitativeObjective);
-    }
-    else
-      MessageController.ShowMessage(MessageType.AddPermissionDenied);
+    editUI.TargetSetting = this.targetSetting;
+    editUI.ShowDialog(this.currentQualitativeObjective);
   }
 
-  public onDelete(deleteUI: QualitativeObjectiveDeleteUI) {
+  public async onDelete(deleteUI: QualitativeObjectiveDeleteUI) {
+    let result = await this.loadTargetSetting();
+    if (!result)
+      return;
     if (QualitativeObjective.NotConfirm(this.currentQualitativeObjective))
       return;
     deleteUI.ShowDialog(this.currentQualitativeObjective);

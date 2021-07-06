@@ -34,8 +34,6 @@ export class FunctionalObjectiveEditUI extends EditModal<FunctionalObjective> im
 
   @Input()
   public set TargetSetting(value: TargetSetting) {
-    console.log('T : ', value);
-
     this.currentInstance.targetSetting = this.targetSettingComponent.instance = value;
   }
 
@@ -58,7 +56,6 @@ export class FunctionalObjectiveEditUI extends EditModal<FunctionalObjective> im
   private functionalObjectiveEditUI: NgForm;
 
   Init(functionalObjective: FunctionalObjective = new FunctionalObjective()) {
-    console.log('init t : ',this.TargetSetting);
     this.loadLists();
     this.InitFunctionalObjective(functionalObjective);
   }
@@ -66,15 +63,12 @@ export class FunctionalObjectiveEditUI extends EditModal<FunctionalObjective> im
   private loadLists() {
     this.targetSettingServiceExtended.collectionOfParentFunctionalObjective(this.currentInstance.targetSetting)
       .then(list => {
-        console.log('List : ', list);
         this.parentalFunctionalObjectiveComponent.list = list;
       });
 
   }
 
   InitFunctionalObjective(functionalObjective: FunctionalObjective) {
-    console.log('CCI : ', functionalObjective);
-
     if (!functionalObjective.isNew) {
       // Fixed Properties : those you want to not Changable.
      // this.targetSettingComponent.instance = functionalObjective.targetSetting;
@@ -83,7 +77,6 @@ export class FunctionalObjectiveEditUI extends EditModal<FunctionalObjective> im
       //functionalObjective.targetSetting = this.targetSettingComponent.instance;
     }
     this.currentInstance = functionalObjective;
-    console.log('cI : ', this.currentInstance);
   }
 
   ResetForm() {

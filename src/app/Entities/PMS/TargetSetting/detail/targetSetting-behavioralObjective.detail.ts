@@ -60,7 +60,7 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
     this.currentBehavioralObjective = this.BehavioralObjectiveList[i];
     if (BehavioralObjective.NotConfirm(this.currentBehavioralObjective))
       this.currentBehavioralObjective = new BehavioralObjective();
-  }  
+  }
 
   public onDblClicked(masterUI: BehavioralObjectiveMasterUI) {
     if (BehavioralObjective.NotConfirm(this.currentBehavioralObjective))
@@ -68,36 +68,40 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
     masterUI.ShowDialog(this.currentBehavioralObjective);
   }
 
-  public onAdd(editUI: BehavioralObjectiveEditUI) {
-    editUI.TargetSetting = this.targetSetting;
-    console.log(editUI.TargetSetting);
-    if (AuthService.currentPositionList.filter(item => item.childCount > 0).length > 0){
-      editUI.TargetSetting = this.targetSetting;
-      editUI.ShowDialog(new BehavioralObjective());
-    }
-    else
+  private async loadTargetSetting(): Promise<Boolean> {
+    let targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
+    if (targetSetting.employee.id == AuthService.currentEmployee.id) {
       MessageController.ShowMessage(MessageType.AddPermissionDenied);
-  }
-
-  public onEdit(editUI: BehavioralObjectiveEditUI) {
-    if (BehavioralObjective.NotConfirm(this.currentBehavioralObjective))
-      return;
-    if (AuthService.currentPositionList.filter(item => item.childCount > 0).length > 0){
-      editUI.TargetSetting = this.targetSetting;
-      editUI.ShowDialog(this.currentBehavioralObjective);
+      return false;
     }
-    else
-      MessageController.ShowMessage(MessageType.EditPermissionDenied);
-
+    return true;
   }
 
-  public onDelete(deleteUI: BehavioralObjectiveDeleteUI) {
+  public async onAdd(editUI: BehavioralObjectiveEditUI) {
+    let result = await this.loadTargetSetting();
+    if (!result)
+      return;
+    editUI.TargetSetting = this.targetSetting;
+    editUI.ShowDialog(new BehavioralObjective());
+  }
+
+  public async onEdit(editUI: BehavioralObjectiveEditUI) {
+    let result = await this.loadTargetSetting();
+    if (!result)
+      return;
     if (BehavioralObjective.NotConfirm(this.currentBehavioralObjective))
       return;
-    if (AuthService.currentPositionList.filter(item => item.childCount > 0).length > 0)
-      deleteUI.ShowDialog(this.currentBehavioralObjective);
-    else
-      MessageController.ShowMessage(MessageType.DeletePermissionDenied);
+    editUI.TargetSetting = this.targetSetting;
+    editUI.ShowDialog(this.currentBehavioralObjective);
+  }
+
+  public async onDelete(deleteUI: BehavioralObjectiveDeleteUI) {
+    let result = await this.loadTargetSetting();
+    if (!result)
+      return;
+    if (BehavioralObjective.NotConfirm(this.currentBehavioralObjective))
+      return;
+    deleteUI.ShowDialog(this.currentBehavioralObjective);
   }
 
   public onEditModal_Closed(behavioralObjective: BehavioralObjective) {

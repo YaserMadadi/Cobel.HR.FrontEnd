@@ -15,6 +15,7 @@ import { OperationalAppraiseService } from '../../OperationalAppraise/operationa
 import { NonOperationalAppraiseService } from '../../NonOperationalAppraise/nonOperationalAppraise.service';
 import { QualitativeObjectiveService } from '../../QualitativeObjective/qualitativeObjective.service';
 import { Position } from '../../../HR/Position/position';
+import { ConfigTargetSetting } from '../../ConfigTargetSetting/configTargetSetting';
 
 
 
@@ -46,7 +47,10 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
     this.targetSettingService.PositionService.RetrieveById(this.currentInstance.position.id)
       .then(position => {
         this.position = position;
-        if (this.position.positionCategory.id == 2) { // PositionCategory.Id = 2 : NonOperation
+        console.log('Position : ', position);
+        if (this.position == null)
+          return;
+        if (this.position?.positionCategory.id == 2) { // PositionCategory.Id = 2 : NonOperation
           this.targetSettingService
             .PositionService
             .LevelService
@@ -59,14 +63,38 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
               this.behavioralHeading = `Behavioral Objective ( ${objectiveWeightList[0].behavioralWeight}% )`;
             });
         } else { // PositionCategory.Id = 1 : Operational
-            this.behavioralHeading = 'Behavioral Objective';
-            this.functionalHeading = 'Functional Objective';
+          this.targetSettingService
+            .PositionService
+            .ServiceCollection
+            .CollectionOfConfigTargetSetting(this.position)
+            .then(configTargetSettingList => {
+
+              if (configTargetSettingList.length > 0) {
+                this.configWeight = configTargetSettingList[0];
+              } else {
+                this.configWeight = new ConfigTargetSetting();
+                this.configWeight.quantitativeWeight = 20;
+                this.configWeight.qualitativeWeight = 80;
+                this.configWeight.qualitativeBehavioralWeight = 20;
+                this.configWeight.qualitativeNonBehavioralWeight = 80;
+              }
+              console.log('Config : ', this.configWeight);
+              this.quantitiaveHeading = `Quantitiative Objective ( ${this.configWeight.quantitativeWeight}% )`;
+              this.behavioralHeading = `Behavioral Objective ( ${this.configWeight.qualitativeBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
+              this.qualitativeHeading = `Qualitative Objective ( ${this.configWeight.qualitativeNonBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
+            });
         }
       });
   }
 
+  configWeight: ConfigTargetSetting = new ConfigTargetSetting(); 
+
   functionalHeading: string = 'Functional Objective';
 
   behavioralHeading: string = 'Behavioral Objective';
+
+  quantitiaveHeading: string = 'Quantitative Objective';
+
+  qualitativeHeading: string = 'Qualitative Objective';
 
 }

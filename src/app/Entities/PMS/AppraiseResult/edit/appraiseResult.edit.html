@@ -91,10 +91,10 @@
             class='form-control'
             [ngClass]="{ 'error' : !functionalScore.valid && functionalScore.touched }" 
             [value]='currentInstance.functionalScore' 
-            [min]='-2147483648' [max]='2147483647' 
+            [min]='0' [max]='180' 
             [(ngModel)]='currentInstance.functionalScore'
-            [format]="'n0'" 
-            [decimals]='0'
+            [format]="'n2'" 
+            [decimals]='2'
             [spinners]='false'
             [disabled]='IsLocked'
              required ></kendo-numerictextbox>
@@ -112,10 +112,10 @@
             class='form-control'
             [ngClass]="{ 'error' : !behavioralScore.valid && behavioralScore.touched }" 
             [value]='currentInstance.behavioralScore' 
-            [min]='-2147483648' [max]='2147483647' 
+            [min]='0' [max]='200' 
             [(ngModel)]='currentInstance.behavioralScore'
-            [format]="'n0'" 
-            [decimals]='0'
+            [format]="'n2'" 
+            [decimals]='2'
             [spinners]='false'
             [disabled]='IsLocked'
              required ></kendo-numerictextbox>
@@ -133,10 +133,10 @@
             class='form-control'
             [ngClass]="{ 'error' : !totalScore.valid && totalScore.touched }" 
             [value]='currentInstance.totalScore' 
-            [min]='-2147483648' [max]='2147483647' 
+            [min]='0' [max]='200' 
             [(ngModel)]='currentInstance.totalScore'
-            [format]="'n0'" 
-            [decimals]='0'
+            [format]="'n2'" 
+            [decimals]='2'
             [spinners]='false'
             [disabled]='IsLocked'
              required ></kendo-numerictextbox>

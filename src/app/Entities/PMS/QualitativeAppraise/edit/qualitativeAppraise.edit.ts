@@ -17,6 +17,7 @@ import { AppraiseTypeEditUI } from '../../../Base.PMS/AppraiseType/edit/appraise
 import { AppraiseTime } from '../../../Base.PMS/AppraiseTime/appraiseTime';
 import { AppraiseTimeEditUI } from '../../../Base.PMS/AppraiseTime/edit/appraiseTime.edit';
 import { AuthService } from '../../../../../xcore/security/auth_service';
+import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
 
 
 
@@ -111,6 +112,18 @@ export class QualitativeAppraiseEditUI extends EditModal<QualitativeAppraise> im
     }
     this.currentInstance = qualitativeAppraise;
     this.currentInstance.appraiser = AuthService.currentEmployee;
+  }
+
+  async onSave(qualitativeAppraise: QualitativeAppraise, editUI: NgForm, isContinue: boolean = false) {
+    super.onSave(qualitativeAppraise, editUI, isContinue);
+    if (qualitativeAppraise.score < 80)
+      MessageController.ShowMessage(`Your entered Scored "${qualitativeAppraise.score}" seemengly is not Correct! You can Edit your record.`, toastType.warning);
+  }
+
+  SetDefault(){
+    if (AppraiseTime.NotConfirm(this.currentInstance.appraiseTime))
+      return;
+    this.currentInstance.appraiseTime.id = 1;
   }
 
   ResetForm() {

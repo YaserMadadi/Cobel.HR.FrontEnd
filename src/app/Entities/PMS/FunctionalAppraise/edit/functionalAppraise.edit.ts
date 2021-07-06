@@ -117,7 +117,8 @@ export class FunctionalAppraiseEditUI extends EditModal<FunctionalAppraise> impl
 
   async onSave(functionalAppraise: FunctionalAppraise, editUI: NgForm, isContinue: boolean = false) {
     super.onSave(functionalAppraise, editUI, isContinue);
-    MessageController.ShowMessage(`Your entered Scored "${functionalAppraise.score}" seemengly is not Correct! You can Edit your record.`, toastType.warning);
+    if (functionalAppraise.score < 80)
+      MessageController.ShowMessage(`Your entered Scored "${functionalAppraise.score}" seemengly is not Correct! You can Edit your record.`, toastType.warning);
   }
 
   ResetForm() {

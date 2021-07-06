@@ -1,7 +1,4 @@
-﻿<XDialog Header='Performance Management Form'
-    [IsShown]='IsShown'
-    (OnClosed)='onClose()'
-    [ModalType]='2'>
+﻿<XDialog Header='Performance Management Form' [IsShown]='IsShown' (OnClosed)='onClose()' [ModalType]='2'>
     <div class='master-content'>
         <fieldset class='border rounded'>
             <legend>Performance Management : </legend>
@@ -24,56 +21,49 @@
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.year?.descriptor }}</label>
                 </div>
-                <div class='form-group row'
-                    *ngIf='false'>
+                <div class='form-group row' *ngIf='false'>
                     <label class='col-sm-4 titleControl'>Date :
                         <guide (onClick)='onGuid("Date")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.date | date:'fullDate' }}</label>
                 </div>
-                <div class='form-group row'
-                    *ngIf='false'>
+                <div class='form-group row' *ngIf='false'>
                     <label class='col-sm-4 titleControl'>Comment :
                         <guide (onClick)='onGuid("Comment")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.comment }}</label>
                 </div>
-                <div class='form-group row'
-                    *ngIf='false'>
+                <div class='form-group row' *ngIf='false'>
                     <label class='col-sm-4 titleControl'>Is Locked :
                         <guide (onClick)='onGuid("IsLocked")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.isLocked }}</label>
                 </div>
             </div>
-            <button class='xbtn btn-refresh float-right'
-                (click)='onReload()'>reload...</button>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
         </fieldset>
         <hr />
         <tabset #tabset>
-            <tab [heading]='functionalHeading'
-                *ngIf='position.positionCategory.id == 2'>
+            <tab [heading]='functionalHeading' *ngIf='position.positionCategory.id == 2'>
                 <targetSetting-functionalObjective-detail #pmsTargetSettingFunctionalObjectiveDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-functionalObjective-detail>
+            </tab>
+            <tab [heading]='quantitiaveHeading' *ngIf='position.positionCategory.id == 1 && configWeight?.quantitativeWeight > 0'>
+                <targetSetting-quantitativeAppraise-detail #pmsTargetSettingQuantitativeAppraiseDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-quantitativeAppraise-detail>
+            </tab>
+            <tab [heading]='qualitativeHeading' *ngIf='position.positionCategory.id == 1 || configWeight.qualitativeNonBehavioralWeight > 0'>
+                <targetSetting-qualitativeObjective-detail #pmsTargetSettingQualitativeObjectiveDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-qualitativeObjective-detail>
             </tab>
             <tab [heading]='behavioralHeading'
                 *ngIf='position.positionCategory.id == 2 || position.positionCategory.id == 1'>
                 <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-behavioralObjective-detail>
-            </tab>
-            <tab heading='Qualitative Objective'
-                *ngIf='position.positionCategory.id == 1'>
-                <targetSetting-qualitativeObjective-detail #pmsTargetSettingQualitativeObjectiveDetail
-                    [TargetSetting]='currentInstance'>
-                </targetSetting-qualitativeObjective-detail>
-            </tab>
-            <tab heading='Quantitative Appraise'
-                *ngIf='position.positionCategory.id == 1'>
-                <targetSetting-quantitativeAppraise-detail #pmsTargetSettingQuantitativeAppraiseDetail
-                    [TargetSetting]='currentInstance'>
-                </targetSetting-quantitativeAppraise-detail>
             </tab>
             <tab heading='Appraisal Result'
                 *ngIf='position.positionCategory.id == 2 || position.positionCategory.id == 1'>
@@ -94,16 +84,13 @@
                     [TargetSetting]='currentInstance'>
                 </targetSetting-operationalAppraise-detail>
             </tab> -->
-            <tab heading='Appraisal Results by Director'
-                *ngIf='position.positionCategory.id == 2'>
+            <tab heading='Appraisal Results by Director' *ngIf='position.positionCategory.id == 2'>
                 <targetSetting-finalAppraise-detail #pmsTargetSettingFinalAppraiseDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-finalAppraise-detail>
             </tab>
-            <tab heading='IDP Form'
-                *ngIf='position.positionCategory.id == 2'>
-                <targetSetting-vision-detail #pmsTargetSettingVisionDetail
-                    [TargetSetting]='currentInstance'>
+            <tab heading='IDP Form' *ngIf='position.positionCategory.id == 2'>
+                <targetSetting-vision-detail #pmsTargetSettingVisionDetail [TargetSetting]='currentInstance'>
                 </targetSetting-vision-detail>
             </tab>
             <!--

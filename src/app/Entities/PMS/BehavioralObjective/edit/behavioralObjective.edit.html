@@ -108,7 +108,7 @@
             class='form-control'
             [ngClass]="{ 'error' : !weight.valid && weight.touched }" 
             [value]='currentInstance.weight' 
-            [min]='-2147483648' [max]='2147483647' 
+            [min]='0' [max]='100' 
             [(ngModel)]='currentInstance.weight'
             [format]="'n2'" 
             [decimals]='2'

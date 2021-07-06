@@ -17,7 +17,7 @@ import { AppraiseTimeEditUI } from '../../../Base.PMS/AppraiseTime/edit/appraise
 import { Employee } from '../../../HR/Employee/employee';
 import { EmployeeEditUI } from '../../../HR/Employee/edit/employee.edit';
 import { AuthService } from '../../../../../xcore/security/auth_service';
-import { $ } from 'protractor';
+import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
 
 
 
@@ -116,6 +116,12 @@ export class BehavioralAppraiseEditUI extends EditModal<BehavioralAppraise> impl
     }
     this.currentInstance = behavioralAppraise;
     this.currentInstance.date = new Date();
+  }
+
+  async onSave(behavioralAppraise: BehavioralAppraise, editUI: NgForm, isContinue: boolean = false) {
+    super.onSave(behavioralAppraise, editUI, isContinue);
+    if (behavioralAppraise.score < 80)
+      MessageController.ShowMessage(`Your entered Scored "${behavioralAppraise.score}" seemengly is not Correct! You can Edit your record.`, toastType.warning);
   }
 
   ResetForm() {

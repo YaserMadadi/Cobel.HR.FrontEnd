@@ -45,8 +45,8 @@
             [value]='currentInstance.score' 
             [min]='-2147483648' [max]='2147483647' 
             [(ngModel)]='currentInstance.score'
-            [format]="'n0'" 
-            [decimals]='0'
+            [format]="'n2'" 
+            [decimals]='2'
             [spinners]='false'
             [disabled]='IsLocked'
              required ></kendo-numerictextbox>
