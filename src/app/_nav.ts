@@ -268,7 +268,7 @@ export class MenuItem {
         children:[
           {
             name: 'Appraisal',
-            url: '/PMS/TargetSetting',  
+            url: '/PMS/TargetSetting',   
             icon: 'icon-speedometer',
           },
           // {
