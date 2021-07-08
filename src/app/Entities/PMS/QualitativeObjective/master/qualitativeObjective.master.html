@@ -31,10 +31,22 @@
                     <label class='col-sm-8'>{{ currentInstance.totalKPIWeight | number }}</label>
                 </div>
 				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Final Score : 
-                        <guide (onClick)='onGuid("FinalScore")'></guide>
+                    <label class='col-sm-4 titleControl'>Employee Score : 
+                        <guide (onClick)='onGuid("EmployeeScore")'></guide>
                     </label>
-                    <label class='col-sm-8'>{{ currentInstance.finalScore | number }}</label>
+                    <label class='col-sm-8'>{{ currentInstance.employeeScore | number }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Manager Score : 
+                        <guide (onClick)='onGuid("ManagerScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.managerScore | number }}</label>
+                </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Fixed : 
+                        <guide (onClick)='onGuid("IsFixed")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isFixed }}</label>
                 </div>
             </div>
             <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>

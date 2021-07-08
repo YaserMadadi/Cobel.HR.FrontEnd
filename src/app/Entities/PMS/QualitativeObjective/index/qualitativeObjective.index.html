@@ -28,7 +28,9 @@
         <th title='Title'>Title</th>
         <th title='Weight'>Weight</th>
         <th title='Total KPI Weight'>Total KPI Weight</th>
-        <th title='Final Score'>Final Score</th>
+        <th title='Employee Score'>Employee Score</th>
+        <th title='Manager Score'>Manager Score</th>
+        <th title='Is Fixed'>Is Fixed</th>
       </tr>
       <tr name='secondRow'>
         <th class='row-number'></th>
@@ -71,14 +73,24 @@
 										 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #finalScore='ngModel' id='finalScore' name='finalScore'
-										 title='Final Score'
+          <input class='form-control' #employeeScore='ngModel' id='employeeScore' name='employeeScore'
+										 title='Employee Score'
 										 autocomplete='off'
-										 placeholder='Final Score'
-										[(ngModel)]='filterInstance.finalScore'
+										 placeholder='employee Score'
+										[(ngModel)]='filterInstance.employeeScore'
 										 type='number'
 										 (keyup)='doFilter($event)' />
         </th>
+        <th>
+          <input class='form-control' #managerScore='ngModel' id='managerScore' name='managerScore'
+										 title='Manager Score'
+										 autocomplete='off'
+										 placeholder='manager Score'
+										[(ngModel)]='filterInstance.managerScore'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -88,7 +100,9 @@
 				<td>{{ p.title }}</td>
 				<td>{{ p.weight | number }}</td>
 				<td>{{ p.totalKPIWeight | number }}</td>
-				<td>{{ p.finalScore | number }}</td>
+				<td>{{ p.employeeScore | number }}</td>
+				<td>{{ p.managerScore | number }}</td>
+				<td>{{ p.isFixed }}</td>
       </tr>
     </tbody>
   </table>

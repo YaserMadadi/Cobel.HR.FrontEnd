@@ -88,21 +88,21 @@
             [disabled]='IsLocked'
              required ></kendo-numerictextbox>
       </div> -->
-			<!-- FinalScore -->
+			<!-- managerScore -->
       <!-- <div class='form-group'>
-        <guide (onClick)='onGuid("FinalScore")'></guide>
-        <label for='finalScore' class='col-form-label'>Final Score : </label>
-        <span class='help-block col-form-label' *ngIf='!finalScore.valid && finalScore.touched && !finalScore.disabled'>( Value is not Valid! )</span>
+        <guide (onClick)='onGuid("managerScore")'></guide>
+        <label for='managerScore' class='col-form-label'>manager Score : </label>
+        <span class='help-block col-form-label' *ngIf='!managerScore.valid && managerScore.touched && !managerScore.disabled'>( Value is not Valid! )</span>
         
-        <kendo-numerictextbox #finalScore='ngModel' 
-            name='finalScore' 
-            title='Final Score' 
-            placeholder='Final Score'
+        <kendo-numerictextbox #managerScore='ngModel' 
+            name='managerScore' 
+            title='manager Score' 
+            placeholder='manager Score'
             class='form-control'
-            [ngClass]="{ 'error' : !finalScore.valid && finalScore.touched }" 
-            [value]='currentInstance.finalScore' 
+            [ngClass]="{ 'error' : !managerScore.valid && managerScore.touched }" 
+            [value]='currentInstance.managerScore' 
             [min]='-2147483648' [max]='2147483647' 
-            [(ngModel)]='currentInstance.finalScore'
+            [(ngModel)]='currentInstance.managerScore'
             [format]="'n0'" 
             [decimals]='0'
             [spinners]='false'

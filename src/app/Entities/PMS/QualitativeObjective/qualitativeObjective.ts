@@ -42,7 +42,11 @@ export class QualitativeObjective extends BusinessObject implements OnInit {
 	
 	public totalKPIWeight: number = 0;
 	
-	public finalScore: number = 0;
+	public employeeScore: number = 0;
+	
+  public managerScore: number = 0;
+
+  public isFixed: boolean = false;
 
 	//#endregion
 
