@@ -69,7 +69,7 @@ export class FunctionalObjective_FunctionalKPI_DetailUI extends DetailView<Funct
     masterUI.ShowDialog(this.currentFunctionalKPI);
   }
 
-  private async loadTargetSetting(): Promise<Boolean> {
+  private async checkTargetSetting(): Promise<Boolean> {
     let targetSetting = await this.functionalObjectiveService.TargetSettingService.RetrieveById(this.functionalObjective.targetSetting.id);
     if (targetSetting.employee.id == AuthService.currentEmployee.id) {
       MessageController.ShowMessage(MessageType.AddPermissionDenied);
@@ -79,7 +79,7 @@ export class FunctionalObjective_FunctionalKPI_DetailUI extends DetailView<Funct
   }
 
   public async onAdd(editUI: FunctionalKPIEditUI) {
-    let result = await this.loadTargetSetting();
+    let result = await this.checkTargetSetting();
     if (!result)
       return;
     editUI.FunctionalObjective = this.functionalObjective;
@@ -87,7 +87,7 @@ export class FunctionalObjective_FunctionalKPI_DetailUI extends DetailView<Funct
   }
 
   public async onEdit(editUI: FunctionalKPIEditUI) {
-    let result = await this.loadTargetSetting();
+    let result = await this.checkTargetSetting();
     if (!result)
       return;
 
@@ -99,7 +99,7 @@ export class FunctionalObjective_FunctionalKPI_DetailUI extends DetailView<Funct
   }
 
   public async onDelete(deleteUI: FunctionalKPIDeleteUI) {
-    let result = await this.loadTargetSetting();
+    let result = await this.checkTargetSetting();
     if (!result)
       return;
     if (FunctionalKPI.NotConfirm(this.currentFunctionalKPI))

@@ -68,21 +68,28 @@ export class BehavioralObjective_BehavioralKPI_DetailUI extends DetailView<Behav
     masterUI.ShowDialog(this.currentBehavioralKPI);
   }
 
-  public onAdd(editUI: BehavioralKPIEditUI) {
-    editUI.BehavioralObjective = this.behavioralObjective;
-    if (AuthService.currentPositionList.filter(item => item.childCount > 0).length > 0)
-      editUI.ShowDialog(new BehavioralKPI());
-    else
+  private async checkTargetSetting(): Promise<Boolean> {
+    let targetSetting = await this.behavioralObjectiveService.TargetSettingService.RetrieveById(this.behavioralObjective.targetSetting.id);
+    if (targetSetting.employee.id == AuthService.currentEmployee.id) {
       MessageController.ShowMessage(MessageType.AddPermissionDenied);
+      return false;
+    }
+    return true;
+  }
+
+  public onAdd(editUI: BehavioralKPIEditUI) {
+    if (!this.checkTargetSetting())
+      return;
+    editUI.BehavioralObjective = this.behavioralObjective;
+    editUI.ShowDialog(new BehavioralKPI());
   }
 
   public onEdit(editUI: BehavioralKPIEditUI) {
+    if (!this.checkTargetSetting())
+      return;
     if (BehavioralKPI.NotConfirm(this.currentBehavioralKPI))
       return;
-    if (AuthService.currentPositionList.filter(item => item.childCount > 0).length > 0)
-      editUI.ShowDialog(this.currentBehavioralKPI);
-    else
-      MessageController.ShowMessage(MessageType.EditPermissionDenied);
+    editUI.ShowDialog(this.currentBehavioralKPI);
   }
 
   public onDelete(deleteUI: BehavioralKPIDeleteUI) {
