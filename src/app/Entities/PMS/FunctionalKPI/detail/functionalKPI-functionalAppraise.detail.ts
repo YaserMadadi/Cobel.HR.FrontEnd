@@ -12,6 +12,7 @@ import { FunctionalAppraiseEditUI } from '../../FunctionalAppraise/edit/function
 import { FunctionalAppraiseDeleteUI } from '../../FunctionalAppraise/delete/functionalAppraise.delete';
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
+import { PositionController } from '../../../../../xcore/tools/controller.positions';
 
 
 
@@ -20,7 +21,7 @@ import { MessageController, toastType } from '../../../../../xcore/tools/control
   templateUrl: './functionalKPI-functionalAppraise.detail.html',
   styleUrls: ['./functionalKPI-functionalAppraise.detail.css'],
   providers: [FunctionalKPIService]
-}) 
+})
 
 @Injectable()
 export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<FunctionalKPI> {
@@ -29,9 +30,9 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
     super(functionalKPIService);
   }
 
-  public FunctionalAppraiseList : FunctionalAppraise[] = [];
-  
-  public currentFunctionalAppraise : FunctionalAppraise = new FunctionalAppraise();
+  public FunctionalAppraiseList: FunctionalAppraise[] = [];
+
+  public currentFunctionalAppraise: FunctionalAppraise = new FunctionalAppraise();
 
   private functionalKPI: FunctionalKPI = new FunctionalKPI();
 
@@ -43,7 +44,7 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
 
   public get FunctionalKPI(): FunctionalKPI { return this.functionalKPI }
 
-  public onReload(){
+  public onReload() {
     if (FunctionalKPI.NotConfirm(this.functionalKPI))
       return;
     this.functionalKPIService
@@ -74,8 +75,10 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
   }
 
   public onEdit(editUI: FunctionalAppraiseEditUI) {
-    if(this.currentFunctionalAppraise.appraiser.id != AuthService.currentEmployee.id){
-      MessageController.ShowMessage('You are not allowed to edit this record of Appraisal!', toastType.error);
+    console.log('PositionList : ', AuthService.currentPositionList);
+    if (this.currentFunctionalAppraise.appraiser.id != AuthService.currentEmployee.id &&
+      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
+      MessageController.ShowMessage('You are not allowed to Edit this record of Appraisal!', toastType.error);
       return;
     }
     if (FunctionalAppraise.NotConfirm(this.currentFunctionalAppraise))
@@ -84,6 +87,11 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
   }
 
   public onDelete(deleteUI: FunctionalAppraiseDeleteUI) {
+    if (this.currentFunctionalAppraise.appraiser.id != AuthService.currentEmployee.id &&
+      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
+      MessageController.ShowMessage('You are not allowed to Delete this record of Appraisal!', toastType.error);
+      return;
+    }
     if (FunctionalAppraise.NotConfirm(this.currentFunctionalAppraise))
       return;
     deleteUI.ShowDialog(this.currentFunctionalAppraise);
@@ -93,7 +101,7 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
     this.onReload();
   }
 
-  public onDeleteModal_Closed(result:boolean) {
+  public onDeleteModal_Closed(result: boolean) {
     this.onReload();
   }
 }

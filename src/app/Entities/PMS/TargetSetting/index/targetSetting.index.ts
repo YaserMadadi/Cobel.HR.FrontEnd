@@ -40,6 +40,7 @@ import { NonOperationalAppraise } from '../../NonOperationalAppraise/nonOperatio
 import { QualitativeObjectiveEditUI } from '../../QualitativeObjective/edit/qualitativeObjective.edit';
 import { QualitativeObjective } from '../../QualitativeObjective/qualitativeObjective';
 import { EmployeeExtendedService } from '../../../../partials/HR/employee/employee.service.extended';
+import { PositionController } from '../../../../../xcore/tools/controller.positions';
 
 
 
@@ -75,7 +76,7 @@ export class TargetSettingIndexUI extends IndexView<TargetSetting> implements Af
       this.filterInstance.paginate.currentPage = pageNumber;
 
       // this section detect if current user is a HR position responsible for PMS -> Load All
-      if (AuthService.currentPositionList.filter(i => i.id == 2131 || i.parent.id == 2131).length > 0) { // Position_Id = 2131 : HRD Senior Specialist	
+      if (AuthService.currentPositionList.filter(i => i.id == PositionController.HR_PMS_Position_Id || i.parent.id == PositionController.HR_PMS_Position_Id).length > 0) { // Position_Id = 2131 : HRD Senior Specialist	
         this.targetSettingService.Seek(this.filterInstance)
           .then(list => this.list = list);
 

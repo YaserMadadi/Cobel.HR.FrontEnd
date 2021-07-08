@@ -41,13 +41,13 @@
       <button id='add-button' 
             type='submit'
             class='xbtn btn-add modal-footer-button' 
-            [disabled]='!promotionResultEditUI.valid || IsLocked' >Ok, Save it</button>
+            [disabled]='!promotionResultEditUI.valid || IsLocked' >Save & Close</button>
       <button id='add-continue-button'
             type='button' 
             class='xbtn btn-refresh modal-footer-button' 
             [disabled]='!promotionResultEditUI.valid || IsLocked' 
             [hidden]='IsEditMode' 
-            (click)='onSave(currentInstance, promotionResultEditUI, true)'>Save and Continue</button>
+            (click)='onSave(currentInstance, promotionResultEditUI, true)'>Save</button>
       <button id='cancle-button'
             class='xbtn btn-delete modal-footer-button' 
             [disabled]='IsLocked'

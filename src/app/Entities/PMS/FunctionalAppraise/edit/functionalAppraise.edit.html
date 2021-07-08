@@ -136,7 +136,7 @@
                     placeholder='... Comment' 
                     [(ngModel)]='currentInstance.comment' 
                     [disabled]='IsLocked'
-                    maxlength='800'  />
+                    maxlength='2000'  />
       </div>
 			
     </div>
@@ -144,13 +144,13 @@
       <button id='add-button' 
             type='submit'
             class='xbtn btn-add modal-footer-button' 
-            [disabled]='!functionalAppraiseEditUI.valid || IsLocked' >Ok, Save it</button>
+            [disabled]='!functionalAppraiseEditUI.valid || IsLocked' >Save & Close</button>
       <button id='add-continue-button'
             type='button' 
             class='xbtn btn-refresh modal-footer-button' 
             [disabled]='!functionalAppraiseEditUI.valid || IsLocked' 
             [hidden]='IsEditMode' 
-            (click)='onSave(currentInstance, functionalAppraiseEditUI, true)'>Save and Continue</button>
+            (click)='onSave(currentInstance, functionalAppraiseEditUI, true)'>Save</button>
       <button id='cancle-button'
             class='xbtn btn-delete modal-footer-button' 
             [disabled]='IsLocked'

@@ -96,13 +96,13 @@
       <button id='add-button'
               type='submit'
               class='xbtn btn-add modal-footer-button'
-              [disabled]='!behavioralKPIEditUI.valid || IsLocked'>Ok, Save it</button>
+              [disabled]='!behavioralKPIEditUI.valid || IsLocked'>Save & Close</button>
       <button id='add-continue-button'
               type='button'
               class='xbtn btn-refresh modal-footer-button'
               [disabled]='!behavioralKPIEditUI.valid || IsLocked'
               [hidden]='IsEditMode'
-              (click)='onSave(currentInstance, behavioralKPIEditUI, true)'>Save and Continue</button>
+              (click)='onSave(currentInstance, behavioralKPIEditUI, true)'>Save</button>
       <button id='cancle-button'
               class='xbtn btn-delete modal-footer-button'
               [disabled]='IsLocked'

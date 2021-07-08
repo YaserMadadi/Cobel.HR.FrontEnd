@@ -10,6 +10,9 @@ import { QualitativeAppraise } from '../../QualitativeAppraise/qualitativeApprai
 import { QualitativeAppraiseMasterUI } from '../../QualitativeAppraise/master/qualitativeAppraise.master';
 import { QualitativeAppraiseEditUI } from '../../QualitativeAppraise/edit/qualitativeAppraise.edit';
 import { QualitativeAppraiseDeleteUI } from '../../QualitativeAppraise/delete/qualitativeAppraise.delete';
+import { AuthService } from '../../../../../xcore/security/auth_service';
+import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
+import { PositionController } from '../../../../../xcore/tools/controller.positions';
 
 
 
@@ -73,12 +76,22 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
   }
 
   public onEdit(editUI: QualitativeAppraiseEditUI) {
+    if (this.currentQualitativeAppraise.appraiser.id != AuthService.currentEmployee.id &&
+      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
+      MessageController.ShowMessage('You are not allowed to Edit this record of Appraisal!', toastType.error);
+      return;
+    }
     if (QualitativeAppraise.NotConfirm(this.currentQualitativeAppraise))
       return;
     editUI.ShowDialog(this.currentQualitativeAppraise);
   }
 
   public onDelete(deleteUI: QualitativeAppraiseDeleteUI) {
+    if (this.currentQualitativeAppraise.appraiser.id != AuthService.currentEmployee.id &&
+      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
+      MessageController.ShowMessage('You are not allowed to Delete this record of Appraisal!', toastType.error);
+      return;
+    }
     if (QualitativeAppraise.NotConfirm(this.currentQualitativeAppraise))
       return;
     deleteUI.ShowDialog(this.currentQualitativeAppraise);

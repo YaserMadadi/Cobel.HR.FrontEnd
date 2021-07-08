@@ -11,6 +11,7 @@ import { BehavioralAppraiseEditUI } from '../../BehavioralAppraise/edit/behavior
 import { BehavioralAppraiseDeleteUI } from '../../BehavioralAppraise/delete/behavioralAppraise.delete';
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
+import { PositionController } from '../../../../../xcore/tools/controller.positions';
 
 @Component({
   selector: 'behavioralKPI-behavioralAppraise-detail',
@@ -72,8 +73,9 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
   }
 
   public onEdit(editUI: BehavioralAppraiseEditUI) {
-    if(this.currentBehavioralAppraise.appraiser.id != AuthService.currentEmployee.id){
-      MessageController.ShowMessage('You are not allowed to edit this record of Appraisal!', toastType.error);
+    if (this.currentBehavioralAppraise.appraiser.id != AuthService.currentEmployee.id &&
+      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
+      MessageController.ShowMessage('You are not allowed to Edit this record of Appraisal!', toastType.error);
       return;
     }
     if (BehavioralAppraise.NotConfirm(this.currentBehavioralAppraise))
@@ -82,6 +84,11 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
   }
 
   public onDelete(deleteUI: BehavioralAppraiseDeleteUI) {
+    if (this.currentBehavioralAppraise.appraiser.id != AuthService.currentEmployee.id &&
+      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
+      MessageController.ShowMessage('You are not allowed to Delete this record of Appraisal!', toastType.error);
+      return;
+    }
     if (BehavioralAppraise.NotConfirm(this.currentBehavioralAppraise))
       return;
     deleteUI.ShowDialog(this.currentBehavioralAppraise);

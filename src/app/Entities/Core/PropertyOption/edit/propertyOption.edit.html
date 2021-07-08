@@ -68,13 +68,13 @@
       <button id='add-button' 
             type='submit'
             class='xbtn btn-add modal-footer-button' 
-            [disabled]='!propertyOptionEditUI.valid || IsLocked' >Ok, Save it</button>
+            [disabled]='!propertyOptionEditUI.valid || IsLocked' >Save & Close</button>
       <button id='add-continue-button'
             type='button' 
             class='xbtn btn-refresh modal-footer-button' 
             [disabled]='!propertyOptionEditUI.valid || IsLocked' 
             [hidden]='IsEditMode' 
-            (click)='onSave(currentInstance, propertyOptionEditUI, true)'>Save and Continue</button>
+            (click)='onSave(currentInstance, propertyOptionEditUI, true)'>Save</button>
       <button id='cancle-button'
             class='xbtn btn-delete modal-footer-button' 
             [disabled]='IsLocked'

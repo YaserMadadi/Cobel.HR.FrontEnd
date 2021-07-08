@@ -43,30 +43,30 @@
             <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
         </fieldset>
         <hr />
-        <tabset #tabset>
-            <tab [heading]='functionalHeading' *ngIf='position.positionCategory.id == 2'>
+        <tabset #tabset >
+            <tab [heading]='this.functionalTabItem.headLine' *ngIf='this.functionalTabItem.isVisible'>
                 <targetSetting-functionalObjective-detail #pmsTargetSettingFunctionalObjectiveDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-functionalObjective-detail>
             </tab>
-            <tab [heading]='quantitiaveHeading' *ngIf='position.positionCategory.id == 1 && configWeight?.quantitativeWeight > 0'>
+            <tab [heading]='quantitativeTabItem.headLine' *ngIf='quantitativeTabItem.isVisible'>
                 <targetSetting-quantitativeAppraise-detail #pmsTargetSettingQuantitativeAppraiseDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-quantitativeAppraise-detail>
             </tab>
-            <tab [heading]='qualitativeHeading' *ngIf='position.positionCategory.id == 1 || configWeight.qualitativeNonBehavioralWeight > 0'>
+            <tab [heading]='qualitativeTabItem.headLine' *ngIf='qualitativeTabItem.isVisible'>
                 <targetSetting-qualitativeObjective-detail #pmsTargetSettingQualitativeObjectiveDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-qualitativeObjective-detail>
             </tab>
-            <tab [heading]='behavioralHeading'
-                *ngIf='position.positionCategory.id == 2 || position.positionCategory.id == 1'>
+            <tab [heading]='behavioralTabItem.headLine'
+                *ngIf='behavioralTabItem.isVisible'>
                 <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-behavioralObjective-detail>
             </tab>
-            <tab heading='Appraisal Result'
-                *ngIf='position.positionCategory.id == 2 || position.positionCategory.id == 1'>
+            <tab [heading]='appraiseResultTabItem.headLine'
+                *ngIf='appraiseResultTabItem.isVisible'>
                 <targetSetting-appraiseResult-detail #pmsTargetSettingAppraiseResultDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-appraiseResult-detail>
@@ -84,12 +84,12 @@
                     [TargetSetting]='currentInstance'>
                 </targetSetting-operationalAppraise-detail>
             </tab> -->
-            <tab heading='Appraisal Results by Director' *ngIf='position.positionCategory.id == 2'>
+            <tab [heading]='finalAppraiseTabItem.headLine' *ngIf='finalAppraiseTabItem.isVisible'>
                 <targetSetting-finalAppraise-detail #pmsTargetSettingFinalAppraiseDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-finalAppraise-detail>
             </tab>
-            <tab heading='IDP Form' *ngIf='position.positionCategory.id == 2'>
+            <tab [heading]='idpFormTabItem.headLine' *ngIf='idpFormTabItem.isVisible'>
                 <targetSetting-vision-detail #pmsTargetSettingVisionDetail [TargetSetting]='currentInstance'>
                 </targetSetting-vision-detail>
             </tab>

@@ -108,13 +108,13 @@
       <button id='add-button' 
             type='submit'
             class='xbtn btn-add modal-footer-button' 
-            [disabled]='!visionCommentEditUI.valid || IsLocked' >Ok, Save it</button>
+            [disabled]='!visionCommentEditUI.valid || IsLocked' >Save & Close</button>
       <button id='add-continue-button'
             type='button' 
             class='xbtn btn-refresh modal-footer-button' 
             [disabled]='!visionCommentEditUI.valid || IsLocked' 
             [hidden]='IsEditMode' 
-            (click)='onSave(currentInstance, visionCommentEditUI, true)'>Save and Continue</button>
+            (click)='onSave(currentInstance, visionCommentEditUI, true)'>Save</button>
       <button id='cancle-button'
             class='xbtn btn-delete modal-footer-button' 
             [disabled]='IsLocked'

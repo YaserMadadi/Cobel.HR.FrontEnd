@@ -132,13 +132,13 @@
       <button id='add-button' 
             type='submit'
             class='xbtn btn-add modal-footer-button' 
-            [disabled]='!workExperienceEditUI.valid || IsLocked' >Ok, Save it</button>
+            [disabled]='!workExperienceEditUI.valid || IsLocked' >Save & Close</button>
       <button id='add-continue-button'
             type='button' 
             class='xbtn btn-refresh modal-footer-button' 
             [disabled]='!workExperienceEditUI.valid || IsLocked' 
             [hidden]='IsEditMode' 
-            (click)='onSave(currentInstance, workExperienceEditUI, true)'>Save and Continue</button>
+            (click)='onSave(currentInstance, workExperienceEditUI, true)'>Save</button>
       <button id='cancle-button'
             class='xbtn btn-delete modal-footer-button' 
             [disabled]='IsLocked'

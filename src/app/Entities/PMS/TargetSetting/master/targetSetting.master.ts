@@ -16,6 +16,8 @@ import { NonOperationalAppraiseService } from '../../NonOperationalAppraise/nonO
 import { QualitativeObjectiveService } from '../../QualitativeObjective/qualitativeObjective.service';
 import { Position } from '../../../HR/Position/position';
 import { ConfigTargetSetting } from '../../ConfigTargetSetting/configTargetSetting';
+import { TabItemComponent } from '../../../../../xcore/tools/tabItem.component';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 
@@ -43,7 +45,31 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
 
   public position: Position = new Position();
 
+  qualitativeTabItem: TabItemComponent = new TabItemComponent();
+
+  quantitativeTabItem: TabItemComponent = new TabItemComponent();
+
+  functionalTabItem: TabItemComponent = new TabItemComponent();
+
+  behavioralTabItem: TabItemComponent = new TabItemComponent();
+
+  appraiseResultTabItem: TabItemComponent = new TabItemComponent();
+
+  finalAppraiseTabItem: TabItemComponent = new TabItemComponent();
+
+  idpFormTabItem: TabItemComponent = new TabItemComponent();
+
   onShown() {
+
+    this.qualitativeTabItem = new TabItemComponent();
+    this.quantitativeTabItem = new TabItemComponent();
+    this.functionalTabItem = new TabItemComponent();
+    this.behavioralTabItem = new TabItemComponent();
+    this.appraiseResultTabItem = new TabItemComponent();
+    this.finalAppraiseTabItem = new TabItemComponent();
+    this.idpFormTabItem = new TabItemComponent();
+
+
     this.targetSettingService.PositionService.RetrieveById(this.currentInstance.position.id)
       .then(position => {
         this.position = position;
@@ -59,8 +85,22 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
             .then(objectiveWeightList => {
               if (objectiveWeightList.length <= 0)
                 return;
-              this.functionalHeading = `Functional Objective ( ${objectiveWeightList[0].functionalWeight}% )`;
-              this.behavioralHeading = `Behavioral Objective ( ${objectiveWeightList[0].behavioralWeight}% )`;
+
+              this.functionalTabItem.isVisible = objectiveWeightList[0].functionalWeight > 0;
+              this.functionalTabItem.headLine = `Functional Objective ( ${objectiveWeightList[0].functionalWeight}% )`;
+
+              this.behavioralTabItem.isVisible = objectiveWeightList[0].behavioralWeight > 0;
+              this.behavioralTabItem.headLine = `Behavioral Objective ( ${objectiveWeightList[0].behavioralWeight}% )`;
+
+              this.appraiseResultTabItem.isVisible = true;
+              this.appraiseResultTabItem.headLine = 'Appraise Result';
+
+              this.finalAppraiseTabItem.isVisible = true;
+              this.finalAppraiseTabItem.headLine = 'Appraisal Results by Director';
+
+              this.idpFormTabItem.isVisible = true;
+              this.idpFormTabItem.headLine = 'IDP Form';
+
             });
         } else { // PositionCategory.Id = 1 : Operational
           this.targetSettingService
@@ -73,28 +113,35 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
                 this.configWeight = configTargetSettingList[0];
               } else {
                 this.configWeight = new ConfigTargetSetting();
+
                 this.configWeight.quantitativeWeight = 20;
                 this.configWeight.qualitativeWeight = 80;
                 this.configWeight.qualitativeBehavioralWeight = 20;
                 this.configWeight.qualitativeNonBehavioralWeight = 80;
               }
               console.log('Config : ', this.configWeight);
-              this.quantitiaveHeading = `Quantitiative Objective ( ${this.configWeight.quantitativeWeight}% )`;
-              this.behavioralHeading = `Behavioral Objective ( ${this.configWeight.qualitativeBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
-              this.qualitativeHeading = `Qualitative Objective ( ${this.configWeight.qualitativeNonBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
+
+              this.quantitativeTabItem.isVisible = this.configWeight.quantitativeWeight > 0;
+              this.quantitativeTabItem.headLine = `Quantitiative Objective ( ${this.configWeight.quantitativeWeight}% )`;
+
+              this.qualitativeTabItem.isVisible = this.configWeight.qualitativeWeight > 0;
+              this.qualitativeTabItem.headLine = `Qualitative Objective ( ${this.configWeight.qualitativeNonBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
+
+              this.behavioralTabItem.isVisible = this.configWeight.qualitativeBehavioralWeight > 0;
+              this.behavioralTabItem.headLine = `Behavioral Objective ( ${this.configWeight.qualitativeBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
+
+              this.appraiseResultTabItem.isVisible = true;
+              this.appraiseResultTabItem.headLine = 'Appraise Result';
+
+              this.finalAppraiseTabItem.isVisible = false;
+              this.finalAppraiseTabItem.headLine = 'Appraisal Results by Director';
+
+              this.idpFormTabItem.isVisible = false;
+              this.idpFormTabItem.headLine = 'IDP Form';
             });
         }
       });
   }
 
-  configWeight: ConfigTargetSetting = new ConfigTargetSetting(); 
-
-  functionalHeading: string = 'Functional Objective';
-
-  behavioralHeading: string = 'Behavioral Objective';
-
-  quantitiaveHeading: string = 'Quantitative Objective';
-
-  qualitativeHeading: string = 'Qualitative Objective';
-
+  configWeight: ConfigTargetSetting = new ConfigTargetSetting();
 }
