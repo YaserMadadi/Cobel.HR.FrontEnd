@@ -121,13 +121,13 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
               }
               console.log('Config : ', this.configWeight);
 
-              this.quantitativeTabItem.isVisible = this.configWeight.quantitativeWeight > 0;
+              this.quantitativeTabItem.isVisible = true;//this.configWeight.quantitativeWeight > 0;
               this.quantitativeTabItem.headLine = `Quantitiative Objective ( ${this.configWeight.quantitativeWeight}% )`;
 
-              this.qualitativeTabItem.isVisible = this.configWeight.qualitativeWeight > 0;
+              this.qualitativeTabItem.isVisible = true;//this.configWeight.qualitativeNonBehavioralWeight > 0;
               this.qualitativeTabItem.headLine = `Qualitative Objective ( ${this.configWeight.qualitativeNonBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
 
-              this.behavioralTabItem.isVisible = this.configWeight.qualitativeBehavioralWeight > 0;
+              this.behavioralTabItem.isVisible = true;//this.configWeight.qualitativeBehavioralWeight > 0;
               this.behavioralTabItem.headLine = `Behavioral Objective ( ${this.configWeight.qualitativeBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
 
               this.appraiseResultTabItem.isVisible = true;

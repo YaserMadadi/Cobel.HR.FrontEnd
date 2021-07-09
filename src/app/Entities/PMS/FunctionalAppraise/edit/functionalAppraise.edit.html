@@ -83,13 +83,13 @@
 			<!-- ActualValue -->
       <div class='form-group'>
         <guide (onClick)='onGuid("ActualValue")'></guide>
-        <label for='actualValue' class='col-form-label'>Actual Value : </label>
+        <label for='actualValue' class='col-form-label'>Achievement Vs Target : </label>
         <span class='help-block col-form-label' *ngIf='!actualValue.valid && actualValue.touched && !actualValue.disabled'>( Value is not Valid! )</span>
         
         <kendo-numerictextbox #actualValue='ngModel' 
             name='actualValue' 
-            title='Actual Value' 
-            placeholder='Actual Value'
+            title='Achievement Vs Target' 
+            placeholder='Achievement Vs Target'
             class='form-control'
             [ngClass]="{ 'error' : !actualValue.valid && actualValue.touched }" 
             [value]='currentInstance.actualValue' 

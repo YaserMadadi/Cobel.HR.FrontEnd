@@ -10,9 +10,9 @@ import { QualitativeKPI } from '../../QualitativeKPI/qualitativeKPI';
 import { QualitativeKPIMasterUI } from '../../QualitativeKPI/master/qualitativeKPI.master';
 import { QualitativeKPIEditUI } from '../../QualitativeKPI/edit/qualitativeKPI.edit';
 import { QualitativeKPIDeleteUI } from '../../QualitativeKPI/delete/qualitativeKPI.delete';
-import { AuthService } from 'src/xcore/security/auth_service';
-import { MessageController } from 'src/xcore/tools/controller.message';
-import { MessageType } from 'src/xcore/tools/Enum';
+import { AuthService } from '../../../../../xcore/security/auth_service';
+import { MessageController } from '../../../../../xcore/tools/controller.message';
+import { MessageType } from '../../../../../xcore/tools/Enum';
 
 
 

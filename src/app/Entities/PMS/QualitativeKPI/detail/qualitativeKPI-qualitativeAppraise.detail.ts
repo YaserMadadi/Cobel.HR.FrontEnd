@@ -72,6 +72,7 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
 
   public onAdd(editUI: QualitativeAppraiseEditUI) {
     editUI.QualitativeKPI = this.qualitativeKPI;
+    editUI.SetDefault();
     editUI.ShowDialog(new QualitativeAppraise());
   }
 
