@@ -22,4 +22,6 @@ export abstract class DetailView<T extends BusinessObject> {
     }
 
     abstract onReload(): void;
+
+    
 }

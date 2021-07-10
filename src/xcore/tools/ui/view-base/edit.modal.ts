@@ -55,9 +55,10 @@ export class EditModal<T extends BusinessObject> implements IEditModal<T>{
         //     this.EditUI.reset();
         this.IsShown = true;
         // this.innerInstance = entity;
+        this.Init(entity);
         this.onShown.emit(entity);
         this.AfterShown();
-        this.Init(entity);
+        //this.SetDefault();
     }
 
     public Close(value: T = null, isContinue: boolean) {

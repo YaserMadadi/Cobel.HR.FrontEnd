@@ -124,7 +124,7 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
               this.quantitativeTabItem.isVisible = true;//this.configWeight.quantitativeWeight > 0;
               this.quantitativeTabItem.headLine = `Quantitiative Objective ( ${this.configWeight.quantitativeWeight}% )`;
 
-              this.qualitativeTabItem.isVisible = true;//this.configWeight.qualitativeNonBehavioralWeight > 0;
+              this.qualitativeTabItem.isVisible = (this.configWeight.qualitativeNonBehavioralWeight * this.configWeight.qualitativeWeight ) > 0;
               this.qualitativeTabItem.headLine = `Qualitative Objective ( ${this.configWeight.qualitativeNonBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
 
               this.behavioralTabItem.isVisible = true;//this.configWeight.qualitativeBehavioralWeight > 0;
@@ -136,7 +136,7 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
               this.finalAppraiseTabItem.isVisible = false;
               this.finalAppraiseTabItem.headLine = 'Appraisal Results by Director';
 
-              this.idpFormTabItem.isVisible = false;
+              this.idpFormTabItem.isVisible = true;
               this.idpFormTabItem.headLine = 'IDP Form';
             });
         }

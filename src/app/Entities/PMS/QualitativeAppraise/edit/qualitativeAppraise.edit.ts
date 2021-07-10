@@ -27,88 +27,88 @@ import { MessageController, toastType } from '../../../../../xcore/tools/control
   styleUrls: ['./qualitativeAppraise.edit.css']
 })
 export class QualitativeAppraiseEditUI extends EditModal<QualitativeAppraise> implements IEditModal<QualitativeAppraise>  {
-  
+
   constructor(private qualitativeAppraiseService: QualitativeAppraiseService) {
-    super(qualitativeAppraiseService); 
+    super(qualitativeAppraiseService);
     this.currentInstance = new QualitativeAppraise();
   }
 
   //#region Foreign Entities
-	
-	//#region -- QualitativeKPI --
 
-  qualitativeKPIComponent : ForeignComponent<QualitativeKPI> = new ForeignComponent<QualitativeKPI>(this.qualitativeAppraiseService.QualitativeKPIService);
+  //#region -- QualitativeKPI --
+
+  qualitativeKPIComponent: ForeignComponent<QualitativeKPI> = new ForeignComponent<QualitativeKPI>(this.qualitativeAppraiseService.QualitativeKPIService);
 
   @Input()
   public set QualitativeKPI(value: QualitativeKPI) {
     this.currentInstance.qualitativeKPI = this.qualitativeKPIComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- QualitativeKPI --
-	//#region -- Appraiser --
+  //#region -- Appraiser --
 
-  appraiserComponent : ForeignComponent<Employee> = new ForeignComponent<Employee>(this.qualitativeAppraiseService.EmployeeService);
+  appraiserComponent: ForeignComponent<Employee> = new ForeignComponent<Employee>(this.qualitativeAppraiseService.EmployeeService);
 
   @Input()
   public set Appraiser(value: Employee) {
     this.currentInstance.appraiser = this.appraiserComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- Appraiser --
-	//#region -- AppraiseType --
+  //#region -- AppraiseType --
 
-  appraiseTypeComponent : ForeignComponent<AppraiseType> = new ForeignComponent<AppraiseType>(this.qualitativeAppraiseService.AppraiseTypeService,false);
+  appraiseTypeComponent: ForeignComponent<AppraiseType> = new ForeignComponent<AppraiseType>(this.qualitativeAppraiseService.AppraiseTypeService, false);
 
   @Input()
   public set AppraiseType(value: AppraiseType) {
     this.currentInstance.appraiseType = this.appraiseTypeComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- AppraiseType --
-	//#region -- AppraiseTime --
+  //#region -- AppraiseTime --
 
-  appraiseTimeComponent : ForeignComponent<AppraiseTime> = new ForeignComponent<AppraiseTime>(this.qualitativeAppraiseService.AppraiseTimeService,false);
+  appraiseTimeComponent: ForeignComponent<AppraiseTime> = new ForeignComponent<AppraiseTime>(this.qualitativeAppraiseService.AppraiseTimeService, false);
 
   @Input()
   public set AppraiseTime(value: AppraiseTime) {
     this.currentInstance.appraiseTime = this.appraiseTimeComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- AppraiseTime --
-	//#endregion
+  //#endregion
 
   @ViewChild('qualitativeAppraiseEditUI')
   private qualitativeAppraiseEditUI: NgForm;
 
-  Init(qualitativeAppraise: QualitativeAppraise = new QualitativeAppraise()) {
-    if (qualitativeAppraise.isNew)
-      this.qualitativeAppraiseEditUI.reset();
+  async Init(qualitativeAppraise: QualitativeAppraise = new QualitativeAppraise()) {
+    // if (qualitativeAppraise.isNew)
+    //   this.qualitativeAppraiseEditUI.reset();
     this.InitQualitativeAppraise(qualitativeAppraise);
     this.loadLists();
   }
 
-  private loadLists() {
-    
+  private async loadLists() {
     this.appraiseTypeComponent.LoadList();
-		this.appraiseTimeComponent.LoadList();
+    this.appraiseTimeComponent.LoadList();
+    this.currentInstance.appraiseTime.id = 1;
   }
-  
+
   InitQualitativeAppraise(qualitativeAppraise: QualitativeAppraise) {
     if (!qualitativeAppraise.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.qualitativeKPIComponent.instance = qualitativeAppraise.qualitativeKPI;
-			//this.appraiserComponent.instance = AuthService.currentEmployee;
-			this.appraiseTypeComponent.instance = qualitativeAppraise.appraiseType;
-			this.appraiseTimeComponent.instance = qualitativeAppraise.appraiseTime;
+      //this.appraiserComponent.instance = AuthService.currentEmployee;
+      this.appraiseTypeComponent.instance = qualitativeAppraise.appraiseType;
+      this.appraiseTimeComponent.instance = qualitativeAppraise.appraiseTime;
     } else {
       qualitativeAppraise.qualitativeKPI = this.qualitativeKPIComponent.instance;
-			//qualitativeAppraise.appraiser = this.appraiserComponent.instance;
-			qualitativeAppraise.appraiseType = this.appraiseTypeComponent.instance;
-			qualitativeAppraise.appraiseTime = this.appraiseTimeComponent.instance;
+      //qualitativeAppraise.appraiser = this.appraiserComponent.instance;
+      qualitativeAppraise.appraiseType = this.appraiseTypeComponent.instance;
+      qualitativeAppraise.appraiseTime = this.appraiseTimeComponent.instance;
     }
     this.currentInstance = qualitativeAppraise;
     this.currentInstance.appraiser = AuthService.currentEmployee;
@@ -120,16 +120,20 @@ export class QualitativeAppraiseEditUI extends EditModal<QualitativeAppraise> im
       MessageController.ShowMessage(`Your entered Scored "${qualitativeAppraise.score}" seemengly is not Correct! You can Edit your record.`, toastType.warning);
   }
 
-  SetDefault(){
+  SetDefault() {
     if (AppraiseTime.NotConfirm(this.currentInstance.appraiseTime))
       return;
+    // this.AppraiseTime = this.appraiseTimeComponent.list[0];
+    // this.currentInstance.appraiseTime = this.appraiseTimeComponent.list[0];
     this.currentInstance.appraiseTime.id = 1;
+    //console.log('App Time : ', this.appraiseTimeComponent.list);
   }
 
   ResetForm() {
     this.QualitativeKPI = new QualitativeKPI();
-		this.Appraiser = new Employee();
-		this.AppraiseType = new AppraiseType();
-		this.AppraiseTime = new AppraiseTime();
+    this.Appraiser = AuthService.currentEmployee;
+    this.AppraiseType = new AppraiseType();
+    //this.currentInstance.appraiseTime.id = 1;
+    //this.AppraiseTime = new AppraiseTime();
   }
 }

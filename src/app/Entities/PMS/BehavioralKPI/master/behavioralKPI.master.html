@@ -24,7 +24,7 @@
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.weight | number }}</label>
                 </div>
-				<div class='form-group row'>
+				<div class='form-group row' *ngIf='false'>
                     <label class='col-sm-4 titleControl'>Employee Score : 
                         <guide (onClick)='onGuid("EmployeeScore")'></guide>
                     </label>

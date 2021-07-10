@@ -3,7 +3,7 @@ import { BusinessObject } from "./business-object";
 
 export interface IBusinessObject<T extends BusinessObject> {
 
-    newInstance(): T;
+    newInstance<T>(type: (new () => T)): T;
 
     id: number;
 

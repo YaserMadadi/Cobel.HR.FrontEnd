@@ -108,4 +108,5 @@ export class BehavioralObjective_BehavioralKPI_DetailUI extends DetailView<Behav
   public onDeleteModal_Closed(result: boolean) {
     this.onReload();
   }
+
 }

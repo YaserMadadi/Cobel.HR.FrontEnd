@@ -42,20 +42,28 @@ export class BusinessObject implements OnInit, IBusinessObject<BusinessObject> {
     return this.id == 0;
   }
 
-  public newInstance(): BusinessObject {
-    return new BusinessObject();
+  public static newInstance<T>(type: (new () => T)): T {
+    return new type();
   }
+
+  public newInstance<T>(type: (new () => T)): T {
+    return new type();
+  }
+
+  // public newInstance<T>(): BusinessObject {
+  //   return new BusinessObject();
+  // }
 
   public get SeekInstance(): BusinessObject {
     return BusinessObject.SeekInstance();
   }
 
-  public static SeekInstance() : BusinessObject {
+  public static SeekInstance(): BusinessObject {
     return new BusinessObject();
   }
 
   public ResetPaginate() {
-    this.paginate = new Paginate();  
+    this.paginate = new Paginate();
   }
 
   /**

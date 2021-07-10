@@ -84,6 +84,8 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
     }
     if (QualitativeAppraise.NotConfirm(this.currentQualitativeAppraise))
       return;
+    editUI.QualitativeKPI = this.QualitativeKPI;
+    editUI.SetDefault();
     editUI.ShowDialog(this.currentQualitativeAppraise);
   }
 
