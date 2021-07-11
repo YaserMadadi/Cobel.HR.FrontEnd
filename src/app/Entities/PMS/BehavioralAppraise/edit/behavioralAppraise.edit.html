@@ -121,7 +121,7 @@
 			<!-- Score -->
       <div class='form-group'>
         <guide (onClick)='onGuid("Score")'></guide>
-        <label for='score' class='col-form-label'>Score : </label>
+        <label for='score' class='col-form-label'>Score : (between 0 and 120)</label>
         <span class='help-block col-form-label' *ngIf='!score.valid && score.touched && !score.disabled'>( Value is not Valid! )</span>
         
         <kendo-numerictextbox #score='ngModel' 
@@ -131,7 +131,7 @@
             class='form-control'
             [ngClass]="{ 'error' : !score.valid && score.touched }" 
             [value]='currentInstance.score' 
-            [min]='0' [max]='200' 
+            [min]='0' [max]='120'  
             [(ngModel)]='currentInstance.score'
             [format]="'n2'" 
             [decimals]='2'
