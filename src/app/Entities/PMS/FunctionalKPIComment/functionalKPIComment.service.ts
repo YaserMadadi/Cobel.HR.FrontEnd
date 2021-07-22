@@ -31,6 +31,10 @@ export class FunctionalKPICommentService extends Service<FunctionalKPIComment> i
 
   //region Methods
 
+CreateInstance() {
+   return new FunctionalKPIComment();
+}
+
   RetrieveById(id: number): Promise<FunctionalKPIComment> {
     return super.RetrieveById(id);
   }

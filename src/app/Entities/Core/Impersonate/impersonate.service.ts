@@ -29,6 +29,10 @@ export class ImpersonateService extends Service<Impersonate> implements IService
 
   //region Methods
 
+CreateInstance() {
+   return new Impersonate();
+}
+
   RetrieveById(id: number): Promise<Impersonate> {
     return super.RetrieveById(id);
   }

@@ -29,6 +29,10 @@ export class AnswerTypeService extends Service<AnswerType> implements IService<A
 
   //region Methods
 
+CreateInstance() {
+   return new AnswerType();
+}
+
   RetrieveById(id: number): Promise<AnswerType> {
     return super.RetrieveById(id);
   }

@@ -26,7 +26,7 @@ export class PositionAssignmentRepealSeekUI extends SeekModal<PositionAssignment
     this.onClose(this.positionAssignmentRepeal);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -26,7 +26,7 @@ export class EventTypeSeekUI extends SeekModal<EventType> {
     this.onClose(this.eventType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

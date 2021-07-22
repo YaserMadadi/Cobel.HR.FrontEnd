@@ -78,16 +78,16 @@
 			<!-- SAMAccountID -->
       <div class='form-group'>
         <guide (onClick)='onGuid("SAMAccountID")'></guide>
-        <label for='samaccountID' class='col-form-label'>S A M Account I D : </label>
-        <span class='help-block col-form-label' *ngIf='!samaccountID.valid && samaccountID.touched && !samaccountID.disabled'>( Value is not Valid! )</span>
+        <label for='samAccountID' class='col-form-label'>S A M Account I D : </label>
+        <span class='help-block col-form-label' *ngIf='!samAccountID.valid && samAccountID.touched && !samAccountID.disabled'>( Value is not Valid! )</span>
         <input type='text' 
                     title='S A M Account I D' 
-                    [ngClass]="{ 'error' : !samaccountID.valid && samaccountID.touched }" 
+                    [ngClass]="{ 'error' : !samAccountID.valid && samAccountID.touched }" 
                     class='form-control ' 
-                    #samaccountID='ngModel' 
-                    name='samaccountID' 
+                    #samAccountID='ngModel' 
+                    name='samAccountID' 
                     placeholder='... S A M Account I D' 
-                    [(ngModel)]='currentInstance.samaccountID' 
+                    [(ngModel)]='currentInstance.samAccountID' 
                     [disabled]='IsLocked'
                     maxlength='100'  dir='ltr'  required  />
       </div>
@@ -224,10 +224,10 @@
             [disabled]='!employeeEditUI.valid || IsLocked' 
             [hidden]='IsEditMode' 
             (click)='onSave(currentInstance, employeeEditUI, true)'>Save</button>
-      <button id='cancle-button'
+      <button id='cancel-button'
             class='xbtn btn-delete modal-footer-button' 
             [disabled]='IsLocked'
-            (click)='onClose()'>Cancle</button>
+            (click)='onClose()'>Cancel</button>
     </div>
   </form>
 </XDialog>

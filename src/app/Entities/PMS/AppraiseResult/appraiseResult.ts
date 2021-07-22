@@ -46,6 +46,10 @@ export class AppraiseResult extends BusinessObject implements OnInit {
 	
 	public behavioralScore: number = 0;
 	
+  public quantitativeScore: number = 0;
+
+  public qualitativeScore: number = 0;
+
 	public totalScore: number = 0;
 
   public scoreCell: ScoreCell = new ScoreCell();

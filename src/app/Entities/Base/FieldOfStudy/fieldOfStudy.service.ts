@@ -30,6 +30,10 @@ export class FieldOfStudyService extends Service<FieldOfStudy> implements IServi
 
   //region Methods
 
+CreateInstance() {
+   return new FieldOfStudy();
+}
+
   RetrieveById(id: number): Promise<FieldOfStudy> {
     return super.RetrieveById(id);
   }

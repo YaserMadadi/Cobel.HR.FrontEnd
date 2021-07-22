@@ -31,6 +31,10 @@ export class DevelopmentPlanCompetencyService extends Service<DevelopmentPlanCom
 
   //region Methods
 
+CreateInstance() {
+   return new DevelopmentPlanCompetency();
+}
+
   RetrieveById(id: number): Promise<DevelopmentPlanCompetency> {
     return super.RetrieveById(id);
   }

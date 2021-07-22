@@ -26,7 +26,7 @@ export class QualitativeKPISeekUI extends SeekModal<QualitativeKPI> {
     this.onClose(this.qualitativeKPI);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

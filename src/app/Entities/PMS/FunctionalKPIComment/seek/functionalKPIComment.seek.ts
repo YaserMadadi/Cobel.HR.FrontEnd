@@ -26,7 +26,7 @@ export class FunctionalKPICommentSeekUI extends SeekModal<FunctionalKPIComment> 
     this.onClose(this.functionalKPIComment);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

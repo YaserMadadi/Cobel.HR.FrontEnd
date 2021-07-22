@@ -26,7 +26,7 @@ export class ConclusionTypeSeekUI extends SeekModal<ConclusionType> {
     this.onClose(this.conclusionType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

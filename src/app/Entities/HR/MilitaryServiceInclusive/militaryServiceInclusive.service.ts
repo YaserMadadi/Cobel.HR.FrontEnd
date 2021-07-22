@@ -31,6 +31,10 @@ export class MilitaryServiceInclusiveService extends Service<MilitaryServiceIncl
 
   //region Methods
 
+CreateInstance() {
+   return new MilitaryServiceInclusive();
+}
+
   RetrieveById(id: number): Promise<MilitaryServiceInclusive> {
     return super.RetrieveById(id);
   }

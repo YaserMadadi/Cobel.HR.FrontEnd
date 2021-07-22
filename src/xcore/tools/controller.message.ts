@@ -179,12 +179,12 @@ export class MessageController {
         this.type = toastType.error;
         switch (messageType) {
             case MessageType.ViewLogPermissionDenied: {
-                message = `your Access to View record Logs of this Entity is denied by IDP Admin!...`;
+                message = `your Access to View record Logs of this Entity is denied by Admin!...`;
                 this.type = toastType.warning;
                 break;
             }
             case MessageType.ViewIndexPermissionDenied: {
-                message = 'your Access to View Index Page of this Entity is denied by IDP Admin!...';
+                message = 'your Access to View Index Page of this Entity is denied by Admin!...';
                 this.type = toastType.warning;
                 break;
             }

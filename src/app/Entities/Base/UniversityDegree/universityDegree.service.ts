@@ -28,6 +28,10 @@ export class UniversityDegreeService extends Service<UniversityDegree> implement
 
   //region Methods
 
+CreateInstance() {
+   return new UniversityDegree();
+}
+
   RetrieveById(id: number): Promise<UniversityDegree> {
     return super.RetrieveById(id);
   }

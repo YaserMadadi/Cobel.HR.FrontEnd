@@ -26,7 +26,7 @@ export class UserAccountSeekUI extends SeekModal<UserAccount> {
     this.onClose(this.userAccount);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

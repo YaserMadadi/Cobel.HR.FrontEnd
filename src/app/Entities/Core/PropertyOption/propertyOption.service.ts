@@ -29,6 +29,10 @@ export class PropertyOptionService extends Service<PropertyOption> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new PropertyOption();
+}
+
   RetrieveById(id: number): Promise<PropertyOption> {
     return super.RetrieveById(id);
   }

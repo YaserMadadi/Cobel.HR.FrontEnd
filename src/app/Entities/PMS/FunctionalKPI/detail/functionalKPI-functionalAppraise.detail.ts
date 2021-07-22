@@ -75,7 +75,7 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
   }
 
   public onEdit(editUI: FunctionalAppraiseEditUI) {
-    console.log('PositionList : ', AuthService.currentPositionList);
+    //console.log('PositionList : ', AuthService.currentPositionList);
     if (this.currentFunctionalAppraise.appraiser.id != AuthService.currentEmployee.id &&
       AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
       MessageController.ShowMessage('You are not allowed to Edit this record of Appraisal!', toastType.error);

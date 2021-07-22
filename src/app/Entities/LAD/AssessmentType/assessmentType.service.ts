@@ -28,6 +28,10 @@ export class AssessmentTypeService extends Service<AssessmentType> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new AssessmentType();
+}
+
   RetrieveById(id: number): Promise<AssessmentType> {
     return super.RetrieveById(id);
   }

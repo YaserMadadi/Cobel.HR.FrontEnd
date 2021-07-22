@@ -26,7 +26,7 @@ export class ExpectedLevelSeekUI extends SeekModal<ExpectedLevel> {
     this.onClose(this.expectedLevel);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

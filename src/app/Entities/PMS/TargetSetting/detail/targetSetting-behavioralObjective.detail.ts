@@ -63,6 +63,10 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
   }
 
   public onDblClicked(masterUI: BehavioralObjectiveMasterUI) {
+    if(this.targetSetting.isLocked){
+      MessageController.ShowMessage(MessageType.NotEditable);
+      return;
+    }
     if (BehavioralObjective.NotConfirm(this.currentBehavioralObjective))
       return;
     masterUI.ShowDialog(this.currentBehavioralObjective);

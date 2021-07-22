@@ -24,6 +24,10 @@ export class Service<T extends BusinessObject> implements IService<T> {
         this.info = info;
     }
 
+    CreateInstance(): T {
+        return <T>new BusinessObject();
+    }
+
     //#region Permission
     CheckPermission(permissionType: PermissionType): PermissionResult {
         return PermissionResult.Granted;

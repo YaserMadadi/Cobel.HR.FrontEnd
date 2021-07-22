@@ -33,6 +33,10 @@ export class EmployeeDetailService extends Service<EmployeeDetail> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new EmployeeDetail();
+}
+
   RetrieveById(id: number): Promise<EmployeeDetail> {
     return super.RetrieveById(id);
   }

@@ -26,7 +26,7 @@ export class DevelopmentGoalSeekUI extends SeekModal<DevelopmentGoal> {
     this.onClose(this.developmentGoal);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

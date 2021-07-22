@@ -30,6 +30,10 @@ export class QualitativeObjectiveService extends Service<QualitativeObjective> i
 
   //region Methods
 
+CreateInstance() {
+   return new QualitativeObjective();
+}
+
   RetrieveById(id: number): Promise<QualitativeObjective> {
     return super.RetrieveById(id);
   }

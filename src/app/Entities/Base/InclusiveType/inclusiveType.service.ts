@@ -28,6 +28,10 @@ export class InclusiveTypeService extends Service<InclusiveType> implements ISer
 
   //region Methods
 
+CreateInstance() {
+   return new InclusiveType();
+}
+
   RetrieveById(id: number): Promise<InclusiveType> {
     return super.RetrieveById(id);
   }

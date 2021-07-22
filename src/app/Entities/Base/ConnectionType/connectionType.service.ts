@@ -30,6 +30,10 @@ export class ConnectionTypeService extends Service<ConnectionType> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new ConnectionType();
+}
+
   RetrieveById(id: number): Promise<ConnectionType> {
     return super.RetrieveById(id);
   }

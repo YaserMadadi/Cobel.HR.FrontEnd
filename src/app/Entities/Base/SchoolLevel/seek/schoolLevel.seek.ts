@@ -26,7 +26,7 @@ export class SchoolLevelSeekUI extends SeekModal<SchoolLevel> {
     this.onClose(this.schoolLevel);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

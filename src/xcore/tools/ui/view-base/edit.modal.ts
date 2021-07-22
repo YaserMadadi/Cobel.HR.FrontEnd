@@ -10,8 +10,7 @@ import { IEditModal } from "./edit.modal.interface";
 export class EditModal<T extends BusinessObject> implements IEditModal<T>{
 
     constructor(private service: Service<T>) {
-        //this.currentInstance = <T>new Entity();
-        //this.currentInstance = instance;
+        this.currentInstance = service?.CreateInstance();
     }
 
     Init(entity: T): void {

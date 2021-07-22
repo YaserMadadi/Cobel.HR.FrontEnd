@@ -24,17 +24,29 @@
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.appraiseTime?.descriptor }}</label>
                 </div>
-				<div class='form-group row'>
+				<div class='form-group row' *ngIf='position.positionCategory.id == 2'>
                     <label class='col-sm-4 titleControl'>Functional Score : 
                         <guide (onClick)='onGuid("FunctionalScore")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.functionalScore | number }}</label>
                 </div>
-				<div class='form-group row'>
+				<div class='form-group row' *ngIf='position.positionCategory.id == 2 || position.positionCategory.id == 1'>
                     <label class='col-sm-4 titleControl'>Behavioral Score : 
                         <guide (onClick)='onGuid("BehavioralScore")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.behavioralScore | number }}</label>
+                </div>
+                <div class='form-group row' *ngIf='position.positionCategory.id == 1'>
+                    <label class='col-sm-4 titleControl'>Quantitative Score : 
+                        <guide (onClick)='onGuid("QuantitativeScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.quantitativeScore | number }}</label>
+                </div>
+                <div class='form-group row' *ngIf='position.positionCategory.id == 1'>
+                    <label class='col-sm-4 titleControl' >Qualitative Score : 
+                        <guide (onClick)='onGuid("QualitativeScore")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.qualitativeScore | number }}</label>
                 </div>
 				<div class='form-group row'>
                     <label class='col-sm-4 titleControl'>Total Score : 

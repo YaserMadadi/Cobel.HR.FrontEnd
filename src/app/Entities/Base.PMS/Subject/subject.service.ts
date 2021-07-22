@@ -28,6 +28,10 @@ export class SubjectService extends Service<Subject> implements IService<Subject
 
   //region Methods
 
+CreateInstance() {
+   return new Subject();
+}
+
   RetrieveById(id: number): Promise<Subject> {
     return super.RetrieveById(id);
   }

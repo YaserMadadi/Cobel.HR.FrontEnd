@@ -29,6 +29,10 @@ export class UniversityTerminateService extends Service<UniversityTerminate> imp
 
   //region Methods
 
+CreateInstance() {
+   return new UniversityTerminate();
+}
+
   RetrieveById(id: number): Promise<UniversityTerminate> {
     return super.RetrieveById(id);
   }

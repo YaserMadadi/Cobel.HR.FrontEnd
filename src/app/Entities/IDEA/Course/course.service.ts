@@ -28,6 +28,10 @@ export class CourseService extends Service<Course> implements IService<Course> {
 
   //region Methods
 
+CreateInstance() {
+   return new Course();
+}
+
   RetrieveById(id: number): Promise<Course> {
     return super.RetrieveById(id);
   }

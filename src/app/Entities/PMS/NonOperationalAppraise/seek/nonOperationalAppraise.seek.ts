@@ -26,7 +26,7 @@ export class NonOperationalAppraiseSeekUI extends SeekModal<NonOperationalApprai
     this.onClose(this.nonOperationalAppraise);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

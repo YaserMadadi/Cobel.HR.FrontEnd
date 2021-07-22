@@ -119,16 +119,15 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
                 this.configWeight.qualitativeBehavioralWeight = 20;
                 this.configWeight.qualitativeNonBehavioralWeight = 80;
               }
-              console.log('Config : ', this.configWeight);
 
               this.quantitativeTabItem.isVisible = true;//this.configWeight.quantitativeWeight > 0;
-              this.quantitativeTabItem.headLine = `Quantitiative Objective ( ${this.configWeight.quantitativeWeight}% )`;
+              this.quantitativeTabItem.headLine = `Quantitative Objective ( ${this.configWeight.quantitativeWeight}% )`;
 
               this.qualitativeTabItem.isVisible = (this.configWeight.qualitativeNonBehavioralWeight * this.configWeight.qualitativeWeight ) > 0;
-              this.qualitativeTabItem.headLine = `Qualitative Objective ( ${this.configWeight.qualitativeNonBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
+              this.qualitativeTabItem.headLine = `Qualitative - NonBehavioral ( ${this.configWeight.qualitativeNonBehavioralWeight}% )`;//`Qualitative - NonBehavioral ( ${this.configWeight.qualitativeNonBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
 
               this.behavioralTabItem.isVisible = true;//this.configWeight.qualitativeBehavioralWeight > 0;
-              this.behavioralTabItem.headLine = `Behavioral Objective ( ${this.configWeight.qualitativeBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
+              this.behavioralTabItem.headLine =  `Qualitative - Behavioral ( ${this.configWeight.qualitativeBehavioralWeight}% )`;//`Qualitative - Behavioral ( ${this.configWeight.qualitativeBehavioralWeight * this.configWeight.qualitativeWeight / 100}% )`;
 
               this.appraiseResultTabItem.isVisible = true;
               this.appraiseResultTabItem.headLine = 'Appraise Result';

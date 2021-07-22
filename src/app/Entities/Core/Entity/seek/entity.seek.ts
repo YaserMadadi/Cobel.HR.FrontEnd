@@ -26,7 +26,7 @@ export class EntitySeekUI extends SeekModal<Entity> {
     this.onClose(this.entity);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

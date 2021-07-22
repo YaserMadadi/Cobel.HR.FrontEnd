@@ -29,9 +29,9 @@ import { QualitativeObjective } from '../QualitativeObjective/qualitativeObjecti
 export class TargetSettingService extends Service<TargetSetting> implements IService<TargetSetting> {
 
   constructor(public ServiceCollection: TargetSettingServiceCollection,
-		public EmployeeService: EmployeeService,
-		public PositionService: PositionService,
-		public YearService: YearService) {
+    public EmployeeService: EmployeeService,
+    public PositionService: PositionService,
+    public YearService: YearService) {
     super(ServiceCollection.API_Operation, TargetSetting.Info);
   }
 
@@ -40,6 +40,10 @@ export class TargetSettingService extends Service<TargetSetting> implements ISer
   }
 
   //region Methods
+
+  CreateInstance() {
+    return new TargetSetting();
+  }
 
   RetrieveById(id: number): Promise<TargetSetting> {
     return super.RetrieveById(id);
@@ -85,8 +89,8 @@ export class TargetSettingService extends Service<TargetSetting> implements ISer
     return super.SeekByValue(value);
   }
 
-	//endregion
-  
+  //endregion
+
 
   //Remove Temprorally
 }

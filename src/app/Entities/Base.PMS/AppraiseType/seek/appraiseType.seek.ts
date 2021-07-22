@@ -26,7 +26,7 @@ export class AppraiseTypeSeekUI extends SeekModal<AppraiseType> {
     this.onClose(this.appraiseType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -35,6 +35,10 @@ export class BehavioralAppraiseService extends Service<BehavioralAppraise> imple
 
   //region Methods
 
+CreateInstance() {
+   return new BehavioralAppraise();
+}
+
   RetrieveById(id: number): Promise<BehavioralAppraise> {
     return super.RetrieveById(id);
   }

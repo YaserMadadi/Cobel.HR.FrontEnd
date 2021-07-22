@@ -33,6 +33,10 @@ export class NonOperationalAppraiseService extends Service<NonOperationalApprais
 
   //region Methods
 
+CreateInstance() {
+   return new NonOperationalAppraise();
+}
+
   RetrieveById(id: number): Promise<NonOperationalAppraise> {
     return super.RetrieveById(id);
   }

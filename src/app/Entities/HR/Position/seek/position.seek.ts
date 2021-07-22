@@ -26,7 +26,7 @@ export class PositionSeekUI extends SeekModal<Position> {
     this.onClose(this.position);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

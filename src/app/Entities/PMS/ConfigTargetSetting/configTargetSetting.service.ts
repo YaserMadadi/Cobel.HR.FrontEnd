@@ -30,6 +30,10 @@ export class ConfigTargetSettingService extends Service<ConfigTargetSetting> imp
 
   //region Methods
 
+CreateInstance() {
+   return new ConfigTargetSetting();
+}
+
   RetrieveById(id: number): Promise<ConfigTargetSetting> {
     return super.RetrieveById(id);
   }

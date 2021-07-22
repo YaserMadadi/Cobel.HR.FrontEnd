@@ -29,6 +29,10 @@ export class PassportService extends Service<Passport> implements IService<Passp
 
   //region Methods
 
+CreateInstance() {
+   return new Passport();
+}
+
   RetrieveById(id: number): Promise<Passport> {
     return super.RetrieveById(id);
   }

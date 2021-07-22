@@ -26,7 +26,7 @@ export class ScoreCellSeekUI extends SeekModal<ScoreCell> {
     this.onClose(this.scoreCell);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

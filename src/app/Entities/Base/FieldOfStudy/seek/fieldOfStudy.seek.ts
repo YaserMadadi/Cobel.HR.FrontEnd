@@ -26,7 +26,7 @@ export class FieldOfStudySeekUI extends SeekModal<FieldOfStudy> {
     this.onClose(this.fieldOfStudy);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

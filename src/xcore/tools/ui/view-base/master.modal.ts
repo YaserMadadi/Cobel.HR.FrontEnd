@@ -2,16 +2,13 @@ import { Output, EventEmitter, Input, ViewChild, Directive } from "@angular/core
 import { BusinessObject } from "../../../business-object";
 import { TabsetComponent } from "ngx-bootstrap/tabs";
 import { IService } from "../../../service/base/service.interface";
-import { isPropertyName } from "typescript";
 
 @Directive()
 export class MasterModal<T extends BusinessObject>  {
 
     constructor(public service: IService<T> = null) {
-        this.currentInstance = <T>new BusinessObject();
+        this.currentInstance = service?.CreateInstance();
     }
-
-    //AfterShown: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     currentInstance: T;
 
@@ -33,17 +30,12 @@ export class MasterModal<T extends BusinessObject>  {
     @Output()
     public onClosed: EventEmitter<T> = new EventEmitter<T>();
 
-    //@Output()
-    //public onShown: EventEmitter<boolean> = new EventEmitter<boolean>();
-
     public onShown() {
 
     }
 
     public ShowDialog(entity: T) {
         this.currentInstance = entity;
-        console.log('entity : ', entity);
-        
         if (this.tabset?.tabs?.length > 0) {
             this.tabset.tabs[0].selectTab.emit();
         }

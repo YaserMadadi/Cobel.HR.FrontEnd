@@ -28,6 +28,10 @@ export class DrivingLicenseTypeService extends Service<DrivingLicenseType> imple
 
   //region Methods
 
+  CreateInstance() {
+    return new DrivingLicenseType();
+  }
+
   RetrieveById(id: number): Promise<DrivingLicenseType> {
     return super.RetrieveById(id);
   }
@@ -72,8 +76,8 @@ export class DrivingLicenseTypeService extends Service<DrivingLicenseType> imple
     return super.SeekByValue(value);
   }
 
-	//endregion
-  
+  //endregion
+
 
   //Remove Temprorally
 }

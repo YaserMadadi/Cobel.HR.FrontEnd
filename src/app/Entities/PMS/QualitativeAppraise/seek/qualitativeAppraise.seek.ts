@@ -26,7 +26,7 @@ export class QualitativeAppraiseSeekUI extends SeekModal<QualitativeAppraise> {
     this.onClose(this.qualitativeAppraise);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

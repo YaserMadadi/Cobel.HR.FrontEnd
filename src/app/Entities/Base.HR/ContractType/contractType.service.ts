@@ -28,6 +28,10 @@ export class ContractTypeService extends Service<ContractType> implements IServi
 
   //region Methods
 
+CreateInstance() {
+   return new ContractType();
+}
+
   RetrieveById(id: number): Promise<ContractType> {
     return super.RetrieveById(id);
   }

@@ -30,6 +30,10 @@ export class UniversityService extends Service<University> implements IService<U
 
   //region Methods
 
+CreateInstance() {
+   return new University();
+}
+
   RetrieveById(id: number): Promise<University> {
     return super.RetrieveById(id);
   }

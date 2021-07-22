@@ -26,7 +26,7 @@ export class CertificationTypeSeekUI extends SeekModal<CertificationType> {
     this.onClose(this.certificationType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

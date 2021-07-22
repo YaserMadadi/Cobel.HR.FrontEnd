@@ -28,6 +28,10 @@ export class DepartmentService extends Service<Department> implements IService<D
 
   //region Methods
 
+CreateInstance() {
+   return new Department();
+}
+
   RetrieveById(id: number): Promise<Department> {
     return super.RetrieveById(id);
   }

@@ -81,11 +81,11 @@
 										 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #samaccountID='ngModel' id='samaccountID' name='samaccountID'
+          <input class='form-control' #samAccountID='ngModel' id='samAccountID' name='samAccountID'
 										 title='S A M Account I D'
 										 autocomplete='off'
 										 placeholder='S A M Account I D'
-										[(ngModel)]='filterInstance.samaccountID'
+										[(ngModel)]='filterInstance.samAccountID'
 										 type='text'
 										 maxlength='100'
 										 (keyup)='doFilter($event)' dir='ltr' />
@@ -167,7 +167,7 @@
 				<td>{{ p.person?.descriptor }}</td>
 				<td>{{ p.lastEmployeeCode | number }}</td>
 				<td>{{ p.lastHoldingSection?.descriptor }}</td>
-				<td>{{ p.samaccountID }}</td>
+				<td>{{ p.samAccountID }}</td>
 				<td>{{ p.emailAddress }}</td>
 				<td>{{ p.employmentStatus?.descriptor }}</td>
 				<td>{{ p.lastCity }}</td>

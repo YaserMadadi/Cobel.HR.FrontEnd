@@ -31,6 +31,10 @@ export class EmployeeEventService extends Service<EmployeeEvent> implements ISer
 
   //region Methods
 
+CreateInstance() {
+   return new EmployeeEvent();
+}
+
   RetrieveById(id: number): Promise<EmployeeEvent> {
     return super.RetrieveById(id);
   }

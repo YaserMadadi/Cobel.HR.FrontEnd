@@ -31,6 +31,10 @@ export class CoachService extends Service<Coach> implements IService<Coach> {
 
   //region Methods
 
+CreateInstance() {
+   return new Coach();
+}
+
   RetrieveById(id: number): Promise<Coach> {
     return super.RetrieveById(id);
   }

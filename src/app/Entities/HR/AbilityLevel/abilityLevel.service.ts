@@ -28,6 +28,10 @@ export class AbilityLevelService extends Service<AbilityLevel> implements IServi
 
   //region Methods
 
+CreateInstance() {
+   return new AbilityLevel();
+}
+
   RetrieveById(id: number): Promise<AbilityLevel> {
     return super.RetrieveById(id);
   }

@@ -26,7 +26,7 @@ export class ConfigTargetSettingSeekUI extends SeekModal<ConfigTargetSetting> {
     this.onClose(this.configTargetSetting);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

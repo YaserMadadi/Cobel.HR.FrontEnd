@@ -32,6 +32,10 @@ export class VisionService extends Service<Vision> implements IService<Vision> {
 
   //region Methods
 
+CreateInstance() {
+   return new Vision();
+}
+
   RetrieveById(id: number): Promise<Vision> {
     return super.RetrieveById(id);
   }

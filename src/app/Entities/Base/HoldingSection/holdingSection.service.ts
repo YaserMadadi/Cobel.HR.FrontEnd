@@ -29,6 +29,10 @@ export class HoldingSectionService extends Service<HoldingSection> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new HoldingSection();
+}
+
   RetrieveById(id: number): Promise<HoldingSection> {
     return super.RetrieveById(id);
   }

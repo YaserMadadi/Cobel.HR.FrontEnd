@@ -67,6 +67,10 @@ export class TargetSetting_FunctionalObjective_DetailUI extends DetailView<Targe
   }
 
   public onDblClicked(masterUI: FunctionalObjectiveMasterUI) {
+    if(this.targetSetting.isLocked){
+      MessageController.ShowMessage(MessageType.NotEditable);
+      return;
+    }
     if (FunctionalObjective.NotConfirm(this.currentFunctionalObjective))
       return;
     masterUI.ShowDialog(this.currentFunctionalObjective);

@@ -31,6 +31,10 @@ export class AssessorConnectionLineService extends Service<AssessorConnectionLin
 
   //region Methods
 
+CreateInstance() {
+   return new AssessorConnectionLine();
+}
+
   RetrieveById(id: number): Promise<AssessorConnectionLine> {
     return super.RetrieveById(id);
   }

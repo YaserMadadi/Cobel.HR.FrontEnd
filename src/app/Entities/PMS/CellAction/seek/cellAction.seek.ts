@@ -26,7 +26,7 @@ export class CellActionSeekUI extends SeekModal<CellAction> {
     this.onClose(this.cellAction);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -26,7 +26,7 @@ export class EmployeeNotificationSeekUI extends SeekModal<EmployeeNotification> 
     this.onClose(this.employeeNotification);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

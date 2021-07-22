@@ -35,6 +35,10 @@ export class QualitativeAppraiseService extends Service<QualitativeAppraise> imp
 
   //region Methods
 
+CreateInstance() {
+   return new QualitativeAppraise();
+}
+
   RetrieveById(id: number): Promise<QualitativeAppraise> {
     return super.RetrieveById(id);
   }

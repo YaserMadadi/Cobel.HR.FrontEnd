@@ -26,7 +26,7 @@ export class MessageSeekUI extends SeekModal<Message> {
     this.onClose(this.message);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

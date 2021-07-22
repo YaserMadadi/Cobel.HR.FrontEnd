@@ -63,6 +63,10 @@ export class TargetSetting_QualitativeObjective_DetailUI extends DetailView<Targ
   }
 
   public onDblClicked(masterUI: QualitativeObjectiveMasterUI) {
+    if(this.targetSetting.isLocked){
+      MessageController.ShowMessage(MessageType.NotEditable);
+      return;
+    }
     if (QualitativeObjective.NotConfirm(this.currentQualitativeObjective))
       return;
     masterUI.ShowDialog(this.currentQualitativeObjective);

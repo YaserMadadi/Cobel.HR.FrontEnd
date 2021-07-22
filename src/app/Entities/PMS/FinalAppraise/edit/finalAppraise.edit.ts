@@ -47,7 +47,6 @@ export class FinalAppraiseEditUI extends EditModal<FinalAppraise> implements IEd
   Init(finalAppraise: FinalAppraise = new FinalAppraise()) {
     if (finalAppraise.isNew)
       this.finalAppraiseEditUI.reset();
-    console.log('finalAppraise : ', finalAppraise);
     this.InitFinalAppraise(finalAppraise);
     this.loadLists();
   }

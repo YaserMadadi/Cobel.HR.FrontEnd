@@ -31,6 +31,10 @@ export class RoleMemberService extends Service<RoleMember> implements IService<R
 
   //region Methods
 
+CreateInstance() {
+   return new RoleMember();
+}
+
   RetrieveById(id: number): Promise<RoleMember> {
     return super.RetrieveById(id);
   }

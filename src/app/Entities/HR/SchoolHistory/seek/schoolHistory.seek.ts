@@ -26,7 +26,7 @@ export class SchoolHistorySeekUI extends SeekModal<SchoolHistory> {
     this.onClose(this.schoolHistory);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

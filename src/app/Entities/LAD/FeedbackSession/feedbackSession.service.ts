@@ -29,6 +29,10 @@ export class FeedbackSessionService extends Service<FeedbackSession> implements 
 
   //region Methods
 
+CreateInstance() {
+   return new FeedbackSession();
+}
+
   RetrieveById(id: number): Promise<FeedbackSession> {
     return super.RetrieveById(id);
   }

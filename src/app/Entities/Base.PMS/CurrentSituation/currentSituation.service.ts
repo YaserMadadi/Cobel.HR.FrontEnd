@@ -28,6 +28,10 @@ export class CurrentSituationService extends Service<CurrentSituation> implement
 
   //region Methods
 
+CreateInstance() {
+   return new CurrentSituation();
+}
+
   RetrieveById(id: number): Promise<CurrentSituation> {
     return super.RetrieveById(id);
   }

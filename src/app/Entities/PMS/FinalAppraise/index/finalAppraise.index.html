@@ -25,7 +25,8 @@
         <th title='Manager Behavioral Score'>Manager Behavioral Score</th>
         <th title='Final Functional Score'>Final Functional Score</th>
         <th title='Final Behavioral Score'>Final Behavioral Score</th>
-        <th title='Final Behavioral Score'>Score Cell</th>
+        <th title='Score Cell'>Score Cell</th>
+        <th title='Bonus Coefficient'>Bonus Coefficient</th>
       </tr>
       <tr name='secondRow'>
         <th class='row-number'></th>
@@ -85,6 +86,7 @@
 										 maxlength='50'
 										 (keyup)='doFilter($event)' />
         </th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -96,6 +98,7 @@
 				<td>{{ p.finalFunctionalScore | number }}</td>
 				<td>{{ p.finalBehavioralScore | number }}</td>
 				<td>{{ p.scoreCell?.descriptor | number }}</td>
+				<td>{{ p.bonusCoefficient | number }}</td>
       </tr>
     </tbody>
   </table>

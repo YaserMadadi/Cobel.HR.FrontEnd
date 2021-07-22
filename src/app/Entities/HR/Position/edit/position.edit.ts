@@ -66,7 +66,7 @@ export class PositionEditUI extends EditModal<Position> implements IEditModal<Po
   //#endregion -- Unit --
 	//#region -- PositionCategory --
 
-  positionCategoryComponent : ForeignComponent<PositionCategory> = new ForeignComponent<PositionCategory>(this.positionService.PositionCategoryService,false);
+  positionCategoryComponent : ForeignComponent<PositionCategory> = new ForeignComponent<PositionCategory>(this.positionService.PositionCategoryService);
 
   @Input()
   public set PositionCategory(value: PositionCategory) {

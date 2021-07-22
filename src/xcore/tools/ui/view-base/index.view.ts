@@ -23,6 +23,7 @@ export class IndexView<T extends BusinessObject> implements IIndexView<T> {
 
     constructor(private businessObjectService: Service<T>) { // private router: Router, private activatedRoute: ActivatedRoute) {
         this.router = businessObjectService.router;
+        this.currentInstance = businessObjectService?.CreateInstance();
         this.router.events.forEach((event) => {
             if (event instanceof NavigationEnd) {
                 this.urlWatcher(event.url);
@@ -108,9 +109,9 @@ export class IndexView<T extends BusinessObject> implements IIndexView<T> {
             this.filterInstance.paginate.currentPage = pageNumber;
             this.businessObjectService.Seek(this.filterInstance)
                 .then(list => {
-                    console.log('Seek result', list);
+                    //console.log('Seek result', list);
                     this.list = list;
-                    this.currentInstance = <T>(new BusinessObject()).SeekInstance;
+                    this.currentInstance = <T>this.currentInstance.SeekInstance;
                     this.paginatorComponent?.RefreshUI(list[0]?.paginate);
                 });
         }

@@ -29,6 +29,10 @@ export class MaritalInfoService extends Service<MaritalInfo> implements IService
 
   //region Methods
 
+CreateInstance() {
+   return new MaritalInfo();
+}
+
   RetrieveById(id: number): Promise<MaritalInfo> {
     return super.RetrieveById(id);
   }

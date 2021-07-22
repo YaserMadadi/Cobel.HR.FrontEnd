@@ -36,7 +36,6 @@ export class TargetSetting_Vision_DetailUI extends DetailView<TargetSetting> {
   @Input()
   public set TargetSetting(value: TargetSetting) {
     this.targetSetting = value;
-    console.log('target Setting : ', this.targetSetting);
     this.onReload();
   }
 
@@ -45,7 +44,6 @@ export class TargetSetting_Vision_DetailUI extends DetailView<TargetSetting> {
   public onReload() {
     if (TargetSetting.NotConfirm(this.targetSetting))
       return;
-      console.log('target Setting 2 : ', this.targetSetting);
     this.targetSettingService
       .ServiceCollection
       .CollectionOfVision(this.targetSetting)

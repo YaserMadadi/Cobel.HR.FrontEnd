@@ -50,6 +50,8 @@ export class FinalAppraise extends BusinessObject implements OnInit {
 
   public scoreCell: ScoreCell = new ScoreCell();
 
+  public bonusCoefficient: number = 0;
+
 	//#endregion
 
   //#region Collection Properties

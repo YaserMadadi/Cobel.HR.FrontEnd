@@ -27,6 +27,10 @@ export class StrategicObjectveService extends Service<StrategicObjectve> impleme
 
   //region Methods
 
+CreateInstance() {
+   return new StrategicObjectve();
+}
+
   RetrieveById(id: number): Promise<StrategicObjectve> {
     return super.RetrieveById(id);
   }

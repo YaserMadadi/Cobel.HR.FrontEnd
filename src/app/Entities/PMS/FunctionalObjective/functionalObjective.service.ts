@@ -31,6 +31,10 @@ export class FunctionalObjectiveService extends Service<FunctionalObjective> imp
 
   //region Methods
 
+CreateInstance() {
+   return new FunctionalObjective();
+}
+
   RetrieveById(id: number): Promise<FunctionalObjective> {
     return super.RetrieveById(id);
   }

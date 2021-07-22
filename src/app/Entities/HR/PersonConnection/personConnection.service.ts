@@ -31,6 +31,10 @@ export class PersonConnectionService extends Service<PersonConnection> implement
 
   //region Methods
 
+CreateInstance() {
+   return new PersonConnection();
+}
+
   RetrieveById(id: number): Promise<PersonConnection> {
     return super.RetrieveById(id);
   }

@@ -26,7 +26,7 @@ export class ConnectionTypeSeekUI extends SeekModal<ConnectionType> {
     this.onClose(this.connectionType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

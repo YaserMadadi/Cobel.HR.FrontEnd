@@ -31,6 +31,10 @@ export class AppraisalApproverConfigService extends Service<AppraisalApproverCon
 
   //region Methods
 
+CreateInstance() {
+   return new AppraisalApproverConfig();
+}
+
   RetrieveById(id: number): Promise<AppraisalApproverConfig> {
     return super.RetrieveById(id);
   }

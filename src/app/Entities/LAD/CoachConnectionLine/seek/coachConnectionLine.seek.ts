@@ -26,7 +26,7 @@ export class CoachConnectionLineSeekUI extends SeekModal<CoachConnectionLine> {
     this.onClose(this.coachConnectionLine);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

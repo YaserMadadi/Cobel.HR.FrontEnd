@@ -26,7 +26,7 @@ export class ProvinceSeekUI extends SeekModal<Province> {
     this.onClose(this.province);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

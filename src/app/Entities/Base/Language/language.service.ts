@@ -28,6 +28,10 @@ export class LanguageService extends Service<Language> implements IService<Langu
 
   //region Methods
 
+CreateInstance() {
+   return new Language();
+}
+
   RetrieveById(id: number): Promise<Language> {
     return super.RetrieveById(id);
   }

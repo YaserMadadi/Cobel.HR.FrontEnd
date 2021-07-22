@@ -28,6 +28,10 @@ export class EventTypeService extends Service<EventType> implements IService<Eve
 
   //region Methods
 
+CreateInstance() {
+   return new EventType();
+}
+
   RetrieveById(id: number): Promise<EventType> {
     return super.RetrieveById(id);
   }

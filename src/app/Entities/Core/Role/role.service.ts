@@ -29,6 +29,10 @@ export class RoleService extends Service<Role> implements IService<Role> {
 
   //region Methods
 
+CreateInstance() {
+   return new Role();
+}
+
   RetrieveById(id: number): Promise<Role> {
     return super.RetrieveById(id);
   }

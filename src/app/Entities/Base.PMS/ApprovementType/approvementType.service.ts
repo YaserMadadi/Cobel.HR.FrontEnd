@@ -28,6 +28,10 @@ export class ApprovementTypeService extends Service<ApprovementType> implements 
 
   //region Methods
 
+CreateInstance() {
+   return new ApprovementType();
+}
+
   RetrieveById(id: number): Promise<ApprovementType> {
     return super.RetrieveById(id);
   }

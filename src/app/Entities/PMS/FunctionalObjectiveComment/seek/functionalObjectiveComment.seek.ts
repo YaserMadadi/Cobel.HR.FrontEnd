@@ -26,7 +26,7 @@ export class FunctionalObjectiveCommentSeekUI extends SeekModal<FunctionalObject
     this.onClose(this.functionalObjectiveComment);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

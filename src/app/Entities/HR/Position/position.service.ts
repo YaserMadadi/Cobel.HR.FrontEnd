@@ -38,6 +38,10 @@ export class PositionService extends Service<Position> implements IService<Posit
 
   //region Methods
 
+CreateInstance() {
+   return new Position();
+}
+
   RetrieveById(id: number): Promise<Position> {
     return super.RetrieveById(id);
   }

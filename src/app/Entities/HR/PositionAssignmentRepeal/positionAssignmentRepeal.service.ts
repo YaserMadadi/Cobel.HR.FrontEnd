@@ -29,6 +29,10 @@ export class PositionAssignmentRepealService extends Service<PositionAssignmentR
 
   //region Methods
 
+CreateInstance() {
+   return new PositionAssignmentRepeal();
+}
+
   RetrieveById(id: number): Promise<PositionAssignmentRepeal> {
     return super.RetrieveById(id);
   }

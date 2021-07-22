@@ -31,6 +31,10 @@ export class PersonCertificateService extends Service<PersonCertificate> impleme
 
   //region Methods
 
+CreateInstance() {
+   return new PersonCertificate();
+}
+
   RetrieveById(id: number): Promise<PersonCertificate> {
     return super.RetrieveById(id);
   }

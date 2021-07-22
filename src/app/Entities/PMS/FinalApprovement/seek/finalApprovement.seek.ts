@@ -26,7 +26,7 @@ export class FinalApprovementSeekUI extends SeekModal<FinalApprovement> {
     this.onClose(this.finalApprovement);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

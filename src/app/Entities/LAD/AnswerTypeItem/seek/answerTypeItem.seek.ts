@@ -26,7 +26,7 @@ export class AnswerTypeItemSeekUI extends SeekModal<AnswerTypeItem> {
     this.onClose(this.answerTypeItem);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

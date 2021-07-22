@@ -6,6 +6,8 @@ import { Info } from '../../Info';
 
 export interface IService<T extends BusinessObject> {
 
+    CreateInstance() : T;
+
     Save(entity: T): Promise<T>;
 
     SaveCollection(listOfEntity: T[]): Promise<Result>;

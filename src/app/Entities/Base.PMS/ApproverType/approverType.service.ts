@@ -28,6 +28,10 @@ export class ApproverTypeService extends Service<ApproverType> implements IServi
 
   //region Methods
 
+CreateInstance() {
+   return new ApproverType();
+}
+
   RetrieveById(id: number): Promise<ApproverType> {
     return super.RetrieveById(id);
   }

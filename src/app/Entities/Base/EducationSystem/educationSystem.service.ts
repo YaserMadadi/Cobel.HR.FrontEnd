@@ -28,6 +28,10 @@ export class EducationSystemService extends Service<EducationSystem> implements 
 
   //region Methods
 
+CreateInstance() {
+   return new EducationSystem();
+}
+
   RetrieveById(id: number): Promise<EducationSystem> {
     return super.RetrieveById(id);
   }

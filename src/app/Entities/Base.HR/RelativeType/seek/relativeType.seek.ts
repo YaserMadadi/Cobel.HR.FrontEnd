@@ -26,7 +26,7 @@ export class RelativeTypeSeekUI extends SeekModal<RelativeType> {
     this.onClose(this.relativeType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -26,7 +26,7 @@ export class QuarterSeekUI extends SeekModal<Quarter> {
     this.onClose(this.quarter);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

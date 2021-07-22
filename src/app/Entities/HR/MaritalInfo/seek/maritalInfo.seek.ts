@@ -26,7 +26,7 @@ export class MaritalInfoSeekUI extends SeekModal<MaritalInfo> {
     this.onClose(this.maritalInfo);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

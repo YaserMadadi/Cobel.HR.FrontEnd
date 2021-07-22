@@ -33,6 +33,10 @@ export class VisionApprovedService extends Service<VisionApproved> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new VisionApproved();
+}
+
   RetrieveById(id: number): Promise<VisionApproved> {
     return super.RetrieveById(id);
   }

@@ -26,7 +26,7 @@ export class ImpersonateSeekUI extends SeekModal<Impersonate> {
     this.onClose(this.impersonate);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

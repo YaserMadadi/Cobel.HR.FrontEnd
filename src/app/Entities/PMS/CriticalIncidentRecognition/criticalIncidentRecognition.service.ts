@@ -31,6 +31,10 @@ export class CriticalIncidentRecognitionService extends Service<CriticalIncident
 
   //region Methods
 
+CreateInstance() {
+   return new CriticalIncidentRecognition();
+}
+
   RetrieveById(id: number): Promise<CriticalIncidentRecognition> {
     return super.RetrieveById(id);
   }

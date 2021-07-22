@@ -31,6 +31,10 @@ export class CoachConnectionLineService extends Service<CoachConnectionLine> imp
 
   //region Methods
 
+CreateInstance() {
+   return new CoachConnectionLine();
+}
+
   RetrieveById(id: number): Promise<CoachConnectionLine> {
     return super.RetrieveById(id);
   }

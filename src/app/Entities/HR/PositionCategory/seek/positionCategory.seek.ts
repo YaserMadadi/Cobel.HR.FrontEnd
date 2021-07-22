@@ -26,7 +26,7 @@ export class PositionCategorySeekUI extends SeekModal<PositionCategory> {
     this.onClose(this.positionCategory);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

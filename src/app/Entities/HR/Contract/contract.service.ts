@@ -31,6 +31,10 @@ export class ContractService extends Service<Contract> implements IService<Contr
 
   //region Methods
 
+CreateInstance() {
+   return new Contract();
+}
+
   RetrieveById(id: number): Promise<Contract> {
     return super.RetrieveById(id);
   }

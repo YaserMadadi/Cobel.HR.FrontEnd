@@ -29,6 +29,10 @@ export class EntityService extends Service<Entity> implements IService<Entity> {
 
   //region Methods
 
+CreateInstance() {
+   return new Entity();
+}
+
   RetrieveById(id: number): Promise<Entity> {
     return super.RetrieveById(id);
   }

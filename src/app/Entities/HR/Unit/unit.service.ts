@@ -32,6 +32,10 @@ export class UnitService extends Service<Unit> implements IService<Unit> {
 
   //region Methods
 
+CreateInstance() {
+   return new Unit();
+}
+
   RetrieveById(id: number): Promise<Unit> {
     return super.RetrieveById(id);
   }

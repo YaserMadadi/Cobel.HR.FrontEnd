@@ -39,11 +39,23 @@
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.isLocked }}</label>
                 </div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>SFE Appraisal Dashboard :
+                        <guide (onClick)='onGuid("")'></guide>
+                    </label>
+                    <label class='col-sm-8' *ngIf='position?.positionCategory.id == 1'>
+                        <a href='http://pbi.cobeldarou.com:81/reports/powerbi/SFE/Appraisal%20Dashboard'
+                            class='link-success' target='_blank'>
+                            View Dashboard
+                        </a>
+                    </label>
+                </div>
+
             </div>
             <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
         </fieldset>
         <hr />
-        <tabset #tabset >
+        <tabset #tabset>
             <tab [heading]='this.functionalTabItem.headLine' *ngIf='this.functionalTabItem.isVisible'>
                 <targetSetting-functionalObjective-detail #pmsTargetSettingFunctionalObjectiveDetail
                     [TargetSetting]='currentInstance'>
@@ -59,14 +71,12 @@
                     [TargetSetting]='currentInstance'>
                 </targetSetting-qualitativeObjective-detail>
             </tab>
-            <tab [heading]='behavioralTabItem.headLine'
-                *ngIf='behavioralTabItem.isVisible'>
+            <tab [heading]='behavioralTabItem.headLine' *ngIf='behavioralTabItem.isVisible'>
                 <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-behavioralObjective-detail>
             </tab>
-            <tab [heading]='appraiseResultTabItem.headLine'
-                *ngIf='appraiseResultTabItem.isVisible'>
+            <tab [heading]='appraiseResultTabItem.headLine' *ngIf='appraiseResultTabItem.isVisible'>
                 <targetSetting-appraiseResult-detail #pmsTargetSettingAppraiseResultDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-appraiseResult-detail>

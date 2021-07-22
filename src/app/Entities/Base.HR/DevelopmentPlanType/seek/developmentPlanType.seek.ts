@@ -26,7 +26,7 @@ export class DevelopmentPlanTypeSeekUI extends SeekModal<DevelopmentPlanType> {
     this.onClose(this.developmentPlanType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

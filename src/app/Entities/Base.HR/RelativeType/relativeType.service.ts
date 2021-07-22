@@ -28,6 +28,10 @@ export class RelativeTypeService extends Service<RelativeType> implements IServi
 
   //region Methods
 
+CreateInstance() {
+   return new RelativeType();
+}
+
   RetrieveById(id: number): Promise<RelativeType> {
     return super.RetrieveById(id);
   }

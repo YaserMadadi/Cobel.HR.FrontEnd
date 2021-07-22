@@ -31,6 +31,10 @@ export class CompetencyItemService extends Service<CompetencyItem> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new CompetencyItem();
+}
+
   RetrieveById(id: number): Promise<CompetencyItem> {
     return super.RetrieveById(id);
   }

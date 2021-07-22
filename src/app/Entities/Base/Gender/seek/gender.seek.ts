@@ -26,7 +26,7 @@ export class GenderSeekUI extends SeekModal<Gender> {
     this.onClose(this.gender);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

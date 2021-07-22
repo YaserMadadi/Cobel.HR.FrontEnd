@@ -27,6 +27,10 @@ export class SynonymService extends Service<Synonym> implements IService<Synonym
 
   //region Methods
 
+CreateInstance() {
+   return new Synonym();
+}
+
   RetrieveById(id: number): Promise<Synonym> {
     return super.RetrieveById(id);
   }

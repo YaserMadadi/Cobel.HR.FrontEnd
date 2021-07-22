@@ -28,6 +28,10 @@ export class MaritalStatusService extends Service<MaritalStatus> implements ISer
 
   //region Methods
 
+CreateInstance() {
+   return new MaritalStatus();
+}
+
   RetrieveById(id: number): Promise<MaritalStatus> {
     return super.RetrieveById(id);
   }

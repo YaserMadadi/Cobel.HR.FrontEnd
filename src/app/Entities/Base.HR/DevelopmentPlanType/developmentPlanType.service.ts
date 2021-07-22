@@ -27,6 +27,10 @@ export class DevelopmentPlanTypeService extends Service<DevelopmentPlanType> imp
 
   //region Methods
 
+CreateInstance() {
+   return new DevelopmentPlanType();
+}
+
   RetrieveById(id: number): Promise<DevelopmentPlanType> {
     return super.RetrieveById(id);
   }

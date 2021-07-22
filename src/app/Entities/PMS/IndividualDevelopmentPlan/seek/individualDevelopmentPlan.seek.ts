@@ -26,7 +26,7 @@ export class IndividualDevelopmentPlanSeekUI extends SeekModal<IndividualDevelop
     this.onClose(this.individualDevelopmentPlan);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

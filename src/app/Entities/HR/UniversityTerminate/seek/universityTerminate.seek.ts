@@ -26,7 +26,7 @@ export class UniversityTerminateSeekUI extends SeekModal<UniversityTerminate> {
     this.onClose(this.universityTerminate);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

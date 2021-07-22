@@ -42,7 +42,6 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
   public get BehavioralKPI(): BehavioralKPI { return this.behavioralKPI }
 
   public onReload(){
-    console.log('hi',this.behavioralKPI);
     if (BehavioralKPI.NotConfirm(this.behavioralKPI))
       return;
     this.behavioralKPIService

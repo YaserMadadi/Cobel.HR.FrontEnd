@@ -80,13 +80,10 @@ export class AuthService extends EndPointController {
 
 	public async Authenticate(baseToken: BaseToken) {
 		let url = EndPointController.BaseUrl + 'Authenticate';
-		// console.log('URL : ', url);
-		// console.log('Base Token : ', baseToken);
 		let h: HttpHeaders = new HttpHeaders();
 		let command = this.http.post<BaseTokenResult>(url, baseToken,
 			{
 				withCredentials: false,
-				//headers:h
 			});
 
 		return command.toPromise<BaseTokenResult>()
@@ -95,8 +92,9 @@ export class AuthService extends EndPointController {
 					this.LogedIn(authResult);
 				}
 				else {
-					alert('Login Failed!');
+					console.warn(authResult.token);
 					MessageController.ShowMessage(MessageType.UserNameOrPasswordNotAccepted);
+					AuthGuard.Clear();
 				}
 			},
 				(error) => {
@@ -108,9 +106,6 @@ export class AuthService extends EndPointController {
 
 	async LogedIn(baseTokenResult: BaseTokenResult) {
 		StorageController.Token = baseTokenResult.token;
-		StorageController.Set('token', baseTokenResult.token);
-		StorageController.Set('SamAccount', baseTokenResult.samAccount);
-		StorageController.Set('Person_Id', baseTokenResult.person_Id);
 		AuthGuard.Person_Id = baseTokenResult.person_Id;
 		AuthGuard.SAMAccount = baseTokenResult.samAccount;
 		AuthGuard.DisplayName = baseTokenResult.displayName;
@@ -125,8 +120,6 @@ export class AuthService extends EndPointController {
 		this.employeeService.PersonService.RetrieveById(person_id)
 			.then(person => {
 				AuthService.currentPerson = person;
-				console.log('Current Person : ', person);
-
 			});
 	}
 
@@ -140,8 +133,6 @@ export class AuthService extends EndPointController {
 	}
 
 	private loadPositionList(employee: Employee) {
-		console.log('load Position');
-		
 		this.employeeService.ServiceCollection.CollectionOfPositionAssignment(employee)
 			.then(list => {
 				list.forEach(PositionAssignmentItem => {

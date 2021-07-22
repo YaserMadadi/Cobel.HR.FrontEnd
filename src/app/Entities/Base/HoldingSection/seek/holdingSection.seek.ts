@@ -26,7 +26,7 @@ export class HoldingSectionSeekUI extends SeekModal<HoldingSection> {
     this.onClose(this.holdingSection);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

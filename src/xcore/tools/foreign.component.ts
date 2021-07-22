@@ -30,7 +30,7 @@ export class ForeignComponent<T extends BusinessObject> {
     public set instance(value: T) {
         this._instance = value;
         this.list = [value];
-        console.log('init');
+        //console.log('init');
         //this.DoFilter();
     }
 

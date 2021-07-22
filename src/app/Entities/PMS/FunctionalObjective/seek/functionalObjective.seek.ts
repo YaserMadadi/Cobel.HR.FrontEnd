@@ -26,7 +26,7 @@ export class FunctionalObjectiveSeekUI extends SeekModal<FunctionalObjective> {
     this.onClose(this.functionalObjective);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

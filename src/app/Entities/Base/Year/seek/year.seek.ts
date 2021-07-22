@@ -26,7 +26,7 @@ export class YearSeekUI extends SeekModal<Year> {
     this.onClose(this.year);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

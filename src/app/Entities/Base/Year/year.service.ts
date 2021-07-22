@@ -29,6 +29,10 @@ export class YearService extends Service<Year> implements IService<Year> {
 
   //region Methods
 
+CreateInstance() {
+   return new Year();
+}
+
   RetrieveById(id: number): Promise<Year> {
     return super.RetrieveById(id);
   }

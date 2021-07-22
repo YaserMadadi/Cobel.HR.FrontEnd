@@ -28,6 +28,10 @@ export class DevelopmentPlanPriorityService extends Service<DevelopmentPlanPrior
 
   //region Methods
 
+CreateInstance() {
+   return new DevelopmentPlanPriority();
+}
+
   RetrieveById(id: number): Promise<DevelopmentPlanPriority> {
     return super.RetrieveById(id);
   }

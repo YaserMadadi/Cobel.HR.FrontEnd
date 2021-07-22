@@ -31,6 +31,10 @@ export class AssessmentCoachingService extends Service<AssessmentCoaching> imple
 
   //region Methods
 
+CreateInstance() {
+   return new AssessmentCoaching();
+}
+
   RetrieveById(id: number): Promise<AssessmentCoaching> {
     return super.RetrieveById(id);
   }

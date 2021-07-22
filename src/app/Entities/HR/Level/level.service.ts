@@ -28,6 +28,10 @@ export class LevelService extends Service<Level> implements IService<Level> {
 
   //region Methods
 
+CreateInstance() {
+   return new Level();
+}
+
   RetrieveById(id: number): Promise<Level> {
     return super.RetrieveById(id);
   }

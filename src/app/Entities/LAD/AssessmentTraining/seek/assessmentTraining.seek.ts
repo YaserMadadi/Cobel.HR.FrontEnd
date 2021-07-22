@@ -26,7 +26,7 @@ export class AssessmentTrainingSeekUI extends SeekModal<AssessmentTraining> {
     this.onClose(this.assessmentTraining);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

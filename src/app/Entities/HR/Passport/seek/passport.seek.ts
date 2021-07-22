@@ -26,7 +26,7 @@ export class PassportSeekUI extends SeekModal<Passport> {
     this.onClose(this.passport);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

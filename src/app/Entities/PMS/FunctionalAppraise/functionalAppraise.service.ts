@@ -35,6 +35,10 @@ export class FunctionalAppraiseService extends Service<FunctionalAppraise> imple
 
   //region Methods
 
+CreateInstance() {
+   return new FunctionalAppraise();
+}
+
   RetrieveById(id: number): Promise<FunctionalAppraise> {
     return super.RetrieveById(id);
   }

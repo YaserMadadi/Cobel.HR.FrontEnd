@@ -26,7 +26,7 @@ export class ContractSeekUI extends SeekModal<Contract> {
     this.onClose(this.contract);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

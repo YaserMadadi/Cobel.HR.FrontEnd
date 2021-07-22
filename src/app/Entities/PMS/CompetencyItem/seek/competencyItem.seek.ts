@@ -26,7 +26,7 @@ export class CompetencyItemSeekUI extends SeekModal<CompetencyItem> {
     this.onClose(this.competencyItem);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -30,6 +30,10 @@ export class PositionCategoryService extends Service<PositionCategory> implement
 
   //region Methods
 
+CreateInstance() {
+   return new PositionCategory();
+}
+
   RetrieveById(id: number): Promise<PositionCategory> {
     return super.RetrieveById(id);
   }

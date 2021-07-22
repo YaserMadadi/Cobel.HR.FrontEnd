@@ -29,6 +29,10 @@ export class EmploymentStatusService extends Service<EmploymentStatus> implement
 
   //region Methods
 
+CreateInstance() {
+   return new EmploymentStatus();
+}
+
   RetrieveById(id: number): Promise<EmploymentStatus> {
     return super.RetrieveById(id);
   }

@@ -26,7 +26,7 @@ export class InclusiveTypeSeekUI extends SeekModal<InclusiveType> {
     this.onClose(this.inclusiveType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

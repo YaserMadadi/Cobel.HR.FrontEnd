@@ -30,6 +30,10 @@ export class GenderService extends Service<Gender> implements IService<Gender> {
 
   //region Methods
 
+CreateInstance() {
+   return new Gender();
+}
+
   RetrieveById(id: number): Promise<Gender> {
     return super.RetrieveById(id);
   }

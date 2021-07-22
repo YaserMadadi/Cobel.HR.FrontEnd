@@ -26,7 +26,7 @@ export class LogSeekUI extends SeekModal<Log> {
     this.onClose(this.log);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

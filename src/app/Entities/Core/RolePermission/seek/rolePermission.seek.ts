@@ -26,7 +26,7 @@ export class RolePermissionSeekUI extends SeekModal<RolePermission> {
     this.onClose(this.rolePermission);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

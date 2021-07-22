@@ -28,6 +28,10 @@ export class FieldCategoryService extends Service<FieldCategory> implements ISer
 
   //region Methods
 
+CreateInstance() {
+   return new FieldCategory();
+}
+
   RetrieveById(id: number): Promise<FieldCategory> {
     return super.RetrieveById(id);
   }

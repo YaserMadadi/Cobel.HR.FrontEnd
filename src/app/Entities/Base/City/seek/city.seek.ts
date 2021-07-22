@@ -26,7 +26,7 @@ export class CitySeekUI extends SeekModal<City> {
     this.onClose(this.city);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

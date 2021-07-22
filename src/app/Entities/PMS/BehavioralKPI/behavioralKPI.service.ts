@@ -32,6 +32,10 @@ export class BehavioralKPIService extends Service<BehavioralKPI> implements ISer
 
   //region Methods
 
+CreateInstance() {
+   return new BehavioralKPI();
+}
+
   RetrieveById(id: number): Promise<BehavioralKPI> {
     return super.RetrieveById(id);
   }

@@ -26,7 +26,7 @@ export class ConfigQualitativeKPISeekUI extends SeekModal<ConfigQualitativeKPI> 
     this.onClose(this.configQualitativeKPI);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }
