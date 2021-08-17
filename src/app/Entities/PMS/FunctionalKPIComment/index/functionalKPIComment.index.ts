@@ -57,8 +57,7 @@ export class FunctionalKPICommentIndexUI extends IndexView<FunctionalKPIComment>
 
   resetFilter() {
     this.filterInstance = FunctionalKPIComment.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(functionalKPIComment: FunctionalKPIComment) {

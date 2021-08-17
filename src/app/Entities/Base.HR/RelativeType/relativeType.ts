@@ -1,4 +1,4 @@
-﻿import { Directive, OnInit } from '@angular/core';
+import { Directive, OnInit } from '@angular/core';
 
 import { Info } from '../../../../xcore/Info';
 import { Validator } from '../../../../xcore/tools/Validator';
@@ -27,7 +27,7 @@ export class RelativeType extends BusinessObject implements OnInit {
 
   //region Info
 
-  public static readonly Info: Info = new Info('Base.HR', 'RelativeType', 'Relative Type');
+  public static readonly Info: Info = new Info('Base.HR', 'RelativeType', 'RelativeType');
 
   //endregion
 

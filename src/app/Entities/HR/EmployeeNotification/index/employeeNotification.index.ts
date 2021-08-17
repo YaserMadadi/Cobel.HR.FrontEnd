@@ -54,8 +54,7 @@ export class EmployeeNotificationIndexUI extends IndexView<EmployeeNotification>
 
   resetFilter() {
     this.filterInstance = EmployeeNotification.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(employeeNotification: EmployeeNotification) {

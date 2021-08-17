@@ -1,10 +1,11 @@
-﻿<XDialog Header='Relative Type Management form'
+
+<XDialog Header='RelativeType Management form'
     [IsShown]='IsShown' 
     (OnClosed)='onClose()'
     [ModalType]='2'>
     <div class='master-content'>
         <fieldset class='border rounded'>
-            <legend>Relative Type : </legend>
+            <legend>RelativeType : </legend>
             <div>
                 <div class='form-group row'>
                     <label class='col-sm-4 titleControl'>Title : 
@@ -13,7 +14,7 @@
                     <label class='col-sm-8'>{{ currentInstance.title }}</label>
                 </div>
 				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Is Active : 
+                    <label class='col-sm-4 titleControl'>IsActive : 
                         <guide (onClick)='onGuid("IsActive")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>

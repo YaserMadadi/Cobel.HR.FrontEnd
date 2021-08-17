@@ -41,7 +41,7 @@ export abstract class EndPointController {
         } else if (mode === CompileMode.LocalSSL) {
             EndPointController.protocol = 'https';
             EndPointController.ServerIP = 'localhost';
-            EndPointController.serverPort = 5001;
+            EndPointController.serverPort = 44337;
             EndPointController.servicePath = '';
         } else if (mode === CompileMode.Server) {
             EndPointController.protocol = 'http';
@@ -75,7 +75,7 @@ export abstract class EndPointController {
 
     public static get Headers(): HttpHeaders {
         if (!this.headers.has('authentication') && StorageController.Token.length > 0) {
-            this.headers = this.headers.set('authentication', StorageController.Token);
+            this.headers = this.headers.set('Authorization', 'Bearer ' + StorageController.Token);
         }
         return this.headers;
     }
@@ -118,9 +118,12 @@ export abstract class EndPointController {
                 url += '/All';
                 break;
             }
-            case Actions.RetrieveById:
+            case Actions.RetrieveById:{
+                url += `/RetrieveById/${id}`;
+                break;
+            }
             case Actions.Save: {
-                url += `/${id}`;
+                url += `/Save`;
                 break;
             }
             case Actions.SaveCollection: {

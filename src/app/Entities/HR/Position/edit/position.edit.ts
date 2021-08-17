@@ -12,8 +12,8 @@ import { Level } from '../../Level/level';
 import { LevelEditUI } from '../../Level/edit/level.edit';
 import { Unit } from '../../Unit/unit';
 import { UnitEditUI } from '../../Unit/edit/unit.edit';
-import { PositionCategory } from '../../PositionCategory/positionCategory';
-import { PositionCategoryEditUI } from '../../PositionCategory/edit/positionCategory.edit';
+import { PositionCategory } from '../../../Base.HR/PositionCategory/positionCategory';
+import { PositionCategoryEditUI } from '../../../Base.HR/PositionCategory/edit/positionCategory.edit';
 
 
 

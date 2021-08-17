@@ -56,8 +56,7 @@ export class EmployeeEventIndexUI extends IndexView<EmployeeEvent> implements Af
 
   resetFilter() {
     this.filterInstance = EmployeeEvent.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(employeeEvent: EmployeeEvent) {

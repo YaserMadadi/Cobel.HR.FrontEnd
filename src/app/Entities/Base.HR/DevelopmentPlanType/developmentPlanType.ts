@@ -1,4 +1,4 @@
-﻿import { Directive, OnInit } from '@angular/core';
+import { Directive, OnInit } from '@angular/core';
 
 import { Info } from '../../../../xcore/Info';
 import { Validator } from '../../../../xcore/tools/Validator';
@@ -26,7 +26,7 @@ export class DevelopmentPlanType extends BusinessObject implements OnInit {
 
   //region Info
 
-  public static readonly Info: Info = new Info('Base.HR', 'DevelopmentPlanType', 'Development Plan Type');
+  public static readonly Info: Info = new Info('Base.HR', 'DevelopmentPlanType', 'DevelopmentPlanType');
 
   //endregion
 

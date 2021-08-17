@@ -56,8 +56,7 @@ export class SchoolHistoryIndexUI extends IndexView<SchoolHistory> implements Af
 
   resetFilter() {
     this.filterInstance = SchoolHistory.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(schoolHistory: SchoolHistory) {

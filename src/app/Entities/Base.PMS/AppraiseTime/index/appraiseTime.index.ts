@@ -102,8 +102,7 @@ export class AppraiseTimeIndexUI extends IndexView<AppraiseTime> implements Afte
 
   resetFilter() {
     this.filterInstance = AppraiseTime.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(appraiseTime: AppraiseTime) {

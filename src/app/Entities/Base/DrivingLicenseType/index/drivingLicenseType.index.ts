@@ -68,8 +68,7 @@ export class DrivingLicenseTypeIndexUI extends IndexView<DrivingLicenseType> imp
 
   resetFilter() {
     this.filterInstance = DrivingLicenseType.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(drivingLicenseType: DrivingLicenseType) {

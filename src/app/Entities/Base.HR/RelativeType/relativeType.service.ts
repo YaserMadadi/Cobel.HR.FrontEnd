@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Service } from '../../../../xcore/service/service';
 import { IService } from '../../../../xcore/service/base/service.interface';
@@ -22,15 +22,15 @@ export class RelativeTypeService extends Service<RelativeType> implements IServi
     super(ServiceCollection.API_Operation, RelativeType.Info);
   }
 
+  CreateInstance() {
+   return new RelativeType();
+}
+
   CheckPermission(permissionType: PermissionType): PermissionResult {
     return PermissionController.Check(this.info, permissionType);
   }
 
   //region Methods
-
-CreateInstance() {
-   return new RelativeType();
-}
 
   RetrieveById(id: number): Promise<RelativeType> {
     return super.RetrieveById(id);

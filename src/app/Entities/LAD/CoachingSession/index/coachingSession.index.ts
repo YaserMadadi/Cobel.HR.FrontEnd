@@ -54,8 +54,7 @@ export class CoachingSessionIndexUI extends IndexView<CoachingSession> implement
 
   resetFilter() {
     this.filterInstance = CoachingSession.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(coachingSession: CoachingSession) {

@@ -68,8 +68,7 @@ export class ProvinceIndexUI extends IndexView<Province> implements AfterViewIni
 
   resetFilter() {
     this.filterInstance = Province.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(province: Province) {

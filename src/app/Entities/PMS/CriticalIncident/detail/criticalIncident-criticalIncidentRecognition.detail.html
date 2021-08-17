@@ -5,9 +5,9 @@
         <button type='button' name='addButton' class='xbtn btn-add' 
                   (click)='onAdd(criticalIncidentRecognitionEditUI)' >Add</button>
         <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(criticalIncidentRecognitionEditUI)' [ngClass]="{ 'disabled' : currentCriticalIncidentRecognition.id == 0 }">Edit</button>
+                  (click)='onEdit(criticalIncidentRecognitionEditUI)' [disabled]='currentCriticalIncidentRecognition.id == 0'>Edit</button>
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(criticalIncidentRecognitionDeleteUI)' [ngClass]="{ 'disabled' : currentCriticalIncidentRecognition.id == 0 }">Delete</button>
+                  (click)='onDelete(criticalIncidentRecognitionDeleteUI)' [disabled]='currentCriticalIncidentRecognition.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'

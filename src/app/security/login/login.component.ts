@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Md5 } from 'ts-md5';
+import { loginUser } from '../../../xcore/security/base/loginUser';
 import { AuthService } from '../../../xcore/security/auth_service';
-import { BaseToken } from '../../../xcore/security/base/base_token';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
-  baseToken: BaseToken = new BaseToken();
+  loginUser: loginUser = new loginUser();
 
   ngOnInit(): void {
   }
@@ -21,9 +20,10 @@ export class LoginComponent implements OnInit {
     //this.baseToken.password = Md5.hashStr(password).toString();
     //console.log(this.baseToken.password);
 
-    this.baseToken.password = password;
+    this.loginUser.password = password;
+    //this.logi .password = password;
 
-    await this.authService.Authenticate(this.baseToken);
+    await this.authService.Authenticate(this.loginUser);
   }
 
 }

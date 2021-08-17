@@ -56,8 +56,7 @@ export class CoachConnectionLineIndexUI extends IndexView<CoachConnectionLine> i
 
   resetFilter() {
     this.filterInstance = CoachConnectionLine.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(coachConnectionLine: CoachConnectionLine) {

@@ -61,8 +61,7 @@ export class FunctionalAppraiseIndexUI extends IndexView<FunctionalAppraise> imp
 
   resetFilter() {
     this.filterInstance = FunctionalAppraise.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(functionalAppraise: FunctionalAppraise) {

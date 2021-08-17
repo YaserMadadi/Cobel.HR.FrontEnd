@@ -68,8 +68,7 @@ export class ApproverTypeIndexUI extends IndexView<ApproverType> implements Afte
 
   resetFilter() {
     this.filterInstance = ApproverType.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(approverType: ApproverType) {

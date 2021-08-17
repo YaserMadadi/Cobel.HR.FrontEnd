@@ -1,4 +1,5 @@
-﻿import { Component } from '@angular/core';
+
+import { Component } from '@angular/core';
 
 import { SeekModal } from '../../../../../xcore/tools/ui/view-base/seek.modal';
 
@@ -26,7 +27,7 @@ export class EventTypeSeekUI extends SeekModal<EventType> {
     this.onClose(this.eventType);
   }
 
-  cancelButton_Clicked() {
+  cancleButton_Clicked() {
     this.onClose(null);
   }
 }

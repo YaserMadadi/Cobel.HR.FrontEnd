@@ -68,8 +68,7 @@ export class CertificationTypeIndexUI extends IndexView<CertificationType> imple
 
   resetFilter() {
     this.filterInstance = CertificationType.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(certificationType: CertificationType) {

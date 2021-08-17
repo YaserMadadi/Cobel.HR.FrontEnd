@@ -1,4 +1,6 @@
-﻿import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
+
+
+import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
 
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { IndexView } from '../../../../../xcore/tools/ui/view-base/index.view';
@@ -14,10 +16,10 @@ import { EmploymentStatusEditUI } from '../edit/employmentStatus.edit';
 import { EmploymentStatusDeleteUI } from '../delete/employmentStatus.delete';
 
 import { PaginatorComponent } from '../../../../../xcore/tools/ui/components/paginator/paginator.component';
-import { EmployeeDetailEditUI } from '../../../HR/EmployeeDetail/edit/employeeDetail.edit';
-import { EmployeeDetail } from '../../../HR/EmployeeDetail/employeeDetail';
 import { EmployeeEditUI } from '../../../HR/Employee/edit/employee.edit';
 import { Employee } from '../../../HR/Employee/employee';
+import { EmployeeDetailEditUI } from '../../../HR/EmployeeDetail/edit/employeeDetail.edit';
+import { EmployeeDetail } from '../../../HR/EmployeeDetail/employeeDetail';
 
 
 
@@ -40,21 +42,6 @@ export class EmploymentStatusIndexUI extends IndexView<EmploymentStatus> impleme
 
   
   
-  //#region EmployeeDetail
-
-  public employeeDetail_Clicked(employeeDetailEditUI: EmployeeDetailEditUI) {
-    employeeDetailEditUI.EmploymentStatus = this.currentInstance;
-    employeeDetailEditUI.ShowDialog(new EmployeeDetail());
-  }
-                    
-  public employeeDetailEditUI_Closed(employeeDetail: EmployeeDetail) {
-    if (!employeeDetail)
-      return;
-    this.onRefresh();
-  }
-  
-  //#endregion EmployeeDetail
-
   //#region Employee
 
   public employee_Clicked(employeeEditUI: EmployeeEditUI) {
@@ -69,6 +56,21 @@ export class EmploymentStatusIndexUI extends IndexView<EmploymentStatus> impleme
   }
   
   //#endregion Employee
+
+  //#region EmployeeDetail
+
+  public employeeDetail_Clicked(employeeDetailEditUI: EmployeeDetailEditUI) {
+    employeeDetailEditUI.EmploymentStatus = this.currentInstance;
+    employeeDetailEditUI.ShowDialog(new EmployeeDetail());
+  }
+                    
+  public employeeDetailEditUI_Closed(employeeDetail: EmployeeDetail) {
+    if (!employeeDetail)
+      return;
+    this.onRefresh();
+  }
+  
+  //#endregion EmployeeDetail
 
 
   
@@ -85,8 +87,7 @@ export class EmploymentStatusIndexUI extends IndexView<EmploymentStatus> impleme
 
   resetFilter() {
     this.filterInstance = EmploymentStatus.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(employmentStatus: EmploymentStatus) {

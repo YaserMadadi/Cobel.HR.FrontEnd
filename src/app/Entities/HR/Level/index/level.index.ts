@@ -68,8 +68,7 @@ export class LevelIndexUI extends IndexView<Level> implements AfterViewInit, IIn
 
   resetFilter() {
     this.filterInstance = Level.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(level: Level) {

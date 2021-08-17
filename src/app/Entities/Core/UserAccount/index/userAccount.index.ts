@@ -54,8 +54,7 @@ export class UserAccountIndexUI extends IndexView<UserAccount> implements AfterV
 
   resetFilter() {
     this.filterInstance = UserAccount.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(userAccount: UserAccount) {

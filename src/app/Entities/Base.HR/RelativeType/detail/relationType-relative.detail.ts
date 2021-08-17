@@ -1,4 +1,4 @@
-﻿import { Component, Injectable, Input } from '@angular/core';
+import { Component, Injectable, Input } from '@angular/core';
 
 import { DetailView } from '../../../../../xcore/tools/ui/view-base/detail.view';
 import { Info } from '../../../../../xcore/Info';

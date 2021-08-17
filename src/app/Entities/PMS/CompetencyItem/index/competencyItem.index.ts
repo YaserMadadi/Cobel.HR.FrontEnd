@@ -119,8 +119,7 @@ export class CompetencyItemIndexUI extends IndexView<CompetencyItem> implements 
 
   resetFilter() {
     this.filterInstance = CompetencyItem.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(competencyItem: CompetencyItem) {

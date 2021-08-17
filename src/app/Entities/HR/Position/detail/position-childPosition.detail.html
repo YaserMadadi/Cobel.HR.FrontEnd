@@ -5,9 +5,9 @@
         <button type='button' name='addButton' class='xbtn btn-add' 
                   (click)='onAdd(positionEditUI)' >Add</button>
         <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(positionEditUI)' [ngClass]="{ 'disabled' : currentPosition.id == 0 }">Edit</button>
+                  (click)='onEdit(positionEditUI)' [disabled]='currentPosition.id == 0'>Edit</button>
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(positionDeleteUI)' [ngClass]="{ 'disabled' : currentPosition.id == 0 }">Delete</button>
+                  (click)='onDelete(positionDeleteUI)' [disabled]='currentPosition.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'
@@ -29,7 +29,7 @@
         </thead>
         <tbody>
           <tr *ngFor='let position of PositionList; let i = index' 
-                (dblclick)='onDblClicked(positionMasterUI)' 
+                (dblclick)='onDblClicked(null)' 
                 (click)='onSelect(i)'
                 [ngClass]="{ 'selected-row' : position.id === currentPosition.id, 'free-row': position.id !== currentPosition.id  }">
             <td class='row-number'>{{i+1}}</td>

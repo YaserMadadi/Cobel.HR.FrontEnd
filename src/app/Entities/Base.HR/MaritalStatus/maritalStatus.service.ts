@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Service } from '../../../../xcore/service/service';
 import { IService } from '../../../../xcore/service/base/service.interface';
@@ -22,15 +22,15 @@ export class MaritalStatusService extends Service<MaritalStatus> implements ISer
     super(ServiceCollection.API_Operation, MaritalStatus.Info);
   }
 
+  CreateInstance() {
+   return new MaritalStatus();
+}
+
   CheckPermission(permissionType: PermissionType): PermissionResult {
     return PermissionController.Check(this.info, permissionType);
   }
 
   //region Methods
-
-CreateInstance() {
-   return new MaritalStatus();
-}
 
   RetrieveById(id: number): Promise<MaritalStatus> {
     return super.RetrieveById(id);

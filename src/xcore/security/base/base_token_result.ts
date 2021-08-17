@@ -1,4 +1,4 @@
-export class BaseTokenResult {
+export class AccessToken {
     constructor(
         public id: number,
         public samAccount: string,
@@ -6,6 +6,7 @@ export class BaseTokenResult {
         public person_Id: number,
         public employee_Id: number,
         public token: string,
+        public expireTime: Date,
         public status: number) {
     }
 

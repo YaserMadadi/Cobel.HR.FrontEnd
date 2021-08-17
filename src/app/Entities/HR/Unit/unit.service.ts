@@ -13,7 +13,7 @@ import { Unit } from './unit';
 import { UnitServiceCollection } from './unit.service.collection';
 
 import { DepartmentService } from '../Department/department.service';
-import { PositionCategoryService } from '../PositionCategory/positionCategory.service';
+import { PositionCategoryService } from '../../Base.HR/PositionCategory/positionCategory.service';
 import { Position } from '../Position/position';
 
 

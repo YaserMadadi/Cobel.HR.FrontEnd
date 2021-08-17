@@ -6,9 +6,10 @@ import { Info } from '../Info';
 import { MessageController, toastType } from '../tools/controller.message';
 import { Result } from '../tools/Result';
 import { API_Operation } from './api.operation';
-import { PermissionResult, PermissionType } from '../tools/Enum';
+import { MessageType, PermissionResult, PermissionType } from '../tools/Enum';
 import { IService } from './base/service.interface';
 import { PermissionController } from '../tools/controller.permission';
+import { ResultData } from '../tools/ResultData';
 
 
 @Injectable({ providedIn: 'root' })
@@ -35,14 +36,15 @@ export class Service<T extends BusinessObject> implements IService<T> {
     //#endregion Permission
 
 
+
     //#region   Commands
     public Save(entity: T): Promise<T> {
         entity.info = this.info;
         return this.api_operation.Save(entity)
             .then(
-                entity => {
-                    MessageController.ShowMessage('Save Successfully done...', toastType.success);
-                    return entity;
+                resultData => {
+                    MessageController.ShowMessage(resultData.message, toastType.success);
+                    return resultData.data;
                 },
                 error => {
                     this.errorHandler(error, 'Saving Command');
@@ -51,8 +53,10 @@ export class Service<T extends BusinessObject> implements IService<T> {
     }
 
     public SaveCollection(list: T[]): Promise<Result> {
-        if (list.length == 0)
+        if (list.length == 0) {
+            MessageController.ShowMessage('List is Empty!', toastType.error);
             return Promise.resolve(new Result(0, ''));
+        }
         return this.api_operation.SaveCollection(list, this.info)
             .then(
                 result => result,
@@ -60,15 +64,15 @@ export class Service<T extends BusinessObject> implements IService<T> {
                     this.errorHandler(error, 'BulkSaving Command');
                     return Promise.resolve(new Result(-1, error));
                 });
+
     }
 
     public SaveAttached(entity: T): Promise<T> {
         return this.api_operation.SaveAttached(entity)
             .then(
-                entity => {
-                    console.log(entity);
+                resultData => {
                     MessageController.ShowMessage('Save Entity and All Related Successfully done...', toastType.success);
-                    return entity;
+                    return resultData.data;
                 },
                 error => {
                     this.errorHandler(error, 'Saving Command');
@@ -78,8 +82,10 @@ export class Service<T extends BusinessObject> implements IService<T> {
 
     public RetrieveById(id: number): Promise<T> {
         return this.api_operation.RetrieveById(id, this.info)
-            .then(
-                entity => entity,
+            .then(resultData => {
+                console.log(resultData);
+                return resultData.data;
+            },
                 error => {
                     this.errorHandler(error, 'RetrieveById');
                     return Promise.resolve(null);
@@ -89,8 +95,8 @@ export class Service<T extends BusinessObject> implements IService<T> {
     public RetrieveAll(): Promise<T[]> {
         return this.api_operation.RetrieveAll(this.info)
             .then(
-                list => {
-                    return Promise.resolve(list);
+                resultData => {
+                    return Promise.resolve(resultData.data);
                 },
                 error => {
                     console.log(`Error : [${this.info.schema}].[${this.info.name}]`);
@@ -102,10 +108,12 @@ export class Service<T extends BusinessObject> implements IService<T> {
     public Seek(entity: T): Promise<T[]> {
         return this.api_operation.Seek(entity)
             .then(
-                list => {
-                    return list;
+                resultData => {
+                    //                    if(!resultData.isSucceeded){
+
+                    return resultData.data;
                 },
-                error => {
+                (error: Result) => {
                     console.log(`Error in Seek : ${entity.info.fullName}. Error : ${error}`);
                     this.errorHandler(error, 'Seek');
                     return Promise.resolve([]);
@@ -118,7 +126,7 @@ export class Service<T extends BusinessObject> implements IService<T> {
 
         return this.api_operation.SeekByValue(value, this.info)
             .then(
-                (list: T[]) => Promise.resolve(list),
+                (resultData: ResultData<T[]>) => Promise.resolve(resultData.data),
                 error => {
                     console.log(`Error in SeekByValue : ${this.info.fullName}. Error : ${error}`);
                     this.errorHandler(error, 'Seek By Value');
@@ -141,6 +149,7 @@ export class Service<T extends BusinessObject> implements IService<T> {
         return this.api_operation.Delete(entity)
             .then(
                 result => {
+                    console.log(result);
                     if (result.id <= 0) {
                         MessageController.ShowMessage(result.message, toastType.error);
                         return false;
@@ -164,7 +173,7 @@ export class Service<T extends BusinessObject> implements IService<T> {
             return Promise.resolve([]);
 
         return this.api_operation.CollectionOf<U>(sourcEntity, entity, extendedPath)
-            .then(list => list,
+            .then(resultData => resultData.data,
                 error => {
                     console.log(`Error in CollectionOf${entity.info.name} from ${sourcEntity.info.fullName}. Error : ${error}`);
                     this.errorHandler(error, `Retrieve CollectionOf<${entity.info.name}}>`);
@@ -181,6 +190,9 @@ export class Service<T extends BusinessObject> implements IService<T> {
     private errorHandler(error, action: string) {
         if (error instanceof HttpErrorResponse) {
             console.log('Action : ', action, error);
+            if(error.status == 401){
+                MessageController.ShowMessage(MessageType.AuthenticationError);
+            }
             let result: Result = <Result>error.error;
             console.log('Result in Error Handler : ', result);
 

@@ -74,8 +74,7 @@ export class BehavioralKPIIndexUI extends IndexView<BehavioralKPI> implements Af
 
   resetFilter() {
     this.filterInstance = BehavioralKPI.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(behavioralKPI: BehavioralKPI) {

@@ -54,8 +54,7 @@ export class FeedbackSessionIndexUI extends IndexView<FeedbackSession> implement
 
   resetFilter() {
     this.filterInstance = FeedbackSession.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(feedbackSession: FeedbackSession) {

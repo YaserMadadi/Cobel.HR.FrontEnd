@@ -93,8 +93,7 @@ export class CoachingQuestionaryIndexUI extends IndexView<CoachingQuestionary> i
 
   resetFilter() {
     this.filterInstance = CoachingQuestionary.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(coachingQuestionary: CoachingQuestionary) {

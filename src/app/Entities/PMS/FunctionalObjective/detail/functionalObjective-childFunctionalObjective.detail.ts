@@ -58,11 +58,11 @@ export class FunctionalObjective_ChildFunctionalObjective_DetailUI extends Detai
       this.currentFunctionalObjective = new FunctionalObjective();
   }
 
-  public onDblClicked(masterUI: FunctionalObjectiveMasterUI) {
-    if (FunctionalObjective.NotConfirm(this.currentFunctionalObjective))
-      return;
-    masterUI.ShowDialog(this.currentFunctionalObjective);
-  }
+  // public onDblClicked(masterUI: FunctionalObjectiveMasterUI) {
+  //   // if (FunctionalObjective.NotConfirm(this.currentFunctionalObjective))
+  //   //   return;
+  //   // masterUI.ShowDialog(this.currentFunctionalObjective);
+  // }
 
   public onAdd(editUI: FunctionalObjectiveEditUI) {
     editUI.ParentalFunctionalObjective = this.parentalFunctionalObjective;

@@ -54,8 +54,7 @@ export class PassportIndexUI extends IndexView<Passport> implements AfterViewIni
 
   resetFilter() {
     this.filterInstance = Passport.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(passport: Passport) {

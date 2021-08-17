@@ -11,29 +11,29 @@ import { UnitDeleteUI } from './delete/unit.delete';
 import { UnitSeekUI } from './seek/unit.seek';
 
 import { Department_ModuleFunc } from '../Department/department.module.func';
-import { PositionCategory_ModuleFunc } from '../PositionCategory/positionCategory.module.func';
+import { PositionCategory_ModuleFunc } from '../../Base.HR/PositionCategory/positionCategory.module.func';
 
 @NgModule({
     declarations: [
         UnitEditUI,
-		UnitDeleteUI,
-		UnitSeekUI
+        UnitDeleteUI,
+        UnitSeekUI
     ],
     imports: [
         FormsModule,
         CommonModule,
         XCommonModule,
         Department_ModuleFunc,
-		PositionCategory_ModuleFunc
+        PositionCategory_ModuleFunc
     ],
     exports: [
         UnitEditUI,
-		UnitDeleteUI,
-		UnitSeekUI
+        UnitDeleteUI,
+        UnitSeekUI
     ],
     providers: [
-       //UnitService,
-       // UnitServiceCollection,
+        //UnitService,
+        // UnitServiceCollection,
     ]
 })
 

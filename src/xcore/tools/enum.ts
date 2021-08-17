@@ -46,6 +46,7 @@ export enum MessageType {
     EndOfEvaluation,
     QuestionnaireIsDone,
     QuestionnaireIsNotAvailable,
+    AuthenticationError,
     
 }
 

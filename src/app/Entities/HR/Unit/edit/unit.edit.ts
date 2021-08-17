@@ -10,8 +10,8 @@ import { Unit } from '../unit';
 import { UnitService } from '../unit.service';
 import { Department } from '../../Department/department';
 import { DepartmentEditUI } from '../../Department/edit/department.edit';
-import { PositionCategory } from '../../PositionCategory/positionCategory';
-import { PositionCategoryEditUI } from '../../PositionCategory/edit/positionCategory.edit';
+import { PositionCategory } from '../../../Base.HR/PositionCategory/positionCategory';
+import { PositionCategoryEditUI } from '../../../Base.HR/PositionCategory/edit/positionCategory.edit';
 
 
 

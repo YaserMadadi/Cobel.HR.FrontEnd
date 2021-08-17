@@ -1,10 +1,11 @@
-﻿<XDialog Header='Event Type Management form'
+
+<XDialog Header='EventType Management form'
     [IsShown]='IsShown' 
     (OnClosed)='onClose()'
     [ModalType]='2'>
     <div class='master-content'>
         <fieldset class='border rounded'>
-            <legend>Event Type : </legend>
+            <legend>EventType : </legend>
             <div>
                 <div class='form-group row'>
                     <label class='col-sm-4 titleControl'>Title : 
@@ -13,7 +14,7 @@
                     <label class='col-sm-8'>{{ currentInstance.title }}</label>
                 </div>
 				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Is Active : 
+                    <label class='col-sm-4 titleControl'>IsActive : 
                         <guide (onClick)='onGuid("IsActive")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
@@ -23,7 +24,7 @@
         </fieldset>
         <hr/>
         <tabset #tabset>
-            <tab heading='Employee Event'>
+            <tab heading='EmployeeEvent'>
                 <eventType-employeeEvent-detail 
                     #base_hrEventTypeEmployeeEventDetail
                     [EventType]='currentInstance'>

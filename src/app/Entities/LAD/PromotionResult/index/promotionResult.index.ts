@@ -68,8 +68,7 @@ export class PromotionResultIndexUI extends IndexView<PromotionResult> implement
 
   resetFilter() {
     this.filterInstance = PromotionResult.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(promotionResult: PromotionResult) {

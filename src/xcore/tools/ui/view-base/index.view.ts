@@ -68,6 +68,7 @@ export class IndexView<T extends BusinessObject> implements IIndexView<T> {
 
     resetFilter() {
         //Should Implemented in the heritor...
+        this.currentInstance = this.businessObjectService?.CreateInstance();
     }
 
     public doFilter(keyboardEvent: KeyboardEvent) {

@@ -1,13 +1,14 @@
-﻿<div class='detail-part'>
+
+<div class='detail-part'>
   <fieldset>
     <div id='button-section'>
       <div class='btn-group ' role='group' aria-label='Basic example'>
         <button type='button' name='addButton' class='xbtn btn-add' 
                   (click)='onAdd(employeeEventEditUI)' >Add</button>
         <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(employeeEventEditUI)' [ngClass]="{ 'disabled' : currentEmployeeEvent.id == 0 }">Edit</button>
+                  (click)='onEdit(employeeEventEditUI)' [disabled]='currentEmployeeEvent.id == 0'>Edit</button>
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(employeeEventDeleteUI)' [ngClass]="{ 'disabled' : currentEmployeeEvent.id == 0 }">Delete</button>
+                  (click)='onDelete(employeeEventDeleteUI)' [disabled]='currentEmployeeEvent.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'
@@ -22,7 +23,7 @@
         <thead class='thead'>
           <tr class='header-row'>
             <th class='row-number'>Row</th>
-            <th> Employee Event</th>
+            <th> EmployeeEvent</th>
           </tr>
         </thead>
         <tbody>

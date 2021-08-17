@@ -68,8 +68,7 @@ export class ReligionIndexUI extends IndexView<Religion> implements AfterViewIni
 
   resetFilter() {
     this.filterInstance = Religion.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(religion: Religion) {

@@ -1,4 +1,4 @@
-﻿import {NgModule} from '@angular/core';
+﻿import { NgModule } from '@angular/core';
 
 import { AbilityLevelModule } from './AbilityLevel/abilityLevel.module';
 import { ContractModule } from './Contract/contract.module';
@@ -22,7 +22,7 @@ import { PersonDrivingLicenseModule } from './PersonDrivingLicense/personDriving
 import { PositionModule } from './Position/position.module';
 import { PositionAssignmentModule } from './PositionAssignment/positionAssignment.module';
 import { PositionAssignmentRepealModule } from './PositionAssignmentRepeal/positionAssignmentRepeal.module';
-import { PositionCategoryModule } from './PositionCategory/positionCategory.module';
+
 import { RelativeModule } from './Relative/relative.module';
 import { SchoolHistoryModule } from './SchoolHistory/schoolHistory.module';
 import { UnitModule } from './Unit/unit.module';
@@ -32,9 +32,9 @@ import { WorkExperienceModule } from './WorkExperience/workExperience.module';
 import { HR_RouteModule } from './hr.route.module';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    AbilityLevelModule,
+	declarations: [],
+	imports: [
+		AbilityLevelModule,
 		ContractModule,
 		DepartmentModule,
 		EmployeeModule,
@@ -56,7 +56,6 @@ import { HR_RouteModule } from './hr.route.module';
 		PositionModule,
 		PositionAssignmentModule,
 		PositionAssignmentRepealModule,
-		PositionCategoryModule,
 		RelativeModule,
 		SchoolHistoryModule,
 		UnitModule,
@@ -64,9 +63,9 @@ import { HR_RouteModule } from './hr.route.module';
 		UniversityTerminateModule,
 		WorkExperienceModule,
 		HR_RouteModule
-  ],
-  exports: [
-    AbilityLevelModule,
+	],
+	exports: [
+		AbilityLevelModule,
 		ContractModule,
 		DepartmentModule,
 		EmployeeModule,
@@ -88,7 +87,6 @@ import { HR_RouteModule } from './hr.route.module';
 		PositionModule,
 		PositionAssignmentModule,
 		PositionAssignmentRepealModule,
-		PositionCategoryModule,
 		RelativeModule,
 		SchoolHistoryModule,
 		UnitModule,
@@ -96,6 +94,6 @@ import { HR_RouteModule } from './hr.route.module';
 		UniversityTerminateModule,
 		WorkExperienceModule,
 		HR_RouteModule
-  ]
+	]
 })
 export class HR_Module { }

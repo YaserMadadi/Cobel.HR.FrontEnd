@@ -56,8 +56,7 @@ export class PersonConnectionIndexUI extends IndexView<PersonConnection> impleme
 
   resetFilter() {
     this.filterInstance = PersonConnection.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(personConnection: PersonConnection) {

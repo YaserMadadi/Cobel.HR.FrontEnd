@@ -56,8 +56,7 @@ export class RoleMemberIndexUI extends IndexView<RoleMember> implements AfterVie
 
   resetFilter() {
     this.filterInstance = RoleMember.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(roleMember: RoleMember) {

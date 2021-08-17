@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Md5 } from 'ts-md5';
-import { BaseTokenResult } from './base/base_token_result';
-import { BaseToken } from './base/base_token';
+import { AccessToken } from './base/base_token_result';
+import { LoginUser } from './base/base_token';
 import { Info } from '../Info';
 import { MessageController } from '../tools/controller.message';
 import { Result } from '../tools/Result';
@@ -78,16 +78,18 @@ export class AuthService extends EndPointController {
 
 	//#endregion
 
-	public async Authenticate(baseToken: BaseToken) {
-		let url = EndPointController.BaseUrl + 'Authenticate';
+	public async Authenticate(loginUser: LoginUser) {
+		let url = EndPointController.BaseUrl + 'Authenticate/Login';
 		let h: HttpHeaders = new HttpHeaders();
-		let command = this.http.post<BaseTokenResult>(url, baseToken,
+		let command = this.http.post<AccessToken>(url, loginUser,
 			{
 				withCredentials: false,
 			});
 
-		return command.toPromise<BaseTokenResult>()
+		return command.toPromise<AccessToken>()
 			.then(authResult => {
+				console.log(authResult);
+
 				if (authResult && authResult.id > 0) {
 					this.LogedIn(authResult);
 				}
@@ -104,16 +106,16 @@ export class AuthService extends EndPointController {
 				});
 	}
 
-	async LogedIn(baseTokenResult: BaseTokenResult) {
-		StorageController.Token = baseTokenResult.token;
-		AuthGuard.Person_Id = baseTokenResult.person_Id;
-		AuthGuard.SAMAccount = baseTokenResult.samAccount;
-		AuthGuard.DisplayName = baseTokenResult.displayName;
-		MessageController.DisplayName = baseTokenResult.displayName;
+	async LogedIn(accessToken: AccessToken) {
+		StorageController.Token = accessToken.token;
+		AuthGuard.Person_Id = accessToken.person_Id;
+		AuthGuard.SAMAccount = accessToken.samAccount;
+		AuthGuard.DisplayName = accessToken.displayName;
+		MessageController.DisplayName = accessToken.displayName;
 		MessageController.ShowMessage(MessageType.Welcome);
-		this.permissionController.loadPermission(baseTokenResult.employee_Id);
-		this.loadEmployee(baseTokenResult.employee_Id);
-		this.loadPerson(baseTokenResult.person_Id);
+		this.permissionController.loadPermission(accessToken.employee_Id);
+		this.loadEmployee(accessToken.employee_Id);
+		this.loadPerson(accessToken.person_Id);
 	}
 
 	private loadPerson(person_id: number) {
@@ -135,6 +137,7 @@ export class AuthService extends EndPointController {
 	private loadPositionList(employee: Employee) {
 		this.employeeService.ServiceCollection.CollectionOfPositionAssignment(employee)
 			.then(list => {
+				console.table(list);
 				list.forEach(PositionAssignmentItem => {
 					this.positionService.RetrieveById(PositionAssignmentItem.position.id)
 						.then(position => {

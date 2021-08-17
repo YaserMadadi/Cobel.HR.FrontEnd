@@ -14,13 +14,13 @@
           class='xbtn btn-edit'
           *ngIf='false'
           (click)='onEdit(individualDevelopmentPlanEditUI)'
-          [ngClass]="{ 'disabled' : currentIndividualDevelopmentPlan.id == 0 }">Edit</button>
+          [disabled]='currentIndividualDevelopmentPlan.id == 0'>Edit</button>
         <button type='button'
           name='deleteButton'
           class='xbtn btn-delete'
           *ngIf='false'
           (click)='onDelete(individualDevelopmentPlanDeleteUI)'
-          [ngClass]="{ 'disabled' : currentIndividualDevelopmentPlan.id == 0 }">Delete</button>
+          [disabled]='currentIndividualDevelopmentPlan.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button'

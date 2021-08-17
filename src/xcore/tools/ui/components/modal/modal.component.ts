@@ -47,7 +47,7 @@ export class ModalComponent extends NgForm implements OnInit, OnDestroy {
   @Output()
   OnClosed: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  private modalType: ModalType = ModalType.Edit;
+  public modalType: ModalType = ModalType.Edit;
 
   @Input()
   public set ModalType(value: ModalType) {

@@ -1,6 +1,6 @@
 import { BusinessObject } from "../../../xcore/business-object";
 
-export class BaseToken {
+export class LoginUser {
     constructor() {
         
     }

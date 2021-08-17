@@ -68,8 +68,7 @@ export class FieldCategoryIndexUI extends IndexView<FieldCategory> implements Af
 
   resetFilter() {
     this.filterInstance = FieldCategory.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(fieldCategory: FieldCategory) {

@@ -8,6 +8,7 @@ import { PersonService } from "../../../Entities/HR/Person/person.service";
 import { Position } from "../../../Entities/HR/Position/position";
 import { EndPointController } from "../../../../xcore/tools/controller.endPoint";
 import { TargetSetting } from "../../../Entities/PMS/TargetSetting/targetSetting";
+import { ResultData } from "../../../../xcore/tools/ResultData";
 
 @Injectable({
     providedIn: 'root'
@@ -20,19 +21,19 @@ export class EmployeeExtendedService extends EmployeeService {
         super(serviceCollection, personService, holdingSectionService, employmentStatusService);
     }
 
-    loadPosition(employee : Employee): Promise<Position[]> {
+    loadPosition(employee : Employee): Promise<ResultData<Position[]>> {
         let url = EndPointController.BaseUrl + `HR/Employee/${employee.id}/LoadPositions`;
-        return this.api_operation.http.get<Position[]>(url, EndPointController.Options).toPromise<Position[]>();
+        return this.api_operation.http.get<ResultData<Position[]>>(url, EndPointController.Options).toPromise<ResultData<Position[]>>();
     }
 
-    loadChildren(employee : Employee): Promise<Employee[]> {
+    loadChildren(employee : Employee): Promise<ResultData<Employee[]>> {
         let url = EndPointController.BaseUrl + `HR/Employee/${employee.id}/LoadChildren`;
-        return this.api_operation.http.get<Employee[]>(url, EndPointController.Options).toPromise<Employee[]>();
+        return this.api_operation.http.get<ResultData<Employee[]>>(url, EndPointController.Options).toPromise<ResultData<Employee[]>>();
     }
 
     loadTargetSettings(employee : Employee): Promise<TargetSetting[]> {
         let url = EndPointController.BaseUrl + `HR/Employee/${employee.id}/LoadTargetSettings`;
-        return this.api_operation.http.get<TargetSetting[]>(url, EndPointController.Options).toPromise<TargetSetting[]>();
+        return this.api_operation.GetCommand<TargetSetting[]>(url);
     }
 
 

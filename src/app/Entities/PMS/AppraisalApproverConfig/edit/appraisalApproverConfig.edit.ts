@@ -8,8 +8,8 @@ import { EditModal } from '../../../../../xcore/tools/ui/view-base/edit.modal';
 import { ForeignComponent } from '../../../../../xcore/tools/foreign.component';
 import { AppraisalApproverConfig } from '../appraisalApproverConfig';
 import { AppraisalApproverConfigService } from '../appraisalApproverConfig.service';
-import { PositionCategory } from '../../../HR/PositionCategory/positionCategory';
-import { PositionCategoryEditUI } from '../../../HR/PositionCategory/edit/positionCategory.edit';
+import { PositionCategory } from '../../../Base.HR/PositionCategory/positionCategory';
+import { PositionCategoryEditUI } from '../../../Base.HR/PositionCategory/edit/positionCategory.edit';
 import { ApproverType } from '../../../Base.PMS/ApproverType/approverType';
 import { ApproverTypeEditUI } from '../../../Base.PMS/ApproverType/edit/approverType.edit';
 
@@ -29,17 +29,17 @@ export class AppraisalApproverConfigEditUI extends EditModal<AppraisalApproverCo
 
   //#region Foreign Entities
 	
-	//#region -- DepartmentCategory --
+	//#region -- PositionCategory --
 
-  departmentCategoryComponent : ForeignComponent<PositionCategory> = new ForeignComponent<PositionCategory>(this.appraisalApproverConfigService.PositionCategoryService);
+  positionCategoryComponent : ForeignComponent<PositionCategory> = new ForeignComponent<PositionCategory>(this.appraisalApproverConfigService.PositionCategoryService);
 
   @Input()
-  public set DepartmentCategory(value: PositionCategory) {
-    this.currentInstance.departmentCategory = this.departmentCategoryComponent.instance = value;
+  public set PositionCategory(value: PositionCategory) {
+    this.currentInstance.positionCategory = this.positionCategoryComponent.instance = value;
   }  
 
 
-  //#endregion -- DepartmentCategory --
+  //#endregion -- PositionCategory --
 	//#region -- ApproverType --
 
   approverTypeComponent : ForeignComponent<ApproverType> = new ForeignComponent<ApproverType>(this.appraisalApproverConfigService.ApproverTypeService);
@@ -65,24 +65,24 @@ export class AppraisalApproverConfigEditUI extends EditModal<AppraisalApproverCo
 
   private loadLists() {
     
-    this.departmentCategoryComponent.LoadList();
+    this.positionCategoryComponent.LoadList();
 		this.approverTypeComponent.LoadList();
   }
   
   InitAppraisalApproverConfig(appraisalApproverConfig: AppraisalApproverConfig) {
     if (!appraisalApproverConfig.isNew) {
       // Fixed Properties : those you want to not Changable.
-      this.departmentCategoryComponent.instance = appraisalApproverConfig.departmentCategory;
+      this.positionCategoryComponent.instance = appraisalApproverConfig.positionCategory;
 			this.approverTypeComponent.instance = appraisalApproverConfig.approverType;
     } else {
-      appraisalApproverConfig.departmentCategory = this.departmentCategoryComponent.instance;
+      appraisalApproverConfig.positionCategory = this.positionCategoryComponent.instance;
 			appraisalApproverConfig.approverType = this.approverTypeComponent.instance;
     }
     this.currentInstance = appraisalApproverConfig;
   }
 
   ResetForm() {
-    this.DepartmentCategory = new PositionCategory();
+    this.PositionCategory = new PositionCategory();
 		this.ApproverType = new ApproverType();
   }
 }

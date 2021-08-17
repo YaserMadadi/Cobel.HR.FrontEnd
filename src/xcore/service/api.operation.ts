@@ -10,6 +10,7 @@ import { EndPointController } from "../tools/controller.endPoint";
 import { Actions } from "../tools/Enum";
 import { Paginate } from "../tools/paginate";
 import { Result } from "../tools/Result";
+import { ResultData } from "../tools/ResultData";
 
 
 
@@ -29,25 +30,37 @@ export class API_Operation<T extends BusinessObject> extends EndPointController 
   //   headers: EndPointManager.Headers
   // };
 
-  RetrieveAll(info: Info): Promise<T[]> { 
+  GetCommand<T>(url:string) : Promise<T>{
+    var command = this.http.get<ResultData<T>>(url, EndPointController.Options).toPromise<ResultData<T>>();
+
+    return command.then(dataResult =>{
+        return dataResult.data;
+      },
+      errpr => {
+        return null;
+      });
+
+  }
+
+  RetrieveAll(info: Info): Promise<ResultData<T[]>> { 
     let url = this.UrlCreator(Actions.RetrieveAll, info);
-    return this.http.post<T[]>(url, new Paginate(40, 1), EndPointController.Options).toPromise<T[]>();
+    return this.http.post<ResultData<T[]>>(url, new Paginate(40, 1), EndPointController.Options).toPromise<ResultData<T[]>>();
   }
 
-  RetrieveById(id: number, info: Info): Promise<T> {
+  RetrieveById(id: number, info: Info): Promise<ResultData<T>> {
     let url = this.UrlCreator(Actions.RetrieveById, info, id);
-    return this.http.get<T>(url, EndPointController.Options).toPromise<T>();
+    return this.http.get<ResultData<T>>(url, EndPointController.Options).toPromise<ResultData<T>>();
   }
 
-  Save(entity: T): Promise<T> {
+  Save(entity: T): Promise<ResultData<T>> {
     let url = this.UrlCreator(Actions.Save, entity.info, entity.id);//super.FullUrl(`${entity.info.schema}/${entity.info.name}/${entity.id}`);
     
-    return this.http.post<T>(url, entity, EndPointController.Options).toPromise<T>();
+    return this.http.post<ResultData<T>>(url, entity, EndPointController.Options).toPromise<ResultData<T>>();
   }
 
-  SaveAttached(entity: T): Promise<T> {
+  SaveAttached(entity: T): Promise<ResultData<T>> {
     let url = this.UrlCreator(Actions.SaveAttached, entity.info);
-    return this.http.post<T>(url, entity, EndPointController.Options).toPromise<T>();
+    return this.http.post<ResultData<T>>(url, entity, EndPointController.Options).toPromise<ResultData<T>>();
   }
 
   SaveCollection(list: T[], info: Info): Promise<Result> {
@@ -60,30 +73,32 @@ export class API_Operation<T extends BusinessObject> extends EndPointController 
     return this.http.post<Result>(url, entity, EndPointController.Options).toPromise<Result>();
   }
 
-  Seek(entity: T): Promise<T[]> {
+  Seek(entity: T): Promise<ResultData<T[]>> {
     let url = this.UrlCreator(Actions.Seek, entity.info);
-    return this.http.post<T[]>(url, entity, EndPointController.Options).toPromise<T[]>();
+    return this.http.post<ResultData<T[]>>(url, entity, EndPointController.Options).toPromise<ResultData<T[]>>();
   }
 
-  SeekLast(entity: T): Promise<T> {
+  SeekLast(entity: T): Promise<ResultData<T>> {
     let url = this.UrlCreator(Actions.SeekLast, entity.info);
-    return this.http.post<T>(url, entity, EndPointController.Options).toPromise<T>();
+    return this.http.post<ResultData<T>>(url, entity, EndPointController.Options).toPromise<ResultData<T>>();
   }
 
-  SeekByValue(value: string, info: Info): Promise<T[]> {
+  SeekByValue(value: string, info: Info): Promise<ResultData<T[]>> {
     let url = this.UrlCreator(Actions.SeekByValue, info) + `/${value}`;
-    return this.http.get<T[]>(url, EndPointController.Options).toPromise<T[]>();
+    return this.http.get<ResultData<T[]>>(url, EndPointController.Options).toPromise<ResultData<T[]>>();
   }
 
-  CollectionOf<U extends BusinessObject>(sourcEntity: T, entity: U, extendedPath: string = ''): Promise<U[]> {
+  CollectionOf<U extends BusinessObject>(sourcEntity: T, entity: U, extendedPath: string = ''): Promise<ResultData<U[]>> {
 
     if (extendedPath === '' || extendedPath.length === 0)
       extendedPath = sourcEntity.info.name;
 
+
     let url = `${API_Operation.BaseUrl}${sourcEntity.info.schema}/${extendedPath}/${sourcEntity.id}/${entity.info.name}`;
+
     return this.http
-      .post<U[]>(url, entity, EndPointController.Options)
-      .toPromise<U[]>();
+      .post<ResultData<U[]>>(url, entity, EndPointController.Options)
+      .toPromise<ResultData<U[]>>();
   }
 
   LoadFactory<U extends BusinessObject>(entity: T, info: Info): Promise<U> {

@@ -59,8 +59,7 @@ export class HabitancyIndexUI extends IndexView<Habitancy> implements AfterViewI
 
   resetFilter() {
     this.filterInstance = Habitancy.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(habitancy: Habitancy) {

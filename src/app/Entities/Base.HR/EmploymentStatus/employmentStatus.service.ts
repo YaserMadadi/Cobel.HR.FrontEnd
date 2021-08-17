@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Service } from '../../../../xcore/service/service';
 import { IService } from '../../../../xcore/service/base/service.interface';
@@ -12,8 +12,8 @@ import { Result } from '../../../../xcore/tools/Result';
 import { EmploymentStatus } from './employmentStatus';
 import { EmploymentStatusServiceCollection } from './employmentStatus.service.collection';
 
-import { EmployeeDetail } from '../../HR/EmployeeDetail/employeeDetail';
 import { Employee } from '../../HR/Employee/employee';
+import { EmployeeDetail } from '../../HR/EmployeeDetail/employeeDetail';
 
 
 @Injectable({ providedIn: 'root' })
@@ -23,15 +23,15 @@ export class EmploymentStatusService extends Service<EmploymentStatus> implement
     super(ServiceCollection.API_Operation, EmploymentStatus.Info);
   }
 
+  CreateInstance() {
+   return new EmploymentStatus();
+}
+
   CheckPermission(permissionType: PermissionType): PermissionResult {
     return PermissionController.Check(this.info, permissionType);
   }
 
   //region Methods
-
-CreateInstance() {
-   return new EmploymentStatus();
-}
 
   RetrieveById(id: number): Promise<EmploymentStatus> {
     return super.RetrieveById(id);

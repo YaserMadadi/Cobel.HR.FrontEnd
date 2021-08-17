@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Service } from '../../../../xcore/service/service';
 import { IService } from '../../../../xcore/service/base/service.interface';
@@ -21,15 +21,15 @@ export class DevelopmentPlanTypeService extends Service<DevelopmentPlanType> imp
     super(ServiceCollection.API_Operation, DevelopmentPlanType.Info);
   }
 
+  CreateInstance() {
+   return new DevelopmentPlanType();
+}
+
   CheckPermission(permissionType: PermissionType): PermissionResult {
     return PermissionController.Check(this.info, permissionType);
   }
 
   //region Methods
-
-CreateInstance() {
-   return new DevelopmentPlanType();
-}
 
   RetrieveById(id: number): Promise<DevelopmentPlanType> {
     return super.RetrieveById(id);

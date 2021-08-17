@@ -105,8 +105,7 @@ export class VisionIndexUI extends IndexView<Vision> implements AfterViewInit, I
 
   resetFilter() {
     this.filterInstance = Vision.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(vision: Vision) {

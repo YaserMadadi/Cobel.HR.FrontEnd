@@ -68,8 +68,7 @@ export class InclusiveTypeIndexUI extends IndexView<InclusiveType> implements Af
 
   resetFilter() {
     this.filterInstance = InclusiveType.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(inclusiveType: InclusiveType) {

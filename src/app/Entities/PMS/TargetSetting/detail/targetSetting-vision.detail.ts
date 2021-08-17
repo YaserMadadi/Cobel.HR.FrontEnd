@@ -44,9 +44,7 @@ export class TargetSetting_Vision_DetailUI extends DetailView<TargetSetting> {
   public onReload() {
     if (TargetSetting.NotConfirm(this.targetSetting))
       return;
-    this.targetSettingService
-      .ServiceCollection
-      .CollectionOfVision(this.targetSetting)
+    this.targetSettingService.EmployeeService.ServiceCollection.CollectionOfVision(this.targetSetting.employee)
       .then(visionList => {
         this.VisionList = visionList;
         this.currentVision = new Vision();

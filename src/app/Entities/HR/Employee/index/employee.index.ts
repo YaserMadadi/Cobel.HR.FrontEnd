@@ -275,8 +275,7 @@ export class EmployeeIndexUI extends IndexView<Employee> implements AfterViewIni
 
   resetFilter() {
     this.filterInstance = Employee.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(employee: Employee) {

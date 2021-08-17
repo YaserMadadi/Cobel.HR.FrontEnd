@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
 
     public static DisplayName: string = '';
 
-    
+
     //#region Person_Id
     private static person_id: number;
 
@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate {
     }
     //#endregion
 
-    
+
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if (!AuthGuard.IsAuthenticated) {
@@ -53,15 +53,21 @@ export class AuthGuard implements CanActivate {
     private checkIndexPermission(segments: string[]): boolean {
         //return true;
         //console.log('segments : ', segments);
-        if (segments.length === 0 || 
+        if (segments.length === 0 ||
             (segments.length === 1 && segments[0].toLowerCase().includes('home')) ||
-            (segments.length === 2 && segments[0].toLowerCase().includes('home')))   
+            (segments.length === 2 && segments[0].toLowerCase().includes('home')))
             return true;
         let destUrl = segments.length >= 2 ? `/${segments[0]}/${segments[1]}` : '/unSpecified/unSpecified';
-        for (const userRolePermission of PermissionController.RolePermissionList) {
-            if (destUrl.toLowerCase() == userRolePermission.entity.indexUrl.toLowerCase() && userRolePermission.viewIndexPermission === true)
+        console.table(destUrl);
+
+        for (const rolePermission of PermissionController.RolePermissionList) {
+            if (destUrl.toLowerCase() != rolePermission.entity.indexUrl.toLowerCase())
+                continue;
+            if (rolePermission.viewIndexPermission) {
                 return true;
+            }
         }
+
         console.log(`Permission Denied for ${segments[0]}.${segments[1]}`);
         MessageController.ShowMessageByPermissionType(PermissionType.ViewIndexPermission);
         return false;
@@ -72,7 +78,7 @@ export class AuthGuard implements CanActivate {
     }
 
 
-    
+
 
 
     // public get IsAuthenticated(): boolean {

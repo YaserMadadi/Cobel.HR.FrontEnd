@@ -51,8 +51,7 @@ export class SynonymIndexUI extends IndexView<Synonym> implements AfterViewInit,
 
   resetFilter() {
     this.filterInstance = Synonym.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(synonym: Synonym) {

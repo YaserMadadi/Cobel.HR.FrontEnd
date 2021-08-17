@@ -68,8 +68,7 @@ export class CurrentSituationIndexUI extends IndexView<CurrentSituation> impleme
 
   resetFilter() {
     this.filterInstance = CurrentSituation.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(currentSituation: CurrentSituation) {

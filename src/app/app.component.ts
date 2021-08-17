@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     console.log(`Application Started in : `);
     console.log(`Time : ${new Date().toLocaleTimeString()}`);
     console.log(`DebugMode : ${environment.Debug}`);
-    EndPointController.InitUrl(environment.Debug ? CompileMode.Local : CompileMode.ServerSSL);
+    EndPointController.InitUrl(environment.Debug ? CompileMode.LocalSSL : CompileMode.ServerSSL);
     console.log(`Mode : ${<CompileMode>EndPointController.Mode}.`);
     console.log(`Url : ${EndPointController.BaseUrl}.`);
   }

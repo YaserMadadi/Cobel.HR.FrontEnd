@@ -70,8 +70,7 @@ export class CompetencyItemKPIIndexUI extends IndexView<CompetencyItemKPI> imple
 
   resetFilter() {
     this.filterInstance = CompetencyItemKPI.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(competencyItemKPI: CompetencyItemKPI) {

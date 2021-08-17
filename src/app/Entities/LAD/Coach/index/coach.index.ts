@@ -88,8 +88,7 @@ export class CoachIndexUI extends IndexView<Coach> implements AfterViewInit, IIn
 
   resetFilter() {
     this.filterInstance = Coach.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(coach: Coach) {

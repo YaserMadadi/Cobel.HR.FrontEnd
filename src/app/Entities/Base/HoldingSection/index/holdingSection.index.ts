@@ -69,8 +69,7 @@ export class HoldingSectionIndexUI extends IndexView<HoldingSection> implements 
 
   resetFilter() {
     this.filterInstance = HoldingSection.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(holdingSection: HoldingSection) {

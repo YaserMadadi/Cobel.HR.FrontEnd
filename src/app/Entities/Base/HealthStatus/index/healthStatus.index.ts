@@ -68,7 +68,7 @@ export class HealthStatusIndexUI extends IndexView<HealthStatus> implements Afte
 
   resetFilter() {
     this.filterInstance = HealthStatus.SeekInstance();
-    
+    super.resetFilter();
     
   }
 

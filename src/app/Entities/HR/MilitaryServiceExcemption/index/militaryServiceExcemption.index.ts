@@ -56,8 +56,7 @@ export class MilitaryServiceExcemptionIndexUI extends IndexView<MilitaryServiceE
 
   resetFilter() {
     this.filterInstance = MilitaryServiceExcemption.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(militaryServiceExcemption: MilitaryServiceExcemption) {

@@ -311,8 +311,7 @@ export class PersonIndexUI extends IndexView<Person> implements AfterViewInit, I
 
   resetFilter() {
     this.filterInstance = Person.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(person: Person) {

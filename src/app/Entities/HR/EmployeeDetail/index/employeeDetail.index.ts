@@ -60,8 +60,7 @@ export class EmployeeDetailIndexUI extends IndexView<EmployeeDetail> implements 
 
   resetFilter() {
     this.filterInstance = EmployeeDetail.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(employeeDetail: EmployeeDetail) {

@@ -68,8 +68,7 @@ export class SchoolLevelIndexUI extends IndexView<SchoolLevel> implements AfterV
 
   resetFilter() {
     this.filterInstance = SchoolLevel.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(schoolLevel: SchoolLevel) {

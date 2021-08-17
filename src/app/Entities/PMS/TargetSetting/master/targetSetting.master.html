@@ -43,7 +43,7 @@
                     <label class='col-sm-4 titleControl'>SFE Appraisal Dashboard :
                         <guide (onClick)='onGuid("")'></guide>
                     </label>
-                    <label class='col-sm-8' *ngIf='position?.positionCategory.id == 1'>
+                    <label class='col-sm-8' *ngIf='position?.positionDivision?.id == 1'>
                         <a href='http://pbi.cobeldarou.com:81/reports/powerbi/SFE/Appraisal%20Dashboard'
                             class='link-success' target='_blank'>
                             View Dashboard
@@ -61,20 +61,29 @@
                     [TargetSetting]='currentInstance'>
                 </targetSetting-functionalObjective-detail>
             </tab>
+            <tab [heading]='f_behavioralTabItem.headLine' *ngIf='f_behavioralTabItem.isVisible'>
+                <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail
+                    [TargetSetting]='currentInstance'>
+                </targetSetting-behavioralObjective-detail>
+            </tab>
             <tab [heading]='quantitativeTabItem.headLine' *ngIf='quantitativeTabItem.isVisible'>
                 <targetSetting-quantitativeAppraise-detail #pmsTargetSettingQuantitativeAppraiseDetail
                     [TargetSetting]='currentInstance'>
                 </targetSetting-quantitativeAppraise-detail>
             </tab>
-            <tab [heading]='qualitativeTabItem.headLine' *ngIf='qualitativeTabItem.isVisible'>
-                <targetSetting-qualitativeObjective-detail #pmsTargetSettingQualitativeObjectiveDetail
-                    [TargetSetting]='currentInstance'>
-                </targetSetting-qualitativeObjective-detail>
-            </tab>
-            <tab [heading]='behavioralTabItem.headLine' *ngIf='behavioralTabItem.isVisible'>
-                <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail
-                    [TargetSetting]='currentInstance'>
-                </targetSetting-behavioralObjective-detail>
+            <tab [heading]='qualitativeTabItem.headLine' *ngIf='nonBehavioralTabItem.isVisible || behavioralTabItem.isVisible'>
+                <tabset #tabset>
+                    <tab [heading]='nonBehavioralTabItem.headLine' *ngIf='nonBehavioralTabItem.isVisible'>
+                        <targetSetting-qualitativeObjective-detail #pmsTargetSettingQualitativeObjectiveDetail
+                            [TargetSetting]='currentInstance'>
+                        </targetSetting-qualitativeObjective-detail>
+                    </tab>
+                    <tab [heading]='behavioralTabItem.headLine' *ngIf='behavioralTabItem.isVisible'>
+                        <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail
+                            [TargetSetting]='currentInstance'>
+                        </targetSetting-behavioralObjective-detail>
+                    </tab>
+                </tabset>
             </tab>
             <tab [heading]='appraiseResultTabItem.headLine' *ngIf='appraiseResultTabItem.isVisible'>
                 <targetSetting-appraiseResult-detail #pmsTargetSettingAppraiseResultDetail

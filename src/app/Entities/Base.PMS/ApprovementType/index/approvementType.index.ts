@@ -68,8 +68,7 @@ export class ApprovementTypeIndexUI extends IndexView<ApprovementType> implement
 
   resetFilter() {
     this.filterInstance = ApprovementType.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(approvementType: ApprovementType) {

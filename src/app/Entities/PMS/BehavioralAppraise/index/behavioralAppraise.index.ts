@@ -62,8 +62,7 @@ export class BehavioralAppraiseIndexUI extends IndexView<BehavioralAppraise> imp
 
   resetFilter() {
     this.filterInstance = BehavioralAppraise.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(behavioralAppraise: BehavioralAppraise) {

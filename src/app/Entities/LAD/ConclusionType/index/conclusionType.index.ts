@@ -68,8 +68,7 @@ export class ConclusionTypeIndexUI extends IndexView<ConclusionType> implements 
 
   resetFilter() {
     this.filterInstance = ConclusionType.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(conclusionType: ConclusionType) {

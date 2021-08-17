@@ -71,8 +71,7 @@ export class QualitativeKPIIndexUI extends IndexView<QualitativeKPI> implements 
 
   resetFilter() {
     this.filterInstance = QualitativeKPI.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(qualitativeKPI: QualitativeKPI) {

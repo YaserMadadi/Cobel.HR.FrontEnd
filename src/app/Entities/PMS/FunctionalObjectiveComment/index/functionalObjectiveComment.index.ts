@@ -57,8 +57,7 @@ export class FunctionalObjectiveCommentIndexUI extends IndexView<FunctionalObjec
 
   resetFilter() {
     this.filterInstance = FunctionalObjectiveComment.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(functionalObjectiveComment: FunctionalObjectiveComment) {

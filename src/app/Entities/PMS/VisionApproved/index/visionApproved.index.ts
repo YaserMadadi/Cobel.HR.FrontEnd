@@ -59,8 +59,7 @@ export class VisionApprovedIndexUI extends IndexView<VisionApproved> implements 
 
   resetFilter() {
     this.filterInstance = VisionApproved.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(visionApproved: VisionApproved) {

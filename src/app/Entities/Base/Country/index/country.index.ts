@@ -52,8 +52,7 @@ export class CountryIndexUI extends IndexView<Country> implements AfterViewInit,
 
   resetFilter() {
     this.filterInstance = Country.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(country: Country) {

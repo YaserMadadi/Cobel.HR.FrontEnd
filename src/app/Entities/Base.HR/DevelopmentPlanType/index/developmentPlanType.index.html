@@ -1,5 +1,6 @@
-﻿<fieldset class='border'>
-  <legend>Development Plan Type :</legend>
+
+<fieldset class='border'>
+  <legend>DevelopmentPlanType :</legend>
   <div class='btn-group'>
     <button name='addButton' class='xbtn btn-add' (click)='onAdd(developmentPlanTypeEditUI)'>Add</button>
     <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
@@ -17,7 +18,7 @@
       <tr>
         <th class='row-number'>Row</th>
         <th title='Title'>Title</th>
-        <th width='100px' title='Is Active'>Is Active</th>
+        <th width='100px' title='IsActive'>IsActive</th>
       </tr>
       <tr name='secondRow'>
         <th class='row-number'></th>
@@ -66,3 +67,4 @@
 <base-hr-developmentPlanType-delete #developmentPlanTypeDeleteUI 
                 (onClosed)='onDeleteModalClosed($event)'>
 </base-hr-developmentPlanType-delete>
+

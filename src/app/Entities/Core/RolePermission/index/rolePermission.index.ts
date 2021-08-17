@@ -56,8 +56,7 @@ export class RolePermissionIndexUI extends IndexView<RolePermission> implements 
 
   resetFilter() {
     this.filterInstance = RolePermission.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(rolePermission: RolePermission) {

@@ -12,7 +12,7 @@ import { Result } from '../../../../xcore/tools/Result';
 import { AppraisalApproverConfig } from './appraisalApproverConfig';
 import { AppraisalApproverConfigServiceCollection } from './appraisalApproverConfig.service.collection';
 
-import { PositionCategoryService } from '../../HR/PositionCategory/positionCategory.service';
+import { PositionCategoryService } from '../../Base.HR/PositionCategory/positionCategory.service';
 import { ApproverTypeService } from '../../Base.PMS/ApproverType/approverType.service';
 
 

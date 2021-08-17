@@ -56,8 +56,7 @@ export class MilitaryServiceInclusiveIndexUI extends IndexView<MilitaryServiceIn
 
   resetFilter() {
     this.filterInstance = MilitaryServiceInclusive.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(militaryServiceInclusive: MilitaryServiceInclusive) {

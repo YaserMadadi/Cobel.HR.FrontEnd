@@ -18,7 +18,7 @@ import { PersonConnectionDeleteUI } from '../../../HR/PersonConnection/delete/pe
   templateUrl: './connectionType-personConnection.detail.html',
   styleUrls: ['./connectionType-personConnection.detail.css'],
   providers: [ConnectionTypeService]
-}) 
+})
 
 @Injectable()
 export class ConnectionType_PersonConnection_DetailUI extends DetailView<ConnectionType> {
@@ -27,9 +27,9 @@ export class ConnectionType_PersonConnection_DetailUI extends DetailView<Connect
     super(connectionTypeService);
   }
 
-  public PersonConnectionList : PersonConnection[] = [];
-  
-  public currentPersonConnection : PersonConnection = new PersonConnection();
+  public PersonConnectionList: PersonConnection[] = [];
+
+  public currentPersonConnection: PersonConnection = new PersonConnection();
 
   private connectionType: ConnectionType = new ConnectionType();
 
@@ -41,7 +41,8 @@ export class ConnectionType_PersonConnection_DetailUI extends DetailView<Connect
 
   public get ConnectionType(): ConnectionType { return this.connectionType }
 
-  public onReload(){
+  public onReload() {
+    console.log('ConnectionType : ', this.connectionType);
     if (ConnectionType.NotConfirm(this.connectionType))
       return;
     this.connectionTypeService
@@ -86,7 +87,7 @@ export class ConnectionType_PersonConnection_DetailUI extends DetailView<Connect
     this.onReload();
   }
 
-  public onDeleteModal_Closed(result:boolean) {
+  public onDeleteModal_Closed(result: boolean) {
     this.onReload();
   }
 }

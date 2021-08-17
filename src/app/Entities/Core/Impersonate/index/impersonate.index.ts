@@ -54,8 +54,7 @@ export class ImpersonateIndexUI extends IndexView<Impersonate> implements AfterV
 
   resetFilter() {
     this.filterInstance = Impersonate.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(impersonate: Impersonate) {

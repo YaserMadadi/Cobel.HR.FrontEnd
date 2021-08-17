@@ -55,8 +55,7 @@ export class ConfigQualitativeObjectiveIndexUI extends IndexView<ConfigQualitati
 
   resetFilter() {
     this.filterInstance = ConfigQualitativeObjective.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(configQualitativeObjective: ConfigQualitativeObjective) {

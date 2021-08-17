@@ -14,7 +14,7 @@ import { PositionServiceCollection } from './position.service.collection';
 
 import { LevelService } from '../Level/level.service';
 import { UnitService } from '../Unit/unit.service';
-import { PositionCategoryService } from '../PositionCategory/positionCategory.service';
+import { PositionCategoryService } from '../../Base.HR/PositionCategory/positionCategory.service';
 import { PromotionAssessment } from '../../LAD/PromotionAssessment/promotionAssessment';
 import { ConfigTargetSetting } from '../../PMS/ConfigTargetSetting/configTargetSetting';
 import { TargetSetting } from '../../PMS/TargetSetting/targetSetting';

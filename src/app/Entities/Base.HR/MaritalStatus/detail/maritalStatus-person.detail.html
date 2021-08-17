@@ -1,13 +1,14 @@
-﻿<div class='detail-part'>
+
+<div class='detail-part'>
   <fieldset>
     <div id='button-section'>
       <div class='btn-group ' role='group' aria-label='Basic example'>
         <button type='button' name='addButton' class='xbtn btn-add' 
                   (click)='onAdd(personEditUI)' >Add</button>
         <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(personEditUI)' [ngClass]="{ 'disabled' : currentPerson.id == 0 }">Edit</button>
+                  (click)='onEdit(personEditUI)' [disabled]='currentPerson.id == 0'>Edit</button>
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(personDeleteUI)' [ngClass]="{ 'disabled' : currentPerson.id == 0 }">Delete</button>
+                  (click)='onDelete(personDeleteUI)' [disabled]='currentPerson.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'
@@ -17,7 +18,7 @@
 				<a class='dropdown-item pointer' (click)="navigate('Base','Gender')"> Gender</a>
 				<a class='dropdown-item pointer' (click)="navigate('Base','City')"> City</a>
 				<a class='dropdown-item pointer' (click)="navigate('Base','Religion')"> Religion</a>
-				<a class='dropdown-item pointer' (click)="navigate('Base','HealthStatus')"> Health Status</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base','HealthStatus')"> HealthStatus</a>
 				<a class='dropdown-item pointer' (click)="navigate('Base','Country')"> Country</a>
 			</dropDownMenu>
     </div>

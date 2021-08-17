@@ -2,23 +2,23 @@
   <fieldset>
     <div id='button-section'>
       <div class='btn-group ' role='group' aria-label='Basic example'>
-        <button type='button' name='addButton' class='xbtn btn-add' 
-                  (click)='onAdd(functionalObjectiveEditUI)' >Add</button>
-        <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(functionalObjectiveEditUI)' [ngClass]="{ 'disabled' : currentFunctionalObjective.id == 0 }">Edit</button>
-        <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(functionalObjectiveDeleteUI)' [ngClass]="{ 'disabled' : currentFunctionalObjective.id == 0 }">Delete</button>
+        <button type='button' name='addButton' class='xbtn btn-add'
+          (click)='onAdd(functionalObjectiveEditUI)'>Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' (click)='onEdit(functionalObjectiveEditUI)'
+          [disabled]='currentFunctionalObjective.id == 0'>Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete'
+          (click)='onDelete(functionalObjectiveDeleteUI)'
+          [disabled]='currentFunctionalObjective.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
-        <button type='button' name='refreshButton' class='xbtn btn-refresh'
-                (click)='onReload()'>Refresh</button>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh' (click)='onReload()'>Refresh</button>
       </div>
       <dropDownMenu MenuTitle='Quick Access'>
-				<a class='dropdown-item pointer' (click)="navigate('PMS','TargetSetting')"> Target Setting</a>
-			</dropDownMenu>
+        <a class='dropdown-item pointer' (click)="navigate('PMS','TargetSetting')"> Target Setting</a>
+      </dropDownMenu>
     </div>
     <div class='detail-grid'>
-      <table class='table table-hover' >
+      <table class='table table-hover'>
         <thead class='thead'>
           <tr class='header-row'>
             <th class='row-number'>Row</th>
@@ -27,23 +27,20 @@
         </thead>
         <tbody>
           <tr *ngFor='let functionalObjective of FunctionalObjectiveList; let i = index' 
-                (dblclick)='onDblClicked(functionalObjectiveMasterUI)' 
-                (click)='onSelect(i)'
-                [ngClass]="{ 'selected-row' : functionalObjective.id === currentFunctionalObjective.id, 'free-row': functionalObjective.id !== currentFunctionalObjective.id  }">
+            (click)='onSelect(i)'
+            [ngClass]="{ 'selected-row' : functionalObjective.id === currentFunctionalObjective.id, 'free-row': functionalObjective.id !== currentFunctionalObjective.id  }">
             <td class='row-number'>{{i+1}}</td>
             <td>
-                {{ functionalObjective.descriptor }}
+              {{ functionalObjective.descriptor }}
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </fieldset>
-  <pms-functionalObjective-edit #functionalObjectiveEditUI 
-    (onClosed)='onEditModal_Closed($event)'>
+  <pms-functionalObjective-edit #functionalObjectiveEditUI (onClosed)='onEditModal_Closed($event)'>
   </pms-functionalObjective-edit>
-  <pms-functionalObjective-delete #functionalObjectiveDeleteUI 
-    (onClosed)='onDeleteModal_Closed($event)'>
+  <pms-functionalObjective-delete #functionalObjectiveDeleteUI (onClosed)='onDeleteModal_Closed($event)'>
   </pms-functionalObjective-delete>
-  
+
 </div>

@@ -55,8 +55,7 @@ export class ConfigTargetSettingIndexUI extends IndexView<ConfigTargetSetting> i
 
   resetFilter() {
     this.filterInstance = ConfigTargetSetting.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(configTargetSetting: ConfigTargetSetting) {

@@ -68,8 +68,7 @@ export class ExcemptionTypeIndexUI extends IndexView<ExcemptionType> implements 
 
   resetFilter() {
     this.filterInstance = ExcemptionType.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(excemptionType: ExcemptionType) {

@@ -13,13 +13,13 @@
                 name='editButton'
                 class='xbtn btn-edit'
                 (click)='onEdit(behavioralKPIEditUI)'
-                [ngClass]="{ 'disabled' : currentBehavioralKPI.id == 0 }"
+                [disabled]='currentBehavioralKPI.id == 0'
                 *ngIf='false'>Edit</button>
         <button type='button'
                 name='deleteButton'
                 class='xbtn btn-delete'
                 (click)='onDelete(behavioralKPIDeleteUI)'
-                [ngClass]="{ 'disabled' : currentBehavioralKPI.id == 0 }"
+                [disabled]='currentBehavioralKPI.id == 0'
                 *ngIf='false'>Delete</button>
       </div>
       <div class='float-right'>

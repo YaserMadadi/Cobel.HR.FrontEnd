@@ -68,8 +68,7 @@ export class UniversityDegreeIndexUI extends IndexView<UniversityDegree> impleme
 
   resetFilter() {
     this.filterInstance = UniversityDegree.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(universityDegree: UniversityDegree) {

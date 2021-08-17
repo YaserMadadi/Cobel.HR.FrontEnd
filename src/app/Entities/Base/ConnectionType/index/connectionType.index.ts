@@ -102,7 +102,8 @@ export class ConnectionTypeIndexUI extends IndexView<ConnectionType> implements 
 
   resetFilter() {
     this.filterInstance = ConnectionType.SeekInstance();
-    
+    super.resetFilter();
+    // this.currentInstance = new ConnectionType();
     
   }
 

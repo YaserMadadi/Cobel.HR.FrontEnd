@@ -8,5 +8,9 @@ export class Result {
     public body: string = '') {
 
     }
+
+    public isSucceeded: boolean = false;
+
+    
     
 }

@@ -169,6 +169,10 @@ export class MessageController {
                 header = 'Incorrect UserName or Password';
                 break;
             }
+            case MessageType.AuthenticationError:{
+                header = 'Authentication Error!'                
+                break;
+            }
         }
 
         return header;
@@ -265,6 +269,11 @@ export class MessageController {
             }
             case MessageType.UserNameOrPasswordNotAccepted: {
                 message = 'UserName or Password is not Valid!';
+                this.type = toastType.error;
+                break;
+            }
+            case MessageType.AuthenticationError: {
+                message = 'Your Authentication Information is Expired! Please Login Again...';
                 this.type = toastType.error;
                 break;
             }

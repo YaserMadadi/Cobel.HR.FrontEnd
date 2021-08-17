@@ -212,8 +212,7 @@ export class AssessmentIndexUI extends IndexView<Assessment> implements AfterVie
 
   resetFilter() {
     this.filterInstance = Assessment.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(assessment: Assessment) {

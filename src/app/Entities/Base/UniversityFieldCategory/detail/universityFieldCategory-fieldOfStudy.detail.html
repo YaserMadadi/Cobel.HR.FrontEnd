@@ -5,9 +5,9 @@
         <button type='button' name='addButton' class='xbtn btn-add' 
                   (click)='onAdd(fieldOfStudyEditUI)' >Add</button>
         <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(fieldOfStudyEditUI)' [ngClass]="{ 'disabled' : currentFieldOfStudy.id == 0 }">Edit</button>
+                  (click)='onEdit(fieldOfStudyEditUI)' [disabled]='currentFieldOfStudy.id == 0'>Edit</button>
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(fieldOfStudyDeleteUI)' [ngClass]="{ 'disabled' : currentFieldOfStudy.id == 0 }">Delete</button>
+                  (click)='onDelete(fieldOfStudyDeleteUI)' [disabled]='currentFieldOfStudy.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'

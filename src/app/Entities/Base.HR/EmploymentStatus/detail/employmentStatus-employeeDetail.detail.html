@@ -1,13 +1,14 @@
-﻿<div class='detail-part'>
+
+<div class='detail-part'>
   <fieldset>
     <div id='button-section'>
       <div class='btn-group ' role='group' aria-label='Basic example'>
         <button type='button' name='addButton' class='xbtn btn-add' 
                   (click)='onAdd(employeeDetailEditUI)' >Add</button>
         <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(employeeDetailEditUI)' [ngClass]="{ 'disabled' : currentEmployeeDetail.id == 0 }">Edit</button>
+                  (click)='onEdit(employeeDetailEditUI)' [disabled]='currentEmployeeDetail.id == 0'>Edit</button>
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(employeeDetailDeleteUI)' [ngClass]="{ 'disabled' : currentEmployeeDetail.id == 0 }">Delete</button>
+                  (click)='onDelete(employeeDetailDeleteUI)' [disabled]='currentEmployeeDetail.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'
@@ -15,7 +16,7 @@
       </div>
       <dropDownMenu MenuTitle='Quick Access'>
 				<a class='dropdown-item pointer' (click)="navigate('HR','Employee')"> Employee</a>
-				<a class='dropdown-item pointer' (click)="navigate('Base','HoldingSection')"> Holding Section</a>
+				<a class='dropdown-item pointer' (click)="navigate('Base','HoldingSection')"> HoldingSection</a>
 			</dropDownMenu>
     </div>
     <div class='detail-grid'>
@@ -23,7 +24,7 @@
         <thead class='thead'>
           <tr class='header-row'>
             <th class='row-number'>Row</th>
-            <th> Employee Detail</th>
+            <th> EmployeeDetail</th>
           </tr>
         </thead>
         <tbody>

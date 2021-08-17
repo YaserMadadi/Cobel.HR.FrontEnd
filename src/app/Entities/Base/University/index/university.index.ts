@@ -71,8 +71,7 @@ export class UniversityIndexUI extends IndexView<University> implements AfterVie
 
   resetFilter() {
     this.filterInstance = University.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(university: University) {

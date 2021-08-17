@@ -5,9 +5,9 @@
         <button type='button' name='addButton' class='xbtn btn-add' 
                   (click)='onAdd(operationalAppraiseEditUI)' >Add</button>
         <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(operationalAppraiseEditUI)' [ngClass]="{ 'disabled' : currentOperationalAppraise.id == 0 }">Edit</button>
+                  (click)='onEdit(operationalAppraiseEditUI)' [disabled]='currentOperationalAppraise.id == 0'>Edit</button>
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(operationalAppraiseDeleteUI)' [ngClass]="{ 'disabled' : currentOperationalAppraise.id == 0 }">Delete</button>
+                  (click)='onDelete(operationalAppraiseDeleteUI)' [disabled]='currentOperationalAppraise.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'

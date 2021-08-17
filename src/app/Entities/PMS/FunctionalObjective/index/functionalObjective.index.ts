@@ -88,8 +88,7 @@ export class FunctionalObjectiveIndexUI extends IndexView<FunctionalObjective> i
 
   resetFilter() {
     this.filterInstance = FunctionalObjective.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(functionalObjective: FunctionalObjective) {

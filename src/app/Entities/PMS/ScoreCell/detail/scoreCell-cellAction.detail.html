@@ -5,9 +5,9 @@
         <button type='button' name='addButton' class='xbtn btn-add' 
                   (click)='onAdd(cellActionEditUI)' >Add</button>
         <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(cellActionEditUI)' [ngClass]="{ 'disabled' : currentCellAction.id == 0 }">Edit</button>
+                  (click)='onEdit(cellActionEditUI)' [disabled]='currentCellAction.id == 0'>Edit</button>
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(cellActionDeleteUI)' [ngClass]="{ 'disabled' : currentCellAction.id == 0 }">Delete</button>
+                  (click)='onDelete(cellActionDeleteUI)' [disabled]='currentCellAction.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'

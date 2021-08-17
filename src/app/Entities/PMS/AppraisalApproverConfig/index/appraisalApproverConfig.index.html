@@ -13,7 +13,7 @@
   <!-- Quick Access Menu -->
     <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
         
-		<a class='dropdown-item pointer' (click)='navigate("HR", "PositionCategory", currentInstance.departmentCategory?.id)'>Manage Position Category</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "PositionCategory", currentInstance.positionCategory?.id)'>Manage Position Category</a>
 		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "ApproverType", currentInstance.approverType?.id)'>Manage Approver Type</a>
     </dropDownMenu>
   
@@ -31,7 +31,7 @@
 										 title='Department Category'
 										 autocomplete='off'
 										 placeholder='Department Category'
-										[(ngModel)]='filterInstance.departmentCategory.descriptor'
+										[(ngModel)]='filterInstance.positionCategory.descriptor'
 										 type='text'
 										 maxlength='50'
 										 (keyup)='doFilter($event)' />
@@ -51,7 +51,7 @@
     <tbody>
       <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(appraisalApproverConfigMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
         <td class='row-number'>{{ i+1 }}</td>
-				<td>{{ p.departmentCategory?.descriptor }}</td>
+				<td>{{ p.positionCategory?.descriptor }}</td>
 				<td>{{ p.approverType?.descriptor }}</td>
       </tr>
     </tbody>

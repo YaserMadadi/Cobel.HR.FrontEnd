@@ -56,8 +56,7 @@ export class PersonDrivingLicenseIndexUI extends IndexView<PersonDrivingLicense>
 
   resetFilter() {
     this.filterInstance = PersonDrivingLicense.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(personDrivingLicense: PersonDrivingLicense) {

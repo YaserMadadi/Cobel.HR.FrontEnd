@@ -90,8 +90,7 @@ export class FunctionalKPIIndexUI extends IndexView<FunctionalKPI> implements Af
 
   resetFilter() {
     this.filterInstance = FunctionalKPI.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(functionalKPI: FunctionalKPI) {

@@ -5,9 +5,9 @@
         <button type='button' name='addButton' class='xbtn btn-add' 
                   (click)='onAdd(militaryServiceInclusiveEditUI)' >Add</button>
         <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(militaryServiceInclusiveEditUI)' [ngClass]="{ 'disabled' : currentMilitaryServiceInclusive.id == 0 }">Edit</button>
+                  (click)='onEdit(militaryServiceInclusiveEditUI)' [disabled]='currentMilitaryServiceInclusive.id == 0'>Edit</button>
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(militaryServiceInclusiveDeleteUI)' [ngClass]="{ 'disabled' : currentMilitaryServiceInclusive.id == 0 }">Delete</button>
+                  (click)='onDelete(militaryServiceInclusiveDeleteUI)' [disabled]='currentMilitaryServiceInclusive.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'

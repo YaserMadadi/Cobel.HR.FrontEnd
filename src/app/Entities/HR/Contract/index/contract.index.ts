@@ -56,8 +56,7 @@ export class ContractIndexUI extends IndexView<Contract> implements AfterViewIni
 
   resetFilter() {
     this.filterInstance = Contract.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(contract: Contract) {

@@ -68,8 +68,7 @@ export class QuarterIndexUI extends IndexView<Quarter> implements AfterViewInit,
 
   resetFilter() {
     this.filterInstance = Quarter.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(quarter: Quarter) {

@@ -56,8 +56,7 @@ export class RelativeIndexUI extends IndexView<Relative> implements AfterViewIni
 
   resetFilter() {
     this.filterInstance = Relative.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(relative: Relative) {
