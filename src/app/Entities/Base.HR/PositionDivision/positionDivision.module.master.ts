@@ -19,10 +19,6 @@ import { PositionDivision_ModuleDetail } from './positionDivision.module.detail'
     ],
     exports: [
         PositionDivisionMasterUI
-    ],
-    providers: [
-        //PositionDivisionService,
-       // PositionDivisionServiceCollection   
     ]
 })
 

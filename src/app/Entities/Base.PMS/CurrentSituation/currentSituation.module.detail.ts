@@ -24,9 +24,6 @@ import { IndividualDevelopmentPlan_ModuleMaster } from '../../PMS/IndividualDeve
   exports: [
     CurrentSituation_IndividualDevelopmentPlan_DetailUI
   ],
-  providers: [
-    //CurrentSituationService,
-    //CurrentSituationServiceCollection
-  ]
+  
 })
 export class CurrentSituation_ModuleDetail { }

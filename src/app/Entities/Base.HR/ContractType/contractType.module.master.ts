@@ -20,10 +20,6 @@ import { ContractType_ModuleDetail } from './contractType.module.detail';
     ],
     exports: [
         ContractTypeMasterUI
-    ],
-    providers: [
-        //ContractTypeService,
-       // ContractTypeServiceCollection   
     ]
 })
 

@@ -27,10 +27,6 @@ import { DevelopmentPlanTypeSeekUI } from './seek/developmentPlanType.seek';
         DevelopmentPlanTypeEditUI,
 		DevelopmentPlanTypeDeleteUI,
 		DevelopmentPlanTypeSeekUI
-    ],
-    providers: [
-       //DevelopmentPlanTypeService,
-       // DevelopmentPlanTypeServiceCollection,
     ]
 })
 

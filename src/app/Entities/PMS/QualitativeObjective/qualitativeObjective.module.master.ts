@@ -20,10 +20,6 @@ import { QualitativeObjective_ModuleDetail } from './qualitativeObjective.module
     ],
     exports: [
         QualitativeObjectiveMasterUI
-    ],
-    providers: [
-        //QualitativeObjectiveService,
-       // QualitativeObjectiveServiceCollection   
     ]
 })
 

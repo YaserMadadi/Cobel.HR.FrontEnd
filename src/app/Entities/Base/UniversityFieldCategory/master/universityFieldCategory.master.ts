@@ -14,10 +14,7 @@ import { FieldOfStudyService } from '../../FieldOfStudy/fieldOfStudy.service';
   selector: 'base-universityFieldCategory-master',
   templateUrl: './universityFieldCategory.master.html',
   styleUrls: ['./universityFieldCategory.master.css'],
-  providers: [
-    UniversityFieldCategoryService,
-    FieldOfStudyService,
-  ]
+  
 })
 export class UniversityFieldCategoryMasterUI extends MasterModal<UniversityFieldCategory> {
 

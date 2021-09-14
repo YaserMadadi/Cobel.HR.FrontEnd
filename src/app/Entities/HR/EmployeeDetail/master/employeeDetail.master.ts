@@ -12,11 +12,7 @@ import { EmployeeDetailEditUI } from '../edit/employeeDetail.edit';
 @Component({
   selector: 'hr-employeeDetail-master',
   templateUrl: './employeeDetail.master.html',
-  styleUrls: ['./employeeDetail.master.css'],
-  providers: [
-    EmployeeDetailService,
-    
-  ]
+  styleUrls: ['./employeeDetail.master.css']
 })
 export class EmployeeDetailMasterUI extends MasterModal<EmployeeDetail> {
 

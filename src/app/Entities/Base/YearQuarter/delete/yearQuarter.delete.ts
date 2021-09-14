@@ -10,7 +10,7 @@ import { YearQuarterService } from '../yearQuarter.service';
   selector: 'base-yearQuarter-delete',
   templateUrl: './yearQuarter.delete.html',
   styleUrls: ['./yearQuarter.delete.css'],
-  providers: [YearQuarterService]
+  
 })
 export class YearQuarterDeleteUI extends DeleteModal<YearQuarter> {
 

@@ -29,10 +29,6 @@ import { SchoolHistory_ModuleMaster } from './schoolHistory.module.master';
   exports: [
     SchoolHistoryIndexUI,
 		SchoolHistory_ModuleMaster,
-  ],
-  providers: [
-    // SchoolHistoryService,
-    // SchoolHistoryServiceCollection
-  ]
+   ]
 })
 export class SchoolHistoryModule {}

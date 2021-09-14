@@ -17,7 +17,6 @@ import { CoachDeleteUI } from '../../../LAD/Coach/delete/coach.delete';
   selector: 'gender-coach-detail',
   templateUrl: './gender-coach.detail.html',
   styleUrls: ['./gender-coach.detail.css'],
-  providers: [GenderService]
 }) 
 
 @Injectable()

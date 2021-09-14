@@ -10,7 +10,7 @@ import { MilitaryServiceStatusService } from '../militaryServiceStatus.service';
   selector: 'base-militaryServiceStatus-delete',
   templateUrl: './militaryServiceStatus.delete.html',
   styleUrls: ['./militaryServiceStatus.delete.css'],
-  providers: [MilitaryServiceStatusService]
+  
 })
 export class MilitaryServiceStatusDeleteUI extends DeleteModal<MilitaryServiceStatus> {
 

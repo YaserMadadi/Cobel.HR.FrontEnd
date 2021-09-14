@@ -29,10 +29,6 @@ import { PersonDrivingLicense_ModuleMaster } from './personDrivingLicense.module
   exports: [
     PersonDrivingLicenseIndexUI,
 		PersonDrivingLicense_ModuleMaster,
-  ],
-  providers: [
-    // PersonDrivingLicenseService,
-    // PersonDrivingLicenseServiceCollection
-  ]
+   ]
 })
 export class PersonDrivingLicenseModule {}

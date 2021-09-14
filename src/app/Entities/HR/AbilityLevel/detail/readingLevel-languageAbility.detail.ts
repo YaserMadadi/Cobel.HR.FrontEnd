@@ -16,11 +16,8 @@ import { LanguageAbilityDeleteUI } from '../../LanguageAbility/delete/languageAb
 @Component({
   selector: 'readingLevel-languageAbility-detail',
   templateUrl: './readingLevel-languageAbility.detail.html',
-  styleUrls: ['./readingLevel-languageAbility.detail.css'],
-  providers: [AbilityLevelService]
-}) 
-
-@Injectable()
+  styleUrls: ['./readingLevel-languageAbility.detail.css']
+})
 export class ReadingLevel_LanguageAbility_DetailUI extends DetailView<AbilityLevel> {
 
   constructor(private abilityLevelService: AbilityLevelService) {

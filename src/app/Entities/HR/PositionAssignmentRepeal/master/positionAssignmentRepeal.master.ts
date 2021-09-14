@@ -12,11 +12,7 @@ import { PositionAssignmentRepealEditUI } from '../edit/positionAssignmentRepeal
 @Component({
   selector: 'hr-positionAssignmentRepeal-master',
   templateUrl: './positionAssignmentRepeal.master.html',
-  styleUrls: ['./positionAssignmentRepeal.master.css'],
-  providers: [
-    PositionAssignmentRepealService,
-    
-  ]
+  styleUrls: ['./positionAssignmentRepeal.master.css']
 })
 export class PositionAssignmentRepealMasterUI extends MasterModal<PositionAssignmentRepeal> {
 

@@ -16,11 +16,8 @@ import { VisionApprovedDeleteUI } from '../../../PMS/VisionApproved/delete/visio
 @Component({
   selector: 'approvementType-visionApproved-detail',
   templateUrl: './approvementType-visionApproved.detail.html',
-  styleUrls: ['./approvementType-visionApproved.detail.css'],
-  providers: [ApprovementTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./approvementType-visionApproved.detail.css']
+})
 export class ApprovementType_VisionApproved_DetailUI extends DetailView<ApprovementType> {
 
   constructor(private approvementTypeService: ApprovementTypeService) {

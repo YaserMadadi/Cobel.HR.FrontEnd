@@ -20,10 +20,6 @@ import { Language_ModuleDetail } from './language.module.detail';
     ],
     exports: [
         LanguageMasterUI
-    ],
-    providers: [
-        //LanguageService,
-       // LanguageServiceCollection   
     ]
 })
 

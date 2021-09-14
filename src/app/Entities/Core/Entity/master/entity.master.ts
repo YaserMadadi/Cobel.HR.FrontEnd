@@ -14,12 +14,7 @@ import { PropertyService } from '../../Property/property.service';
 @Component({
   selector: 'core-entity-master',
   templateUrl: './entity.master.html',
-  styleUrls: ['./entity.master.css'],
-  providers: [
-    EntityService,
-    RolePermissionService,
-		PropertyService,
-  ]
+  styleUrls: ['./entity.master.css']
 })
 export class EntityMasterUI extends MasterModal<Entity> {
 

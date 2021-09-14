@@ -27,10 +27,6 @@ import { FieldCategorySeekUI } from './seek/fieldCategory.seek';
         FieldCategoryEditUI,
 		FieldCategoryDeleteUI,
 		FieldCategorySeekUI
-    ],
-    providers: [
-       //FieldCategoryService,
-       // FieldCategoryServiceCollection,
     ]
 })
 

@@ -21,9 +21,6 @@ import { OperationalAppraiseServiceCollection } from './operationalAppraise.serv
   exports: [
     // No Item...
   ],
-  providers: [
-    //OperationalAppraiseService,
-    //OperationalAppraiseServiceCollection
-  ]
+  
 })
 export class OperationalAppraise_ModuleDetail { }

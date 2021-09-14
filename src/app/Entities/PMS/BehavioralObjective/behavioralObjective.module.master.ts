@@ -20,10 +20,6 @@ import { BehavioralObjective_ModuleDetail } from './behavioralObjective.module.d
     ],
     exports: [
         BehavioralObjectiveMasterUI
-    ],
-    providers: [
-        //BehavioralObjectiveService,
-       // BehavioralObjectiveServiceCollection   
     ]
 })
 

@@ -12,11 +12,7 @@ import { PersonConnectionEditUI } from '../edit/personConnection.edit';
 @Component({
   selector: 'hr-personConnection-master',
   templateUrl: './personConnection.master.html',
-  styleUrls: ['./personConnection.master.css'],
-  providers: [
-    PersonConnectionService,
-    
-  ]
+  styleUrls: ['./personConnection.master.css']
 })
 export class PersonConnectionMasterUI extends MasterModal<PersonConnection> {
 

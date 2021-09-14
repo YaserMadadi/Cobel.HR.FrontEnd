@@ -20,10 +20,6 @@ import { CompetencyItemKPI_ModuleDetail } from './competencyItemKPI.module.detai
     ],
     exports: [
         CompetencyItemKPIMasterUI
-    ],
-    providers: [
-        //CompetencyItemKPIService,
-       // CompetencyItemKPIServiceCollection   
     ]
 })
 

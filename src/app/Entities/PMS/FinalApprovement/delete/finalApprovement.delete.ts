@@ -10,7 +10,7 @@ import { FinalApprovementService } from '../finalApprovement.service';
   selector: 'pms-finalApprovement-delete',
   templateUrl: './finalApprovement.delete.html',
   styleUrls: ['./finalApprovement.delete.css'],
-  providers: [FinalApprovementService]
+  
 })
 export class FinalApprovementDeleteUI extends DeleteModal<FinalApprovement> {
 

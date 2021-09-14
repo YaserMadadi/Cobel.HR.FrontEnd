@@ -23,10 +23,6 @@ import { Person_ModuleMaster } from '../../HR/Person/person.module.master';
   ],
   exports: [
     Nationality_Person_DetailUI
-  ],
-  providers: [
-    //CountryService,
-    //CountryServiceCollection
   ]
 })
 export class Country_ModuleDetail { }

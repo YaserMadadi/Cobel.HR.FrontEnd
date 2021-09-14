@@ -27,10 +27,6 @@ import { DepartmentSeekUI } from './seek/department.seek';
         DepartmentEditUI,
 		DepartmentDeleteUI,
 		DepartmentSeekUI
-    ],
-    providers: [
-       //DepartmentService,
-       // DepartmentServiceCollection,
     ]
 })
 

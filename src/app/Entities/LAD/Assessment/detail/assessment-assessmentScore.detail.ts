@@ -16,11 +16,8 @@ import { AssessmentScoreDeleteUI } from '../../AssessmentScore/delete/assessment
 @Component({
   selector: 'assessment-assessmentScore-detail',
   templateUrl: './assessment-assessmentScore.detail.html',
-  styleUrls: ['./assessment-assessmentScore.detail.css'],
-  providers: [AssessmentService]
-}) 
-
-@Injectable()
+  styleUrls: ['./assessment-assessmentScore.detail.css']
+})
 export class Assessment_AssessmentScore_DetailUI extends DetailView<Assessment> {
 
   constructor(private assessmentService: AssessmentService) {

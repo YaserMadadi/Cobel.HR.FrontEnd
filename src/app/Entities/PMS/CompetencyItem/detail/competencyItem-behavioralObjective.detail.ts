@@ -16,11 +16,8 @@ import { BehavioralObjectiveDeleteUI } from '../../BehavioralObjective/delete/be
 @Component({
   selector: 'competencyItem-behavioralObjective-detail',
   templateUrl: './competencyItem-behavioralObjective.detail.html',
-  styleUrls: ['./competencyItem-behavioralObjective.detail.css'],
-  providers: [CompetencyItemService]
-}) 
-
-@Injectable()
+  styleUrls: ['./competencyItem-behavioralObjective.detail.css']
+})
 export class CompetencyItem_BehavioralObjective_DetailUI extends DetailView<CompetencyItem> {
 
   constructor(private competencyItemService: CompetencyItemService) {

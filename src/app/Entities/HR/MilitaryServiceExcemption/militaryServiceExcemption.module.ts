@@ -29,10 +29,6 @@ import { MilitaryServiceExcemption_ModuleMaster } from './militaryServiceExcempt
   exports: [
     MilitaryServiceExcemptionIndexUI,
 		MilitaryServiceExcemption_ModuleMaster,
-  ],
-  providers: [
-    // MilitaryServiceExcemptionService,
-    // MilitaryServiceExcemptionServiceCollection
-  ]
+   ]
 })
 export class MilitaryServiceExcemptionModule {}

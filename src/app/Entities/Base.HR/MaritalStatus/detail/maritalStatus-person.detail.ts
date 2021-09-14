@@ -16,11 +16,8 @@ import { PersonDeleteUI } from '../../../HR/Person/delete/person.delete';
 @Component({
   selector: 'maritalStatus-person-detail',
   templateUrl: './maritalStatus-person.detail.html',
-  styleUrls: ['./maritalStatus-person.detail.css'],
-  providers: [MaritalStatusService]
-}) 
-
-@Injectable()
+  styleUrls: ['./maritalStatus-person.detail.css']
+})
 export class MaritalStatus_Person_DetailUI extends DetailView<MaritalStatus> {
 
   constructor(private maritalStatusService: MaritalStatusService) {

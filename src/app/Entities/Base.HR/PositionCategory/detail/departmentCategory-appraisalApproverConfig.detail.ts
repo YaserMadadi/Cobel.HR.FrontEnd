@@ -16,11 +16,8 @@ import { AppraisalApproverConfigDeleteUI } from '../../../PMS/AppraisalApproverC
 @Component({
   selector: 'departmentCategory-appraisalApproverConfig-detail',
   templateUrl: './departmentCategory-appraisalApproverConfig.detail.html',
-  styleUrls: ['./departmentCategory-appraisalApproverConfig.detail.css'],
-  providers: [PositionCategoryService]
-}) 
-
-@Injectable()
+  styleUrls: ['./departmentCategory-appraisalApproverConfig.detail.css']
+})
 export class DepartmentCategory_AppraisalApproverConfig_DetailUI extends DetailView<PositionCategory> {
 
   constructor(private positionCategoryService: PositionCategoryService) {

@@ -40,7 +40,8 @@ export class LevelEditUI extends EditModal<Level> implements IEditModal<Level>  
     
   }
   
-  InitLevel(level: Level) {
+  InitLevel(level: Level){
+    this.currentInstance = this.service.CreateInstance();
     if (!level.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

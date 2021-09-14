@@ -12,7 +12,7 @@ import { EmploymentStatusService } from '../employmentStatus.service';
   selector: 'base-hr-employmentStatus-delete',
   templateUrl: './employmentStatus.delete.html',
   styleUrls: ['./employmentStatus.delete.css'],
-  providers: [EmploymentStatusService]
+  
 })
 export class EmploymentStatusDeleteUI extends DeleteModal<EmploymentStatus> {
 

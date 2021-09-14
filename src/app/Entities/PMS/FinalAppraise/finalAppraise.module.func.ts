@@ -28,10 +28,6 @@ import { TargetSetting_ModuleFunc } from '../TargetSetting/targetSetting.module.
         FinalAppraiseEditUI,
 		FinalAppraiseDeleteUI,
 		FinalAppraiseSeekUI
-    ],
-    providers: [
-       //FinalAppraiseService,
-       // FinalAppraiseServiceCollection,
     ]
 })
 

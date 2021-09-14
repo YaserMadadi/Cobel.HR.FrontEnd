@@ -10,7 +10,7 @@ import { PositionAssignmentRepealService } from '../positionAssignmentRepeal.ser
   selector: 'hr-positionAssignmentRepeal-delete',
   templateUrl: './positionAssignmentRepeal.delete.html',
   styleUrls: ['./positionAssignmentRepeal.delete.css'],
-  providers: [PositionAssignmentRepealService]
+  
 })
 export class PositionAssignmentRepealDeleteUI extends DeleteModal<PositionAssignmentRepeal> {
 

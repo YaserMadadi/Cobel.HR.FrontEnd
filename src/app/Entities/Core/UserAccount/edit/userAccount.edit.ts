@@ -55,7 +55,8 @@ export class UserAccountEditUI extends EditModal<UserAccount> implements IEditMo
     
   }
   
-  InitUserAccount(userAccount: UserAccount) {
+  InitUserAccount(userAccount: UserAccount){
+    this.currentInstance = this.service.CreateInstance();
     if (!userAccount.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = userAccount.person;

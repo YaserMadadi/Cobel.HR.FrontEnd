@@ -20,10 +20,6 @@ import { EducationSystem_ModuleDetail } from './educationSystem.module.detail';
     ],
     exports: [
         EducationSystemMasterUI
-    ],
-    providers: [
-        //EducationSystemService,
-       // EducationSystemServiceCollection   
     ]
 })
 

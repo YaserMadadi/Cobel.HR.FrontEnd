@@ -20,10 +20,6 @@ import { MeasurementUnit_ModuleDetail } from './measurementUnit.module.detail';
     ],
     exports: [
         MeasurementUnitMasterUI
-    ],
-    providers: [
-        //MeasurementUnitService,
-       // MeasurementUnitServiceCollection   
     ]
 })
 

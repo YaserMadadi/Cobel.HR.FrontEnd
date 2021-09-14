@@ -32,10 +32,6 @@ import { BehavioralObjective_ModuleMaster } from '../../PMS/BehavioralObjective/
   exports: [
     ExpectedLevelIndexUI,
 		ExpectedLevel_ModuleMaster,
-  ],
-  providers: [
-    // ExpectedLevelService,
-    // ExpectedLevelServiceCollection
-  ]
+   ]
 })
 export class ExpectedLevelModule {}

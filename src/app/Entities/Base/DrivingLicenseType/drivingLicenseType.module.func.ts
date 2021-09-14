@@ -27,10 +27,6 @@ import { DrivingLicenseTypeSeekUI } from './seek/drivingLicenseType.seek';
         DrivingLicenseTypeEditUI,
 		DrivingLicenseTypeDeleteUI,
 		DrivingLicenseTypeSeekUI
-    ],
-    providers: [
-       //DrivingLicenseTypeService,
-       // DrivingLicenseTypeServiceCollection,
     ]
 })
 

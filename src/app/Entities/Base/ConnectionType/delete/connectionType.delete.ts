@@ -10,7 +10,6 @@ import { ConnectionTypeService } from '../connectionType.service';
   selector: 'base-connectionType-delete',
   templateUrl: './connectionType.delete.html',
   styleUrls: ['./connectionType.delete.css'],
-  providers: [ConnectionTypeService]
 })
 export class ConnectionTypeDeleteUI extends DeleteModal<ConnectionType> {
 

@@ -68,7 +68,8 @@ export class CoachingEditUI extends EditModal<Coaching> implements IEditModal<Co
     
   }
   
-  InitCoaching(coaching: Coaching) {
+  InitCoaching(coaching: Coaching){
+    this.currentInstance = this.service.CreateInstance();
     if (!coaching.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = coaching.employee;

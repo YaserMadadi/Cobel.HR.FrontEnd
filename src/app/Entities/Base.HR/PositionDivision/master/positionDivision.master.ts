@@ -14,10 +14,7 @@ import { PositionService } from '../../../HR/Position/position.service';
   selector: 'base-hr-positionDivision-master',
   templateUrl: './positionDivision.master.html',
   styleUrls: ['./positionDivision.master.css'],
-  providers: [
-    PositionDivisionService,
-    PositionService,
-  ]
+  
 })
 export class PositionDivisionMasterUI extends MasterModal<PositionDivision> {
 

@@ -10,7 +10,7 @@ import { PersonConnectionService } from '../personConnection.service';
   selector: 'hr-personConnection-delete',
   templateUrl: './personConnection.delete.html',
   styleUrls: ['./personConnection.delete.css'],
-  providers: [PersonConnectionService]
+  
 })
 export class PersonConnectionDeleteUI extends DeleteModal<PersonConnection> {
 

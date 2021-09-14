@@ -68,7 +68,8 @@ export class VisionCommentEditUI extends EditModal<VisionComment> implements IEd
     
   }
   
-  InitVisionComment(visionComment: VisionComment) {
+  InitVisionComment(visionComment: VisionComment){
+    this.currentInstance = this.service.CreateInstance();
     if (!visionComment.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.visionComponent.instance = visionComment.vision;

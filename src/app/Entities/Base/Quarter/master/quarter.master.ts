@@ -14,10 +14,7 @@ import { YearQuarterService } from '../../YearQuarter/yearQuarter.service';
   selector: 'base-quarter-master',
   templateUrl: './quarter.master.html',
   styleUrls: ['./quarter.master.css'],
-  providers: [
-    QuarterService,
-    YearQuarterService,
-  ]
+  
 })
 export class QuarterMasterUI extends MasterModal<Quarter> {
 

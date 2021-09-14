@@ -20,10 +20,6 @@ import { Gender_ModuleDetail } from './gender.module.detail';
     ],
     exports: [
         GenderMasterUI
-    ],
-    providers: [
-        //GenderService,
-       // GenderServiceCollection   
     ]
 })
 

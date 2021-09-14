@@ -120,7 +120,8 @@ export class PersonEditUI extends EditModal<Person> implements IEditModal<Person
     
   }
   
-  InitPerson(person: Person) {
+  InitPerson(person: Person){
+    this.currentInstance = this.service.CreateInstance();
     if (!person.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.genderComponent.instance = person.gender;

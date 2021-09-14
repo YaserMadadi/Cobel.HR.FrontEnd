@@ -20,10 +20,6 @@ import { FinalApprovement_ModuleDetail } from './finalApprovement.module.detail'
     ],
     exports: [
         FinalApprovementMasterUI
-    ],
-    providers: [
-        //FinalApprovementService,
-       // FinalApprovementServiceCollection   
     ]
 })
 

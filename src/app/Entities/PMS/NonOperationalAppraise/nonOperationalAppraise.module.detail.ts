@@ -21,9 +21,6 @@ import { NonOperationalAppraiseServiceCollection } from './nonOperationalApprais
   exports: [
     // No Item...
   ],
-  providers: [
-    //NonOperationalAppraiseService,
-    //NonOperationalAppraiseServiceCollection
-  ]
+  
 })
 export class NonOperationalAppraise_ModuleDetail { }

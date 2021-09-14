@@ -14,10 +14,7 @@ import { UniversityHistoryService } from '../../../HR/UniversityHistory/universi
   selector: 'base-university-master',
   templateUrl: './university.master.html',
   styleUrls: ['./university.master.css'],
-  providers: [
-    UniversityService,
-    UniversityHistoryService,
-  ]
+  
 })
 export class UniversityMasterUI extends MasterModal<University> {
 

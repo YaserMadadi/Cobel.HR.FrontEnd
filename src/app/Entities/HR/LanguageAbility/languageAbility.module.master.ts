@@ -20,10 +20,6 @@ import { LanguageAbility_ModuleDetail } from './languageAbility.module.detail';
     ],
     exports: [
         LanguageAbilityMasterUI
-    ],
-    providers: [
-        //LanguageAbilityService,
-       // LanguageAbilityServiceCollection   
     ]
 })
 

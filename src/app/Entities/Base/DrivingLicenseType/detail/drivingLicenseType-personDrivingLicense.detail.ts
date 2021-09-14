@@ -16,11 +16,8 @@ import { PersonDrivingLicenseDeleteUI } from '../../../HR/PersonDrivingLicense/d
 @Component({
   selector: 'drivingLicenseType-personDrivingLicense-detail',
   templateUrl: './drivingLicenseType-personDrivingLicense.detail.html',
-  styleUrls: ['./drivingLicenseType-personDrivingLicense.detail.css'],
-  providers: [DrivingLicenseTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./drivingLicenseType-personDrivingLicense.detail.css']
+})
 export class DrivingLicenseType_PersonDrivingLicense_DetailUI extends DetailView<DrivingLicenseType> {
 
   constructor(private drivingLicenseTypeService: DrivingLicenseTypeService) {

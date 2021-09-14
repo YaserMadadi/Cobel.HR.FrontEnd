@@ -20,10 +20,6 @@ import { Employee_ModuleDetail } from './employee.module.detail';
     ],
     exports: [
         EmployeeMasterUI
-    ],
-    providers: [
-        //EmployeeService,
-       // EmployeeServiceCollection   
     ]
 })
 

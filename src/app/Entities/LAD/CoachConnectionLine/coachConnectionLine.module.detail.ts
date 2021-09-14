@@ -21,9 +21,6 @@ import { CoachConnectionLineServiceCollection } from './coachConnectionLine.serv
   exports: [
     // No Item...
   ],
-  providers: [
-    //CoachConnectionLineService,
-    //CoachConnectionLineServiceCollection
-  ]
+  
 })
 export class CoachConnectionLine_ModuleDetail { }

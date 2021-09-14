@@ -27,10 +27,6 @@ import { RelativeTypeSeekUI } from './seek/relativeType.seek';
         RelativeTypeEditUI,
 		RelativeTypeDeleteUI,
 		RelativeTypeSeekUI
-    ],
-    providers: [
-       //RelativeTypeService,
-       // RelativeTypeServiceCollection,
     ]
 })
 

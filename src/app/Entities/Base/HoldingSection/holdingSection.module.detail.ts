@@ -28,10 +28,6 @@ import { EmployeeDetail_ModuleMaster } from '../../HR/EmployeeDetail/employeeDet
   exports: [
     LastHoldingSection_Employee_DetailUI,
 		HoldingSection_EmployeeDetail_DetailUI
-  ],
-  providers: [
-    //HoldingSectionService,
-    //HoldingSectionServiceCollection
   ]
 })
 export class HoldingSection_ModuleDetail { }

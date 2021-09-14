@@ -71,7 +71,7 @@ export class Service<T extends BusinessObject> implements IService<T> {
         return this.api_operation.SaveAttached(entity)
             .then(
                 resultData => {
-                    MessageController.ShowMessage('Save Entity and All Related Successfully done...', toastType.success);
+                    MessageController.ShowMessage(resultData.message, toastType.success);
                     return resultData.data;
                 },
                 error => {
@@ -83,7 +83,7 @@ export class Service<T extends BusinessObject> implements IService<T> {
     public RetrieveById(id: number): Promise<T> {
         return this.api_operation.RetrieveById(id, this.info)
             .then(resultData => {
-                console.log(resultData);
+                //console.log(resultData);
                 return resultData.data;
             },
                 error => {
@@ -190,7 +190,7 @@ export class Service<T extends BusinessObject> implements IService<T> {
     private errorHandler(error, action: string) {
         if (error instanceof HttpErrorResponse) {
             console.log('Action : ', action, error);
-            if(error.status == 401){
+            if (error.status == 401) {
                 MessageController.ShowMessage(MessageType.AuthenticationError);
             }
             let result: Result = <Result>error.error;

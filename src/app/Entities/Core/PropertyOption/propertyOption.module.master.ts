@@ -20,10 +20,6 @@ import { PropertyOption_ModuleDetail } from './propertyOption.module.detail';
     ],
     exports: [
         PropertyOptionMasterUI
-    ],
-    providers: [
-        //PropertyOptionService,
-       // PropertyOptionServiceCollection   
     ]
 })
 

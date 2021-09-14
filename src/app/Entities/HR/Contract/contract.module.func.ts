@@ -30,10 +30,6 @@ import { ContractType_ModuleFunc } from '../../Base.HR/ContractType/contractType
         ContractEditUI,
 		ContractDeleteUI,
 		ContractSeekUI
-    ],
-    providers: [
-       //ContractService,
-       // ContractServiceCollection,
     ]
 })
 

@@ -10,7 +10,7 @@ import { TrainingService } from '../training.service';
   selector: 'idea-training-delete',
   templateUrl: './training.delete.html',
   styleUrls: ['./training.delete.css'],
-  providers: [TrainingService]
+  
 })
 export class TrainingDeleteUI extends DeleteModal<Training> {
 

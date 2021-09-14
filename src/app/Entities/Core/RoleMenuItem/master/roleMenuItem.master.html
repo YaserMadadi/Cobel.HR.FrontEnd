@@ -1,0 +1,34 @@
+
+<XDialog Header='RoleMenuItem Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>RoleMenuItem : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Role_Id : 
+                        <guide (onClick)='onGuid("Role_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.role?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>MenuItem_Id : 
+                        <guide (onClick)='onGuid("MenuItem_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.menuItem?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>IsActive : 
+                        <guide (onClick)='onGuid("IsActive")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

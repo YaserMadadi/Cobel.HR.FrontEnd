@@ -41,10 +41,6 @@ import { DevelopmentPlanCompetency_ModuleMaster } from '../DevelopmentPlanCompet
   exports: [
     CompetencyItemIndexUI,
 		CompetencyItem_ModuleMaster,
-  ],
-  providers: [
-    // CompetencyItemService,
-    // CompetencyItemServiceCollection
-  ]
+   ]
 })
 export class CompetencyItemModule {}

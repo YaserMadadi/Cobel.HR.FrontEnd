@@ -17,7 +17,6 @@ import { CoachConnectionLineDeleteUI } from '../../../LAD/CoachConnectionLine/de
   selector: 'connectionType-coachConnectionLine-detail',
   templateUrl: './connectionType-coachConnectionLine.detail.html',
   styleUrls: ['./connectionType-coachConnectionLine.detail.css'],
-  providers: [ConnectionTypeService]
 }) 
 
 @Injectable()

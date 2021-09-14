@@ -14,10 +14,7 @@ import { SchoolHistoryService } from '../../../HR/SchoolHistory/schoolHistory.se
   selector: 'base-schoolLevel-master',
   templateUrl: './schoolLevel.master.html',
   styleUrls: ['./schoolLevel.master.css'],
-  providers: [
-    SchoolLevelService,
-    SchoolHistoryService,
-  ]
+  
 })
 export class SchoolLevelMasterUI extends MasterModal<SchoolLevel> {
 

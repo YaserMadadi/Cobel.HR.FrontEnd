@@ -29,10 +29,6 @@ import { AssessmentTraining_ModuleMaster } from './assessmentTraining.module.mas
   exports: [
     AssessmentTrainingIndexUI,
 		AssessmentTraining_ModuleMaster,
-  ],
-  providers: [
-    // AssessmentTrainingService,
-    // AssessmentTrainingServiceCollection
-  ]
+   ]
 })
 export class AssessmentTrainingModule {}

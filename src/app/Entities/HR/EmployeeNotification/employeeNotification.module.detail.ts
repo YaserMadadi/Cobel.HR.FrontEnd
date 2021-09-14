@@ -21,9 +21,6 @@ import { EmployeeNotificationServiceCollection } from './employeeNotification.se
   exports: [
     // No Item...
   ],
-  providers: [
-    //EmployeeNotificationService,
-    //EmployeeNotificationServiceCollection
-  ]
+  
 })
 export class EmployeeNotification_ModuleDetail { }

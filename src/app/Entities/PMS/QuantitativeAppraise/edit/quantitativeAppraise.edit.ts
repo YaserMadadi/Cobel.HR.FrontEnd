@@ -55,7 +55,8 @@ export class QuantitativeAppraiseEditUI extends EditModal<QuantitativeAppraise> 
     
   }
   
-  InitQuantitativeAppraise(quantitativeAppraise: QuantitativeAppraise) {
+  InitQuantitativeAppraise(quantitativeAppraise: QuantitativeAppraise){
+    this.currentInstance = this.service.CreateInstance();
     if (!quantitativeAppraise.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.targetSettingComponent.instance = quantitativeAppraise.targetSetting;

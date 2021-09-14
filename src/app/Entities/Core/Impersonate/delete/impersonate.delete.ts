@@ -10,7 +10,7 @@ import { ImpersonateService } from '../impersonate.service';
   selector: 'core-impersonate-delete',
   templateUrl: './impersonate.delete.html',
   styleUrls: ['./impersonate.delete.css'],
-  providers: [ImpersonateService]
+  
 })
 export class ImpersonateDeleteUI extends DeleteModal<Impersonate> {
 

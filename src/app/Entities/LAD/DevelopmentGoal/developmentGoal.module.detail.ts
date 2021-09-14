@@ -21,9 +21,6 @@ import { DevelopmentGoalServiceCollection } from './developmentGoal.service.coll
   exports: [
     // No Item...
   ],
-  providers: [
-    //DevelopmentGoalService,
-    //DevelopmentGoalServiceCollection
-  ]
+  
 })
 export class DevelopmentGoal_ModuleDetail { }

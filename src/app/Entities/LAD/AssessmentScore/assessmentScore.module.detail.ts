@@ -21,9 +21,6 @@ import { AssessmentScoreServiceCollection } from './assessmentScore.service.coll
   exports: [
     // No Item...
   ],
-  providers: [
-    //AssessmentScoreService,
-    //AssessmentScoreServiceCollection
-  ]
+  
 })
 export class AssessmentScore_ModuleDetail { }

@@ -32,10 +32,6 @@ import { UniversityHistory_ModuleMaster } from '../../HR/UniversityHistory/unive
   exports: [
     UniversityIndexUI,
 		University_ModuleMaster,
-  ],
-  providers: [
-    // UniversityService,
-    // UniversityServiceCollection
-  ]
+   ]
 })
 export class UniversityModule {}

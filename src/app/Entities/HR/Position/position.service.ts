@@ -20,6 +20,7 @@ import { ConfigTargetSetting } from '../../PMS/ConfigTargetSetting/configTargetS
 import { TargetSetting } from '../../PMS/TargetSetting/targetSetting';
 import { PositionAssignment } from '../PositionAssignment/positionAssignment';
 import { RotationAssessment } from '../../LAD/RotationAssessment/rotationAssessment';
+import { PositionDivisionService } from '../../Base.HR/PositionDivision/positionDivision.service';
 
 
 @Injectable({ providedIn: 'root' })
@@ -28,7 +29,9 @@ export class PositionService extends Service<Position> implements IService<Posit
   constructor(public ServiceCollection: PositionServiceCollection,
 		public LevelService: LevelService,
 		public UnitService: UnitService,
-		public PositionCategoryService: PositionCategoryService) {
+    public positionDivisionService: PositionDivisionService,
+		public PositionCategoryService: PositionCategoryService,
+    public PositionDivisionService: PositionDivisionService) {
     super(ServiceCollection.API_Operation, Position.Info);
   }
 

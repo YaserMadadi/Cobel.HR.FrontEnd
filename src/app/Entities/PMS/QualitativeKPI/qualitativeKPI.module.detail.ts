@@ -24,9 +24,6 @@ import { QualitativeAppraise_ModuleMaster } from '../QualitativeAppraise/qualita
   exports: [
     QualitativeKPI_QualitativeAppraise_DetailUI
   ],
-  providers: [
-    //QualitativeKPIService,
-    //QualitativeKPIServiceCollection
-  ]
+  
 })
 export class QualitativeKPI_ModuleDetail { }

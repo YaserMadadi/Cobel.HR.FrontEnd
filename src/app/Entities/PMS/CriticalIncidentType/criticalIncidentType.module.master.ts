@@ -20,10 +20,6 @@ import { CriticalIncidentType_ModuleDetail } from './criticalIncidentType.module
     ],
     exports: [
         CriticalIncidentTypeMasterUI
-    ],
-    providers: [
-        //CriticalIncidentTypeService,
-       // CriticalIncidentTypeServiceCollection   
     ]
 })
 

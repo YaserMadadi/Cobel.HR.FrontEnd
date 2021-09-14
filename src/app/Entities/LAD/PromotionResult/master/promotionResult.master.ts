@@ -14,10 +14,7 @@ import { PromotionAssessmentService } from '../../PromotionAssessment/promotionA
   selector: 'lad-promotionResult-master',
   templateUrl: './promotionResult.master.html',
   styleUrls: ['./promotionResult.master.css'],
-  providers: [
-    PromotionResultService,
-    PromotionAssessmentService,
-  ]
+  
 })
 export class PromotionResultMasterUI extends MasterModal<PromotionResult> {
 

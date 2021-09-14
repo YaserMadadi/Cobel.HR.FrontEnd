@@ -20,10 +20,6 @@ import { Coach_ModuleDetail } from './coach.module.detail';
     ],
     exports: [
         CoachMasterUI
-    ],
-    providers: [
-        //CoachService,
-       // CoachServiceCollection   
     ]
 })
 

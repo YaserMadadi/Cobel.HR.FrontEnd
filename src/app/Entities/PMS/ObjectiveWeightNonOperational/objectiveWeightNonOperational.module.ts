@@ -29,10 +29,6 @@ import { ObjectiveWeightNonOperational_ModuleMaster } from './objectiveWeightNon
   exports: [
     ObjectiveWeightNonOperationalIndexUI,
 		ObjectiveWeightNonOperational_ModuleMaster,
-  ],
-  providers: [
-    // ObjectiveWeightNonOperationalService,
-    // ObjectiveWeightNonOperationalServiceCollection
-  ]
+   ]
 })
 export class ObjectiveWeightNonOperationalModule {}

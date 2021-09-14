@@ -21,9 +21,6 @@ import { VisionCommentServiceCollection } from './visionComment.service.collecti
   exports: [
     // No Item...
   ],
-  providers: [
-    //VisionCommentService,
-    //VisionCommentServiceCollection
-  ]
+  
 })
 export class VisionComment_ModuleDetail { }

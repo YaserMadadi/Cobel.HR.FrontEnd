@@ -30,10 +30,6 @@ import { PositionCategory_ModuleFunc } from '../../Base.HR/PositionCategory/posi
         UnitEditUI,
         UnitDeleteUI,
         UnitSeekUI
-    ],
-    providers: [
-        //UnitService,
-        // UnitServiceCollection,
     ]
 })
 

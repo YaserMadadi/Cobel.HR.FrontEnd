@@ -12,11 +12,7 @@ import { RelativeEditUI } from '../edit/relative.edit';
 @Component({
   selector: 'hr-relative-master',
   templateUrl: './relative.master.html',
-  styleUrls: ['./relative.master.css'],
-  providers: [
-    RelativeService,
-    
-  ]
+  styleUrls: ['./relative.master.css']
 })
 export class RelativeMasterUI extends MasterModal<Relative> {
 

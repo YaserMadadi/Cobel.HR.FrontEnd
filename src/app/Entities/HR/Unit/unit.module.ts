@@ -32,10 +32,6 @@ import { Position_ModuleMaster } from '../Position/position.module.master';
   exports: [
     UnitIndexUI,
 		Unit_ModuleMaster,
-  ],
-  providers: [
-    // UnitService,
-    // UnitServiceCollection
-  ]
+   ]
 })
 export class UnitModule {}

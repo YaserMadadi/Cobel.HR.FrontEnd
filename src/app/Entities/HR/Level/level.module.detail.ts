@@ -29,9 +29,6 @@ import { Position_ModuleMaster } from '../Position/position.module.master';
     Level_ObjectiveWeightNonOperational_DetailUI,
 		Level_Position_DetailUI
   ],
-  providers: [
-    //LevelService,
-    //LevelServiceCollection
-  ]
+  
 })
 export class Level_ModuleDetail { }

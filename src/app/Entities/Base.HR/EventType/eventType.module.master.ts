@@ -20,10 +20,6 @@ import { EventType_ModuleDetail } from './eventType.module.detail';
     ],
     exports: [
         EventTypeMasterUI
-    ],
-    providers: [
-        //EventTypeService,
-       // EventTypeServiceCollection   
     ]
 })
 

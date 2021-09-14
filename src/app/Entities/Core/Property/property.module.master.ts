@@ -20,10 +20,6 @@ import { Property_ModuleDetail } from './property.module.detail';
     ],
     exports: [
         PropertyMasterUI
-    ],
-    providers: [
-        //PropertyService,
-       // PropertyServiceCollection   
     ]
 })
 

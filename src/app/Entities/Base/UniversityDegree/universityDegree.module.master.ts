@@ -20,10 +20,6 @@ import { UniversityDegree_ModuleDetail } from './universityDegree.module.detail'
     ],
     exports: [
         UniversityDegreeMasterUI
-    ],
-    providers: [
-        //UniversityDegreeService,
-       // UniversityDegreeServiceCollection   
     ]
 })
 

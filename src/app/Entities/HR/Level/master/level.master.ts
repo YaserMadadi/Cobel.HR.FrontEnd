@@ -14,10 +14,7 @@ import { PositionService } from '../../Position/position.service';
   selector: 'hr-level-master',
   templateUrl: './level.master.html',
   styleUrls: ['./level.master.css'],
-  providers: [
-    LevelService,
-    PositionService,
-  ]
+  
 })
 export class LevelMasterUI extends MasterModal<Level> {
 

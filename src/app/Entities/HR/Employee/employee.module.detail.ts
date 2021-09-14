@@ -134,9 +134,6 @@ import { VisionComment_ModuleMaster } from '../../PMS/VisionComment/visionCommen
 		ByEmployee_VisionApproved_DetailUI,
 		Commentator_VisionComment_DetailUI
   ],
-  providers: [
-    //EmployeeService,
-    //EmployeeServiceCollection
-  ]
+  
 })
 export class Employee_ModuleDetail { }

@@ -20,10 +20,6 @@ import { Contract_ModuleDetail } from './contract.module.detail';
     ],
     exports: [
         ContractMasterUI
-    ],
-    providers: [
-        //ContractService,
-       // ContractServiceCollection   
     ]
 })
 

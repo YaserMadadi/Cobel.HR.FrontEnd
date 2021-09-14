@@ -27,10 +27,6 @@ import { HabitancyTypeSeekUI } from './seek/habitancyType.seek';
         HabitancyTypeEditUI,
 		HabitancyTypeDeleteUI,
 		HabitancyTypeSeekUI
-    ],
-    providers: [
-       //HabitancyTypeService,
-       // HabitancyTypeServiceCollection,
     ]
 })
 

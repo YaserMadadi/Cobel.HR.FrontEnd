@@ -29,9 +29,6 @@ import { AssessorConnectionLine_ModuleMaster } from '../AssessorConnectionLine/a
     Assessor_Assessment_DetailUI,
 		Assessor_AssessorConnectionLine_DetailUI
   ],
-  providers: [
-    //AssessorService,
-    //AssessorServiceCollection
-  ]
+  
 })
 export class Assessor_ModuleDetail { }

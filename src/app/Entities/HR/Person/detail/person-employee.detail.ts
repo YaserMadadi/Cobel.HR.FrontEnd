@@ -16,11 +16,8 @@ import { EmployeeDeleteUI } from '../../Employee/delete/employee.delete';
 @Component({
   selector: 'person-employee-detail',
   templateUrl: './person-employee.detail.html',
-  styleUrls: ['./person-employee.detail.css'],
-  providers: [PersonService]
-}) 
-
-@Injectable()
+  styleUrls: ['./person-employee.detail.css']
+})
 export class Person_Employee_DetailUI extends DetailView<Person> {
 
   constructor(private personService: PersonService) {

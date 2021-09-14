@@ -10,7 +10,7 @@ import { AssessmentService } from '../assessment.service';
   selector: 'lad-assessment-delete',
   templateUrl: './assessment.delete.html',
   styleUrls: ['./assessment.delete.css'],
-  providers: [AssessmentService]
+  
 })
 export class AssessmentDeleteUI extends DeleteModal<Assessment> {
 

@@ -20,7 +20,7 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'behavioralObjective-behavioralKPI-detail',
   templateUrl: './behavioralObjective-behavioralKPI.detail.html',
   styleUrls: ['./behavioralObjective-behavioralKPI.detail.css'],
-  providers: [BehavioralObjectiveService]
+  
 })
 
 @Injectable()
@@ -65,13 +65,14 @@ export class BehavioralObjective_BehavioralKPI_DetailUI extends DetailView<Behav
   public onDblClicked(masterUI: BehavioralKPIMasterUI) {
     if (BehavioralKPI.NotConfirm(this.currentBehavioralKPI))
       return;
+    this.currentBehavioralKPI.behavioralObjective = this.BehavioralObjective;
     masterUI.ShowDialog(this.currentBehavioralKPI);
   }
 
-  private async checkTargetSetting(): Promise<Boolean> {
-    let targetSetting = await this.behavioralObjectiveService.TargetSettingService.RetrieveById(this.behavioralObjective.targetSetting.id);
-    if (targetSetting.employee.id == AuthService.currentEmployee.id) {
-      MessageController.ShowMessage(MessageType.AddPermissionDenied);
+  private checkTargetSetting(): Boolean {
+    //let targetSetting = await this.behavioralObjectiveService.TargetSettingService.RetrieveById(this.behavioralObjective.targetSetting.id);
+    if (this.behavioralObjective.targetSetting.employee.id == AuthService.currentEmployee.id) {
+      MessageController.ShowMessage(MessageType.NotEditable);
       return false;
     }
     return true;

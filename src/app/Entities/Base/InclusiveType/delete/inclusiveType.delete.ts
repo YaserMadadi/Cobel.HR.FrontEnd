@@ -10,7 +10,7 @@ import { InclusiveTypeService } from '../inclusiveType.service';
   selector: 'base-inclusiveType-delete',
   templateUrl: './inclusiveType.delete.html',
   styleUrls: ['./inclusiveType.delete.css'],
-  providers: [InclusiveTypeService]
+  
 })
 export class InclusiveTypeDeleteUI extends DeleteModal<InclusiveType> {
 

@@ -16,11 +16,8 @@ import { ContractDeleteUI } from '../../../HR/Contract/delete/contract.delete';
 @Component({
   selector: 'contractType-contract-detail',
   templateUrl: './contractType-contract.detail.html',
-  styleUrls: ['./contractType-contract.detail.css'],
-  providers: [ContractTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./contractType-contract.detail.css']
+})
 export class ContractType_Contract_DetailUI extends DetailView<ContractType> {
 
   constructor(private contractTypeService: ContractTypeService) {

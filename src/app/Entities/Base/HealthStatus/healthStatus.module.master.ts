@@ -20,10 +20,6 @@ import { HealthStatus_ModuleDetail } from './healthStatus.module.detail';
     ],
     exports: [
         HealthStatusMasterUI
-    ],
-    providers: [
-        //HealthStatusService,
-       // HealthStatusServiceCollection   
     ]
 })
 

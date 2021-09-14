@@ -55,7 +55,8 @@ export class AnswerTypeItemEditUI extends EditModal<AnswerTypeItem> implements I
     
   }
   
-  InitAnswerTypeItem(answerTypeItem: AnswerTypeItem) {
+  InitAnswerTypeItem(answerTypeItem: AnswerTypeItem){
+    this.currentInstance = this.service.CreateInstance();
     if (!answerTypeItem.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.answerTypeComponent.instance = answerTypeItem.answerType;

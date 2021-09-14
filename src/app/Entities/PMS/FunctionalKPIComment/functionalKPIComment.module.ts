@@ -29,10 +29,6 @@ import { FunctionalKPIComment_ModuleMaster } from './functionalKPIComment.module
   exports: [
     FunctionalKPICommentIndexUI,
 		FunctionalKPIComment_ModuleMaster,
-  ],
-  providers: [
-    // FunctionalKPICommentService,
-    // FunctionalKPICommentServiceCollection
-  ]
+   ]
 })
 export class FunctionalKPICommentModule {}

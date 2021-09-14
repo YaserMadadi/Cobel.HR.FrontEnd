@@ -27,10 +27,6 @@ import { AssessmentTypeSeekUI } from './seek/assessmentType.seek';
         AssessmentTypeEditUI,
 		AssessmentTypeDeleteUI,
 		AssessmentTypeSeekUI
-    ],
-    providers: [
-       //AssessmentTypeService,
-       // AssessmentTypeServiceCollection,
     ]
 })
 

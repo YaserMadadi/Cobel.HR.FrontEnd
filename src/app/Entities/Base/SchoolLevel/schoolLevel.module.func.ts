@@ -27,10 +27,6 @@ import { SchoolLevelSeekUI } from './seek/schoolLevel.seek';
         SchoolLevelEditUI,
 		SchoolLevelDeleteUI,
 		SchoolLevelSeekUI
-    ],
-    providers: [
-       //SchoolLevelService,
-       // SchoolLevelServiceCollection,
     ]
 })
 

@@ -21,9 +21,6 @@ import { FinalAppraiseServiceCollection } from './finalAppraise.service.collecti
   exports: [
     // No Item...
   ],
-  providers: [
-    //FinalAppraiseService,
-    //FinalAppraiseServiceCollection
-  ]
+  
 })
 export class FinalAppraise_ModuleDetail { }

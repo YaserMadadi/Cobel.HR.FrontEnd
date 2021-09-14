@@ -20,10 +20,6 @@ import { AppraiseType_ModuleDetail } from './appraiseType.module.detail';
     ],
     exports: [
         AppraiseTypeMasterUI
-    ],
-    providers: [
-        //AppraiseTypeService,
-       // AppraiseTypeServiceCollection   
     ]
 })
 

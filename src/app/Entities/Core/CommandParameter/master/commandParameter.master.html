@@ -1,0 +1,40 @@
+
+<XDialog Header='CommandParameter Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>CommandParameter : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>ExceptionLog_Id : 
+                        <guide (onClick)='onGuid("ExceptionLog_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.exceptionLog?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Name : 
+                        <guide (onClick)='onGuid("Name")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.name }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Value : 
+                        <guide (onClick)='onGuid("Value")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.value }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>TypeName : 
+                        <guide (onClick)='onGuid("TypeName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.typeName }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

@@ -12,11 +12,7 @@ import { UserAccountEditUI } from '../edit/userAccount.edit';
 @Component({
   selector: 'core-userAccount-master',
   templateUrl: './userAccount.master.html',
-  styleUrls: ['./userAccount.master.css'],
-  providers: [
-    UserAccountService,
-    
-  ]
+  styleUrls: ['./userAccount.master.css']
 })
 export class UserAccountMasterUI extends MasterModal<UserAccount> {
 

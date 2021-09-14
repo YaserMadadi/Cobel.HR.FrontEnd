@@ -12,11 +12,7 @@ import { EmployeeNotificationEditUI } from '../edit/employeeNotification.edit';
 @Component({
   selector: 'hr-employeeNotification-master',
   templateUrl: './employeeNotification.master.html',
-  styleUrls: ['./employeeNotification.master.css'],
-  providers: [
-    EmployeeNotificationService,
-    
-  ]
+  styleUrls: ['./employeeNotification.master.css']
 })
 export class EmployeeNotificationMasterUI extends MasterModal<EmployeeNotification> {
 

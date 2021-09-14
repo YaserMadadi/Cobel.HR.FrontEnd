@@ -21,9 +21,6 @@ import { CoachingSessionServiceCollection } from './coachingSession.service.coll
   exports: [
     // No Item...
   ],
-  providers: [
-    //CoachingSessionService,
-    //CoachingSessionServiceCollection
-  ]
+  
 })
 export class CoachingSession_ModuleDetail { }

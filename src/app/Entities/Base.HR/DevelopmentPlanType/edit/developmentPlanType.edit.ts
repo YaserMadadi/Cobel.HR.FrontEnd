@@ -42,7 +42,8 @@ export class DevelopmentPlanTypeEditUI extends EditModal<DevelopmentPlanType> im
     
   }
   
-  InitDevelopmentPlanType(developmentPlanType: DevelopmentPlanType) {
+  InitDevelopmentPlanType(developmentPlanType: DevelopmentPlanType){
+    this.currentInstance = this.service.CreateInstance();
     if (!developmentPlanType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

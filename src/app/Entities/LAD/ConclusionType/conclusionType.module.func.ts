@@ -27,10 +27,6 @@ import { ConclusionTypeSeekUI } from './seek/conclusionType.seek';
         ConclusionTypeEditUI,
 		ConclusionTypeDeleteUI,
 		ConclusionTypeSeekUI
-    ],
-    providers: [
-       //ConclusionTypeService,
-       // ConclusionTypeServiceCollection,
     ]
 })
 

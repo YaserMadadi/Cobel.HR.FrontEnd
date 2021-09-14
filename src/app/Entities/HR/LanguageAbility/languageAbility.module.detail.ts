@@ -21,9 +21,6 @@ import { LanguageAbilityServiceCollection } from './languageAbility.service.coll
   exports: [
     // No Item...
   ],
-  providers: [
-    //LanguageAbilityService,
-    //LanguageAbilityServiceCollection
-  ]
+  
 })
 export class LanguageAbility_ModuleDetail { }

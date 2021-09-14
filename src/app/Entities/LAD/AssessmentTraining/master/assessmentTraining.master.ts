@@ -12,11 +12,7 @@ import { AssessmentTrainingEditUI } from '../edit/assessmentTraining.edit';
 @Component({
   selector: 'lad-assessmentTraining-master',
   templateUrl: './assessmentTraining.master.html',
-  styleUrls: ['./assessmentTraining.master.css'],
-  providers: [
-    AssessmentTrainingService,
-    
-  ]
+  styleUrls: ['./assessmentTraining.master.css']
 })
 export class AssessmentTrainingMasterUI extends MasterModal<AssessmentTraining> {
 

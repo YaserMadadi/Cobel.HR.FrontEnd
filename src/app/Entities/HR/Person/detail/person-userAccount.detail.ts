@@ -16,11 +16,8 @@ import { UserAccountDeleteUI } from '../../../Core/UserAccount/delete/userAccoun
 @Component({
   selector: 'person-userAccount-detail',
   templateUrl: './person-userAccount.detail.html',
-  styleUrls: ['./person-userAccount.detail.css'],
-  providers: [PersonService]
-}) 
-
-@Injectable()
+  styleUrls: ['./person-userAccount.detail.css']
+})
 export class Person_UserAccount_DetailUI extends DetailView<Person> {
 
   constructor(private personService: PersonService) {

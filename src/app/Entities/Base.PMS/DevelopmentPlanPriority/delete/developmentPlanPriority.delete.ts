@@ -10,7 +10,7 @@ import { DevelopmentPlanPriorityService } from '../developmentPlanPriority.servi
   selector: 'base-pms-developmentPlanPriority-delete',
   templateUrl: './developmentPlanPriority.delete.html',
   styleUrls: ['./developmentPlanPriority.delete.css'],
-  providers: [DevelopmentPlanPriorityService]
+  
 })
 export class DevelopmentPlanPriorityDeleteUI extends DeleteModal<DevelopmentPlanPriority> {
 

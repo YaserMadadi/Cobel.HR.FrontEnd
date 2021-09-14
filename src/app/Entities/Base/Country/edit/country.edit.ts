@@ -40,7 +40,8 @@ export class CountryEditUI extends EditModal<Country> implements IEditModal<Coun
     
   }
   
-  InitCountry(country: Country) {
+  InitCountry(country: Country){
+    this.currentInstance = new Country();
     if (!country.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

@@ -32,10 +32,6 @@ import { Person_ModuleMaster } from '../../HR/Person/person.module.master';
   exports: [
     ReligionIndexUI,
 		Religion_ModuleMaster,
-  ],
-  providers: [
-    // ReligionService,
-    // ReligionServiceCollection
-  ]
+   ]
 })
 export class ReligionModule {}

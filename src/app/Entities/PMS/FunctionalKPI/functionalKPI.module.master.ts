@@ -20,10 +20,6 @@ import { FunctionalKPI_ModuleDetail } from './functionalKPI.module.detail';
     ],
     exports: [
         FunctionalKPIMasterUI
-    ],
-    providers: [
-        //FunctionalKPIService,
-       // FunctionalKPIServiceCollection   
     ]
 })
 

@@ -20,10 +20,6 @@ import { CoachConnectionLine_ModuleDetail } from './coachConnectionLine.module.d
     ],
     exports: [
         CoachConnectionLineMasterUI
-    ],
-    providers: [
-        //CoachConnectionLineService,
-       // CoachConnectionLineServiceCollection   
     ]
 })
 

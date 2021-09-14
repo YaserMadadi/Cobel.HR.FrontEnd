@@ -40,7 +40,8 @@ export class AppraiseTimeEditUI extends EditModal<AppraiseTime> implements IEdit
     
   }
   
-  InitAppraiseTime(appraiseTime: AppraiseTime) {
+  InitAppraiseTime(appraiseTime: AppraiseTime){
+    this.currentInstance = this.service.CreateInstance();
     if (!appraiseTime.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

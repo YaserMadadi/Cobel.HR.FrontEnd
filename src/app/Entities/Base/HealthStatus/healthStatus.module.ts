@@ -32,10 +32,6 @@ import { Person_ModuleMaster } from '../../HR/Person/person.module.master';
   exports: [
     HealthStatusIndexUI,
 		HealthStatus_ModuleMaster,
-  ],
-  providers: [
-    // HealthStatusService,
-    // HealthStatusServiceCollection
-  ]
+   ]
 })
 export class HealthStatusModule {}

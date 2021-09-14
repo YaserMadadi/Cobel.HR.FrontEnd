@@ -20,10 +20,6 @@ import { Religion_ModuleDetail } from './religion.module.detail';
     ],
     exports: [
         ReligionMasterUI
-    ],
-    providers: [
-        //ReligionService,
-       // ReligionServiceCollection   
     ]
 })
 

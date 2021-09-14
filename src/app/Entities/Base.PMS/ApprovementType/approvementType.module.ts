@@ -32,10 +32,6 @@ import { VisionApproved_ModuleMaster } from '../../PMS/VisionApproved/visionAppr
   exports: [
     ApprovementTypeIndexUI,
 		ApprovementType_ModuleMaster,
-  ],
-  providers: [
-    // ApprovementTypeService,
-    // ApprovementTypeServiceCollection
-  ]
+   ]
 })
 export class ApprovementTypeModule {}

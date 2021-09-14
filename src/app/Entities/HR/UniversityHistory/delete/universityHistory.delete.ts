@@ -10,7 +10,7 @@ import { UniversityHistoryService } from '../universityHistory.service';
   selector: 'hr-universityHistory-delete',
   templateUrl: './universityHistory.delete.html',
   styleUrls: ['./universityHistory.delete.css'],
-  providers: [UniversityHistoryService]
+  
 })
 export class UniversityHistoryDeleteUI extends DeleteModal<UniversityHistory> {
 

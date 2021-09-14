@@ -32,10 +32,6 @@ import { Habitancy_ModuleMaster } from '../../HR/Habitancy/habitancy.module.mast
   exports: [
     HabitancyTypeIndexUI,
 		HabitancyType_ModuleMaster,
-  ],
-  providers: [
-    // HabitancyTypeService,
-    // HabitancyTypeServiceCollection
-  ]
+   ]
 })
 export class HabitancyTypeModule {}

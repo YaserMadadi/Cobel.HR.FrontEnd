@@ -20,10 +20,6 @@ import { ConclusionType_ModuleDetail } from './conclusionType.module.detail';
     ],
     exports: [
         ConclusionTypeMasterUI
-    ],
-    providers: [
-        //ConclusionTypeService,
-       // ConclusionTypeServiceCollection   
     ]
 })
 

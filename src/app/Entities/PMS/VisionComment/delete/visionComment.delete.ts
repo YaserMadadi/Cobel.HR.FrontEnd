@@ -10,7 +10,7 @@ import { VisionCommentService } from '../visionComment.service';
   selector: 'pms-visionComment-delete',
   templateUrl: './visionComment.delete.html',
   styleUrls: ['./visionComment.delete.css'],
-  providers: [VisionCommentService]
+  
 })
 export class VisionCommentDeleteUI extends DeleteModal<VisionComment> {
 

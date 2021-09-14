@@ -10,7 +10,7 @@ import { ScoreCellService } from '../scoreCell.service';
   selector: 'pms-scoreCell-delete',
   templateUrl: './scoreCell.delete.html',
   styleUrls: ['./scoreCell.delete.css'],
-  providers: [ScoreCellService]
+  
 })
 export class ScoreCellDeleteUI extends DeleteModal<ScoreCell> {
 

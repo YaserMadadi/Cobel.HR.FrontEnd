@@ -16,11 +16,8 @@ import { ConfigQualitativeObjectiveDeleteUI } from '../../ConfigQualitativeObjec
 @Component({
   selector: 'targetSettingConfig-configQualitativeObjective-detail',
   templateUrl: './targetSettingConfig-configQualitativeObjective.detail.html',
-  styleUrls: ['./targetSettingConfig-configQualitativeObjective.detail.css'],
-  providers: [ConfigTargetSettingService]
-}) 
-
-@Injectable()
+  styleUrls: ['./targetSettingConfig-configQualitativeObjective.detail.css']
+})
 export class TargetSettingConfig_ConfigQualitativeObjective_DetailUI extends DetailView<ConfigTargetSetting> {
 
   constructor(private configTargetSettingService: ConfigTargetSettingService) {

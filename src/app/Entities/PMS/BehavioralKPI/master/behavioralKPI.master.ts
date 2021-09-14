@@ -14,10 +14,7 @@ import { BehavioralAppraiseService } from '../../BehavioralAppraise/behavioralAp
   selector: 'pms-behavioralKPI-master',
   templateUrl: './behavioralKPI.master.html',
   styleUrls: ['./behavioralKPI.master.css'],
-  providers: [
-    BehavioralKPIService,
-    BehavioralAppraiseService,
-  ]
+  
 })
 export class BehavioralKPIMasterUI extends MasterModal<BehavioralKPI> {
 

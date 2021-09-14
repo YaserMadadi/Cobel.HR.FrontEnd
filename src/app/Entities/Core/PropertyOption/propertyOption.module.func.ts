@@ -28,10 +28,6 @@ import { Property_ModuleFunc } from '../Property/property.module.func';
         PropertyOptionEditUI,
 		PropertyOptionDeleteUI,
 		PropertyOptionSeekUI
-    ],
-    providers: [
-       //PropertyOptionService,
-       // PropertyOptionServiceCollection,
     ]
 })
 

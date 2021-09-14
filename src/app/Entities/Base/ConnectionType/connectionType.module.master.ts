@@ -20,10 +20,6 @@ import { ConnectionType_ModuleDetail } from './connectionType.module.detail';
     ],
     exports: [
         ConnectionTypeMasterUI
-    ],
-    providers: [
-        //ConnectionTypeService,
-       // ConnectionTypeServiceCollection   
     ]
 })
 

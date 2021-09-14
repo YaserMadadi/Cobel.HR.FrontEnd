@@ -81,7 +81,8 @@ export class CoachingQuestionaryEditUI extends EditModal<CoachingQuestionary> im
     this.questionaryTypeComponent.LoadList();
   }
   
-  InitCoachingQuestionary(coachingQuestionary: CoachingQuestionary) {
+  InitCoachingQuestionary(coachingQuestionary: CoachingQuestionary){
+    this.currentInstance = this.service.CreateInstance();
     if (!coachingQuestionary.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.questionaryTypeComponent.instance = coachingQuestionary.questionaryType;

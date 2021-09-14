@@ -20,10 +20,6 @@ import { FeedbackSession_ModuleDetail } from './feedbackSession.module.detail';
     ],
     exports: [
         FeedbackSessionMasterUI
-    ],
-    providers: [
-        //FeedbackSessionService,
-       // FeedbackSessionServiceCollection   
     ]
 })
 

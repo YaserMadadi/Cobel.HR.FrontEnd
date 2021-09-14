@@ -20,10 +20,6 @@ import { DevelopmentPlanPriority_ModuleDetail } from './developmentPlanPriority.
     ],
     exports: [
         DevelopmentPlanPriorityMasterUI
-    ],
-    providers: [
-        //DevelopmentPlanPriorityService,
-       // DevelopmentPlanPriorityServiceCollection   
     ]
 })
 

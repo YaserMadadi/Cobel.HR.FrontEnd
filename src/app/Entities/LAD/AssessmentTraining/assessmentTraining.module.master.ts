@@ -20,10 +20,6 @@ import { AssessmentTraining_ModuleDetail } from './assessmentTraining.module.det
     ],
     exports: [
         AssessmentTrainingMasterUI
-    ],
-    providers: [
-        //AssessmentTrainingService,
-       // AssessmentTrainingServiceCollection   
     ]
 })
 

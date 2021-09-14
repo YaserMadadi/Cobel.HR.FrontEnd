@@ -21,9 +21,6 @@ import { ConclusionServiceCollection } from './conclusion.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //ConclusionService,
-    //ConclusionServiceCollection
-  ]
+  
 })
 export class Conclusion_ModuleDetail { }

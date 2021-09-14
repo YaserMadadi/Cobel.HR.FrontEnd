@@ -20,10 +20,6 @@ import { MaritalInfo_ModuleDetail } from './maritalInfo.module.detail';
     ],
     exports: [
         MaritalInfoMasterUI
-    ],
-    providers: [
-        //MaritalInfoService,
-       // MaritalInfoServiceCollection   
     ]
 })
 

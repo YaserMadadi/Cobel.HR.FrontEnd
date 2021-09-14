@@ -29,10 +29,6 @@ import { DevelopmentGoal_ModuleMaster } from './developmentGoal.module.master';
   exports: [
     DevelopmentGoalIndexUI,
 		DevelopmentGoal_ModuleMaster,
-  ],
-  providers: [
-    // DevelopmentGoalService,
-    // DevelopmentGoalServiceCollection
-  ]
+   ]
 })
 export class DevelopmentGoalModule {}

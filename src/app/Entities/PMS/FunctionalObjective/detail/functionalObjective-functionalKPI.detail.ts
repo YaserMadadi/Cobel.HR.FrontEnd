@@ -21,7 +21,7 @@ import { TargetSetting } from '../../TargetSetting/targetSetting';
   selector: 'functionalObjective-functionalKPI-detail',
   templateUrl: './functionalObjective-functionalKPI.detail.html',
   styleUrls: ['./functionalObjective-functionalKPI.detail.css'],
-  providers: [FunctionalObjectiveService]
+  
 })
 
 @Injectable()
@@ -66,13 +66,16 @@ export class FunctionalObjective_FunctionalKPI_DetailUI extends DetailView<Funct
   public onDblClicked(masterUI: FunctionalKPIMasterUI) {
     if (FunctionalKPI.NotConfirm(this.currentFunctionalKPI))
       return;
+    console.log(this.functionalObjective.targetSetting);
+    this.currentFunctionalKPI.functionalObjective = this.functionalObjective;
     masterUI.ShowDialog(this.currentFunctionalKPI);
   }
 
   private async checkTargetSetting(): Promise<Boolean> {
-    let targetSetting = await this.functionalObjectiveService.TargetSettingService.RetrieveById(this.functionalObjective.targetSetting.id);
-    if (targetSetting.employee.id == AuthService.currentEmployee.id) {
-      MessageController.ShowMessage(MessageType.AddPermissionDenied);
+    //var targetSetting = await this.functionalObjectiveService.TargetSettingService.RetrieveById(this.functionalObjective.targetSetting.id);
+    //this.functionalObjective.targetSetting = targetSetting;
+    if (this.functionalObjective.targetSetting.employee.id == AuthService.currentEmployee.id || this.functionalObjective.targetSetting.isLocked) {
+      MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }
     return true;

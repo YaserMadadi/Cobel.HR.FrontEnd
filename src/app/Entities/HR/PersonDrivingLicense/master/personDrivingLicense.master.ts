@@ -12,11 +12,7 @@ import { PersonDrivingLicenseEditUI } from '../edit/personDrivingLicense.edit';
 @Component({
   selector: 'hr-personDrivingLicense-master',
   templateUrl: './personDrivingLicense.master.html',
-  styleUrls: ['./personDrivingLicense.master.css'],
-  providers: [
-    PersonDrivingLicenseService,
-    
-  ]
+  styleUrls: ['./personDrivingLicense.master.css']
 })
 export class PersonDrivingLicenseMasterUI extends MasterModal<PersonDrivingLicense> {
 

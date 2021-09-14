@@ -20,10 +20,6 @@ import { Assessor_ModuleDetail } from './assessor.module.detail';
     ],
     exports: [
         AssessorMasterUI
-    ],
-    providers: [
-        //AssessorService,
-       // AssessorServiceCollection   
     ]
 })
 

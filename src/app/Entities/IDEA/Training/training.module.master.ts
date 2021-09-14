@@ -20,10 +20,6 @@ import { Training_ModuleDetail } from './training.module.detail';
     ],
     exports: [
         TrainingMasterUI
-    ],
-    providers: [
-        //TrainingService,
-       // TrainingServiceCollection   
     ]
 })
 

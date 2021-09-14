@@ -29,10 +29,6 @@ import { StrategicObjectve_ModuleMaster } from './strategicObjectve.module.maste
   exports: [
     StrategicObjectveIndexUI,
 		StrategicObjectve_ModuleMaster,
-  ],
-  providers: [
-    // StrategicObjectveService,
-    // StrategicObjectveServiceCollection
-  ]
+   ]
 })
 export class StrategicObjectveModule {}

@@ -10,7 +10,7 @@ import { MilitaryServiceInclusiveService } from '../militaryServiceInclusive.ser
   selector: 'hr-militaryServiceInclusive-delete',
   templateUrl: './militaryServiceInclusive.delete.html',
   styleUrls: ['./militaryServiceInclusive.delete.css'],
-  providers: [MilitaryServiceInclusiveService]
+  
 })
 export class MilitaryServiceInclusiveDeleteUI extends DeleteModal<MilitaryServiceInclusive> {
 

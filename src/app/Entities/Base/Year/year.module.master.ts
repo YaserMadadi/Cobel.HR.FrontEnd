@@ -20,10 +20,6 @@ import { Year_ModuleDetail } from './year.module.detail';
     ],
     exports: [
         YearMasterUI
-    ],
-    providers: [
-        //YearService,
-       // YearServiceCollection   
     ]
 })
 

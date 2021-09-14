@@ -27,10 +27,6 @@ import { PositionCategorySeekUI } from './seek/positionCategory.seek';
         PositionCategoryEditUI,
 		PositionCategoryDeleteUI,
 		PositionCategorySeekUI
-    ],
-    providers: [
-       //PositionCategoryService,
-       // PositionCategoryServiceCollection,
     ]
 })
 

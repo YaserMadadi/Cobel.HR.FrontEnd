@@ -10,7 +10,7 @@ import { AssessorService } from '../assessor.service';
   selector: 'lad-assessor-delete',
   templateUrl: './assessor.delete.html',
   styleUrls: ['./assessor.delete.css'],
-  providers: [AssessorService]
+  
 })
 export class AssessorDeleteUI extends DeleteModal<Assessor> {
 

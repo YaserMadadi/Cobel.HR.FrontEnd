@@ -21,9 +21,6 @@ import { FunctionalObjectiveCommentServiceCollection } from './functionalObjecti
   exports: [
     // No Item...
   ],
-  providers: [
-    //FunctionalObjectiveCommentService,
-    //FunctionalObjectiveCommentServiceCollection
-  ]
+  
 })
 export class FunctionalObjectiveComment_ModuleDetail { }

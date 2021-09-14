@@ -40,7 +40,8 @@ export class QuestionaryTypeEditUI extends EditModal<QuestionaryType> implements
     
   }
   
-  InitQuestionaryType(questionaryType: QuestionaryType) {
+  InitQuestionaryType(questionaryType: QuestionaryType){
+    this.currentInstance = this.service.CreateInstance();
     if (!questionaryType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

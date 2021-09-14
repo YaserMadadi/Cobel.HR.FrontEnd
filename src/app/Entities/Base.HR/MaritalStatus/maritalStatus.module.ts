@@ -33,10 +33,6 @@ import { Person_ModuleMaster } from '../../HR/Person/person.module.master';
   exports: [
     MaritalStatusIndexUI,
 		MaritalStatus_ModuleMaster,
-  ],
-  providers: [
-    // MaritalStatusService,
-    // MaritalStatusServiceCollection
-  ]
+   ]
 })
 export class MaritalStatusModule {}

@@ -33,10 +33,6 @@ import { Position_ModuleMaster } from '../../HR/Position/position.module.master'
   exports: [
     PositionDivisionIndexUI,
 		PositionDivision_ModuleMaster,
-  ],
-  providers: [
-    // PositionDivisionService,
-    // PositionDivisionServiceCollection
-  ]
+   ]
 })
 export class PositionDivisionModule {}

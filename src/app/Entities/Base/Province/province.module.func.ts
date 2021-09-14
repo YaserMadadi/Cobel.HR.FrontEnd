@@ -27,10 +27,6 @@ import { ProvinceSeekUI } from './seek/province.seek';
         ProvinceEditUI,
 		ProvinceDeleteUI,
 		ProvinceSeekUI
-    ],
-    providers: [
-       //ProvinceService,
-       // ProvinceServiceCollection,
     ]
 })
 

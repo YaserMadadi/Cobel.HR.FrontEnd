@@ -23,10 +23,6 @@ import { FieldOfStudy_ModuleMaster } from '../FieldOfStudy/fieldOfStudy.module.m
   ],
   exports: [
     UniversityFieldCategory_FieldOfStudy_DetailUI
-  ],
-  providers: [
-    //UniversityFieldCategoryService,
-    //UniversityFieldCategoryServiceCollection
   ]
 })
 export class UniversityFieldCategory_ModuleDetail { }

@@ -32,10 +32,6 @@ import { ExpectedLevel_ModuleFunc } from '../../Base.PMS/ExpectedLevel/expectedL
         BehavioralObjectiveEditUI,
 		BehavioralObjectiveDeleteUI,
 		BehavioralObjectiveSeekUI
-    ],
-    providers: [
-       //BehavioralObjectiveService,
-       // BehavioralObjectiveServiceCollection,
     ]
 })
 

@@ -16,11 +16,8 @@ import { SchoolHistoryDeleteUI } from '../../../HR/SchoolHistory/delete/schoolHi
 @Component({
   selector: 'schoolLevel-schoolHistory-detail',
   templateUrl: './schoolLevel-schoolHistory.detail.html',
-  styleUrls: ['./schoolLevel-schoolHistory.detail.css'],
-  providers: [SchoolLevelService]
-}) 
-
-@Injectable()
+  styleUrls: ['./schoolLevel-schoolHistory.detail.css']
+})
 export class SchoolLevel_SchoolHistory_DetailUI extends DetailView<SchoolLevel> {
 
   constructor(private schoolLevelService: SchoolLevelService) {

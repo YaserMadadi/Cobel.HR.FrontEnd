@@ -21,9 +21,6 @@ import { PromotionAssessmentServiceCollection } from './promotionAssessment.serv
   exports: [
     // No Item...
   ],
-  providers: [
-    //PromotionAssessmentService,
-    //PromotionAssessmentServiceCollection
-  ]
+  
 })
 export class PromotionAssessment_ModuleDetail { }

@@ -42,7 +42,8 @@ export class RelativeTypeEditUI extends EditModal<RelativeType> implements IEdit
     
   }
   
-  InitRelativeType(relativeType: RelativeType) {
+  InitRelativeType(relativeType: RelativeType){
+    this.currentInstance = this.service.CreateInstance();
     if (!relativeType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

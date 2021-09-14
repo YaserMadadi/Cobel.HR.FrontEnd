@@ -12,11 +12,7 @@ import { HabitancyEditUI } from '../edit/habitancy.edit';
 @Component({
   selector: 'hr-habitancy-master',
   templateUrl: './habitancy.master.html',
-  styleUrls: ['./habitancy.master.css'],
-  providers: [
-    HabitancyService,
-    
-  ]
+  styleUrls: ['./habitancy.master.css']
 })
 export class HabitancyMasterUI extends MasterModal<Habitancy> {
 

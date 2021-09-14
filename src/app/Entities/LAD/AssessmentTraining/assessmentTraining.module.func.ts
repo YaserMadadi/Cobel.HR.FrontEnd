@@ -30,10 +30,6 @@ import { YearQuarter_ModuleFunc } from '../../Base/YearQuarter/yearQuarter.modul
         AssessmentTrainingEditUI,
 		AssessmentTrainingDeleteUI,
 		AssessmentTrainingSeekUI
-    ],
-    providers: [
-       //AssessmentTrainingService,
-       // AssessmentTrainingServiceCollection,
     ]
 })
 

@@ -16,11 +16,8 @@ import { CellActionDeleteUI } from '../../CellAction/delete/cellAction.delete';
 @Component({
   selector: 'scoreCell-cellAction-detail',
   templateUrl: './scoreCell-cellAction.detail.html',
-  styleUrls: ['./scoreCell-cellAction.detail.css'],
-  providers: [ScoreCellService]
-}) 
-
-@Injectable()
+  styleUrls: ['./scoreCell-cellAction.detail.css']
+})
 export class ScoreCell_CellAction_DetailUI extends DetailView<ScoreCell> {
 
   constructor(private scoreCellService: ScoreCellService) {

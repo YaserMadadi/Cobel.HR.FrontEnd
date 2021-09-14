@@ -14,10 +14,7 @@ import { RelativeService } from '../../../HR/Relative/relative.service';
   selector: 'base-hr-relativeType-master',
   templateUrl: './relativeType.master.html',
   styleUrls: ['./relativeType.master.css'],
-  providers: [
-    RelativeTypeService,
-    RelativeService,
-  ]
+  
 })
 export class RelativeTypeMasterUI extends MasterModal<RelativeType> {
 

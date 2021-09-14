@@ -12,11 +12,7 @@ import { MessageEditUI } from '../edit/message.edit';
 @Component({
   selector: 'xcode-message-master',
   templateUrl: './message.master.html',
-  styleUrls: ['./message.master.css'],
-  providers: [
-    MessageService,
-    
-  ]
+  styleUrls: ['./message.master.css']
 })
 export class MessageMasterUI extends MasterModal<Message> {
 

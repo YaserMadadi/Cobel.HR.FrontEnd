@@ -16,11 +16,8 @@ import { PositionDeleteUI } from '../../Position/delete/position.delete';
 @Component({
   selector: 'level-position-detail',
   templateUrl: './level-position.detail.html',
-  styleUrls: ['./level-position.detail.css'],
-  providers: [LevelService]
-}) 
-
-@Injectable()
+  styleUrls: ['./level-position.detail.css']
+})
 export class Level_Position_DetailUI extends DetailView<Level> {
 
   constructor(private levelService: LevelService) {

@@ -16,11 +16,8 @@ import { IndividualDevelopmentPlanDeleteUI } from '../../../PMS/IndividualDevelo
 @Component({
   selector: 'priority-individualDevelopmentPlan-detail',
   templateUrl: './priority-individualDevelopmentPlan.detail.html',
-  styleUrls: ['./priority-individualDevelopmentPlan.detail.css'],
-  providers: [DevelopmentPlanPriorityService]
-}) 
-
-@Injectable()
+  styleUrls: ['./priority-individualDevelopmentPlan.detail.css']
+})
 export class Priority_IndividualDevelopmentPlan_DetailUI extends DetailView<DevelopmentPlanPriority> {
 
   constructor(private developmentPlanPriorityService: DevelopmentPlanPriorityService) {

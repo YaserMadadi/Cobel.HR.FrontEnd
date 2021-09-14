@@ -40,7 +40,8 @@ export class DrivingLicenseTypeEditUI extends EditModal<DrivingLicenseType> impl
     
   }
   
-  InitDrivingLicenseType(drivingLicenseType: DrivingLicenseType) {
+  InitDrivingLicenseType(drivingLicenseType: DrivingLicenseType){
+    this.currentInstance = new DrivingLicenseType();
     if (!drivingLicenseType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

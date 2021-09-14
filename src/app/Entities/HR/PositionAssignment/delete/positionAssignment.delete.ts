@@ -10,7 +10,7 @@ import { PositionAssignmentService } from '../positionAssignment.service';
   selector: 'hr-positionAssignment-delete',
   templateUrl: './positionAssignment.delete.html',
   styleUrls: ['./positionAssignment.delete.css'],
-  providers: [PositionAssignmentService]
+  
 })
 export class PositionAssignmentDeleteUI extends DeleteModal<PositionAssignment> {
 

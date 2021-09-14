@@ -21,9 +21,6 @@ import { RolePermissionServiceCollection } from './rolePermission.service.collec
   exports: [
     // No Item...
   ],
-  providers: [
-    //RolePermissionService,
-    //RolePermissionServiceCollection
-  ]
+  
 })
 export class RolePermission_ModuleDetail { }

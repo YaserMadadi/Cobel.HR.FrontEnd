@@ -20,10 +20,6 @@ import { DevelopmentPlanCompetency_ModuleDetail } from './developmentPlanCompete
     ],
     exports: [
         DevelopmentPlanCompetencyMasterUI
-    ],
-    providers: [
-        //DevelopmentPlanCompetencyService,
-       // DevelopmentPlanCompetencyServiceCollection   
     ]
 })
 

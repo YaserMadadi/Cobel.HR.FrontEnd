@@ -10,7 +10,7 @@ import { QuestionaryTypeService } from '../questionaryType.service';
   selector: 'lad-questionaryType-delete',
   templateUrl: './questionaryType.delete.html',
   styleUrls: ['./questionaryType.delete.css'],
-  providers: [QuestionaryTypeService]
+  
 })
 export class QuestionaryTypeDeleteUI extends DeleteModal<QuestionaryType> {
 

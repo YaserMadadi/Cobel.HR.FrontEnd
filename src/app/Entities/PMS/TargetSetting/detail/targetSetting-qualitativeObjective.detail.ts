@@ -20,7 +20,7 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'targetSetting-qualitativeObjective-detail',
   templateUrl: './targetSetting-qualitativeObjective.detail.html',
   styleUrls: ['./targetSetting-qualitativeObjective.detail.css'],
-  providers: [TargetSettingService]
+  
 })
 
 @Injectable()
@@ -63,49 +63,53 @@ export class TargetSetting_QualitativeObjective_DetailUI extends DetailView<Targ
   }
 
   public onDblClicked(masterUI: QualitativeObjectiveMasterUI) {
-    if(this.targetSetting.isLocked){
-      MessageController.ShowMessage(MessageType.NotEditable);
-      return;
-    }
     if (QualitativeObjective.NotConfirm(this.currentQualitativeObjective))
       return;
+    this.currentQualitativeObjective.targetSetting = this.targetSetting;
     masterUI.ShowDialog(this.currentQualitativeObjective);
   }
 
-  private async loadTargetSetting(): Promise<Boolean> {
-    let targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
-    if (targetSetting.employee.id == AuthService.currentEmployee.id) {
+  private checkTargetSetting(): Boolean {
+    //let targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
+    if (this.currentQualitativeObjective.targetSetting.employee.id == AuthService.currentEmployee.id) {
       MessageController.ShowMessage(MessageType.AddPermissionDenied);
+      return false;
+    }
+    if (this.currentQualitativeObjective.targetSetting.isLocked) {
+      MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }
     return true;
   }
 
   public async onAdd(editUI: QualitativeObjectiveEditUI) {
-    let result = await this.loadTargetSetting();
-    if (!result)
+    
+    if (!this.checkTargetSetting())
       return;
+
     editUI.TargetSetting = this.targetSetting;
+
     editUI.ShowDialog(new QualitativeObjective());
   }
 
   public async onEdit(editUI: QualitativeObjectiveEditUI) {
-    let result = await this.loadTargetSetting();
-    if (!result)
-      return;
-
     if (QualitativeObjective.NotConfirm(this.currentQualitativeObjective))
       return;
+
+    if (!this.checkTargetSetting())
+      return;
+    
     editUI.TargetSetting = this.targetSetting;
     editUI.ShowDialog(this.currentQualitativeObjective);
   }
 
   public async onDelete(deleteUI: QualitativeObjectiveDeleteUI) {
-    let result = await this.loadTargetSetting();
-    if (!result)
-      return;
     if (QualitativeObjective.NotConfirm(this.currentQualitativeObjective))
       return;
+
+    if (!this.checkTargetSetting())
+      return;
+    
     deleteUI.ShowDialog(this.currentQualitativeObjective);
   }
 

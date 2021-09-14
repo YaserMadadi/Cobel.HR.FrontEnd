@@ -21,9 +21,6 @@ import { AppraiseResultServiceCollection } from './appraiseResult.service.collec
   exports: [
     // No Item...
   ],
-  providers: [
-    //AppraiseResultService,
-    //AppraiseResultServiceCollection
-  ]
+  
 })
 export class AppraiseResult_ModuleDetail { }

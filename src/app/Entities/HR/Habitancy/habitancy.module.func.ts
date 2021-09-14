@@ -32,10 +32,6 @@ import { City_ModuleFunc } from '../../Base/City/city.module.func';
         HabitancyEditUI,
 		HabitancyDeleteUI,
 		HabitancySeekUI
-    ],
-    providers: [
-       //HabitancyService,
-       // HabitancyServiceCollection,
     ]
 })
 

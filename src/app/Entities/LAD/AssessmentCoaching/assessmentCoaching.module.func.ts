@@ -30,10 +30,6 @@ import { Coaching_ModuleFunc } from '../Coaching/coaching.module.func';
         AssessmentCoachingEditUI,
 		AssessmentCoachingDeleteUI,
 		AssessmentCoachingSeekUI
-    ],
-    providers: [
-       //AssessmentCoachingService,
-       // AssessmentCoachingServiceCollection,
     ]
 })
 

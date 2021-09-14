@@ -21,9 +21,6 @@ import { ImpersonateServiceCollection } from './impersonate.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //ImpersonateService,
-    //ImpersonateServiceCollection
-  ]
+  
 })
 export class Impersonate_ModuleDetail { }

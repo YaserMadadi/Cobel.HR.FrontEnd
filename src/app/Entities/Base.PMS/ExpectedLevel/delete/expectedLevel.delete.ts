@@ -10,7 +10,7 @@ import { ExpectedLevelService } from '../expectedLevel.service';
   selector: 'base-pms-expectedLevel-delete',
   templateUrl: './expectedLevel.delete.html',
   styleUrls: ['./expectedLevel.delete.css'],
-  providers: [ExpectedLevelService]
+  
 })
 export class ExpectedLevelDeleteUI extends DeleteModal<ExpectedLevel> {
 

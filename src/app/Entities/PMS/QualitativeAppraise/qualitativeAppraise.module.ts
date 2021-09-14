@@ -29,10 +29,6 @@ import { QualitativeAppraise_ModuleMaster } from './qualitativeAppraise.module.m
   exports: [
     QualitativeAppraiseIndexUI,
 		QualitativeAppraise_ModuleMaster,
-  ],
-  providers: [
-    // QualitativeAppraiseService,
-    // QualitativeAppraiseServiceCollection
-  ]
+   ]
 })
 export class QualitativeAppraiseModule {}

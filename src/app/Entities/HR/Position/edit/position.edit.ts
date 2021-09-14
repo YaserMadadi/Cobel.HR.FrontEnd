@@ -14,6 +14,7 @@ import { Unit } from '../../Unit/unit';
 import { UnitEditUI } from '../../Unit/edit/unit.edit';
 import { PositionCategory } from '../../../Base.HR/PositionCategory/positionCategory';
 import { PositionCategoryEditUI } from '../../../Base.HR/PositionCategory/edit/positionCategory.edit';
+import { PositionDivision } from '../../../Base.HR/PositionDivision/positionDivision';
 
 
 
@@ -23,59 +24,70 @@ import { PositionCategoryEditUI } from '../../../Base.HR/PositionCategory/edit/p
   styleUrls: ['./position.edit.css']
 })
 export class PositionEditUI extends EditModal<Position> implements IEditModal<Position>  {
-  
+
   constructor(private positionService: PositionService) {
-    super(positionService); 
+    super(positionService);
     this.currentInstance = new Position();
   }
 
   //#region Foreign Entities
-	
-	//#region -- Parent --
 
-  parentComponent : ForeignComponent<Position> = new ForeignComponent<Position>(this.positionService);
+  //#region -- Parent --
+
+  parentComponent: ForeignComponent<Position> = new ForeignComponent<Position>(this.positionService);
 
   @Input()
   public set Parent(value: Position) {
     this.currentInstance.parent = this.parentComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- Parent --
-	//#region -- Level --
+  //#region -- Level --
 
-  levelComponent : ForeignComponent<Level> = new ForeignComponent<Level>(this.positionService.LevelService);
+  levelComponent: ForeignComponent<Level> = new ForeignComponent<Level>(this.positionService.LevelService);
 
   @Input()
   public set Level(value: Level) {
     this.currentInstance.level = this.levelComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- Level --
-	//#region -- Unit --
+  //#region -- Unit --
 
-  unitComponent : ForeignComponent<Unit> = new ForeignComponent<Unit>(this.positionService.UnitService);
+  unitComponent: ForeignComponent<Unit> = new ForeignComponent<Unit>(this.positionService.UnitService);
 
   @Input()
   public set Unit(value: Unit) {
     this.currentInstance.unit = this.unitComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- Unit --
-	//#region -- PositionCategory --
+  //#region -- PositionCategory --
 
-  positionCategoryComponent : ForeignComponent<PositionCategory> = new ForeignComponent<PositionCategory>(this.positionService.PositionCategoryService);
+  positionCategoryComponent: ForeignComponent<PositionCategory> = new ForeignComponent<PositionCategory>(this.positionService.PositionCategoryService);
 
   @Input()
   public set PositionCategory(value: PositionCategory) {
     this.currentInstance.positionCategory = this.positionCategoryComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- PositionCategory --
-	//#endregion
+  //#region -- PositionDivision --
+
+  positionDivisionComponent: ForeignComponent<PositionDivision> = new ForeignComponent<PositionDivision>(this.positionService.PositionDivisionService, false);
+
+  @Input()
+  public set PositionDivision(value: PositionDivision) {
+    this.currentInstance.positionDivision = this.positionDivisionComponent.instance = value;
+  }
+
+
+  //#endregion -- PositionDivision --
+  //#endregion
 
   @ViewChild('positionEditUI')
   private positionEditUI: NgForm;
@@ -88,29 +100,31 @@ export class PositionEditUI extends EditModal<Position> implements IEditModal<Po
   }
 
   private loadLists() {
-    
+
     this.levelComponent.LoadList();
-		this.positionCategoryComponent.LoadList();
+    this.positionCategoryComponent.LoadList();
+    this.positionDivisionComponent.LoadList();
   }
-  
+
   InitPosition(position: Position) {
+    this.currentInstance = this.service.CreateInstance();
     if (!position.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.levelComponent.instance = position.level;
-			this.unitComponent.instance = position.unit;
-			this.positionCategoryComponent.instance = position.positionCategory;
+      this.unitComponent.instance = position.unit;
+      this.positionCategoryComponent.instance = position.positionCategory;
     } else {
       position.level = this.levelComponent.instance;
-			position.unit = this.unitComponent.instance;
-			position.positionCategory = this.positionCategoryComponent.instance;
+      position.unit = this.unitComponent.instance;
+      position.positionCategory = this.positionCategoryComponent.instance;
     }
     this.currentInstance = position;
   }
 
   ResetForm() {
     this.Parent = new Position();
-		this.Level = new Level();
-		this.Unit = new Unit();
-		this.PositionCategory = new PositionCategory();
+    this.Level = new Level();
+    this.Unit = new Unit();
+    this.PositionCategory = new PositionCategory();
   }
 }

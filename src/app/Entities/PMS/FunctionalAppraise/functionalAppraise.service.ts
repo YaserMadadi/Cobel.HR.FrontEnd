@@ -24,8 +24,7 @@ export class FunctionalAppraiseService extends Service<FunctionalAppraise> imple
   constructor(public ServiceCollection: FunctionalAppraiseServiceCollection,
 		public FunctionalKPIService: FunctionalKPIService,
 		public EmployeeService: EmployeeService,
-		public AppraiseTypeService: AppraiseTypeService,
-		public AppraiseTimeService: AppraiseTimeService) {
+		public AppraiseTypeService: AppraiseTypeService) {
     super(ServiceCollection.API_Operation, FunctionalAppraise.Info);
   }
 

@@ -14,12 +14,7 @@ import { MilitaryServiceExcemptionService } from '../../MilitaryServiceExcemptio
 @Component({
   selector: 'hr-militaryService-master',
   templateUrl: './militaryService.master.html',
-  styleUrls: ['./militaryService.master.css'],
-  providers: [
-    MilitaryServiceService,
-    MilitaryServiceInclusiveService,
-		MilitaryServiceExcemptionService,
-  ]
+  styleUrls: ['./militaryService.master.css']
 })
 export class MilitaryServiceMasterUI extends MasterModal<MilitaryService> {
 

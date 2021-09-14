@@ -14,10 +14,7 @@ import { UniversityHistoryService } from '../../../HR/UniversityHistory/universi
   selector: 'base-fieldOfStudy-master',
   templateUrl: './fieldOfStudy.master.html',
   styleUrls: ['./fieldOfStudy.master.css'],
-  providers: [
-    FieldOfStudyService,
-    UniversityHistoryService,
-  ]
+  
 })
 export class FieldOfStudyMasterUI extends MasterModal<FieldOfStudy> {
 

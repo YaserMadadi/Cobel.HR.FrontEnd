@@ -29,10 +29,6 @@ import { AppraisalApproverConfig_ModuleMaster } from './appraisalApproverConfig.
   exports: [
     AppraisalApproverConfigIndexUI,
 		AppraisalApproverConfig_ModuleMaster,
-  ],
-  providers: [
-    // AppraisalApproverConfigService,
-    // AppraisalApproverConfigServiceCollection
-  ]
+   ]
 })
 export class AppraisalApproverConfigModule {}

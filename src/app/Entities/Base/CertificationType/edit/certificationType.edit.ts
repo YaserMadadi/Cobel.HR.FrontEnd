@@ -41,6 +41,7 @@ export class CertificationTypeEditUI extends EditModal<CertificationType> implem
   }
   
   InitCertificationType(certificationType: CertificationType) {
+    this.currentInstance = new CertificationType();
     if (!certificationType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

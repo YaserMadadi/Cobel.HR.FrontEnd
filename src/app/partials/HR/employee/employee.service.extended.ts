@@ -21,14 +21,14 @@ export class EmployeeExtendedService extends EmployeeService {
         super(serviceCollection, personService, holdingSectionService, employmentStatusService);
     }
 
-    loadPosition(employee : Employee): Promise<ResultData<Position[]>> {
+    loadPosition(employee : Employee): Promise<Position[]> {
         let url = EndPointController.BaseUrl + `HR/Employee/${employee.id}/LoadPositions`;
-        return this.api_operation.http.get<ResultData<Position[]>>(url, EndPointController.Options).toPromise<ResultData<Position[]>>();
+        return this.api_operation.GetCommand<Position[]>(url);
     }
 
-    loadChildren(employee : Employee): Promise<ResultData<Employee[]>> {
+    loadChildren(employee : Employee): Promise<Employee[]> {
         let url = EndPointController.BaseUrl + `HR/Employee/${employee.id}/LoadChildren`;
-        return this.api_operation.http.get<ResultData<Employee[]>>(url, EndPointController.Options).toPromise<ResultData<Employee[]>>();
+        return this.api_operation.GetCommand<Employee[]>(url);
     }
 
     loadTargetSettings(employee : Employee): Promise<TargetSetting[]> {

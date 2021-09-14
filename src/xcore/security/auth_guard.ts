@@ -58,12 +58,10 @@ export class AuthGuard implements CanActivate {
             (segments.length === 2 && segments[0].toLowerCase().includes('home')))
             return true;
         let destUrl = segments.length >= 2 ? `/${segments[0]}/${segments[1]}` : '/unSpecified/unSpecified';
-        console.table(destUrl);
-
         for (const rolePermission of PermissionController.RolePermissionList) {
             if (destUrl.toLowerCase() != rolePermission.entity.indexUrl.toLowerCase())
                 continue;
-            if (rolePermission.viewIndexPermission) {
+            if (rolePermission.viewIndexPermission) { 
                 return true;
             }
         }

@@ -16,11 +16,8 @@ import { TrainingDeleteUI } from '../../Training/delete/training.delete';
 @Component({
   selector: 'course-training-detail',
   templateUrl: './course-training.detail.html',
-  styleUrls: ['./course-training.detail.css'],
-  providers: [CourseService]
-}) 
-
-@Injectable()
+  styleUrls: ['./course-training.detail.css']
+})
 export class Course_Training_DetailUI extends DetailView<Course> {
 
   constructor(private courseService: CourseService) {

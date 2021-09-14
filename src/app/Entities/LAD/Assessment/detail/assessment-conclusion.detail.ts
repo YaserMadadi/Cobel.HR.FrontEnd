@@ -16,11 +16,8 @@ import { ConclusionDeleteUI } from '../../Conclusion/delete/conclusion.delete';
 @Component({
   selector: 'assessment-conclusion-detail',
   templateUrl: './assessment-conclusion.detail.html',
-  styleUrls: ['./assessment-conclusion.detail.css'],
-  providers: [AssessmentService]
-}) 
-
-@Injectable()
+  styleUrls: ['./assessment-conclusion.detail.css']
+})
 export class Assessment_Conclusion_DetailUI extends DetailView<Assessment> {
 
   constructor(private assessmentService: AssessmentService) {

@@ -1,0 +1,41 @@
+
+<XDialog Header='SubSystem Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>SubSystem : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Title : 
+                        <guide (onClick)='onGuid("Title")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.title }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Icon : 
+                        <guide (onClick)='onGuid("Icon")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.icon }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Priority : 
+                        <guide (onClick)='onGuid("Priority")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.priority | number }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='Menu'>
+                <subSystem-menu-detail 
+                    #coreSubSystemMenuDetail
+                    [SubSystem]='currentInstance'>
+                </subSystem-menu-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

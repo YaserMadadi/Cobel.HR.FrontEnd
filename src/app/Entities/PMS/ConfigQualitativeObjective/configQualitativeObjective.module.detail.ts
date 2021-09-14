@@ -24,9 +24,6 @@ import { ConfigQualitativeKPI_ModuleMaster } from '../ConfigQualitativeKPI/confi
   exports: [
     QualitativeObjectiveConfig_ConfigQualitativeKPI_DetailUI
   ],
-  providers: [
-    //ConfigQualitativeObjectiveService,
-    //ConfigQualitativeObjectiveServiceCollection
-  ]
+  
 })
 export class ConfigQualitativeObjective_ModuleDetail { }

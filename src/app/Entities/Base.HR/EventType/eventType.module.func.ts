@@ -27,10 +27,6 @@ import { EventTypeSeekUI } from './seek/eventType.seek';
         EventTypeEditUI,
 		EventTypeDeleteUI,
 		EventTypeSeekUI
-    ],
-    providers: [
-       //EventTypeService,
-       // EventTypeServiceCollection,
     ]
 })
 

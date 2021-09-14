@@ -27,10 +27,6 @@ import { MeasurementUnitSeekUI } from './seek/measurementUnit.seek';
         MeasurementUnitEditUI,
 		MeasurementUnitDeleteUI,
 		MeasurementUnitSeekUI
-    ],
-    providers: [
-       //MeasurementUnitService,
-       // MeasurementUnitServiceCollection,
     ]
 })
 

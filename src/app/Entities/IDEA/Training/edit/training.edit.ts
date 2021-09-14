@@ -68,7 +68,8 @@ export class TrainingEditUI extends EditModal<Training> implements IEditModal<Tr
     this.courseComponent.LoadList();
   }
   
-  InitTraining(training: Training) {
+  InitTraining(training: Training){
+    this.currentInstance = this.service.CreateInstance();
     if (!training.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = training.employee;

@@ -69,7 +69,8 @@ export class AppraisalApproverConfigEditUI extends EditModal<AppraisalApproverCo
 		this.approverTypeComponent.LoadList();
   }
   
-  InitAppraisalApproverConfig(appraisalApproverConfig: AppraisalApproverConfig) {
+  InitAppraisalApproverConfig(appraisalApproverConfig: AppraisalApproverConfig){
+    this.currentInstance = this.service.CreateInstance();
     if (!appraisalApproverConfig.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.positionCategoryComponent.instance = appraisalApproverConfig.positionCategory;

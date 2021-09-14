@@ -16,11 +16,8 @@ import { AppraiseResultDeleteUI } from '../../AppraiseResult/delete/appraiseResu
 @Component({
   selector: 'targetSetting-appraiseResult-detail',
   templateUrl: './targetSetting-appraiseResult.detail.html',
-  styleUrls: ['./targetSetting-appraiseResult.detail.css'],
-  providers: [TargetSettingService]
-}) 
-
-@Injectable()
+  styleUrls: ['./targetSetting-appraiseResult.detail.css']
+})
 export class TargetSetting_AppraiseResult_DetailUI extends DetailView<TargetSetting> {
 
   constructor(private targetSettingService: TargetSettingService) {
@@ -62,6 +59,7 @@ export class TargetSetting_AppraiseResult_DetailUI extends DetailView<TargetSett
   public onDblClicked(masterUI: AppraiseResultMasterUI) {
     if (AppraiseResult.NotConfirm(this.currentAppraiseResult))
       return;
+    this.currentAppraiseResult.targetSetting = this.targetSetting;
     masterUI.ShowDialog(this.currentAppraiseResult);
   }
 

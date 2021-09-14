@@ -12,11 +12,7 @@ import { TrainingEditUI } from '../edit/training.edit';
 @Component({
   selector: 'idea-training-master',
   templateUrl: './training.master.html',
-  styleUrls: ['./training.master.css'],
-  providers: [
-    TrainingService,
-    
-  ]
+  styleUrls: ['./training.master.css']
 })
 export class TrainingMasterUI extends MasterModal<Training> {
 

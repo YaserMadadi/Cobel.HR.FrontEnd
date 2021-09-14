@@ -32,10 +32,6 @@ import { Assessor_ModuleFunc } from '../Assessor/assessor.module.func';
         AssessmentEditUI,
 		AssessmentDeleteUI,
 		AssessmentSeekUI
-    ],
-    providers: [
-       //AssessmentService,
-       // AssessmentServiceCollection,
     ]
 })
 

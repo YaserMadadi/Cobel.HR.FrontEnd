@@ -28,10 +28,6 @@ import { City_ModuleFunc } from '../City/city.module.func';
         UniversityEditUI,
 		UniversityDeleteUI,
 		UniversitySeekUI
-    ],
-    providers: [
-       //UniversityService,
-       // UniversityServiceCollection,
     ]
 })
 

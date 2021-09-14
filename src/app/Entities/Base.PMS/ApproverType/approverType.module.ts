@@ -32,10 +32,6 @@ import { AppraisalApproverConfig_ModuleMaster } from '../../PMS/AppraisalApprove
   exports: [
     ApproverTypeIndexUI,
 		ApproverType_ModuleMaster,
-  ],
-  providers: [
-    // ApproverTypeService,
-    // ApproverTypeServiceCollection
-  ]
+   ]
 })
 export class ApproverTypeModule {}

@@ -21,9 +21,6 @@ import { RelativeServiceCollection } from './relative.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //RelativeService,
-    //RelativeServiceCollection
-  ]
+  
 })
 export class Relative_ModuleDetail { }

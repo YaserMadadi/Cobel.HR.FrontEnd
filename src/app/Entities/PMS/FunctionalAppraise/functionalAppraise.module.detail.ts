@@ -21,9 +21,6 @@ import { FunctionalAppraiseServiceCollection } from './functionalAppraise.servic
   exports: [
     // No Item...
   ],
-  providers: [
-    //FunctionalAppraiseService,
-    //FunctionalAppraiseServiceCollection
-  ]
+  
 })
 export class FunctionalAppraise_ModuleDetail { }

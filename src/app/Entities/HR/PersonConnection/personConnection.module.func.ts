@@ -30,10 +30,6 @@ import { ConnectionType_ModuleFunc } from '../../Base/ConnectionType/connectionT
         PersonConnectionEditUI,
 		PersonConnectionDeleteUI,
 		PersonConnectionSeekUI
-    ],
-    providers: [
-       //PersonConnectionService,
-       // PersonConnectionServiceCollection,
     ]
 })
 

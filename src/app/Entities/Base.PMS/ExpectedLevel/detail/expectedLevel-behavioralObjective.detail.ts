@@ -16,11 +16,8 @@ import { BehavioralObjectiveDeleteUI } from '../../../PMS/BehavioralObjective/de
 @Component({
   selector: 'expectedLevel-behavioralObjective-detail',
   templateUrl: './expectedLevel-behavioralObjective.detail.html',
-  styleUrls: ['./expectedLevel-behavioralObjective.detail.css'],
-  providers: [ExpectedLevelService]
-}) 
-
-@Injectable()
+  styleUrls: ['./expectedLevel-behavioralObjective.detail.css']
+})
 export class ExpectedLevel_BehavioralObjective_DetailUI extends DetailView<ExpectedLevel> {
 
   constructor(private expectedLevelService: ExpectedLevelService) {

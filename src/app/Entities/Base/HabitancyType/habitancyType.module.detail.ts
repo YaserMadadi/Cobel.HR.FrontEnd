@@ -23,10 +23,6 @@ import { Habitancy_ModuleMaster } from '../../HR/Habitancy/habitancy.module.mast
   ],
   exports: [
     HabitancyType_Habitancy_DetailUI
-  ],
-  providers: [
-    //HabitancyTypeService,
-    //HabitancyTypeServiceCollection
   ]
 })
 export class HabitancyType_ModuleDetail { }

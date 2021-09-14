@@ -30,10 +30,6 @@ import { SchoolLevel_ModuleFunc } from '../../Base/SchoolLevel/schoolLevel.modul
         SchoolHistoryEditUI,
 		SchoolHistoryDeleteUI,
 		SchoolHistorySeekUI
-    ],
-    providers: [
-       //SchoolHistoryService,
-       // SchoolHistoryServiceCollection,
     ]
 })
 

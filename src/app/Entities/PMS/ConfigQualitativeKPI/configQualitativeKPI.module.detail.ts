@@ -21,9 +21,6 @@ import { ConfigQualitativeKPIServiceCollection } from './configQualitativeKPI.se
   exports: [
     // No Item...
   ],
-  providers: [
-    //ConfigQualitativeKPIService,
-    //ConfigQualitativeKPIServiceCollection
-  ]
+  
 })
 export class ConfigQualitativeKPI_ModuleDetail { }

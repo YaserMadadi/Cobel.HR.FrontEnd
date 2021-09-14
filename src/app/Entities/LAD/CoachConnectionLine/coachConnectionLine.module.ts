@@ -29,10 +29,6 @@ import { CoachConnectionLine_ModuleMaster } from './coachConnectionLine.module.m
   exports: [
     CoachConnectionLineIndexUI,
 		CoachConnectionLine_ModuleMaster,
-  ],
-  providers: [
-    // CoachConnectionLineService,
-    // CoachConnectionLineServiceCollection
-  ]
+   ]
 })
 export class CoachConnectionLineModule {}

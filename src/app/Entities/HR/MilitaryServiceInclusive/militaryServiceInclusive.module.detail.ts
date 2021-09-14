@@ -21,9 +21,6 @@ import { MilitaryServiceInclusiveServiceCollection } from './militaryServiceIncl
   exports: [
     // No Item...
   ],
-  providers: [
-    //MilitaryServiceInclusiveService,
-    //MilitaryServiceInclusiveServiceCollection
-  ]
+  
 })
 export class MilitaryServiceInclusive_ModuleDetail { }

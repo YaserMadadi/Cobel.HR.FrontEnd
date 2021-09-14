@@ -15,13 +15,7 @@ import { QualitativeAppraiseService } from '../../../PMS/QualitativeAppraise/qua
 @Component({
   selector: 'base-pms-appraiseTime-master',
   templateUrl: './appraiseTime.master.html',
-  styleUrls: ['./appraiseTime.master.css'],
-  providers: [
-    AppraiseTimeService,
-    BehavioralAppraiseService,
-		FunctionalAppraiseService,
-		QualitativeAppraiseService,
-  ]
+  styleUrls: ['./appraiseTime.master.css']
 })
 export class AppraiseTimeMasterUI extends MasterModal<AppraiseTime> {
 

@@ -34,9 +34,6 @@ import { VisionComment_ModuleMaster } from '../VisionComment/visionComment.modul
 		Vision_VisionApproved_DetailUI,
 		Vision_VisionComment_DetailUI
   ],
-  providers: [
-    //VisionService,
-    //VisionServiceCollection
-  ]
+  
 })
 export class Vision_ModuleDetail { }

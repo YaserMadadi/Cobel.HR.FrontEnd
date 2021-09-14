@@ -42,7 +42,8 @@ export class ContractTypeEditUI extends EditModal<ContractType> implements IEdit
     
   }
   
-  InitContractType(contractType: ContractType) {
+  InitContractType(contractType: ContractType){
+    this.currentInstance = this.service.CreateInstance();
     if (!contractType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

@@ -16,6 +16,12 @@
                     <label class='col-sm-8'>{{ currentInstance.position?.descriptor }}</label>
                 </div>
                 <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Target Setting Type :
+                        <guide (onClick)='onGuid("TargetSettingType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.targetSettingType?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
                     <label class='col-sm-4 titleControl'>Year :
                         <guide (onClick)='onGuid("Year_Id")'></guide>
                     </label>
@@ -38,6 +44,18 @@
                         <guide (onClick)='onGuid("IsLocked")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.isLocked }}</label>
+                </div>
+                <div class='form-group row' *ngIf='false'>
+                    <label class='col-sm-4 titleControl'>Is Visible :
+                        <guide (onClick)='onGuid("IsVisible")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isVisible }}</label>
+                </div>
+                <div class='form-group row' *ngIf='false'>
+                    <label class='col-sm-4 titleControl'>Is Valid :
+                        <guide (onClick)='onGuid("IsValid")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.isValid }}</label>
                 </div>
                 <div class='form-group row'>
                     <label class='col-sm-4 titleControl'>SFE Appraisal Dashboard :

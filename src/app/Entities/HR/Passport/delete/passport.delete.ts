@@ -10,7 +10,7 @@ import { PassportService } from '../passport.service';
   selector: 'hr-passport-delete',
   templateUrl: './passport.delete.html',
   styleUrls: ['./passport.delete.css'],
-  providers: [PassportService]
+  
 })
 export class PassportDeleteUI extends DeleteModal<Passport> {
 

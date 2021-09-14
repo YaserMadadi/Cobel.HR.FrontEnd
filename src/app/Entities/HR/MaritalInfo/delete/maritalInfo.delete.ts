@@ -10,7 +10,7 @@ import { MaritalInfoService } from '../maritalInfo.service';
   selector: 'hr-maritalInfo-delete',
   templateUrl: './maritalInfo.delete.html',
   styleUrls: ['./maritalInfo.delete.css'],
-  providers: [MaritalInfoService]
+  
 })
 export class MaritalInfoDeleteUI extends DeleteModal<MaritalInfo> {
 

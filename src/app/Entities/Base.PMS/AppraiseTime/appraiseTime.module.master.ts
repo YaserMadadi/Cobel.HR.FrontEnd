@@ -20,10 +20,6 @@ import { AppraiseTime_ModuleDetail } from './appraiseTime.module.detail';
     ],
     exports: [
         AppraiseTimeMasterUI
-    ],
-    providers: [
-        //AppraiseTimeService,
-       // AppraiseTimeServiceCollection   
     ]
 })
 

@@ -20,10 +20,6 @@ import { ConfigTargetSetting_ModuleDetail } from './configTargetSetting.module.d
     ],
     exports: [
         ConfigTargetSettingMasterUI
-    ],
-    providers: [
-        //ConfigTargetSettingService,
-       // ConfigTargetSettingServiceCollection   
     ]
 })
 

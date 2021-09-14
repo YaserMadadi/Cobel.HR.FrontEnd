@@ -32,10 +32,6 @@ import { Person_ModuleFunc } from '../../HR/Person/person.module.func';
         CoachingQuestionaryEditUI,
 		CoachingQuestionaryDeleteUI,
 		CoachingQuestionarySeekUI
-    ],
-    providers: [
-       //CoachingQuestionaryService,
-       // CoachingQuestionaryServiceCollection,
     ]
 })
 

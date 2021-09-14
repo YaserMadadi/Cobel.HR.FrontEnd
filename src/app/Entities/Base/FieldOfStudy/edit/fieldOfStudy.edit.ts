@@ -55,7 +55,8 @@ export class FieldOfStudyEditUI extends EditModal<FieldOfStudy> implements IEdit
     
   }
   
-  InitFieldOfStudy(fieldOfStudy: FieldOfStudy) {
+  InitFieldOfStudy(fieldOfStudy: FieldOfStudy){
+    this.currentInstance = new FieldOfStudy();
     if (!fieldOfStudy.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.universityFieldCategoryComponent.instance = fieldOfStudy.universityFieldCategory;

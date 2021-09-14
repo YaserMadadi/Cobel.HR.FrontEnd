@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { PermissionController } from '../../../xcore/tools/controller.permission';
-import { MenuItem } from '../../_nav';
+import { MenuController } from '../../menu.controller';
 // import { PersonService } from '../../../app/Entities/HR/Person/person.service';
 import { StorageController } from '../../../xcore/tools/controller.storage';
 import { AuthGuard } from '../../../xcore/security/auth_guard';
+import { INavData } from '@coreui/angular';
 
 @Component({
   selector: 'app-dashboard',
@@ -43,10 +44,15 @@ export class DefaultLayoutComponent implements OnInit {
   public userName: string;
 
   public sidebarMinimized = false;
-  public navItems = MenuItem.GetNavItems('user'); // y.madadi
+  public navItems; //= MenuController.GetNavItems('y.madadi'); // y.madadi
 
   toggleMinimize(e) {
     this.sidebarMinimized = e;
+  }
+
+
+  updateMenu(item: INavData[]){
+    this.navItems = item;
   }
 
   logout() {

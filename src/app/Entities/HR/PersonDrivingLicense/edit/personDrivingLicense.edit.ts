@@ -68,7 +68,8 @@ export class PersonDrivingLicenseEditUI extends EditModal<PersonDrivingLicense> 
     this.drivingLicenseTypeComponent.LoadList();
   }
   
-  InitPersonDrivingLicense(personDrivingLicense: PersonDrivingLicense) {
+  InitPersonDrivingLicense(personDrivingLicense: PersonDrivingLicense){
+    this.currentInstance = this.service.CreateInstance();
     if (!personDrivingLicense.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = personDrivingLicense.person;

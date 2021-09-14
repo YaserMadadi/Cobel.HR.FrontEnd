@@ -116,6 +116,30 @@
                     </ng-template>
                 </kendo-dropdownlist>
       </div>
+      <!-- PositionDivision -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PositionDivision_Id")'></guide>
+        <label for='positionDivision' class='col-form-label'>Position Division : </label>
+        <span class='help-block col-form-label' *ngIf='!positionDivision.valid && positionDivision.touched && !positionDivision.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #positionDivision='ngModel' 
+                    #positionDivisionCombo='kendoDropDownList' 
+                    name='positionDivision' 
+                    title='Position Division'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !positionDivision.valid && positionDivision.touched }" 
+                    [data]='positionDivisionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='positionDivisionComponent.filterable'
+                    (filterChange)='positionDivisionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.positionDivision"
+                     required 
+                    [disabled]='IsLocked'>
+                    <!-- <ng-template kendoDropDownListFooterTemplate *ngIf='positionDivisionComponent.addable'>
+                      <button class='btn btn-primary' (click)='positionDivisionComponent.onAdd(positionDivisionCombo, positionDivisionEditUI)'>Add New</button>
+                    </ng-template> -->
+                </kendo-dropdownlist>
+      </div>
 			<!-- Capacity -->
       <div class='form-group'>
         <guide (onClick)='onGuid("Capacity")'></guide>

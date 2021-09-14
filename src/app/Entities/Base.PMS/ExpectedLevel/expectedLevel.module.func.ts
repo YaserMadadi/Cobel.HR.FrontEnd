@@ -27,10 +27,6 @@ import { ExpectedLevelSeekUI } from './seek/expectedLevel.seek';
         ExpectedLevelEditUI,
 		ExpectedLevelDeleteUI,
 		ExpectedLevelSeekUI
-    ],
-    providers: [
-       //ExpectedLevelService,
-       // ExpectedLevelServiceCollection,
     ]
 })
 

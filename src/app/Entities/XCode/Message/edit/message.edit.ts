@@ -40,7 +40,8 @@ export class MessageEditUI extends EditModal<Message> implements IEditModal<Mess
     
   }
   
-  InitMessage(message: Message) {
+  InitMessage(message: Message){
+    this.currentInstance = this.service.CreateInstance();
     if (!message.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

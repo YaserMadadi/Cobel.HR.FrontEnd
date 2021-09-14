@@ -72,7 +72,8 @@ export class FinalAppraiseEditUI extends EditModal<FinalAppraise> implements IEd
 
   }
 
-  InitFinalAppraise(finalAppraise: FinalAppraise) {
+  InitFinalAppraise(finalAppraise: FinalAppraise){
+    this.currentInstance = this.service.CreateInstance();
     if (!finalAppraise.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.targetSettingComponent.instance = finalAppraise.targetSetting;

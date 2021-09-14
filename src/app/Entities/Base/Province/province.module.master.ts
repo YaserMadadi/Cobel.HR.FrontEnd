@@ -20,10 +20,6 @@ import { Province_ModuleDetail } from './province.module.detail';
     ],
     exports: [
         ProvinceMasterUI
-    ],
-    providers: [
-        //ProvinceService,
-       // ProvinceServiceCollection   
     ]
 })
 

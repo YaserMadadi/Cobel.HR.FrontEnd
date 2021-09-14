@@ -30,10 +30,6 @@ import { Quarter_ModuleFunc } from '../Quarter/quarter.module.func';
         YearQuarterEditUI,
 		YearQuarterDeleteUI,
 		YearQuarterSeekUI
-    ],
-    providers: [
-       //YearQuarterService,
-       // YearQuarterServiceCollection,
     ]
 })
 

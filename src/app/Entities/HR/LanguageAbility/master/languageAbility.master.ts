@@ -12,11 +12,7 @@ import { LanguageAbilityEditUI } from '../edit/languageAbility.edit';
 @Component({
   selector: 'hr-languageAbility-master',
   templateUrl: './languageAbility.master.html',
-  styleUrls: ['./languageAbility.master.css'],
-  providers: [
-    LanguageAbilityService,
-    
-  ]
+  styleUrls: ['./languageAbility.master.css']
 })
 export class LanguageAbilityMasterUI extends MasterModal<LanguageAbility> {
 

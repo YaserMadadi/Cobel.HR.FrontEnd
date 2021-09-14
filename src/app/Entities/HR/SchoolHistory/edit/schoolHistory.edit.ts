@@ -68,7 +68,8 @@ export class SchoolHistoryEditUI extends EditModal<SchoolHistory> implements IEd
     this.schoolLevelComponent.LoadList();
   }
   
-  InitSchoolHistory(schoolHistory: SchoolHistory) {
+  InitSchoolHistory(schoolHistory: SchoolHistory){
+    this.currentInstance = this.service.CreateInstance();
     if (!schoolHistory.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = schoolHistory.person;

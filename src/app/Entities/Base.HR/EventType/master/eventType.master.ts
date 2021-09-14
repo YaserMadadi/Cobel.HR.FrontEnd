@@ -14,10 +14,7 @@ import { EmployeeEventService } from '../../../HR/EmployeeEvent/employeeEvent.se
   selector: 'base-hr-eventType-master',
   templateUrl: './eventType.master.html',
   styleUrls: ['./eventType.master.css'],
-  providers: [
-    EventTypeService,
-    EmployeeEventService,
-  ]
+  
 })
 export class EventTypeMasterUI extends MasterModal<EventType> {
 

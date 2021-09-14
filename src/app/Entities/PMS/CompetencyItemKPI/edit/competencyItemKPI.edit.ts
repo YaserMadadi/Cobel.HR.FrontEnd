@@ -55,7 +55,8 @@ export class CompetencyItemKPIEditUI extends EditModal<CompetencyItemKPI> implem
     this.competencyItemComponent.LoadList();
   }
   
-  InitCompetencyItemKPI(competencyItemKPI: CompetencyItemKPI) {
+  InitCompetencyItemKPI(competencyItemKPI: CompetencyItemKPI){
+    this.currentInstance = this.service.CreateInstance();
     if (!competencyItemKPI.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.competencyItemComponent.instance = competencyItemKPI.competencyItem;

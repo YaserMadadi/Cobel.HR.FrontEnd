@@ -99,9 +99,6 @@ import { WorkExperience_ModuleMaster } from '../WorkExperience/workExperience.mo
 		Person_UserAccount_DetailUI,
 		Person_WorkExperience_DetailUI
 	],
-	providers: [
-		//PersonService,
-		//PersonServiceCollection
-	]
+	
 })
 export class Person_ModuleDetail { }

@@ -42,7 +42,8 @@ export class PositionDivisionEditUI extends EditModal<PositionDivision> implemen
     
   }
   
-  InitPositionDivision(positionDivision: PositionDivision) {
+  InitPositionDivision(positionDivision: PositionDivision){
+    this.currentInstance = this.service.CreateInstance();
     if (!positionDivision.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

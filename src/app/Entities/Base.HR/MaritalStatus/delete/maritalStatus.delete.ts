@@ -12,7 +12,7 @@ import { MaritalStatusService } from '../maritalStatus.service';
   selector: 'base-hr-maritalStatus-delete',
   templateUrl: './maritalStatus.delete.html',
   styleUrls: ['./maritalStatus.delete.css'],
-  providers: [MaritalStatusService]
+  
 })
 export class MaritalStatusDeleteUI extends DeleteModal<MaritalStatus> {
 

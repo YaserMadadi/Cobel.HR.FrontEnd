@@ -14,12 +14,7 @@ import { EmployeeService } from '../../../HR/Employee/employee.service';
 @Component({
   selector: 'base-holdingSection-master',
   templateUrl: './holdingSection.master.html',
-  styleUrls: ['./holdingSection.master.css'],
-  providers: [
-    HoldingSectionService,
-    EmployeeDetailService,
-		EmployeeService,
-  ]
+  styleUrls: ['./holdingSection.master.css']
 })
 export class HoldingSectionMasterUI extends MasterModal<HoldingSection> {
 

@@ -23,10 +23,6 @@ import { UniversityHistory_ModuleMaster } from '../../HR/UniversityHistory/unive
   ],
   exports: [
     CertificationType_UniversityHistory_DetailUI
-  ],
-  providers: [
-    //CertificationTypeService,
-    //CertificationTypeServiceCollection
   ]
 })
 export class CertificationType_ModuleDetail { }

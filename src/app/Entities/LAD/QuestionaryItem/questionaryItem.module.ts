@@ -32,10 +32,6 @@ import { CoachingQuestionaryAnswered_ModuleMaster } from '../CoachingQuestionary
   exports: [
     QuestionaryItemIndexUI,
 		QuestionaryItem_ModuleMaster,
-  ],
-  providers: [
-    // QuestionaryItemService,
-    // QuestionaryItemServiceCollection
-  ]
+   ]
 })
 export class QuestionaryItemModule {}

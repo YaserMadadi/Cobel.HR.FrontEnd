@@ -12,7 +12,7 @@ import { EventTypeService } from '../eventType.service';
   selector: 'base-hr-eventType-delete',
   templateUrl: './eventType.delete.html',
   styleUrls: ['./eventType.delete.css'],
-  providers: [EventTypeService]
+  
 })
 export class EventTypeDeleteUI extends DeleteModal<EventType> {
 

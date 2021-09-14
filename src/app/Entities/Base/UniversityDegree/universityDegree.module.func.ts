@@ -27,10 +27,6 @@ import { UniversityDegreeSeekUI } from './seek/universityDegree.seek';
         UniversityDegreeEditUI,
 		UniversityDegreeDeleteUI,
 		UniversityDegreeSeekUI
-    ],
-    providers: [
-       //UniversityDegreeService,
-       // UniversityDegreeServiceCollection,
     ]
 })
 

@@ -32,10 +32,6 @@ import { UniversityTerminate_ModuleMaster } from '../UniversityTerminate/univers
   exports: [
     UniversityHistoryIndexUI,
 		UniversityHistory_ModuleMaster,
-  ],
-  providers: [
-    // UniversityHistoryService,
-    // UniversityHistoryServiceCollection
-  ]
+   ]
 })
 export class UniversityHistoryModule {}

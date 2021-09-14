@@ -20,7 +20,7 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'qualitativeObjective-qualitativeKPI-detail',
   templateUrl: './qualitativeObjective-qualitativeKPI.detail.html',
   styleUrls: ['./qualitativeObjective-qualitativeKPI.detail.css'],
-  providers: [QualitativeObjectiveService]
+  
 })
 
 @Injectable()
@@ -65,15 +65,21 @@ export class QualitativeObjective_QualitativeKPI_DetailUI extends DetailView<Qua
   public onDblClicked(masterUI: QualitativeKPIMasterUI) {
     if (QualitativeKPI.NotConfirm(this.currentQualitativeKPI))
       return;
+    this.currentQualitativeKPI.qualitativeObjective = this.qualitativeObjective;
     masterUI.ShowDialog(this.currentQualitativeKPI);
   }
 
   private async checkTargetSetting(): Promise<Boolean> {
-    let targetSetting = await this.qualitativeObjectiveService.TargetSettingService.RetrieveById(this.qualitativeObjective.targetSetting.id);
-    if (targetSetting.employee.id == AuthService.currentEmployee.id) {
+    //let targetSetting = await this.qualitativeObjectiveService.TargetSettingService.RetrieveById(this.qualitativeObjective.targetSetting.id);
+    if (this.currentQualitativeKPI.qualitativeObjective.targetSetting.employee.id == AuthService.currentEmployee.id) {
       MessageController.ShowMessage(MessageType.AddPermissionDenied);
       return false;
     }
+    if (this.currentQualitativeKPI.qualitativeObjective.targetSetting.isLocked) {
+      MessageController.ShowMessage(MessageType.RecordIsLocked);
+      return false;
+    }
+
     return true;
   }
 

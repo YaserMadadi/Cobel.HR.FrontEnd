@@ -29,10 +29,6 @@ import { LanguageAbility_ModuleMaster } from './languageAbility.module.master';
   exports: [
     LanguageAbilityIndexUI,
 		LanguageAbility_ModuleMaster,
-  ],
-  providers: [
-    // LanguageAbilityService,
-    // LanguageAbilityServiceCollection
-  ]
+   ]
 })
 export class LanguageAbilityModule {}

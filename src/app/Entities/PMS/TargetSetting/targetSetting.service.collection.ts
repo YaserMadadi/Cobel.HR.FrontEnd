@@ -68,9 +68,9 @@ export class TargetSettingServiceCollection extends ServiceCollection<TargetSett
 
   CollectionOfVision(targetSetting: TargetSetting, vision: Vision = Vision.SeekInstance()): Promise<Vision[]> {
 
-    let url = this.api_operation.FullUrl(`PMS/TargetSetting/${targetSetting.employee.id}/Vision`);
+    let url = this.api_operation.FullUrl(`PMS/TargetSetting/${targetSetting.id}/Vision`);
     console.log('URL : ', url);
-    return this.API_Operation.http.get<Vision[]>(url, EndPointController.Options).toPromise();
+    return this.API_Operation.GetCommand<Vision[]>(url);
     //return super.CollectionOf<Vision>(targetSetting, vision);
   }
 }

@@ -10,7 +10,7 @@ import { BehavioralKPIService } from '../behavioralKPI.service';
   selector: 'pms-behavioralKPI-delete',
   templateUrl: './behavioralKPI.delete.html',
   styleUrls: ['./behavioralKPI.delete.css'],
-  providers: [BehavioralKPIService]
+  
 })
 export class BehavioralKPIDeleteUI extends DeleteModal<BehavioralKPI> {
 

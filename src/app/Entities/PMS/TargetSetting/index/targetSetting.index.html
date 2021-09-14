@@ -3,8 +3,7 @@
   <div class='btn-group'>
     <button name='addButton'
             class='xbtn btn-add'
-            (click)='onAdd(targetSettingEditUI)'
-            >Add</button>
+            (click)='onAdd(targetSettingEditUI)'>Add</button>
     <button name='refreshButton'
             class='xbtn btn-refresh'
             (click)='onRefresh()'>Refresh</button>
@@ -15,16 +14,13 @@
   <div class='btn-group float-right'>
     <button class='xbtn btn-edit'
             (click)='onEdit(targetSettingEditUI)'
-            [disabled]='currentInstance.id == 0'
-            >Edit</button>
+            [disabled]='currentInstance.id == 0'>Edit</button>
     <button class='xbtn btn-delete'
             (click)='onDelete(targetSettingDeleteUI)'
-            [disabled]='currentInstance.id == 0'
-            >Delete</button>
+            [disabled]='currentInstance.id == 0'>Delete</button>
     <button class='xbtn btn-delete'
             (click)='onLog(logViewerUI)'
-            [disabled]='currentInstance.id == 0'
-            >Log</button>
+            [disabled]='currentInstance.id == 0'>Log</button>
   </div>
   <!-- Quick Access Menu -->
   <dropDownMenu id='quick-menu'
@@ -70,10 +66,15 @@
         <th class='row-number'>Row</th>
         <th title='Employee'>Employee</th>
         <th title='Position'>Position</th>
+        <th title='TargetSettingType'>Target Setting Type</th>
         <th title='Year'>Year</th>
         <th title='Date'>Date</th>
         <th width='100px'
             title='Is Locked'>Is Locked</th>
+        <th width='100px'
+            title='Is Visible'>Is Visible</th>
+        <th width='100px'
+            title='Is Valid'>Is Valid</th>
       </tr>
       <tr name='secondRow'>
         <th class='row-number'></th>
@@ -105,6 +106,19 @@
         </th>
         <th>
           <input class='form-control'
+                 #targetSettingType='ngModel'
+                 id='targetSettingType'
+                 name='targetSettingType'
+                 title='targetSettingType'
+                 autocomplete='off'
+                 placeholder='targetSettingType'
+                 [(ngModel)]='filterInstance.targetSettingType.descriptor'
+                 type='text'
+                 maxlength='50'
+                 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control'
                  #year='ngModel'
                  id='year'
                  name='year'
@@ -128,9 +142,9 @@
                  type='date'
                  (keyup)='doFilter($event)' />
         </th>
-        <th>
-
-        </th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -141,11 +155,18 @@
         <td class='row-number'>{{ i+1 }}</td>
         <td>{{ p.employee?.descriptor }}</td>
         <td>{{ p.position?.descriptor }}</td>
+        <td>{{ p.targetSettingType?.descriptor }}</td>
         <td>{{ p.year?.descriptor }}</td>
         <td>{{ p.date | date:'fullDate' }}</td>
         <td width='100px'><input type='checkbox'
                  disabled
                  [(ngModel)]='p.isLocked' /></td>
+        <td width='100px'><input type='checkbox'
+                 disabled
+                 [(ngModel)]='p.isVisible' /></td>
+        <td width='100px'><input type='checkbox'
+                 disabled
+                 [(ngModel)]='p.isValid' /></td>
       </tr>
     </tbody>
   </table>

@@ -32,10 +32,6 @@ import { Person_ModuleMaster } from '../../HR/Person/person.module.master';
   exports: [
     CountryIndexUI,
 		Country_ModuleMaster,
-  ],
-  providers: [
-    // CountryService,
-    // CountryServiceCollection
-  ]
+   ]
 })
 export class CountryModule {}

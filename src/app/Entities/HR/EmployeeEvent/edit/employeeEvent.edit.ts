@@ -68,7 +68,8 @@ export class EmployeeEventEditUI extends EditModal<EmployeeEvent> implements IEd
     this.eventTypeComponent.LoadList();
   }
   
-  InitEmployeeEvent(employeeEvent: EmployeeEvent) {
+  InitEmployeeEvent(employeeEvent: EmployeeEvent){
+    this.currentInstance = this.service.CreateInstance();
     if (!employeeEvent.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = employeeEvent.employee;

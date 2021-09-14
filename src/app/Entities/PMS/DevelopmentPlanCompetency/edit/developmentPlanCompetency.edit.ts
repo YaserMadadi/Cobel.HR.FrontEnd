@@ -68,7 +68,8 @@ export class DevelopmentPlanCompetencyEditUI extends EditModal<DevelopmentPlanCo
     this.competencyItemComponent.LoadList();
   }
   
-  InitDevelopmentPlanCompetency(developmentPlanCompetency: DevelopmentPlanCompetency) {
+  InitDevelopmentPlanCompetency(developmentPlanCompetency: DevelopmentPlanCompetency){
+    this.currentInstance = this.service.CreateInstance();
     if (!developmentPlanCompetency.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.individualDevelopmentPlanComponent.instance = developmentPlanCompetency.individualDevelopmentPlan;

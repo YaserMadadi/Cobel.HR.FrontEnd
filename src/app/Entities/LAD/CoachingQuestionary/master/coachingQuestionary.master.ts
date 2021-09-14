@@ -14,12 +14,7 @@ import { CoachingQuestionaryAnsweredService } from '../../CoachingQuestionaryAns
 @Component({
   selector: 'lad-coachingQuestionary-master',
   templateUrl: './coachingQuestionary.master.html',
-  styleUrls: ['./coachingQuestionary.master.css'],
-  providers: [
-    CoachingQuestionaryService,
-    CoachingQuestionaryDetailService,
-		CoachingQuestionaryAnsweredService,
-  ]
+  styleUrls: ['./coachingQuestionary.master.css']
 })
 export class CoachingQuestionaryMasterUI extends MasterModal<CoachingQuestionary> {
 

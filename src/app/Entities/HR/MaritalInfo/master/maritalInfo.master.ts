@@ -12,11 +12,7 @@ import { MaritalInfoEditUI } from '../edit/maritalInfo.edit';
 @Component({
   selector: 'hr-maritalInfo-master',
   templateUrl: './maritalInfo.master.html',
-  styleUrls: ['./maritalInfo.master.css'],
-  providers: [
-    MaritalInfoService,
-    
-  ]
+  styleUrls: ['./maritalInfo.master.css']
 })
 export class MaritalInfoMasterUI extends MasterModal<MaritalInfo> {
 

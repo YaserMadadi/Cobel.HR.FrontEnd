@@ -10,7 +10,7 @@ import { DevelopmentPlanCompetencyService } from '../developmentPlanCompetency.s
   selector: 'pms-developmentPlanCompetency-delete',
   templateUrl: './developmentPlanCompetency.delete.html',
   styleUrls: ['./developmentPlanCompetency.delete.css'],
-  providers: [DevelopmentPlanCompetencyService]
+  
 })
 export class DevelopmentPlanCompetencyDeleteUI extends DeleteModal<DevelopmentPlanCompetency> {
 

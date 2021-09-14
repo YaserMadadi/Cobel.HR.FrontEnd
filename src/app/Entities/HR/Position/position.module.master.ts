@@ -20,10 +20,6 @@ import { Position_ModuleDetail } from './position.module.detail';
     ],
     exports: [
         PositionMasterUI
-    ],
-    providers: [
-        //PositionService,
-       // PositionServiceCollection   
     ]
 })
 

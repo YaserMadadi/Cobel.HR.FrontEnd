@@ -21,9 +21,6 @@ import { QuantitativeAppraiseServiceCollection } from './quantitativeAppraise.se
   exports: [
     // No Item...
   ],
-  providers: [
-    //QuantitativeAppraiseService,
-    //QuantitativeAppraiseServiceCollection
-  ]
+  
 })
 export class QuantitativeAppraise_ModuleDetail { }

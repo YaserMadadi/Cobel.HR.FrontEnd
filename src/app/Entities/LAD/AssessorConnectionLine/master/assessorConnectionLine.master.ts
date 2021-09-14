@@ -12,11 +12,7 @@ import { AssessorConnectionLineEditUI } from '../edit/assessorConnectionLine.edi
 @Component({
   selector: 'lad-assessorConnectionLine-master',
   templateUrl: './assessorConnectionLine.master.html',
-  styleUrls: ['./assessorConnectionLine.master.css'],
-  providers: [
-    AssessorConnectionLineService,
-    
-  ]
+  styleUrls: ['./assessorConnectionLine.master.css']
 })
 export class AssessorConnectionLineMasterUI extends MasterModal<AssessorConnectionLine> {
 

@@ -20,10 +20,6 @@ import { Vision_ModuleDetail } from './vision.module.detail';
     ],
     exports: [
         VisionMasterUI
-    ],
-    providers: [
-        //VisionService,
-       // VisionServiceCollection   
     ]
 })
 

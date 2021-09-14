@@ -12,11 +12,7 @@ import { CoachingSessionEditUI } from '../edit/coachingSession.edit';
 @Component({
   selector: 'lad-coachingSession-master',
   templateUrl: './coachingSession.master.html',
-  styleUrls: ['./coachingSession.master.css'],
-  providers: [
-    CoachingSessionService,
-    
-  ]
+  styleUrls: ['./coachingSession.master.css']
 })
 export class CoachingSessionMasterUI extends MasterModal<CoachingSession> {
 

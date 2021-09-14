@@ -10,7 +10,7 @@ import { WorkExperienceService } from '../workExperience.service';
   selector: 'hr-workExperience-delete',
   templateUrl: './workExperience.delete.html',
   styleUrls: ['./workExperience.delete.css'],
-  providers: [WorkExperienceService]
+  
 })
 export class WorkExperienceDeleteUI extends DeleteModal<WorkExperience> {
 

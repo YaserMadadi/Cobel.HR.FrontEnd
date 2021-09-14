@@ -10,7 +10,7 @@ import { FinalAppraiseService } from '../finalAppraise.service';
   selector: 'pms-finalAppraise-delete',
   templateUrl: './finalAppraise.delete.html',
   styleUrls: ['./finalAppraise.delete.css'],
-  providers: [FinalAppraiseService]
+  
 })
 export class FinalAppraiseDeleteUI extends DeleteModal<FinalAppraise> {
 

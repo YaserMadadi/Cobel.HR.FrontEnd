@@ -40,7 +40,8 @@ export class InclusiveTypeEditUI extends EditModal<InclusiveType> implements IEd
     
   }
   
-  InitInclusiveType(inclusiveType: InclusiveType) {
+  InitInclusiveType(inclusiveType: InclusiveType){
+    this.currentInstance = new InclusiveType();
     if (!inclusiveType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

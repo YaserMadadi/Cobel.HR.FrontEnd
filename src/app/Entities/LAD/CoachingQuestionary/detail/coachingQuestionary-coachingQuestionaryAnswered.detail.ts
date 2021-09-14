@@ -16,11 +16,8 @@ import { CoachingQuestionaryAnsweredDeleteUI } from '../../CoachingQuestionaryAn
 @Component({
   selector: 'coachingQuestionary-coachingQuestionaryAnswered-detail',
   templateUrl: './coachingQuestionary-coachingQuestionaryAnswered.detail.html',
-  styleUrls: ['./coachingQuestionary-coachingQuestionaryAnswered.detail.css'],
-  providers: [CoachingQuestionaryService]
-}) 
-
-@Injectable()
+  styleUrls: ['./coachingQuestionary-coachingQuestionaryAnswered.detail.css']
+})
 export class CoachingQuestionary_CoachingQuestionaryAnswered_DetailUI extends DetailView<CoachingQuestionary> {
 
   constructor(private coachingQuestionaryService: CoachingQuestionaryService) {

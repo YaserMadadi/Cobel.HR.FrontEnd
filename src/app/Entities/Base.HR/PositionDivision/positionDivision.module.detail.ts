@@ -24,10 +24,6 @@ import { Position_ModuleMaster } from '../../HR/Position/position.module.master'
   ],
   exports: [
     PositionDivision_Position_DetailUI
-  ],
-  providers: [
-    //PositionDivisionService,
-    //PositionDivisionServiceCollection
   ]
 })
 export class PositionDivision_ModuleDetail { }

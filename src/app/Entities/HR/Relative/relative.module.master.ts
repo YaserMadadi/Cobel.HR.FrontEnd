@@ -20,10 +20,6 @@ import { Relative_ModuleDetail } from './relative.module.detail';
     ],
     exports: [
         RelativeMasterUI
-    ],
-    providers: [
-        //RelativeService,
-       // RelativeServiceCollection   
     ]
 })
 

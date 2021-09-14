@@ -21,9 +21,6 @@ import { EmployeeDetailServiceCollection } from './employeeDetail.service.collec
   exports: [
     // No Item...
   ],
-  providers: [
-    //EmployeeDetailService,
-    //EmployeeDetailServiceCollection
-  ]
+  
 })
 export class EmployeeDetail_ModuleDetail { }

@@ -33,10 +33,6 @@ import { Relative_ModuleMaster } from '../../HR/Relative/relative.module.master'
   exports: [
     RelativeTypeIndexUI,
 		RelativeType_ModuleMaster,
-  ],
-  providers: [
-    // RelativeTypeService,
-    // RelativeTypeServiceCollection
-  ]
+   ]
 })
 export class RelativeTypeModule {}

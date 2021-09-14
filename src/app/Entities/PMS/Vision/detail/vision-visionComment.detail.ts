@@ -16,11 +16,8 @@ import { VisionCommentDeleteUI } from '../../VisionComment/delete/visionComment.
 @Component({
   selector: 'vision-visionComment-detail',
   templateUrl: './vision-visionComment.detail.html',
-  styleUrls: ['./vision-visionComment.detail.css'],
-  providers: [VisionService]
-}) 
-
-@Injectable()
+  styleUrls: ['./vision-visionComment.detail.css']
+})
 export class Vision_VisionComment_DetailUI extends DetailView<Vision> {
 
   constructor(private visionService: VisionService) {

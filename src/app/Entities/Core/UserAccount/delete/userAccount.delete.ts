@@ -10,7 +10,7 @@ import { UserAccountService } from '../userAccount.service';
   selector: 'core-userAccount-delete',
   templateUrl: './userAccount.delete.html',
   styleUrls: ['./userAccount.delete.css'],
-  providers: [UserAccountService]
+  
 })
 export class UserAccountDeleteUI extends DeleteModal<UserAccount> {
 

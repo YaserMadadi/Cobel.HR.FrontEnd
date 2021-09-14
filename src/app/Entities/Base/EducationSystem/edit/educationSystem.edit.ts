@@ -40,7 +40,8 @@ export class EducationSystemEditUI extends EditModal<EducationSystem> implements
     
   }
   
-  InitEducationSystem(educationSystem: EducationSystem) {
+  InitEducationSystem(educationSystem: EducationSystem){
+    this.currentInstance = new EducationSystem();
     if (!educationSystem.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

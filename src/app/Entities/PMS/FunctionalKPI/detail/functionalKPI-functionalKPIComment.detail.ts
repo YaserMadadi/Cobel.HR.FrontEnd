@@ -16,11 +16,8 @@ import { FunctionalKPICommentDeleteUI } from '../../FunctionalKPIComment/delete/
 @Component({
   selector: 'functionalKPI-functionalKPIComment-detail',
   templateUrl: './functionalKPI-functionalKPIComment.detail.html',
-  styleUrls: ['./functionalKPI-functionalKPIComment.detail.css'],
-  providers: [FunctionalKPIService]
-}) 
-
-@Injectable()
+  styleUrls: ['./functionalKPI-functionalKPIComment.detail.css']
+})
 export class FunctionalKPI_FunctionalKPIComment_DetailUI extends DetailView<FunctionalKPI> {
 
   constructor(private functionalKPIService: FunctionalKPIService) {

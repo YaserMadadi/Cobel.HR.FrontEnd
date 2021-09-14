@@ -20,10 +20,6 @@ import { Quarter_ModuleDetail } from './quarter.module.detail';
     ],
     exports: [
         QuarterMasterUI
-    ],
-    providers: [
-        //QuarterService,
-       // QuarterServiceCollection   
     ]
 })
 

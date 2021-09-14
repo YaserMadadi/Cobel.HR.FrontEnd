@@ -32,10 +32,6 @@ import { EmploymentStatus_ModuleFunc } from '../../Base.HR/EmploymentStatus/empl
         EmployeeDetailEditUI,
 		EmployeeDetailDeleteUI,
 		EmployeeDetailSeekUI
-    ],
-    providers: [
-       //EmployeeDetailService,
-       // EmployeeDetailServiceCollection,
     ]
 })
 

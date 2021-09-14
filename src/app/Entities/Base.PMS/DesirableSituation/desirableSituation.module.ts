@@ -32,10 +32,6 @@ import { IndividualDevelopmentPlan_ModuleMaster } from '../../PMS/IndividualDeve
   exports: [
     DesirableSituationIndexUI,
 		DesirableSituation_ModuleMaster,
-  ],
-  providers: [
-    // DesirableSituationService,
-    // DesirableSituationServiceCollection
-  ]
+   ]
 })
 export class DesirableSituationModule {}

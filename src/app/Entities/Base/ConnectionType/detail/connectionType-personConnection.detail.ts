@@ -17,7 +17,7 @@ import { PersonConnectionDeleteUI } from '../../../HR/PersonConnection/delete/pe
   selector: 'connectionType-personConnection-detail',
   templateUrl: './connectionType-personConnection.detail.html',
   styleUrls: ['./connectionType-personConnection.detail.css'],
-  providers: [ConnectionTypeService]
+  
 })
 
 @Injectable()

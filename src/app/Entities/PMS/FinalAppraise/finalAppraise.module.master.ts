@@ -20,10 +20,6 @@ import { FinalAppraise_ModuleDetail } from './finalAppraise.module.detail';
     ],
     exports: [
         FinalAppraiseMasterUI
-    ],
-    providers: [
-        //FinalAppraiseService,
-       // FinalAppraiseServiceCollection   
     ]
 })
 

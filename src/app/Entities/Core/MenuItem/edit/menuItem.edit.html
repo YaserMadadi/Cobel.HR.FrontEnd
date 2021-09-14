@@ -1,0 +1,152 @@
+<XDialog Header='Edit Form of MenuItem' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, menuItemEditUI)' 
+    #menuItemEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Menu -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Menu_Id")'></guide>
+        <label for='menu' class='col-form-label'>Menu_Id : </label>
+        <span class='help-block col-form-label' *ngIf='!menu.valid && menu.touched && !menu.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #menu='ngModel' 
+                    #menuCombo='kendoDropDownList' 
+                    name='menu' 
+                    title='Menu_Id'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !menu.valid && menu.touched }" 
+                    [data]='menuComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='menuComponent.filterable'
+                    (filterChange)='menuComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.menu"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='menuComponent.addable'>
+                      <button class='btn btn-primary' (click)='menuComponent.onAdd(menuCombo, menuEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- MenuItemType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("MenuItemType_Id")'></guide>
+        <label for='menuItemType' class='col-form-label'>MenuItemType_Id : </label>
+        <span class='help-block col-form-label' *ngIf='!menuItemType.valid && menuItemType.touched && !menuItemType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #menuItemType='ngModel' 
+                    #menuItemTypeCombo='kendoDropDownList' 
+                    name='menuItemType' 
+                    title='MenuItemType_Id'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !menuItemType.valid && menuItemType.touched }" 
+                    [data]='menuItemTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='menuItemTypeComponent.filterable'
+                    (filterChange)='menuItemTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.menuItemType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='menuItemTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='menuItemTypeComponent.onAdd(menuItemTypeCombo, menuItemTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Title")'></guide>
+        <label for='title' class='col-form-label'>Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Title' 
+                    [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                    class='form-control ' 
+                    #title='ngModel' 
+                    name='title' 
+                    placeholder='... Title' 
+                    [(ngModel)]='currentInstance.title' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- URL -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("URL")'></guide>
+        <label for='url' class='col-form-label'>URL : </label>
+        <span class='help-block col-form-label' *ngIf='!url.valid && url.touched && !url.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='URL' 
+                    [ngClass]="{ 'error' : !url.valid && url.touched }" 
+                    class='form-control ' 
+                    #url='ngModel' 
+                    name='url' 
+                    placeholder='... URL' 
+                    [(ngModel)]='currentInstance.url' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  dir='ltr'  required  />
+      </div>
+			<!-- Icon -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Icon")'></guide>
+        <label for='icon' class='col-form-label'>Icon : </label>
+        <span class='help-block col-form-label' *ngIf='!icon.valid && icon.touched && !icon.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Icon' 
+                    [ngClass]="{ 'error' : !icon.valid && icon.touched }" 
+                    class='form-control ' 
+                    #icon='ngModel' 
+                    name='icon' 
+                    placeholder='... Icon' 
+                    [(ngModel)]='currentInstance.icon' 
+                    [disabled]='IsLocked'
+                    maxlength='100'  dir='ltr'  required  />
+      </div>
+			<!-- Priority -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Priority")'></guide>
+        <label for='priority' class='col-form-label'>Priority : </label>
+        <span class='help-block col-form-label' *ngIf='!priority.valid && priority.touched && !priority.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #priority='ngModel' 
+            name='priority' 
+            title='Priority' 
+            placeholder='Priority'
+            class='form-control'
+            [ngClass]="{ 'error' : !priority.valid && priority.touched }" 
+            [value]='currentInstance.priority' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.priority'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!menuItemEditUI.valid || IsLocked' >Save & Close</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!menuItemEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, menuItemEditUI, true)'>Save</button>
+      <button id='cancel-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancel</button>
+    </div>
+  </form>
+</XDialog>
+
+<core-menu-edit #menuEditUI 
+    (onClosed)='menuComponent.onClosed($event)'>
+</core-menu-edit>
+<core-menuItemType-edit #menuItemTypeEditUI 
+    (onClosed)='menuItemTypeComponent.onClosed($event)'>
+</core-menuItemType-edit>

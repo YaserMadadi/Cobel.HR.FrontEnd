@@ -16,11 +16,8 @@ import { AnswerTypeItemDeleteUI } from '../../AnswerTypeItem/delete/answerTypeIt
 @Component({
   selector: 'answerType-answerTypeItem-detail',
   templateUrl: './answerType-answerTypeItem.detail.html',
-  styleUrls: ['./answerType-answerTypeItem.detail.css'],
-  providers: [AnswerTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./answerType-answerTypeItem.detail.css']
+})
 export class AnswerType_AnswerTypeItem_DetailUI extends DetailView<AnswerType> {
 
   constructor(private answerTypeService: AnswerTypeService) {

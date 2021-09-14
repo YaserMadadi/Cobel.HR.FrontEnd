@@ -23,10 +23,6 @@ import { UniversityHistory_ModuleMaster } from '../../HR/UniversityHistory/unive
   ],
   exports: [
     UniversityDegree_UniversityHistory_DetailUI
-  ],
-  providers: [
-    //UniversityDegreeService,
-    //UniversityDegreeServiceCollection
   ]
 })
 export class UniversityDegree_ModuleDetail { }

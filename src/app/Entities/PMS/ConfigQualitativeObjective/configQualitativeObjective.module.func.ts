@@ -28,10 +28,6 @@ import { ConfigTargetSetting_ModuleFunc } from '../ConfigTargetSetting/configTar
         ConfigQualitativeObjectiveEditUI,
 		ConfigQualitativeObjectiveDeleteUI,
 		ConfigQualitativeObjectiveSeekUI
-    ],
-    providers: [
-       //ConfigQualitativeObjectiveService,
-       // ConfigQualitativeObjectiveServiceCollection,
     ]
 })
 

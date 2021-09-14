@@ -16,11 +16,8 @@ import { EmployeeEventDeleteUI } from '../../../HR/EmployeeEvent/delete/employee
 @Component({
   selector: 'eventType-employeeEvent-detail',
   templateUrl: './eventType-employeeEvent.detail.html',
-  styleUrls: ['./eventType-employeeEvent.detail.css'],
-  providers: [EventTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./eventType-employeeEvent.detail.css']
+})
 export class EventType_EmployeeEvent_DetailUI extends DetailView<EventType> {
 
   constructor(private eventTypeService: EventTypeService) {

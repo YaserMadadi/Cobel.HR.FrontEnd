@@ -27,10 +27,6 @@ import { CompetencyItemSeekUI } from './seek/competencyItem.seek';
         CompetencyItemEditUI,
 		CompetencyItemDeleteUI,
 		CompetencyItemSeekUI
-    ],
-    providers: [
-       //CompetencyItemService,
-       // CompetencyItemServiceCollection,
     ]
 })
 

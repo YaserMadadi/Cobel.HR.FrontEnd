@@ -20,10 +20,6 @@ import { Country_ModuleDetail } from './country.module.detail';
     ],
     exports: [
         CountryMasterUI
-    ],
-    providers: [
-        //CountryService,
-       // CountryServiceCollection   
     ]
 })
 

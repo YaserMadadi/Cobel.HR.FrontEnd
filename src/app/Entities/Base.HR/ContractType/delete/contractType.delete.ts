@@ -12,7 +12,7 @@ import { ContractTypeService } from '../contractType.service';
   selector: 'base-hr-contractType-delete',
   templateUrl: './contractType.delete.html',
   styleUrls: ['./contractType.delete.css'],
-  providers: [ContractTypeService]
+  
 })
 export class ContractTypeDeleteUI extends DeleteModal<ContractType> {
 

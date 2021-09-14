@@ -81,7 +81,8 @@ export class EmployeeDetailEditUI extends EditModal<EmployeeDetail> implements I
     
   }
   
-  InitEmployeeDetail(employeeDetail: EmployeeDetail) {
+  InitEmployeeDetail(employeeDetail: EmployeeDetail){
+    this.currentInstance = this.service.CreateInstance();
     if (!employeeDetail.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = employeeDetail.employee;

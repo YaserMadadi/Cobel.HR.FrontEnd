@@ -38,10 +38,6 @@ import { PersonConnection_ModuleMaster } from '../../HR/PersonConnection/personC
   exports: [
     ConnectionTypeIndexUI,
 		ConnectionType_ModuleMaster,
-  ],
-  providers: [
-    // ConnectionTypeService,
-    // ConnectionTypeServiceCollection
-  ]
+   ]
 })
 export class ConnectionTypeModule {}

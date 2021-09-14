@@ -27,17 +27,12 @@ import { Employee_ModuleFunc } from '../../HR/Employee/employee.module.func';
         XCommonModule,
         BehavioralKPI_ModuleFunc,
 		AppraiseType_ModuleFunc,
-		AppraiseTime_ModuleFunc,
 		Employee_ModuleFunc
     ],
     exports: [
         BehavioralAppraiseEditUI,
 		BehavioralAppraiseDeleteUI,
 		BehavioralAppraiseSeekUI
-    ],
-    providers: [
-       //BehavioralAppraiseService,
-       // BehavioralAppraiseServiceCollection,
     ]
 })
 

@@ -20,10 +20,6 @@ import { DevelopmentGoal_ModuleDetail } from './developmentGoal.module.detail';
     ],
     exports: [
         DevelopmentGoalMasterUI
-    ],
-    providers: [
-        //DevelopmentGoalService,
-       // DevelopmentGoalServiceCollection   
     ]
 })
 

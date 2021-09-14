@@ -20,10 +20,6 @@ import { HoldingSection_ModuleDetail } from './holdingSection.module.detail';
     ],
     exports: [
         HoldingSectionMasterUI
-    ],
-    providers: [
-        //HoldingSectionService,
-       // HoldingSectionServiceCollection   
     ]
 })
 

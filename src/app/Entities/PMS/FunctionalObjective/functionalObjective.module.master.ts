@@ -20,10 +20,6 @@ import { FunctionalObjective_ModuleDetail } from './functionalObjective.module.d
     ],
     exports: [
         FunctionalObjectiveMasterUI
-    ],
-    providers: [
-        //FunctionalObjectiveService,
-       // FunctionalObjectiveServiceCollection   
     ]
 })
 

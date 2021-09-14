@@ -12,7 +12,7 @@ import { DevelopmentPlanTypeService } from '../developmentPlanType.service';
   selector: 'base-hr-developmentPlanType-delete',
   templateUrl: './developmentPlanType.delete.html',
   styleUrls: ['./developmentPlanType.delete.css'],
-  providers: [DevelopmentPlanTypeService]
+  
 })
 export class DevelopmentPlanTypeDeleteUI extends DeleteModal<DevelopmentPlanType> {
 

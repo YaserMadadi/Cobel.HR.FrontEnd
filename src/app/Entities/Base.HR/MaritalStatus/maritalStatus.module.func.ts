@@ -27,10 +27,6 @@ import { MaritalStatusSeekUI } from './seek/maritalStatus.seek';
         MaritalStatusEditUI,
 		MaritalStatusDeleteUI,
 		MaritalStatusSeekUI
-    ],
-    providers: [
-       //MaritalStatusService,
-       // MaritalStatusServiceCollection,
     ]
 })
 

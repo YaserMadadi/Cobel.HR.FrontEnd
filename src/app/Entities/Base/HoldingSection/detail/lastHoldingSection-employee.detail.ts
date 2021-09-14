@@ -16,11 +16,8 @@ import { EmployeeDeleteUI } from '../../../HR/Employee/delete/employee.delete';
 @Component({
   selector: 'lastHoldingSection-employee-detail',
   templateUrl: './lastHoldingSection-employee.detail.html',
-  styleUrls: ['./lastHoldingSection-employee.detail.css'],
-  providers: [HoldingSectionService]
-}) 
-
-@Injectable()
+  styleUrls: ['./lastHoldingSection-employee.detail.css']
+})
 export class LastHoldingSection_Employee_DetailUI extends DetailView<HoldingSection> {
 
   constructor(private holdingSectionService: HoldingSectionService) {

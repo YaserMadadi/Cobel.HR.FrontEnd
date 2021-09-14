@@ -69,7 +69,8 @@ export class UnitEditUI extends EditModal<Unit> implements IEditModal<Unit>  {
     this.positionCategoryComponent.LoadList();
   }
 
-  InitUnit(unit: Unit) {
+  InitUnit(unit: Unit){
+    this.currentInstance = this.service.CreateInstance();
     if (!unit.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.departmentComponent.instance = unit.department;

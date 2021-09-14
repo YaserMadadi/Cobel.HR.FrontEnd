@@ -10,7 +10,6 @@ import { DrivingLicenseTypeService } from '../drivingLicenseType.service';
   selector: 'base-drivingLicenseType-delete',
   templateUrl: './drivingLicenseType.delete.html',
   styleUrls: ['./drivingLicenseType.delete.css'],
-  providers: [DrivingLicenseTypeService]
 })
 export class DrivingLicenseTypeDeleteUI extends DeleteModal<DrivingLicenseType> {
 

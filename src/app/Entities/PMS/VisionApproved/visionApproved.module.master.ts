@@ -20,10 +20,6 @@ import { VisionApproved_ModuleDetail } from './visionApproved.module.detail';
     ],
     exports: [
         VisionApprovedMasterUI
-    ],
-    providers: [
-        //VisionApprovedService,
-       // VisionApprovedServiceCollection   
     ]
 })
 

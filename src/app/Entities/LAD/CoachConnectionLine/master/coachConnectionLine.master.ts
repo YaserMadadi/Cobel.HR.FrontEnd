@@ -12,11 +12,7 @@ import { CoachConnectionLineEditUI } from '../edit/coachConnectionLine.edit';
 @Component({
   selector: 'lad-coachConnectionLine-master',
   templateUrl: './coachConnectionLine.master.html',
-  styleUrls: ['./coachConnectionLine.master.css'],
-  providers: [
-    CoachConnectionLineService,
-    
-  ]
+  styleUrls: ['./coachConnectionLine.master.css']
 })
 export class CoachConnectionLineMasterUI extends MasterModal<CoachConnectionLine> {
 

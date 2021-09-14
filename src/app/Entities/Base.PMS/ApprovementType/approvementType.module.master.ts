@@ -20,10 +20,6 @@ import { ApprovementType_ModuleDetail } from './approvementType.module.detail';
     ],
     exports: [
         ApprovementTypeMasterUI
-    ],
-    providers: [
-        //ApprovementTypeService,
-       // ApprovementTypeServiceCollection   
     ]
 })
 

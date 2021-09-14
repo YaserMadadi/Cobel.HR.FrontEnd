@@ -12,11 +12,7 @@ import { PersonCertificateEditUI } from '../edit/personCertificate.edit';
 @Component({
   selector: 'hr-personCertificate-master',
   templateUrl: './personCertificate.master.html',
-  styleUrls: ['./personCertificate.master.css'],
-  providers: [
-    PersonCertificateService,
-    
-  ]
+  styleUrls: ['./personCertificate.master.css']
 })
 export class PersonCertificateMasterUI extends MasterModal<PersonCertificate> {
 

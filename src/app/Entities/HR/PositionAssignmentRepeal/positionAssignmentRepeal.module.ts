@@ -29,10 +29,6 @@ import { PositionAssignmentRepeal_ModuleMaster } from './positionAssignmentRepea
   exports: [
     PositionAssignmentRepealIndexUI,
 		PositionAssignmentRepeal_ModuleMaster,
-  ],
-  providers: [
-    // PositionAssignmentRepealService,
-    // PositionAssignmentRepealServiceCollection
-  ]
+   ]
 })
 export class PositionAssignmentRepealModule {}

@@ -21,9 +21,6 @@ import { PersonDrivingLicenseServiceCollection } from './personDrivingLicense.se
   exports: [
     // No Item...
   ],
-  providers: [
-    //PersonDrivingLicenseService,
-    //PersonDrivingLicenseServiceCollection
-  ]
+  
 })
 export class PersonDrivingLicense_ModuleDetail { }

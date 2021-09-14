@@ -30,10 +30,6 @@ import { DevelopmentPlanType_ModuleMaster } from './developmentPlanType.module.m
   exports: [
     DevelopmentPlanTypeIndexUI,
 		DevelopmentPlanType_ModuleMaster,
-  ],
-  providers: [
-    // DevelopmentPlanTypeService,
-    // DevelopmentPlanTypeServiceCollection
-  ]
+   ]
 })
 export class DevelopmentPlanTypeModule {}

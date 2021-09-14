@@ -20,10 +20,6 @@ import { FieldOfStudy_ModuleDetail } from './fieldOfStudy.module.detail';
     ],
     exports: [
         FieldOfStudyMasterUI
-    ],
-    providers: [
-        //FieldOfStudyService,
-       // FieldOfStudyServiceCollection   
     ]
 })
 

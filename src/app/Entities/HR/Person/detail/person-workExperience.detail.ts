@@ -16,11 +16,8 @@ import { WorkExperienceDeleteUI } from '../../WorkExperience/delete/workExperien
 @Component({
   selector: 'person-workExperience-detail',
   templateUrl: './person-workExperience.detail.html',
-  styleUrls: ['./person-workExperience.detail.css'],
-  providers: [PersonService]
-}) 
-
-@Injectable()
+  styleUrls: ['./person-workExperience.detail.css']
+})
 export class Person_WorkExperience_DetailUI extends DetailView<Person> {
 
   constructor(private personService: PersonService) {

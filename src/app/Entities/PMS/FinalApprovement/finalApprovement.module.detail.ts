@@ -21,9 +21,6 @@ import { FinalApprovementServiceCollection } from './finalApprovement.service.co
   exports: [
     // No Item...
   ],
-  providers: [
-    //FinalApprovementService,
-    //FinalApprovementServiceCollection
-  ]
+  
 })
 export class FinalApprovement_ModuleDetail { }

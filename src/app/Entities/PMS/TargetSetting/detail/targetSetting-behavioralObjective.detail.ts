@@ -20,7 +20,7 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'targetSetting-behavioralObjective-detail',
   templateUrl: './targetSetting-behavioralObjective.detail.html',
   styleUrls: ['./targetSetting-behavioralObjective.detail.css'],
-  providers: [TargetSettingService]
+  
 })
 
 @Injectable()
@@ -63,26 +63,27 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
   }
 
   public onDblClicked(masterUI: BehavioralObjectiveMasterUI) {
-    if(this.targetSetting.isLocked){
-      MessageController.ShowMessage(MessageType.NotEditable);
-      return;
-    }
     if (BehavioralObjective.NotConfirm(this.currentBehavioralObjective))
       return;
+    this.currentBehavioralObjective.targetSetting = this.targetSetting;
     masterUI.ShowDialog(this.currentBehavioralObjective);
   }
 
-  private async loadTargetSetting(): Promise<Boolean> {
-    let targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
-    if (targetSetting.employee.id == AuthService.currentEmployee.id) {
-      MessageController.ShowMessage(MessageType.AddPermissionDenied);
+  private async checkTargetSetting(): Promise<Boolean> {
+    //let targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
+    if (this.currentBehavioralObjective.targetSetting.employee.id == AuthService.currentEmployee.id) {
+      MessageController.ShowMessage(MessageType.NotEditable);
+      return false;
+    }
+    if(this.currentBehavioralObjective.targetSetting.isLocked){
+      MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }
     return true;
   }
 
   public async onAdd(editUI: BehavioralObjectiveEditUI) {
-    let result = await this.loadTargetSetting();
+    let result = await this.checkTargetSetting();
     if (!result)
       return;
     editUI.TargetSetting = this.targetSetting;
@@ -90,7 +91,7 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
   }
 
   public async onEdit(editUI: BehavioralObjectiveEditUI) {
-    let result = await this.loadTargetSetting();
+    let result = await this.checkTargetSetting();
     if (!result)
       return;
     if (BehavioralObjective.NotConfirm(this.currentBehavioralObjective))
@@ -100,7 +101,7 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
   }
 
   public async onDelete(deleteUI: BehavioralObjectiveDeleteUI) {
-    let result = await this.loadTargetSetting();
+    let result = await this.checkTargetSetting();
     if (!result)
       return;
     if (BehavioralObjective.NotConfirm(this.currentBehavioralObjective))

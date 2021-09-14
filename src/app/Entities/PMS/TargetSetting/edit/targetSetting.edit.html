@@ -54,6 +54,32 @@
                     </ng-template>
                 </kendo-dropdownlist>
       </div>
+
+      <!-- TargetSettingType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("TargetSettingType_Id")'></guide>
+        <label for='targetSettingType' class='col-form-label'>TargetSettingType : </label>
+        <span class='help-block col-form-label' *ngIf='!targetSettingType.valid && targetSettingType.touched && !targetSettingType.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #targetSettingType='ngModel' 
+                    #targetSettingTypeCombo='kendoDropDownList' 
+                    name='targetSettingType' 
+                    title='TargetSettingType'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !targetSettingType.valid && targetSettingType.touched }" 
+                    [data]='targetSettingTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='targetSettingTypeComponent.filterable'
+                    (filterChange)='targetSettingTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.targetSettingType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <!-- <ng-template kendoDropDownListFooterTemplate *ngIf='targetSettingTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='targetSettingTypeComponent.onAdd(targetSettingTypeCombo, targetSettingTypeEditUI)'>Add New</button>
+                    </ng-template> -->
+                </kendo-dropdownlist>
+      </div>
+
 			<!-- Year -->
       <div class='form-group'>
         <guide (onClick)='onGuid("Year_Id")'></guide>
@@ -123,6 +149,33 @@
                 [checked] = 'currentInstance.isLocked'
                 [(ngModel)] = 'currentInstance.isLocked' /> 
       </div>
+      <!-- IsVisible -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsVisible")'></guide>
+        <label for='isVisible' class='col-form-label'>Is Visible : </label>
+        <!--isVisible do not Required-->
+        <input type='checkbox' 
+                #isVisible 
+                id = 'isVisible'
+                name = 'isVisible'
+                kendoCheckBox
+                [checked] = 'currentInstance.isVisible'
+                [(ngModel)] = 'currentInstance.isVisible' /> 
+      </div>
+
+       <!-- IsValid -->
+       <div class='form-group'>
+        <guide (onClick)='onGuid("IsValid")'></guide>
+        <label for='isValid' class='col-form-label'>Is Valid : </label>
+        <!--isValid do not Required-->
+        <input type='checkbox' 
+                #isValid 
+                id = 'isValid'
+                name = 'isValid'
+                kendoCheckBox
+                [checked] = 'currentInstance.isValid'
+                [(ngModel)] = 'currentInstance.isValid' /> 
+      </div>
 			
     </div>
     <div class='modal-footer'>
@@ -153,3 +206,6 @@
 <base-year-edit #yearEditUI 
     (onClosed)='yearComponent.onClosed($event)'>
 </base-year-edit>
+<!-- <base-pms-targetSettingType-edit #targetSettingTypeEditUI 
+    (onClosed)='targetSettingTypeComponent.onClosed($event)'>
+  </base-pms-targetSettingType-edit> -->

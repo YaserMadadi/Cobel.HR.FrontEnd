@@ -29,10 +29,6 @@ import { BehavioralAppraise_ModuleMaster } from './behavioralAppraise.module.mas
   exports: [
     BehavioralAppraiseIndexUI,
 		BehavioralAppraise_ModuleMaster,
-  ],
-  providers: [
-    // BehavioralAppraiseService,
-    // BehavioralAppraiseServiceCollection
-  ]
+   ]
 })
 export class BehavioralAppraiseModule {}

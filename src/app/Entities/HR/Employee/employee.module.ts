@@ -98,10 +98,6 @@ import { VisionComment_ModuleMaster } from '../../PMS/VisionComment/visionCommen
   exports: [
     EmployeeIndexUI,
 		Employee_ModuleMaster,
-  ],
-  providers: [
-    // EmployeeService,
-    // EmployeeServiceCollection
-  ]
+   ]
 })
 export class EmployeeModule {}

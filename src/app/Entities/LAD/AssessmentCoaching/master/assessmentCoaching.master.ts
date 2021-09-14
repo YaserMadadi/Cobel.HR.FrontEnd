@@ -13,10 +13,6 @@ import { AssessmentCoachingEditUI } from '../edit/assessmentCoaching.edit';
   selector: 'lad-assessmentCoaching-master',
   templateUrl: './assessmentCoaching.master.html',
   styleUrls: ['./assessmentCoaching.master.css'],
-  providers: [
-    AssessmentCoachingService,
-    
-  ]
 })
 export class AssessmentCoachingMasterUI extends MasterModal<AssessmentCoaching> {
 

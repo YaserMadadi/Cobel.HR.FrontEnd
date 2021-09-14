@@ -8,7 +8,6 @@ import { PositionService } from './position.service';
 import { PositionServiceCollection } from './position.service.collection';
 
 
-import { Position_ConfigTargetSetting_DetailUI } from './detail/position-configTargetSetting.detail';
 import { ConfigTargetSetting_ModuleMaster } from '../../PMS/ConfigTargetSetting/configTargetSetting.module.master';
 import { Position_ChildPosition_DetailUI } from './detail/position-childPosition.detail';
 import { Position_ModuleMaster } from '../Position/position.module.master';
@@ -24,8 +23,7 @@ import { Position_TargetSetting_DetailUI } from './detail/position-targetSetting
 import { TargetSetting_ModuleMaster } from '../../PMS/TargetSetting/targetSetting.module.master';
 
 @NgModule({
-  declarations: [
-    Position_ConfigTargetSetting_DetailUI,
+	declarations: [
 		Position_ChildPosition_DetailUI,
 		Position_PositionAssignment_DetailUI,
 		ProposedPosition_PromotionAssessment_DetailUI,
@@ -33,11 +31,11 @@ import { TargetSetting_ModuleMaster } from '../../PMS/TargetSetting/targetSettin
 		ProposedPosition_RotationAssessment_DetailUI,
 		CurrentPosition_RotationAssessment_DetailUI,
 		Position_TargetSetting_DetailUI
-  ],
-  imports: [
-    FormsModule,
-    CommonModule,
-    SharedModule,
+	],
+	imports: [
+		FormsModule,
+		CommonModule,
+		SharedModule,
 		ConfigTargetSetting_ModuleMaster,
 		//Position_ModuleMaster,
 		PositionAssignment_ModuleMaster,
@@ -46,9 +44,8 @@ import { TargetSetting_ModuleMaster } from '../../PMS/TargetSetting/targetSettin
 		RotationAssessment_ModuleMaster,
 		RotationAssessment_ModuleMaster,
 		TargetSetting_ModuleMaster,
-  ],
-  exports: [
-    Position_ConfigTargetSetting_DetailUI,
+	],
+	exports: [
 		Position_ChildPosition_DetailUI,
 		Position_PositionAssignment_DetailUI,
 		ProposedPosition_PromotionAssessment_DetailUI,
@@ -56,10 +53,7 @@ import { TargetSetting_ModuleMaster } from '../../PMS/TargetSetting/targetSettin
 		ProposedPosition_RotationAssessment_DetailUI,
 		CurrentPosition_RotationAssessment_DetailUI,
 		Position_TargetSetting_DetailUI
-  ],
-  providers: [
-    //PositionService,
-    //PositionServiceCollection
-  ]
+	],
+	
 })
 export class Position_ModuleDetail { }

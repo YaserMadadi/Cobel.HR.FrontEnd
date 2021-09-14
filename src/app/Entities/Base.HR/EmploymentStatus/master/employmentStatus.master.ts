@@ -14,12 +14,7 @@ import { EmployeeDetailService } from '../../../HR/EmployeeDetail/employeeDetail
 @Component({
   selector: 'base-hr-employmentStatus-master',
   templateUrl: './employmentStatus.master.html',
-  styleUrls: ['./employmentStatus.master.css'],
-  providers: [
-    EmploymentStatusService,
-    EmployeeService,
-		EmployeeDetailService,
-  ]
+  styleUrls: ['./employmentStatus.master.css']
 })
 export class EmploymentStatusMasterUI extends MasterModal<EmploymentStatus> {
 

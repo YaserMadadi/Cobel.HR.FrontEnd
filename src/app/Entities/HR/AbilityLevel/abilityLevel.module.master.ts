@@ -20,10 +20,6 @@ import { AbilityLevel_ModuleDetail } from './abilityLevel.module.detail';
     ],
     exports: [
         AbilityLevelMasterUI
-    ],
-    providers: [
-        //AbilityLevelService,
-       // AbilityLevelServiceCollection   
     ]
 })
 

@@ -27,10 +27,6 @@ import { UniversityFieldCategorySeekUI } from './seek/universityFieldCategory.se
         UniversityFieldCategoryEditUI,
 		UniversityFieldCategoryDeleteUI,
 		UniversityFieldCategorySeekUI
-    ],
-    providers: [
-       //UniversityFieldCategoryService,
-       // UniversityFieldCategoryServiceCollection,
     ]
 })
 

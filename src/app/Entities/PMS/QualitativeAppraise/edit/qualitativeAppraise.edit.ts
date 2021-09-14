@@ -68,17 +68,6 @@ export class QualitativeAppraiseEditUI extends EditModal<QualitativeAppraise> im
 
 
   //#endregion -- AppraiseType --
-  //#region -- AppraiseTime --
-
-  appraiseTimeComponent: ForeignComponent<AppraiseTime> = new ForeignComponent<AppraiseTime>(this.qualitativeAppraiseService.AppraiseTimeService, false);
-
-  @Input()
-  public set AppraiseTime(value: AppraiseTime) {
-    this.currentInstance.appraiseTime = this.appraiseTimeComponent.instance = value;
-  }
-
-
-  //#endregion -- AppraiseTime --
   //#endregion
 
   @ViewChild('qualitativeAppraiseEditUI')
@@ -93,22 +82,19 @@ export class QualitativeAppraiseEditUI extends EditModal<QualitativeAppraise> im
 
   private async loadLists() {
     this.appraiseTypeComponent.LoadList();
-    this.appraiseTimeComponent.LoadList();
-    this.currentInstance.appraiseTime.id = 1;
   }
 
-  InitQualitativeAppraise(qualitativeAppraise: QualitativeAppraise) {
+  InitQualitativeAppraise(qualitativeAppraise: QualitativeAppraise){
+    this.currentInstance = this.service.CreateInstance();
     if (!qualitativeAppraise.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.qualitativeKPIComponent.instance = qualitativeAppraise.qualitativeKPI;
       //this.appraiserComponent.instance = AuthService.currentEmployee;
       this.appraiseTypeComponent.instance = qualitativeAppraise.appraiseType;
-      this.appraiseTimeComponent.instance = qualitativeAppraise.appraiseTime;
     } else {
       qualitativeAppraise.qualitativeKPI = this.qualitativeKPIComponent.instance;
       //qualitativeAppraise.appraiser = this.appraiserComponent.instance;
       qualitativeAppraise.appraiseType = this.appraiseTypeComponent.instance;
-      qualitativeAppraise.appraiseTime = this.appraiseTimeComponent.instance;
     }
     this.currentInstance = qualitativeAppraise;
     this.currentInstance.appraiser = AuthService.currentEmployee;
@@ -121,11 +107,8 @@ export class QualitativeAppraiseEditUI extends EditModal<QualitativeAppraise> im
   }
 
   SetDefault() {
-    if (AppraiseTime.NotConfirm(this.currentInstance.appraiseTime))
-      return;
     // this.AppraiseTime = this.appraiseTimeComponent.list[0];
     // this.currentInstance.appraiseTime = this.appraiseTimeComponent.list[0];
-    this.currentInstance.appraiseTime.id = 1;
     //console.log('App Time : ', this.appraiseTimeComponent.list);
   }
 

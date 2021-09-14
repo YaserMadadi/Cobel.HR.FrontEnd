@@ -16,11 +16,8 @@ import { OperationalAppraiseDeleteUI } from '../../OperationalAppraise/delete/op
 @Component({
   selector: 'scoreCell-operationalAppraise-detail',
   templateUrl: './scoreCell-operationalAppraise.detail.html',
-  styleUrls: ['./scoreCell-operationalAppraise.detail.css'],
-  providers: [ScoreCellService]
-}) 
-
-@Injectable()
+  styleUrls: ['./scoreCell-operationalAppraise.detail.css']
+})
 export class ScoreCell_OperationalAppraise_DetailUI extends DetailView<ScoreCell> {
 
   constructor(private scoreCellService: ScoreCellService) {

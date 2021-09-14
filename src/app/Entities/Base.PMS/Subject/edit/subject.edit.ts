@@ -40,7 +40,8 @@ export class SubjectEditUI extends EditModal<Subject> implements IEditModal<Subj
     
   }
   
-  InitSubject(subject: Subject) {
+  InitSubject(subject: Subject){
+    this.currentInstance = this.service.CreateInstance();
     if (!subject.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

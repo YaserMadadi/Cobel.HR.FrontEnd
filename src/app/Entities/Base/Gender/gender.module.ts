@@ -38,10 +38,6 @@ import { Person_ModuleMaster } from '../../HR/Person/person.module.master';
   exports: [
     GenderIndexUI,
 		Gender_ModuleMaster,
-  ],
-  providers: [
-    // GenderService,
-    // GenderServiceCollection
-  ]
+   ]
 })
 export class GenderModule {}

@@ -32,10 +32,6 @@ import { Position_ModuleMaster } from '../Position/position.module.master';
   exports: [
     LevelIndexUI,
 		Level_ModuleMaster,
-  ],
-  providers: [
-    // LevelService,
-    // LevelServiceCollection
-  ]
+   ]
 })
 export class LevelModule {}

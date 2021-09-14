@@ -42,7 +42,8 @@ export class EventTypeEditUI extends EditModal<EventType> implements IEditModal<
     
   }
   
-  InitEventType(eventType: EventType) {
+  InitEventType(eventType: EventType){
+    this.currentInstance = this.service.CreateInstance();
     if (!eventType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

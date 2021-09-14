@@ -32,10 +32,6 @@ import { Conclusion_ModuleMaster } from '../Conclusion/conclusion.module.master'
   exports: [
     ConclusionTypeIndexUI,
 		ConclusionType_ModuleMaster,
-  ],
-  providers: [
-    // ConclusionTypeService,
-    // ConclusionTypeServiceCollection
-  ]
+   ]
 })
 export class ConclusionTypeModule {}

@@ -23,10 +23,6 @@ import { City_ModuleMaster } from '../City/city.module.master';
   ],
   exports: [
     Province_City_DetailUI
-  ],
-  providers: [
-    //ProvinceService,
-    //ProvinceServiceCollection
   ]
 })
 export class Province_ModuleDetail { }

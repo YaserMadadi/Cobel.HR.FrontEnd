@@ -16,11 +16,8 @@ import { LanguageAbilityDeleteUI } from '../../LanguageAbility/delete/languageAb
 @Component({
   selector: 'person-languageAbility-detail',
   templateUrl: './person-languageAbility.detail.html',
-  styleUrls: ['./person-languageAbility.detail.css'],
-  providers: [PersonService]
-}) 
-
-@Injectable()
+  styleUrls: ['./person-languageAbility.detail.css']
+})
 export class Person_LanguageAbility_DetailUI extends DetailView<Person> {
 
   constructor(private personService: PersonService) {

@@ -23,10 +23,6 @@ import { LanguageAbility_ModuleMaster } from '../../HR/LanguageAbility/languageA
   ],
   exports: [
     Language_LanguageAbility_DetailUI
-  ],
-  providers: [
-    //LanguageService,
-    //LanguageServiceCollection
   ]
 })
 export class Language_ModuleDetail { }

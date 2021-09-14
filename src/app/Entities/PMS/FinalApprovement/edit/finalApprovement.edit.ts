@@ -68,7 +68,8 @@ export class FinalApprovementEditUI extends EditModal<FinalApprovement> implemen
     
   }
   
-  InitFinalApprovement(finalApprovement: FinalApprovement) {
+  InitFinalApprovement(finalApprovement: FinalApprovement){
+    this.currentInstance = this.service.CreateInstance();
     if (!finalApprovement.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.targetSettingComponent.instance = finalApprovement.targetSetting;

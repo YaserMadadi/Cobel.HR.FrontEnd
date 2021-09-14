@@ -27,10 +27,6 @@ import { HealthStatusSeekUI } from './seek/healthStatus.seek';
         HealthStatusEditUI,
 		HealthStatusDeleteUI,
 		HealthStatusSeekUI
-    ],
-    providers: [
-       //HealthStatusService,
-       // HealthStatusServiceCollection,
     ]
 })
 

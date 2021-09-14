@@ -20,10 +20,6 @@ import { ScoreCell_ModuleDetail } from './scoreCell.module.detail';
     ],
     exports: [
         ScoreCellMasterUI
-    ],
-    providers: [
-        //ScoreCellService,
-       // ScoreCellServiceCollection   
     ]
 })
 

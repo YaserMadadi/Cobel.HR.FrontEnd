@@ -14,10 +14,6 @@ import { UniversityHistoryService } from '../../../HR/UniversityHistory/universi
   selector: 'base-certificationType-master',
   templateUrl: './certificationType.master.html',
   styleUrls: ['./certificationType.master.css'],
-  providers: [
-    CertificationTypeService,
-    UniversityHistoryService,
-  ]
 })
 export class CertificationTypeMasterUI extends MasterModal<CertificationType> {
 

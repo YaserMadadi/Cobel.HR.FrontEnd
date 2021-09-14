@@ -4,23 +4,23 @@
       <div class='btn-group '
         role='group'
         aria-label='Basic example'>
-        <!-- <button type='button'
+         <button type='button'
           name='addButton'
           class='xbtn btn-add'
-          (click)='onAdd(appraiseResultEditUI)'
-          *ngIf='false'>Add</button>
+          (click)='onAdd(visionEditUI)'
+          *ngIf='this.currentVision.id == 0'>Add</button>
         <button type='button'
           name='editButton'
           class='xbtn btn-edit'
-          (click)='onEdit(appraiseResultEditUI)'
-          [disabled]='currentAppraiseResult.id == 0 }"
-          *ngIf='false'>Edit</button>
-        <button type='button'
+          (click)='onEdit(visionEditUI)'
+          [disabled]='currentVision.id == 0'
+          *ngIf='!this.currentVision.isApprovedByDirectManager' > Edit </button>
+        <!-- <button type='button'
           name='deleteButton'
           class='xbtn btn-delete'
           (click)='onDelete(appraiseResultDeleteUI)'
-          [disabled]='currentAppraiseResult.id == 0 }"
-          *ngIf='false'>Delete</button> -->
+          [disabled]='currentVision.id == 0'
+          *ngIf='false'>Delete</button>  -->
       </div>
       <div class='float-right'>
         <button type='button'

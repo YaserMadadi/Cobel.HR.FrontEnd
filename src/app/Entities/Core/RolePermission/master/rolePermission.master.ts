@@ -12,11 +12,7 @@ import { RolePermissionEditUI } from '../edit/rolePermission.edit';
 @Component({
   selector: 'core-rolePermission-master',
   templateUrl: './rolePermission.master.html',
-  styleUrls: ['./rolePermission.master.css'],
-  providers: [
-    RolePermissionService,
-    
-  ]
+  styleUrls: ['./rolePermission.master.css']
 })
 export class RolePermissionMasterUI extends MasterModal<RolePermission> {
 

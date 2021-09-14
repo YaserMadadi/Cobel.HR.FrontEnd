@@ -20,10 +20,6 @@ import { BehavioralAppraise_ModuleDetail } from './behavioralAppraise.module.det
     ],
     exports: [
         BehavioralAppraiseMasterUI
-    ],
-    providers: [
-        //BehavioralAppraiseService,
-       // BehavioralAppraiseServiceCollection   
     ]
 })
 

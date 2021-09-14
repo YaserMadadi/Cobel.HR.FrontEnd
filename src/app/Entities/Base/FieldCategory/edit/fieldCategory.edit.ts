@@ -40,7 +40,8 @@ export class FieldCategoryEditUI extends EditModal<FieldCategory> implements IEd
     
   }
   
-  InitFieldCategory(fieldCategory: FieldCategory) {
+  InitFieldCategory(fieldCategory: FieldCategory){
+    this.currentInstance = new FieldCategory();
     if (!fieldCategory.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

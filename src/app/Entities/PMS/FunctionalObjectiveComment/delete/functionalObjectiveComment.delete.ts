@@ -10,7 +10,7 @@ import { FunctionalObjectiveCommentService } from '../functionalObjectiveComment
   selector: 'pms-functionalObjectiveComment-delete',
   templateUrl: './functionalObjectiveComment.delete.html',
   styleUrls: ['./functionalObjectiveComment.delete.css'],
-  providers: [FunctionalObjectiveCommentService]
+  
 })
 export class FunctionalObjectiveCommentDeleteUI extends DeleteModal<FunctionalObjectiveComment> {
 

@@ -55,7 +55,8 @@ export class ConfigQualitativeKPIEditUI extends EditModal<ConfigQualitativeKPI> 
     
   }
   
-  InitConfigQualitativeKPI(configQualitativeKPI: ConfigQualitativeKPI) {
+  InitConfigQualitativeKPI(configQualitativeKPI: ConfigQualitativeKPI){
+    this.currentInstance = this.service.CreateInstance();
     if (!configQualitativeKPI.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.qualitativeObjectiveConfigComponent.instance = configQualitativeKPI.configQualitativeObjective;

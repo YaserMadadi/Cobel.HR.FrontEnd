@@ -14,10 +14,7 @@ import { AssessmentTrainingService } from '../../../LAD/AssessmentTraining/asses
   selector: 'base-yearQuarter-master',
   templateUrl: './yearQuarter.master.html',
   styleUrls: ['./yearQuarter.master.css'],
-  providers: [
-    YearQuarterService,
-    AssessmentTrainingService,
-  ]
+  
 })
 export class YearQuarterMasterUI extends MasterModal<YearQuarter> {
 

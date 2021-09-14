@@ -28,10 +28,6 @@ import { Employee_ModuleFunc } from '../Employee/employee.module.func';
         EmployeeNotificationEditUI,
 		EmployeeNotificationDeleteUI,
 		EmployeeNotificationSeekUI
-    ],
-    providers: [
-       //EmployeeNotificationService,
-       // EmployeeNotificationServiceCollection,
     ]
 })
 

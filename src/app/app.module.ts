@@ -58,6 +58,7 @@ import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { SubSyetemMenuComponent } from '../xcore/tools/ui/components/sub-syetem-menu/sub-syetem-menu.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+import { SubSystemComponent } from './layouts/components/sub-system/sub-system.component';
 
 
 //import { IndexComponent } from './Dashboards/index/index.component';
@@ -113,6 +114,7 @@ import {MatMenuModule} from '@angular/material/menu';
     P404Component,
     P500Component,
     LoginComponent,
+    SubSystemComponent,
     
   ],
   providers: [Info,

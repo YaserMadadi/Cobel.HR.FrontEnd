@@ -23,10 +23,6 @@ import { AssessmentTraining_ModuleMaster } from '../../LAD/AssessmentTraining/as
   ],
   exports: [
     DeadLine_AssessmentTraining_DetailUI
-  ],
-  providers: [
-    //YearQuarterService,
-    //YearQuarterServiceCollection
   ]
 })
 export class YearQuarter_ModuleDetail { }

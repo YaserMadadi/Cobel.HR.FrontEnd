@@ -1,0 +1,64 @@
+
+<XDialog Header='Search form of RoleMenuItem' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='role' class='col-sm-3 col-form-label'>Role_Id : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #role='ngModel' 
+                    #roleCombo='kendoDropDownList' 
+                    name='role' 
+                    title='Role_Id'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !role.valid && role.touched }" 
+                    [data]='roleComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='roleComponent.filterable'
+                    (filterChange)='roleComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.role"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='roleComponent.addable'>
+                      <button class='btn btn-primary' (click)='roleComponent.onAdd(roleCombo, roleEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='menuItem' class='col-sm-3 col-form-label'>MenuItem_Id : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #menuItem='ngModel' 
+                    #menuItemCombo='kendoDropDownList' 
+                    name='menuItem' 
+                    title='MenuItem_Id'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !menuItem.valid && menuItem.touched }" 
+                    [data]='menuItemComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='menuItemComponent.filterable'
+                    (filterChange)='menuItemComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.menuItem"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='menuItemComponent.addable'>
+                      <button class='btn btn-primary' (click)='menuItemComponent.onAdd(menuItemCombo, menuItemEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='isActive' class='col-sm-3 col-form-label'>IsActive : </label>
+            <div class='col-sm-9'>
+              
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

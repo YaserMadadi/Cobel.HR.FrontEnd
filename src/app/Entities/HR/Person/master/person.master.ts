@@ -29,27 +29,7 @@ import { LogService } from '../../../Core/Log/log.service';
 @Component({
   selector: 'hr-person-master',
   templateUrl: './person.master.html',
-  styleUrls: ['./person.master.css'],
-  providers: [
-    PersonService,
-    CoachingQuestionaryService,
-		UserAccountService,
-		WorkExperienceService,
-		UniversityHistoryService,
-		SchoolHistoryService,
-		RelativeService,
-		PersonDrivingLicenseService,
-		PersonConnectionService,
-		PersonCertificateService,
-		PassportService,
-		MilitaryServiceService,
-		MaritalInfoService,
-		LanguageAbilityService,
-		EmployeeService,
-		HabitancyService,
-		ImpersonateService,
-		LogService,
-  ]
+  styleUrls: ['./person.master.css']
 })
 export class PersonMasterUI extends MasterModal<Person> {
 

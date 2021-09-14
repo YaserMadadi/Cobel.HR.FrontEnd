@@ -33,10 +33,6 @@ import { Contract_ModuleMaster } from '../../HR/Contract/contract.module.master'
   exports: [
     ContractTypeIndexUI,
 		ContractType_ModuleMaster,
-  ],
-  providers: [
-    // ContractTypeService,
-    // ContractTypeServiceCollection
-  ]
+   ]
 })
 export class ContractTypeModule {}

@@ -24,18 +24,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'pms-targetSetting-master',
   templateUrl: './targetSetting.master.html',
-  styleUrls: ['./targetSetting.master.css'],
-  providers: [
-    TargetSettingService,
-    BehavioralObjectiveService,
-    FinalApprovementService,
-    FunctionalObjectiveService,
-    FinalAppraiseService,
-    QuantitativeAppraiseService,
-    OperationalAppraiseService,
-    NonOperationalAppraiseService,
-    QualitativeObjectiveService,
-  ]
+  styleUrls: ['./targetSetting.master.css']
 })
 export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
 
@@ -82,7 +71,6 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
         if (this.position == null)
           return;
         if (this.position?.positionDivision.id == 2) { // positionDivision.Id = 2 : NonOperation
-          console.log('Position : ', this.position);
           this.targetSettingService
             .PositionService
             .LevelService

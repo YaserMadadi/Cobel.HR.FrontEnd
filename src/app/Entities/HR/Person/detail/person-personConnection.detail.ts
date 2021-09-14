@@ -17,7 +17,7 @@ import { PersonConnectionDeleteUI } from '../../PersonConnection/delete/personCo
   selector: 'person-personConnection-detail',
   templateUrl: './person-personConnection.detail.html',
   styleUrls: ['./person-personConnection.detail.css'],
-  providers: [PersonService]
+  
 })
 
 @Injectable()

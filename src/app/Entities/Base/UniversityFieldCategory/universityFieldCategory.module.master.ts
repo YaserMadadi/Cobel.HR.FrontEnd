@@ -20,10 +20,6 @@ import { UniversityFieldCategory_ModuleDetail } from './universityFieldCategory.
     ],
     exports: [
         UniversityFieldCategoryMasterUI
-    ],
-    providers: [
-        //UniversityFieldCategoryService,
-       // UniversityFieldCategoryServiceCollection   
     ]
 })
 

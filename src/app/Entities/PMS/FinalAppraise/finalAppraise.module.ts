@@ -29,10 +29,6 @@ import { FinalAppraise_ModuleMaster } from './finalAppraise.module.master';
   exports: [
     FinalAppraiseIndexUI,
 		FinalAppraise_ModuleMaster,
-  ],
-  providers: [
-    // FinalAppraiseService,
-    // FinalAppraiseServiceCollection
-  ]
+   ]
 })
 export class FinalAppraiseModule {}

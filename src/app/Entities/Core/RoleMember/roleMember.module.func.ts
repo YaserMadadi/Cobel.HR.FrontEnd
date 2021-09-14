@@ -30,10 +30,6 @@ import { Role_ModuleFunc } from '../Role/role.module.func';
         RoleMemberEditUI,
 		RoleMemberDeleteUI,
 		RoleMemberSeekUI
-    ],
-    providers: [
-       //RoleMemberService,
-       // RoleMemberServiceCollection,
     ]
 })
 

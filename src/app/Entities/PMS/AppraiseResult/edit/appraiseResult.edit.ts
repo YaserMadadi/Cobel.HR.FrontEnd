@@ -82,7 +82,8 @@ export class AppraiseResultEditUI extends EditModal<AppraiseResult> implements I
 		this.appraiseTimeComponent.LoadList();
   }
   
-  InitAppraiseResult(appraiseResult: AppraiseResult) {
+  InitAppraiseResult(appraiseResult: AppraiseResult){
+    this.currentInstance = this.service.CreateInstance();
     if (!appraiseResult.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.targetSettingComponent.instance = appraiseResult.targetSetting;

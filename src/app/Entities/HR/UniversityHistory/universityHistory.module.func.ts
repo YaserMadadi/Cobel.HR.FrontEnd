@@ -38,10 +38,6 @@ import { CertificationType_ModuleFunc } from '../../Base/CertificationType/certi
         UniversityHistoryEditUI,
 		UniversityHistoryDeleteUI,
 		UniversityHistorySeekUI
-    ],
-    providers: [
-       //UniversityHistoryService,
-       // UniversityHistoryServiceCollection,
     ]
 })
 

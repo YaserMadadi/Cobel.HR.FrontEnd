@@ -16,11 +16,8 @@ import { LogDeleteUI } from '../../../Core/Log/delete/log.delete';
 @Component({
   selector: 'person-log-detail',
   templateUrl: './person-log.detail.html',
-  styleUrls: ['./person-log.detail.css'],
-  providers: [PersonService]
-}) 
-
-@Injectable()
+  styleUrls: ['./person-log.detail.css']
+})
 export class Person_Log_DetailUI extends DetailView<Person> {
 
   constructor(private personService: PersonService) {

@@ -30,10 +30,6 @@ import { AnswerType_ModuleFunc } from '../AnswerType/answerType.module.func';
         QuestionaryItemEditUI,
 		QuestionaryItemDeleteUI,
 		QuestionaryItemSeekUI
-    ],
-    providers: [
-       //QuestionaryItemService,
-       // QuestionaryItemServiceCollection,
     ]
 })
 

@@ -15,11 +15,8 @@ import { FunctionalObjectiveDeleteUI } from '../delete/functionalObjective.delet
 @Component({
   selector: 'functionalObjective-childFunctionalObjective-detail',
   templateUrl: './functionalObjective-childFunctionalObjective.detail.html',
-  styleUrls: ['./functionalObjective-childFunctionalObjective.detail.css'],
-  providers: [FunctionalObjectiveService]
-}) 
-
-@Injectable()
+  styleUrls: ['./functionalObjective-childFunctionalObjective.detail.css']
+})
 export class FunctionalObjective_ChildFunctionalObjective_DetailUI extends DetailView<FunctionalObjective> {
 
   constructor(private functionalObjectiveService: FunctionalObjectiveService) {

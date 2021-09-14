@@ -10,7 +10,7 @@ import { CompetencyItemService } from '../competencyItem.service';
   selector: 'pms-competencyItem-delete',
   templateUrl: './competencyItem.delete.html',
   styleUrls: ['./competencyItem.delete.css'],
-  providers: [CompetencyItemService]
+  
 })
 export class CompetencyItemDeleteUI extends DeleteModal<CompetencyItem> {
 

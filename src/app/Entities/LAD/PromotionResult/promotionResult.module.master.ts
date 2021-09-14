@@ -20,10 +20,6 @@ import { PromotionResult_ModuleDetail } from './promotionResult.module.detail';
     ],
     exports: [
         PromotionResultMasterUI
-    ],
-    providers: [
-        //PromotionResultService,
-       // PromotionResultServiceCollection   
     ]
 })
 

@@ -16,11 +16,8 @@ import { TargetSettingDeleteUI } from '../../../PMS/TargetSetting/delete/targetS
 @Component({
   selector: 'employee-targetSetting-detail',
   templateUrl: './employee-targetSetting.detail.html',
-  styleUrls: ['./employee-targetSetting.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employee-targetSetting.detail.css']
+})
 export class Employee_TargetSetting_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

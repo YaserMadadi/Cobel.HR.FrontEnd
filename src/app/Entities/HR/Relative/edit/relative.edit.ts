@@ -68,7 +68,8 @@ export class RelativeEditUI extends EditModal<Relative> implements IEditModal<Re
     this.relationTypeComponent.LoadList();
   }
   
-  InitRelative(relative: Relative) {
+  InitRelative(relative: Relative){
+    this.currentInstance = this.service.CreateInstance();
     if (!relative.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.pesonComponent.instance = relative.peson;

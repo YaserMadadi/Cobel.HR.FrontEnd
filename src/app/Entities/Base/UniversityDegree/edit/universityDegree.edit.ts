@@ -40,7 +40,8 @@ export class UniversityDegreeEditUI extends EditModal<UniversityDegree> implemen
     
   }
   
-  InitUniversityDegree(universityDegree: UniversityDegree) {
+  InitUniversityDegree(universityDegree: UniversityDegree){
+    this.currentInstance = this.service.CreateInstance();
     if (!universityDegree.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

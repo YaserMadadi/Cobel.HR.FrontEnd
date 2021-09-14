@@ -21,9 +21,6 @@ import { MessageServiceCollection } from './message.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //MessageService,
-    //MessageServiceCollection
-  ]
+  
 })
 export class Message_ModuleDetail { }

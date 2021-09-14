@@ -1,0 +1,36 @@
+
+<XDialog Header='Delete Confirmation Form of CommandParameter' 
+    [IsShown]='IsShown' 
+    (OnClosed)='onCancel()'
+    [ModalType]='3'>
+    <div class='delete-frame'>
+        <p></p>
+        <p>You are going to Delete the record of CommandParameter! </p>
+        <br>
+        <div class='margin20'>
+            
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>ExceptionLog_Id : </label>
+                <label class='col-sm-8'>{{ currentInstance?.exceptionLog?.descriptor }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Name : </label>
+                <label class='col-sm-8'>{{ currentInstance?.name }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Value : </label>
+                <label class='col-sm-8'>{{ currentInstance?.value }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>TypeName : </label>
+                <label class='col-sm-8'>{{ currentInstance?.typeName }}</label>
+            </div>
+        </div>
+        <br>
+        <p>Do You Confirm?  </p>
+    </div>
+    <div class='modal-footer'>
+      <button class='xbtn btn-delete modal-footer-button' type='button' (click)='onDelete()'>Ok, Delete it</button>
+      <button class='xbtn btn-edit modal-footer-button' type='button' (click)='onCancel()'>Cancel</button>
+    </div>
+</XDialog>

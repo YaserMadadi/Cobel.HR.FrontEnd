@@ -68,7 +68,8 @@ export class RolePermissionEditUI extends EditModal<RolePermission> implements I
     this.roleComponent.LoadList();
   }
   
-  InitRolePermission(rolePermission: RolePermission) {
+  InitRolePermission(rolePermission: RolePermission){
+    this.currentInstance = this.service.CreateInstance();
     if (!rolePermission.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.roleComponent.instance = rolePermission.role;

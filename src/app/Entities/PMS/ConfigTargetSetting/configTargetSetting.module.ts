@@ -32,10 +32,6 @@ import { ConfigQualitativeObjective_ModuleMaster } from '../ConfigQualitativeObj
   exports: [
     ConfigTargetSettingIndexUI,
 		ConfigTargetSetting_ModuleMaster,
-  ],
-  providers: [
-    // ConfigTargetSettingService,
-    // ConfigTargetSettingServiceCollection
-  ]
+   ]
 })
 export class ConfigTargetSettingModule {}

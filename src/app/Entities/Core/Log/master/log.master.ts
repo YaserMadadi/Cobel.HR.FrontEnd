@@ -12,11 +12,7 @@ import { LogEditUI } from '../edit/log.edit';
 @Component({
   selector: 'core-log-master',
   templateUrl: './log.master.html',
-  styleUrls: ['./log.master.css'],
-  providers: [
-    LogService,
-    
-  ]
+  styleUrls: ['./log.master.css']
 })
 export class LogMasterUI extends MasterModal<Log> {
 

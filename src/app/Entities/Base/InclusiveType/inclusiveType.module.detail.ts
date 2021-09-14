@@ -23,10 +23,6 @@ import { MilitaryServiceInclusive_ModuleMaster } from '../../HR/MilitaryServiceI
   ],
   exports: [
     InclusiveType_MilitaryServiceInclusive_DetailUI
-  ],
-  providers: [
-    //InclusiveTypeService,
-    //InclusiveTypeServiceCollection
   ]
 })
 export class InclusiveType_ModuleDetail { }

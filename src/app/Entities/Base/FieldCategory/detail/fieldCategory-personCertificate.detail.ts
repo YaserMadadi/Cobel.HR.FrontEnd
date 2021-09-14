@@ -16,11 +16,8 @@ import { PersonCertificateDeleteUI } from '../../../HR/PersonCertificate/delete/
 @Component({
   selector: 'fieldCategory-personCertificate-detail',
   templateUrl: './fieldCategory-personCertificate.detail.html',
-  styleUrls: ['./fieldCategory-personCertificate.detail.css'],
-  providers: [FieldCategoryService]
-}) 
-
-@Injectable()
+  styleUrls: ['./fieldCategory-personCertificate.detail.css']
+})
 export class FieldCategory_PersonCertificate_DetailUI extends DetailView<FieldCategory> {
 
   constructor(private fieldCategoryService: FieldCategoryService) {

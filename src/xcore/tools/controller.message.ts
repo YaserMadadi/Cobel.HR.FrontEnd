@@ -173,6 +173,10 @@ export class MessageController {
                 header = 'Authentication Error!'                
                 break;
             }
+            case MessageType.RecordIsLocked:{
+                header = 'Current Record is Locked and it can not edited!'                
+                break;
+            }
         }
 
         return header;

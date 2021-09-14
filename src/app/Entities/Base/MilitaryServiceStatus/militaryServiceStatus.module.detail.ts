@@ -23,10 +23,6 @@ import { MilitaryService_ModuleMaster } from '../../HR/MilitaryService/militaryS
   ],
   exports: [
     MilitaryServiceStatus_MilitaryService_DetailUI
-  ],
-  providers: [
-    //MilitaryServiceStatusService,
-    //MilitaryServiceStatusServiceCollection
   ]
 })
 export class MilitaryServiceStatus_ModuleDetail { }

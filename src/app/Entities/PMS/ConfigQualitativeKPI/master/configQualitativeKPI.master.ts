@@ -12,11 +12,7 @@ import { ConfigQualitativeKPIEditUI } from '../edit/configQualitativeKPI.edit';
 @Component({
   selector: 'pms-configQualitativeKPI-master',
   templateUrl: './configQualitativeKPI.master.html',
-  styleUrls: ['./configQualitativeKPI.master.css'],
-  providers: [
-    ConfigQualitativeKPIService,
-    
-  ]
+  styleUrls: ['./configQualitativeKPI.master.css']
 })
 export class ConfigQualitativeKPIMasterUI extends MasterModal<ConfigQualitativeKPI> {
 

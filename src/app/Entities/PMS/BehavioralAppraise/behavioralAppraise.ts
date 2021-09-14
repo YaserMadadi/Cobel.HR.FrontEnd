@@ -40,8 +40,6 @@ export class BehavioralAppraise extends BusinessObject implements OnInit {
 	
 	public appraiseType: AppraiseType = new AppraiseType();
 	
-	public appraiseTime: AppraiseTime = new AppraiseTime();
-	
 	public date: Date = new Date();
 	
 	public appraiser: Employee = new Employee();
@@ -73,7 +71,6 @@ export class BehavioralAppraise extends BusinessObject implements OnInit {
   public static Validate(behavioralAppraise: BehavioralAppraise) : boolean {
     let result = Validator.Validate(behavioralAppraise.behavioralKPI) &&
 					Validator.Validate(behavioralAppraise.appraiseType) &&
-					Validator.Validate(behavioralAppraise.appraiseTime) &&
 					Validator.Validate(behavioralAppraise.appraiser);
     if(result === false)
       console.log('BehavioralAppraise is unvalid : ', behavioralAppraise);

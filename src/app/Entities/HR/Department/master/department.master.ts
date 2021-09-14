@@ -14,10 +14,7 @@ import { UnitService } from '../../Unit/unit.service';
   selector: 'hr-department-master',
   templateUrl: './department.master.html',
   styleUrls: ['./department.master.css'],
-  providers: [
-    DepartmentService,
-    UnitService,
-  ]
+  
 })
 export class DepartmentMasterUI extends MasterModal<Department> {
 

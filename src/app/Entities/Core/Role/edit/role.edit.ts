@@ -40,7 +40,8 @@ export class RoleEditUI extends EditModal<Role> implements IEditModal<Role>  {
     
   }
   
-  InitRole(role: Role) {
+  InitRole(role: Role){
+    this.currentInstance = this.service.CreateInstance();
     if (!role.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

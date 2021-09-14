@@ -30,10 +30,6 @@ import { CompetencyItem_ModuleFunc } from '../../PMS/CompetencyItem/competencyIt
         AssessmentScoreEditUI,
 		AssessmentScoreDeleteUI,
 		AssessmentScoreSeekUI
-    ],
-    providers: [
-       //AssessmentScoreService,
-       // AssessmentScoreServiceCollection,
     ]
 })
 

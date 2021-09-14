@@ -15,13 +15,7 @@ import { CellActionService } from '../../CellAction/cellAction.service';
 @Component({
   selector: 'pms-scoreCell-master',
   templateUrl: './scoreCell.master.html',
-  styleUrls: ['./scoreCell.master.css'],
-  providers: [
-    ScoreCellService,
-    OperationalAppraiseService,
-		NonOperationalAppraiseService,
-		CellActionService,
-  ]
+  styleUrls: ['./scoreCell.master.css']
 })
 export class ScoreCellMasterUI extends MasterModal<ScoreCell> {
 

@@ -21,10 +21,6 @@ import { DevelopmentPlanTypeServiceCollection } from './developmentPlanType.serv
   ],
   exports: [
     // No Item...
-  ],
-  providers: [
-    //DevelopmentPlanTypeService,
-    //DevelopmentPlanTypeServiceCollection
   ]
 })
 export class DevelopmentPlanType_ModuleDetail { }

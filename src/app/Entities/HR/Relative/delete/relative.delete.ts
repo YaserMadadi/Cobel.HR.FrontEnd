@@ -10,7 +10,7 @@ import { RelativeService } from '../relative.service';
   selector: 'hr-relative-delete',
   templateUrl: './relative.delete.html',
   styleUrls: ['./relative.delete.css'],
-  providers: [RelativeService]
+  
 })
 export class RelativeDeleteUI extends DeleteModal<Relative> {
 

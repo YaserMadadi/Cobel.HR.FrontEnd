@@ -16,11 +16,8 @@ import { PropertyOptionDeleteUI } from '../../PropertyOption/delete/propertyOpti
 @Component({
   selector: 'property-propertyOption-detail',
   templateUrl: './property-propertyOption.detail.html',
-  styleUrls: ['./property-propertyOption.detail.css'],
-  providers: [PropertyService]
-}) 
-
-@Injectable()
+  styleUrls: ['./property-propertyOption.detail.css']
+})
 export class Property_PropertyOption_DetailUI extends DetailView<Property> {
 
   constructor(private propertyService: PropertyService) {

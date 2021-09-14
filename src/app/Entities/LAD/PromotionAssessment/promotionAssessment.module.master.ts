@@ -20,10 +20,6 @@ import { PromotionAssessment_ModuleDetail } from './promotionAssessment.module.d
     ],
     exports: [
         PromotionAssessmentMasterUI
-    ],
-    providers: [
-        //PromotionAssessmentService,
-       // PromotionAssessmentServiceCollection   
     ]
 })
 

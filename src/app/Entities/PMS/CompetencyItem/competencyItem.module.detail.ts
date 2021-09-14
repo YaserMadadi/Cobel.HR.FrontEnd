@@ -39,9 +39,6 @@ import { DevelopmentPlanCompetency_ModuleMaster } from '../DevelopmentPlanCompet
 		CompetencyItem_CompetencyItemKPI_DetailUI,
 		CompetencyItem_DevelopmentPlanCompetency_DetailUI
   ],
-  providers: [
-    //CompetencyItemService,
-    //CompetencyItemServiceCollection
-  ]
+  
 })
 export class CompetencyItem_ModuleDetail { }

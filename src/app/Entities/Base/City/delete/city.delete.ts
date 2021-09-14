@@ -10,7 +10,6 @@ import { CityService } from '../city.service';
   selector: 'base-city-delete',
   templateUrl: './city.delete.html',
   styleUrls: ['./city.delete.css'],
-  providers: [CityService]
 })
 export class CityDeleteUI extends DeleteModal<City> {
 

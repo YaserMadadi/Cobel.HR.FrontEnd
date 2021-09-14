@@ -28,10 +28,6 @@ import { CoachingQuestionary_ModuleFunc } from '../CoachingQuestionary/coachingQ
         CoachingQuestionaryDetailEditUI,
 		CoachingQuestionaryDetailDeleteUI,
 		CoachingQuestionaryDetailSeekUI
-    ],
-    providers: [
-       //CoachingQuestionaryDetailService,
-       // CoachingQuestionaryDetailServiceCollection,
     ]
 })
 

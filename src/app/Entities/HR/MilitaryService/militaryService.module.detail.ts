@@ -29,9 +29,6 @@ import { MilitaryServiceInclusive_ModuleMaster } from '../MilitaryServiceInclusi
     MilitaryService_MilitaryServiceExcemption_DetailUI,
 		MilitaryService_MilitaryServiceInclusive_DetailUI
   ],
-  providers: [
-    //MilitaryServiceService,
-    //MilitaryServiceServiceCollection
-  ]
+  
 })
 export class MilitaryService_ModuleDetail { }

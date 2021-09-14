@@ -10,7 +10,6 @@ import { FieldCategoryService } from '../fieldCategory.service';
   selector: 'base-fieldCategory-delete',
   templateUrl: './fieldCategory.delete.html',
   styleUrls: ['./fieldCategory.delete.css'],
-  providers: [FieldCategoryService]
 })
 export class FieldCategoryDeleteUI extends DeleteModal<FieldCategory> {
 

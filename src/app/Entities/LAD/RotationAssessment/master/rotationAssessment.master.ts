@@ -12,11 +12,7 @@ import { RotationAssessmentEditUI } from '../edit/rotationAssessment.edit';
 @Component({
   selector: 'lad-rotationAssessment-master',
   templateUrl: './rotationAssessment.master.html',
-  styleUrls: ['./rotationAssessment.master.css'],
-  providers: [
-    RotationAssessmentService,
-    
-  ]
+  styleUrls: ['./rotationAssessment.master.css']
 })
 export class RotationAssessmentMasterUI extends MasterModal<RotationAssessment> {
 

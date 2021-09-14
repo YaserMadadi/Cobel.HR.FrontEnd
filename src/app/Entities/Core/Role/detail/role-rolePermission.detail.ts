@@ -16,11 +16,8 @@ import { RolePermissionDeleteUI } from '../../RolePermission/delete/rolePermissi
 @Component({
   selector: 'role-rolePermission-detail',
   templateUrl: './role-rolePermission.detail.html',
-  styleUrls: ['./role-rolePermission.detail.css'],
-  providers: [RoleService]
-}) 
-
-@Injectable()
+  styleUrls: ['./role-rolePermission.detail.css']
+})
 export class Role_RolePermission_DetailUI extends DetailView<Role> {
 
   constructor(private roleService: RoleService) {

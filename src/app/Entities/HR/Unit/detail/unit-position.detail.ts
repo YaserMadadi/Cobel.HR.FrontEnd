@@ -16,11 +16,8 @@ import { PositionDeleteUI } from '../../Position/delete/position.delete';
 @Component({
   selector: 'unit-position-detail',
   templateUrl: './unit-position.detail.html',
-  styleUrls: ['./unit-position.detail.css'],
-  providers: [UnitService]
-}) 
-
-@Injectable()
+  styleUrls: ['./unit-position.detail.css']
+})
 export class Unit_Position_DetailUI extends DetailView<Unit> {
 
   constructor(private unitService: UnitService) {

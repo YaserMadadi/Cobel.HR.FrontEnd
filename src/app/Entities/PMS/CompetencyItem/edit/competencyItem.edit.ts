@@ -40,7 +40,8 @@ export class CompetencyItemEditUI extends EditModal<CompetencyItem> implements I
     
   }
   
-  InitCompetencyItem(competencyItem: CompetencyItem) {
+  InitCompetencyItem(competencyItem: CompetencyItem){
+    this.currentInstance = this.service.CreateInstance();
     if (!competencyItem.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

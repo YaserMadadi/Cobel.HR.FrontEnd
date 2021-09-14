@@ -17,7 +17,6 @@ import { HabitancyDeleteUI } from '../../../HR/Habitancy/delete/habitancy.delete
   selector: 'city-habitancy-detail',
   templateUrl: './city-habitancy.detail.html',
   styleUrls: ['./city-habitancy.detail.css'],
-  providers: [CityService]
 }) 
 
 @Injectable()

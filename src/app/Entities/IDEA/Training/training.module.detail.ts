@@ -21,9 +21,6 @@ import { TrainingServiceCollection } from './training.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //TrainingService,
-    //TrainingServiceCollection
-  ]
+  
 })
 export class Training_ModuleDetail { }

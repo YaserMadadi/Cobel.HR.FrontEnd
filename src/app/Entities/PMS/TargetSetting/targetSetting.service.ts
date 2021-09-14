@@ -23,7 +23,7 @@ import { QuantitativeAppraise } from '../QuantitativeAppraise/quantitativeApprai
 import { OperationalAppraise } from '../OperationalAppraise/operationalAppraise';
 import { NonOperationalAppraise } from '../NonOperationalAppraise/nonOperationalAppraise';
 import { QualitativeObjective } from '../QualitativeObjective/qualitativeObjective';
-
+import  { TargetSettingTypeService } from '../../Base.PMS/TargetSettingType/targetSettingType.service';
 
 @Injectable({ providedIn: 'root' })
 export class TargetSettingService extends Service<TargetSetting> implements IService<TargetSetting> {
@@ -31,6 +31,7 @@ export class TargetSettingService extends Service<TargetSetting> implements ISer
   constructor(public ServiceCollection: TargetSettingServiceCollection,
     public EmployeeService: EmployeeService,
     public PositionService: PositionService,
+    public TargetSettingTypeService: TargetSettingTypeService,
     public YearService: YearService) {
     super(ServiceCollection.API_Operation, TargetSetting.Info);
   }

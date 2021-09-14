@@ -20,10 +20,6 @@ import { Synonym_ModuleDetail } from './synonym.module.detail';
     ],
     exports: [
         SynonymMasterUI
-    ],
-    providers: [
-        //SynonymService,
-       // SynonymServiceCollection   
     ]
 })
 

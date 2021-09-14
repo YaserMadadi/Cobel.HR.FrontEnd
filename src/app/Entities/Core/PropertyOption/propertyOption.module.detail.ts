@@ -21,9 +21,6 @@ import { PropertyOptionServiceCollection } from './propertyOption.service.collec
   exports: [
     // No Item...
   ],
-  providers: [
-    //PropertyOptionService,
-    //PropertyOptionServiceCollection
-  ]
+  
 })
 export class PropertyOption_ModuleDetail { }

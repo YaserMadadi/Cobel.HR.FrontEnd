@@ -27,10 +27,6 @@ import { HoldingSectionSeekUI } from './seek/holdingSection.seek';
         HoldingSectionEditUI,
 		HoldingSectionDeleteUI,
 		HoldingSectionSeekUI
-    ],
-    providers: [
-       //HoldingSectionService,
-       // HoldingSectionServiceCollection,
     ]
 })
 

@@ -12,11 +12,7 @@ import { VisionCommentEditUI } from '../edit/visionComment.edit';
 @Component({
   selector: 'pms-visionComment-master',
   templateUrl: './visionComment.master.html',
-  styleUrls: ['./visionComment.master.css'],
-  providers: [
-    VisionCommentService,
-    
-  ]
+  styleUrls: ['./visionComment.master.css']
 })
 export class VisionCommentMasterUI extends MasterModal<VisionComment> {
 

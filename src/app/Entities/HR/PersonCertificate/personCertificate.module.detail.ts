@@ -21,9 +21,6 @@ import { PersonCertificateServiceCollection } from './personCertificate.service.
   exports: [
     // No Item...
   ],
-  providers: [
-    //PersonCertificateService,
-    //PersonCertificateServiceCollection
-  ]
+  
 })
 export class PersonCertificate_ModuleDetail { }

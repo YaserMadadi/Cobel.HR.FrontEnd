@@ -10,7 +10,6 @@ import { ExcemptionTypeService } from '../excemptionType.service';
   selector: 'base-excemptionType-delete',
   templateUrl: './excemptionType.delete.html',
   styleUrls: ['./excemptionType.delete.css'],
-  providers: [ExcemptionTypeService]
 })
 export class ExcemptionTypeDeleteUI extends DeleteModal<ExcemptionType> {
 

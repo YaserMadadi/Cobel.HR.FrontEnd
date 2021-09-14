@@ -14,10 +14,7 @@ import { IndividualDevelopmentPlanService } from '../../../PMS/IndividualDevelop
   selector: 'base-pms-desirableSituation-master',
   templateUrl: './desirableSituation.master.html',
   styleUrls: ['./desirableSituation.master.css'],
-  providers: [
-    DesirableSituationService,
-    IndividualDevelopmentPlanService,
-  ]
+  
 })
 export class DesirableSituationMasterUI extends MasterModal<DesirableSituation> {
 

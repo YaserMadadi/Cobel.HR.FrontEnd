@@ -27,10 +27,6 @@ import { YearSeekUI } from './seek/year.seek';
         YearEditUI,
 		YearDeleteUI,
 		YearSeekUI
-    ],
-    providers: [
-       //YearService,
-       // YearServiceCollection,
     ]
 })
 

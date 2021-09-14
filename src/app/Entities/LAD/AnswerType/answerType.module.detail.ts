@@ -29,9 +29,6 @@ import { QuestionaryItem_ModuleMaster } from '../QuestionaryItem/questionaryItem
     AnswerType_AnswerTypeItem_DetailUI,
 		AnswerType_QuestionaryItem_DetailUI
   ],
-  providers: [
-    //AnswerTypeService,
-    //AnswerTypeServiceCollection
-  ]
+  
 })
 export class AnswerType_ModuleDetail { }

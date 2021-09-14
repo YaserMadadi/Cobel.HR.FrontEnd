@@ -20,10 +20,6 @@ import { DesirableSituation_ModuleDetail } from './desirableSituation.module.det
     ],
     exports: [
         DesirableSituationMasterUI
-    ],
-    providers: [
-        //DesirableSituationService,
-       // DesirableSituationServiceCollection   
     ]
 })
 

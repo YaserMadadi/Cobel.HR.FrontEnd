@@ -40,7 +40,8 @@ export class SchoolLevelEditUI extends EditModal<SchoolLevel> implements IEditMo
     
   }
   
-  InitSchoolLevel(schoolLevel: SchoolLevel) {
+  InitSchoolLevel(schoolLevel: SchoolLevel){
+    this.currentInstance = this.service.CreateInstance();
     if (!schoolLevel.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

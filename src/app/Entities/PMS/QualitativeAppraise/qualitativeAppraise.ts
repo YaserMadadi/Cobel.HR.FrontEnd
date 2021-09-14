@@ -44,8 +44,6 @@ export class QualitativeAppraise extends BusinessObject implements OnInit {
 	
 	public appraiseType: AppraiseType = new AppraiseType();
 	
-	public appraiseTime: AppraiseTime = new AppraiseTime();
-	
 	public actual: number = 0;
 	
 	public score: number = 0;
@@ -74,9 +72,8 @@ export class QualitativeAppraise extends BusinessObject implements OnInit {
 
   public static Validate(qualitativeAppraise: QualitativeAppraise) : boolean {
     let result = Validator.Validate(qualitativeAppraise.qualitativeKPI) &&
-					Validator.Validate(qualitativeAppraise.appraiser) &&
+					Validator.Validate(qualitativeAppraise.appraiser);
 				//	Validator.Validate(qualitativeAppraise.appraiseType) &&
-					Validator.Validate(qualitativeAppraise.appraiseTime);
     if(result === false)
       console.log('QualitativeAppraise is unvalid : ', qualitativeAppraise);
     return result;

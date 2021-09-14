@@ -14,10 +14,7 @@ import { VisionApprovedService } from '../../../PMS/VisionApproved/visionApprove
   selector: 'base-pms-approvementType-master',
   templateUrl: './approvementType.master.html',
   styleUrls: ['./approvementType.master.css'],
-  providers: [
-    ApprovementTypeService,
-    VisionApprovedService,
-  ]
+  
 })
 export class ApprovementTypeMasterUI extends MasterModal<ApprovementType> {
 

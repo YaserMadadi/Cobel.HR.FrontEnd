@@ -20,10 +20,6 @@ import { FieldCategory_ModuleDetail } from './fieldCategory.module.detail';
     ],
     exports: [
         FieldCategoryMasterUI
-    ],
-    providers: [
-        //FieldCategoryService,
-       // FieldCategoryServiceCollection   
     ]
 })
 

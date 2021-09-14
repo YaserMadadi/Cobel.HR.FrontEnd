@@ -16,11 +16,8 @@ import { ConfigQualitativeKPIDeleteUI } from '../../ConfigQualitativeKPI/delete/
 @Component({
   selector: 'qualitativeObjectiveConfig-configQualitativeKPI-detail',
   templateUrl: './qualitativeObjectiveConfig-configQualitativeKPI.detail.html',
-  styleUrls: ['./qualitativeObjectiveConfig-configQualitativeKPI.detail.css'],
-  providers: [ConfigQualitativeObjectiveService]
-}) 
-
-@Injectable()
+  styleUrls: ['./qualitativeObjectiveConfig-configQualitativeKPI.detail.css']
+})
 export class QualitativeObjectiveConfig_ConfigQualitativeKPI_DetailUI extends DetailView<ConfigQualitativeObjective> {
 
   constructor(private configQualitativeObjectiveService: ConfigQualitativeObjectiveService) {

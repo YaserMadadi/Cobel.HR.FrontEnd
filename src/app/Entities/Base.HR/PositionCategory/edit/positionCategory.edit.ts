@@ -42,7 +42,8 @@ export class PositionCategoryEditUI extends EditModal<PositionCategory> implemen
     
   }
   
-  InitPositionCategory(positionCategory: PositionCategory) {
+  InitPositionCategory(positionCategory: PositionCategory){
+    this.currentInstance = this.service.CreateInstance();
     if (!positionCategory.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

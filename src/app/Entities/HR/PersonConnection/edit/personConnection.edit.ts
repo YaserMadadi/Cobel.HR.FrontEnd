@@ -68,7 +68,8 @@ export class PersonConnectionEditUI extends EditModal<PersonConnection> implemen
     this.connectionTypeComponent.LoadList();
   }
   
-  InitPersonConnection(personConnection: PersonConnection) {
+  InitPersonConnection(personConnection: PersonConnection){
+    this.currentInstance = this.service.CreateInstance();
     if (!personConnection.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = personConnection.person;

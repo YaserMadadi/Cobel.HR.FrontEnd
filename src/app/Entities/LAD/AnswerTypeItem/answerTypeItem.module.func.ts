@@ -28,10 +28,6 @@ import { AnswerType_ModuleFunc } from '../AnswerType/answerType.module.func';
         AnswerTypeItemEditUI,
 		AnswerTypeItemDeleteUI,
 		AnswerTypeItemSeekUI
-    ],
-    providers: [
-       //AnswerTypeItemService,
-       // AnswerTypeItemServiceCollection,
     ]
 })
 

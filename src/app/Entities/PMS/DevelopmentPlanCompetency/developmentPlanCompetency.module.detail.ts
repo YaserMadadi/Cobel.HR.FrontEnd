@@ -21,9 +21,6 @@ import { DevelopmentPlanCompetencyServiceCollection } from './developmentPlanCom
   exports: [
     // No Item...
   ],
-  providers: [
-    //DevelopmentPlanCompetencyService,
-    //DevelopmentPlanCompetencyServiceCollection
-  ]
+  
 })
 export class DevelopmentPlanCompetency_ModuleDetail { }

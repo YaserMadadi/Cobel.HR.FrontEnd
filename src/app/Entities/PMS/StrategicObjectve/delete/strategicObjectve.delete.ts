@@ -10,7 +10,7 @@ import { StrategicObjectveService } from '../strategicObjectve.service';
   selector: 'pms-strategicObjectve-delete',
   templateUrl: './strategicObjectve.delete.html',
   styleUrls: ['./strategicObjectve.delete.css'],
-  providers: [StrategicObjectveService]
+  
 })
 export class StrategicObjectveDeleteUI extends DeleteModal<StrategicObjectve> {
 

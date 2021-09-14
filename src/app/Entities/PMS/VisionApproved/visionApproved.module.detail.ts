@@ -21,9 +21,6 @@ import { VisionApprovedServiceCollection } from './visionApproved.service.collec
   exports: [
     // No Item...
   ],
-  providers: [
-    //VisionApprovedService,
-    //VisionApprovedServiceCollection
-  ]
+  
 })
 export class VisionApproved_ModuleDetail { }

@@ -20,10 +20,6 @@ import { RolePermission_ModuleDetail } from './rolePermission.module.detail';
     ],
     exports: [
         RolePermissionMasterUI
-    ],
-    providers: [
-        //RolePermissionService,
-       // RolePermissionServiceCollection   
     ]
 })
 

@@ -24,10 +24,6 @@ import { Contract_ModuleMaster } from '../../HR/Contract/contract.module.master'
   ],
   exports: [
     ContractType_Contract_DetailUI
-  ],
-  providers: [
-    //ContractTypeService,
-    //ContractTypeServiceCollection
   ]
 })
 export class ContractType_ModuleDetail { }

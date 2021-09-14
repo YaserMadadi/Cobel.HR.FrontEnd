@@ -33,10 +33,6 @@ import { PromotionResult_ModuleFunc } from '../PromotionResult/promotionResult.m
         PromotionAssessmentEditUI,
 		PromotionAssessmentDeleteUI,
 		PromotionAssessmentSeekUI
-    ],
-    providers: [
-       //PromotionAssessmentService,
-       // PromotionAssessmentServiceCollection,
     ]
 })
 

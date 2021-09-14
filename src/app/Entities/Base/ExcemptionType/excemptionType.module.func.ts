@@ -27,10 +27,6 @@ import { ExcemptionTypeSeekUI } from './seek/excemptionType.seek';
         ExcemptionTypeEditUI,
 		ExcemptionTypeDeleteUI,
 		ExcemptionTypeSeekUI
-    ],
-    providers: [
-       //ExcemptionTypeService,
-       // ExcemptionTypeServiceCollection,
     ]
 })
 

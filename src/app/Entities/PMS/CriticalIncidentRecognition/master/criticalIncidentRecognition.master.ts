@@ -12,11 +12,7 @@ import { CriticalIncidentRecognitionEditUI } from '../edit/criticalIncidentRecog
 @Component({
   selector: 'pms-criticalIncidentRecognition-master',
   templateUrl: './criticalIncidentRecognition.master.html',
-  styleUrls: ['./criticalIncidentRecognition.master.css'],
-  providers: [
-    CriticalIncidentRecognitionService,
-    
-  ]
+  styleUrls: ['./criticalIncidentRecognition.master.css']
 })
 export class CriticalIncidentRecognitionMasterUI extends MasterModal<CriticalIncidentRecognition> {
 

@@ -10,7 +10,7 @@ import { RotationAssessmentService } from '../rotationAssessment.service';
   selector: 'lad-rotationAssessment-delete',
   templateUrl: './rotationAssessment.delete.html',
   styleUrls: ['./rotationAssessment.delete.css'],
-  providers: [RotationAssessmentService]
+  
 })
 export class RotationAssessmentDeleteUI extends DeleteModal<RotationAssessment> {
 

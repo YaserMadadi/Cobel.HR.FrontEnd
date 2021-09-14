@@ -30,10 +30,6 @@ import { InclusiveType_ModuleFunc } from '../../Base/InclusiveType/inclusiveType
         MilitaryServiceInclusiveEditUI,
 		MilitaryServiceInclusiveDeleteUI,
 		MilitaryServiceInclusiveSeekUI
-    ],
-    providers: [
-       //MilitaryServiceInclusiveService,
-       // MilitaryServiceInclusiveServiceCollection,
     ]
 })
 

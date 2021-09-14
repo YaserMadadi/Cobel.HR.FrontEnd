@@ -1,0 +1,104 @@
+<XDialog Header='Edit Form of CommandParameter' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, commandParameterEditUI)' 
+    #commandParameterEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- ExceptionLog -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ExceptionLog_Id")'></guide>
+        <label for='exceptionLog' class='col-form-label'>ExceptionLog_Id : </label>
+        <span class='help-block col-form-label' *ngIf='!exceptionLog.valid && exceptionLog.touched && !exceptionLog.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #exceptionLog='ngModel' 
+                    #exceptionLogCombo='kendoDropDownList' 
+                    name='exceptionLog' 
+                    title='ExceptionLog_Id'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !exceptionLog.valid && exceptionLog.touched }" 
+                    [data]='exceptionLogComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='exceptionLogComponent.filterable'
+                    (filterChange)='exceptionLogComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.exceptionLog"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='exceptionLogComponent.addable'>
+                      <button class='btn btn-primary' (click)='exceptionLogComponent.onAdd(exceptionLogCombo, exceptionLogEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+      </div>
+			<!-- Name -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Name")'></guide>
+        <label for='name' class='col-form-label'>Name : </label>
+        <span class='help-block col-form-label' *ngIf='!name.valid && name.touched && !name.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Name' 
+                    [ngClass]="{ 'error' : !name.valid && name.touched }" 
+                    class='form-control ' 
+                    #name='ngModel' 
+                    name='name' 
+                    placeholder='... Name' 
+                    [(ngModel)]='currentInstance.name' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  required  />
+      </div>
+			<!-- Value -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Value")'></guide>
+        <label for='value' class='col-form-label'>Value : </label>
+        <span class='help-block col-form-label' *ngIf='!value.valid && value.touched && !value.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Value' 
+                    [ngClass]="{ 'error' : !value.valid && value.touched }" 
+                    class='form-control ' 
+                    #value='ngModel' 
+                    name='value' 
+                    placeholder='... Value' 
+                    [(ngModel)]='currentInstance.value' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  required  />
+      </div>
+			<!-- TypeName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("TypeName")'></guide>
+        <label for='typeName' class='col-form-label'>TypeName : </label>
+        <span class='help-block col-form-label' *ngIf='!typeName.valid && typeName.touched && !typeName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='TypeName' 
+                    [ngClass]="{ 'error' : !typeName.valid && typeName.touched }" 
+                    class='form-control ' 
+                    #typeName='ngModel' 
+                    name='typeName' 
+                    placeholder='... TypeName' 
+                    [(ngModel)]='currentInstance.typeName' 
+                    [disabled]='IsLocked'
+                    maxlength='200'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!commandParameterEditUI.valid || IsLocked' >Save & Close</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!commandParameterEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, commandParameterEditUI, true)'>Save</button>
+      <button id='cancel-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancel</button>
+    </div>
+  </form>
+</XDialog>
+
+<core-exceptionLog-edit #exceptionLogEditUI 
+    (onClosed)='exceptionLogComponent.onClosed($event)'>
+</core-exceptionLog-edit>

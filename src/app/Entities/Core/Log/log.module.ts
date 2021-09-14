@@ -29,10 +29,6 @@ import { Log_ModuleMaster } from './log.module.master';
   exports: [
     LogIndexUI,
 		Log_ModuleMaster,
-  ],
-  providers: [
-    // LogService,
-    // LogServiceCollection
-  ]
+   ]
 })
 export class LogModule {}

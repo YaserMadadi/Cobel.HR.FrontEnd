@@ -21,9 +21,6 @@ import { UserAccountServiceCollection } from './userAccount.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //UserAccountService,
-    //UserAccountServiceCollection
-  ]
+  
 })
 export class UserAccount_ModuleDetail { }

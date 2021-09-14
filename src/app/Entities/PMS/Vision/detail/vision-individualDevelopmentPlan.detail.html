@@ -7,18 +7,15 @@
         <button type='button'
           name='addButton'
           class='xbtn btn-add'
-          *ngIf='false'
           (click)='onAdd(individualDevelopmentPlanEditUI)'>Add</button>
         <button type='button'
           name='editButton'
           class='xbtn btn-edit'
-          *ngIf='false'
           (click)='onEdit(individualDevelopmentPlanEditUI)'
           [disabled]='currentIndividualDevelopmentPlan.id == 0'>Edit</button>
         <button type='button'
           name='deleteButton'
           class='xbtn btn-delete'
-          *ngIf='false'
           (click)='onDelete(individualDevelopmentPlanDeleteUI)'
           [disabled]='currentIndividualDevelopmentPlan.id == 0'>Delete</button>
       </div>

@@ -16,11 +16,8 @@ import { FunctionalAppraiseDeleteUI } from '../../../PMS/FunctionalAppraise/dele
 @Component({
   selector: 'appraiseType-functionalAppraise-detail',
   templateUrl: './appraiseType-functionalAppraise.detail.html',
-  styleUrls: ['./appraiseType-functionalAppraise.detail.css'],
-  providers: [AppraiseTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./appraiseType-functionalAppraise.detail.css']
+})
 export class AppraiseType_FunctionalAppraise_DetailUI extends DetailView<AppraiseType> {
 
   constructor(private appraiseTypeService: AppraiseTypeService) {

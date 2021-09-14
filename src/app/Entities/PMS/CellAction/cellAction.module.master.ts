@@ -20,10 +20,6 @@ import { CellAction_ModuleDetail } from './cellAction.module.detail';
     ],
     exports: [
         CellActionMasterUI
-    ],
-    providers: [
-        //CellActionService,
-       // CellActionServiceCollection   
     ]
 })
 

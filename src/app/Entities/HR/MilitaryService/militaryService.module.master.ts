@@ -20,10 +20,6 @@ import { MilitaryService_ModuleDetail } from './militaryService.module.detail';
     ],
     exports: [
         MilitaryServiceMasterUI
-    ],
-    providers: [
-        //MilitaryServiceService,
-       // MilitaryServiceServiceCollection   
     ]
 })
 

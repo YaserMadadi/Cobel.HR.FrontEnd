@@ -27,8 +27,8 @@ export class PaginatorComponent implements OnInit {
 
   IsShown: boolean = false;
 
-  public RecordIndex(index: number) : number {
-    return (this.paginate.currentPage-1) * this.paginate.recordPerPage + index + 1;
+  public RecordIndex(index: number): number {
+    return (this.paginate.currentPage - 1) * this.paginate.recordPerPage + index + 1;
   }
 
   pagelist: number[] = [];
@@ -42,7 +42,7 @@ export class PaginatorComponent implements OnInit {
     //this.IsShown = false;  
   }
 
-  public openLoading(){
+  public openLoading() {
     this.IsShown = true;
   }
 
@@ -51,6 +51,8 @@ export class PaginatorComponent implements OnInit {
   }
 
   public RefreshUI(paginate: Paginate = new Paginate()) {
+    if (paginate == null)
+      return;
     this.IsShown = false;
     this.pagelist = [];
     this.paginate.pageCount = paginate.pageCount == 0 ? 1 : paginate.pageCount;

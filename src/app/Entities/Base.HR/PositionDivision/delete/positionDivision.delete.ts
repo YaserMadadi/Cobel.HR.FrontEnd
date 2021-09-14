@@ -12,7 +12,7 @@ import { PositionDivisionService } from '../positionDivision.service';
   selector: 'base-hr-positionDivision-delete',
   templateUrl: './positionDivision.delete.html',
   styleUrls: ['./positionDivision.delete.css'],
-  providers: [PositionDivisionService]
+  
 })
 export class PositionDivisionDeleteUI extends DeleteModal<PositionDivision> {
 

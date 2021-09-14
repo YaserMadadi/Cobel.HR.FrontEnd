@@ -1,0 +1,49 @@
+
+<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(commandParameterEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(commandParameterEditUI)' [disabled]='currentCommandParameter.id == 0'>Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(commandParameterDeleteUI)' [disabled]='currentCommandParameter.id == 0'>Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> CommandParameter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let commandParameter of CommandParameterList; let i = index' 
+                (dblclick)='onDblClicked(commandParameterMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : commandParameter.id === currentCommandParameter.id, 'free-row': commandParameter.id !== currentCommandParameter.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ commandParameter.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <core-commandParameter-edit #commandParameterEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </core-commandParameter-edit>
+  <core-commandParameter-delete #commandParameterDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </core-commandParameter-delete>
+  <core-commandParameter-master #commandParameterMasterUI >
+  </core-commandParameter-master>
+</div>

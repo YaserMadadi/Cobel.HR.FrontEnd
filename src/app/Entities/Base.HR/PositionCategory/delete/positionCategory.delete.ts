@@ -12,7 +12,7 @@ import { PositionCategoryService } from '../positionCategory.service';
   selector: 'base-hr-positionCategory-delete',
   templateUrl: './positionCategory.delete.html',
   styleUrls: ['./positionCategory.delete.css'],
-  providers: [PositionCategoryService]
+  
 })
 export class PositionCategoryDeleteUI extends DeleteModal<PositionCategory> {
 

@@ -16,11 +16,8 @@ import { AssessorConnectionLineDeleteUI } from '../../AssessorConnectionLine/del
 @Component({
   selector: 'assessor-assessorConnectionLine-detail',
   templateUrl: './assessor-assessorConnectionLine.detail.html',
-  styleUrls: ['./assessor-assessorConnectionLine.detail.css'],
-  providers: [AssessorService]
-}) 
-
-@Injectable()
+  styleUrls: ['./assessor-assessorConnectionLine.detail.css']
+})
 export class Assessor_AssessorConnectionLine_DetailUI extends DetailView<Assessor> {
 
   constructor(private assessorService: AssessorService) {

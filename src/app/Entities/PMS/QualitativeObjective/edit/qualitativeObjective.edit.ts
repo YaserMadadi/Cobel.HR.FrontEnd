@@ -55,7 +55,8 @@ export class QualitativeObjectiveEditUI extends EditModal<QualitativeObjective> 
     
   }
   
-  InitQualitativeObjective(qualitativeObjective: QualitativeObjective) {
+  InitQualitativeObjective(qualitativeObjective: QualitativeObjective){
+    this.currentInstance = this.service.CreateInstance();
     if (!qualitativeObjective.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.targetSettingComponent.instance = qualitativeObjective.targetSetting;

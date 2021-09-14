@@ -20,10 +20,6 @@ import { DevelopmentPlanType_ModuleDetail } from './developmentPlanType.module.d
     ],
     exports: [
         DevelopmentPlanTypeMasterUI
-    ],
-    providers: [
-        //DevelopmentPlanTypeService,
-       // DevelopmentPlanTypeServiceCollection   
     ]
 })
 

@@ -21,9 +21,6 @@ import { ContractServiceCollection } from './contract.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //ContractService,
-    //ContractServiceCollection
-  ]
+  
 })
 export class Contract_ModuleDetail { }

@@ -24,9 +24,6 @@ import { Training_ModuleMaster } from '../Training/training.module.master';
   exports: [
     Course_Training_DetailUI
   ],
-  providers: [
-    //CourseService,
-    //CourseServiceCollection
-  ]
+  
 })
 export class Course_ModuleDetail { }

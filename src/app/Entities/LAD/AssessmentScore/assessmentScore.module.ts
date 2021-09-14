@@ -29,10 +29,6 @@ import { AssessmentScore_ModuleMaster } from './assessmentScore.module.master';
   exports: [
     AssessmentScoreIndexUI,
 		AssessmentScore_ModuleMaster,
-  ],
-  providers: [
-    // AssessmentScoreService,
-    // AssessmentScoreServiceCollection
-  ]
+   ]
 })
 export class AssessmentScoreModule {}

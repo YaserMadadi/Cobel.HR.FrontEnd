@@ -30,10 +30,6 @@ import { ApproverType_ModuleFunc } from '../../Base.PMS/ApproverType/approverTyp
         AppraisalApproverConfigEditUI,
 		AppraisalApproverConfigDeleteUI,
 		AppraisalApproverConfigSeekUI
-    ],
-    providers: [
-       //AppraisalApproverConfigService,
-       // AppraisalApproverConfigServiceCollection,
     ]
 })
 

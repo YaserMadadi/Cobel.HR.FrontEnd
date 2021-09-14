@@ -27,10 +27,6 @@ import { ReligionSeekUI } from './seek/religion.seek';
         ReligionEditUI,
 		ReligionDeleteUI,
 		ReligionSeekUI
-    ],
-    providers: [
-       //ReligionService,
-       // ReligionServiceCollection,
     ]
 })
 

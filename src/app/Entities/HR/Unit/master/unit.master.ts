@@ -14,10 +14,7 @@ import { PositionService } from '../../Position/position.service';
   selector: 'hr-unit-master',
   templateUrl: './unit.master.html',
   styleUrls: ['./unit.master.css'],
-  providers: [
-    UnitService,
-    PositionService,
-  ]
+  
 })
 export class UnitMasterUI extends MasterModal<Unit> {
 

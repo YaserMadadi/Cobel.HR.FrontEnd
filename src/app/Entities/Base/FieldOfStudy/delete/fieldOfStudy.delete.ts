@@ -10,7 +10,7 @@ import { FieldOfStudyService } from '../fieldOfStudy.service';
   selector: 'base-fieldOfStudy-delete',
   templateUrl: './fieldOfStudy.delete.html',
   styleUrls: ['./fieldOfStudy.delete.css'],
-  providers: [FieldOfStudyService]
+  
 })
 export class FieldOfStudyDeleteUI extends DeleteModal<FieldOfStudy> {
 

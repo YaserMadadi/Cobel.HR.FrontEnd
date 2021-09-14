@@ -10,7 +10,7 @@ import { FunctionalAppraiseService } from '../functionalAppraise.service';
   selector: 'pms-functionalAppraise-delete',
   templateUrl: './functionalAppraise.delete.html',
   styleUrls: ['./functionalAppraise.delete.css'],
-  providers: [FunctionalAppraiseService]
+  
 })
 export class FunctionalAppraiseDeleteUI extends DeleteModal<FunctionalAppraise> {
 

@@ -16,11 +16,8 @@ import { PersonCertificateDeleteUI } from '../../PersonCertificate/delete/person
 @Component({
   selector: 'person-personCertificate-detail',
   templateUrl: './person-personCertificate.detail.html',
-  styleUrls: ['./person-personCertificate.detail.css'],
-  providers: [PersonService]
-}) 
-
-@Injectable()
+  styleUrls: ['./person-personCertificate.detail.css']
+})
 export class Person_PersonCertificate_DetailUI extends DetailView<Person> {
 
   constructor(private personService: PersonService) {

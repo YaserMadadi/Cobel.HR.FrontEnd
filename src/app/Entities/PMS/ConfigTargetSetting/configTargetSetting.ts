@@ -4,7 +4,7 @@ import { Info } from '../../../../xcore/Info';
 import { Validator } from '../../../../xcore/tools/Validator';
 import { BusinessObject } from '../../../../xcore/business-object';
 import { ConfigQualitativeObjective } from '../ConfigQualitativeObjective/configQualitativeObjective';
-import { Position } from '../../HR/Position/position';
+import { PositionCategory } from '../../Base.HR/PositionCategory/positionCategory';
 
 
 @Directive()
@@ -34,7 +34,7 @@ export class ConfigTargetSetting extends BusinessObject implements OnInit {
 
   //#region Fields
 
-	public position: Position = new Position();
+	public positionCategory: PositionCategory = new PositionCategory();
 	
 	public fromDate: Date = new Date();
 	
@@ -67,7 +67,7 @@ export class ConfigTargetSetting extends BusinessObject implements OnInit {
   }
 
   public static Validate(configTargetSetting: ConfigTargetSetting) : boolean {
-    let result = Validator.Validate(configTargetSetting.position);
+    let result = Validator.Validate(configTargetSetting.positionCategory);
     if(result === false)
       console.log('ConfigTargetSetting is unvalid : ', configTargetSetting);
     return result;

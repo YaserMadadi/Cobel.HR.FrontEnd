@@ -32,10 +32,6 @@ import { PersonDrivingLicense_ModuleMaster } from '../../HR/PersonDrivingLicense
   exports: [
     DrivingLicenseTypeIndexUI,
 		DrivingLicenseType_ModuleMaster,
-  ],
-  providers: [
-    // DrivingLicenseTypeService,
-    // DrivingLicenseTypeServiceCollection
-  ]
+   ]
 })
 export class DrivingLicenseTypeModule {}

@@ -20,10 +20,6 @@ import { ExcemptionType_ModuleDetail } from './excemptionType.module.detail';
     ],
     exports: [
         ExcemptionTypeMasterUI
-    ],
-    providers: [
-        //ExcemptionTypeService,
-       // ExcemptionTypeServiceCollection   
     ]
 })
 

@@ -27,10 +27,6 @@ import { LanguageSeekUI } from './seek/language.seek';
         LanguageEditUI,
 		LanguageDeleteUI,
 		LanguageSeekUI
-    ],
-    providers: [
-       //LanguageService,
-       // LanguageServiceCollection,
     ]
 })
 

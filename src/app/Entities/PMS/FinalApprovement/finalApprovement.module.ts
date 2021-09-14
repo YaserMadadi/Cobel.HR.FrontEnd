@@ -29,10 +29,6 @@ import { FinalApprovement_ModuleMaster } from './finalApprovement.module.master'
   exports: [
     FinalApprovementIndexUI,
 		FinalApprovement_ModuleMaster,
-  ],
-  providers: [
-    // FinalApprovementService,
-    // FinalApprovementServiceCollection
-  ]
+   ]
 })
 export class FinalApprovementModule {}

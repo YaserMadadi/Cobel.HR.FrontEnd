@@ -27,10 +27,6 @@ import { PositionDivisionSeekUI } from './seek/positionDivision.seek';
         PositionDivisionEditUI,
 		PositionDivisionDeleteUI,
 		PositionDivisionSeekUI
-    ],
-    providers: [
-       //PositionDivisionService,
-       // PositionDivisionServiceCollection,
     ]
 })
 

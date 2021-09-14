@@ -16,11 +16,8 @@ import { UniversityHistoryDeleteUI } from '../../UniversityHistory/delete/univer
 @Component({
   selector: 'person-universityHistory-detail',
   templateUrl: './person-universityHistory.detail.html',
-  styleUrls: ['./person-universityHistory.detail.css'],
-  providers: [PersonService]
-}) 
-
-@Injectable()
+  styleUrls: ['./person-universityHistory.detail.css']
+})
 export class Person_UniversityHistory_DetailUI extends DetailView<Person> {
 
   constructor(private personService: PersonService) {

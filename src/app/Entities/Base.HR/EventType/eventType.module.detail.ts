@@ -24,10 +24,6 @@ import { EmployeeEvent_ModuleMaster } from '../../HR/EmployeeEvent/employeeEvent
   ],
   exports: [
     EventType_EmployeeEvent_DetailUI
-  ],
-  providers: [
-    //EventTypeService,
-    //EventTypeServiceCollection
   ]
 })
 export class EventType_ModuleDetail { }

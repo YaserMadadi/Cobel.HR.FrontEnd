@@ -55,7 +55,8 @@ export class EmployeeNotificationEditUI extends EditModal<EmployeeNotification> 
     
   }
   
-  InitEmployeeNotification(employeeNotification: EmployeeNotification) {
+  InitEmployeeNotification(employeeNotification: EmployeeNotification){
+    this.currentInstance = this.service.CreateInstance();
     if (!employeeNotification.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = employeeNotification.employee;

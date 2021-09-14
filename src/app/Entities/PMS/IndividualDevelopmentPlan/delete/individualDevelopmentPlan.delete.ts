@@ -10,7 +10,7 @@ import { IndividualDevelopmentPlanService } from '../individualDevelopmentPlan.s
   selector: 'pms-individualDevelopmentPlan-delete',
   templateUrl: './individualDevelopmentPlan.delete.html',
   styleUrls: ['./individualDevelopmentPlan.delete.css'],
-  providers: [IndividualDevelopmentPlanService]
+  
 })
 export class IndividualDevelopmentPlanDeleteUI extends DeleteModal<IndividualDevelopmentPlan> {
 

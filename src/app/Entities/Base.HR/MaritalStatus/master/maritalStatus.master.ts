@@ -14,10 +14,7 @@ import { PersonService } from '../../../HR/Person/person.service';
   selector: 'base-hr-maritalStatus-master',
   templateUrl: './maritalStatus.master.html',
   styleUrls: ['./maritalStatus.master.css'],
-  providers: [
-    MaritalStatusService,
-    PersonService,
-  ]
+  
 })
 export class MaritalStatusMasterUI extends MasterModal<MaritalStatus> {
 

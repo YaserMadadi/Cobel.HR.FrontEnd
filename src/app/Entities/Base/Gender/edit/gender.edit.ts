@@ -40,7 +40,8 @@ export class GenderEditUI extends EditModal<Gender> implements IEditModal<Gender
     
   }
   
-  InitGender(gender: Gender) {
+  InitGender(gender: Gender){
+    this.currentInstance = new Gender();
     if (!gender.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

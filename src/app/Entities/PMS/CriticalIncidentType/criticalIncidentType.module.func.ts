@@ -27,10 +27,6 @@ import { CriticalIncidentTypeSeekUI } from './seek/criticalIncidentType.seek';
         CriticalIncidentTypeEditUI,
 		CriticalIncidentTypeDeleteUI,
 		CriticalIncidentTypeSeekUI
-    ],
-    providers: [
-       //CriticalIncidentTypeService,
-       // CriticalIncidentTypeServiceCollection,
     ]
 })
 

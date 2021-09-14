@@ -34,9 +34,6 @@ import { QualitativeAppraise_ModuleMaster } from '../../PMS/QualitativeAppraise/
 		AppraiseType_FunctionalAppraise_DetailUI,
 		AppraiseType_QualitativeAppraise_DetailUI
   ],
-  providers: [
-    //AppraiseTypeService,
-    //AppraiseTypeServiceCollection
-  ]
+  
 })
 export class AppraiseType_ModuleDetail { }

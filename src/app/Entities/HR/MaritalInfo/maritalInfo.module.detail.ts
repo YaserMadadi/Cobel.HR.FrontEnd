@@ -21,9 +21,6 @@ import { MaritalInfoServiceCollection } from './maritalInfo.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //MaritalInfoService,
-    //MaritalInfoServiceCollection
-  ]
+  
 })
 export class MaritalInfo_ModuleDetail { }

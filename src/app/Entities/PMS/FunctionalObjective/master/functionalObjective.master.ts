@@ -14,13 +14,7 @@ import { FunctionalKPIService } from '../../FunctionalKPI/functionalKPI.service'
 @Component({
   selector: 'pms-functionalObjective-master',
   templateUrl: './functionalObjective.master.html',
-  styleUrls: ['./functionalObjective.master.css'],
-  providers: [
-    FunctionalObjectiveService,
-    FunctionalObjectiveCommentService,
-		FunctionalObjectiveService,
-		FunctionalKPIService,
-  ]
+  styleUrls: ['./functionalObjective.master.css']
 })
 export class FunctionalObjectiveMasterUI extends MasterModal<FunctionalObjective> {
 

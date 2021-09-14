@@ -42,7 +42,8 @@ export class MaritalStatusEditUI extends EditModal<MaritalStatus> implements IEd
     
   }
   
-  InitMaritalStatus(maritalStatus: MaritalStatus) {
+  InitMaritalStatus(maritalStatus: MaritalStatus){
+    this.currentInstance = this.service.CreateInstance();
     if (!maritalStatus.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

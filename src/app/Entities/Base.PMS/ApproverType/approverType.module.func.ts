@@ -27,10 +27,6 @@ import { ApproverTypeSeekUI } from './seek/approverType.seek';
         ApproverTypeEditUI,
 		ApproverTypeDeleteUI,
 		ApproverTypeSeekUI
-    ],
-    providers: [
-       //ApproverTypeService,
-       // ApproverTypeServiceCollection,
     ]
 })
 

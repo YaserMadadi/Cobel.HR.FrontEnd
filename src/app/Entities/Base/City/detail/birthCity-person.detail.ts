@@ -17,7 +17,6 @@ import { PersonDeleteUI } from '../../../HR/Person/delete/person.delete';
   selector: 'birthCity-person-detail',
   templateUrl: './birthCity-person.detail.html',
   styleUrls: ['./birthCity-person.detail.css'],
-  providers: [CityService]
 }) 
 
 @Injectable()

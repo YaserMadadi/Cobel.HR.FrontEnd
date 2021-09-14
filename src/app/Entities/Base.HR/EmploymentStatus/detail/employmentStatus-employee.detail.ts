@@ -16,11 +16,8 @@ import { EmployeeDeleteUI } from '../../../HR/Employee/delete/employee.delete';
 @Component({
   selector: 'employmentStatus-employee-detail',
   templateUrl: './employmentStatus-employee.detail.html',
-  styleUrls: ['./employmentStatus-employee.detail.css'],
-  providers: [EmploymentStatusService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employmentStatus-employee.detail.css']
+})
 export class EmploymentStatus_Employee_DetailUI extends DetailView<EmploymentStatus> {
 
   constructor(private employmentStatusService: EmploymentStatusService) {

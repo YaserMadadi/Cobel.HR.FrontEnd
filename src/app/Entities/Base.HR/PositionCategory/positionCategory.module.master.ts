@@ -20,10 +20,6 @@ import { PositionCategory_ModuleDetail } from './positionCategory.module.detail'
     ],
     exports: [
         PositionCategoryMasterUI
-    ],
-    providers: [
-        //PositionCategoryService,
-       // PositionCategoryServiceCollection   
     ]
 })
 

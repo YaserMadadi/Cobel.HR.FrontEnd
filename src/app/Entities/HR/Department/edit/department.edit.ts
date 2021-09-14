@@ -40,7 +40,8 @@ export class DepartmentEditUI extends EditModal<Department> implements IEditModa
     
   }
   
-  InitDepartment(department: Department) {
+  InitDepartment(department: Department){
+    this.currentInstance = this.service.CreateInstance();
     if (!department.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

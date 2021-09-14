@@ -10,7 +10,7 @@ import { VisionService } from '../vision.service';
   selector: 'pms-vision-delete',
   templateUrl: './vision.delete.html',
   styleUrls: ['./vision.delete.css'],
-  providers: [VisionService]
+  
 })
 export class VisionDeleteUI extends DeleteModal<Vision> {
 

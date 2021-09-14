@@ -30,10 +30,6 @@ import { CriticalIncidentType_ModuleFunc } from '../CriticalIncidentType/critica
         CriticalIncidentEditUI,
 		CriticalIncidentDeleteUI,
 		CriticalIncidentSeekUI
-    ],
-    providers: [
-       //CriticalIncidentService,
-       // CriticalIncidentServiceCollection,
     ]
 })
 

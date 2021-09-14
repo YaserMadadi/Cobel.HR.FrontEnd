@@ -32,10 +32,6 @@ import { Year_ModuleFunc } from '../../Base/Year/year.module.func';
         TargetSettingEditUI,
 		TargetSettingDeleteUI,
 		TargetSettingSeekUI
-    ],
-    providers: [
-       //TargetSettingService,
-       // TargetSettingServiceCollection,
     ]
 })
 

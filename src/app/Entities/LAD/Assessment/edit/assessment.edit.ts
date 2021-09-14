@@ -81,7 +81,8 @@ export class AssessmentEditUI extends EditModal<Assessment> implements IEditModa
     this.assessmentTypeComponent.LoadList();
   }
   
-  InitAssessment(assessment: Assessment) {
+  InitAssessment(assessment: Assessment){
+    this.currentInstance = this.service.CreateInstance();
     if (!assessment.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = assessment.employee;

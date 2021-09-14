@@ -30,10 +30,6 @@ import { DrivingLicenseType_ModuleFunc } from '../../Base/DrivingLicenseType/dri
         PersonDrivingLicenseEditUI,
 		PersonDrivingLicenseDeleteUI,
 		PersonDrivingLicenseSeekUI
-    ],
-    providers: [
-       //PersonDrivingLicenseService,
-       // PersonDrivingLicenseServiceCollection,
     ]
 })
 

@@ -20,10 +20,6 @@ import { MaritalStatus_ModuleDetail } from './maritalStatus.module.detail';
     ],
     exports: [
         MaritalStatusMasterUI
-    ],
-    providers: [
-        //MaritalStatusService,
-       // MaritalStatusServiceCollection   
     ]
 })
 

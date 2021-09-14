@@ -27,10 +27,6 @@ import { EntitySeekUI } from './seek/entity.seek';
         EntityEditUI,
 		EntityDeleteUI,
 		EntitySeekUI
-    ],
-    providers: [
-       //EntityService,
-       // EntityServiceCollection,
     ]
 })
 

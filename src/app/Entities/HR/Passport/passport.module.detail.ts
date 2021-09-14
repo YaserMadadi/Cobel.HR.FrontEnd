@@ -21,9 +21,6 @@ import { PassportServiceCollection } from './passport.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //PassportService,
-    //PassportServiceCollection
-  ]
+  
 })
 export class Passport_ModuleDetail { }

@@ -68,7 +68,8 @@ export class FunctionalObjectiveCommentEditUI extends EditModal<FunctionalObject
     
   }
   
-  InitFunctionalObjectiveComment(functionalObjectiveComment: FunctionalObjectiveComment) {
+  InitFunctionalObjectiveComment(functionalObjectiveComment: FunctionalObjectiveComment){
+    this.currentInstance = this.service.CreateInstance();
     if (!functionalObjectiveComment.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.functionalObjectiveComponent.instance = functionalObjectiveComment.functionalObjective;

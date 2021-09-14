@@ -34,10 +34,6 @@ import { Unit_ModuleMaster } from '../../HR/Unit/unit.module.master';
     DepartmentCategory_AppraisalApproverConfig_DetailUI,
 		PositionCategory_Position_DetailUI,
 		PositionCategory_Unit_DetailUI
-  ],
-  providers: [
-    //PositionCategoryService,
-    //PositionCategoryServiceCollection
   ]
 })
 export class PositionCategory_ModuleDetail { }

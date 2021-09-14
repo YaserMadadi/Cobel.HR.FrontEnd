@@ -27,10 +27,6 @@ import { ContractTypeSeekUI } from './seek/contractType.seek';
         ContractTypeEditUI,
 		ContractTypeDeleteUI,
 		ContractTypeSeekUI
-    ],
-    providers: [
-       //ContractTypeService,
-       // ContractTypeServiceCollection,
     ]
 })
 

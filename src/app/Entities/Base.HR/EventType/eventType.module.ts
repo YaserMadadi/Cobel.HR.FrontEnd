@@ -33,10 +33,6 @@ import { EmployeeEvent_ModuleMaster } from '../../HR/EmployeeEvent/employeeEvent
   exports: [
     EventTypeIndexUI,
 		EventType_ModuleMaster,
-  ],
-  providers: [
-    // EventTypeService,
-    // EventTypeServiceCollection
-  ]
+   ]
 })
 export class EventTypeModule {}

@@ -24,9 +24,6 @@ import { PropertyOption_ModuleMaster } from '../PropertyOption/propertyOption.mo
   exports: [
     Property_PropertyOption_DetailUI
   ],
-  providers: [
-    //PropertyService,
-    //PropertyServiceCollection
-  ]
+  
 })
 export class Property_ModuleDetail { }

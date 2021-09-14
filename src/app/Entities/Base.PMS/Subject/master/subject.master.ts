@@ -14,10 +14,7 @@ import { IndividualDevelopmentPlanService } from '../../../PMS/IndividualDevelop
   selector: 'base-pms-subject-master',
   templateUrl: './subject.master.html',
   styleUrls: ['./subject.master.css'],
-  providers: [
-    SubjectService,
-    IndividualDevelopmentPlanService,
-  ]
+  
 })
 export class SubjectMasterUI extends MasterModal<Subject> {
 

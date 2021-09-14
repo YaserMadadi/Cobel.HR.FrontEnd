@@ -14,10 +14,7 @@ import { BehavioralObjectiveService } from '../../../PMS/BehavioralObjective/beh
   selector: 'base-pms-expectedLevel-master',
   templateUrl: './expectedLevel.master.html',
   styleUrls: ['./expectedLevel.master.css'],
-  providers: [
-    ExpectedLevelService,
-    BehavioralObjectiveService,
-  ]
+  
 })
 export class ExpectedLevelMasterUI extends MasterModal<ExpectedLevel> {
 

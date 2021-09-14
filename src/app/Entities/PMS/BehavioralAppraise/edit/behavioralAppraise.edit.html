@@ -54,30 +54,6 @@
                     </ng-template>
                 </kendo-dropdownlist>
       </div>
-			<!-- AppraiseTime -->
-      <div class='form-group'>
-        <guide (onClick)='onGuid("AppraiseTime_Id")'></guide>
-        <label for='appraiseTime' class='col-form-label'>Appraise Time : </label>
-        <span class='help-block col-form-label' *ngIf='!appraiseTime.valid && appraiseTime.touched && !appraiseTime.disabled'>( Value is not Valid! )</span>
-        <kendo-dropdownlist #appraiseTime='ngModel' 
-                    #appraiseTimeCombo='kendoDropDownList' 
-                    name='appraiseTime' 
-                    title='Appraise Time'
-                    class='form-control'
-                    [ngClass]="{ 'error' : !appraiseTime.valid && appraiseTime.touched }" 
-                    [data]='appraiseTimeComponent.list'
-                    [textField]="'descriptor'"
-                    [valueField]="'id'" 
-                    [filterable]='appraiseTimeComponent.filterable'
-                    (filterChange)='appraiseTimeComponent.DoFilter($event)'
-                    [(ngModel)]="currentInstance.appraiseTime"
-                     required 
-                    [disabled]='IsLocked'>
-                    <ng-template kendoDropDownListFooterTemplate *ngIf='appraiseTimeComponent.addable'>
-                      <button class='btn btn-primary' (click)='appraiseTimeComponent.onAdd(appraiseTimeCombo, appraiseTimeEditUI)'>Add New</button>
-                    </ng-template>
-                </kendo-dropdownlist>
-      </div>
 			<!-- Date -->
       <!-- <div class='form-group'>
         <guide (onClick)='onGuid("Date")'></guide>
@@ -182,9 +158,6 @@
 <base-pms-appraiseType-edit #appraiseTypeEditUI 
     (onClosed)='appraiseTypeComponent.onClosed($event)'>
 </base-pms-appraiseType-edit>
-<base-pms-appraiseTime-edit #appraiseTimeEditUI 
-    (onClosed)='appraiseTimeComponent.onClosed($event)'>
-</base-pms-appraiseTime-edit>
 <hr-employee-edit #appraiserEditUI 
     (onClosed)='appraiserComponent.onClosed($event)'>
 </hr-employee-edit>

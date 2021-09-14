@@ -16,11 +16,8 @@ import { VisionApprovedDeleteUI } from '../../../PMS/VisionApproved/delete/visio
 @Component({
   selector: 'byEmployee-visionApproved-detail',
   templateUrl: './byEmployee-visionApproved.detail.html',
-  styleUrls: ['./byEmployee-visionApproved.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./byEmployee-visionApproved.detail.css']
+})
 export class ByEmployee_VisionApproved_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

@@ -27,10 +27,6 @@ import { AppraiseTypeSeekUI } from './seek/appraiseType.seek';
         AppraiseTypeEditUI,
 		AppraiseTypeDeleteUI,
 		AppraiseTypeSeekUI
-    ],
-    providers: [
-       //AppraiseTypeService,
-       // AppraiseTypeServiceCollection,
     ]
 })
 

@@ -20,10 +20,6 @@ import { EmploymentStatus_ModuleDetail } from './employmentStatus.module.detail'
     ],
     exports: [
         EmploymentStatusMasterUI
-    ],
-    providers: [
-        //EmploymentStatusService,
-       // EmploymentStatusServiceCollection   
     ]
 })
 

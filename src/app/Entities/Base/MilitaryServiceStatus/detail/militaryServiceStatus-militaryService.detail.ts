@@ -16,11 +16,8 @@ import { MilitaryServiceDeleteUI } from '../../../HR/MilitaryService/delete/mili
 @Component({
   selector: 'militaryServiceStatus-militaryService-detail',
   templateUrl: './militaryServiceStatus-militaryService.detail.html',
-  styleUrls: ['./militaryServiceStatus-militaryService.detail.css'],
-  providers: [MilitaryServiceStatusService]
-}) 
-
-@Injectable()
+  styleUrls: ['./militaryServiceStatus-militaryService.detail.css']
+})
 export class MilitaryServiceStatus_MilitaryService_DetailUI extends DetailView<MilitaryServiceStatus> {
 
   constructor(private militaryServiceStatusService: MilitaryServiceStatusService) {

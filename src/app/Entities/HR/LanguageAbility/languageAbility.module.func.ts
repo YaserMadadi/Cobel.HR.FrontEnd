@@ -35,10 +35,6 @@ import { AbilityLevel_ModuleFunc } from '../AbilityLevel/abilityLevel.module.fun
         LanguageAbilityEditUI,
 		LanguageAbilityDeleteUI,
 		LanguageAbilitySeekUI
-    ],
-    providers: [
-       //LanguageAbilityService,
-       // LanguageAbilityServiceCollection,
     ]
 })
 

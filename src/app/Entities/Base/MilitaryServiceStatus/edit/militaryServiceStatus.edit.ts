@@ -40,7 +40,8 @@ export class MilitaryServiceStatusEditUI extends EditModal<MilitaryServiceStatus
     
   }
   
-  InitMilitaryServiceStatus(militaryServiceStatus: MilitaryServiceStatus) {
+  InitMilitaryServiceStatus(militaryServiceStatus: MilitaryServiceStatus){
+    this.currentInstance = this.service.CreateInstance();
     if (!militaryServiceStatus.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

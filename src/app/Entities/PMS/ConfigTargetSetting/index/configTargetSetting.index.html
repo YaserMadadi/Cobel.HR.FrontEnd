@@ -13,14 +13,14 @@
   <!-- Quick Access Menu -->
     <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
         
-		<a class='dropdown-item pointer' (click)='navigate("HR", "Position", currentInstance.position?.id)'>Manage Position</a>
+		<a class='dropdown-item pointer' (click)='navigate("HR", "positionCategory", currentInstance.positionCategory?.id)'>Manage positionCategory</a>
     </dropDownMenu>
   
   <table #configTargetSettingTable class='table table-hover indexTable'>
     <thead>
       <tr>
         <th class='row-number'>Row</th>
-        <th title='Position'>Position</th>
+        <th title='positionCategory'>positionCategory</th>
         <th title='From Date'>From Date</th>
         <th title='Quantitative Weight'>Quantitative Weight</th>
         <th title='Qualitative Weight'>Qualitative Weight</th>
@@ -30,11 +30,11 @@
       <tr name='secondRow'>
         <th class='row-number'></th>
         <th>
-          <input class='form-control' #position='ngModel' id='position' name='position'
-										 title='Position'
+          <input class='form-control' #positionCategory='ngModel' id='positionCategory' name='positionCategory'
+										 title='positionCategory'
 										 autocomplete='off'
-										 placeholder='Position'
-										[(ngModel)]='filterInstance.position.descriptor'
+										 placeholder='positionCategory'
+										[(ngModel)]='filterInstance.positionCategory.descriptor'
 										 type='text'
 										 maxlength='50'
 										 (keyup)='doFilter($event)' />
@@ -89,7 +89,7 @@
     <tbody>
       <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(configTargetSettingMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
         <td class='row-number'>{{ i+1 }}</td>
-				<td>{{ p.position?.descriptor }}</td>
+				<td>{{ p.positionCategory?.descriptor }}</td>
 				<td>{{ p.fromDate | date:'fullDate' }}</td>
 				<td>{{ p.quantitativeWeight | number }}</td>
 				<td>{{ p.qualitativeWeight | number }}</td>

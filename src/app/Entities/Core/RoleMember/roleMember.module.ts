@@ -29,10 +29,6 @@ import { RoleMember_ModuleMaster } from './roleMember.module.master';
   exports: [
     RoleMemberIndexUI,
 		RoleMember_ModuleMaster,
-  ],
-  providers: [
-    // RoleMemberService,
-    // RoleMemberServiceCollection
-  ]
+   ]
 })
 export class RoleMemberModule {}

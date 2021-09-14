@@ -55,7 +55,8 @@ export class CellActionEditUI extends EditModal<CellAction> implements IEditModa
     
   }
   
-  InitCellAction(cellAction: CellAction) {
+  InitCellAction(cellAction: CellAction){
+    this.currentInstance = this.service.CreateInstance();
     if (!cellAction.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.scoreCellComponent.instance = cellAction.scoreCell;

@@ -14,10 +14,7 @@ import { ConclusionService } from '../../Conclusion/conclusion.service';
   selector: 'lad-conclusionType-master',
   templateUrl: './conclusionType.master.html',
   styleUrls: ['./conclusionType.master.css'],
-  providers: [
-    ConclusionTypeService,
-    ConclusionService,
-  ]
+  
 })
 export class ConclusionTypeMasterUI extends MasterModal<ConclusionType> {
 

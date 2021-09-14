@@ -16,11 +16,8 @@ import { CriticalIncidentRecognitionDeleteUI } from '../../CriticalIncidentRecog
 @Component({
   selector: 'criticalIncident-criticalIncidentRecognition-detail',
   templateUrl: './criticalIncident-criticalIncidentRecognition.detail.html',
-  styleUrls: ['./criticalIncident-criticalIncidentRecognition.detail.css'],
-  providers: [CriticalIncidentService]
-}) 
-
-@Injectable()
+  styleUrls: ['./criticalIncident-criticalIncidentRecognition.detail.css']
+})
 export class CriticalIncident_CriticalIncidentRecognition_DetailUI extends DetailView<CriticalIncident> {
 
   constructor(private criticalIncidentService: CriticalIncidentService) {

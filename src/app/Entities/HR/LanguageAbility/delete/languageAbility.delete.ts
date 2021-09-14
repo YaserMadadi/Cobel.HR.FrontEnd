@@ -10,7 +10,7 @@ import { LanguageAbilityService } from '../languageAbility.service';
   selector: 'hr-languageAbility-delete',
   templateUrl: './languageAbility.delete.html',
   styleUrls: ['./languageAbility.delete.css'],
-  providers: [LanguageAbilityService]
+  
 })
 export class LanguageAbilityDeleteUI extends DeleteModal<LanguageAbility> {
 

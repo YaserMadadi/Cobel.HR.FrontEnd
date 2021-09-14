@@ -81,7 +81,8 @@ export class NonOperationalAppraiseEditUI extends EditModal<NonOperationalApprai
     
   }
   
-  InitNonOperationalAppraise(nonOperationalAppraise: NonOperationalAppraise) {
+  InitNonOperationalAppraise(nonOperationalAppraise: NonOperationalAppraise){
+    this.currentInstance = this.service.CreateInstance();
     if (!nonOperationalAppraise.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.targetSettingComponent.instance = nonOperationalAppraise.targetSetting;

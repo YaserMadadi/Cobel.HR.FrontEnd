@@ -10,7 +10,7 @@ import { ProvinceService } from '../province.service';
   selector: 'base-province-delete',
   templateUrl: './province.delete.html',
   styleUrls: ['./province.delete.css'],
-  providers: [ProvinceService]
+  
 })
 export class ProvinceDeleteUI extends DeleteModal<Province> {
 

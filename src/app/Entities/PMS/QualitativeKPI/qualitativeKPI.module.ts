@@ -32,10 +32,6 @@ import { QualitativeAppraise_ModuleMaster } from '../QualitativeAppraise/qualita
   exports: [
     QualitativeKPIIndexUI,
 		QualitativeKPI_ModuleMaster,
-  ],
-  providers: [
-    // QualitativeKPIService,
-    // QualitativeKPIServiceCollection
-  ]
+   ]
 })
 export class QualitativeKPIModule {}

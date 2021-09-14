@@ -40,7 +40,8 @@ export class ApprovementTypeEditUI extends EditModal<ApprovementType> implements
     
   }
   
-  InitApprovementType(approvementType: ApprovementType) {
+  InitApprovementType(approvementType: ApprovementType){
+    this.currentInstance = this.service.CreateInstance();
     if (!approvementType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

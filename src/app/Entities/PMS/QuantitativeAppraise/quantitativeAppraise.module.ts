@@ -29,10 +29,6 @@ import { QuantitativeAppraise_ModuleMaster } from './quantitativeAppraise.module
   exports: [
     QuantitativeAppraiseIndexUI,
 		QuantitativeAppraise_ModuleMaster,
-  ],
-  providers: [
-    // QuantitativeAppraiseService,
-    // QuantitativeAppraiseServiceCollection
-  ]
+   ]
 })
 export class QuantitativeAppraiseModule {}

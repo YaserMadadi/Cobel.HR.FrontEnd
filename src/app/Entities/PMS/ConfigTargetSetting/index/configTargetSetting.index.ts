@@ -13,8 +13,8 @@ import { ConfigTargetSettingMasterUI } from '../master/configTargetSetting.maste
 import { ConfigTargetSettingEditUI } from '../edit/configTargetSetting.edit';
 import { ConfigTargetSettingDeleteUI } from '../delete/configTargetSetting.delete';
 
-import { Position } from '../../../HR/Position/position';
-import { PositionEditUI } from '../../../HR/Position/edit/position.edit';
+import { PositionCategory } from '../../../Base.HR/PositionCategory/positionCategory';
+import { PositionCategoryEditUI } from '../../../Base.HR/PositionCategory/edit/positionCategory.edit';
 
 import { PaginatorComponent } from '../../../../../xcore/tools/ui/components/paginator/paginator.component';
 

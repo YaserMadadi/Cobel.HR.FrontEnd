@@ -20,10 +20,6 @@ import { Unit_ModuleDetail } from './unit.module.detail';
     ],
     exports: [
         UnitMasterUI
-    ],
-    providers: [
-        //UnitService,
-       // UnitServiceCollection   
     ]
 })
 

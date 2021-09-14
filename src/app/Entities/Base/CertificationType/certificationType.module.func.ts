@@ -27,10 +27,6 @@ import { CertificationTypeSeekUI } from './seek/certificationType.seek';
         CertificationTypeEditUI,
 		CertificationTypeDeleteUI,
 		CertificationTypeSeekUI
-    ],
-    providers: [
-       //CertificationTypeService,
-       // CertificationTypeServiceCollection,
     ]
 })
 

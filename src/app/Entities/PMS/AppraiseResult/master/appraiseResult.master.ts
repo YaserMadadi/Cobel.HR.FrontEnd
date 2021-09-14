@@ -14,11 +14,7 @@ import { TargetSetting } from '../../TargetSetting/targetSetting';
 @Component({
   selector: 'pms-appraiseResult-master',
   templateUrl: './appraiseResult.master.html',
-  styleUrls: ['./appraiseResult.master.css'],
-  providers: [
-    AppraiseResultService,
-
-  ]
+  styleUrls: ['./appraiseResult.master.css']
 })
 export class AppraiseResultMasterUI extends MasterModal<AppraiseResult> {
 

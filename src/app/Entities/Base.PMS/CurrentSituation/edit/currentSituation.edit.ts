@@ -40,7 +40,8 @@ export class CurrentSituationEditUI extends EditModal<CurrentSituation> implemen
     
   }
   
-  InitCurrentSituation(currentSituation: CurrentSituation) {
+  InitCurrentSituation(currentSituation: CurrentSituation){
+    this.currentInstance = this.service.CreateInstance();
     if (!currentSituation.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

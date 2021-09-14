@@ -14,12 +14,7 @@ import { AssessmentCoachingService } from '../../AssessmentCoaching/assessmentCo
 @Component({
   selector: 'lad-coaching-master',
   templateUrl: './coaching.master.html',
-  styleUrls: ['./coaching.master.css'],
-  providers: [
-    CoachingService,
-    CoachingSessionService,
-		AssessmentCoachingService,
-  ]
+  styleUrls: ['./coaching.master.css']
 })
 export class CoachingMasterUI extends MasterModal<Coaching> {
 

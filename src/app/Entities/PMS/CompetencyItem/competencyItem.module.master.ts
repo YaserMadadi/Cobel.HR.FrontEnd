@@ -20,10 +20,6 @@ import { CompetencyItem_ModuleDetail } from './competencyItem.module.detail';
     ],
     exports: [
         CompetencyItemMasterUI
-    ],
-    providers: [
-        //CompetencyItemService,
-       // CompetencyItemServiceCollection   
     ]
 })
 

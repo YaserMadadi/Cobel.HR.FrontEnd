@@ -47,7 +47,7 @@ export enum MessageType {
     QuestionnaireIsDone,
     QuestionnaireIsNotAvailable,
     AuthenticationError,
-    
+    RecordIsLocked
 }
 
 export enum Status{

@@ -10,7 +10,7 @@ import { DepartmentService } from '../department.service';
   selector: 'hr-department-delete',
   templateUrl: './department.delete.html',
   styleUrls: ['./department.delete.css'],
-  providers: [DepartmentService]
+  
 })
 export class DepartmentDeleteUI extends DeleteModal<Department> {
 

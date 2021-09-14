@@ -10,7 +10,7 @@ import { CriticalIncidentService } from '../criticalIncident.service';
   selector: 'pms-criticalIncident-delete',
   templateUrl: './criticalIncident.delete.html',
   styleUrls: ['./criticalIncident.delete.css'],
-  providers: [CriticalIncidentService]
+  
 })
 export class CriticalIncidentDeleteUI extends DeleteModal<CriticalIncident> {
 

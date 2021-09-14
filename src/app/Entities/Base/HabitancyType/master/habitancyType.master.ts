@@ -14,10 +14,7 @@ import { HabitancyService } from '../../../HR/Habitancy/habitancy.service';
   selector: 'base-habitancyType-master',
   templateUrl: './habitancyType.master.html',
   styleUrls: ['./habitancyType.master.css'],
-  providers: [
-    HabitancyTypeService,
-    HabitancyService,
-  ]
+  
 })
 export class HabitancyTypeMasterUI extends MasterModal<HabitancyType> {
 

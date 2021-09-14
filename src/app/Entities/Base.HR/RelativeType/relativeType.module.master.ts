@@ -20,10 +20,6 @@ import { RelativeType_ModuleDetail } from './relativeType.module.detail';
     ],
     exports: [
         RelativeTypeMasterUI
-    ],
-    providers: [
-        //RelativeTypeService,
-       // RelativeTypeServiceCollection   
     ]
 })
 

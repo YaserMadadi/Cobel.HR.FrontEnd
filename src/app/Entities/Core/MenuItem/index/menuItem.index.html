@@ -1,0 +1,139 @@
+
+<fieldset class='border'>
+  <legend>MenuItem :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(menuItemEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(menuItemTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(menuItemEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(menuItemDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("Core", "Menu", currentInstance.menu?.id)'>Manage Menu</a>
+		<a class='dropdown-item pointer' (click)='navigate("Core", "MenuItemType", currentInstance.menuItemType?.id)'>Manage MenuItemType</a>
+    </dropDownMenu>
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='roleMenuItem_Clicked(roleMenuItemEditUI)'>Add RoleMenuItem</a>
+		<a class='dropdown-item pointer' (click)='badge_Clicked(badgeEditUI)'>Add Badge</a>
+	
+  </dropDownMenu>
+  <table #menuItemTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Menu_Id'>Menu_Id</th>
+        <th title='MenuItemType_Id'>MenuItemType_Id</th>
+        <th title='Title'>Title</th>
+        <th title='URL'>URL</th>
+        <th title='Icon'>Icon</th>
+        <th title='Priority'>Priority</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #menu='ngModel' id='menu' name='menu'
+										 title='Menu_Id'
+										 autocomplete='off'
+										 placeholder='Menu_Id'
+										[(ngModel)]='filterInstance.menu.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #menuItemType='ngModel' id='menuItemType' name='menuItemType'
+										 title='MenuItemType_Id'
+										 autocomplete='off'
+										 placeholder='MenuItemType_Id'
+										[(ngModel)]='filterInstance.menuItemType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #title='ngModel' id='title' name='title'
+										 title='Title'
+										 autocomplete='off'
+										 placeholder='Title'
+										[(ngModel)]='filterInstance.title'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #url='ngModel' id='url' name='url'
+										 title='URL'
+										 autocomplete='off'
+										 placeholder='URL'
+										[(ngModel)]='filterInstance.url'
+										 type='text'
+										 maxlength='400'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #icon='ngModel' id='icon' name='icon'
+										 title='Icon'
+										 autocomplete='off'
+										 placeholder='Icon'
+										[(ngModel)]='filterInstance.icon'
+										 type='text'
+										 maxlength='100'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #priority='ngModel' id='priority' name='priority'
+										 title='Priority'
+										 autocomplete='off'
+										 placeholder='Priority'
+										[(ngModel)]='filterInstance.priority'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(menuItemMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.menu?.descriptor }}</td>
+				<td>{{ p.menuItemType?.descriptor }}</td>
+				<td>{{ p.title }}</td>
+				<td>{{ p.url }}</td>
+				<td>{{ p.icon }}</td>
+				<td>{{ p.priority | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- MenuItem -->
+<core-menuItem-master #menuItemMasterUI>
+</core-menuItem-master>
+
+<core-menuItem-edit #menuItemEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</core-menuItem-edit>
+
+<core-menuItem-delete #menuItemDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</core-menuItem-delete>
+
+
+<core-roleMenuItem-edit #roleMenuItemEditUI> <!--  (onClosed)='roleMenuItemEditUI_Closed($event)' -->
+</core-roleMenuItem-edit> 
+<core-badge-edit #badgeEditUI> <!--  (onClosed)='badgeEditUI_Closed($event)' -->
+</core-badge-edit> 

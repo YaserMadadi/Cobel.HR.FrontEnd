@@ -20,10 +20,6 @@ import { University_ModuleDetail } from './university.module.detail';
     ],
     exports: [
         UniversityMasterUI
-    ],
-    providers: [
-        //UniversityService,
-       // UniversityServiceCollection   
     ]
 })
 

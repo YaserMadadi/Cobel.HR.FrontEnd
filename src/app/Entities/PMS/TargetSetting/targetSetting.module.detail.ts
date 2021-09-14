@@ -71,9 +71,6 @@ import { TargetSetting_Vision_DetailUI } from './detail/targetSetting-vision.det
 		TargetSetting_QuantitativeAppraise_DetailUI,
 		TargetSetting_Vision_DetailUI,
 	],
-	providers: [
-		//TargetSettingService,
-		//TargetSettingServiceCollection
-	]
+	
 })
 export class TargetSetting_ModuleDetail { }

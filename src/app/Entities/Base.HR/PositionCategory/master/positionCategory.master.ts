@@ -15,13 +15,7 @@ import { PositionService } from '../../../HR/Position/position.service';
 @Component({
   selector: 'base-hr-positionCategory-master',
   templateUrl: './positionCategory.master.html',
-  styleUrls: ['./positionCategory.master.css'],
-  providers: [
-    PositionCategoryService,
-    UnitService,
-		AppraisalApproverConfigService,
-		PositionService,
-  ]
+  styleUrls: ['./positionCategory.master.css']
 })
 export class PositionCategoryMasterUI extends MasterModal<PositionCategory> {
 

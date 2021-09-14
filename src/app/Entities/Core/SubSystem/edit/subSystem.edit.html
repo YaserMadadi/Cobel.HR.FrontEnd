@@ -1,0 +1,95 @@
+<XDialog Header='Edit Form of SubSystem' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, subSystemEditUI)' 
+    #subSystemEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Title -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Title")'></guide>
+        <label for='title' class='col-form-label'>Title : </label>
+        <span class='help-block col-form-label' *ngIf='!title.valid && title.touched && !title.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Title' 
+                    [ngClass]="{ 'error' : !title.valid && title.touched }" 
+                    class='form-control ' 
+                    #title='ngModel' 
+                    name='title' 
+                    placeholder='... Title' 
+                    [(ngModel)]='currentInstance.title' 
+                    [disabled]='IsLocked'
+                    maxlength='400'  required  />
+      </div>
+			<!-- Icon -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Icon")'></guide>
+        <label for='icon' class='col-form-label'>Icon : </label>
+        <span class='help-block col-form-label' *ngIf='!icon.valid && icon.touched && !icon.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Icon' 
+                    [ngClass]="{ 'error' : !icon.valid && icon.touched }" 
+                    class='form-control ' 
+                    #icon='ngModel' 
+                    name='icon' 
+                    placeholder='... Icon' 
+                    [(ngModel)]='currentInstance.icon' 
+                    [disabled]='IsLocked'
+                    maxlength='100'  dir='ltr'  required  />
+      </div>
+			<!-- Priority -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Priority")'></guide>
+        <label for='priority' class='col-form-label'>Priority : </label>
+        <span class='help-block col-form-label' *ngIf='!priority.valid && priority.touched && !priority.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #priority='ngModel' 
+            name='priority' 
+            title='Priority' 
+            placeholder='Priority'
+            class='form-control'
+            [ngClass]="{ 'error' : !priority.valid && priority.touched }" 
+            [value]='currentInstance.priority' 
+            [min]='0' [max]='100' 
+            [(ngModel)]='currentInstance.priority'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+      
+			<!-- IsActive -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("IsActive")'></guide>
+        <label for='isActive' class='col-form-label'>IsActive : </label>
+        <!--IsActive do not Required-->
+        <input type='checkbox' 
+                #isActive 
+                id = 'isActive'
+                name = 'isActive'
+                kendoCheckBox
+                [checked] = 'currentInstance.isActive'
+                [(ngModel)] = 'currentInstance.isActive' /> 
+      </div>
+
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!subSystemEditUI.valid || IsLocked' >Save & Close</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!subSystemEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, subSystemEditUI, true)'>Save</button>
+      <button id='cancel-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancel</button>
+    </div>
+  </form>
+</XDialog>

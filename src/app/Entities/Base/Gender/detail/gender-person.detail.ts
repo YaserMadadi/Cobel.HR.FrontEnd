@@ -17,7 +17,6 @@ import { PersonDeleteUI } from '../../../HR/Person/delete/person.delete';
   selector: 'gender-person-detail',
   templateUrl: './gender-person.detail.html',
   styleUrls: ['./gender-person.detail.css'],
-  providers: [GenderService]
 }) 
 
 @Injectable()

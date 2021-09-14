@@ -12,11 +12,7 @@ import { PropertyOptionEditUI } from '../edit/propertyOption.edit';
 @Component({
   selector: 'core-propertyOption-master',
   templateUrl: './propertyOption.master.html',
-  styleUrls: ['./propertyOption.master.css'],
-  providers: [
-    PropertyOptionService,
-    
-  ]
+  styleUrls: ['./propertyOption.master.css']
 })
 export class PropertyOptionMasterUI extends MasterModal<PropertyOption> {
 

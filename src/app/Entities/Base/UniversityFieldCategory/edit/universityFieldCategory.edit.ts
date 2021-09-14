@@ -40,7 +40,8 @@ export class UniversityFieldCategoryEditUI extends EditModal<UniversityFieldCate
     
   }
   
-  InitUniversityFieldCategory(universityFieldCategory: UniversityFieldCategory) {
+  InitUniversityFieldCategory(universityFieldCategory: UniversityFieldCategory){
+    this.currentInstance = this.service.CreateInstance();
     if (!universityFieldCategory.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

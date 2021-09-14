@@ -33,9 +33,6 @@ import { LogViewerComponent } from "./log-viewer.component";
         NgxJsonViewerModule,
         XCommonModule
         // EntityComparatorComponent
-    ],
-    providers: [
-        // LogServiceExt
     ]
 })
 export class LogViewerModule { }

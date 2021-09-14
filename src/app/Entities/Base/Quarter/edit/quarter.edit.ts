@@ -40,7 +40,8 @@ export class QuarterEditUI extends EditModal<Quarter> implements IEditModal<Quar
     
   }
   
-  InitQuarter(quarter: Quarter) {
+  InitQuarter(quarter: Quarter){
+    this.currentInstance = this.service.CreateInstance();
     if (!quarter.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

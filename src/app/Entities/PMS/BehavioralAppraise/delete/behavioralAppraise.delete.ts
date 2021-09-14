@@ -10,7 +10,7 @@ import { BehavioralAppraiseService } from '../behavioralAppraise.service';
   selector: 'pms-behavioralAppraise-delete',
   templateUrl: './behavioralAppraise.delete.html',
   styleUrls: ['./behavioralAppraise.delete.css'],
-  providers: [BehavioralAppraiseService]
+  
 })
 export class BehavioralAppraiseDeleteUI extends DeleteModal<BehavioralAppraise> {
 

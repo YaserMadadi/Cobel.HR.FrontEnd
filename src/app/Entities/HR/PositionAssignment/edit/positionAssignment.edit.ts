@@ -68,7 +68,8 @@ export class PositionAssignmentEditUI extends EditModal<PositionAssignment> impl
     
   }
   
-  InitPositionAssignment(positionAssignment: PositionAssignment) {
+  InitPositionAssignment(positionAssignment: PositionAssignment){
+    this.currentInstance = this.service.CreateInstance();
     if (!positionAssignment.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = positionAssignment.employee;

@@ -14,10 +14,7 @@ import { QualitativeAppraiseService } from '../../QualitativeAppraise/qualitativ
   selector: 'pms-qualitativeKPI-master',
   templateUrl: './qualitativeKPI.master.html',
   styleUrls: ['./qualitativeKPI.master.css'],
-  providers: [
-    QualitativeKPIService,
-    QualitativeAppraiseService,
-  ]
+  
 })
 export class QualitativeKPIMasterUI extends MasterModal<QualitativeKPI> {
 

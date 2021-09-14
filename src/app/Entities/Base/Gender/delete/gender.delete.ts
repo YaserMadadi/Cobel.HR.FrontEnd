@@ -10,7 +10,6 @@ import { GenderService } from '../gender.service';
   selector: 'base-gender-delete',
   templateUrl: './gender.delete.html',
   styleUrls: ['./gender.delete.css'],
-  providers: [GenderService]
 })
 export class GenderDeleteUI extends DeleteModal<Gender> {
 

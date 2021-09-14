@@ -36,10 +36,6 @@ import { DesirableSituation_ModuleFunc } from '../../Base.PMS/DesirableSituation
         IndividualDevelopmentPlanEditUI,
 		IndividualDevelopmentPlanDeleteUI,
 		IndividualDevelopmentPlanSeekUI
-    ],
-    providers: [
-       //IndividualDevelopmentPlanService,
-       // IndividualDevelopmentPlanServiceCollection,
     ]
 })
 

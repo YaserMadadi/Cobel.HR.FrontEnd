@@ -21,9 +21,6 @@ import { RoleMemberServiceCollection } from './roleMember.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //RoleMemberService,
-    //RoleMemberServiceCollection
-  ]
+  
 })
 export class RoleMember_ModuleDetail { }

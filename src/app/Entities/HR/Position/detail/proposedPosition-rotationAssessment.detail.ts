@@ -16,11 +16,8 @@ import { RotationAssessmentDeleteUI } from '../../../LAD/RotationAssessment/dele
 @Component({
   selector: 'proposedPosition-rotationAssessment-detail',
   templateUrl: './proposedPosition-rotationAssessment.detail.html',
-  styleUrls: ['./proposedPosition-rotationAssessment.detail.css'],
-  providers: [PositionService]
-}) 
-
-@Injectable()
+  styleUrls: ['./proposedPosition-rotationAssessment.detail.css']
+})
 export class ProposedPosition_RotationAssessment_DetailUI extends DetailView<Position> {
 
   constructor(private positionService: PositionService) {

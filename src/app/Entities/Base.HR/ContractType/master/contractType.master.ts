@@ -14,10 +14,7 @@ import { ContractService } from '../../../HR/Contract/contract.service';
   selector: 'base-hr-contractType-master',
   templateUrl: './contractType.master.html',
   styleUrls: ['./contractType.master.css'],
-  providers: [
-    ContractTypeService,
-    ContractService,
-  ]
+  
 })
 export class ContractTypeMasterUI extends MasterModal<ContractType> {
 

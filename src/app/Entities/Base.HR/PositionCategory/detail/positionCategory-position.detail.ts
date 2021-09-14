@@ -16,11 +16,8 @@ import { PositionDeleteUI } from '../../../HR/Position/delete/position.delete';
 @Component({
   selector: 'positionCategory-position-detail',
   templateUrl: './positionCategory-position.detail.html',
-  styleUrls: ['./positionCategory-position.detail.css'],
-  providers: [PositionCategoryService]
-}) 
-
-@Injectable()
+  styleUrls: ['./positionCategory-position.detail.css']
+})
 export class PositionCategory_Position_DetailUI extends DetailView<PositionCategory> {
 
   constructor(private positionCategoryService: PositionCategoryService) {

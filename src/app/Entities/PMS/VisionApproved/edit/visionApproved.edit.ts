@@ -14,6 +14,7 @@ import { Employee } from '../../../HR/Employee/employee';
 import { EmployeeEditUI } from '../../../HR/Employee/edit/employee.edit';
 import { ApprovementType } from '../../../Base.PMS/ApprovementType/approvementType';
 import { ApprovementTypeEditUI } from '../../../Base.PMS/ApprovementType/edit/approvementType.edit';
+import { AuthService } from '../../../../../xcore/security/auth_service';
 
 
 
@@ -81,7 +82,8 @@ export class VisionApprovedEditUI extends EditModal<VisionApproved> implements I
     this.approvementTypeComponent.LoadList();
   }
   
-  InitVisionApproved(visionApproved: VisionApproved) {
+  InitVisionApproved(visionApproved: VisionApproved){
+    this.currentInstance = this.service.CreateInstance();
     if (!visionApproved.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.visionComponent.instance = visionApproved.vision;
@@ -89,7 +91,7 @@ export class VisionApprovedEditUI extends EditModal<VisionApproved> implements I
 			this.approvementTypeComponent.instance = visionApproved.approvementType;
     } else {
       visionApproved.vision = this.visionComponent.instance;
-			visionApproved.byEmployee = this.byEmployeeComponent.instance;
+			visionApproved.byEmployee = this.byEmployeeComponent.instance = AuthService.currentEmployee;
 			visionApproved.approvementType = this.approvementTypeComponent.instance;
     }
     this.currentInstance = visionApproved;

@@ -12,11 +12,7 @@ import { DevelopmentPlanTypeEditUI } from '../edit/developmentPlanType.edit';
 @Component({
   selector: 'base-hr-developmentPlanType-master',
   templateUrl: './developmentPlanType.master.html',
-  styleUrls: ['./developmentPlanType.master.css'],
-  providers: [
-    DevelopmentPlanTypeService,
-    
-  ]
+  styleUrls: ['./developmentPlanType.master.css']
 })
 export class DevelopmentPlanTypeMasterUI extends MasterModal<DevelopmentPlanType> {
 

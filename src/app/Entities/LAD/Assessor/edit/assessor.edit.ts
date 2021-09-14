@@ -55,7 +55,8 @@ export class AssessorEditUI extends EditModal<Assessor> implements IEditModal<As
     
   }
   
-  InitAssessor(assessor: Assessor) {
+  InitAssessor(assessor: Assessor){
+    this.currentInstance = this.service.CreateInstance();
     if (!assessor.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.genderComponent.instance = assessor.gender;

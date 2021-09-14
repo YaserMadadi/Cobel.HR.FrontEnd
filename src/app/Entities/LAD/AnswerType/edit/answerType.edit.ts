@@ -40,7 +40,8 @@ export class AnswerTypeEditUI extends EditModal<AnswerType> implements IEditModa
     
   }
   
-  InitAnswerType(answerType: AnswerType) {
+  InitAnswerType(answerType: AnswerType){
+    this.currentInstance = this.service.CreateInstance();
     if (!answerType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

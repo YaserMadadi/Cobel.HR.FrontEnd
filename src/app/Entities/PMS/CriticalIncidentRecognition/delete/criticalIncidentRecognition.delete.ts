@@ -10,7 +10,7 @@ import { CriticalIncidentRecognitionService } from '../criticalIncidentRecogniti
   selector: 'pms-criticalIncidentRecognition-delete',
   templateUrl: './criticalIncidentRecognition.delete.html',
   styleUrls: ['./criticalIncidentRecognition.delete.css'],
-  providers: [CriticalIncidentRecognitionService]
+  
 })
 export class CriticalIncidentRecognitionDeleteUI extends DeleteModal<CriticalIncidentRecognition> {
 

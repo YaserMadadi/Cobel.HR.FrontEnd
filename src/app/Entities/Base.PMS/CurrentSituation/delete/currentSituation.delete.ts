@@ -10,7 +10,7 @@ import { CurrentSituationService } from '../currentSituation.service';
   selector: 'base-pms-currentSituation-delete',
   templateUrl: './currentSituation.delete.html',
   styleUrls: ['./currentSituation.delete.css'],
-  providers: [CurrentSituationService]
+  
 })
 export class CurrentSituationDeleteUI extends DeleteModal<CurrentSituation> {
 

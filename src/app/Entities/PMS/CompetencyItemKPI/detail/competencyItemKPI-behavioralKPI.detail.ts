@@ -16,11 +16,8 @@ import { BehavioralKPIDeleteUI } from '../../BehavioralKPI/delete/behavioralKPI.
 @Component({
   selector: 'competencyItemKPI-behavioralKPI-detail',
   templateUrl: './competencyItemKPI-behavioralKPI.detail.html',
-  styleUrls: ['./competencyItemKPI-behavioralKPI.detail.css'],
-  providers: [CompetencyItemKPIService]
-}) 
-
-@Injectable()
+  styleUrls: ['./competencyItemKPI-behavioralKPI.detail.css']
+})
 export class CompetencyItemKPI_BehavioralKPI_DetailUI extends DetailView<CompetencyItemKPI> {
 
   constructor(private competencyItemKPIService: CompetencyItemKPIService) {

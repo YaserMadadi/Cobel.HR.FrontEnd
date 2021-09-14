@@ -16,11 +16,8 @@ import { RelativeDeleteUI } from '../../Relative/delete/relative.delete';
 @Component({
   selector: 'peson-relative-detail',
   templateUrl: './peson-relative.detail.html',
-  styleUrls: ['./peson-relative.detail.css'],
-  providers: [PersonService]
-}) 
-
-@Injectable()
+  styleUrls: ['./peson-relative.detail.css']
+})
 export class Peson_Relative_DetailUI extends DetailView<Person> {
 
   constructor(private personService: PersonService) {

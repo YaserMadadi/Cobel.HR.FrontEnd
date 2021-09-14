@@ -36,10 +36,6 @@ import { EmployeeDetail_ModuleMaster } from '../../HR/EmployeeDetail/employeeDet
   exports: [
     EmploymentStatusIndexUI,
 		EmploymentStatus_ModuleMaster,
-  ],
-  providers: [
-    // EmploymentStatusService,
-    // EmploymentStatusServiceCollection
-  ]
+   ]
 })
 export class EmploymentStatusModule {}

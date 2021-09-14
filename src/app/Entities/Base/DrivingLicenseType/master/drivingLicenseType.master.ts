@@ -14,10 +14,7 @@ import { PersonDrivingLicenseService } from '../../../HR/PersonDrivingLicense/pe
   selector: 'base-drivingLicenseType-master',
   templateUrl: './drivingLicenseType.master.html',
   styleUrls: ['./drivingLicenseType.master.css'],
-  providers: [
-    DrivingLicenseTypeService,
-    PersonDrivingLicenseService,
-  ]
+  
 })
 export class DrivingLicenseTypeMasterUI extends MasterModal<DrivingLicenseType> {
 

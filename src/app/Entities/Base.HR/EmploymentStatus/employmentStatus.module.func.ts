@@ -27,10 +27,6 @@ import { EmploymentStatusSeekUI } from './seek/employmentStatus.seek';
         EmploymentStatusEditUI,
 		EmploymentStatusDeleteUI,
 		EmploymentStatusSeekUI
-    ],
-    providers: [
-       //EmploymentStatusService,
-       // EmploymentStatusServiceCollection,
     ]
 })
 

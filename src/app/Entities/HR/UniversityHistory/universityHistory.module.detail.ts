@@ -24,9 +24,6 @@ import { UniversityTerminate_ModuleMaster } from '../UniversityTerminate/univers
   exports: [
     UniversityHistory_UniversityTerminate_DetailUI
   ],
-  providers: [
-    //UniversityHistoryService,
-    //UniversityHistoryServiceCollection
-  ]
+  
 })
 export class UniversityHistory_ModuleDetail { }

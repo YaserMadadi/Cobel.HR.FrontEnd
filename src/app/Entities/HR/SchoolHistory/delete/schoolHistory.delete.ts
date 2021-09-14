@@ -10,7 +10,7 @@ import { SchoolHistoryService } from '../schoolHistory.service';
   selector: 'hr-schoolHistory-delete',
   templateUrl: './schoolHistory.delete.html',
   styleUrls: ['./schoolHistory.delete.css'],
-  providers: [SchoolHistoryService]
+  
 })
 export class SchoolHistoryDeleteUI extends DeleteModal<SchoolHistory> {
 

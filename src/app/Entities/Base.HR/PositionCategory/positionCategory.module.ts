@@ -39,10 +39,6 @@ import { Unit_ModuleMaster } from '../../HR/Unit/unit.module.master';
   exports: [
     PositionCategoryIndexUI,
 		PositionCategory_ModuleMaster,
-  ],
-  providers: [
-    // PositionCategoryService,
-    // PositionCategoryServiceCollection
-  ]
+   ]
 })
 export class PositionCategoryModule {}

@@ -24,9 +24,6 @@ import { ConfigQualitativeObjective_ModuleMaster } from '../ConfigQualitativeObj
   exports: [
     TargetSettingConfig_ConfigQualitativeObjective_DetailUI
   ],
-  providers: [
-    //ConfigTargetSettingService,
-    //ConfigTargetSettingServiceCollection
-  ]
+  
 })
 export class ConfigTargetSetting_ModuleDetail { }

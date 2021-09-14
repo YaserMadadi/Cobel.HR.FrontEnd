@@ -53,10 +53,6 @@ import { QuantitativeAppraise_ModuleMaster } from '../QuantitativeAppraise/quant
   exports: [
     TargetSettingIndexUI,
 		TargetSetting_ModuleMaster,
-  ],
-  providers: [
-    // TargetSettingService,
-    // TargetSettingServiceCollection
-  ]
+   ]
 })
 export class TargetSettingModule {}

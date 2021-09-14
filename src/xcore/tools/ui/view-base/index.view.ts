@@ -1,9 +1,9 @@
-import { Directive, EventEmitter, ViewChild } from "@angular/core";
+import { Directive, EventEmitter, OnInit, Self, ViewChild } from "@angular/core";
 
 import { PermissionType, PermissionResult, MessageType } from "../../Enum";
 import { BusinessObject } from "../../../business-object";
 import { Service } from "../../../service/service";
-import { Router, NavigationEnd } from "@angular/router";
+import { Router, ActivatedRoute, Params, NavigationEnd } from "@angular/router";
 import { MessageController } from "../../controller.message";
 import { MasterModal } from "./master.modal";
 import { EditModal } from "./edit.modal";
@@ -15,15 +15,40 @@ import { PaginatorComponent } from "../components/paginator/paginator.component"
 import { PermissionController } from "../../controller.permission";
 import { LogViewerComponent } from "../log-viewer/log-viewer.component";
 
-@Directive()
-export class IndexView<T extends BusinessObject> implements IIndexView<T> {
+@Directive({
+    providers: []
+})
+export class IndexView<T extends BusinessObject> implements IIndexView<T>, OnInit {
 
     private router: Router;
-    // private activatedRoute: ActivatedRoute;
 
     constructor(private businessObjectService: Service<T>) { // private router: Router, private activatedRoute: ActivatedRoute) {
         this.router = businessObjectService.router;
+
         this.currentInstance = businessObjectService?.CreateInstance();
+        this.detectParameter();
+
+
+
+
+        // this.router.events.forEach((event) => {
+        //     if (event instanceof NavigationEnd) {
+        //         this.urlWatcher(event.url);
+        //     }
+        // });
+    }
+
+    ngOnInit(): void {
+        
+    }
+
+    detectParameter() {
+        // this.Id = +this.businessObjectService.activatedRoute.snapshot.params["id"];
+        // console.log(this.Id);
+        // this.businessObjectService.activatedRoute.params.subscribe((params: Params) => {
+        //     this.Id = +params["id"];
+        //     console.log(this.Id);
+        // });
         this.router.events.forEach((event) => {
             if (event instanceof NavigationEnd) {
                 this.urlWatcher(event.url);
@@ -37,10 +62,11 @@ export class IndexView<T extends BusinessObject> implements IIndexView<T> {
     public IdChanged: EventEmitter<number> = new EventEmitter<number>();
 
     public onIdChanged() {
-
+        this.onRefresh();
+        this.IdChanged.emit(this.id);
     }
 
-    
+
 
     //#region Id
 
@@ -51,12 +77,14 @@ export class IndexView<T extends BusinessObject> implements IIndexView<T> {
     }
 
     public set Id(idValue: number) {
-        if(idValue == this.id)
+        if (idValue == this.id)
             return;
-        this.id = isNaN(idValue) ? 0 : idValue;
-        this.onIdChanged();
-        this.IdChanged.emit(this.id);
-        this.onRefresh();
+        if (isNaN(idValue)) {
+            this.id = 0;
+        } else {
+            this.id = idValue;
+            this.onIdChanged();
+        }
     }
 
     //#endregion
@@ -192,5 +220,5 @@ export class IndexView<T extends BusinessObject> implements IIndexView<T> {
             keyboardEvent.key === "Delete") //46)
     }
 
-    
+
 }

@@ -24,7 +24,6 @@ export class BehavioralAppraiseService extends Service<BehavioralAppraise> imple
   constructor(public ServiceCollection: BehavioralAppraiseServiceCollection,
 		public BehavioralKPIService: BehavioralKPIService,
 		public AppraiseTypeService: AppraiseTypeService,
-		public AppraiseTimeService: AppraiseTimeService,
 		public EmployeeService: EmployeeService) {
     super(ServiceCollection.API_Operation, BehavioralAppraise.Info);
   }

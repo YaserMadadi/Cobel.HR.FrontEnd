@@ -16,11 +16,8 @@ import { BehavioralAppraiseDeleteUI } from '../../../PMS/BehavioralAppraise/dele
 @Component({
   selector: 'appraiseType-behavioralAppraise-detail',
   templateUrl: './appraiseType-behavioralAppraise.detail.html',
-  styleUrls: ['./appraiseType-behavioralAppraise.detail.css'],
-  providers: [AppraiseTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./appraiseType-behavioralAppraise.detail.css']
+})
 export class AppraiseType_BehavioralAppraise_DetailUI extends DetailView<AppraiseType> {
 
   constructor(private appraiseTypeService: AppraiseTypeService) {

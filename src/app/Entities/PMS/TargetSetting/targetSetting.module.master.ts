@@ -20,10 +20,6 @@ import { TargetSetting_ModuleDetail } from './targetSetting.module.detail';
     ],
     exports: [
         TargetSettingMasterUI
-    ],
-    providers: [
-        //TargetSettingService,
-       // TargetSettingServiceCollection   
     ]
 })
 

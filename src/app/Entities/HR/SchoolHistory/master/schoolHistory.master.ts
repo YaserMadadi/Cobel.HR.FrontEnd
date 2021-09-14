@@ -12,11 +12,7 @@ import { SchoolHistoryEditUI } from '../edit/schoolHistory.edit';
 @Component({
   selector: 'hr-schoolHistory-master',
   templateUrl: './schoolHistory.master.html',
-  styleUrls: ['./schoolHistory.master.css'],
-  providers: [
-    SchoolHistoryService,
-    
-  ]
+  styleUrls: ['./schoolHistory.master.css']
 })
 export class SchoolHistoryMasterUI extends MasterModal<SchoolHistory> {
 

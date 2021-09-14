@@ -55,7 +55,8 @@ export class UniversityEditUI extends EditModal<University> implements IEditModa
     
   }
   
-  InitUniversity(university: University) {
+  InitUniversity(university: University){
+    this.currentInstance = this.service.CreateInstance();
     if (!university.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.cityComponent.instance = university.city;

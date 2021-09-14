@@ -1,4 +1,7 @@
-﻿<XDialog Header='Vision Management form' [IsShown]='IsShown' (OnClosed)='onClose()' [ModalType]='2'>
+﻿<XDialog Header='Vision Management form'
+         [IsShown]='IsShown'
+         (OnClosed)='onClose()'
+         [ModalType]='2'>
     <div class='master-content'>
         <fieldset class='border rounded'>
             <legend>Vision : </legend>
@@ -25,40 +28,59 @@
                     <label class='col-sm-4 titleControl'>Employee Approvement Status :
                         <guide (onClick)='onGuid("isApprovedByEmployee")'></guide>
                     </label>
-                    <label class='col-sm-8'>{{ (currentInstance.isApprovedByEmployee?"Approved":"Not
-                        Approved")}}</label>
+                    <label class='col-sm-8'>{{ (currentInstance.isApprovedByEmployee ? "Approved" : "Not Approved" )
+                        }}</label>
+                    <button class='btn btn-link'
+                            *ngIf='!currentInstance.isApprovedByEmployee'
+                            (click)='onApproved(pmsVisionApprovedEdit)'>Approve</button>
                 </div>
                 <div class='form-group row'>
                     <label class='col-sm-4 titleControl'>Direct Manager Approvement Status :
                         <guide (onClick)='onGuid("isApprovedByDirectManager")'></guide>
                     </label>
-                    <label class='col-sm-8'>{{ (currentInstance.isApprovedByDirectManager?"Approved":"Not Approved")
-                        }}</label>
+                    <div class='col-sm-8'>
+
+                        <label>{{ (currentInstance.isApprovedByDirectManager?"Approved":"Not Approved")
+                            }}</label>
+                        <button class='btn btn-link'
+                                *ngIf='currentInstance.isApprovedByEmployee && !currentInstance.isApprovedByDirectManager'
+                                (click)='onApproved(pmsVisionApprovedEdit)'>Approve</button>
+                    </div>
                 </div>
                 <div class='form-group row'>
                     <label class='col-sm-4 titleControl'>BuHead Approvement Status :
                         <guide (onClick)='onGuid("isApprovedByBuHead")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ (currentInstance.isApprovedByBuHead?"Approved":"Not Approved") }}</label>
+                    <button class='btn btn-link'
+                                *ngIf='currentInstance.isApprovedByDirectManager && !currentInstance.isApprovedByBuHead'
+                                (click)='onApproved(pmsVisionApprovedEdit)'>Approve</button>
                 </div>
             </div>
-            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+            <button class='xbtn btn-refresh float-right'
+                    (click)='onReload()'>reload...</button>
         </fieldset>
         <hr />
         <tabset #tabset>
-            <tab heading='Vision Comment' *ngIf='false'>
-                <vision-visionComment-detail #pmsVisionVisionCommentDetail [Vision]='currentInstance'>
-                </vision-visionComment-detail>
-            </tab>
-            <tab heading='Vision Approved' *ngIf='false'>
-                <vision-visionApproved-detail #pmsVisionVisionApprovedDetail [Vision]='currentInstance'>
-                </vision-visionApproved-detail>
-            </tab>
             <tab heading='Individual Development Plan'>
                 <vision-individualDevelopmentPlan-detail #pmsVisionIndividualDevelopmentPlanDetail
-                    [Vision]='currentInstance'>
+                                                         [Vision]='currentInstance'>
                 </vision-individualDevelopmentPlan-detail>
+            </tab>
+            <tab heading='Vision Comment'
+                 *ngIf='false'>
+                <vision-visionComment-detail #pmsVisionVisionCommentDetail
+                                             [Vision]='currentInstance'>
+                </vision-visionComment-detail>
+            </tab>
+            <tab heading='Vision Approved'>
+                <vision-visionApproved-detail #pmsVisionVisionApprovedDetail
+                                              [Vision]='currentInstance'>
+                </vision-visionApproved-detail>
             </tab>
         </tabset>
     </div>
 </XDialog>
+<pms-visionApproved-edit #pmsVisionApprovedEdit>
+
+</pms-visionApproved-edit>

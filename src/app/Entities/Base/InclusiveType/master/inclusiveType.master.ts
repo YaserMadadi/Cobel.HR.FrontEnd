@@ -14,10 +14,7 @@ import { MilitaryServiceInclusiveService } from '../../../HR/MilitaryServiceIncl
   selector: 'base-inclusiveType-master',
   templateUrl: './inclusiveType.master.html',
   styleUrls: ['./inclusiveType.master.css'],
-  providers: [
-    InclusiveTypeService,
-    MilitaryServiceInclusiveService,
-  ]
+  
 })
 export class InclusiveTypeMasterUI extends MasterModal<InclusiveType> {
 

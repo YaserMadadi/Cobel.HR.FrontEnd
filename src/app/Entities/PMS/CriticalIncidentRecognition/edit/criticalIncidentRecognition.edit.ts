@@ -68,7 +68,8 @@ export class CriticalIncidentRecognitionEditUI extends EditModal<CriticalInciden
     
   }
   
-  InitCriticalIncidentRecognition(criticalIncidentRecognition: CriticalIncidentRecognition) {
+  InitCriticalIncidentRecognition(criticalIncidentRecognition: CriticalIncidentRecognition){
+    this.currentInstance = this.service.CreateInstance();
     if (!criticalIncidentRecognition.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.criticalIncidentComponent.instance = criticalIncidentRecognition.criticalIncident;

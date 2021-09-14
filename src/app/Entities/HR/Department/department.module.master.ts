@@ -20,10 +20,6 @@ import { Department_ModuleDetail } from './department.module.detail';
     ],
     exports: [
         DepartmentMasterUI
-    ],
-    providers: [
-        //DepartmentService,
-       // DepartmentServiceCollection   
     ]
 })
 

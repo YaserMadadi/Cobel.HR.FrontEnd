@@ -55,7 +55,8 @@ export class FeedbackSessionEditUI extends EditModal<FeedbackSession> implements
     
   }
   
-  InitFeedbackSession(feedbackSession: FeedbackSession) {
+  InitFeedbackSession(feedbackSession: FeedbackSession){
+    this.currentInstance = this.service.CreateInstance();
     if (!feedbackSession.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.assessmentComponent.instance = feedbackSession.assessment;

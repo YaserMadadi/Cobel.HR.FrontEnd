@@ -10,7 +10,7 @@ import { ReligionService } from '../religion.service';
   selector: 'base-religion-delete',
   templateUrl: './religion.delete.html',
   styleUrls: ['./religion.delete.css'],
-  providers: [ReligionService]
+  
 })
 export class ReligionDeleteUI extends DeleteModal<Religion> {
 

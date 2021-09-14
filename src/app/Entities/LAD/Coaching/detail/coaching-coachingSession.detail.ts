@@ -16,11 +16,8 @@ import { CoachingSessionDeleteUI } from '../../CoachingSession/delete/coachingSe
 @Component({
   selector: 'coaching-coachingSession-detail',
   templateUrl: './coaching-coachingSession.detail.html',
-  styleUrls: ['./coaching-coachingSession.detail.css'],
-  providers: [CoachingService]
-}) 
-
-@Injectable()
+  styleUrls: ['./coaching-coachingSession.detail.css']
+})
 export class Coaching_CoachingSession_DetailUI extends DetailView<Coaching> {
 
   constructor(private coachingService: CoachingService) {

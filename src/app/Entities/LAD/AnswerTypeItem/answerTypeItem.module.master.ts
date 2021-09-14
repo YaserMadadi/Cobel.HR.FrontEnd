@@ -20,10 +20,6 @@ import { AnswerTypeItem_ModuleDetail } from './answerTypeItem.module.detail';
     ],
     exports: [
         AnswerTypeItemMasterUI
-    ],
-    providers: [
-        //AnswerTypeItemService,
-       // AnswerTypeItemServiceCollection   
     ]
 })
 

@@ -54,7 +54,7 @@ export class PositionIndexUI extends IndexView<Position> implements AfterViewIni
   //#region ConfigTargetSetting
 
   public configTargetSetting_Clicked(configTargetSettingEditUI: ConfigTargetSettingEditUI) {
-    configTargetSettingEditUI.Position = this.currentInstance;
+   // configTargetSettingEditUI.positionCategory = this.currentInstance;
     configTargetSettingEditUI.ShowDialog(new ConfigTargetSetting());
   }
                     

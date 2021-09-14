@@ -35,10 +35,6 @@ import { MilitaryServiceInclusive_ModuleMaster } from '../MilitaryServiceInclusi
   exports: [
     MilitaryServiceIndexUI,
 		MilitaryService_ModuleMaster,
-  ],
-  providers: [
-    // MilitaryServiceService,
-    // MilitaryServiceServiceCollection
-  ]
+   ]
 })
 export class MilitaryServiceModule {}

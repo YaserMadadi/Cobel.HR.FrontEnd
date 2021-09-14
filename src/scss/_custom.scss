@@ -2,7 +2,7 @@
 
 
 .app2 {
-    font-family: "Segoe UI";   
+    font-family: Roboto, "Segoe UI";   
     font-style: italic; 
 
 }
@@ -14,6 +14,10 @@
 //     margin: -10px;
 
 // }
+
+.ml-auto{
+    margin-right: auto !important;
+}
 
 legend{
     width: auto;
@@ -186,7 +190,7 @@ sub{
 
 .ml-auto,
 .mx-auto {
-  margin-right: auto !important;
+  margin-left: auto !important;
 }
 
 .indexTable{
@@ -362,6 +366,7 @@ th{
 .pointer{
     cursor: pointer;
     color: #c1cc68;
+    background-color: #fafafa;
 }
 
 body{

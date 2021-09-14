@@ -29,10 +29,6 @@ import { CoachingQuestionaryAnswered_ModuleMaster } from './coachingQuestionaryA
   exports: [
     CoachingQuestionaryAnsweredIndexUI,
 		CoachingQuestionaryAnswered_ModuleMaster,
-  ],
-  providers: [
-    // CoachingQuestionaryAnsweredService,
-    // CoachingQuestionaryAnsweredServiceCollection
-  ]
+   ]
 })
 export class CoachingQuestionaryAnsweredModule {}

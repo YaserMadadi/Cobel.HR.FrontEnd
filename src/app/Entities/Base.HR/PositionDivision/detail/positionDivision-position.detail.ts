@@ -16,11 +16,8 @@ import { PositionDeleteUI } from '../../../HR/Position/delete/position.delete';
 @Component({
   selector: 'positionDivision-position-detail',
   templateUrl: './positionDivision-position.detail.html',
-  styleUrls: ['./positionDivision-position.detail.css'],
-  providers: [PositionDivisionService]
-}) 
-
-@Injectable()
+  styleUrls: ['./positionDivision-position.detail.css']
+})
 export class PositionDivision_Position_DetailUI extends DetailView<PositionDivision> {
 
   constructor(private positionDivisionService: PositionDivisionService) {

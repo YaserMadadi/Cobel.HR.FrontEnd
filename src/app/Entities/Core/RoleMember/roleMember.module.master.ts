@@ -20,10 +20,6 @@ import { RoleMember_ModuleDetail } from './roleMember.module.detail';
     ],
     exports: [
         RoleMemberMasterUI
-    ],
-    providers: [
-        //RoleMemberService,
-       // RoleMemberServiceCollection   
     ]
 })
 

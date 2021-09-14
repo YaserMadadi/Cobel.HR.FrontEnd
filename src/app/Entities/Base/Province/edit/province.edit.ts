@@ -40,7 +40,8 @@ export class ProvinceEditUI extends EditModal<Province> implements IEditModal<Pr
     
   }
   
-  InitProvince(province: Province) {
+  InitProvince(province: Province){
+    this.currentInstance = new Province();
     if (!province.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

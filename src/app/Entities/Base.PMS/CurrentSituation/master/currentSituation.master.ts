@@ -14,10 +14,7 @@ import { IndividualDevelopmentPlanService } from '../../../PMS/IndividualDevelop
   selector: 'base-pms-currentSituation-master',
   templateUrl: './currentSituation.master.html',
   styleUrls: ['./currentSituation.master.css'],
-  providers: [
-    CurrentSituationService,
-    IndividualDevelopmentPlanService,
-  ]
+  
 })
 export class CurrentSituationMasterUI extends MasterModal<CurrentSituation> {
 

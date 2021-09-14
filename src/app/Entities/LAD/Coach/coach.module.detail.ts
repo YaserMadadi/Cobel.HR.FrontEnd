@@ -29,9 +29,6 @@ import { Coaching_ModuleMaster } from '../Coaching/coaching.module.master';
     Coach_CoachConnectionLine_DetailUI,
 		Coach_Coaching_DetailUI
   ],
-  providers: [
-    //CoachService,
-    //CoachServiceCollection
-  ]
+  
 })
 export class Coach_ModuleDetail { }

@@ -21,9 +21,6 @@ import { QualitativeAppraiseServiceCollection } from './qualitativeAppraise.serv
   exports: [
     // No Item...
   ],
-  providers: [
-    //QualitativeAppraiseService,
-    //QualitativeAppraiseServiceCollection
-  ]
+  
 })
 export class QualitativeAppraise_ModuleDetail { }

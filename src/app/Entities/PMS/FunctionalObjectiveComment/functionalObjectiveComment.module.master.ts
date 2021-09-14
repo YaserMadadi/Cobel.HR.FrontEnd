@@ -20,10 +20,6 @@ import { FunctionalObjectiveComment_ModuleDetail } from './functionalObjectiveCo
     ],
     exports: [
         FunctionalObjectiveCommentMasterUI
-    ],
-    providers: [
-        //FunctionalObjectiveCommentService,
-       // FunctionalObjectiveCommentServiceCollection   
     ]
 })
 

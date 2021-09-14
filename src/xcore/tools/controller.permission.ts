@@ -25,17 +25,13 @@ export class PermissionController {
             headers: EndPointController.Headers
         });
         let resultData = await command.toPromise<ResultData<RolePermission[]>>();
-        console.log('load Permissions is done! : ', resultData);
+        //console.log('load Permissions is done! : ', resultData);
         PermissionController.RolePermissionList = !resultData.isSucceeded ? [] : resultData.data;
-        // //this.router.navigate(['dashboard']);
         this.router.navigate(['/Home', 'Home']);
     }
 
     public static Check(info: Info, permissionType: PermissionType) {
-        //return PermissionResult.Granted;
         let permissionResult: PermissionResult = PermissionResult.Denied;
-        // console.log(info);
-        // console.log(PermissionManager.RolePermissionList);
         let selectedList = PermissionController.RolePermissionList.filter((rolePermission) => {
             return (rolePermission.entity.schema === info.schema && rolePermission.entity.name === info.name);
         });

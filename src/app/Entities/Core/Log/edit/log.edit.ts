@@ -55,7 +55,8 @@ export class LogEditUI extends EditModal<Log> implements IEditModal<Log>  {
     
   }
   
-  InitLog(log: Log) {
+  InitLog(log: Log){
+    this.currentInstance = this.service.CreateInstance();
     if (!log.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = log.person;

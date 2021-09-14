@@ -16,11 +16,8 @@ import { PromotionAssessmentDeleteUI } from '../../../LAD/PromotionAssessment/de
 @Component({
   selector: 'proposedPosition-promotionAssessment-detail',
   templateUrl: './proposedPosition-promotionAssessment.detail.html',
-  styleUrls: ['./proposedPosition-promotionAssessment.detail.css'],
-  providers: [PositionService]
-}) 
-
-@Injectable()
+  styleUrls: ['./proposedPosition-promotionAssessment.detail.css']
+})
 export class ProposedPosition_PromotionAssessment_DetailUI extends DetailView<Position> {
 
   constructor(private positionService: PositionService) {

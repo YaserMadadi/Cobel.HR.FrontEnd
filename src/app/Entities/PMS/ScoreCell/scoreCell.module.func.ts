@@ -27,10 +27,6 @@ import { ScoreCellSeekUI } from './seek/scoreCell.seek';
         ScoreCellEditUI,
 		ScoreCellDeleteUI,
 		ScoreCellSeekUI
-    ],
-    providers: [
-       //ScoreCellService,
-       // ScoreCellServiceCollection,
     ]
 })
 

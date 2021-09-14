@@ -35,10 +35,6 @@ import { EmployeeDetail_ModuleMaster } from '../../HR/EmployeeDetail/employeeDet
   exports: [
     HoldingSectionIndexUI,
 		HoldingSection_ModuleMaster,
-  ],
-  providers: [
-    // HoldingSectionService,
-    // HoldingSectionServiceCollection
-  ]
+   ]
 })
 export class HoldingSectionModule {}

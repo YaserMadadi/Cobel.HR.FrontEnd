@@ -12,11 +12,7 @@ import { FunctionalObjectiveCommentEditUI } from '../edit/functionalObjectiveCom
 @Component({
   selector: 'pms-functionalObjectiveComment-master',
   templateUrl: './functionalObjectiveComment.master.html',
-  styleUrls: ['./functionalObjectiveComment.master.css'],
-  providers: [
-    FunctionalObjectiveCommentService,
-    
-  ]
+  styleUrls: ['./functionalObjectiveComment.master.css']
 })
 export class FunctionalObjectiveCommentMasterUI extends MasterModal<FunctionalObjectiveComment> {
 

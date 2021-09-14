@@ -13,14 +13,7 @@ import { LanguageAbilityService } from '../../LanguageAbility/languageAbility.se
 @Component({
   selector: 'hr-abilityLevel-master',
   templateUrl: './abilityLevel.master.html',
-  styleUrls: ['./abilityLevel.master.css'],
-  providers: [
-    AbilityLevelService,
-    LanguageAbilityService,
-		LanguageAbilityService,
-		LanguageAbilityService,
-		LanguageAbilityService,
-  ]
+  styleUrls: ['./abilityLevel.master.css']
 })
 export class AbilityLevelMasterUI extends MasterModal<AbilityLevel> {
 

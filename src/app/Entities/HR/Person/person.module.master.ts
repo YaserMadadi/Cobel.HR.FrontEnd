@@ -20,10 +20,6 @@ import { Person_ModuleDetail } from './person.module.detail';
     ],
     exports: [
         PersonMasterUI
-    ],
-    providers: [
-        //PersonService,
-       // PersonServiceCollection   
     ]
 })
 

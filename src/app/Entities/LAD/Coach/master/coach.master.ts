@@ -14,12 +14,7 @@ import { CoachConnectionLineService } from '../../CoachConnectionLine/coachConne
 @Component({
   selector: 'lad-coach-master',
   templateUrl: './coach.master.html',
-  styleUrls: ['./coach.master.css'],
-  providers: [
-    CoachService,
-    CoachingService,
-		CoachConnectionLineService,
-  ]
+  styleUrls: ['./coach.master.css']
 })
 export class CoachMasterUI extends MasterModal<Coach> {
 

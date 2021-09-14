@@ -14,10 +14,7 @@ import { DevelopmentPlanCompetencyService } from '../../DevelopmentPlanCompetenc
   selector: 'pms-individualDevelopmentPlan-master',
   templateUrl: './individualDevelopmentPlan.master.html',
   styleUrls: ['./individualDevelopmentPlan.master.css'],
-  providers: [
-    IndividualDevelopmentPlanService,
-    DevelopmentPlanCompetencyService,
-  ]
+  
 })
 export class IndividualDevelopmentPlanMasterUI extends MasterModal<IndividualDevelopmentPlan> {
 

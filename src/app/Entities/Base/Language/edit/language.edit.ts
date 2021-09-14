@@ -40,7 +40,8 @@ export class LanguageEditUI extends EditModal<Language> implements IEditModal<La
     
   }
   
-  InitLanguage(language: Language) {
+  InitLanguage(language: Language){
+    this.currentInstance = new Language();
     if (!language.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

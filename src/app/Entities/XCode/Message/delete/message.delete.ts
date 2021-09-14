@@ -10,7 +10,7 @@ import { MessageService } from '../message.service';
   selector: 'xcode-message-delete',
   templateUrl: './message.delete.html',
   styleUrls: ['./message.delete.css'],
-  providers: [MessageService]
+  
 })
 export class MessageDeleteUI extends DeleteModal<Message> {
 

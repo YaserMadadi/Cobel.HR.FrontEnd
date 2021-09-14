@@ -16,11 +16,8 @@ import { AssessmentDeleteUI } from '../../../LAD/Assessment/delete/assessment.de
 @Component({
   selector: 'employee-assessment-detail',
   templateUrl: './employee-assessment.detail.html',
-  styleUrls: ['./employee-assessment.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employee-assessment.detail.css']
+})
 export class Employee_Assessment_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

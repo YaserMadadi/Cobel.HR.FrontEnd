@@ -27,17 +27,12 @@ import { AppraiseTime_ModuleFunc } from '../../Base.PMS/AppraiseTime/appraiseTim
         XCommonModule,
         QualitativeKPI_ModuleFunc,
 		Employee_ModuleFunc,
-		AppraiseType_ModuleFunc,
-		AppraiseTime_ModuleFunc
+		AppraiseType_ModuleFunc
     ],
     exports: [
         QualitativeAppraiseEditUI,
 		QualitativeAppraiseDeleteUI,
 		QualitativeAppraiseSeekUI
-    ],
-    providers: [
-       //QualitativeAppraiseService,
-       // QualitativeAppraiseServiceCollection,
     ]
 })
 

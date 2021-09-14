@@ -23,10 +23,6 @@ import { UniversityHistory_ModuleMaster } from '../../HR/UniversityHistory/unive
   ],
   exports: [
     FieldOfStudy_UniversityHistory_DetailUI
-  ],
-  providers: [
-    //FieldOfStudyService,
-    //FieldOfStudyServiceCollection
   ]
 })
 export class FieldOfStudy_ModuleDetail { }

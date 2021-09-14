@@ -10,7 +10,7 @@ import { PromotionResultService } from '../promotionResult.service';
   selector: 'lad-promotionResult-delete',
   templateUrl: './promotionResult.delete.html',
   styleUrls: ['./promotionResult.delete.css'],
-  providers: [PromotionResultService]
+  
 })
 export class PromotionResultDeleteUI extends DeleteModal<PromotionResult> {
 

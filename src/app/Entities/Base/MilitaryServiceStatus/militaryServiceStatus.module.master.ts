@@ -20,10 +20,6 @@ import { MilitaryServiceStatus_ModuleDetail } from './militaryServiceStatus.modu
     ],
     exports: [
         MilitaryServiceStatusMasterUI
-    ],
-    providers: [
-        //MilitaryServiceStatusService,
-       // MilitaryServiceStatusServiceCollection   
     ]
 })
 

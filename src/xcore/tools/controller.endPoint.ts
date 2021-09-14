@@ -47,12 +47,12 @@ export abstract class EndPointController {
             EndPointController.protocol = 'http';
             EndPointController.ServerIP = 'hrcore.cobeldarou.com'; //172.20.6.118
             EndPointController.serverPort = 20440; // 44888
-            EndPointController.servicePath = 'Cobel.HR';
+            EndPointController.servicePath = 'HRServices';
         } else {
             EndPointController.protocol = 'https';
             EndPointController.ServerIP = 'hrcore.cobeldarou.com';
             EndPointController.serverPort = 20440;
-            EndPointController.servicePath = 'Cobel.HR';
+            EndPointController.servicePath = 'HRServices';
         }
 
         if (EndPointController.servicePath.length == 0)
@@ -115,7 +115,7 @@ export abstract class EndPointController {
 
         switch (action) {
             case Actions.RetrieveAll: {
-                url += '/All';
+                url += '/RetrieveAll';
                 break;
             }
             case Actions.RetrieveById:{

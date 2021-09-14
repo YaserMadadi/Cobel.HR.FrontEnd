@@ -22,25 +22,6 @@
             <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
         </fieldset>
         <hr/>
-        <tabset #tabset>
-            <tab heading='Behavioral Appraise'>
-                <appraiseTime-behavioralAppraise-detail 
-                    #base_pmsAppraiseTimeBehavioralAppraiseDetail
-                    [AppraiseTime]='currentInstance'>
-                </appraiseTime-behavioralAppraise-detail>
-            </tab>
-			<tab heading='Functional Appraise'>
-                <appraiseTime-functionalAppraise-detail 
-                    #base_pmsAppraiseTimeFunctionalAppraiseDetail
-                    [AppraiseTime]='currentInstance'>
-                </appraiseTime-functionalAppraise-detail>
-            </tab>
-			<tab heading='Qualitative Appraise'>
-                <appraiseTime-qualitativeAppraise-detail 
-                    #base_pmsAppraiseTimeQualitativeAppraiseDetail
-                    [AppraiseTime]='currentInstance'>
-                </appraiseTime-qualitativeAppraise-detail>
-            </tab>
-        </tabset>
+       
     </div>
 </XDialog>

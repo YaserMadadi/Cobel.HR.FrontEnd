@@ -12,11 +12,7 @@ import { FunctionalKPICommentEditUI } from '../edit/functionalKPIComment.edit';
 @Component({
   selector: 'pms-functionalKPIComment-master',
   templateUrl: './functionalKPIComment.master.html',
-  styleUrls: ['./functionalKPIComment.master.css'],
-  providers: [
-    FunctionalKPICommentService,
-    
-  ]
+  styleUrls: ['./functionalKPIComment.master.css']
 })
 export class FunctionalKPICommentMasterUI extends MasterModal<FunctionalKPIComment> {
 

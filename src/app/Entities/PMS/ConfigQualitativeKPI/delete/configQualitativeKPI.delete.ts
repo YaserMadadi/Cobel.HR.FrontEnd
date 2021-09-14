@@ -10,7 +10,7 @@ import { ConfigQualitativeKPIService } from '../configQualitativeKPI.service';
   selector: 'pms-configQualitativeKPI-delete',
   templateUrl: './configQualitativeKPI.delete.html',
   styleUrls: ['./configQualitativeKPI.delete.css'],
-  providers: [ConfigQualitativeKPIService]
+  
 })
 export class ConfigQualitativeKPIDeleteUI extends DeleteModal<ConfigQualitativeKPI> {
 

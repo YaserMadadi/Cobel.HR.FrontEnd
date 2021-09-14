@@ -10,7 +10,7 @@ import { AppraisalApproverConfigService } from '../appraisalApproverConfig.servi
   selector: 'pms-appraisalApproverConfig-delete',
   templateUrl: './appraisalApproverConfig.delete.html',
   styleUrls: ['./appraisalApproverConfig.delete.css'],
-  providers: [AppraisalApproverConfigService]
+  
 })
 export class AppraisalApproverConfigDeleteUI extends DeleteModal<AppraisalApproverConfig> {
 

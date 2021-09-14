@@ -23,10 +23,6 @@ import { SchoolHistory_ModuleMaster } from '../../HR/SchoolHistory/schoolHistory
   ],
   exports: [
     SchoolLevel_SchoolHistory_DetailUI
-  ],
-  providers: [
-    //SchoolLevelService,
-    //SchoolLevelServiceCollection
   ]
 })
 export class SchoolLevel_ModuleDetail { }

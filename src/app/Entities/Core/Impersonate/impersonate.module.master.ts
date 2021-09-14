@@ -20,10 +20,6 @@ import { Impersonate_ModuleDetail } from './impersonate.module.detail';
     ],
     exports: [
         ImpersonateMasterUI
-    ],
-    providers: [
-        //ImpersonateService,
-       // ImpersonateServiceCollection   
     ]
 })
 

@@ -20,7 +20,7 @@ export class ReligionEditUI extends EditModal<Religion> implements IEditModal<Re
   
   constructor(private religionService: ReligionService) {
     super(religionService); 
-    this.currentInstance = new Religion();
+    this.currentInstance = religionService.CreateInstance();
   }
 
   
@@ -40,7 +40,8 @@ export class ReligionEditUI extends EditModal<Religion> implements IEditModal<Re
     
   }
   
-  InitReligion(religion: Religion) {
+  InitReligion(religion: Religion){
+    this.currentInstance = this.service.CreateInstance();// new Religion();
     if (!religion.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

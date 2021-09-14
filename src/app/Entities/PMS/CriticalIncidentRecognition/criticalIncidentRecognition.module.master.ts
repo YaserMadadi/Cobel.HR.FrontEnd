@@ -20,10 +20,6 @@ import { CriticalIncidentRecognition_ModuleDetail } from './criticalIncidentReco
     ],
     exports: [
         CriticalIncidentRecognitionMasterUI
-    ],
-    providers: [
-        //CriticalIncidentRecognitionService,
-       // CriticalIncidentRecognitionServiceCollection   
     ]
 })
 

@@ -68,7 +68,8 @@ export class YearQuarterEditUI extends EditModal<YearQuarter> implements IEditMo
     this.quarterComponent.LoadList();
   }
   
-  InitYearQuarter(yearQuarter: YearQuarter) {
+  InitYearQuarter(yearQuarter: YearQuarter){
+    this.currentInstance = this.service.CreateInstance();
     if (!yearQuarter.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.yearComponent.instance = yearQuarter.year;

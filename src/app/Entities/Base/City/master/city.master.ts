@@ -16,12 +16,6 @@ import { UniversityService } from '../../University/university.service';
   selector: 'base-city-master',
   templateUrl: './city.master.html',
   styleUrls: ['./city.master.css'],
-  providers: [
-    CityService,
-    PersonService,
-		HabitancyService,
-		UniversityService,
-  ]
 })
 export class CityMasterUI extends MasterModal<City> {
 

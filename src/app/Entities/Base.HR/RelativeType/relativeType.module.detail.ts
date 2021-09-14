@@ -24,10 +24,6 @@ import { Relative_ModuleMaster } from '../../HR/Relative/relative.module.master'
   ],
   exports: [
     RelationType_Relative_DetailUI
-  ],
-  providers: [
-    //RelativeTypeService,
-    //RelativeTypeServiceCollection
   ]
 })
 export class RelativeType_ModuleDetail { }

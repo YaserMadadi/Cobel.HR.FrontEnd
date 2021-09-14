@@ -16,11 +16,8 @@ import { MilitaryServiceExcemptionDeleteUI } from '../../MilitaryServiceExcempti
 @Component({
   selector: 'militaryService-militaryServiceExcemption-detail',
   templateUrl: './militaryService-militaryServiceExcemption.detail.html',
-  styleUrls: ['./militaryService-militaryServiceExcemption.detail.css'],
-  providers: [MilitaryServiceService]
-}) 
-
-@Injectable()
+  styleUrls: ['./militaryService-militaryServiceExcemption.detail.css']
+})
 export class MilitaryService_MilitaryServiceExcemption_DetailUI extends DetailView<MilitaryService> {
 
   constructor(private militaryServiceService: MilitaryServiceService) {

@@ -24,9 +24,6 @@ import { FunctionalKPI_ModuleMaster } from '../../PMS/FunctionalKPI/functionalKP
   exports: [
     MeasurementUnit_FunctionalKPI_DetailUI
   ],
-  providers: [
-    //MeasurementUnitService,
-    //MeasurementUnitServiceCollection
-  ]
+  
 })
 export class MeasurementUnit_ModuleDetail { }

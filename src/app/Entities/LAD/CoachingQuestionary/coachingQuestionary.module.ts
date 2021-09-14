@@ -35,10 +35,6 @@ import { CoachingQuestionaryDetail_ModuleMaster } from '../CoachingQuestionaryDe
   exports: [
     CoachingQuestionaryIndexUI,
 		CoachingQuestionary_ModuleMaster,
-  ],
-  providers: [
-    // CoachingQuestionaryService,
-    // CoachingQuestionaryServiceCollection
-  ]
+   ]
 })
 export class CoachingQuestionaryModule {}

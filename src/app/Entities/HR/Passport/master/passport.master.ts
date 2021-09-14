@@ -12,11 +12,7 @@ import { PassportEditUI } from '../edit/passport.edit';
 @Component({
   selector: 'hr-passport-master',
   templateUrl: './passport.master.html',
-  styleUrls: ['./passport.master.css'],
-  providers: [
-    PassportService,
-    
-  ]
+  styleUrls: ['./passport.master.css']
 })
 export class PassportMasterUI extends MasterModal<Passport> {
 

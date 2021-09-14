@@ -34,6 +34,7 @@
         <th title='Level'>Level</th>
         <th title='Unit'>Unit</th>
         <th title='Position Category'>Position Category</th>
+        <th title='Position Category'>Position Division</th>
         <th title='Capacity'>Capacity</th>
         <th width='100px' title='Is Active'>Is Active</th>
       </tr>
@@ -90,6 +91,16 @@
 										 (keyup)='doFilter($event)' />
         </th>
         <th>
+          <input class='form-control' #positionDivision='ngModel' id='positionDivision' name='positionDivision'
+										 title='Position Division'
+										 autocomplete='off'
+										 placeholder='Position Division'
+										[(ngModel)]='filterInstance.positionDivision.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
           <input class='form-control' #capacity='ngModel' id='capacity' name='capacity'
 										 title='Capacity'
 										 autocomplete='off'
@@ -111,6 +122,7 @@
 				<td>{{ p.level?.descriptor }}</td>
 				<td>{{ p.unit?.descriptor }}</td>
 				<td>{{ p.positionCategory?.descriptor }}</td>
+				<td>{{ p.positionDivision?.descriptor }}</td>
 				<td>{{ p.capacity | number }}</td>
 				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isActive' /></td>
       </tr>

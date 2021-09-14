@@ -12,11 +12,7 @@ import { UniversityTerminateEditUI } from '../edit/universityTerminate.edit';
 @Component({
   selector: 'hr-universityTerminate-master',
   templateUrl: './universityTerminate.master.html',
-  styleUrls: ['./universityTerminate.master.css'],
-  providers: [
-    UniversityTerminateService,
-    
-  ]
+  styleUrls: ['./universityTerminate.master.css']
 })
 export class UniversityTerminateMasterUI extends MasterModal<UniversityTerminate> {
 

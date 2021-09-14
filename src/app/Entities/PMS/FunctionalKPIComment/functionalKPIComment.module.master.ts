@@ -20,10 +20,6 @@ import { FunctionalKPIComment_ModuleDetail } from './functionalKPIComment.module
     ],
     exports: [
         FunctionalKPICommentMasterUI
-    ],
-    providers: [
-        //FunctionalKPICommentService,
-       // FunctionalKPICommentServiceCollection   
     ]
 })
 

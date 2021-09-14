@@ -10,7 +10,7 @@ import { HabitancyTypeService } from '../habitancyType.service';
   selector: 'base-habitancyType-delete',
   templateUrl: './habitancyType.delete.html',
   styleUrls: ['./habitancyType.delete.css'],
-  providers: [HabitancyTypeService]
+  
 })
 export class HabitancyTypeDeleteUI extends DeleteModal<HabitancyType> {
 

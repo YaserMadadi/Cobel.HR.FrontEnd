@@ -27,10 +27,6 @@ import { MessageSeekUI } from './seek/message.seek';
         MessageEditUI,
 		MessageDeleteUI,
 		MessageSeekUI
-    ],
-    providers: [
-       //MessageService,
-       // MessageServiceCollection,
     ]
 })
 

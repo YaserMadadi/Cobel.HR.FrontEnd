@@ -10,7 +10,7 @@ import { QuarterService } from '../quarter.service';
   selector: 'base-quarter-delete',
   templateUrl: './quarter.delete.html',
   styleUrls: ['./quarter.delete.css'],
-  providers: [QuarterService]
+  
 })
 export class QuarterDeleteUI extends DeleteModal<Quarter> {
 

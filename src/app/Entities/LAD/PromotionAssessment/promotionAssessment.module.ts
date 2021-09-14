@@ -29,10 +29,6 @@ import { PromotionAssessment_ModuleMaster } from './promotionAssessment.module.m
   exports: [
     PromotionAssessmentIndexUI,
 		PromotionAssessment_ModuleMaster,
-  ],
-  providers: [
-    // PromotionAssessmentService,
-    // PromotionAssessmentServiceCollection
-  ]
+   ]
 })
 export class PromotionAssessmentModule {}

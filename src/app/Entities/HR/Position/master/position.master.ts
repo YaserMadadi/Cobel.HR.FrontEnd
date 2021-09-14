@@ -18,17 +18,6 @@ import { RotationAssessmentService } from '../../../LAD/RotationAssessment/rotat
   selector: 'hr-position-master',
   templateUrl: './position.master.html',
   styleUrls: ['./position.master.css'],
-  providers: [
-    PositionService,
-    PromotionAssessmentService,
-		PromotionAssessmentService,
-		ConfigTargetSettingService,
-		PositionService,
-		TargetSettingService,
-		PositionAssignmentService,
-		RotationAssessmentService,
-		RotationAssessmentService,
-  ]
 })
 export class PositionMasterUI extends MasterModal<Position> {
 

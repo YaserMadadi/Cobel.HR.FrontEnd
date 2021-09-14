@@ -16,11 +16,8 @@ import { LanguageAbilityDeleteUI } from '../../../HR/LanguageAbility/delete/lang
 @Component({
   selector: 'language-languageAbility-detail',
   templateUrl: './language-languageAbility.detail.html',
-  styleUrls: ['./language-languageAbility.detail.css'],
-  providers: [LanguageService]
-}) 
-
-@Injectable()
+  styleUrls: ['./language-languageAbility.detail.css']
+})
 export class Language_LanguageAbility_DetailUI extends DetailView<Language> {
 
   constructor(private languageService: LanguageService) {
