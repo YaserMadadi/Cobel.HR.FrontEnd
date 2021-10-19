@@ -22,7 +22,9 @@ tbody tr {
 }
 
 thead {
+    font-size: 2px;
     width: calc( 100% - 1em)/* scrollbar is average 1em/16px width, remove it from thead width */
+    
 }
 
 

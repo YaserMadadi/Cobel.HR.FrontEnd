@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class DropDownComponent {
   constructor() {
-
+    
   }
 
   @Input()
@@ -17,5 +17,5 @@ export class DropDownComponent {
   public className: string = '';
 
   @Input()
-  public MenuTitle: string = 'Related Entities';
+  public MenuTitle: string = '';
 }

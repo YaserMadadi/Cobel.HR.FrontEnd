@@ -22,6 +22,12 @@
                     <label class='col-sm-8'>{{ currentInstance.targetSettingType?.descriptor }}</label>
                 </div>
                 <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Appraiser :
+                        <guide (onClick)='onGuid("Appraiser_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.appraiser?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
                     <label class='col-sm-4 titleControl'>Year :
                         <guide (onClick)='onGuid("Year_Id")'></guide>
                     </label>
@@ -57,6 +63,32 @@
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.isValid }}</label>
                 </div>
+
+                <div class='form-group row' *ngIf='position?.positionDivision?.id == 2'>
+                    <label class='col-sm-4 titleControl'>Total Functional Weight :
+                        <guide (onClick)='onGuid("totalFunctionalWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8' [ngStyle]="{ 'color' : currentInstance.totalFunctionalWeight !== 100 ? 'red' : '#23282c' }">{{ currentInstance.totalFunctionalWeight }}</label>
+                </div>
+                <div class='form-group row' *ngIf='position?.positionDivision?.id == 2'>
+                    <label class='col-sm-4 titleControl'>Total Behavioral Weight :
+                        <guide (onClick)='onGuid("totalBehavioralWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8' [ngStyle]="{ 'color' : currentInstance.totalBehavioralWeight !== 100 ? 'red' : '#23282c' }">{{ currentInstance.totalBehavioralWeight }}</label>
+                </div>
+                <div class='form-group row' *ngIf='position?.positionDivision?.id == 1'>
+                    <label class='col-sm-4 titleControl'>Total Quantitative Weight :
+                        <guide (onClick)='onGuid("totalQuantitativeWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8' [ngStyle]="{ 'color' : currentInstance.totalQuantitativeWeight !== 100 ? 'red' : '#23282c' }">{{ currentInstance.totalQuantitativeWeight }}</label>
+                </div>
+                <div class='form-group row' *ngIf='position?.positionDivision?.id == 1'>
+                    <label class='col-sm-4 titleControl'>Total Qualitative Weight :
+                        <guide (onClick)='onGuid("totalQualitativeWeight")'></guide>
+                    </label>
+                    <label class='col-sm-8' [ngStyle]="{ 'color' : currentInstance.totalQualitativeWeight !== 100 ? 'red' : '#23282c' }">{{ currentInstance.totalQualitativeWeight }}</label>
+                </div>
+
                 <div class='form-group row'>
                     <label class='col-sm-4 titleControl'>SFE Appraisal Dashboard :
                         <guide (onClick)='onGuid("")'></guide>
@@ -75,37 +107,31 @@
         <hr />
         <tabset #tabset>
             <tab [heading]='this.functionalTabItem.headLine' *ngIf='this.functionalTabItem.isVisible'>
-                <targetSetting-functionalObjective-detail #pmsTargetSettingFunctionalObjectiveDetail
-                    [TargetSetting]='currentInstance'>
+                <targetSetting-functionalObjective-detail #pmsTargetSettingFunctionalObjectiveDetail [TargetSetting]='currentInstance'>
                 </targetSetting-functionalObjective-detail>
             </tab>
             <tab [heading]='f_behavioralTabItem.headLine' *ngIf='f_behavioralTabItem.isVisible'>
-                <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail
-                    [TargetSetting]='currentInstance'>
+                <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail [TargetSetting]='currentInstance'>
                 </targetSetting-behavioralObjective-detail>
             </tab>
             <tab [heading]='quantitativeTabItem.headLine' *ngIf='quantitativeTabItem.isVisible'>
-                <targetSetting-quantitativeAppraise-detail #pmsTargetSettingQuantitativeAppraiseDetail
-                    [TargetSetting]='currentInstance'>
+                <targetSetting-quantitativeAppraise-detail #pmsTargetSettingQuantitativeAppraiseDetail [TargetSetting]='currentInstance'>
                 </targetSetting-quantitativeAppraise-detail>
             </tab>
             <tab [heading]='qualitativeTabItem.headLine' *ngIf='nonBehavioralTabItem.isVisible || behavioralTabItem.isVisible'>
                 <tabset #tabset>
                     <tab [heading]='nonBehavioralTabItem.headLine' *ngIf='nonBehavioralTabItem.isVisible'>
-                        <targetSetting-qualitativeObjective-detail #pmsTargetSettingQualitativeObjectiveDetail
-                            [TargetSetting]='currentInstance'>
+                        <targetSetting-qualitativeObjective-detail #pmsTargetSettingQualitativeObjectiveDetail [TargetSetting]='currentInstance'>
                         </targetSetting-qualitativeObjective-detail>
                     </tab>
                     <tab [heading]='behavioralTabItem.headLine' *ngIf='behavioralTabItem.isVisible'>
-                        <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail
-                            [TargetSetting]='currentInstance'>
+                        <targetSetting-behavioralObjective-detail #pmsTargetSettingBehavioralObjectiveDetail [TargetSetting]='currentInstance'>
                         </targetSetting-behavioralObjective-detail>
                     </tab>
                 </tabset>
             </tab>
             <tab [heading]='appraiseResultTabItem.headLine' *ngIf='appraiseResultTabItem.isVisible'>
-                <targetSetting-appraiseResult-detail #pmsTargetSettingAppraiseResultDetail
-                    [TargetSetting]='currentInstance'>
+                <targetSetting-appraiseResult-detail #pmsTargetSettingAppraiseResultDetail [TargetSetting]='currentInstance'>
                 </targetSetting-appraiseResult-detail>
             </tab>
             <!-- <tab heading='Final Approvement'>
@@ -122,8 +148,7 @@
                 </targetSetting-operationalAppraise-detail>
             </tab> -->
             <tab [heading]='finalAppraiseTabItem.headLine' *ngIf='finalAppraiseTabItem.isVisible'>
-                <targetSetting-finalAppraise-detail #pmsTargetSettingFinalAppraiseDetail
-                    [TargetSetting]='currentInstance'>
+                <targetSetting-finalAppraise-detail #pmsTargetSettingFinalAppraiseDetail [TargetSetting]='currentInstance'>
                 </targetSetting-finalAppraise-detail>
             </tab>
             <tab [heading]='idpFormTabItem.headLine' *ngIf='idpFormTabItem.isVisible'>

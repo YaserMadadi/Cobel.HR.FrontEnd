@@ -1,24 +1,25 @@
 ﻿<fieldset class='border'>
   <legend>Competency Item :</legend>
-  <div class='btn-group'>
-    <button name='addButton' class='xbtn btn-add' (click)='onAdd(competencyItemEditUI)'>Add</button>
-    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
-    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(competencyItemTable)'>Print</button>
-  </div>
-  <div class='btn-group float-right'>
-    <button class='xbtn btn-edit' (click)='onEdit(competencyItemEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
-    <button class='xbtn btn-delete' (click)='onDelete(competencyItemDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
-    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
-  </div>
-  <!-- Quick Access Menu -->
-  
-  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
-    <a class='dropdown-item pointer' (click)='behavioralObjective_Clicked(behavioralObjectiveEditUI)'>Add Behavioral Objective</a>
-		<a class='dropdown-item pointer' (click)='assessmentScore_Clicked(assessmentScoreEditUI)'>Add Assessment Score</a>
-		<a class='dropdown-item pointer' (click)='competencyItemKPI_Clicked(competencyItemKPIEditUI)'>Add Competency Item KPI</a>
-		<a class='dropdown-item pointer' (click)='developmentPlanCompetency_Clicked(developmentPlanCompetencyEditUI)'>Add Development Plan Competency</a>
-	
-  </dropDownMenu>
+
+
+
+  <index-button-manager [Id]='currentInstance.id'
+                        (onAddButtonClicked)='onAdd(competencyItemEditUI)'
+                        (onDeleteButtonClicked)='onDelete(competencyItemDeleteUI)'
+                        (onEditButtonClicked)='onEdit(competencyItemEditUI)'
+                        (onRefreshButtonClicked)='onRefresh()'
+                        (onLogButtonClicked)='onLog(logViewerUI)'>
+    <div id='quick-menu'>
+
+    </div>
+    <div id='related-menu'>
+      <a class='dropdown-item pointer' (click)='behavioralObjective_Clicked(behavioralObjectiveEditUI)'>Add Behavioral Objective</a>
+      <a class='dropdown-item pointer' (click)='assessmentScore_Clicked(assessmentScoreEditUI)'>Add Assessment Score</a>
+      <a class='dropdown-item pointer' (click)='competencyItemKPI_Clicked(competencyItemKPIEditUI)'>Add Competency Item KPI</a>
+      <a class='dropdown-item pointer' (click)='developmentPlanCompetency_Clicked(developmentPlanCompetencyEditUI)'>Add Development Plan Competency</a>
+    </div>
+  </index-button-manager>
+
   <table #competencyItemTable class='table table-hover indexTable'>
     <thead>
       <tr>

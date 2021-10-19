@@ -1,0 +1,55 @@
+<div>
+    <div class='btn-group'>
+        <button name='addButton'
+                class='xbtn btn-add'
+                (click)='addButtonClicked()'>Add</button>
+        <button class='xbtn btn-edit'
+                (click)='editButtonClicked()'
+                [disabled]='Id == 0'>Edit</button>
+        <button class='xbtn btn-delete'
+                (click)='deleteButtonClicked()'
+                [disabled]='Id == 0'>Delete</button>
+        <!-- Quick Access Menu -->
+        <dropDownMenu id='quick-menu'
+                      MenuTitle='Quick Access'>
+            <ng-content #quickAccessMenu
+                        select='#quick-menu'>
+
+            </ng-content>
+        </dropDownMenu>
+    </div>
+    <div class='btn-group float-right'>
+        <button name='refreshButton'
+                class='xbtn btn-refresh'
+                (click)='refreshButtonClicked()'>Refresh</button>
+
+        <!-- Related Item Menu -->
+        <dropDownMenu id='related-items-menu'
+                      class='float-right'
+                      [style]="'font-size: 18px;'"
+                      [className]="'bi bi-grid-3x3-gap'"
+                      title="Related Items"
+                      [disabled]='Id == 0'>
+            <ng-content #relatedMenuMenu
+                        select='#related-menu'>
+
+            </ng-content>
+        </dropDownMenu>
+
+        <!-- <button name='printButton'
+                class='xbtn btn-extra'
+                (click)='printButtonClicked()'
+                *ngIf='false'>Print</button> -->
+
+        <button class='xbtn btn-delete'
+                (click)='logButtonClicked()'
+                [disabled]='Id == 0'
+                title="Log History"><i style="font-size: 18px;"
+               class="bi bi-clock-history"></i></button>
+    </div>
+
+
+
+
+
+</div>

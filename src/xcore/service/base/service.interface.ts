@@ -8,6 +8,8 @@ export interface IService<T extends BusinessObject> {
 
     CreateInstance() : T;
 
+    CreateSeekInstance() : T;
+
     Save(entity: T): Promise<T>;
 
     SaveCollection(listOfEntity: T[]): Promise<Result>;

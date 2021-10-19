@@ -1,6 +1,12 @@
-<button mat-button class='xbtn btn-extra' [ngClass]='className' [matMenuTriggerFor]="menu" [disabled]='disabled'>{{ MenuTitle }}</button>
-<mat-menu #menu="matMenu" class="tt">
-  <ng-Content >
- 
+<button mat-button
+        class='xbtn btn-extra'
+        [ngStyle]="{'font-size':MenuTitle.length === 0 ? '18px' : '13px' }"
+        [ngClass]='className'
+        [matMenuTriggerFor]="menu"
+        [disabled]='disabled'>{{ MenuTitle }}</button>
+<mat-menu #menu="matMenu"
+          class="tt">
+  <ng-Content>
+
   </ng-Content>
 </mat-menu>

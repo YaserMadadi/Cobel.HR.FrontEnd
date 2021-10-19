@@ -54,6 +54,8 @@ export class TargetSetting extends BusinessObject implements OnInit {
 
   public targetSettingType: TargetSettingType = new TargetSettingType();
 
+  public appraiser: Employee = new Employee();
+
   public comment: string = '';
 
   public isLocked: boolean = false;
@@ -61,6 +63,17 @@ export class TargetSetting extends BusinessObject implements OnInit {
   public isVisible: boolean = false;
 
   public isValid: boolean = false;
+  
+  public totalFunctionalWeight: number;
+  
+  public totalBehavioralWeight: number;
+  
+  public totalQualitativeWeight: number;
+  
+  public totalQuantitativeWeight: number;
+
+
+
 
   //#endregion
 

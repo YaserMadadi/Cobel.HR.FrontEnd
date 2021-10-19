@@ -222,6 +222,10 @@ export class TargetSettingIndexUI extends IndexView<TargetSetting> implements Af
     this.onSeek(pageNumber);
   }
 
+  public test() {
+    console.log('hi');
+  }
+
   public onAdd(targetSettingEditUI: TargetSettingEditUI) {
     targetSettingEditUI.ShowDialog(new TargetSetting());
   }

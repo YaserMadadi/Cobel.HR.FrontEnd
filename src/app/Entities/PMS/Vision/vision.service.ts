@@ -22,7 +22,7 @@ import { IndividualDevelopmentPlan } from '../IndividualDevelopmentPlan/individu
 export class VisionService extends Service<Vision> implements IService<Vision> {
 
   constructor(public ServiceCollection: VisionServiceCollection,
-		public EmployeeService: EmployeeService) {
+    public EmployeeService: EmployeeService) {
     super(ServiceCollection.API_Operation, Vision.Info);
   }
 
@@ -32,9 +32,13 @@ export class VisionService extends Service<Vision> implements IService<Vision> {
 
   //region Methods
 
-CreateInstance() {
-   return new Vision();
-}
+  CreateInstance(): Vision {
+    return new Vision();
+  }
+
+  CreateSeekInstance() : Vision {
+    return Vision.SeekInstance();
+  }
 
   RetrieveById(id: number): Promise<Vision> {
     return super.RetrieveById(id);
@@ -80,8 +84,8 @@ CreateInstance() {
     return super.SeekByValue(value);
   }
 
-	//endregion
-  
+  //endregion
+
 
   //Remove Temprorally
 }

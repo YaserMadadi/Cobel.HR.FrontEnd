@@ -19,26 +19,26 @@ import { PositionCategoryEditUI } from '../../../Base.HR/PositionCategory/edit/p
   styleUrls: ['./configTargetSetting.edit.css']
 })
 export class ConfigTargetSettingEditUI extends EditModal<ConfigTargetSetting> implements IEditModal<ConfigTargetSetting>  {
-  
+
   constructor(private configTargetSettingService: ConfigTargetSettingService) {
-    super(configTargetSettingService); 
+    super(configTargetSettingService);
     this.currentInstance = new ConfigTargetSetting();
   }
 
   //#region Foreign Entities
-	
-	//#region -- positionCategory --
 
-  positionCategoryComponent : ForeignComponent<PositionCategory> = new ForeignComponent<PositionCategory>(this.configTargetSettingService.positionCategoryService);
+  //#region -- positionCategory --
+
+  positionCategoryComponent: ForeignComponent<PositionCategory> = new ForeignComponent<PositionCategory>(this.configTargetSettingService.positionCategoryService);
 
   @Input()
   public set positionCategory(value: PositionCategory) {
     this.currentInstance.positionCategory = this.positionCategoryComponent.instance = value;
-  }  
+  }
 
 
   //#endregion -- positionCategory --
-	//#endregion
+  //#endregion
 
   @ViewChild('configTargetSettingEditUI')
   private configTargetSettingEditUI: NgForm;
@@ -51,11 +51,11 @@ export class ConfigTargetSettingEditUI extends EditModal<ConfigTargetSetting> im
   }
 
   private loadLists() {
-    
-    
+    this.positionCategoryComponent.LoadList();
+
   }
-  
-  InitConfigTargetSetting(configTargetSetting: ConfigTargetSetting){
+
+  InitConfigTargetSetting(configTargetSetting: ConfigTargetSetting) {
     this.currentInstance = this.service.CreateInstance();
     if (!configTargetSetting.isNew) {
       // Fixed Properties : those you want to not Changable.

@@ -25,6 +25,10 @@ export class Service<T extends BusinessObject> implements IService<T> {
         this.info = info;
     }
 
+    CreateSeekInstance(): T {
+        return <T>BusinessObject.SeekInstance();
+    }
+
     CreateInstance(): T {
         return <T>new BusinessObject();
     }

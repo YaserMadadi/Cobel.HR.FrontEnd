@@ -112,9 +112,9 @@ export class IndexView<T extends BusinessObject> implements IIndexView<T>, OnIni
 
     //public paginateComponent: PaginateComponent = new PaginateComponent();
 
-    public currentInstance: T = <T>new BusinessObject();
+    public currentInstance: T = this.businessObjectService.CreateInstance();// <T>new BusinessObject();
 
-    public filterInstance: T;
+    public filterInstance: T = this.businessObjectService.CreateSeekInstance();
 
     public list: T[] = [];
 
@@ -138,7 +138,7 @@ export class IndexView<T extends BusinessObject> implements IIndexView<T>, OnIni
             this.filterInstance.paginate.currentPage = pageNumber;
             this.businessObjectService.Seek(this.filterInstance)
                 .then(list => {
-                    //console.log('Seek result', list);
+                    // console.log('Seek result', list);
                     this.list = list;
                     this.currentInstance = <T>this.currentInstance.SeekInstance;
                     this.paginatorComponent?.RefreshUI(list[0]?.paginate);

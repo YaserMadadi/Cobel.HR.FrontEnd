@@ -1,31 +1,34 @@
 ﻿<fieldset class='border'>
   <legend>Position :</legend>
-  <div class='btn-group'>
-    <button name='addButton' class='xbtn btn-add' (click)='onAdd(positionEditUI)'>Add</button>
-    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
-    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(positionTable)'>Print</button>
-  </div>
-  <div class='btn-group float-right'>
-    <button class='xbtn btn-edit' (click)='onEdit(positionEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
-    <button class='xbtn btn-delete' (click)='onDelete(positionDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
-    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
-  </div>
-  <!-- Quick Access Menu -->
-    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
-        
-		<a class='dropdown-item pointer' (click)='navigate("HR", "Position", currentInstance.parent?.id)'>Manage Position</a>
-		<a class='dropdown-item pointer' (click)='navigate("HR", "Level", currentInstance.level?.id)'>Manage Level</a>
-		<a class='dropdown-item pointer' (click)='navigate("HR", "Unit", currentInstance.unit?.id)'>Manage Unit</a>
-		<a class='dropdown-item pointer' (click)='navigate("HR", "PositionCategory", currentInstance.positionCategory?.id)'>Manage Position Category</a>
-    </dropDownMenu>
-  
-  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
-    <a class='dropdown-item pointer' (click)='configTargetSetting_Clicked(configTargetSettingEditUI)'>Add Config Target Setting</a>
-		<a class='dropdown-item pointer' (click)='targetSetting_Clicked(targetSettingEditUI)'>Add Target Setting</a>
-		<a class='dropdown-item pointer' (click)='positionAssignment_Clicked(positionAssignmentEditUI)'>Add Position Assignment</a>
-	
-  </dropDownMenu>
-  <table #positionTable class='table table-hover indexTable'>
+
+  <index-button-manager [Id]='currentInstance.id'
+                        (onAddButtonClicked)='onAdd(positionEditUI)'
+                        (onDeleteButtonClicked)='onDelete(positionDeleteUI)'
+                        (onEditButtonClicked)='onEdit(positionEditUI)'
+                        (onRefreshButtonClicked)='onRefresh()'
+                        (onLogButtonClicked)='onLog(logViewerUI)'>
+    <div id='quick-menu'>
+      <a class='dropdown-item pointer'
+         (click)='navigate("HR", "Position", currentInstance.parent?.id)'>Manage Position</a>
+      <a class='dropdown-item pointer'
+         (click)='navigate("HR", "Level", currentInstance.level?.id)'>Manage Level</a>
+      <a class='dropdown-item pointer'
+         (click)='navigate("HR", "Unit", currentInstance.unit?.id)'>Manage Unit</a>
+      <a class='dropdown-item pointer'
+         (click)='navigate("HR", "PositionCategory", currentInstance.positionCategory?.id)'>Manage Position Category</a>
+    </div>
+    <div id='related-menu'>
+      <a class='dropdown-item pointer'
+         (click)='configTargetSetting_Clicked(configTargetSettingEditUI)'>Add Config Target Setting</a>
+      <a class='dropdown-item pointer'
+         (click)='targetSetting_Clicked(targetSettingEditUI)'>Add Target Setting</a>
+      <a class='dropdown-item pointer'
+         (click)='positionAssignment_Clicked(positionAssignmentEditUI)'>Add Position Assignment</a>
+    </div>
+  </index-button-manager>
+
+  <table #positionTable
+         class='table table-hover indexTable'>
     <thead>
       <tr>
         <th class='row-number'>Row</th>
@@ -36,105 +39,135 @@
         <th title='Position Category'>Position Category</th>
         <th title='Position Category'>Position Division</th>
         <th title='Capacity'>Capacity</th>
-        <th width='100px' title='Is Active'>Is Active</th>
+        <th width='100px'
+            title='Is Active'>Is Active</th>
       </tr>
       <tr name='secondRow'>
         <th class='row-number'></th>
         <th>
-          <input class='form-control' #parent='ngModel' id='parent' name='parent'
-										 title='Parent'
-										 autocomplete='off'
-										 placeholder='Parent'
-										[(ngModel)]='filterInstance.parent.descriptor'
-										 type='text'
-										 maxlength='50'
-										 (keyup)='doFilter($event)' />
+          <input class='form-control'
+                 #parent='ngModel'
+                 id='parent'
+                 name='parent'
+                 title='Parent'
+                 autocomplete='off'
+                 placeholder='Parent'
+                 [(ngModel)]='filterInstance.parent.descriptor'
+                 type='text'
+                 maxlength='50'
+                 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #positionTitle='ngModel' id='positionTitle' name='positionTitle'
-										 title='Position Title'
-										 autocomplete='off'
-										 placeholder='Position Title'
-										[(ngModel)]='filterInstance.positionTitle'
-										 type='text'
-										 maxlength='800'
-										 (keyup)='doFilter($event)' />
+          <input class='form-control'
+                 #positionTitle='ngModel'
+                 id='positionTitle'
+                 name='positionTitle'
+                 title='Position Title'
+                 autocomplete='off'
+                 placeholder='Position Title'
+                 [(ngModel)]='filterInstance.positionTitle'
+                 type='text'
+                 maxlength='800'
+                 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #level='ngModel' id='level' name='level'
-										 title='Level'
-										 autocomplete='off'
-										 placeholder='Level'
-										[(ngModel)]='filterInstance.level.descriptor'
-										 type='text'
-										 maxlength='50'
-										 (keyup)='doFilter($event)' />
+          <input class='form-control'
+                 #level='ngModel'
+                 id='level'
+                 name='level'
+                 title='Level'
+                 autocomplete='off'
+                 placeholder='Level'
+                 [(ngModel)]='filterInstance.level.descriptor'
+                 type='text'
+                 maxlength='50'
+                 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #unit='ngModel' id='unit' name='unit'
-										 title='Unit'
-										 autocomplete='off'
-										 placeholder='Unit'
-										[(ngModel)]='filterInstance.unit.descriptor'
-										 type='text'
-										 maxlength='50'
-										 (keyup)='doFilter($event)' />
+          <input class='form-control'
+                 #unit='ngModel'
+                 id='unit'
+                 name='unit'
+                 title='Unit'
+                 autocomplete='off'
+                 placeholder='Unit'
+                 [(ngModel)]='filterInstance.unit.descriptor'
+                 type='text'
+                 maxlength='50'
+                 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #positionCategory='ngModel' id='positionCategory' name='positionCategory'
-										 title='Position Category'
-										 autocomplete='off'
-										 placeholder='Position Category'
-										[(ngModel)]='filterInstance.positionCategory.descriptor'
-										 type='text'
-										 maxlength='50'
-										 (keyup)='doFilter($event)' />
+          <input class='form-control'
+                 #positionCategory='ngModel'
+                 id='positionCategory'
+                 name='positionCategory'
+                 title='Position Category'
+                 autocomplete='off'
+                 placeholder='Position Category'
+                 [(ngModel)]='filterInstance.positionCategory.descriptor'
+                 type='text'
+                 maxlength='50'
+                 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #positionDivision='ngModel' id='positionDivision' name='positionDivision'
-										 title='Position Division'
-										 autocomplete='off'
-										 placeholder='Position Division'
-										[(ngModel)]='filterInstance.positionDivision.descriptor'
-										 type='text'
-										 maxlength='50'
-										 (keyup)='doFilter($event)' />
+          <input class='form-control'
+                 #positionDivision='ngModel'
+                 id='positionDivision'
+                 name='positionDivision'
+                 title='Position Division'
+                 autocomplete='off'
+                 placeholder='Position Division'
+                 [(ngModel)]='filterInstance.positionDivision.descriptor'
+                 type='text'
+                 maxlength='50'
+                 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #capacity='ngModel' id='capacity' name='capacity'
-										 title='Capacity'
-										 autocomplete='off'
-										 placeholder='Capacity'
-										[(ngModel)]='filterInstance.capacity'
-										 type='number'
-										 (keyup)='doFilter($event)' />
+          <input class='form-control'
+                 #capacity='ngModel'
+                 id='capacity'
+                 name='capacity'
+                 title='Capacity'
+                 autocomplete='off'
+                 placeholder='Capacity'
+                 [(ngModel)]='filterInstance.capacity'
+                 type='number'
+                 (keyup)='doFilter($event)' />
         </th>
         <th>
-          
+
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(positionMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+      <tr *ngFor='let p of list; let i = index'
+          (dblclick)='onDblClicked(positionMasterUI)'
+          (click)='onSelect(i)'
+          [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
         <td class='row-number'>{{ i+1 }}</td>
-				<td>{{ p.parent?.descriptor }}</td>
-				<td>{{ p.positionTitle }}</td>
-				<td>{{ p.level?.descriptor }}</td>
-				<td>{{ p.unit?.descriptor }}</td>
-				<td>{{ p.positionCategory?.descriptor }}</td>
-				<td>{{ p.positionDivision?.descriptor }}</td>
-				<td>{{ p.capacity | number }}</td>
-				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isActive' /></td>
+        <td>{{ p.parent?.descriptor }}</td>
+        <td>{{ p.positionTitle }}</td>
+        <td>{{ p.level?.descriptor }}</td>
+        <td>{{ p.unit?.descriptor }}</td>
+        <td>{{ p.positionCategory?.descriptor }}</td>
+        <td>{{ p.positionDivision?.descriptor }}</td>
+        <td>{{ p.capacity | number }}</td>
+        <td width='100px'><input type='checkbox'
+                 disabled
+                 [(ngModel)]='p.isActive' /></td>
       </tr>
     </tbody>
   </table>
   <hr>
-  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <paginator #Paginator
+             (onChangePage)='PageChanging($event)'
+             hidden></paginator>
   <hr>
 </fieldset>
 
 <!--LogViewer Component-->
-<log-viewer #logViewerUI [Entity]='currentInstance'>
+<log-viewer #logViewerUI
+            [Entity]='currentInstance'>
 
 </log-viewer>
 
@@ -144,21 +177,26 @@
 </hr-position-master>
 
 <hr-position-edit #positionEditUI
-                (onClosed)='onEditModalClosed($event)'>
+                  (onClosed)='onEditModalClosed($event)'>
 </hr-position-edit>
 
-<hr-position-delete #positionDeleteUI 
-                (onClosed)='onDeleteModalClosed($event)'>
+<hr-position-delete #positionDeleteUI
+                    (onClosed)='onDeleteModalClosed($event)'>
 </hr-position-delete>
 
 
-<lad-promotionAssessment-edit #promotionAssessmentEditUI> <!--  (onClosed)='promotionAssessmentEditUI_Closed($event)' -->
-</lad-promotionAssessment-edit> 
-<pms-configTargetSetting-edit #configTargetSettingEditUI> <!--  (onClosed)='configTargetSettingEditUI_Closed($event)' -->
-</pms-configTargetSetting-edit> 
-<pms-targetSetting-edit #targetSettingEditUI> <!--  (onClosed)='targetSettingEditUI_Closed($event)' -->
-</pms-targetSetting-edit> 
-<hr-positionAssignment-edit #positionAssignmentEditUI> <!--  (onClosed)='positionAssignmentEditUI_Closed($event)' -->
-</hr-positionAssignment-edit> 
-<lad-rotationAssessment-edit #rotationAssessmentEditUI> <!--  (onClosed)='rotationAssessmentEditUI_Closed($event)' -->
+<lad-promotionAssessment-edit #promotionAssessmentEditUI>
+  <!--  (onClosed)='promotionAssessmentEditUI_Closed($event)' -->
+</lad-promotionAssessment-edit>
+<pms-configTargetSetting-edit #configTargetSettingEditUI>
+  <!--  (onClosed)='configTargetSettingEditUI_Closed($event)' -->
+</pms-configTargetSetting-edit>
+<pms-targetSetting-edit #targetSettingEditUI>
+  <!--  (onClosed)='targetSettingEditUI_Closed($event)' -->
+</pms-targetSetting-edit>
+<hr-positionAssignment-edit #positionAssignmentEditUI>
+  <!--  (onClosed)='positionAssignmentEditUI_Closed($event)' -->
+</hr-positionAssignment-edit>
+<lad-rotationAssessment-edit #rotationAssessmentEditUI>
+  <!--  (onClosed)='rotationAssessmentEditUI_Closed($event)' -->
 </lad-rotationAssessment-edit>

@@ -11,15 +11,15 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr *ngFor='let log of logList; let i = index' (dblclick)='ViewDetail(entityCompratorUI, log)'>
+                <tr *ngFor='let log of logList; let i = index' (dblclick)='ViewDetail(entityCompratorUI, log)'>
                     <td width='80px'>{{ i + 1 }}</td>
-                    <td width='180px'>{{ log. | date:'dd/MM/yyyy' }}</td>
-                    <td>{{ log.time }}</td>
-                    <td>{{ log.actionType }}</td>
+                    <td width='180px'>{{ log.effectDate | date:'fullDate' }}</td>
+                    <td>{{ log.effectDate | date:'shortTime' }}</td>
+                    <td>{{ log.actionMode }}</td>
                     <td>{{ log.person.descriptor }}</td>
-                </tr> -->
+                </tr>
             </tbody>
         </table>
     </div>
 </XDialog>
-<!-- <entity-comparator #entityCompratorUI></entity-comparator> -->
+<entity-comparator #entityCompratorUI></entity-comparator>
