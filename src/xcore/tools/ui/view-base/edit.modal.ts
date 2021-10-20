@@ -14,8 +14,9 @@ export class EditModal<T extends BusinessObject> implements IEditModal<T>{
         //this.currentInstance = instance;
     }
 
-    Init(entity: T): void {
+    Init(entity: T): void {  
         //throw new Error("Method not implemented.");
+        
     }
 
     AfterShown(): void {
