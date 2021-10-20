@@ -12,7 +12,7 @@ import { Result } from '../../../../xcore/tools/Result';
 import { ConfigTargetSetting } from './configTargetSetting';
 import { ConfigTargetSettingServiceCollection } from './configTargetSetting.service.collection';
 
-import { PositionService } from '../../HR/Position/position.service';
+import { PositionCategoryService } from '../../Base.HR/PositionCategory/positionCategory.service';
 import { ConfigQualitativeObjective } from '../ConfigQualitativeObjective/configQualitativeObjective';
 
 
@@ -20,7 +20,7 @@ import { ConfigQualitativeObjective } from '../ConfigQualitativeObjective/config
 export class ConfigTargetSettingService extends Service<ConfigTargetSetting> implements IService<ConfigTargetSetting> {
 
   constructor(public ServiceCollection: ConfigTargetSettingServiceCollection,
-		public PositionService: PositionService) {
+		public positionCategoryService: PositionCategoryService) {
     super(ServiceCollection.API_Operation, ConfigTargetSetting.Info);
   }
 
@@ -29,6 +29,10 @@ export class ConfigTargetSettingService extends Service<ConfigTargetSetting> imp
   }
 
   //region Methods
+
+CreateInstance() {
+   return new ConfigTargetSetting();
+}
 
   RetrieveById(id: number): Promise<ConfigTargetSetting> {
     return super.RetrieveById(id);

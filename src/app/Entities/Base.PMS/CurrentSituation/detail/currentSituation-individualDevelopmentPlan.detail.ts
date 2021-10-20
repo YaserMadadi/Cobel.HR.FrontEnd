@@ -16,11 +16,8 @@ import { IndividualDevelopmentPlanDeleteUI } from '../../../PMS/IndividualDevelo
 @Component({
   selector: 'currentSituation-individualDevelopmentPlan-detail',
   templateUrl: './currentSituation-individualDevelopmentPlan.detail.html',
-  styleUrls: ['./currentSituation-individualDevelopmentPlan.detail.css'],
-  providers: [CurrentSituationService]
-}) 
-
-@Injectable()
+  styleUrls: ['./currentSituation-individualDevelopmentPlan.detail.css']
+})
 export class CurrentSituation_IndividualDevelopmentPlan_DetailUI extends DetailView<CurrentSituation> {
 
   constructor(private currentSituationService: CurrentSituationService) {

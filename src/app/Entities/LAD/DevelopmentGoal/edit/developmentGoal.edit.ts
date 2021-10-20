@@ -55,7 +55,8 @@ export class DevelopmentGoalEditUI extends EditModal<DevelopmentGoal> implements
     
   }
   
-  InitDevelopmentGoal(developmentGoal: DevelopmentGoal) {
+  InitDevelopmentGoal(developmentGoal: DevelopmentGoal){
+    this.currentInstance = this.service.CreateInstance();
     if (!developmentGoal.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.assessmentComponent.instance = developmentGoal.assessment;

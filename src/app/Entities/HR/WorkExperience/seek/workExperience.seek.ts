@@ -26,7 +26,7 @@ export class WorkExperienceSeekUI extends SeekModal<WorkExperience> {
     this.onClose(this.workExperience);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

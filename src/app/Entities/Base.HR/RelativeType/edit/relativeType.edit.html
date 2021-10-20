@@ -1,4 +1,4 @@
-﻿<XDialog Header='Edit Form of Relative Type' 
+<XDialog Header='Edit Form of RelativeType' 
   [IsShown]='IsShown'
   (OnClosed)='onClose()'
   [ModalType]='1' >
@@ -25,7 +25,7 @@
 			<!-- IsActive -->
       <div class='form-group'>
         <guide (onClick)='onGuid("IsActive")'></guide>
-        <label for='isActive' class='col-form-label'>Is Active : </label>
+        <label for='isActive' class='col-form-label'>IsActive : </label>
         <!--IsActive do not Required-->
         <input type='checkbox' 
                 #isActive 
@@ -48,10 +48,10 @@
             [disabled]='!relativeTypeEditUI.valid || IsLocked' 
             [hidden]='IsEditMode' 
             (click)='onSave(currentInstance, relativeTypeEditUI, true)'>Save</button>
-      <button id='cancle-button'
+      <button id='cancel-button'
             class='xbtn btn-delete modal-footer-button' 
             [disabled]='IsLocked'
-            (click)='onClose()'>Cancle</button>
+            (click)='onClose()'>Cancel</button>
     </div>
   </form>
 </XDialog>

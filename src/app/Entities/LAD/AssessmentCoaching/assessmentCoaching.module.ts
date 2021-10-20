@@ -29,10 +29,6 @@ import { AssessmentCoaching_ModuleMaster } from './assessmentCoaching.module.mas
   exports: [
     AssessmentCoachingIndexUI,
 		AssessmentCoaching_ModuleMaster,
-  ],
-  providers: [
-    // AssessmentCoachingService,
-    // AssessmentCoachingServiceCollection
-  ]
+   ]
 })
 export class AssessmentCoachingModule {}

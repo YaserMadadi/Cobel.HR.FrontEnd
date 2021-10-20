@@ -26,7 +26,7 @@ export class UniversityFieldCategorySeekUI extends SeekModal<UniversityFieldCate
     this.onClose(this.universityFieldCategory);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -58,8 +58,7 @@ export class AppraiseResultIndexUI extends IndexView<AppraiseResult> implements 
 
   resetFilter() {
     this.filterInstance = AppraiseResult.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(appraiseResult: AppraiseResult) {

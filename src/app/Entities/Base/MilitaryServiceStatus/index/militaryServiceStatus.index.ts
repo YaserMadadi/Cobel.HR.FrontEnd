@@ -68,8 +68,7 @@ export class MilitaryServiceStatusIndexUI extends IndexView<MilitaryServiceStatu
 
   resetFilter() {
     this.filterInstance = MilitaryServiceStatus.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(militaryServiceStatus: MilitaryServiceStatus) {

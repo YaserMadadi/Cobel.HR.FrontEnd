@@ -68,7 +68,8 @@ export class AssessmentCoachingEditUI extends EditModal<AssessmentCoaching> impl
     
   }
   
-  InitAssessmentCoaching(assessmentCoaching: AssessmentCoaching) {
+  InitAssessmentCoaching(assessmentCoaching: AssessmentCoaching){
+    this.currentInstance = this.service.CreateInstance();
     if (!assessmentCoaching.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.assessmentComponent.instance = assessmentCoaching.assessment;

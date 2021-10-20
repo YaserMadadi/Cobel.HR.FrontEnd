@@ -32,10 +32,6 @@ import { PromotionAssessment_ModuleMaster } from '../PromotionAssessment/promoti
   exports: [
     PromotionResultIndexUI,
 		PromotionResult_ModuleMaster,
-  ],
-  providers: [
-    // PromotionResultService,
-    // PromotionResultServiceCollection
-  ]
+   ]
 })
 export class PromotionResultModule {}

@@ -10,7 +10,7 @@ import { FunctionalKPIService } from '../functionalKPI.service';
   selector: 'pms-functionalKPI-delete',
   templateUrl: './functionalKPI.delete.html',
   styleUrls: ['./functionalKPI.delete.css'],
-  providers: [FunctionalKPIService]
+  
 })
 export class FunctionalKPIDeleteUI extends DeleteModal<FunctionalKPI> {
 

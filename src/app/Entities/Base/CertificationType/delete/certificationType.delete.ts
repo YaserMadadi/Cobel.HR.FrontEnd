@@ -10,7 +10,6 @@ import { CertificationTypeService } from '../certificationType.service';
   selector: 'base-certificationType-delete',
   templateUrl: './certificationType.delete.html',
   styleUrls: ['./certificationType.delete.css'],
-  providers: [CertificationTypeService]
 })
 export class CertificationTypeDeleteUI extends DeleteModal<CertificationType> {
 

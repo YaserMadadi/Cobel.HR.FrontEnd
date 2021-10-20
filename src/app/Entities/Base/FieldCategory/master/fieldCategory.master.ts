@@ -14,10 +14,7 @@ import { PersonCertificateService } from '../../../HR/PersonCertificate/personCe
   selector: 'base-fieldCategory-master',
   templateUrl: './fieldCategory.master.html',
   styleUrls: ['./fieldCategory.master.css'],
-  providers: [
-    FieldCategoryService,
-    PersonCertificateService,
-  ]
+  
 })
 export class FieldCategoryMasterUI extends MasterModal<FieldCategory> {
 

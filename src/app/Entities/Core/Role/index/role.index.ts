@@ -85,8 +85,7 @@ export class RoleIndexUI extends IndexView<Role> implements AfterViewInit, IInde
 
   resetFilter() {
     this.filterInstance = Role.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(role: Role) {

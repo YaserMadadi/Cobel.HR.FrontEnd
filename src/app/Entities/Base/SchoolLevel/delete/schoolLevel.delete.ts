@@ -10,7 +10,7 @@ import { SchoolLevelService } from '../schoolLevel.service';
   selector: 'base-schoolLevel-delete',
   templateUrl: './schoolLevel.delete.html',
   styleUrls: ['./schoolLevel.delete.css'],
-  providers: [SchoolLevelService]
+  
 })
 export class SchoolLevelDeleteUI extends DeleteModal<SchoolLevel> {
 

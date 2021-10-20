@@ -28,10 +28,6 @@ import { TargetSetting_ModuleFunc } from '../TargetSetting/targetSetting.module.
         FunctionalObjectiveEditUI,
 		FunctionalObjectiveDeleteUI,
 		FunctionalObjectiveSeekUI
-    ],
-    providers: [
-       //FunctionalObjectiveService,
-       // FunctionalObjectiveServiceCollection,
     ]
 })
 

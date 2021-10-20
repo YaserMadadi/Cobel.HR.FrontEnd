@@ -12,11 +12,7 @@ import { FeedbackSessionEditUI } from '../edit/feedbackSession.edit';
 @Component({
   selector: 'lad-feedbackSession-master',
   templateUrl: './feedbackSession.master.html',
-  styleUrls: ['./feedbackSession.master.css'],
-  providers: [
-    FeedbackSessionService,
-    
-  ]
+  styleUrls: ['./feedbackSession.master.css']
 })
 export class FeedbackSessionMasterUI extends MasterModal<FeedbackSession> {
 

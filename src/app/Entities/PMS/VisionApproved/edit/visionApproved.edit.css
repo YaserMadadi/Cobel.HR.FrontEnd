@@ -1,1 +1,8 @@
-﻿
+﻿.head {
+    font-family: "Segoe UI";
+    font-style: italic;
+}
+
+.col-form-label {
+    font-weight: bold;
+}

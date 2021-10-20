@@ -68,7 +68,8 @@ export class MilitaryServiceInclusiveEditUI extends EditModal<MilitaryServiceInc
     this.inclusiveTypeComponent.LoadList();
   }
   
-  InitMilitaryServiceInclusive(militaryServiceInclusive: MilitaryServiceInclusive) {
+  InitMilitaryServiceInclusive(militaryServiceInclusive: MilitaryServiceInclusive){
+    this.currentInstance = this.service.CreateInstance();
     if (!militaryServiceInclusive.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.militaryServiceComponent.instance = militaryServiceInclusive.militaryService;

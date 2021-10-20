@@ -14,10 +14,7 @@ import { FunctionalKPIService } from '../../../PMS/FunctionalKPI/functionalKPI.s
   selector: 'base-pms-measurementUnit-master',
   templateUrl: './measurementUnit.master.html',
   styleUrls: ['./measurementUnit.master.css'],
-  providers: [
-    MeasurementUnitService,
-    FunctionalKPIService,
-  ]
+  
 })
 export class MeasurementUnitMasterUI extends MasterModal<MeasurementUnit> {
 

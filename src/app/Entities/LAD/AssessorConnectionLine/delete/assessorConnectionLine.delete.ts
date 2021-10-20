@@ -10,7 +10,7 @@ import { AssessorConnectionLineService } from '../assessorConnectionLine.service
   selector: 'lad-assessorConnectionLine-delete',
   templateUrl: './assessorConnectionLine.delete.html',
   styleUrls: ['./assessorConnectionLine.delete.css'],
-  providers: [AssessorConnectionLineService]
+  
 })
 export class AssessorConnectionLineDeleteUI extends DeleteModal<AssessorConnectionLine> {
 

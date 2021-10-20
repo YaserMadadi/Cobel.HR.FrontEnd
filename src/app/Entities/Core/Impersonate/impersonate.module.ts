@@ -29,10 +29,6 @@ import { Impersonate_ModuleMaster } from './impersonate.module.master';
   exports: [
     ImpersonateIndexUI,
 		Impersonate_ModuleMaster,
-  ],
-  providers: [
-    // ImpersonateService,
-    // ImpersonateServiceCollection
-  ]
+   ]
 })
 export class ImpersonateModule {}

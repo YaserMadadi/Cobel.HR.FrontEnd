@@ -20,10 +20,6 @@ import { SchoolLevel_ModuleDetail } from './schoolLevel.module.detail';
     ],
     exports: [
         SchoolLevelMasterUI
-    ],
-    providers: [
-        //SchoolLevelService,
-       // SchoolLevelServiceCollection   
     ]
 })
 

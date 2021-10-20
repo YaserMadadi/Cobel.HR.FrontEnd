@@ -58,8 +58,7 @@ export class RotationAssessmentIndexUI extends IndexView<RotationAssessment> imp
 
   resetFilter() {
     this.filterInstance = RotationAssessment.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(rotationAssessment: RotationAssessment) {

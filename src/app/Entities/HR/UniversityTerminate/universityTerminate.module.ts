@@ -29,10 +29,6 @@ import { UniversityTerminate_ModuleMaster } from './universityTerminate.module.m
   exports: [
     UniversityTerminateIndexUI,
 		UniversityTerminate_ModuleMaster,
-  ],
-  providers: [
-    // UniversityTerminateService,
-    // UniversityTerminateServiceCollection
-  ]
+   ]
 })
 export class UniversityTerminateModule {}

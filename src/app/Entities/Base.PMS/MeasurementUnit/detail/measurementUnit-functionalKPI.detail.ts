@@ -16,11 +16,8 @@ import { FunctionalKPIDeleteUI } from '../../../PMS/FunctionalKPI/delete/functio
 @Component({
   selector: 'measurementUnit-functionalKPI-detail',
   templateUrl: './measurementUnit-functionalKPI.detail.html',
-  styleUrls: ['./measurementUnit-functionalKPI.detail.css'],
-  providers: [MeasurementUnitService]
-}) 
-
-@Injectable()
+  styleUrls: ['./measurementUnit-functionalKPI.detail.css']
+})
 export class MeasurementUnit_FunctionalKPI_DetailUI extends DetailView<MeasurementUnit> {
 
   constructor(private measurementUnitService: MeasurementUnitService) {

@@ -20,10 +20,6 @@ import { QualitativeKPI_ModuleDetail } from './qualitativeKPI.module.detail';
     ],
     exports: [
         QualitativeKPIMasterUI
-    ],
-    providers: [
-        //QualitativeKPIService,
-       // QualitativeKPIServiceCollection   
     ]
 })
 

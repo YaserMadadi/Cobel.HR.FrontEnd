@@ -13,10 +13,6 @@ import { AnswerTypeItemEditUI } from '../edit/answerTypeItem.edit';
   selector: 'lad-answerTypeItem-master',
   templateUrl: './answerTypeItem.master.html',
   styleUrls: ['./answerTypeItem.master.css'],
-  providers: [
-    AnswerTypeItemService,
-    
-  ]
 })
 export class AnswerTypeItemMasterUI extends MasterModal<AnswerTypeItem> {
 

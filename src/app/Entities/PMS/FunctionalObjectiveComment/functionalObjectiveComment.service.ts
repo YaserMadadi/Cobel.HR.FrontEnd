@@ -31,6 +31,10 @@ export class FunctionalObjectiveCommentService extends Service<FunctionalObjecti
 
   //region Methods
 
+CreateInstance() {
+   return new FunctionalObjectiveComment();
+}
+
   RetrieveById(id: number): Promise<FunctionalObjectiveComment> {
     return super.RetrieveById(id);
   }

@@ -26,7 +26,7 @@ export class EmployeeSeekUI extends SeekModal<Employee> {
     this.onClose(this.employee);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

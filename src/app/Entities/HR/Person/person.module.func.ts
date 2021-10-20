@@ -38,10 +38,6 @@ import { MaritalStatus_ModuleFunc } from '../../Base.HR/MaritalStatus/maritalSta
         PersonEditUI,
 		PersonDeleteUI,
 		PersonSeekUI
-    ],
-    providers: [
-       //PersonService,
-       // PersonServiceCollection,
     ]
 })
 

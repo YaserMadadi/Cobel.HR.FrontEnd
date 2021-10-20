@@ -20,10 +20,6 @@ import { OperationalAppraise_ModuleDetail } from './operationalAppraise.module.d
     ],
     exports: [
         OperationalAppraiseMasterUI
-    ],
-    providers: [
-        //OperationalAppraiseService,
-       // OperationalAppraiseServiceCollection   
     ]
 })
 

@@ -54,8 +54,7 @@ export class DevelopmentGoalIndexUI extends IndexView<DevelopmentGoal> implement
 
   resetFilter() {
     this.filterInstance = DevelopmentGoal.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(developmentGoal: DevelopmentGoal) {

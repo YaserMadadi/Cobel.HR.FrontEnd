@@ -20,10 +20,6 @@ import { UniversityHistory_ModuleDetail } from './universityHistory.module.detai
     ],
     exports: [
         UniversityHistoryMasterUI
-    ],
-    providers: [
-        //UniversityHistoryService,
-       // UniversityHistoryServiceCollection   
     ]
 })
 

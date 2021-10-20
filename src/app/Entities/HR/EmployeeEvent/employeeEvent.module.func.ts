@@ -30,10 +30,6 @@ import { EventType_ModuleFunc } from '../../Base.HR/EventType/eventType.module.f
         EmployeeEventEditUI,
 		EmployeeEventDeleteUI,
 		EmployeeEventSeekUI
-    ],
-    providers: [
-       //EmployeeEventService,
-       // EmployeeEventServiceCollection,
     ]
 })
 

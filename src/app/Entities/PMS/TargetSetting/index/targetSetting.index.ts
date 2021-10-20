@@ -74,7 +74,7 @@ export class TargetSettingIndexUI extends IndexView<TargetSetting> implements Af
   async onSeek(pageNumber: number) {
     if (this.Id == 0) {
       this.filterInstance.paginate.currentPage = pageNumber;
-
+      console.log('position List : ', AuthService.currentPositionList);
       // this section detect if current user is a HR position responsible for PMS -> Load All
       if (AuthService.currentPositionList.filter(i => i.id == PositionController.HR_PMS_Position_Id || i.parent.id == PositionController.HR_PMS_Position_Id).length > 0) { // Position_Id = 2131 : HRD Senior Specialist	
         this.targetSettingService.Seek(this.filterInstance)
@@ -220,6 +220,10 @@ export class TargetSettingIndexUI extends IndexView<TargetSetting> implements Af
 
   PageChanging(pageNumber: number) {
     this.onSeek(pageNumber);
+  }
+
+  public test() {
+    console.log('hi');
   }
 
   public onAdd(targetSettingEditUI: TargetSettingEditUI) {

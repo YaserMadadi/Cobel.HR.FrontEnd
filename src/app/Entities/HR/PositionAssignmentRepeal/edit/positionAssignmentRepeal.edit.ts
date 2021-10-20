@@ -55,7 +55,8 @@ export class PositionAssignmentRepealEditUI extends EditModal<PositionAssignment
     
   }
   
-  InitPositionAssignmentRepeal(positionAssignmentRepeal: PositionAssignmentRepeal) {
+  InitPositionAssignmentRepeal(positionAssignmentRepeal: PositionAssignmentRepeal){
+    this.currentInstance = this.service.CreateInstance();
     if (!positionAssignmentRepeal.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.positionAssignmentComponent.instance = positionAssignmentRepeal.positionAssignment;

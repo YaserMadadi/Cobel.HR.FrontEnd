@@ -30,10 +30,6 @@ import { RelativeType_ModuleFunc } from '../../Base.HR/RelativeType/relativeType
         RelativeEditUI,
 		RelativeDeleteUI,
 		RelativeSeekUI
-    ],
-    providers: [
-       //RelativeService,
-       // RelativeServiceCollection,
     ]
 })
 

@@ -40,7 +40,8 @@ export class EntityEditUI extends EditModal<Entity> implements IEditModal<Entity
     
   }
   
-  InitEntity(entity: Entity) {
+  InitEntity(entity: Entity){
+    this.currentInstance = this.service.CreateInstance();
     if (!entity.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

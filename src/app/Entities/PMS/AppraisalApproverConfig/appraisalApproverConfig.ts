@@ -3,7 +3,7 @@
 import { Info } from '../../../../xcore/Info';
 import { Validator } from '../../../../xcore/tools/Validator';
 import { BusinessObject } from '../../../../xcore/business-object';
-import { PositionCategory } from '../../HR/PositionCategory/positionCategory';
+import { PositionCategory } from '../../Base.HR/PositionCategory/positionCategory';
 import { ApproverType } from '../../Base.PMS/ApproverType/approverType';
 
 
@@ -34,7 +34,7 @@ export class AppraisalApproverConfig extends BusinessObject implements OnInit {
 
   //#region Fields
 
-	public departmentCategory: PositionCategory = new PositionCategory();
+	public positionCategory: PositionCategory = new PositionCategory();
 	
 	public approverType: ApproverType = new ApproverType();
 
@@ -59,7 +59,7 @@ export class AppraisalApproverConfig extends BusinessObject implements OnInit {
   }
 
   public static Validate(appraisalApproverConfig: AppraisalApproverConfig) : boolean {
-    let result = Validator.Validate(appraisalApproverConfig.departmentCategory) &&
+    let result = Validator.Validate(appraisalApproverConfig.positionCategory) &&
 					Validator.Validate(appraisalApproverConfig.approverType);
     if(result === false)
       console.log('AppraisalApproverConfig is unvalid : ', appraisalApproverConfig);

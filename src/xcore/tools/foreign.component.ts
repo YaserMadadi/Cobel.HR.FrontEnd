@@ -10,18 +10,20 @@ import { Info } from '../Info';
 import { Paginate } from './paginate';
 
 export class ForeignComponent<T extends BusinessObject> {
+
     constructor(service: Service<T>, filterable: boolean = true, addable: boolean = false) {
         this.service = service;
         this.filterable = filterable;
         this.addable = addable;
         this.info = service.info;
+        this._instance = service.CreateInstance();
     }
 
     private service: Service<T>;
 
     private info: Info;
 
-    private _instance: T = <T>new BusinessObject();
+    private _instance: T; //<T>new BusinessObject();
 
     public get instance(): T {
         return this._instance;
@@ -29,10 +31,12 @@ export class ForeignComponent<T extends BusinessObject> {
 
     public set instance(value: T) {
         this._instance = value;
-        this.list = [value];
-        console.log('init');
+        // this.list = [value];
+        //console.log('init');
         //this.DoFilter();
     }
+
+    public selectedItem: T;
 
     public filterable: boolean;
 
@@ -62,7 +66,7 @@ export class ForeignComponent<T extends BusinessObject> {
     public async LoadList() {
         if (BusinessObject.NotConfirm(this.instance))
             this.list = await this.service.RetrieveAll();
-        console.log('load list : ', this.list);
+        //console.log('load list : ', this.list);
     }
 
     public async onClosed(instance: T): Promise<T> {
@@ -75,7 +79,8 @@ export class ForeignComponent<T extends BusinessObject> {
 
     public async onAdd(dropDown: DropDownListComponent, form: IEditModal<T>) {
         dropDown.toggle(false);
-        form.ShowDialog(<T>new BusinessObject());
+        //form.ShowDialog(<T>new BusinessObject());
+        form.ShowDialog(this.service.CreateInstance());
     }
 
 

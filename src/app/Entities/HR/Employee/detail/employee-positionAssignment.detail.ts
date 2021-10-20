@@ -16,11 +16,8 @@ import { PositionAssignmentDeleteUI } from '../../PositionAssignment/delete/posi
 @Component({
   selector: 'employee-positionAssignment-detail',
   templateUrl: './employee-positionAssignment.detail.html',
-  styleUrls: ['./employee-positionAssignment.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employee-positionAssignment.detail.css']
+})
 export class Employee_PositionAssignment_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

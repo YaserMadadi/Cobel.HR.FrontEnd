@@ -21,9 +21,6 @@ import { StrategicObjectveServiceCollection } from './strategicObjectve.service.
   exports: [
     // No Item...
   ],
-  providers: [
-    //StrategicObjectveService,
-    //StrategicObjectveServiceCollection
-  ]
+  
 })
 export class StrategicObjectve_ModuleDetail { }

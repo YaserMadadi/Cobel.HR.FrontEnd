@@ -31,6 +31,10 @@ export class MilitaryServiceExcemptionService extends Service<MilitaryServiceExc
 
   //region Methods
 
+CreateInstance() {
+   return new MilitaryServiceExcemption();
+}
+
   RetrieveById(id: number): Promise<MilitaryServiceExcemption> {
     return super.RetrieveById(id);
   }

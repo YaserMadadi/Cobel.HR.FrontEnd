@@ -16,11 +16,8 @@ import { IndividualDevelopmentPlanDeleteUI } from '../../../PMS/IndividualDevelo
 @Component({
   selector: 'subject-individualDevelopmentPlan-detail',
   templateUrl: './subject-individualDevelopmentPlan.detail.html',
-  styleUrls: ['./subject-individualDevelopmentPlan.detail.css'],
-  providers: [SubjectService]
-}) 
-
-@Injectable()
+  styleUrls: ['./subject-individualDevelopmentPlan.detail.css']
+})
 export class Subject_IndividualDevelopmentPlan_DetailUI extends DetailView<Subject> {
 
   constructor(private subjectService: SubjectService) {

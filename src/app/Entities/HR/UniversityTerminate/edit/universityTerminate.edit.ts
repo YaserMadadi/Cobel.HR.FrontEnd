@@ -55,7 +55,8 @@ export class UniversityTerminateEditUI extends EditModal<UniversityTerminate> im
     
   }
   
-  InitUniversityTerminate(universityTerminate: UniversityTerminate) {
+  InitUniversityTerminate(universityTerminate: UniversityTerminate){
+    this.currentInstance = this.service.CreateInstance();
     if (!universityTerminate.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.universityHistoryComponent.instance = universityTerminate.universityHistory;

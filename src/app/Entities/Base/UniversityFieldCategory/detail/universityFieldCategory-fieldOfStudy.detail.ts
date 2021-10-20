@@ -16,11 +16,8 @@ import { FieldOfStudyDeleteUI } from '../../FieldOfStudy/delete/fieldOfStudy.del
 @Component({
   selector: 'universityFieldCategory-fieldOfStudy-detail',
   templateUrl: './universityFieldCategory-fieldOfStudy.detail.html',
-  styleUrls: ['./universityFieldCategory-fieldOfStudy.detail.css'],
-  providers: [UniversityFieldCategoryService]
-}) 
-
-@Injectable()
+  styleUrls: ['./universityFieldCategory-fieldOfStudy.detail.css']
+})
 export class UniversityFieldCategory_FieldOfStudy_DetailUI extends DetailView<UniversityFieldCategory> {
 
   constructor(private universityFieldCategoryService: UniversityFieldCategoryService) {

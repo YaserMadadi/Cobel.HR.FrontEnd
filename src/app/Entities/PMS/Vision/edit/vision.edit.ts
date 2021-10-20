@@ -55,7 +55,8 @@ export class VisionEditUI extends EditModal<Vision> implements IEditModal<Vision
     
   }
   
-  InitVision(vision: Vision) {
+  InitVision(vision: Vision){
+    this.currentInstance = this.service.CreateInstance();
     if (!vision.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = vision.employee;

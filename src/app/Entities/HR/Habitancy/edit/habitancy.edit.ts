@@ -81,7 +81,8 @@ export class HabitancyEditUI extends EditModal<Habitancy> implements IEditModal<
     this.habitancyTypeComponent.LoadList();
   }
   
-  InitHabitancy(habitancy: Habitancy) {
+  InitHabitancy(habitancy: Habitancy){
+    this.currentInstance = this.service.CreateInstance();
     if (!habitancy.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = habitancy.person;

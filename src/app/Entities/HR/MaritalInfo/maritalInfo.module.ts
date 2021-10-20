@@ -29,10 +29,6 @@ import { MaritalInfo_ModuleMaster } from './maritalInfo.module.master';
   exports: [
     MaritalInfoIndexUI,
 		MaritalInfo_ModuleMaster,
-  ],
-  providers: [
-    // MaritalInfoService,
-    // MaritalInfoServiceCollection
-  ]
+   ]
 })
 export class MaritalInfoModule {}

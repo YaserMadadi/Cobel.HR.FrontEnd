@@ -20,10 +20,6 @@ import { PersonDrivingLicense_ModuleDetail } from './personDrivingLicense.module
     ],
     exports: [
         PersonDrivingLicenseMasterUI
-    ],
-    providers: [
-        //PersonDrivingLicenseService,
-       // PersonDrivingLicenseServiceCollection   
     ]
 })
 

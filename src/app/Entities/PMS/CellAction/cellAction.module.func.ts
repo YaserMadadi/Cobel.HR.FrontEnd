@@ -28,10 +28,6 @@ import { ScoreCell_ModuleFunc } from '../ScoreCell/scoreCell.module.func';
         CellActionEditUI,
 		CellActionDeleteUI,
 		CellActionSeekUI
-    ],
-    providers: [
-       //CellActionService,
-       // CellActionServiceCollection,
     ]
 })
 

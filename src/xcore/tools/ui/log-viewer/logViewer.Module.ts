@@ -10,6 +10,7 @@ import { SharedModule } from "../../../shared/shared.module";
 // import { LogServiceExt } from "./log.service";
 import { NgxJsonViewerModule } from "ngx-json-viewer";
 import { LogViewerComponent } from "./log-viewer.component";
+import { EntityComparatorComponent } from "./entity-comparator/entity-comparator.component";
 // import { LogViewerComponent } from "./log-viewer.component";
 // import { EntityComparatorComponent } from "./entity-comparator/entity-comparator.component";
 //import { EntityComparatorComponent } from "./entity-comparator/entity-comparator.component";
@@ -18,7 +19,7 @@ import { LogViewerComponent } from "./log-viewer.component";
 @NgModule({
     declarations: [
         LogViewerComponent,
-        // EntityComparatorComponent,
+        EntityComparatorComponent,
     ],
     imports: [
         FormsModule,
@@ -31,11 +32,8 @@ import { LogViewerComponent } from "./log-viewer.component";
     exports: [
         LogViewerComponent,
         NgxJsonViewerModule,
-        XCommonModule
-        // EntityComparatorComponent
-    ],
-    providers: [
-        // LogServiceExt
+        XCommonModule,
+        EntityComparatorComponent
     ]
 })
 export class LogViewerModule { }

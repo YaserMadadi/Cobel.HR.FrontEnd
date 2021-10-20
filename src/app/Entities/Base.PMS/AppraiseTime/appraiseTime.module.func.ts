@@ -27,10 +27,6 @@ import { AppraiseTimeSeekUI } from './seek/appraiseTime.seek';
         AppraiseTimeEditUI,
 		AppraiseTimeDeleteUI,
 		AppraiseTimeSeekUI
-    ],
-    providers: [
-       //AppraiseTimeService,
-       // AppraiseTimeServiceCollection,
     ]
 })
 

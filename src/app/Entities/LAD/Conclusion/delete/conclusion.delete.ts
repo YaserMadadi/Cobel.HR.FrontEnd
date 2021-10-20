@@ -10,7 +10,7 @@ import { ConclusionService } from '../conclusion.service';
   selector: 'lad-conclusion-delete',
   templateUrl: './conclusion.delete.html',
   styleUrls: ['./conclusion.delete.css'],
-  providers: [ConclusionService]
+  
 })
 export class ConclusionDeleteUI extends DeleteModal<Conclusion> {
 

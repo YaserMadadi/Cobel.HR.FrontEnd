@@ -32,6 +32,10 @@ export class YearQuarterService extends Service<YearQuarter> implements IService
 
   //region Methods
 
+CreateInstance() {
+   return new YearQuarter();
+}
+
   RetrieveById(id: number): Promise<YearQuarter> {
     return super.RetrieveById(id);
   }

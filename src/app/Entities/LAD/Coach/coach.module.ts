@@ -35,10 +35,6 @@ import { Coaching_ModuleMaster } from '../Coaching/coaching.module.master';
   exports: [
     CoachIndexUI,
 		Coach_ModuleMaster,
-  ],
-  providers: [
-    // CoachService,
-    // CoachServiceCollection
-  ]
+   ]
 })
 export class CoachModule {}

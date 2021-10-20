@@ -28,10 +28,6 @@ import { CompetencyItem_ModuleFunc } from '../CompetencyItem/competencyItem.modu
         CompetencyItemKPIEditUI,
 		CompetencyItemKPIDeleteUI,
 		CompetencyItemKPISeekUI
-    ],
-    providers: [
-       //CompetencyItemKPIService,
-       // CompetencyItemKPIServiceCollection,
     ]
 })
 

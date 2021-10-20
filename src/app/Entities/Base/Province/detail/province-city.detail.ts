@@ -16,11 +16,8 @@ import { CityDeleteUI } from '../../City/delete/city.delete';
 @Component({
   selector: 'province-city-detail',
   templateUrl: './province-city.detail.html',
-  styleUrls: ['./province-city.detail.css'],
-  providers: [ProvinceService]
-}) 
-
-@Injectable()
+  styleUrls: ['./province-city.detail.css']
+})
 export class Province_City_DetailUI extends DetailView<Province> {
 
   constructor(private provinceService: ProvinceService) {

@@ -16,14 +16,7 @@ import { DevelopmentPlanCompetencyService } from '../../DevelopmentPlanCompetenc
 @Component({
   selector: 'pms-competencyItem-master',
   templateUrl: './competencyItem.master.html',
-  styleUrls: ['./competencyItem.master.css'],
-  providers: [
-    CompetencyItemService,
-    BehavioralObjectiveService,
-		AssessmentScoreService,
-		CompetencyItemKPIService,
-		DevelopmentPlanCompetencyService,
-  ]
+  styleUrls: ['./competencyItem.master.css']
 })
 export class CompetencyItemMasterUI extends MasterModal<CompetencyItem> {
 

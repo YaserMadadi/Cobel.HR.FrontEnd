@@ -12,11 +12,7 @@ import { PromotionAssessmentEditUI } from '../edit/promotionAssessment.edit';
 @Component({
   selector: 'lad-promotionAssessment-master',
   templateUrl: './promotionAssessment.master.html',
-  styleUrls: ['./promotionAssessment.master.css'],
-  providers: [
-    PromotionAssessmentService,
-    
-  ]
+  styleUrls: ['./promotionAssessment.master.css']
 })
 export class PromotionAssessmentMasterUI extends MasterModal<PromotionAssessment> {
 

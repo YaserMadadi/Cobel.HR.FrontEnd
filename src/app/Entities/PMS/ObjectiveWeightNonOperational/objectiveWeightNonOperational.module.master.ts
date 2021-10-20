@@ -20,10 +20,6 @@ import { ObjectiveWeightNonOperational_ModuleDetail } from './objectiveWeightNon
     ],
     exports: [
         ObjectiveWeightNonOperationalMasterUI
-    ],
-    providers: [
-        //ObjectiveWeightNonOperationalService,
-       // ObjectiveWeightNonOperationalServiceCollection   
     ]
 })
 

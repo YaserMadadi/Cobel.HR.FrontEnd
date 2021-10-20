@@ -75,8 +75,7 @@ export class BehavioralObjectiveIndexUI extends IndexView<BehavioralObjective> i
 
   resetFilter() {
     this.filterInstance = BehavioralObjective.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(behavioralObjective: BehavioralObjective) {

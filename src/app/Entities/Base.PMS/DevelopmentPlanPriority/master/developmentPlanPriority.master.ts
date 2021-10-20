@@ -14,10 +14,7 @@ import { IndividualDevelopmentPlanService } from '../../../PMS/IndividualDevelop
   selector: 'base-pms-developmentPlanPriority-master',
   templateUrl: './developmentPlanPriority.master.html',
   styleUrls: ['./developmentPlanPriority.master.css'],
-  providers: [
-    DevelopmentPlanPriorityService,
-    IndividualDevelopmentPlanService,
-  ]
+  
 })
 export class DevelopmentPlanPriorityMasterUI extends MasterModal<DevelopmentPlanPriority> {
 

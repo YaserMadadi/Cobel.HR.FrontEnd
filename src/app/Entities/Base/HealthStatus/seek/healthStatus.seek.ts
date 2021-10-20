@@ -26,7 +26,7 @@ export class HealthStatusSeekUI extends SeekModal<HealthStatus> {
     this.onClose(this.healthStatus);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -57,8 +57,7 @@ export class FinalApprovementIndexUI extends IndexView<FinalApprovement> impleme
 
   resetFilter() {
     this.filterInstance = FinalApprovement.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(finalApprovement: FinalApprovement) {

@@ -16,11 +16,8 @@ import { OperationalAppraiseDeleteUI } from '../../OperationalAppraise/delete/op
 @Component({
   selector: 'targetSetting-operationalAppraise-detail',
   templateUrl: './targetSetting-operationalAppraise.detail.html',
-  styleUrls: ['./targetSetting-operationalAppraise.detail.css'],
-  providers: [TargetSettingService]
-}) 
-
-@Injectable()
+  styleUrls: ['./targetSetting-operationalAppraise.detail.css']
+})
 export class TargetSetting_OperationalAppraise_DetailUI extends DetailView<TargetSetting> {
 
   constructor(private targetSettingService: TargetSettingService) {

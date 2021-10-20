@@ -40,7 +40,8 @@ export class ConclusionTypeEditUI extends EditModal<ConclusionType> implements I
     
   }
   
-  InitConclusionType(conclusionType: ConclusionType) {
+  InitConclusionType(conclusionType: ConclusionType){
+    this.currentInstance = this.service.CreateInstance();
     if (!conclusionType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

@@ -1,4 +1,6 @@
-﻿import { NgForm } from '@angular/forms';
+
+
+import { NgForm } from '@angular/forms';
 import { Component, Input, ViewChild } from '@angular/core';
 
 import { DropDownListComponent } from '@progress/kendo-angular-dropdowns';
@@ -40,7 +42,8 @@ export class MaritalStatusEditUI extends EditModal<MaritalStatus> implements IEd
     
   }
   
-  InitMaritalStatus(maritalStatus: MaritalStatus) {
+  InitMaritalStatus(maritalStatus: MaritalStatus){
+    this.currentInstance = this.service.CreateInstance();
     if (!maritalStatus.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

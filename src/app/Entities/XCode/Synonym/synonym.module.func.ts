@@ -27,10 +27,6 @@ import { SynonymSeekUI } from './seek/synonym.seek';
         SynonymEditUI,
 		SynonymDeleteUI,
 		SynonymSeekUI
-    ],
-    providers: [
-       //SynonymService,
-       // SynonymServiceCollection,
     ]
 })
 

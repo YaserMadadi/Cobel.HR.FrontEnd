@@ -20,10 +20,6 @@ import { SchoolHistory_ModuleDetail } from './schoolHistory.module.detail';
     ],
     exports: [
         SchoolHistoryMasterUI
-    ],
-    providers: [
-        //SchoolHistoryService,
-       // SchoolHistoryServiceCollection   
     ]
 })
 

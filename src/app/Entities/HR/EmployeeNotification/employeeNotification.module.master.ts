@@ -20,10 +20,6 @@ import { EmployeeNotification_ModuleDetail } from './employeeNotification.module
     ],
     exports: [
         EmployeeNotificationMasterUI
-    ],
-    providers: [
-        //EmployeeNotificationService,
-       // EmployeeNotificationServiceCollection   
     ]
 })
 

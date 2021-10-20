@@ -29,10 +29,6 @@ import { PersonConnection_ModuleMaster } from './personConnection.module.master'
   exports: [
     PersonConnectionIndexUI,
 		PersonConnection_ModuleMaster,
-  ],
-  providers: [
-    // PersonConnectionService,
-    // PersonConnectionServiceCollection
-  ]
+   ]
 })
 export class PersonConnectionModule {}

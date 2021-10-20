@@ -21,9 +21,6 @@ import { PersonConnectionServiceCollection } from './personConnection.service.co
   exports: [
     // No Item...
   ],
-  providers: [
-    //PersonConnectionService,
-    //PersonConnectionServiceCollection
-  ]
+  
 })
 export class PersonConnection_ModuleDetail { }

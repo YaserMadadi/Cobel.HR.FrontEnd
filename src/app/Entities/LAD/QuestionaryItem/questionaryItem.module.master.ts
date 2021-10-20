@@ -20,10 +20,6 @@ import { QuestionaryItem_ModuleDetail } from './questionaryItem.module.detail';
     ],
     exports: [
         QuestionaryItemMasterUI
-    ],
-    providers: [
-        //QuestionaryItemService,
-       // QuestionaryItemServiceCollection   
     ]
 })
 

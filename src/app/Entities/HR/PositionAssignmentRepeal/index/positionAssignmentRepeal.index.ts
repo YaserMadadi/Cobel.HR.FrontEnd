@@ -54,8 +54,7 @@ export class PositionAssignmentRepealIndexUI extends IndexView<PositionAssignmen
 
   resetFilter() {
     this.filterInstance = PositionAssignmentRepeal.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(positionAssignmentRepeal: PositionAssignmentRepeal) {

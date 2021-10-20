@@ -14,10 +14,7 @@ import { MilitaryServiceExcemptionService } from '../../../HR/MilitaryServiceExc
   selector: 'base-excemptionType-master',
   templateUrl: './excemptionType.master.html',
   styleUrls: ['./excemptionType.master.css'],
-  providers: [
-    ExcemptionTypeService,
-    MilitaryServiceExcemptionService,
-  ]
+  
 })
 export class ExcemptionTypeMasterUI extends MasterModal<ExcemptionType> {
 

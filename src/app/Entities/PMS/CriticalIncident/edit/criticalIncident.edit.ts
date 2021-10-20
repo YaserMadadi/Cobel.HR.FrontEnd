@@ -68,7 +68,8 @@ export class CriticalIncidentEditUI extends EditModal<CriticalIncident> implemen
     this.criticalIncidentTypeComponent.LoadList();
   }
   
-  InitCriticalIncident(criticalIncident: CriticalIncident) {
+  InitCriticalIncident(criticalIncident: CriticalIncident){
+    this.currentInstance = this.service.CreateInstance();
     if (!criticalIncident.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = criticalIncident.employee;

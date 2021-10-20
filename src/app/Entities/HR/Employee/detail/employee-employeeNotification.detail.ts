@@ -16,11 +16,8 @@ import { EmployeeNotificationDeleteUI } from '../../EmployeeNotification/delete/
 @Component({
   selector: 'employee-employeeNotification-detail',
   templateUrl: './employee-employeeNotification.detail.html',
-  styleUrls: ['./employee-employeeNotification.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employee-employeeNotification.detail.css']
+})
 export class Employee_EmployeeNotification_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

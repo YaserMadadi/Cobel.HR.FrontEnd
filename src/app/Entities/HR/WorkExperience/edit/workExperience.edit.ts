@@ -55,7 +55,8 @@ export class WorkExperienceEditUI extends EditModal<WorkExperience> implements I
     
   }
   
-  InitWorkExperience(workExperience: WorkExperience) {
+  InitWorkExperience(workExperience: WorkExperience){
+    this.currentInstance = this.service.CreateInstance();
     if (!workExperience.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = workExperience.person;

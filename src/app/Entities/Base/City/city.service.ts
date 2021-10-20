@@ -22,13 +22,18 @@ import { University } from '../University/university';
 export class CityService extends Service<City> implements IService<City> {
 
   constructor(public ServiceCollection: CityServiceCollection,
-		public ProvinceService: ProvinceService) {
+    public ProvinceService: ProvinceService) {
     super(ServiceCollection.API_Operation, City.Info);
   }
 
   CheckPermission(permissionType: PermissionType): PermissionResult {
     return PermissionController.Check(this.info, permissionType);
   }
+
+  CreateInstance(): City {
+    return new City();
+  }
+
 
   //region Methods
 
@@ -76,8 +81,8 @@ export class CityService extends Service<City> implements IService<City> {
     return super.SeekByValue(value);
   }
 
-	//endregion
-  
+  //endregion
+
 
   //Remove Temprorally
 }

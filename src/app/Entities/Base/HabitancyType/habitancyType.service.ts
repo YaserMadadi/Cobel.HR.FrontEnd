@@ -28,6 +28,10 @@ export class HabitancyTypeService extends Service<HabitancyType> implements ISer
 
   //region Methods
 
+CreateInstance() {
+   return new HabitancyType();
+}
+
   RetrieveById(id: number): Promise<HabitancyType> {
     return super.RetrieveById(id);
   }

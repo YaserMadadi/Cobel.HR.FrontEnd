@@ -20,10 +20,6 @@ import { BehavioralKPI_ModuleDetail } from './behavioralKPI.module.detail';
     ],
     exports: [
         BehavioralKPIMasterUI
-    ],
-    providers: [
-        //BehavioralKPIService,
-       // BehavioralKPIServiceCollection   
     ]
 })
 

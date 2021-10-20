@@ -29,6 +29,10 @@ export class WorkExperienceService extends Service<WorkExperience> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new WorkExperience();
+}
+
   RetrieveById(id: number): Promise<WorkExperience> {
     return super.RetrieveById(id);
   }

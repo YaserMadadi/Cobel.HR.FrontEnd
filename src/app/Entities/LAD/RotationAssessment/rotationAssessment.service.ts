@@ -31,6 +31,10 @@ export class RotationAssessmentService extends Service<RotationAssessment> imple
 
   //region Methods
 
+CreateInstance() {
+   return new RotationAssessment();
+}
+
   RetrieveById(id: number): Promise<RotationAssessment> {
     return super.RetrieveById(id);
   }

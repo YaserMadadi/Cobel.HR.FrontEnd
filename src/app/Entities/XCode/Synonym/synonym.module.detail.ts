@@ -21,9 +21,6 @@ import { SynonymServiceCollection } from './synonym.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //SynonymService,
-    //SynonymServiceCollection
-  ]
+  
 })
 export class Synonym_ModuleDetail { }

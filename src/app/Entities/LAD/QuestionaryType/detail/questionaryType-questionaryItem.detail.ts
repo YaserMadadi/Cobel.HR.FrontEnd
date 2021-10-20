@@ -16,11 +16,8 @@ import { QuestionaryItemDeleteUI } from '../../QuestionaryItem/delete/questionar
 @Component({
   selector: 'questionaryType-questionaryItem-detail',
   templateUrl: './questionaryType-questionaryItem.detail.html',
-  styleUrls: ['./questionaryType-questionaryItem.detail.css'],
-  providers: [QuestionaryTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./questionaryType-questionaryItem.detail.css']
+})
 export class QuestionaryType_QuestionaryItem_DetailUI extends DetailView<QuestionaryType> {
 
   constructor(private questionaryTypeService: QuestionaryTypeService) {

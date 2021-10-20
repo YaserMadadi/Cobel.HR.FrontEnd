@@ -10,7 +10,7 @@ import { AppraiseTypeService } from '../appraiseType.service';
   selector: 'base-pms-appraiseType-delete',
   templateUrl: './appraiseType.delete.html',
   styleUrls: ['./appraiseType.delete.css'],
-  providers: [AppraiseTypeService]
+  
 })
 export class AppraiseTypeDeleteUI extends DeleteModal<AppraiseType> {
 

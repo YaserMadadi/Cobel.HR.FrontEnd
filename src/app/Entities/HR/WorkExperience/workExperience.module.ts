@@ -29,10 +29,6 @@ import { WorkExperience_ModuleMaster } from './workExperience.module.master';
   exports: [
     WorkExperienceIndexUI,
 		WorkExperience_ModuleMaster,
-  ],
-  providers: [
-    // WorkExperienceService,
-    // WorkExperienceServiceCollection
-  ]
+   ]
 })
 export class WorkExperienceModule {}

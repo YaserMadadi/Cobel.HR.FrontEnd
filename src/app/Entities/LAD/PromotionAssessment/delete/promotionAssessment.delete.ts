@@ -10,7 +10,7 @@ import { PromotionAssessmentService } from '../promotionAssessment.service';
   selector: 'lad-promotionAssessment-delete',
   templateUrl: './promotionAssessment.delete.html',
   styleUrls: ['./promotionAssessment.delete.css'],
-  providers: [PromotionAssessmentService]
+  
 })
 export class PromotionAssessmentDeleteUI extends DeleteModal<PromotionAssessment> {
 

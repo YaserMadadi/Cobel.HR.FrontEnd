@@ -27,10 +27,6 @@ import { QuarterSeekUI } from './seek/quarter.seek';
         QuarterEditUI,
 		QuarterDeleteUI,
 		QuarterSeekUI
-    ],
-    providers: [
-       //QuarterService,
-       // QuarterServiceCollection,
     ]
 })
 

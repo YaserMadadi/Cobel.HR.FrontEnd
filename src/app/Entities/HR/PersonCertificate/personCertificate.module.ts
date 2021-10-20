@@ -29,10 +29,6 @@ import { PersonCertificate_ModuleMaster } from './personCertificate.module.maste
   exports: [
     PersonCertificateIndexUI,
 		PersonCertificate_ModuleMaster,
-  ],
-  providers: [
-    // PersonCertificateService,
-    // PersonCertificateServiceCollection
-  ]
+   ]
 })
 export class PersonCertificateModule {}

@@ -14,12 +14,7 @@ import { AssessmentService } from '../../Assessment/assessment.service';
 @Component({
   selector: 'lad-assessor-master',
   templateUrl: './assessor.master.html',
-  styleUrls: ['./assessor.master.css'],
-  providers: [
-    AssessorService,
-    AssessorConnectionLineService,
-		AssessmentService,
-  ]
+  styleUrls: ['./assessor.master.css']
 })
 export class AssessorMasterUI extends MasterModal<Assessor> {
 

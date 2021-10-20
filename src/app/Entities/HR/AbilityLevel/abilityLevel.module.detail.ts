@@ -36,9 +36,6 @@ import { WritingLevel_LanguageAbility_DetailUI } from './detail/writingLevel-lan
 		ReadingLevel_LanguageAbility_DetailUI,
 		WritingLevel_LanguageAbility_DetailUI
   ],
-  providers: [
-    //AbilityLevelService,
-    //AbilityLevelServiceCollection
-  ]
+  
 })
 export class AbilityLevel_ModuleDetail { }

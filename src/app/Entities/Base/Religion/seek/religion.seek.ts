@@ -26,7 +26,7 @@ export class ReligionSeekUI extends SeekModal<Religion> {
     this.onClose(this.religion);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

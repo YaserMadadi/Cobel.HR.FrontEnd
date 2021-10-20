@@ -20,10 +20,6 @@ import { PersonConnection_ModuleDetail } from './personConnection.module.detail'
     ],
     exports: [
         PersonConnectionMasterUI
-    ],
-    providers: [
-        //PersonConnectionService,
-       // PersonConnectionServiceCollection   
     ]
 })
 

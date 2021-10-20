@@ -102,8 +102,7 @@ export class ScoreCellIndexUI extends IndexView<ScoreCell> implements AfterViewI
 
   resetFilter() {
     this.filterInstance = ScoreCell.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(scoreCell: ScoreCell) {

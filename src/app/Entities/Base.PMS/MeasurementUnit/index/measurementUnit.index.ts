@@ -68,8 +68,7 @@ export class MeasurementUnitIndexUI extends IndexView<MeasurementUnit> implement
 
   resetFilter() {
     this.filterInstance = MeasurementUnit.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(measurementUnit: MeasurementUnit) {

@@ -22,18 +22,6 @@ import { RotationAssessmentService } from '../../RotationAssessment/rotationAsse
   selector: 'lad-assessment-master',
   templateUrl: './assessment.master.html',
   styleUrls: ['./assessment.master.css'],
-  providers: [
-    AssessmentService,
-    PromotionAssessmentService,
-		FeedbackSessionService,
-		DevelopmentGoalService,
-		ConclusionService,
-		CoachingQuestionaryService,
-		AssessmentTrainingService,
-		AssessmentScoreService,
-		AssessmentCoachingService,
-		RotationAssessmentService,
-  ]
 })
 export class AssessmentMasterUI extends MasterModal<Assessment> {
 

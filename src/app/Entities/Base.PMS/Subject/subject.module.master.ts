@@ -20,10 +20,6 @@ import { Subject_ModuleDetail } from './subject.module.detail';
     ],
     exports: [
         SubjectMasterUI
-    ],
-    providers: [
-        //SubjectService,
-       // SubjectServiceCollection   
     ]
 })
 

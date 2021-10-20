@@ -10,7 +10,7 @@ import { PropertyService } from '../property.service';
   selector: 'core-property-delete',
   templateUrl: './property.delete.html',
   styleUrls: ['./property.delete.css'],
-  providers: [PropertyService]
+  
 })
 export class PropertyDeleteUI extends DeleteModal<Property> {
 

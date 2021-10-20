@@ -61,8 +61,7 @@ export class QualitativeAppraiseIndexUI extends IndexView<QualitativeAppraise> i
 
   resetFilter() {
     this.filterInstance = QualitativeAppraise.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(qualitativeAppraise: QualitativeAppraise) {

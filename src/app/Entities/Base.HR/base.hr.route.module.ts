@@ -1,14 +1,17 @@
-﻿import { NgModule } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '../../../xcore/security/auth_guard';
 
-import { EmploymentStatusIndexUI } from './EmploymentStatus/index/employmentStatus.index';
 import { ContractTypeIndexUI } from './ContractType/index/contractType.index';
 import { EventTypeIndexUI } from './EventType/index/eventType.index';
+import { PositionCategoryIndexUI } from './PositionCategory/index/positionCategory.index';
 import { DevelopmentPlanTypeIndexUI } from './DevelopmentPlanType/index/developmentPlanType.index';
 import { RelativeTypeIndexUI } from './RelativeType/index/relativeType.index';
+import { PositionDivisionIndexUI } from './PositionDivision/index/positionDivision.index';
 import { MaritalStatusIndexUI } from './MaritalStatus/index/maritalStatus.index';
+import { EmploymentStatusIndexUI } from './EmploymentStatus/index/employmentStatus.index';
 
 const base_hr_routes : Routes = [
   { path: 'ContractType', redirectTo: 'ContractType/0' },
@@ -21,6 +24,10 @@ const base_hr_routes : Routes = [
 	{ path: 'EventType/:id', component: EventTypeIndexUI, canActivate: [AuthGuard], data: { title: 'EventType' }  },
 	{ path: 'MaritalStatus', redirectTo: 'MaritalStatus/0' },
 	{ path: 'MaritalStatus/:id', component: MaritalStatusIndexUI, canActivate: [AuthGuard], data: { title: 'MaritalStatus' }  },
+	{ path: 'PositionCategory', redirectTo: 'PositionCategory/0' },
+	{ path: 'PositionCategory/:id', component: PositionCategoryIndexUI, canActivate: [AuthGuard], data: { title: 'PositionCategory' }  },
+	{ path: 'PositionDivision', redirectTo: 'PositionDivision/0' },
+	{ path: 'PositionDivision/:id', component: PositionDivisionIndexUI, canActivate: [AuthGuard], data: { title: 'PositionDivision' }  },
 	{ path: 'RelativeType', redirectTo: 'RelativeType/0' },
 	{ path: 'RelativeType/:id', component: RelativeTypeIndexUI, canActivate: [AuthGuard], data: { title: 'RelativeType' }  },
 	

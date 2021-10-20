@@ -1,4 +1,4 @@
-﻿import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 
 import { MasterModal } from '../../../../../xcore/tools/ui/view-base/master.modal';
 
@@ -14,10 +14,7 @@ import { EmployeeEventService } from '../../../HR/EmployeeEvent/employeeEvent.se
   selector: 'base-hr-eventType-master',
   templateUrl: './eventType.master.html',
   styleUrls: ['./eventType.master.css'],
-  providers: [
-    EventTypeService,
-    EmployeeEventService,
-  ]
+  
 })
 export class EventTypeMasterUI extends MasterModal<EventType> {
 

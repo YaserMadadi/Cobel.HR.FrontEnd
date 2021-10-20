@@ -16,11 +16,8 @@ import { FinalApprovementDeleteUI } from '../../../PMS/FinalApprovement/delete/f
 @Component({
   selector: 'approver-finalApprovement-detail',
   templateUrl: './approver-finalApprovement.detail.html',
-  styleUrls: ['./approver-finalApprovement.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./approver-finalApprovement.detail.css']
+})
 export class Approver_FinalApprovement_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

@@ -21,9 +21,6 @@ import { PositionAssignmentRepealServiceCollection } from './positionAssignmentR
   exports: [
     // No Item...
   ],
-  providers: [
-    //PositionAssignmentRepealService,
-    //PositionAssignmentRepealServiceCollection
-  ]
+  
 })
 export class PositionAssignmentRepeal_ModuleDetail { }

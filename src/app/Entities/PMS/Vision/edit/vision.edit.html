@@ -44,70 +44,6 @@
                             [disabled]='IsLocked'
                             maxlength='4000'  required  ></textarea>
       </div>
-			<!-- Date -->
-      <div class='form-group'>
-        <guide (onClick)='onGuid("Date")'></guide>
-        <label for='date' class='col-form-label'>Date : </label>
-        <span class='help-block col-form-label' *ngIf='!date.valid && date.touched && !date.disabled'>( Value is not Valid! )</span>
-        <input type='date' 
-                    title=Date 
-                    [ngClass]="{ 'error' : !date.valid && date.touched }" 
-                    class='form-control' 
-                    #date='ngModel' 
-                    name='date'
-                    [ngModel]="currentInstance.date | date:'yyyy-MM-dd'"
-                    (ngModelChange)='currentInstance.date = $event'
-                    [disabled]='IsLocked'
-                     required >
-      </div>
-			<!-- isApprovedByEmployee -->
-      <div class='form-group'>
-        <guide (onClick)='onGuid("isApprovedByEmployee")'></guide>
-        <label for='isApprovedByEmployee' class='col-form-label'>Employee Approvement Status : </label>
-        <span class='help-block col-form-label' *ngIf='!isApprovedByEmployee.valid && isApprovedByEmployee.touched && !isApprovedByEmployee.disabled'>( Value is not Valid! )</span>
-        <input type='text' 
-                    title='Employee Approvement Status' 
-                    [ngClass]="{ 'error' : !isApprovedByEmployee.valid && isApprovedByEmployee.touched }" 
-                    class='form-control ' 
-                    #isApprovedByEmployee='ngModel' 
-                    name='isApprovedByEmployee' 
-                    placeholder='... Employee Approvement Status' 
-                    [(ngModel)]='currentInstance.isApprovedByEmployee' 
-                    [disabled]='IsLocked'
-                    maxlength='200'  required  />
-      </div>
-			<!-- isApprovedByDirectManager -->
-      <div class='form-group'>
-        <guide (onClick)='onGuid("isApprovedByDirectManager")'></guide>
-        <label for='isApprovedByDirectManager' class='col-form-label'>Direct Manager Approvement Status : </label>
-        <span class='help-block col-form-label' *ngIf='!isApprovedByDirectManager.valid && isApprovedByDirectManager.touched && !isApprovedByDirectManager.disabled'>( Value is not Valid! )</span>
-        <input type='text' 
-                    title='Direct Manager Approvement Status' 
-                    [ngClass]="{ 'error' : !isApprovedByDirectManager.valid && isApprovedByDirectManager.touched }" 
-                    class='form-control ' 
-                    #isApprovedByDirectManager='ngModel' 
-                    name='isApprovedByDirectManager' 
-                    placeholder='... Direct Manager Approvement Status' 
-                    [(ngModel)]='currentInstance.isApprovedByDirectManager' 
-                    [disabled]='IsLocked'
-                    maxlength='200'  required  />
-      </div>
-			<!-- isApprovedByBuHead -->
-      <div class='form-group'>
-        <guide (onClick)='onGuid("isApprovedByBuHead")'></guide>
-        <label for='isApprovedByBuHead' class='col-form-label'>B U Head Approvement Status : </label>
-        <span class='help-block col-form-label' *ngIf='!isApprovedByBuHead.valid && isApprovedByBuHead.touched && !isApprovedByBuHead.disabled'>( Value is not Valid! )</span>
-        <input type='text' 
-                    title='B U Head Approvement Status' 
-                    [ngClass]="{ 'error' : !isApprovedByBuHead.valid && isApprovedByBuHead.touched }" 
-                    class='form-control ' 
-                    #isApprovedByBuHead='ngModel' 
-                    name='isApprovedByBuHead' 
-                    placeholder='... B U Head Approvement Status' 
-                    [(ngModel)]='currentInstance.isApprovedByBuHead' 
-                    [disabled]='IsLocked'
-                    maxlength='200'  required  />
-      </div>
 			
     </div>
     <div class='modal-footer'>
@@ -121,10 +57,10 @@
             [disabled]='!visionEditUI.valid || IsLocked' 
             [hidden]='IsEditMode' 
             (click)='onSave(currentInstance, visionEditUI, true)'>Save</button>
-      <button id='cancle-button'
+      <button id='cancel-button'
             class='xbtn btn-delete modal-footer-button' 
             [disabled]='IsLocked'
-            (click)='onClose()'>Cancle</button>
+            (click)='onClose()'>Cancel</button>
     </div>
   </form>
 </XDialog>

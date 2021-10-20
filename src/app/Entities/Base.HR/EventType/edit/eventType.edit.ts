@@ -1,4 +1,6 @@
-﻿import { NgForm } from '@angular/forms';
+
+
+import { NgForm } from '@angular/forms';
 import { Component, Input, ViewChild } from '@angular/core';
 
 import { DropDownListComponent } from '@progress/kendo-angular-dropdowns';
@@ -40,7 +42,8 @@ export class EventTypeEditUI extends EditModal<EventType> implements IEditModal<
     
   }
   
-  InitEventType(eventType: EventType) {
+  InitEventType(eventType: EventType){
+    this.currentInstance = this.service.CreateInstance();
     if (!eventType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

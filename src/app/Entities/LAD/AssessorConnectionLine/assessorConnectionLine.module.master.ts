@@ -20,10 +20,6 @@ import { AssessorConnectionLine_ModuleDetail } from './assessorConnectionLine.mo
     ],
     exports: [
         AssessorConnectionLineMasterUI
-    ],
-    providers: [
-        //AssessorConnectionLineService,
-       // AssessorConnectionLineServiceCollection   
     ]
 })
 

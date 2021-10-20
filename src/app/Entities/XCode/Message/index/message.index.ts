@@ -51,8 +51,7 @@ export class MessageIndexUI extends IndexView<Message> implements AfterViewInit,
 
   resetFilter() {
     this.filterInstance = Message.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(message: Message) {

@@ -83,8 +83,7 @@ export class UniversityHistoryIndexUI extends IndexView<UniversityHistory> imple
 
   resetFilter() {
     this.filterInstance = UniversityHistory.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(universityHistory: UniversityHistory) {

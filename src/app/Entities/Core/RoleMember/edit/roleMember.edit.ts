@@ -68,7 +68,8 @@ export class RoleMemberEditUI extends EditModal<RoleMember> implements IEditModa
     this.roleComponent.LoadList();
   }
   
-  InitRoleMember(roleMember: RoleMember) {
+  InitRoleMember(roleMember: RoleMember){
+    this.currentInstance = this.service.CreateInstance();
     if (!roleMember.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = roleMember.employee;

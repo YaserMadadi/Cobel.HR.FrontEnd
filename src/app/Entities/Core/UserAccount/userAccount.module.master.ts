@@ -20,10 +20,6 @@ import { UserAccount_ModuleDetail } from './userAccount.module.detail';
     ],
     exports: [
         UserAccountMasterUI
-    ],
-    providers: [
-        //UserAccountService,
-       // UserAccountServiceCollection   
     ]
 })
 

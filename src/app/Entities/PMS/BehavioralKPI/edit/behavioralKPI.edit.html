@@ -103,10 +103,10 @@
               [disabled]='!behavioralKPIEditUI.valid || IsLocked'
               [hidden]='IsEditMode'
               (click)='onSave(currentInstance, behavioralKPIEditUI, true)'>Save</button>
-      <button id='cancle-button'
+      <button id='cancel-button'
               class='xbtn btn-delete modal-footer-button'
               [disabled]='IsLocked'
-              (click)='onClose()'>Cancle</button>
+              (click)='onClose()'>Cancel</button>
     </div>
   </form>
 </XDialog>

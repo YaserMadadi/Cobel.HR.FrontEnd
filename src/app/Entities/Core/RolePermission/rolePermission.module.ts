@@ -29,10 +29,6 @@ import { RolePermission_ModuleMaster } from './rolePermission.module.master';
   exports: [
     RolePermissionIndexUI,
 		RolePermission_ModuleMaster,
-  ],
-  providers: [
-    // RolePermissionService,
-    // RolePermissionServiceCollection
-  ]
+   ]
 })
 export class RolePermissionModule {}

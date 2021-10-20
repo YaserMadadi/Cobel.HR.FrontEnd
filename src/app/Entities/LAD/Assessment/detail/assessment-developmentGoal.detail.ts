@@ -16,11 +16,8 @@ import { DevelopmentGoalDeleteUI } from '../../DevelopmentGoal/delete/developmen
 @Component({
   selector: 'assessment-developmentGoal-detail',
   templateUrl: './assessment-developmentGoal.detail.html',
-  styleUrls: ['./assessment-developmentGoal.detail.css'],
-  providers: [AssessmentService]
-}) 
-
-@Injectable()
+  styleUrls: ['./assessment-developmentGoal.detail.css']
+})
 export class Assessment_DevelopmentGoal_DetailUI extends DetailView<Assessment> {
 
   constructor(private assessmentService: AssessmentService) {

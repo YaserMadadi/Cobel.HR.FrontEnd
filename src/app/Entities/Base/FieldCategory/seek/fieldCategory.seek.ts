@@ -26,7 +26,7 @@ export class FieldCategorySeekUI extends SeekModal<FieldCategory> {
     this.onClose(this.fieldCategory);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

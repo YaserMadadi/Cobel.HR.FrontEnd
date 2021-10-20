@@ -68,6 +68,9 @@ export class Vision extends BusinessObject implements OnInit {
   public static SeekInstance() : Vision {
     let vision: Vision = new Vision();
     vision.date = null;
+    vision.isApprovedByBuHead = null;
+    vision.isApprovedByDirectManager = null;
+    vision.isApprovedByEmployee = null;
     vision.ResetPaginate();
     return vision;
   }

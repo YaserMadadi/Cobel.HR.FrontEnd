@@ -54,8 +54,7 @@ export class CellActionIndexUI extends IndexView<CellAction> implements AfterVie
 
   resetFilter() {
     this.filterInstance = CellAction.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(cellAction: CellAction) {

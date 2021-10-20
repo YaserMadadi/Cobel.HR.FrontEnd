@@ -15,11 +15,8 @@ import { PositionDeleteUI } from '../delete/position.delete';
 @Component({
   selector: 'position-childPosition-detail',
   templateUrl: './position-childPosition.detail.html',
-  styleUrls: ['./position-childPosition.detail.css'],
-  providers: [PositionService]
-}) 
-
-@Injectable()
+  styleUrls: ['./position-childPosition.detail.css']
+})
 export class Position_ChildPosition_DetailUI extends DetailView<Position> {
 
   constructor(private positionService: PositionService) {

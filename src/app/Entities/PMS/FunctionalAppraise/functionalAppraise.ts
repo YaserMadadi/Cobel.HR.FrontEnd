@@ -44,8 +44,6 @@ export class FunctionalAppraise extends BusinessObject implements OnInit {
 	
 	public appraiseType: AppraiseType = new AppraiseType();
 	
-	public appraiseTime: AppraiseTime = new AppraiseTime();
-	
 	public actualValue: number = 0;
 	
 	public score: number = 0;
@@ -75,8 +73,7 @@ export class FunctionalAppraise extends BusinessObject implements OnInit {
   public static Validate(functionalAppraise: FunctionalAppraise) : boolean {
     let result = Validator.Validate(functionalAppraise.functionalKPI) &&
 					Validator.Validate(functionalAppraise.appraiser) &&
-					Validator.Validate(functionalAppraise.appraiseType) &&
-					Validator.Validate(functionalAppraise.appraiseTime);
+					Validator.Validate(functionalAppraise.appraiseType);
     if(result === false)
       console.log('FunctionalAppraise is unvalid : ', functionalAppraise);
     return result;

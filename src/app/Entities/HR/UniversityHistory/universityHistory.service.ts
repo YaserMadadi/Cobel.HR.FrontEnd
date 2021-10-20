@@ -40,6 +40,10 @@ export class UniversityHistoryService extends Service<UniversityHistory> impleme
 
   //region Methods
 
+CreateInstance() {
+   return new UniversityHistory();
+}
+
   RetrieveById(id: number): Promise<UniversityHistory> {
     return super.RetrieveById(id);
   }

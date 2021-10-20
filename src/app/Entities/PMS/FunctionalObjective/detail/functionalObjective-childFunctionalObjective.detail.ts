@@ -15,11 +15,8 @@ import { FunctionalObjectiveDeleteUI } from '../delete/functionalObjective.delet
 @Component({
   selector: 'functionalObjective-childFunctionalObjective-detail',
   templateUrl: './functionalObjective-childFunctionalObjective.detail.html',
-  styleUrls: ['./functionalObjective-childFunctionalObjective.detail.css'],
-  providers: [FunctionalObjectiveService]
-}) 
-
-@Injectable()
+  styleUrls: ['./functionalObjective-childFunctionalObjective.detail.css']
+})
 export class FunctionalObjective_ChildFunctionalObjective_DetailUI extends DetailView<FunctionalObjective> {
 
   constructor(private functionalObjectiveService: FunctionalObjectiveService) {
@@ -58,11 +55,11 @@ export class FunctionalObjective_ChildFunctionalObjective_DetailUI extends Detai
       this.currentFunctionalObjective = new FunctionalObjective();
   }
 
-  public onDblClicked(masterUI: FunctionalObjectiveMasterUI) {
-    if (FunctionalObjective.NotConfirm(this.currentFunctionalObjective))
-      return;
-    masterUI.ShowDialog(this.currentFunctionalObjective);
-  }
+  // public onDblClicked(masterUI: FunctionalObjectiveMasterUI) {
+  //   // if (FunctionalObjective.NotConfirm(this.currentFunctionalObjective))
+  //   //   return;
+  //   // masterUI.ShowDialog(this.currentFunctionalObjective);
+  // }
 
   public onAdd(editUI: FunctionalObjectiveEditUI) {
     editUI.ParentalFunctionalObjective = this.parentalFunctionalObjective;

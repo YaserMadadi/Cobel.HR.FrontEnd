@@ -55,7 +55,8 @@ export class PropertyOptionEditUI extends EditModal<PropertyOption> implements I
     
   }
   
-  InitPropertyOption(propertyOption: PropertyOption) {
+  InitPropertyOption(propertyOption: PropertyOption){
+    this.currentInstance = this.service.CreateInstance();
     if (!propertyOption.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.propertyComponent.instance = propertyOption.property;

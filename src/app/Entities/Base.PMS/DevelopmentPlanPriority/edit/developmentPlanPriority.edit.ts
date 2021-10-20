@@ -40,7 +40,8 @@ export class DevelopmentPlanPriorityEditUI extends EditModal<DevelopmentPlanPrio
     
   }
   
-  InitDevelopmentPlanPriority(developmentPlanPriority: DevelopmentPlanPriority) {
+  InitDevelopmentPlanPriority(developmentPlanPriority: DevelopmentPlanPriority){
+    this.currentInstance = this.service.CreateInstance();
     if (!developmentPlanPriority.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

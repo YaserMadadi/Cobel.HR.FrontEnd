@@ -60,8 +60,7 @@ export class OperationalAppraiseIndexUI extends IndexView<OperationalAppraise> i
 
   resetFilter() {
     this.filterInstance = OperationalAppraise.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(operationalAppraise: OperationalAppraise) {

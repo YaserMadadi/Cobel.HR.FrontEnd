@@ -57,8 +57,7 @@ export class CriticalIncidentRecognitionIndexUI extends IndexView<CriticalIncide
 
   resetFilter() {
     this.filterInstance = CriticalIncidentRecognition.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(criticalIncidentRecognition: CriticalIncidentRecognition) {

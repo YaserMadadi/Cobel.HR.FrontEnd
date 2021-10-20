@@ -40,7 +40,8 @@ export class StrategicObjectveEditUI extends EditModal<StrategicObjectve> implem
     
   }
   
-  InitStrategicObjectve(strategicObjectve: StrategicObjectve) {
+  InitStrategicObjectve(strategicObjectve: StrategicObjectve){
+    this.currentInstance = this.service.CreateInstance();
     if (!strategicObjectve.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

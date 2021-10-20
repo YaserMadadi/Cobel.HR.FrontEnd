@@ -30,6 +30,10 @@ export class PropertyService extends Service<Property> implements IService<Prope
 
   //region Methods
 
+CreateInstance() {
+   return new Property();
+}
+
   RetrieveById(id: number): Promise<Property> {
     return super.RetrieveById(id);
   }

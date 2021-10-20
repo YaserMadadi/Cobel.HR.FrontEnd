@@ -26,7 +26,7 @@ export class TargetSettingSeekUI extends SeekModal<TargetSetting> {
     this.onClose(this.targetSetting);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

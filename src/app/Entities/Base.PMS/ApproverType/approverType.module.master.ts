@@ -20,10 +20,6 @@ import { ApproverType_ModuleDetail } from './approverType.module.detail';
     ],
     exports: [
         ApproverTypeMasterUI
-    ],
-    providers: [
-        //ApproverTypeService,
-       // ApproverTypeServiceCollection   
     ]
 })
 

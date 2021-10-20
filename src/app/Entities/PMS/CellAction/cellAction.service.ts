@@ -29,6 +29,10 @@ export class CellActionService extends Service<CellAction> implements IService<C
 
   //region Methods
 
+CreateInstance() {
+   return new CellAction();
+}
+
   RetrieveById(id: number): Promise<CellAction> {
     return super.RetrieveById(id);
   }

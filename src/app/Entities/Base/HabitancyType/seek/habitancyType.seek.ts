@@ -26,7 +26,7 @@ export class HabitancyTypeSeekUI extends SeekModal<HabitancyType> {
     this.onClose(this.habitancyType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

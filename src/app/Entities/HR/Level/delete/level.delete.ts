@@ -10,7 +10,7 @@ import { LevelService } from '../level.service';
   selector: 'hr-level-delete',
   templateUrl: './level.delete.html',
   styleUrls: ['./level.delete.css'],
-  providers: [LevelService]
+  
 })
 export class LevelDeleteUI extends DeleteModal<Level> {
 

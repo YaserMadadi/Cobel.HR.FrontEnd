@@ -71,8 +71,7 @@ export class PropertyIndexUI extends IndexView<Property> implements AfterViewIni
 
   resetFilter() {
     this.filterInstance = Property.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(property: Property) {

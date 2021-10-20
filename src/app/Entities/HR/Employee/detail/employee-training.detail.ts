@@ -16,11 +16,8 @@ import { TrainingDeleteUI } from '../../../IDEA/Training/delete/training.delete'
 @Component({
   selector: 'employee-training-detail',
   templateUrl: './employee-training.detail.html',
-  styleUrls: ['./employee-training.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employee-training.detail.css']
+})
 export class Employee_Training_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

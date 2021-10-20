@@ -32,10 +32,6 @@ import { QualitativeKPI_ModuleMaster } from '../QualitativeKPI/qualitativeKPI.mo
   exports: [
     QualitativeObjectiveIndexUI,
 		QualitativeObjective_ModuleMaster,
-  ],
-  providers: [
-    // QualitativeObjectiveService,
-    // QualitativeObjectiveServiceCollection
-  ]
+   ]
 })
 export class QualitativeObjectiveModule {}

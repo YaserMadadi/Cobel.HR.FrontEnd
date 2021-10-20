@@ -30,10 +30,6 @@ import { ConnectionType_ModuleFunc } from '../../Base/ConnectionType/connectionT
         CoachConnectionLineEditUI,
 		CoachConnectionLineDeleteUI,
 		CoachConnectionLineSeekUI
-    ],
-    providers: [
-       //CoachConnectionLineService,
-       // CoachConnectionLineServiceCollection,
     ]
 })
 

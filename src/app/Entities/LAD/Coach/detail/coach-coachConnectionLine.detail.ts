@@ -16,11 +16,8 @@ import { CoachConnectionLineDeleteUI } from '../../CoachConnectionLine/delete/co
 @Component({
   selector: 'coach-coachConnectionLine-detail',
   templateUrl: './coach-coachConnectionLine.detail.html',
-  styleUrls: ['./coach-coachConnectionLine.detail.css'],
-  providers: [CoachService]
-}) 
-
-@Injectable()
+  styleUrls: ['./coach-coachConnectionLine.detail.css']
+})
 export class Coach_CoachConnectionLine_DetailUI extends DetailView<Coach> {
 
   constructor(private coachService: CoachService) {

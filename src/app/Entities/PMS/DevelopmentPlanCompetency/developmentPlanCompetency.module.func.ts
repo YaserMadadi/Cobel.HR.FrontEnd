@@ -30,10 +30,6 @@ import { CompetencyItem_ModuleFunc } from '../CompetencyItem/competencyItem.modu
         DevelopmentPlanCompetencyEditUI,
 		DevelopmentPlanCompetencyDeleteUI,
 		DevelopmentPlanCompetencySeekUI
-    ],
-    providers: [
-       //DevelopmentPlanCompetencyService,
-       // DevelopmentPlanCompetencyServiceCollection,
     ]
 })
 

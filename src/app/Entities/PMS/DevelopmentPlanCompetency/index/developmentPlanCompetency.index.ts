@@ -56,8 +56,7 @@ export class DevelopmentPlanCompetencyIndexUI extends IndexView<DevelopmentPlanC
 
   resetFilter() {
     this.filterInstance = DevelopmentPlanCompetency.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(developmentPlanCompetency: DevelopmentPlanCompetency) {

@@ -10,7 +10,7 @@ import { UniversityFieldCategoryService } from '../universityFieldCategory.servi
   selector: 'base-universityFieldCategory-delete',
   templateUrl: './universityFieldCategory.delete.html',
   styleUrls: ['./universityFieldCategory.delete.css'],
-  providers: [UniversityFieldCategoryService]
+  
 })
 export class UniversityFieldCategoryDeleteUI extends DeleteModal<UniversityFieldCategory> {
 

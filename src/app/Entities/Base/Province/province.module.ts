@@ -32,10 +32,6 @@ import { City_ModuleMaster } from '../City/city.module.master';
   exports: [
     ProvinceIndexUI,
 		Province_ModuleMaster,
-  ],
-  providers: [
-    // ProvinceService,
-    // ProvinceServiceCollection
-  ]
+   ]
 })
 export class ProvinceModule {}

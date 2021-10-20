@@ -12,11 +12,7 @@ import { RoleMemberEditUI } from '../edit/roleMember.edit';
 @Component({
   selector: 'core-roleMember-master',
   templateUrl: './roleMember.master.html',
-  styleUrls: ['./roleMember.master.css'],
-  providers: [
-    RoleMemberService,
-    
-  ]
+  styleUrls: ['./roleMember.master.css']
 })
 export class RoleMemberMasterUI extends MasterModal<RoleMember> {
 

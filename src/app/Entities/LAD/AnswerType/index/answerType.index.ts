@@ -85,8 +85,7 @@ export class AnswerTypeIndexUI extends IndexView<AnswerType> implements AfterVie
 
   resetFilter() {
     this.filterInstance = AnswerType.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(answerType: AnswerType) {

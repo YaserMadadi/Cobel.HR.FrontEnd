@@ -55,7 +55,8 @@ export class PropertyEditUI extends EditModal<Property> implements IEditModal<Pr
     
   }
   
-  InitProperty(property: Property) {
+  InitProperty(property: Property){
+    this.currentInstance = this.service.CreateInstance();
     if (!property.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.entityComponent.instance = property.entity;

@@ -26,7 +26,7 @@ export class MilitaryServiceStatusSeekUI extends SeekModal<MilitaryServiceStatus
     this.onClose(this.militaryServiceStatus);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

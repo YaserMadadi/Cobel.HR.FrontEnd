@@ -27,10 +27,6 @@ import { LevelSeekUI } from './seek/level.seek';
         LevelEditUI,
 		LevelDeleteUI,
 		LevelSeekUI
-    ],
-    providers: [
-       //LevelService,
-       // LevelServiceCollection,
     ]
 })
 

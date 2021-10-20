@@ -16,11 +16,8 @@ import { MilitaryServiceInclusiveDeleteUI } from '../../MilitaryServiceInclusive
 @Component({
   selector: 'militaryService-militaryServiceInclusive-detail',
   templateUrl: './militaryService-militaryServiceInclusive.detail.html',
-  styleUrls: ['./militaryService-militaryServiceInclusive.detail.css'],
-  providers: [MilitaryServiceService]
-}) 
-
-@Injectable()
+  styleUrls: ['./militaryService-militaryServiceInclusive.detail.css']
+})
 export class MilitaryService_MilitaryServiceInclusive_DetailUI extends DetailView<MilitaryService> {
 
   constructor(private militaryServiceService: MilitaryServiceService) {

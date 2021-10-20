@@ -68,7 +68,8 @@ export class AssessmentScoreEditUI extends EditModal<AssessmentScore> implements
     this.competencyItemComponent.LoadList();
   }
   
-  InitAssessmentScore(assessmentScore: AssessmentScore) {
+  InitAssessmentScore(assessmentScore: AssessmentScore){
+    this.currentInstance = this.service.CreateInstance();
     if (!assessmentScore.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.assessmentComponent.instance = assessmentScore.assessment;

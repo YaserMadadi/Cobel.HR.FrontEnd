@@ -30,6 +30,10 @@ export class ScoreCellService extends Service<ScoreCell> implements IService<Sco
 
   //region Methods
 
+CreateInstance() {
+   return new ScoreCell();
+}
+
   RetrieveById(id: number): Promise<ScoreCell> {
     return super.RetrieveById(id);
   }

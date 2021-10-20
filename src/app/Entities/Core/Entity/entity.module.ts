@@ -35,10 +35,6 @@ import { RolePermission_ModuleMaster } from '../RolePermission/rolePermission.mo
   exports: [
     EntityIndexUI,
 		Entity_ModuleMaster,
-  ],
-  providers: [
-    // EntityService,
-    // EntityServiceCollection
-  ]
+   ]
 })
 export class EntityModule {}

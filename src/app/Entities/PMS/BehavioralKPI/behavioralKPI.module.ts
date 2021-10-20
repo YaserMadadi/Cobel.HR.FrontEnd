@@ -32,10 +32,6 @@ import { BehavioralAppraise_ModuleMaster } from '../BehavioralAppraise/behaviora
   exports: [
     BehavioralKPIIndexUI,
 		BehavioralKPI_ModuleMaster,
-  ],
-  providers: [
-    // BehavioralKPIService,
-    // BehavioralKPIServiceCollection
-  ]
+   ]
 })
 export class BehavioralKPIModule {}

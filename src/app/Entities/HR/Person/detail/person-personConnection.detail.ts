@@ -17,8 +17,8 @@ import { PersonConnectionDeleteUI } from '../../PersonConnection/delete/personCo
   selector: 'person-personConnection-detail',
   templateUrl: './person-personConnection.detail.html',
   styleUrls: ['./person-personConnection.detail.css'],
-  providers: [PersonService]
-}) 
+  
+})
 
 @Injectable()
 export class Person_PersonConnection_DetailUI extends DetailView<Person> {
@@ -27,9 +27,9 @@ export class Person_PersonConnection_DetailUI extends DetailView<Person> {
     super(personService);
   }
 
-  public PersonConnectionList : PersonConnection[] = [];
-  
-  public currentPersonConnection : PersonConnection = new PersonConnection();
+  public PersonConnectionList: PersonConnection[] = [];
+
+  public currentPersonConnection: PersonConnection = new PersonConnection();
 
   private person: Person = new Person();
 
@@ -41,7 +41,8 @@ export class Person_PersonConnection_DetailUI extends DetailView<Person> {
 
   public get Person(): Person { return this.person }
 
-  public onReload(){
+  public onReload() {
+    console.log('Person : ', this.person);
     if (Person.NotConfirm(this.person))
       return;
     this.personService
@@ -86,7 +87,7 @@ export class Person_PersonConnection_DetailUI extends DetailView<Person> {
     this.onReload();
   }
 
-  public onDeleteModal_Closed(result:boolean) {
+  public onDeleteModal_Closed(result: boolean) {
     this.onReload();
   }
 }

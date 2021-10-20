@@ -10,7 +10,7 @@ import { AppraiseTimeService } from '../appraiseTime.service';
   selector: 'base-pms-appraiseTime-delete',
   templateUrl: './appraiseTime.delete.html',
   styleUrls: ['./appraiseTime.delete.css'],
-  providers: [AppraiseTimeService]
+  
 })
 export class AppraiseTimeDeleteUI extends DeleteModal<AppraiseTime> {
 

@@ -55,7 +55,8 @@ export class ImpersonateEditUI extends EditModal<Impersonate> implements IEditMo
     
   }
   
-  InitImpersonate(impersonate: Impersonate) {
+  InitImpersonate(impersonate: Impersonate){
+    this.currentInstance = this.service.CreateInstance();
     if (!impersonate.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = impersonate.employee;

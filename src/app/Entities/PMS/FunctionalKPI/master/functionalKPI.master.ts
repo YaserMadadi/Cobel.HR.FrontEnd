@@ -14,12 +14,7 @@ import { FunctionalAppraiseService } from '../../FunctionalAppraise/functionalAp
 @Component({
   selector: 'pms-functionalKPI-master',
   templateUrl: './functionalKPI.master.html',
-  styleUrls: ['./functionalKPI.master.css'],
-  providers: [
-    FunctionalKPIService,
-    FunctionalKPICommentService,
-		FunctionalAppraiseService,
-  ]
+  styleUrls: ['./functionalKPI.master.css']
 })
 export class FunctionalKPIMasterUI extends MasterModal<FunctionalKPI> {
 

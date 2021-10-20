@@ -26,7 +26,7 @@ export class RotationAssessmentSeekUI extends SeekModal<RotationAssessment> {
     this.onClose(this.rotationAssessment);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

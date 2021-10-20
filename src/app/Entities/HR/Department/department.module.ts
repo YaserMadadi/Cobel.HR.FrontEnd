@@ -32,10 +32,6 @@ import { Unit_ModuleMaster } from '../Unit/unit.module.master';
   exports: [
     DepartmentIndexUI,
 		Department_ModuleMaster,
-  ],
-  providers: [
-    // DepartmentService,
-    // DepartmentServiceCollection
-  ]
+   ]
 })
 export class DepartmentModule {}

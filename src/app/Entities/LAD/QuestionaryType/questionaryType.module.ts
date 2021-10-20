@@ -35,10 +35,6 @@ import { QuestionaryItem_ModuleMaster } from '../QuestionaryItem/questionaryItem
   exports: [
     QuestionaryTypeIndexUI,
 		QuestionaryType_ModuleMaster,
-  ],
-  providers: [
-    // QuestionaryTypeService,
-    // QuestionaryTypeServiceCollection
-  ]
+   ]
 })
 export class QuestionaryTypeModule {}

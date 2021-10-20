@@ -14,12 +14,7 @@ import { QuestionaryItemService } from '../../QuestionaryItem/questionaryItem.se
 @Component({
   selector: 'lad-questionaryType-master',
   templateUrl: './questionaryType.master.html',
-  styleUrls: ['./questionaryType.master.css'],
-  providers: [
-    QuestionaryTypeService,
-    CoachingQuestionaryService,
-		QuestionaryItemService,
-  ]
+  styleUrls: ['./questionaryType.master.css']
 })
 export class QuestionaryTypeMasterUI extends MasterModal<QuestionaryType> {
 

@@ -21,9 +21,6 @@ import { RotationAssessmentServiceCollection } from './rotationAssessment.servic
   exports: [
     // No Item...
   ],
-  providers: [
-    //RotationAssessmentService,
-    //RotationAssessmentServiceCollection
-  ]
+  
 })
 export class RotationAssessment_ModuleDetail { }

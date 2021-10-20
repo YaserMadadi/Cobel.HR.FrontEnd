@@ -14,10 +14,7 @@ import { ConfigQualitativeObjectiveService } from '../../ConfigQualitativeObject
   selector: 'pms-configTargetSetting-master',
   templateUrl: './configTargetSetting.master.html',
   styleUrls: ['./configTargetSetting.master.css'],
-  providers: [
-    ConfigTargetSettingService,
-    ConfigQualitativeObjectiveService,
-  ]
+  
 })
 export class ConfigTargetSettingMasterUI extends MasterModal<ConfigTargetSetting> {
 

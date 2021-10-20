@@ -21,9 +21,6 @@ import { ObjectiveWeightNonOperationalServiceCollection } from './objectiveWeigh
   exports: [
     // No Item...
   ],
-  providers: [
-    //ObjectiveWeightNonOperationalService,
-    //ObjectiveWeightNonOperationalServiceCollection
-  ]
+  
 })
 export class ObjectiveWeightNonOperational_ModuleDetail { }

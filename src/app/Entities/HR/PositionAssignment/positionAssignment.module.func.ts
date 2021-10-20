@@ -30,10 +30,6 @@ import { Position_ModuleFunc } from '../Position/position.module.func';
         PositionAssignmentEditUI,
 		PositionAssignmentDeleteUI,
 		PositionAssignmentSeekUI
-    ],
-    providers: [
-       //PositionAssignmentService,
-       // PositionAssignmentServiceCollection,
     ]
 })
 

@@ -10,7 +10,7 @@ import { AppraisalApproverConfigEditUI } from './edit/appraisalApproverConfig.ed
 import { AppraisalApproverConfigDeleteUI } from './delete/appraisalApproverConfig.delete';
 import { AppraisalApproverConfigSeekUI } from './seek/appraisalApproverConfig.seek';
 
-import { PositionCategory_ModuleFunc } from '../../HR/PositionCategory/positionCategory.module.func';
+import { PositionCategory_ModuleFunc } from '../../Base.HR/PositionCategory/positionCategory.module.func';
 import { ApproverType_ModuleFunc } from '../../Base.PMS/ApproverType/approverType.module.func';
 
 @NgModule({
@@ -30,10 +30,6 @@ import { ApproverType_ModuleFunc } from '../../Base.PMS/ApproverType/approverTyp
         AppraisalApproverConfigEditUI,
 		AppraisalApproverConfigDeleteUI,
 		AppraisalApproverConfigSeekUI
-    ],
-    providers: [
-       //AppraisalApproverConfigService,
-       // AppraisalApproverConfigServiceCollection,
     ]
 })
 

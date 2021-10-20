@@ -29,9 +29,6 @@ import { QuestionaryItem_ModuleMaster } from '../QuestionaryItem/questionaryItem
     QuestionaryType_CoachingQuestionary_DetailUI,
 		QuestionaryType_QuestionaryItem_DetailUI
   ],
-  providers: [
-    //QuestionaryTypeService,
-    //QuestionaryTypeServiceCollection
-  ]
+  
 })
 export class QuestionaryType_ModuleDetail { }

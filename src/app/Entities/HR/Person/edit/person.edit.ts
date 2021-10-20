@@ -39,7 +39,7 @@ export class PersonEditUI extends EditModal<Person> implements IEditModal<Person
 	
 	//#region -- Gender --
 
-  genderComponent : ForeignComponent<Gender> = new ForeignComponent<Gender>(this.personService.GenderService);
+  genderComponent : ForeignComponent<Gender> = new ForeignComponent<Gender>(this.personService.GenderService, false);
 
   @Input()
   public set Gender(value: Gender) {
@@ -61,7 +61,7 @@ export class PersonEditUI extends EditModal<Person> implements IEditModal<Person
   //#endregion -- BirthCity --
 	//#region -- Religion --
 
-  religionComponent : ForeignComponent<Religion> = new ForeignComponent<Religion>(this.personService.ReligionService);
+  religionComponent : ForeignComponent<Religion> = new ForeignComponent<Religion>(this.personService.ReligionService, false);
 
   @Input()
   public set Religion(value: Religion) {
@@ -72,7 +72,7 @@ export class PersonEditUI extends EditModal<Person> implements IEditModal<Person
   //#endregion -- Religion --
 	//#region -- HealthStatus --
 
-  healthStatusComponent : ForeignComponent<HealthStatus> = new ForeignComponent<HealthStatus>(this.personService.HealthStatusService);
+  healthStatusComponent : ForeignComponent<HealthStatus> = new ForeignComponent<HealthStatus>(this.personService.HealthStatusService, false);
 
   @Input()
   public set HealthStatus(value: HealthStatus) {
@@ -94,7 +94,7 @@ export class PersonEditUI extends EditModal<Person> implements IEditModal<Person
   //#endregion -- Nationality --
 	//#region -- MaritalStatus --
 
-  maritalStatusComponent : ForeignComponent<MaritalStatus> = new ForeignComponent<MaritalStatus>(this.personService.MaritalStatusService);
+  maritalStatusComponent : ForeignComponent<MaritalStatus> = new ForeignComponent<MaritalStatus>(this.personService.MaritalStatusService, false);
 
   @Input()
   public set MaritalStatus(value: MaritalStatus) {
@@ -120,7 +120,8 @@ export class PersonEditUI extends EditModal<Person> implements IEditModal<Person
     
   }
   
-  InitPerson(person: Person) {
+  InitPerson(person: Person){
+    this.currentInstance = this.service.CreateInstance();
     if (!person.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.genderComponent.instance = person.gender;

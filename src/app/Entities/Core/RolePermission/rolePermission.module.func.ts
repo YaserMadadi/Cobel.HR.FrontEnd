@@ -30,10 +30,6 @@ import { Entity_ModuleFunc } from '../Entity/entity.module.func';
         RolePermissionEditUI,
 		RolePermissionDeleteUI,
 		RolePermissionSeekUI
-    ],
-    providers: [
-       //RolePermissionService,
-       // RolePermissionServiceCollection,
     ]
 })
 

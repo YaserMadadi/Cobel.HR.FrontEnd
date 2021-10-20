@@ -29,6 +29,10 @@ export class UserAccountService extends Service<UserAccount> implements IService
 
   //region Methods
 
+CreateInstance() {
+   return new UserAccount();
+}
+
   RetrieveById(id: number): Promise<UserAccount> {
     return super.RetrieveById(id);
   }

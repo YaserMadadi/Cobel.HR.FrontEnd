@@ -17,7 +17,6 @@ import { AssessorDeleteUI } from '../../../LAD/Assessor/delete/assessor.delete';
   selector: 'gender-assessor-detail',
   templateUrl: './gender-assessor.detail.html',
   styleUrls: ['./gender-assessor.detail.css'],
-  providers: [GenderService]
 }) 
 
 @Injectable()

@@ -64,7 +64,7 @@ export class Employee extends BusinessObject implements OnInit {
 	
 	public lastHoldingSection: HoldingSection = new HoldingSection();
 	
-	public samaccountID: string = '';
+	public samAccountID: string = '';
 	
 	public emailAddress: string = '';
 	
@@ -147,7 +147,7 @@ export class Employee extends BusinessObject implements OnInit {
   public static Validate(employee: Employee) : boolean {
     let result = Validator.Validate(employee.person) &&
 					Validator.Validate(employee.lastHoldingSection) &&
-					Validator.Validate(employee.samaccountID) &&
+					Validator.Validate(employee.samAccountID) &&
 					Validator.Validate(employee.emailAddress) &&
 					Validator.Validate(employee.employmentStatus) &&
 					Validator.Validate(employee.lastCity) &&

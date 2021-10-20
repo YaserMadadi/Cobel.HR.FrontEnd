@@ -1,1 +1,9 @@
-﻿
+﻿.attention {
+    color: #ff5722;
+    font-weight: bold;
+}
+
+.normal {
+    color:white;
+    font-weight: 100;
+}

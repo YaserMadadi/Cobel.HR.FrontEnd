@@ -20,10 +20,6 @@ import { Course_ModuleDetail } from './course.module.detail';
     ],
     exports: [
         CourseMasterUI
-    ],
-    providers: [
-        //CourseService,
-       // CourseServiceCollection   
     ]
 })
 

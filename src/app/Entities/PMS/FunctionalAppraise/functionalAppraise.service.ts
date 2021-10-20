@@ -24,8 +24,7 @@ export class FunctionalAppraiseService extends Service<FunctionalAppraise> imple
   constructor(public ServiceCollection: FunctionalAppraiseServiceCollection,
 		public FunctionalKPIService: FunctionalKPIService,
 		public EmployeeService: EmployeeService,
-		public AppraiseTypeService: AppraiseTypeService,
-		public AppraiseTimeService: AppraiseTimeService) {
+		public AppraiseTypeService: AppraiseTypeService) {
     super(ServiceCollection.API_Operation, FunctionalAppraise.Info);
   }
 
@@ -34,6 +33,10 @@ export class FunctionalAppraiseService extends Service<FunctionalAppraise> imple
   }
 
   //region Methods
+
+CreateInstance() {
+   return new FunctionalAppraise();
+}
 
   RetrieveById(id: number): Promise<FunctionalAppraise> {
     return super.RetrieveById(id);

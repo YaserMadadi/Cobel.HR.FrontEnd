@@ -21,9 +21,6 @@ import { BehavioralAppraiseServiceCollection } from './behavioralAppraise.servic
   exports: [
     // No Item...
   ],
-  providers: [
-    //BehavioralAppraiseService,
-    //BehavioralAppraiseServiceCollection
-  ]
+  
 })
 export class BehavioralAppraise_ModuleDetail { }

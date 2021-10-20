@@ -68,8 +68,7 @@ export class UniversityFieldCategoryIndexUI extends IndexView<UniversityFieldCat
 
   resetFilter() {
     this.filterInstance = UniversityFieldCategory.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(universityFieldCategory: UniversityFieldCategory) {

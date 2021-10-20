@@ -1,4 +1,5 @@
-﻿import { NgModule } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '../../../xcore/security/auth_guard';
@@ -6,6 +7,7 @@ import { AuthGuard } from '../../../xcore/security/auth_guard';
 import { DesirableSituationIndexUI } from './DesirableSituation/index/desirableSituation.index';
 import { AppraiseTimeIndexUI } from './AppraiseTime/index/appraiseTime.index';
 import { AppraiseTypeIndexUI } from './AppraiseType/index/appraiseType.index';
+import { TargetSettingTypeIndexUI } from './TargetSettingType/index/targetSettingType.index';
 import { MeasurementUnitIndexUI } from './MeasurementUnit/index/measurementUnit.index';
 import { ApproverTypeIndexUI } from './ApproverType/index/approverType.index';
 import { ExpectedLevelIndexUI } from './ExpectedLevel/index/expectedLevel.index';
@@ -15,7 +17,7 @@ import { SubjectIndexUI } from './Subject/index/subject.index';
 import { CurrentSituationIndexUI } from './CurrentSituation/index/currentSituation.index';
 
 const base_pms_routes : Routes = [
-	{ path: 'AppraiseTime', redirectTo: 'AppraiseTime/0' },
+  { path: 'AppraiseTime', redirectTo: 'AppraiseTime/0' },
 	{ path: 'AppraiseTime/:id', component: AppraiseTimeIndexUI, canActivate: [AuthGuard], data: { title: 'AppraiseTime' }  },
 	{ path: 'AppraiseType', redirectTo: 'AppraiseType/0' },
 	{ path: 'AppraiseType/:id', component: AppraiseTypeIndexUI, canActivate: [AuthGuard], data: { title: 'AppraiseType' }  },
@@ -35,6 +37,8 @@ const base_pms_routes : Routes = [
 	{ path: 'MeasurementUnit/:id', component: MeasurementUnitIndexUI, canActivate: [AuthGuard], data: { title: 'MeasurementUnit' }  },
 	{ path: 'Subject', redirectTo: 'Subject/0' },
 	{ path: 'Subject/:id', component: SubjectIndexUI, canActivate: [AuthGuard], data: { title: 'Subject' }  },
+	{ path: 'TargetSettingType', redirectTo: 'TargetSettingType/0' },
+	{ path: 'TargetSettingType/:id', component: TargetSettingTypeIndexUI, canActivate: [AuthGuard], data: { title: 'TargetSettingType' }  },
 	
 ];
 

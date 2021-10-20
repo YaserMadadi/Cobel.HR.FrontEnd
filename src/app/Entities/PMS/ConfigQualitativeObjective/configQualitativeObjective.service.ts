@@ -30,6 +30,10 @@ export class ConfigQualitativeObjectiveService extends Service<ConfigQualitative
 
   //region Methods
 
+CreateInstance() {
+   return new ConfigQualitativeObjective();
+}
+
   RetrieveById(id: number): Promise<ConfigQualitativeObjective> {
     return super.RetrieveById(id);
   }

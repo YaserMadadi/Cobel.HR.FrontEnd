@@ -68,7 +68,8 @@ export class CoachConnectionLineEditUI extends EditModal<CoachConnectionLine> im
     this.connectionTypeComponent.LoadList();
   }
   
-  InitCoachConnectionLine(coachConnectionLine: CoachConnectionLine) {
+  InitCoachConnectionLine(coachConnectionLine: CoachConnectionLine){
+    this.currentInstance = this.service.CreateInstance();
     if (!coachConnectionLine.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.coachComponent.instance = coachConnectionLine.coach;

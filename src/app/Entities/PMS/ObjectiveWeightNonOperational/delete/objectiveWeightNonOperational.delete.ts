@@ -10,7 +10,7 @@ import { ObjectiveWeightNonOperationalService } from '../objectiveWeightNonOpera
   selector: 'pms-objectiveWeightNonOperational-delete',
   templateUrl: './objectiveWeightNonOperational.delete.html',
   styleUrls: ['./objectiveWeightNonOperational.delete.css'],
-  providers: [ObjectiveWeightNonOperationalService]
+  
 })
 export class ObjectiveWeightNonOperationalDeleteUI extends DeleteModal<ObjectiveWeightNonOperational> {
 

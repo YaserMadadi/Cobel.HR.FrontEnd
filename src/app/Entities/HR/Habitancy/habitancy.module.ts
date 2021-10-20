@@ -29,10 +29,6 @@ import { Habitancy_ModuleMaster } from './habitancy.module.master';
   exports: [
     HabitancyIndexUI,
 		Habitancy_ModuleMaster,
-  ],
-  providers: [
-    // HabitancyService,
-    // HabitancyServiceCollection
-  ]
+   ]
 })
 export class HabitancyModule {}

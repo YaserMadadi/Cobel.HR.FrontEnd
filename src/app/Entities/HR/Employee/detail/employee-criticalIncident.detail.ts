@@ -16,11 +16,8 @@ import { CriticalIncidentDeleteUI } from '../../../PMS/CriticalIncident/delete/c
 @Component({
   selector: 'employee-criticalIncident-detail',
   templateUrl: './employee-criticalIncident.detail.html',
-  styleUrls: ['./employee-criticalIncident.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employee-criticalIncident.detail.css']
+})
 export class Employee_CriticalIncident_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

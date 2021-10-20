@@ -31,6 +31,10 @@ export class AssessmentTrainingService extends Service<AssessmentTraining> imple
 
   //region Methods
 
+CreateInstance() {
+   return new AssessmentTraining();
+}
+
   RetrieveById(id: number): Promise<AssessmentTraining> {
     return super.RetrieveById(id);
   }

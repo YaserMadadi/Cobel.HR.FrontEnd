@@ -5,9 +5,9 @@
         <button type='button' name='addButton' class='xbtn btn-add' 
                   (click)='onAdd(visionEditUI)' >Add</button>
         <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(visionEditUI)' [ngClass]="{ 'disabled' : currentVision.id == 0 }">Edit</button>
+                  (click)='onEdit(visionEditUI)' [disabled]='currentVision.id == 0'>Edit</button>
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(visionDeleteUI)' [ngClass]="{ 'disabled' : currentVision.id == 0 }">Delete</button>
+                  (click)='onDelete(visionDeleteUI)' [disabled]='currentVision.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'

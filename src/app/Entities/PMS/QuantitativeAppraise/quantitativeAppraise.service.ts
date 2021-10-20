@@ -29,6 +29,10 @@ export class QuantitativeAppraiseService extends Service<QuantitativeAppraise> i
 
   //region Methods
 
+CreateInstance() {
+   return new QuantitativeAppraise();
+}
+
   RetrieveById(id: number): Promise<QuantitativeAppraise> {
     return super.RetrieveById(id);
   }

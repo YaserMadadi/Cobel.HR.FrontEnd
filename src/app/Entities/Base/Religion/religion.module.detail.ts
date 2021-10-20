@@ -23,10 +23,6 @@ import { Person_ModuleMaster } from '../../HR/Person/person.module.master';
   ],
   exports: [
     Religion_Person_DetailUI
-  ],
-  providers: [
-    //ReligionService,
-    //ReligionServiceCollection
   ]
 })
 export class Religion_ModuleDetail { }

@@ -82,7 +82,8 @@ export class BehavioralObjectiveEditUI extends EditModal<BehavioralObjective> im
     this.expectedLevelComponent.LoadList();
   }
 
-  InitBehavioralObjective(behavioralObjective: BehavioralObjective) {
+  InitBehavioralObjective(behavioralObjective: BehavioralObjective){
+    this.currentInstance = this.service.CreateInstance();
     if (!behavioralObjective.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.targetSettingComponent.instance = behavioralObjective.targetSetting;

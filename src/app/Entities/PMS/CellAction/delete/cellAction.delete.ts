@@ -10,7 +10,7 @@ import { CellActionService } from '../cellAction.service';
   selector: 'pms-cellAction-delete',
   templateUrl: './cellAction.delete.html',
   styleUrls: ['./cellAction.delete.css'],
-  providers: [CellActionService]
+  
 })
 export class CellActionDeleteUI extends DeleteModal<CellAction> {
 

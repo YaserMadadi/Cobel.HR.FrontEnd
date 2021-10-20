@@ -16,11 +16,8 @@ import { ObjectiveWeightNonOperationalDeleteUI } from '../../../PMS/ObjectiveWei
 @Component({
   selector: 'level-objectiveWeightNonOperational-detail',
   templateUrl: './level-objectiveWeightNonOperational.detail.html',
-  styleUrls: ['./level-objectiveWeightNonOperational.detail.css'],
-  providers: [LevelService]
-}) 
-
-@Injectable()
+  styleUrls: ['./level-objectiveWeightNonOperational.detail.css']
+})
 export class Level_ObjectiveWeightNonOperational_DetailUI extends DetailView<Level> {
 
   constructor(private levelService: LevelService) {

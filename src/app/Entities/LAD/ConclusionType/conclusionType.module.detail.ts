@@ -24,9 +24,6 @@ import { Conclusion_ModuleMaster } from '../Conclusion/conclusion.module.master'
   exports: [
     ConclusionType_Conclusion_DetailUI
   ],
-  providers: [
-    //ConclusionTypeService,
-    //ConclusionTypeServiceCollection
-  ]
+  
 })
 export class ConclusionType_ModuleDetail { }

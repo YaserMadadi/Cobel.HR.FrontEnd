@@ -38,10 +38,6 @@ import { VisionComment_ModuleMaster } from '../VisionComment/visionComment.modul
   exports: [
     VisionIndexUI,
 		Vision_ModuleMaster,
-  ],
-  providers: [
-    // VisionService,
-    // VisionServiceCollection
-  ]
+   ]
 })
 export class VisionModule {}

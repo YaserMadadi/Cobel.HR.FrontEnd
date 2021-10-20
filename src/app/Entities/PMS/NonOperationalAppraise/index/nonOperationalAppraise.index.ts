@@ -60,8 +60,7 @@ export class NonOperationalAppraiseIndexUI extends IndexView<NonOperationalAppra
 
   resetFilter() {
     this.filterInstance = NonOperationalAppraise.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(nonOperationalAppraise: NonOperationalAppraise) {

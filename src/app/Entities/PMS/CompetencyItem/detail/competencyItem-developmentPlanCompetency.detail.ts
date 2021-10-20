@@ -16,11 +16,8 @@ import { DevelopmentPlanCompetencyDeleteUI } from '../../DevelopmentPlanCompeten
 @Component({
   selector: 'competencyItem-developmentPlanCompetency-detail',
   templateUrl: './competencyItem-developmentPlanCompetency.detail.html',
-  styleUrls: ['./competencyItem-developmentPlanCompetency.detail.css'],
-  providers: [CompetencyItemService]
-}) 
-
-@Injectable()
+  styleUrls: ['./competencyItem-developmentPlanCompetency.detail.css']
+})
 export class CompetencyItem_DevelopmentPlanCompetency_DetailUI extends DetailView<CompetencyItem> {
 
   constructor(private competencyItemService: CompetencyItemService) {

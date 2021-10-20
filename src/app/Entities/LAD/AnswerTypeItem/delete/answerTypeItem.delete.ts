@@ -10,7 +10,7 @@ import { AnswerTypeItemService } from '../answerTypeItem.service';
   selector: 'lad-answerTypeItem-delete',
   templateUrl: './answerTypeItem.delete.html',
   styleUrls: ['./answerTypeItem.delete.css'],
-  providers: [AnswerTypeItemService]
+  
 })
 export class AnswerTypeItemDeleteUI extends DeleteModal<AnswerTypeItem> {
 

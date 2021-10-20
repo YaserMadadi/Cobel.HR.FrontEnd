@@ -29,10 +29,6 @@ import { Passport_ModuleMaster } from './passport.module.master';
   exports: [
     PassportIndexUI,
 		Passport_ModuleMaster,
-  ],
-  providers: [
-    // PassportService,
-    // PassportServiceCollection
-  ]
+   ]
 })
 export class PassportModule {}

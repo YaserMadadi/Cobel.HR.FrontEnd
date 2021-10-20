@@ -27,10 +27,6 @@ import { InclusiveTypeSeekUI } from './seek/inclusiveType.seek';
         InclusiveTypeEditUI,
 		InclusiveTypeDeleteUI,
 		InclusiveTypeSeekUI
-    ],
-    providers: [
-       //InclusiveTypeService,
-       // InclusiveTypeServiceCollection,
     ]
 })
 

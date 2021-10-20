@@ -27,10 +27,6 @@ import { AbilityLevelSeekUI } from './seek/abilityLevel.seek';
         AbilityLevelEditUI,
 		AbilityLevelDeleteUI,
 		AbilityLevelSeekUI
-    ],
-    providers: [
-       //AbilityLevelService,
-       // AbilityLevelServiceCollection,
     ]
 })
 

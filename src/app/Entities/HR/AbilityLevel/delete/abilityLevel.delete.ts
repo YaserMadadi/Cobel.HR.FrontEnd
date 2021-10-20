@@ -10,7 +10,7 @@ import { AbilityLevelService } from '../abilityLevel.service';
   selector: 'hr-abilityLevel-delete',
   templateUrl: './abilityLevel.delete.html',
   styleUrls: ['./abilityLevel.delete.css'],
-  providers: [AbilityLevelService]
+  
 })
 export class AbilityLevelDeleteUI extends DeleteModal<AbilityLevel> {
 

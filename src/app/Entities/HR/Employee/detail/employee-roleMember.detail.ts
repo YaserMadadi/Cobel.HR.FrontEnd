@@ -16,11 +16,8 @@ import { RoleMemberDeleteUI } from '../../../Core/RoleMember/delete/roleMember.d
 @Component({
   selector: 'employee-roleMember-detail',
   templateUrl: './employee-roleMember.detail.html',
-  styleUrls: ['./employee-roleMember.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employee-roleMember.detail.css']
+})
 export class Employee_RoleMember_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

@@ -56,8 +56,7 @@ export class AssessmentScoreIndexUI extends IndexView<AssessmentScore> implement
 
   resetFilter() {
     this.filterInstance = AssessmentScore.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(assessmentScore: AssessmentScore) {

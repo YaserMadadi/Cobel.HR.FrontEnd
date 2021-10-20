@@ -116,6 +116,30 @@
                     </ng-template>
                 </kendo-dropdownlist>
       </div>
+      <!-- PositionDivision -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("PositionDivision_Id")'></guide>
+        <label for='positionDivision' class='col-form-label'>Position Division : </label>
+        <span class='help-block col-form-label' *ngIf='!positionDivision.valid && positionDivision.touched && !positionDivision.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #positionDivision='ngModel' 
+                    #positionDivisionCombo='kendoDropDownList' 
+                    name='positionDivision' 
+                    title='Position Division'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !positionDivision.valid && positionDivision.touched }" 
+                    [data]='positionDivisionComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='positionDivisionComponent.filterable'
+                    (filterChange)='positionDivisionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.positionDivision"
+                     required 
+                    [disabled]='IsLocked'>
+                    <!-- <ng-template kendoDropDownListFooterTemplate *ngIf='positionDivisionComponent.addable'>
+                      <button class='btn btn-primary' (click)='positionDivisionComponent.onAdd(positionDivisionCombo, positionDivisionEditUI)'>Add New</button>
+                    </ng-template> -->
+                </kendo-dropdownlist>
+      </div>
 			<!-- Capacity -->
       <div class='form-group'>
         <guide (onClick)='onGuid("Capacity")'></guide>
@@ -163,10 +187,10 @@
             [disabled]='!positionEditUI.valid || IsLocked' 
             [hidden]='IsEditMode' 
             (click)='onSave(currentInstance, positionEditUI, true)'>Save</button>
-      <button id='cancle-button'
+      <button id='cancel-button'
             class='xbtn btn-delete modal-footer-button' 
             [disabled]='IsLocked'
-            (click)='onClose()'>Cancle</button>
+            (click)='onClose()'>Cancel</button>
     </div>
   </form>
 </XDialog>
@@ -177,6 +201,6 @@
 <hr-unit-edit #unitEditUI 
     (onClosed)='unitComponent.onClosed($event)'>
 </hr-unit-edit>
-<hr-positionCategory-edit #positionCategoryEditUI 
+<base-hr-positionCategory-edit #positionCategoryEditUI 
     (onClosed)='positionCategoryComponent.onClosed($event)'>
-</hr-positionCategory-edit>
+</base-hr-positionCategory-edit>

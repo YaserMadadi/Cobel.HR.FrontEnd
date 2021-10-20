@@ -12,7 +12,6 @@ import { EmployeeIndexUI } from './Employee/index/employee.index';
 import { LanguageAbilityIndexUI } from './LanguageAbility/index/languageAbility.index';
 import { LevelIndexUI } from './Level/index/level.index';
 import { MaritalInfoIndexUI } from './MaritalInfo/index/maritalInfo.index';
-import { PositionCategoryIndexUI } from './PositionCategory/index/positionCategory.index';
 import { MilitaryServiceIndexUI } from './MilitaryService/index/militaryService.index';
 import { MilitaryServiceExcemptionIndexUI } from './MilitaryServiceExcemption/index/militaryServiceExcemption.index';
 import { MilitaryServiceInclusiveIndexUI } from './MilitaryServiceInclusive/index/militaryServiceInclusive.index';
@@ -78,8 +77,6 @@ const hr_routes : Routes = [
 	{ path: 'PositionAssignment/:id', component: PositionAssignmentIndexUI, canActivate: [AuthGuard], data: { title: 'PositionAssignment' }  },
 	{ path: 'PositionAssignmentRepeal', redirectTo: 'PositionAssignmentRepeal/0' },
 	{ path: 'PositionAssignmentRepeal/:id', component: PositionAssignmentRepealIndexUI, canActivate: [AuthGuard], data: { title: 'PositionAssignmentRepeal' }  },
-	{ path: 'PositionCategory', redirectTo: 'PositionCategory/0' },
-	{ path: 'PositionCategory/:id', component: PositionCategoryIndexUI, canActivate: [AuthGuard], data: { title: 'PositionCategory' }  },
 	{ path: 'Relative', redirectTo: 'Relative/0' },
 	{ path: 'Relative/:id', component: RelativeIndexUI, canActivate: [AuthGuard], data: { title: 'Relative' }  },
 	{ path: 'SchoolHistory', redirectTo: 'SchoolHistory/0' },

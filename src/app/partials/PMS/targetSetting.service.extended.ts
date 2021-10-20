@@ -7,6 +7,7 @@ import { TargetSetting } from "../../Entities/PMS/TargetSetting/targetSetting";
 import { FunctionalObjective } from "../../Entities/PMS/FunctionalObjective/functionalObjective";
 import { EndPointController } from "../../../xcore/tools/controller.endPoint";
 import { Injectable } from "@angular/core";
+import { TargetSettingTypeService } from "../../Entities/Base.PMS/TargetSettingType/targetSettingType.service";
 
 @Injectable({
     providedIn:'root'
@@ -14,16 +15,23 @@ import { Injectable } from "@angular/core";
 export class TargetSettingServiceExtended extends TargetSettingService {
     constructor(serviceCollection: TargetSettingServiceCollection,
         employeeService: EmployeeService,
+        targetSettingTypeService: TargetSettingTypeService,
         yearService: YearService,
         positionService: PositionService) {
 
-        super(serviceCollection, employeeService, positionService, yearService);
+        super(serviceCollection, employeeService, positionService, targetSettingTypeService, yearService);
     }
 
     collectionOfParentFunctionalObjective(targetSetting: TargetSetting): Promise<FunctionalObjective[]> {
         console.log('TargetSetting : ', targetSetting);
         let url = EndPointController.BaseUrl + `PMS/TargetSetting/${targetSetting.id}/CollectionOfParentalFunctionalObjective`;
         console.log('Url : ', url);
-        return this.api_operation.http.get<FunctionalObjective[]>(url, EndPointController.Options).toPromise<FunctionalObjective[]>();
+        return this.api_operation.GetCommand<FunctionalObjective[]>(url);
+    }
+
+    collectionOfVision(targetSetting: TargetSetting): Promise<FunctionalObjective[]> {
+        let url = EndPointController.BaseUrl + `PMS/TargetSetting/${targetSetting.id}/CollectionOfVision`;
+        console.log('Url : ', url);
+        return this.api_operation.GetCommand<FunctionalObjective[]>(url);
     }
 }

@@ -1,5 +1,6 @@
-﻿<fieldset class='border'>
-  <legend>Employment Status :</legend>
+
+<fieldset class='border'>
+  <legend>EmploymentStatus :</legend>
   <div class='btn-group'>
     <button name='addButton' class='xbtn btn-add' (click)='onAdd(employmentStatusEditUI)'>Add</button>
     <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
@@ -13,25 +14,25 @@
   <!-- Quick Access Menu -->
   
   <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
-    <a class='dropdown-item pointer' (click)='employeeDetail_Clicked(employeeDetailEditUI)'>Add Employee Detail</a>
-		<a class='dropdown-item pointer' (click)='employee_Clicked(employeeEditUI)'>Add Employee</a>
+    <a class='dropdown-item pointer' (click)='employee_Clicked(employeeEditUI)'>Add Employee</a>
+		<a class='dropdown-item pointer' (click)='employeeDetail_Clicked(employeeDetailEditUI)'>Add EmployeeDetail</a>
 	
   </dropDownMenu>
   <table #employmentStatusTable class='table table-hover indexTable'>
     <thead>
       <tr>
         <th class='row-number'>Row</th>
-        <th title='English Title'>English Title</th>
-        <th title='Persian Title'>Persian Title</th>
-        <th width='100px' title='Is Active'>Is Active</th>
+        <th title='EnglishTitle'>EnglishTitle</th>
+        <th title='PersianTitle'>PersianTitle</th>
+        <th width='100px' title='IsActive'>IsActive</th>
       </tr>
       <tr name='secondRow'>
         <th class='row-number'></th>
         <th>
           <input class='form-control' #englishTitle='ngModel' id='englishTitle' name='englishTitle'
-										 title='English Title'
+										 title='EnglishTitle'
 										 autocomplete='off'
-										 placeholder='English Title'
+										 placeholder='EnglishTitle'
 										[(ngModel)]='filterInstance.englishTitle'
 										 type='text'
 										 maxlength='100'
@@ -39,9 +40,9 @@
         </th>
         <th>
           <input class='form-control' #persianTitle='ngModel' id='persianTitle' name='persianTitle'
-										 title='Persian Title'
+										 title='PersianTitle'
 										 autocomplete='off'
-										 placeholder='Persian Title'
+										 placeholder='PersianTitle'
 										[(ngModel)]='filterInstance.persianTitle'
 										 type='text'
 										 maxlength='200'
@@ -85,7 +86,7 @@
 </base-hr-employmentStatus-delete>
 
 
+<hr-employee-edit #employeeEditUI> <!--  (onClosed)='employeeEditUI_Closed($event)' -->
+</hr-employee-edit> 
 <hr-employeeDetail-edit #employeeDetailEditUI> <!--  (onClosed)='employeeDetailEditUI_Closed($event)' -->
 </hr-employeeDetail-edit> 
-<hr-employee-edit #employeeEditUI> <!--  (onClosed)='employeeEditUI_Closed($event)' -->
-</hr-employee-edit>

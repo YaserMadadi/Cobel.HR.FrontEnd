@@ -10,7 +10,7 @@ import { FunctionalObjectiveService } from '../functionalObjective.service';
   selector: 'pms-functionalObjective-delete',
   templateUrl: './functionalObjective.delete.html',
   styleUrls: ['./functionalObjective.delete.css'],
-  providers: [FunctionalObjectiveService]
+  
 })
 export class FunctionalObjectiveDeleteUI extends DeleteModal<FunctionalObjective> {
 

@@ -57,8 +57,7 @@ export class VisionCommentIndexUI extends IndexView<VisionComment> implements Af
 
   resetFilter() {
     this.filterInstance = VisionComment.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(visionComment: VisionComment) {

@@ -31,6 +31,10 @@ export class TrainingService extends Service<Training> implements IService<Train
 
   //region Methods
 
+CreateInstance() {
+   return new Training();
+}
+
   RetrieveById(id: number): Promise<Training> {
     return super.RetrieveById(id);
   }

@@ -35,33 +35,7 @@ import { QualitativeAppraiseService } from '../../../PMS/QualitativeAppraise/qua
 @Component({
   selector: 'hr-employee-master',
   templateUrl: './employee.master.html',
-  styleUrls: ['./employee.master.css'],
-  providers: [
-    EmployeeService,
-    VisionCommentService,
-		EmployeeDetailService,
-		FunctionalKPICommentService,
-		VisionApprovedService,
-		FunctionalObjectiveCommentService,
-		BehavioralAppraiseService,
-		VisionService,
-		CoachingService,
-		FinalApprovementService,
-		AssessmentService,
-		TargetSettingService,
-		EmployeeNotificationService,
-		TrainingService,
-		CriticalIncidentRecognitionService,
-		FunctionalAppraiseService,
-		CriticalIncidentService,
-		EmployeeEventService,
-		ContractService,
-		OperationalAppraiseService,
-		PositionAssignmentService,
-		RoleMemberService,
-		NonOperationalAppraiseService,
-		QualitativeAppraiseService,
-  ]
+  styleUrls: ['./employee.master.css']
 })
 export class EmployeeMasterUI extends MasterModal<Employee> {
 

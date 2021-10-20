@@ -26,7 +26,7 @@ export class ApprovementTypeSeekUI extends SeekModal<ApprovementType> {
     this.onClose(this.approvementType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -10,7 +10,7 @@ import { QualitativeObjectiveService } from '../qualitativeObjective.service';
   selector: 'pms-qualitativeObjective-delete',
   templateUrl: './qualitativeObjective.delete.html',
   styleUrls: ['./qualitativeObjective.delete.css'],
-  providers: [QualitativeObjectiveService]
+  
 })
 export class QualitativeObjectiveDeleteUI extends DeleteModal<QualitativeObjective> {
 

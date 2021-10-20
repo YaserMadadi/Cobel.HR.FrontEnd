@@ -34,9 +34,6 @@ import { FunctionalObjectiveComment_ModuleMaster } from '../FunctionalObjectiveC
 		FunctionalObjective_ChildFunctionalObjective_DetailUI,
 		FunctionalObjective_FunctionalObjectiveComment_DetailUI
   ],
-  providers: [
-    //FunctionalObjectiveService,
-    //FunctionalObjectiveServiceCollection
-  ]
+  
 })
 export class FunctionalObjective_ModuleDetail { }

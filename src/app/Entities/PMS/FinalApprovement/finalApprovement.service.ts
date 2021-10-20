@@ -31,6 +31,10 @@ export class FinalApprovementService extends Service<FinalApprovement> implement
 
   //region Methods
 
+CreateInstance() {
+   return new FinalApprovement();
+}
+
   RetrieveById(id: number): Promise<FinalApprovement> {
     return super.RetrieveById(id);
   }

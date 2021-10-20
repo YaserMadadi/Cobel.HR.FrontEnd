@@ -12,11 +12,7 @@ import { NonOperationalAppraiseEditUI } from '../edit/nonOperationalAppraise.edi
 @Component({
   selector: 'pms-nonOperationalAppraise-master',
   templateUrl: './nonOperationalAppraise.master.html',
-  styleUrls: ['./nonOperationalAppraise.master.css'],
-  providers: [
-    NonOperationalAppraiseService,
-    
-  ]
+  styleUrls: ['./nonOperationalAppraise.master.css']
 })
 export class NonOperationalAppraiseMasterUI extends MasterModal<NonOperationalAppraise> {
 

@@ -1,0 +1,28 @@
+
+<XDialog Header='Badge Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>Badge : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>MenuItem_Id : 
+                        <guide (onClick)='onGuid("MenuItem_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.menuItem?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>BadgeType_Id : 
+                        <guide (onClick)='onGuid("BadgeType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.badgeType?.descriptor }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

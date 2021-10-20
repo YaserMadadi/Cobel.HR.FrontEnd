@@ -33,6 +33,10 @@ export class AppraiseResultService extends Service<AppraiseResult> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new AppraiseResult();
+}
+
   RetrieveById(id: number): Promise<AppraiseResult> {
     return super.RetrieveById(id);
   }

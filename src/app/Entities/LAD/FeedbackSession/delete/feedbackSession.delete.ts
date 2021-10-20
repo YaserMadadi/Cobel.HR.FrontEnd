@@ -10,7 +10,7 @@ import { FeedbackSessionService } from '../feedbackSession.service';
   selector: 'lad-feedbackSession-delete',
   templateUrl: './feedbackSession.delete.html',
   styleUrls: ['./feedbackSession.delete.css'],
-  providers: [FeedbackSessionService]
+  
 })
 export class FeedbackSessionDeleteUI extends DeleteModal<FeedbackSession> {
 

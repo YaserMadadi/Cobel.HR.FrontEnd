@@ -20,10 +20,6 @@ import { Level_ModuleDetail } from './level.module.detail';
     ],
     exports: [
         LevelMasterUI
-    ],
-    providers: [
-        //LevelService,
-       // LevelServiceCollection   
     ]
 })
 

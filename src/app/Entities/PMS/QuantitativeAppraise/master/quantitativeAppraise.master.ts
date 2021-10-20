@@ -12,11 +12,7 @@ import { QuantitativeAppraiseEditUI } from '../edit/quantitativeAppraise.edit';
 @Component({
   selector: 'pms-quantitativeAppraise-master',
   templateUrl: './quantitativeAppraise.master.html',
-  styleUrls: ['./quantitativeAppraise.master.css'],
-  providers: [
-    QuantitativeAppraiseService,
-    
-  ]
+  styleUrls: ['./quantitativeAppraise.master.css']
 })
 export class QuantitativeAppraiseMasterUI extends MasterModal<QuantitativeAppraise> {
 

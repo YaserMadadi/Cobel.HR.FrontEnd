@@ -27,10 +27,6 @@ import { MilitaryServiceStatusSeekUI } from './seek/militaryServiceStatus.seek';
         MilitaryServiceStatusEditUI,
 		MilitaryServiceStatusDeleteUI,
 		MilitaryServiceStatusSeekUI
-    ],
-    providers: [
-       //MilitaryServiceStatusService,
-       // MilitaryServiceStatusServiceCollection,
     ]
 })
 

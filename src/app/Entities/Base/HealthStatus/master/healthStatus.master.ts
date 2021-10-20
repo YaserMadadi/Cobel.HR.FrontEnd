@@ -14,10 +14,7 @@ import { PersonService } from '../../../HR/Person/person.service';
   selector: 'base-healthStatus-master',
   templateUrl: './healthStatus.master.html',
   styleUrls: ['./healthStatus.master.css'],
-  providers: [
-    HealthStatusService,
-    PersonService,
-  ]
+  
 })
 export class HealthStatusMasterUI extends MasterModal<HealthStatus> {
 

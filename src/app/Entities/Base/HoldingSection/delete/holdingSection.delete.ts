@@ -10,7 +10,7 @@ import { HoldingSectionService } from '../holdingSection.service';
   selector: 'base-holdingSection-delete',
   templateUrl: './holdingSection.delete.html',
   styleUrls: ['./holdingSection.delete.css'],
-  providers: [HoldingSectionService]
+  
 })
 export class HoldingSectionDeleteUI extends DeleteModal<HoldingSection> {
 

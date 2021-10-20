@@ -1,4 +1,5 @@
-﻿import { Component } from '@angular/core';
+
+import { Component } from '@angular/core';
 
 import { SeekModal } from '../../../../../xcore/tools/ui/view-base/seek.modal';
 

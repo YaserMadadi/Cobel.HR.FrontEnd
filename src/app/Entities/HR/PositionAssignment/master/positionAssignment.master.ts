@@ -14,10 +14,7 @@ import { PositionAssignmentRepealService } from '../../PositionAssignmentRepeal/
   selector: 'hr-positionAssignment-master',
   templateUrl: './positionAssignment.master.html',
   styleUrls: ['./positionAssignment.master.css'],
-  providers: [
-    PositionAssignmentService,
-    PositionAssignmentRepealService,
-  ]
+  
 })
 export class PositionAssignmentMasterUI extends MasterModal<PositionAssignment> {
 

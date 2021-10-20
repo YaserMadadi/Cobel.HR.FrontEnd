@@ -1,4 +1,5 @@
-﻿import { NgModule } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -32,10 +33,6 @@ import { Contract_ModuleMaster } from '../../HR/Contract/contract.module.master'
   exports: [
     ContractTypeIndexUI,
 		ContractType_ModuleMaster,
-  ],
-  providers: [
-    // ContractTypeService,
-    // ContractTypeServiceCollection
-  ]
+   ]
 })
 export class ContractTypeModule {}

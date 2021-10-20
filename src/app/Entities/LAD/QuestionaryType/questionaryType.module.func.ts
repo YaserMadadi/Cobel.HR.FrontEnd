@@ -27,10 +27,6 @@ import { QuestionaryTypeSeekUI } from './seek/questionaryType.seek';
         QuestionaryTypeEditUI,
 		QuestionaryTypeDeleteUI,
 		QuestionaryTypeSeekUI
-    ],
-    providers: [
-       //QuestionaryTypeService,
-       // QuestionaryTypeServiceCollection,
     ]
 })
 

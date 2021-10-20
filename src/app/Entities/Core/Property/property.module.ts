@@ -32,10 +32,6 @@ import { PropertyOption_ModuleMaster } from '../PropertyOption/propertyOption.mo
   exports: [
     PropertyIndexUI,
 		Property_ModuleMaster,
-  ],
-  providers: [
-    // PropertyService,
-    // PropertyServiceCollection
-  ]
+   ]
 })
 export class PropertyModule {}

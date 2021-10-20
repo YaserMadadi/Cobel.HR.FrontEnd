@@ -10,7 +10,7 @@ import { SubjectService } from '../subject.service';
   selector: 'base-pms-subject-delete',
   templateUrl: './subject.delete.html',
   styleUrls: ['./subject.delete.css'],
-  providers: [SubjectService]
+  
 })
 export class SubjectDeleteUI extends DeleteModal<Subject> {
 

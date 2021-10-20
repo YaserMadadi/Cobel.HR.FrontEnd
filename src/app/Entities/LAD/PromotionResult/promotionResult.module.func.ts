@@ -27,10 +27,6 @@ import { PromotionResultSeekUI } from './seek/promotionResult.seek';
         PromotionResultEditUI,
 		PromotionResultDeleteUI,
 		PromotionResultSeekUI
-    ],
-    providers: [
-       //PromotionResultService,
-       // PromotionResultServiceCollection,
     ]
 })
 

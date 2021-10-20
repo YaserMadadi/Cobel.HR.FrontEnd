@@ -33,10 +33,13 @@ import { XModalModule } from './tools/ui/components/modal/modal.module';
 import { GuideModule } from './tools/ui/components/guide/guide.module';
 import { CdatePipe } from './tools/ui/pipes/cdate.pipe';
 import { TabItemComponent } from './tools/tabItem.component';
+import { IndexButtonManagerComponent } from './tools/ui/components/index-button-manager/index-button-manager.component';
 
 @NgModule({
     declarations: [
         DropDownComponent,
+        IndexButtonManagerComponent,
+
         BiToStringPipe,
         BitToHasPipe,
         BitToActivePipe,
@@ -82,6 +85,7 @@ import { TabItemComponent } from './tools/tabItem.component';
         //BrowserAnimationsModule,
         TabsModule,
         DropDownComponent,
+        IndexButtonManagerComponent,
         BsDropdownModule,
         BitToHasPipe,
         BitToActivePipe,

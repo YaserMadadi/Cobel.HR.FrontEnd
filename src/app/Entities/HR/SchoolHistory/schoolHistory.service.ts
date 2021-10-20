@@ -31,6 +31,10 @@ export class SchoolHistoryService extends Service<SchoolHistory> implements ISer
 
   //region Methods
 
+CreateInstance() {
+   return new SchoolHistory();
+}
+
   RetrieveById(id: number): Promise<SchoolHistory> {
     return super.RetrieveById(id);
   }

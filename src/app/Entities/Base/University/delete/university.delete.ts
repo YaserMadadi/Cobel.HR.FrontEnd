@@ -10,7 +10,7 @@ import { UniversityService } from '../university.service';
   selector: 'base-university-delete',
   templateUrl: './university.delete.html',
   styleUrls: ['./university.delete.css'],
-  providers: [UniversityService]
+  
 })
 export class UniversityDeleteUI extends DeleteModal<University> {
 

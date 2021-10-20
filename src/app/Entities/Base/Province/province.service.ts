@@ -28,6 +28,10 @@ export class ProvinceService extends Service<Province> implements IService<Provi
 
   //region Methods
 
+CreateInstance() {
+   return new Province();
+}
+
   RetrieveById(id: number): Promise<Province> {
     return super.RetrieveById(id);
   }

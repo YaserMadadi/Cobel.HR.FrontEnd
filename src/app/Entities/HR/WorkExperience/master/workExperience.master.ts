@@ -13,10 +13,6 @@ import { WorkExperienceEditUI } from '../edit/workExperience.edit';
   selector: 'hr-workExperience-master',
   templateUrl: './workExperience.master.html',
   styleUrls: ['./workExperience.master.css'],
-  providers: [
-    WorkExperienceService,
-    
-  ]
 })
 export class WorkExperienceMasterUI extends MasterModal<WorkExperience> {
 

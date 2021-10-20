@@ -68,7 +68,8 @@ export class BehavioralKPIEditUI extends EditModal<BehavioralKPI> implements IEd
     
   }
   
-  InitBehavioralKPI(behavioralKPI: BehavioralKPI) {
+  InitBehavioralKPI(behavioralKPI: BehavioralKPI){
+    this.currentInstance = this.service.CreateInstance();
     if (!behavioralKPI.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.behavioralObjectiveComponent.instance = behavioralKPI.behavioralObjective;

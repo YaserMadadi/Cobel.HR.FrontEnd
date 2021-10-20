@@ -79,8 +79,7 @@ export class IndividualDevelopmentPlanIndexUI extends IndexView<IndividualDevelo
 
   resetFilter() {
     this.filterInstance = IndividualDevelopmentPlan.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(individualDevelopmentPlan: IndividualDevelopmentPlan) {

@@ -24,8 +24,7 @@ export class QualitativeAppraiseService extends Service<QualitativeAppraise> imp
   constructor(public ServiceCollection: QualitativeAppraiseServiceCollection,
 		public QualitativeKPIService: QualitativeKPIService,
 		public EmployeeService: EmployeeService,
-		public AppraiseTypeService: AppraiseTypeService,
-		public AppraiseTimeService: AppraiseTimeService) {
+		public AppraiseTypeService: AppraiseTypeService) {
     super(ServiceCollection.API_Operation, QualitativeAppraise.Info);
   }
 
@@ -34,6 +33,10 @@ export class QualitativeAppraiseService extends Service<QualitativeAppraise> imp
   }
 
   //region Methods
+
+CreateInstance() {
+   return new QualitativeAppraise();
+}
 
   RetrieveById(id: number): Promise<QualitativeAppraise> {
     return super.RetrieveById(id);

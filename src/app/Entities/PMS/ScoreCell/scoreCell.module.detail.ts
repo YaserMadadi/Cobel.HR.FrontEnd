@@ -34,9 +34,6 @@ import { OperationalAppraise_ModuleMaster } from '../OperationalAppraise/operati
 		ScoreCell_NonOperationalAppraise_DetailUI,
 		ScoreCell_OperationalAppraise_DetailUI
   ],
-  providers: [
-    //ScoreCellService,
-    //ScoreCellServiceCollection
-  ]
+  
 })
 export class ScoreCell_ModuleDetail { }

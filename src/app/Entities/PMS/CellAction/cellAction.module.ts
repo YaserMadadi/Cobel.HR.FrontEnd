@@ -29,10 +29,6 @@ import { CellAction_ModuleMaster } from './cellAction.module.master';
   exports: [
     CellActionIndexUI,
 		CellAction_ModuleMaster,
-  ],
-  providers: [
-    // CellActionService,
-    // CellActionServiceCollection
-  ]
+   ]
 })
 export class CellActionModule {}

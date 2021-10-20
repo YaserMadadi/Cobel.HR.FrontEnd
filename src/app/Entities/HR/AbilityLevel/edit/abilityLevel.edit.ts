@@ -40,7 +40,8 @@ export class AbilityLevelEditUI extends EditModal<AbilityLevel> implements IEdit
     
   }
   
-  InitAbilityLevel(abilityLevel: AbilityLevel) {
+  InitAbilityLevel(abilityLevel: AbilityLevel){
+    this.currentInstance = this.service.CreateInstance();
     if (!abilityLevel.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

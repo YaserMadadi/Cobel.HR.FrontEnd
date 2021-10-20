@@ -26,7 +26,7 @@ export class ExcemptionTypeSeekUI extends SeekModal<ExcemptionType> {
     this.onClose(this.excemptionType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

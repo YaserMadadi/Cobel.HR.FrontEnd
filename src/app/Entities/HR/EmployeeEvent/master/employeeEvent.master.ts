@@ -12,11 +12,7 @@ import { EmployeeEventEditUI } from '../edit/employeeEvent.edit';
 @Component({
   selector: 'hr-employeeEvent-master',
   templateUrl: './employeeEvent.master.html',
-  styleUrls: ['./employeeEvent.master.css'],
-  providers: [
-    EmployeeEventService,
-    
-  ]
+  styleUrls: ['./employeeEvent.master.css']
 })
 export class EmployeeEventMasterUI extends MasterModal<EmployeeEvent> {
 

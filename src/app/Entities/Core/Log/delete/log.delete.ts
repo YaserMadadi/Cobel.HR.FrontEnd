@@ -10,7 +10,7 @@ import { LogService } from '../log.service';
   selector: 'core-log-delete',
   templateUrl: './log.delete.html',
   styleUrls: ['./log.delete.css'],
-  providers: [LogService]
+  
 })
 export class LogDeleteUI extends DeleteModal<Log> {
 

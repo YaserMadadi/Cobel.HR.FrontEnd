@@ -1,0 +1,166 @@
+<XDialog Header='Edit Form of ExceptionLog' 
+  [IsShown]='IsShown'
+  (OnClosed)='onClose()'
+  [ModalType]='1' >
+  <form (ngSubmit)='onSave(currentInstance, exceptionLogEditUI)' 
+    #exceptionLogEditUI='ngForm'
+    autocomplete='off'>
+    <div class='form-margin'>
+      <!-- Date -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Date")'></guide>
+        <label for='date' class='col-form-label'>Date : </label>
+        <span class='help-block col-form-label' *ngIf='!date.valid && date.touched && !date.disabled'>( Value is not Valid! )</span>
+        <input type='date' 
+                    title=Date 
+                    [ngClass]="{ 'error' : !date.valid && date.touched }" 
+                    class='form-control' 
+                    #date='ngModel' 
+                    name='date'
+                    [ngModel]="currentInstance.date | date:'yyyy-MM-dd'"
+                    (ngModelChange)='currentInstance.date = $event'
+                    [disabled]='IsLocked'
+                     required >
+      </div>
+			<!-- Time -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Time")'></guide>
+        <label for='time' class='col-form-label'>Time : </label>
+        <span class='help-block col-form-label' *ngIf='!time.valid && time.touched && !time.disabled'>( Value is not Valid! )</span>
+        <input type='time' 
+                    title=Time 
+                    [ngClass]="{ 'error' : !time.valid && time.touched }" 
+                    class='form-control ' 
+                    #time='ngModel' 
+                    name='time'
+                    [(ngModel)]='currentInstance.time' 
+                    [disabled]='IsLocked'
+                     required 
+                    min='09:00' max='18:00'>
+      </div>
+			<!-- CommandName -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("CommandName")'></guide>
+        <label for='commandName' class='col-form-label'>CommandName : </label>
+        <span class='help-block col-form-label' *ngIf='!commandName.valid && commandName.touched && !commandName.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='CommandName' 
+                    [ngClass]="{ 'error' : !commandName.valid && commandName.touched }" 
+                    class='form-control ' 
+                    #commandName='ngModel' 
+                    name='commandName' 
+                    placeholder='... CommandName' 
+                    [(ngModel)]='currentInstance.commandName' 
+                    [disabled]='IsLocked'
+                    maxlength='2000'  dir='ltr'  required  />
+      </div>
+			<!-- ExceptionType -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ExceptionType")'></guide>
+        <label for='exceptionType' class='col-form-label'>ExceptionType : </label>
+        <span class='help-block col-form-label' *ngIf='!exceptionType.valid && exceptionType.touched && !exceptionType.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='ExceptionType' 
+                    [ngClass]="{ 'error' : !exceptionType.valid && exceptionType.touched }" 
+                    class='form-control ' 
+                    #exceptionType='ngModel' 
+                    name='exceptionType' 
+                    placeholder='... ExceptionType' 
+                    [(ngModel)]='currentInstance.exceptionType' 
+                    [disabled]='IsLocked'
+                    maxlength='100'  dir='ltr'  required  />
+      </div>
+			<!-- ErrorMessage -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ErrorMessage")'></guide>
+        <label for='errorMessage' class='col-form-label'>ErrorMessage : </label>
+        <span class='help-block col-form-label' *ngIf='!errorMessage.valid && errorMessage.touched && !errorMessage.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='ErrorMessage' 
+                    [ngClass]="{ 'error' : !errorMessage.valid && errorMessage.touched }" 
+                    class='form-control ' 
+                    #errorMessage='ngModel' 
+                    name='errorMessage' 
+                    placeholder='... ErrorMessage' 
+                    [(ngModel)]='currentInstance.errorMessage' 
+                    [disabled]='IsLocked'
+                    maxlength='2000'  dir='ltr'  required  />
+      </div>
+			<!-- ErrorNumber -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ErrorNumber")'></guide>
+        <label for='errorNumber' class='col-form-label'>ErrorNumber : </label>
+        <span class='help-block col-form-label' *ngIf='!errorNumber.valid && errorNumber.touched && !errorNumber.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #errorNumber='ngModel' 
+            name='errorNumber' 
+            title='ErrorNumber' 
+            placeholder='ErrorNumber'
+            class='form-control'
+            [ngClass]="{ 'error' : !errorNumber.valid && errorNumber.touched }" 
+            [value]='currentInstance.errorNumber' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.errorNumber'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- ErrorCode -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("ErrorCode")'></guide>
+        <label for='errorCode' class='col-form-label'>ErrorCode : </label>
+        <span class='help-block col-form-label' *ngIf='!errorCode.valid && errorCode.touched && !errorCode.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #errorCode='ngModel' 
+            name='errorCode' 
+            title='ErrorCode' 
+            placeholder='ErrorCode'
+            class='form-control'
+            [ngClass]="{ 'error' : !errorCode.valid && errorCode.touched }" 
+            [value]='currentInstance.errorCode' 
+            [min]='-2147483648' [max]='2147483647' 
+            [(ngModel)]='currentInstance.errorCode'
+            [format]="'n0'" 
+            [decimals]='0'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+			<!-- JsonValue -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("JsonValue")'></guide>
+        <label for='jsonValue' class='col-form-label'>Json : </label>
+        <span class='help-block col-form-label' *ngIf='!jsonValue.valid && jsonValue.touched && !jsonValue.disabled'>( Value is not Valid! )</span>
+        <input type='text' 
+                    title='Json' 
+                    [ngClass]="{ 'error' : !jsonValue.valid && jsonValue.touched }" 
+                    class='form-control ' 
+                    #jsonValue='ngModel' 
+                    name='jsonValue' 
+                    placeholder='... Json' 
+                    [(ngModel)]='currentInstance.jsonValue' 
+                    [disabled]='IsLocked'
+                    maxlength='-1'  dir='ltr'  required  />
+      </div>
+			
+    </div>
+    <div class='modal-footer'>
+      <button id='add-button' 
+            type='submit'
+            class='xbtn btn-add modal-footer-button' 
+            [disabled]='!exceptionLogEditUI.valid || IsLocked' >Save & Close</button>
+      <button id='add-continue-button'
+            type='button' 
+            class='xbtn btn-refresh modal-footer-button' 
+            [disabled]='!exceptionLogEditUI.valid || IsLocked' 
+            [hidden]='IsEditMode' 
+            (click)='onSave(currentInstance, exceptionLogEditUI, true)'>Save</button>
+      <button id='cancel-button'
+            class='xbtn btn-delete modal-footer-button' 
+            [disabled]='IsLocked'
+            (click)='onClose()'>Cancel</button>
+    </div>
+  </form>
+</XDialog>

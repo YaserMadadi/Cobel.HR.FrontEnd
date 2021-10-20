@@ -29,10 +29,6 @@ import { FunctionalAppraise_ModuleMaster } from './functionalAppraise.module.mas
   exports: [
     FunctionalAppraiseIndexUI,
 		FunctionalAppraise_ModuleMaster,
-  ],
-  providers: [
-    // FunctionalAppraiseService,
-    // FunctionalAppraiseServiceCollection
-  ]
+   ]
 })
 export class FunctionalAppraiseModule {}

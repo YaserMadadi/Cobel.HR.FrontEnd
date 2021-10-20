@@ -1,5 +1,6 @@
-﻿<fieldset class='border'>
-  <legend>Event Type :</legend>
+
+<fieldset class='border'>
+  <legend>EventType :</legend>
   <div class='btn-group'>
     <button name='addButton' class='xbtn btn-add' (click)='onAdd(eventTypeEditUI)'>Add</button>
     <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
@@ -13,7 +14,7 @@
   <!-- Quick Access Menu -->
   
   <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
-    <a class='dropdown-item pointer' (click)='employeeEvent_Clicked(employeeEventEditUI)'>Add Employee Event</a>
+    <a class='dropdown-item pointer' (click)='employeeEvent_Clicked(employeeEventEditUI)'>Add EmployeeEvent</a>
 	
   </dropDownMenu>
   <table #eventTypeTable class='table table-hover indexTable'>
@@ -21,7 +22,7 @@
       <tr>
         <th class='row-number'>Row</th>
         <th title='Title'>Title</th>
-        <th width='100px' title='Is Active'>Is Active</th>
+        <th width='100px' title='IsActive'>IsActive</th>
       </tr>
       <tr name='secondRow'>
         <th class='row-number'></th>
@@ -73,4 +74,4 @@
 
 
 <hr-employeeEvent-edit #employeeEventEditUI> <!--  (onClosed)='employeeEventEditUI_Closed($event)' -->
-</hr-employeeEvent-edit>
+</hr-employeeEvent-edit> 

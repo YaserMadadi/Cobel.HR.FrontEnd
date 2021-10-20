@@ -16,11 +16,8 @@ import { PassportDeleteUI } from '../../Passport/delete/passport.delete';
 @Component({
   selector: 'person-passport-detail',
   templateUrl: './person-passport.detail.html',
-  styleUrls: ['./person-passport.detail.css'],
-  providers: [PersonService]
-}) 
-
-@Injectable()
+  styleUrls: ['./person-passport.detail.css']
+})
 export class Person_Passport_DetailUI extends DetailView<Person> {
 
   constructor(private personService: PersonService) {

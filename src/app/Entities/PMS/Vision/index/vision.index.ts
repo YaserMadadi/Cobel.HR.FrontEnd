@@ -29,7 +29,7 @@ import { IndividualDevelopmentPlan } from '../../IndividualDevelopmentPlan/indiv
 @Component({
   selector: 'pms-vision-index',
   templateUrl: './vision.index.html',
-  styleUrls: ['./vision.index.css']
+  styleUrls: ['./vision.index.css'],
 })
 export class VisionIndexUI extends IndexView<Vision> implements AfterViewInit, IIndexView<Vision> {
 
@@ -43,21 +43,21 @@ export class VisionIndexUI extends IndexView<Vision> implements AfterViewInit, I
     this.onRefresh();
   }
 
-  
-  
+
+
   //#region VisionComment
 
   public visionComment_Clicked(visionCommentEditUI: VisionCommentEditUI) {
     visionCommentEditUI.Vision = this.currentInstance;
     visionCommentEditUI.ShowDialog(new VisionComment());
   }
-                    
+
   public visionCommentEditUI_Closed(visionComment: VisionComment) {
     if (!visionComment)
       return;
     this.onRefresh();
   }
-  
+
   //#endregion VisionComment
 
   //#region VisionApproved
@@ -66,13 +66,13 @@ export class VisionIndexUI extends IndexView<Vision> implements AfterViewInit, I
     visionApprovedEditUI.Vision = this.currentInstance;
     visionApprovedEditUI.ShowDialog(new VisionApproved());
   }
-                    
+
   public visionApprovedEditUI_Closed(visionApproved: VisionApproved) {
     if (!visionApproved)
       return;
     this.onRefresh();
   }
-  
+
   //#endregion VisionApproved
 
   //#region IndividualDevelopmentPlan
@@ -81,32 +81,31 @@ export class VisionIndexUI extends IndexView<Vision> implements AfterViewInit, I
     individualDevelopmentPlanEditUI.Vision = this.currentInstance;
     individualDevelopmentPlanEditUI.ShowDialog(new IndividualDevelopmentPlan());
   }
-                    
+
   public individualDevelopmentPlanEditUI_Closed(individualDevelopmentPlan: IndividualDevelopmentPlan) {
     if (!individualDevelopmentPlan)
       return;
     this.onRefresh();
   }
-  
+
   //#endregion IndividualDevelopmentPlan
 
 
-  
+
   @ViewChild('Paginator')
-  PaginatorComponent: PaginatorComponent; 
+  PaginatorComponent: PaginatorComponent;
 
   PageChanging(pageNumber: number) {
     this.onSeek(pageNumber);
   }
 
-  public onAdd(visionEditUI: VisionEditUI){
+  public onAdd(visionEditUI: VisionEditUI) {
     visionEditUI.ShowDialog(new Vision());
   }
 
   resetFilter() {
     this.filterInstance = Vision.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(vision: Vision) {

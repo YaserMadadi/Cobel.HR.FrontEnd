@@ -24,9 +24,6 @@ import { VisionApproved_ModuleMaster } from '../../PMS/VisionApproved/visionAppr
   exports: [
     ApprovementType_VisionApproved_DetailUI
   ],
-  providers: [
-    //ApprovementTypeService,
-    //ApprovementTypeServiceCollection
-  ]
+  
 })
 export class ApprovementType_ModuleDetail { }

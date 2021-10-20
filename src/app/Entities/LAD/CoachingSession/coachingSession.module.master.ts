@@ -20,10 +20,6 @@ import { CoachingSession_ModuleDetail } from './coachingSession.module.detail';
     ],
     exports: [
         CoachingSessionMasterUI
-    ],
-    providers: [
-        //CoachingSessionService,
-       // CoachingSessionServiceCollection   
     ]
 })
 

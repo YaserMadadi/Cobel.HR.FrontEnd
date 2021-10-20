@@ -10,7 +10,7 @@ import { CoachingQuestionaryDetailService } from '../coachingQuestionaryDetail.s
   selector: 'lad-coachingQuestionaryDetail-delete',
   templateUrl: './coachingQuestionaryDetail.delete.html',
   styleUrls: ['./coachingQuestionaryDetail.delete.css'],
-  providers: [CoachingQuestionaryDetailService]
+  
 })
 export class CoachingQuestionaryDetailDeleteUI extends DeleteModal<CoachingQuestionaryDetail> {
 

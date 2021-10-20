@@ -28,10 +28,6 @@ import { TargetSetting_ModuleFunc } from '../TargetSetting/targetSetting.module.
         QualitativeObjectiveEditUI,
 		QualitativeObjectiveDeleteUI,
 		QualitativeObjectiveSeekUI
-    ],
-    providers: [
-       //QualitativeObjectiveService,
-       // QualitativeObjectiveServiceCollection,
     ]
 })
 

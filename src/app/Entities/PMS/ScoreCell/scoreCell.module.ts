@@ -38,10 +38,6 @@ import { OperationalAppraise_ModuleMaster } from '../OperationalAppraise/operati
   exports: [
     ScoreCellIndexUI,
 		ScoreCell_ModuleMaster,
-  ],
-  providers: [
-    // ScoreCellService,
-    // ScoreCellServiceCollection
-  ]
+   ]
 })
 export class ScoreCellModule {}

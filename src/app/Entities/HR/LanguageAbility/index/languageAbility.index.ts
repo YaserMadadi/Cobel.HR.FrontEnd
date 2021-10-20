@@ -61,8 +61,7 @@ export class LanguageAbilityIndexUI extends IndexView<LanguageAbility> implement
 
   resetFilter() {
     this.filterInstance = LanguageAbility.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(languageAbility: LanguageAbility) {

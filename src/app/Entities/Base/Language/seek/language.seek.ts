@@ -26,7 +26,7 @@ export class LanguageSeekUI extends SeekModal<Language> {
     this.onClose(this.language);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

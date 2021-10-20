@@ -20,10 +20,6 @@ import { PositionAssignmentRepeal_ModuleDetail } from './positionAssignmentRepea
     ],
     exports: [
         PositionAssignmentRepealMasterUI
-    ],
-    providers: [
-        //PositionAssignmentRepealService,
-       // PositionAssignmentRepealServiceCollection   
     ]
 })
 

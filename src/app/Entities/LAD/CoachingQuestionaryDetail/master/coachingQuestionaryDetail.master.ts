@@ -12,11 +12,7 @@ import { CoachingQuestionaryDetailEditUI } from '../edit/coachingQuestionaryDeta
 @Component({
   selector: 'lad-coachingQuestionaryDetail-master',
   templateUrl: './coachingQuestionaryDetail.master.html',
-  styleUrls: ['./coachingQuestionaryDetail.master.css'],
-  providers: [
-    CoachingQuestionaryDetailService,
-    
-  ]
+  styleUrls: ['./coachingQuestionaryDetail.master.css']
 })
 export class CoachingQuestionaryDetailMasterUI extends MasterModal<CoachingQuestionaryDetail> {
 

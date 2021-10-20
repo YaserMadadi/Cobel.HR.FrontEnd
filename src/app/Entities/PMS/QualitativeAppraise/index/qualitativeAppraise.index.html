@@ -16,7 +16,6 @@
 		<a class='dropdown-item pointer' (click)='navigate("PMS", "QualitativeKPI", currentInstance.qualitativeKPI?.id)'>Manage Qualitative KPI</a>
 		<a class='dropdown-item pointer' (click)='navigate("HR", "Employee", currentInstance.appraiser?.id)'>Manage Employee</a>
 		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "AppraiseType", currentInstance.appraiseType?.id)'>Manage Appraise Type</a>
-		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "AppraiseTime", currentInstance.appraiseTime?.id)'>Manage Appraise Time</a>
     </dropDownMenu>
   
   <table #qualitativeAppraiseTable class='table table-hover indexTable'>
@@ -27,7 +26,6 @@
         <th title='Date'>Date</th>
         <th title='Appraiser'>Appraiser</th>
         <th title='Appraise Type'>Appraise Type</th>
-        <th title='Appraise Time'>Appraise Time</th>
         <th title='Actual'>Actual</th>
         <th title='Score'>Score</th>
       </tr>
@@ -72,16 +70,6 @@
 										 (keyup)='doFilter($event)' />
         </th>
         <th>
-          <input class='form-control' #appraiseTime='ngModel' id='appraiseTime' name='appraiseTime'
-										 title='Appraise Time'
-										 autocomplete='off'
-										 placeholder='Appraise Time'
-										[(ngModel)]='filterInstance.appraiseTime.descriptor'
-										 type='text'
-										 maxlength='50'
-										 (keyup)='doFilter($event)' />
-        </th>
-        <th>
           <input class='form-control' #actual='ngModel' id='actual' name='actual'
 										 title='Actual'
 										 autocomplete='off'
@@ -108,7 +96,6 @@
 				<td>{{ p.date | date:'fullDate' }}</td>
 				<td>{{ p.appraiser?.descriptor }}</td>
 				<td>{{ p.appraiseType?.descriptor }}</td>
-				<td>{{ p.appraiseTime?.descriptor }}</td>
 				<td>{{ p.actual | number }}</td>
 				<td>{{ p.score | number }}</td>
       </tr>

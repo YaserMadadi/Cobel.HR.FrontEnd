@@ -16,11 +16,8 @@ import { MilitaryServiceDeleteUI } from '../../MilitaryService/delete/militarySe
 @Component({
   selector: 'person-militaryService-detail',
   templateUrl: './person-militaryService.detail.html',
-  styleUrls: ['./person-militaryService.detail.css'],
-  providers: [PersonService]
-}) 
-
-@Injectable()
+  styleUrls: ['./person-militaryService.detail.css']
+})
 export class Person_MilitaryService_DetailUI extends DetailView<Person> {
 
   constructor(private personService: PersonService) {

@@ -10,7 +10,7 @@ import { MeasurementUnitService } from '../measurementUnit.service';
   selector: 'base-pms-measurementUnit-delete',
   templateUrl: './measurementUnit.delete.html',
   styleUrls: ['./measurementUnit.delete.css'],
-  providers: [MeasurementUnitService]
+  
 })
 export class MeasurementUnitDeleteUI extends DeleteModal<MeasurementUnit> {
 

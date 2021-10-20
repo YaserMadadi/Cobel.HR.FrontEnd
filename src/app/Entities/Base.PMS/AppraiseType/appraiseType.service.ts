@@ -30,6 +30,10 @@ export class AppraiseTypeService extends Service<AppraiseType> implements IServi
 
   //region Methods
 
+CreateInstance() {
+   return new AppraiseType();
+}
+
   RetrieveById(id: number): Promise<AppraiseType> {
     return super.RetrieveById(id);
   }

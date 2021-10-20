@@ -30,10 +30,6 @@ import { QuestionaryItem_ModuleFunc } from '../QuestionaryItem/questionaryItem.m
         CoachingQuestionaryAnsweredEditUI,
 		CoachingQuestionaryAnsweredDeleteUI,
 		CoachingQuestionaryAnsweredSeekUI
-    ],
-    providers: [
-       //CoachingQuestionaryAnsweredService,
-       // CoachingQuestionaryAnsweredServiceCollection,
     ]
 })
 

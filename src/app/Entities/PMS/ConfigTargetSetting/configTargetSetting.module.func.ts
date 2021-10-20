@@ -10,7 +10,7 @@ import { ConfigTargetSettingEditUI } from './edit/configTargetSetting.edit';
 import { ConfigTargetSettingDeleteUI } from './delete/configTargetSetting.delete';
 import { ConfigTargetSettingSeekUI } from './seek/configTargetSetting.seek';
 
-import { Position_ModuleFunc } from '../../HR/Position/position.module.func';
+import { PositionCategory_ModuleFunc } from '../../Base.HR/PositionCategory/positionCategory.module.func';
 
 @NgModule({
     declarations: [
@@ -22,16 +22,12 @@ import { Position_ModuleFunc } from '../../HR/Position/position.module.func';
         FormsModule,
         CommonModule,
         XCommonModule,
-        Position_ModuleFunc
+        PositionCategory_ModuleFunc
     ],
     exports: [
         ConfigTargetSettingEditUI,
 		ConfigTargetSettingDeleteUI,
 		ConfigTargetSettingSeekUI
-    ],
-    providers: [
-       //ConfigTargetSettingService,
-       // ConfigTargetSettingServiceCollection,
     ]
 })
 

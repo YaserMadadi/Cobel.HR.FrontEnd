@@ -16,11 +16,8 @@ import { PropertyDeleteUI } from '../../Property/delete/property.delete';
 @Component({
   selector: 'entity-property-detail',
   templateUrl: './entity-property.detail.html',
-  styleUrls: ['./entity-property.detail.css'],
-  providers: [EntityService]
-}) 
-
-@Injectable()
+  styleUrls: ['./entity-property.detail.css']
+})
 export class Entity_Property_DetailUI extends DetailView<Entity> {
 
   constructor(private entityService: EntityService) {

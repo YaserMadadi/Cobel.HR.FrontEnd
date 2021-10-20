@@ -16,11 +16,8 @@ import { FunctionalObjectiveCommentDeleteUI } from '../../FunctionalObjectiveCom
 @Component({
   selector: 'functionalObjective-functionalObjectiveComment-detail',
   templateUrl: './functionalObjective-functionalObjectiveComment.detail.html',
-  styleUrls: ['./functionalObjective-functionalObjectiveComment.detail.css'],
-  providers: [FunctionalObjectiveService]
-}) 
-
-@Injectable()
+  styleUrls: ['./functionalObjective-functionalObjectiveComment.detail.css']
+})
 export class FunctionalObjective_FunctionalObjectiveComment_DetailUI extends DetailView<FunctionalObjective> {
 
   constructor(private functionalObjectiveService: FunctionalObjectiveService) {

@@ -32,7 +32,7 @@ import { PaginatorComponent } from '../../../../../xcore/tools/ui/components/pag
 })
 export class VisionApprovedIndexUI extends IndexView<VisionApproved> implements AfterViewInit, IIndexView<VisionApproved> {
 
-  constructor(private visionApprovedService: VisionApprovedService) {
+  constructor(visionApprovedService: VisionApprovedService) {
     super(visionApprovedService);
     this.filterInstance = VisionApproved.SeekInstance();
     this.currentInstance = new VisionApproved();
@@ -59,8 +59,7 @@ export class VisionApprovedIndexUI extends IndexView<VisionApproved> implements 
 
   resetFilter() {
     this.filterInstance = VisionApproved.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(visionApproved: VisionApproved) {

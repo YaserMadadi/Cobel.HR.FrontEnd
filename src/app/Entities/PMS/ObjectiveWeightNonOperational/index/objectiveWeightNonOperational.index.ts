@@ -53,8 +53,7 @@ export class ObjectiveWeightNonOperationalIndexUI extends IndexView<ObjectiveWei
 
   resetFilter() {
     this.filterInstance = ObjectiveWeightNonOperational.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(objectiveWeightNonOperational: ObjectiveWeightNonOperational) {

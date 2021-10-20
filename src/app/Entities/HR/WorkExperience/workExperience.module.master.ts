@@ -20,10 +20,6 @@ import { WorkExperience_ModuleDetail } from './workExperience.module.detail';
     ],
     exports: [
         WorkExperienceMasterUI
-    ],
-    providers: [
-        //WorkExperienceService,
-       // WorkExperienceServiceCollection   
     ]
 })
 

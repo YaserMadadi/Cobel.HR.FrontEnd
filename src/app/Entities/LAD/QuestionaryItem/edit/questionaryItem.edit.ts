@@ -68,7 +68,8 @@ export class QuestionaryItemEditUI extends EditModal<QuestionaryItem> implements
     this.questionaryTypeComponent.LoadList();
   }
   
-  InitQuestionaryItem(questionaryItem: QuestionaryItem) {
+  InitQuestionaryItem(questionaryItem: QuestionaryItem){
+    this.currentInstance = this.service.CreateInstance();
     if (!questionaryItem.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.questionaryTypeComponent.instance = questionaryItem.questionaryType;

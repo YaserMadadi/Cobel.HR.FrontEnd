@@ -20,10 +20,6 @@ import { InclusiveType_ModuleDetail } from './inclusiveType.module.detail';
     ],
     exports: [
         InclusiveTypeMasterUI
-    ],
-    providers: [
-        //InclusiveTypeService,
-       // InclusiveTypeServiceCollection   
     ]
 })
 

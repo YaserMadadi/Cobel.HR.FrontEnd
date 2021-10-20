@@ -1,4 +1,5 @@
-﻿import { NgModule } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -32,10 +33,6 @@ import { EmployeeEvent_ModuleMaster } from '../../HR/EmployeeEvent/employeeEvent
   exports: [
     EventTypeIndexUI,
 		EventType_ModuleMaster,
-  ],
-  providers: [
-    // EventTypeService,
-    // EventTypeServiceCollection
-  ]
+   ]
 })
 export class EventTypeModule {}

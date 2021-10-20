@@ -20,10 +20,6 @@ import { UniversityTerminate_ModuleDetail } from './universityTerminate.module.d
     ],
     exports: [
         UniversityTerminateMasterUI
-    ],
-    providers: [
-        //UniversityTerminateService,
-       // UniversityTerminateServiceCollection   
     ]
 })
 

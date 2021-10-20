@@ -32,10 +32,6 @@ import { UniversityHistory_ModuleMaster } from '../../HR/UniversityHistory/unive
   exports: [
     FieldOfStudyIndexUI,
 		FieldOfStudy_ModuleMaster,
-  ],
-  providers: [
-    // FieldOfStudyService,
-    // FieldOfStudyServiceCollection
-  ]
+   ]
 })
 export class FieldOfStudyModule {}

@@ -71,8 +71,7 @@ export class QualitativeObjectiveIndexUI extends IndexView<QualitativeObjective>
 
   resetFilter() {
     this.filterInstance = QualitativeObjective.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(qualitativeObjective: QualitativeObjective) {

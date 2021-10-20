@@ -40,7 +40,8 @@ export class ScoreCellEditUI extends EditModal<ScoreCell> implements IEditModal<
     
   }
   
-  InitScoreCell(scoreCell: ScoreCell) {
+  InitScoreCell(scoreCell: ScoreCell){
+    this.currentInstance = this.service.CreateInstance();
     if (!scoreCell.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

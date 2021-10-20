@@ -1,0 +1,151 @@
+
+<fieldset class='border'>
+  <legend>ExceptionLog :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(exceptionLogEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(exceptionLogTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(exceptionLogEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(exceptionLogDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+  
+  <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
+    <a class='dropdown-item pointer' (click)='commandParameter_Clicked(commandParameterEditUI)'>Add CommandParameter</a>
+	
+  </dropDownMenu>
+  <table #exceptionLogTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Date'>Date</th>
+        <th title='Time'>Time</th>
+        <th title='CommandName'>CommandName</th>
+        <th title='ExceptionType'>ExceptionType</th>
+        <th title='ErrorMessage'>ErrorMessage</th>
+        <th title='ErrorNumber'>ErrorNumber</th>
+        <th title='ErrorCode'>ErrorCode</th>
+        <th title='Json'>Json</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='filterInstance.date'
+										 type='date'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #time='ngModel' id='time' name='time'
+										 title='Time'
+										 autocomplete='off'
+										 placeholder='Time'
+										[(ngModel)]='filterInstance.time'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #commandName='ngModel' id='commandName' name='commandName'
+										 title='CommandName'
+										 autocomplete='off'
+										 placeholder='CommandName'
+										[(ngModel)]='filterInstance.commandName'
+										 type='text'
+										 maxlength='2000'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #exceptionType='ngModel' id='exceptionType' name='exceptionType'
+										 title='ExceptionType'
+										 autocomplete='off'
+										 placeholder='ExceptionType'
+										[(ngModel)]='filterInstance.exceptionType'
+										 type='text'
+										 maxlength='100'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #errorMessage='ngModel' id='errorMessage' name='errorMessage'
+										 title='ErrorMessage'
+										 autocomplete='off'
+										 placeholder='ErrorMessage'
+										[(ngModel)]='filterInstance.errorMessage'
+										 type='text'
+										 maxlength='2000'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control' #errorNumber='ngModel' id='errorNumber' name='errorNumber'
+										 title='ErrorNumber'
+										 autocomplete='off'
+										 placeholder='ErrorNumber'
+										[(ngModel)]='filterInstance.errorNumber'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #errorCode='ngModel' id='errorCode' name='errorCode'
+										 title='ErrorCode'
+										 autocomplete='off'
+										 placeholder='ErrorCode'
+										[(ngModel)]='filterInstance.errorCode'
+										 type='number'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #jsonValue='ngModel' id='jsonValue' name='jsonValue'
+										 title='Json'
+										 autocomplete='off'
+										 placeholder='Json'
+										[(ngModel)]='filterInstance.jsonValue'
+										 type='text'
+										 maxlength='-1'
+										 (keyup)='doFilter($event)' dir='ltr' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(exceptionLogMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.date | date:'fullDate' }}</td>
+				<td>{{ p.time }}</td>
+				<td>{{ p.commandName }}</td>
+				<td>{{ p.exceptionType }}</td>
+				<td>{{ p.errorMessage }}</td>
+				<td>{{ p.errorNumber | number }}</td>
+				<td>{{ p.errorCode | number }}</td>
+				<td>{{ p.jsonValue }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- ExceptionLog -->
+<core-exceptionLog-master #exceptionLogMasterUI>
+</core-exceptionLog-master>
+
+<core-exceptionLog-edit #exceptionLogEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</core-exceptionLog-edit>
+
+<core-exceptionLog-delete #exceptionLogDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</core-exceptionLog-delete>
+
+
+<core-commandParameter-edit #commandParameterEditUI> <!--  (onClosed)='commandParameterEditUI_Closed($event)' -->
+</core-commandParameter-edit> 

@@ -16,11 +16,8 @@ import { CompetencyItemKPIDeleteUI } from '../../CompetencyItemKPI/delete/compet
 @Component({
   selector: 'competencyItem-competencyItemKPI-detail',
   templateUrl: './competencyItem-competencyItemKPI.detail.html',
-  styleUrls: ['./competencyItem-competencyItemKPI.detail.css'],
-  providers: [CompetencyItemService]
-}) 
-
-@Injectable()
+  styleUrls: ['./competencyItem-competencyItemKPI.detail.css']
+})
 export class CompetencyItem_CompetencyItemKPI_DetailUI extends DetailView<CompetencyItem> {
 
   constructor(private competencyItemService: CompetencyItemService) {

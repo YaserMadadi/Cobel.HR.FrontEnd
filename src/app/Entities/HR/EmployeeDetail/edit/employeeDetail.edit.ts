@@ -44,7 +44,7 @@ export class EmployeeDetailEditUI extends EditModal<EmployeeDetail> implements I
   //#endregion -- Employee --
 	//#region -- HoldingSection --
 
-  holdingSectionComponent : ForeignComponent<HoldingSection> = new ForeignComponent<HoldingSection>(this.employeeDetailService.HoldingSectionService);
+  holdingSectionComponent : ForeignComponent<HoldingSection> = new ForeignComponent<HoldingSection>(this.employeeDetailService.HoldingSectionService,false);
 
   @Input()
   public set HoldingSection(value: HoldingSection) {
@@ -55,7 +55,7 @@ export class EmployeeDetailEditUI extends EditModal<EmployeeDetail> implements I
   //#endregion -- HoldingSection --
 	//#region -- EmploymentStatus --
 
-  employmentStatusComponent : ForeignComponent<EmploymentStatus> = new ForeignComponent<EmploymentStatus>(this.employeeDetailService.EmploymentStatusService);
+  employmentStatusComponent : ForeignComponent<EmploymentStatus> = new ForeignComponent<EmploymentStatus>(this.employeeDetailService.EmploymentStatusService,false);
 
   @Input()
   public set EmploymentStatus(value: EmploymentStatus) {
@@ -81,7 +81,8 @@ export class EmployeeDetailEditUI extends EditModal<EmployeeDetail> implements I
     
   }
   
-  InitEmployeeDetail(employeeDetail: EmployeeDetail) {
+  InitEmployeeDetail(employeeDetail: EmployeeDetail){
+    this.currentInstance = this.service.CreateInstance();
     if (!employeeDetail.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = employeeDetail.employee;

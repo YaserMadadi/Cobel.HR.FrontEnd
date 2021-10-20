@@ -28,6 +28,10 @@ export class HealthStatusService extends Service<HealthStatus> implements IServi
 
   //region Methods
 
+CreateInstance() {
+   return new HealthStatus();
+}
+
   RetrieveById(id: number): Promise<HealthStatus> {
     return super.RetrieveById(id);
   }

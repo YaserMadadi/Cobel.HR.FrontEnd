@@ -29,6 +29,10 @@ export class FinalAppraiseService extends Service<FinalAppraise> implements ISer
 
   //region Methods
 
+CreateInstance() {
+   return new FinalAppraise();
+}
+
   RetrieveById(id: number): Promise<FinalAppraise> {
     return super.RetrieveById(id);
   }

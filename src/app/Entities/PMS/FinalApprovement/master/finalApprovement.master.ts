@@ -12,11 +12,7 @@ import { FinalApprovementEditUI } from '../edit/finalApprovement.edit';
 @Component({
   selector: 'pms-finalApprovement-master',
   templateUrl: './finalApprovement.master.html',
-  styleUrls: ['./finalApprovement.master.css'],
-  providers: [
-    FinalApprovementService,
-    
-  ]
+  styleUrls: ['./finalApprovement.master.css']
 })
 export class FinalApprovementMasterUI extends MasterModal<FinalApprovement> {
 

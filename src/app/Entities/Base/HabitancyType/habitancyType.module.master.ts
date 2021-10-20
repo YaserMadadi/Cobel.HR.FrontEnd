@@ -20,10 +20,6 @@ import { HabitancyType_ModuleDetail } from './habitancyType.module.detail';
     ],
     exports: [
         HabitancyTypeMasterUI
-    ],
-    providers: [
-        //HabitancyTypeService,
-       // HabitancyTypeServiceCollection   
     ]
 })
 

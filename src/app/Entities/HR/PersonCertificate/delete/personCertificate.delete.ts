@@ -10,7 +10,7 @@ import { PersonCertificateService } from '../personCertificate.service';
   selector: 'hr-personCertificate-delete',
   templateUrl: './personCertificate.delete.html',
   styleUrls: ['./personCertificate.delete.css'],
-  providers: [PersonCertificateService]
+  
 })
 export class PersonCertificateDeleteUI extends DeleteModal<PersonCertificate> {
 

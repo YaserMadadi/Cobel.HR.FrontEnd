@@ -1,4 +1,4 @@
-﻿import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../../../xcore/shared/shared.module';
@@ -20,10 +20,6 @@ import { ContractType_ModuleDetail } from './contractType.module.detail';
     ],
     exports: [
         ContractTypeMasterUI
-    ],
-    providers: [
-        //ContractTypeService,
-       // ContractTypeServiceCollection   
     ]
 })
 

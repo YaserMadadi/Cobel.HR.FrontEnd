@@ -12,11 +12,7 @@ import { StrategicObjectveEditUI } from '../edit/strategicObjectve.edit';
 @Component({
   selector: 'pms-strategicObjectve-master',
   templateUrl: './strategicObjectve.master.html',
-  styleUrls: ['./strategicObjectve.master.css'],
-  providers: [
-    StrategicObjectveService,
-    
-  ]
+  styleUrls: ['./strategicObjectve.master.css']
 })
 export class StrategicObjectveMasterUI extends MasterModal<StrategicObjectve> {
 

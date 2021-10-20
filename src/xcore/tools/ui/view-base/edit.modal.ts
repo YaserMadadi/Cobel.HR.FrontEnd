@@ -9,12 +9,17 @@ import { IEditModal } from "./edit.modal.interface";
 @Directive()
 export class EditModal<T extends BusinessObject> implements IEditModal<T>{
 
-    constructor(private service: Service<T>) {
-        //this.currentInstance = <T>new Entity();
-        //this.currentInstance = instance;
+    constructor(protected service: Service<T>) {
+        this.currentInstance = service?.CreateInstance();
     }
 
+<<<<<<< HEAD
     Init(entity: T): void {  
+=======
+
+
+    Init(entity: T): void {
+>>>>>>> f3216e97c398a4b47eb4b5690b4d0f0918904e94
         //throw new Error("Method not implemented.");
         
     }
@@ -75,9 +80,26 @@ export class EditModal<T extends BusinessObject> implements IEditModal<T>{
     }
 
     async onSave(instance: T, editUI: NgForm, isContinue: boolean = false) {
-        console.log(instance);
+        //console.log(instance);
         this.Lock();
         let entity = await this.service.Save(instance);
+        this.UnLock();
+
+        console.log('Entity : ', entity);
+        if (BusinessObject.NotConfirm(entity))
+            return;
+
+        console.log('after IF: ', entity);
+
+        editUI.reset();
+        //this.currentInstance = entity;
+        this.Close(entity, isContinue);
+    }
+
+    async onSaveAttached(instance: T, editUI: NgForm, isContinue: boolean = false) {
+        //console.log(instance);
+        this.Lock();
+        let entity = await this.service.SaveAttached(instance);
         this.UnLock();
 
         if (BusinessObject.NotConfirm(entity))

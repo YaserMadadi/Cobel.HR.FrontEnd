@@ -100,6 +100,7 @@ export class EmployeeServiceCollection extends ServiceCollection<Employee> {
   }
 
   CollectionOfPositionAssignment(employee: Employee, positionAssignment: PositionAssignment = PositionAssignment.SeekInstance()): Promise<PositionAssignment[]> {
+    
     return super.CollectionOf<PositionAssignment>(employee, positionAssignment);
   }
 

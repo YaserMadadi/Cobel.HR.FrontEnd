@@ -27,10 +27,6 @@ import { CountrySeekUI } from './seek/country.seek';
         CountryEditUI,
 		CountryDeleteUI,
 		CountrySeekUI
-    ],
-    providers: [
-       //CountryService,
-       // CountryServiceCollection,
     ]
 })
 

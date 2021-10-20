@@ -10,7 +10,7 @@ import { YearService } from '../year.service';
   selector: 'base-year-delete',
   templateUrl: './year.delete.html',
   styleUrls: ['./year.delete.css'],
-  providers: [YearService]
+  
 })
 export class YearDeleteUI extends DeleteModal<Year> {
 

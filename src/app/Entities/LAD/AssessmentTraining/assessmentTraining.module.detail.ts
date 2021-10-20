@@ -21,9 +21,6 @@ import { AssessmentTrainingServiceCollection } from './assessmentTraining.servic
   exports: [
     // No Item...
   ],
-  providers: [
-    //AssessmentTrainingService,
-    //AssessmentTrainingServiceCollection
-  ]
+  
 })
 export class AssessmentTraining_ModuleDetail { }

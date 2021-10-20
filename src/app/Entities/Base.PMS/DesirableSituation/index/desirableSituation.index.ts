@@ -68,8 +68,7 @@ export class DesirableSituationIndexUI extends IndexView<DesirableSituation> imp
 
   resetFilter() {
     this.filterInstance = DesirableSituation.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(desirableSituation: DesirableSituation) {

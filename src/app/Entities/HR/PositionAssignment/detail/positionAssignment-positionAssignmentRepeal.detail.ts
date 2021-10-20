@@ -16,11 +16,8 @@ import { PositionAssignmentRepealDeleteUI } from '../../PositionAssignmentRepeal
 @Component({
   selector: 'positionAssignment-positionAssignmentRepeal-detail',
   templateUrl: './positionAssignment-positionAssignmentRepeal.detail.html',
-  styleUrls: ['./positionAssignment-positionAssignmentRepeal.detail.css'],
-  providers: [PositionAssignmentService]
-}) 
-
-@Injectable()
+  styleUrls: ['./positionAssignment-positionAssignmentRepeal.detail.css']
+})
 export class PositionAssignment_PositionAssignmentRepeal_DetailUI extends DetailView<PositionAssignment> {
 
   constructor(private positionAssignmentService: PositionAssignmentService) {

@@ -26,7 +26,7 @@ export class PersonCertificateSeekUI extends SeekModal<PersonCertificate> {
     this.onClose(this.personCertificate);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

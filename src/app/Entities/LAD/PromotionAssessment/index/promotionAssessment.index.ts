@@ -60,8 +60,7 @@ export class PromotionAssessmentIndexUI extends IndexView<PromotionAssessment> i
 
   resetFilter() {
     this.filterInstance = PromotionAssessment.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(promotionAssessment: PromotionAssessment) {

@@ -28,10 +28,6 @@ import { Coaching_ModuleFunc } from '../Coaching/coaching.module.func';
         CoachingSessionEditUI,
 		CoachingSessionDeleteUI,
 		CoachingSessionSeekUI
-    ],
-    providers: [
-       //CoachingSessionService,
-       // CoachingSessionServiceCollection,
     ]
 })
 

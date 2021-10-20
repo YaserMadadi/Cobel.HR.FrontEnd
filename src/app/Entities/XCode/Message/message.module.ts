@@ -29,10 +29,6 @@ import { Message_ModuleMaster } from './message.module.master';
   exports: [
     MessageIndexUI,
 		Message_ModuleMaster,
-  ],
-  providers: [
-    // MessageService,
-    // MessageServiceCollection
-  ]
+   ]
 })
 export class MessageModule {}

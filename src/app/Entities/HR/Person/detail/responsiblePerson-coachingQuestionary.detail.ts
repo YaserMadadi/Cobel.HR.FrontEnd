@@ -16,11 +16,8 @@ import { CoachingQuestionaryDeleteUI } from '../../../LAD/CoachingQuestionary/de
 @Component({
   selector: 'responsiblePerson-coachingQuestionary-detail',
   templateUrl: './responsiblePerson-coachingQuestionary.detail.html',
-  styleUrls: ['./responsiblePerson-coachingQuestionary.detail.css'],
-  providers: [PersonService]
-}) 
-
-@Injectable()
+  styleUrls: ['./responsiblePerson-coachingQuestionary.detail.css']
+})
 export class ResponsiblePerson_CoachingQuestionary_DetailUI extends DetailView<Person> {
 
   constructor(private personService: PersonService) {

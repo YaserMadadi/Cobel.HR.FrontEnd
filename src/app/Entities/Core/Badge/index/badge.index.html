@@ -1,0 +1,82 @@
+
+<fieldset class='border'>
+  <legend>Badge :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(badgeEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(badgeTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(badgeEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(badgeDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("Core", "MenuItem", currentInstance.menuItem?.id)'>Manage MenuItem</a>
+		<a class='dropdown-item pointer' (click)='navigate("Core", "BadgeType", currentInstance.badgeType?.id)'>Manage BadgeType</a>
+    </dropDownMenu>
+  
+  <table #badgeTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='MenuItem_Id'>MenuItem_Id</th>
+        <th title='BadgeType_Id'>BadgeType_Id</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #menuItem='ngModel' id='menuItem' name='menuItem'
+										 title='MenuItem_Id'
+										 autocomplete='off'
+										 placeholder='MenuItem_Id'
+										[(ngModel)]='filterInstance.menuItem.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #badgeType='ngModel' id='badgeType' name='badgeType'
+										 title='BadgeType_Id'
+										 autocomplete='off'
+										 placeholder='BadgeType_Id'
+										[(ngModel)]='filterInstance.badgeType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(badgeMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.menuItem?.descriptor }}</td>
+				<td>{{ p.badgeType?.descriptor }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- Badge -->
+<core-badge-master #badgeMasterUI>
+</core-badge-master>
+
+<core-badge-edit #badgeEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</core-badge-edit>
+
+<core-badge-delete #badgeDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</core-badge-delete>
+

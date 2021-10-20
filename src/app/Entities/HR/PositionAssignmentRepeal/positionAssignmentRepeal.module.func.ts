@@ -28,10 +28,6 @@ import { PositionAssignment_ModuleFunc } from '../PositionAssignment/positionAss
         PositionAssignmentRepealEditUI,
 		PositionAssignmentRepealDeleteUI,
 		PositionAssignmentRepealSeekUI
-    ],
-    providers: [
-       //PositionAssignmentRepealService,
-       // PositionAssignmentRepealServiceCollection,
     ]
 })
 

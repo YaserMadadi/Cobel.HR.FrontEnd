@@ -29,10 +29,6 @@ import { RotationAssessment_ModuleMaster } from './rotationAssessment.module.mas
   exports: [
     RotationAssessmentIndexUI,
 		RotationAssessment_ModuleMaster,
-  ],
-  providers: [
-    // RotationAssessmentService,
-    // RotationAssessmentServiceCollection
-  ]
+   ]
 })
 export class RotationAssessmentModule {}

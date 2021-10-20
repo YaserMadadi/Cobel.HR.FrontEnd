@@ -26,7 +26,7 @@ export class MeasurementUnitSeekUI extends SeekModal<MeasurementUnit> {
     this.onClose(this.measurementUnit);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

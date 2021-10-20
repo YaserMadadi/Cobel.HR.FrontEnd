@@ -16,11 +16,8 @@ import { UniversityTerminateDeleteUI } from '../../UniversityTerminate/delete/un
 @Component({
   selector: 'universityHistory-universityTerminate-detail',
   templateUrl: './universityHistory-universityTerminate.detail.html',
-  styleUrls: ['./universityHistory-universityTerminate.detail.css'],
-  providers: [UniversityHistoryService]
-}) 
-
-@Injectable()
+  styleUrls: ['./universityHistory-universityTerminate.detail.css']
+})
 export class UniversityHistory_UniversityTerminate_DetailUI extends DetailView<UniversityHistory> {
 
   constructor(private universityHistoryService: UniversityHistoryService) {

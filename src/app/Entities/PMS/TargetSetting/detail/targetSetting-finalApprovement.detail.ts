@@ -16,11 +16,8 @@ import { FinalApprovementDeleteUI } from '../../FinalApprovement/delete/finalApp
 @Component({
   selector: 'targetSetting-finalApprovement-detail',
   templateUrl: './targetSetting-finalApprovement.detail.html',
-  styleUrls: ['./targetSetting-finalApprovement.detail.css'],
-  providers: [TargetSettingService]
-}) 
-
-@Injectable()
+  styleUrls: ['./targetSetting-finalApprovement.detail.css']
+})
 export class TargetSetting_FinalApprovement_DetailUI extends DetailView<TargetSetting> {
 
   constructor(private targetSettingService: TargetSettingService) {

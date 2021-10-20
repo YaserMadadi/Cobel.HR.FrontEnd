@@ -56,8 +56,7 @@ export class ConclusionIndexUI extends IndexView<Conclusion> implements AfterVie
 
   resetFilter() {
     this.filterInstance = Conclusion.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(conclusion: Conclusion) {

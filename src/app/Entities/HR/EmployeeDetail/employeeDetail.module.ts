@@ -29,10 +29,6 @@ import { EmployeeDetail_ModuleMaster } from './employeeDetail.module.master';
   exports: [
     EmployeeDetailIndexUI,
 		EmployeeDetail_ModuleMaster,
-  ],
-  providers: [
-    // EmployeeDetailService,
-    // EmployeeDetailServiceCollection
-  ]
+   ]
 })
 export class EmployeeDetailModule {}

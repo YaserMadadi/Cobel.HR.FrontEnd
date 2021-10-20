@@ -32,10 +32,6 @@ import { IndividualDevelopmentPlan_ModuleMaster } from '../../PMS/IndividualDeve
   exports: [
     DevelopmentPlanPriorityIndexUI,
 		DevelopmentPlanPriority_ModuleMaster,
-  ],
-  providers: [
-    // DevelopmentPlanPriorityService,
-    // DevelopmentPlanPriorityServiceCollection
-  ]
+   ]
 })
 export class DevelopmentPlanPriorityModule {}

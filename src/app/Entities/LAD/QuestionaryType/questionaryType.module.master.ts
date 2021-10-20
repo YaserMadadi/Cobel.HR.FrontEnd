@@ -20,10 +20,6 @@ import { QuestionaryType_ModuleDetail } from './questionaryType.module.detail';
     ],
     exports: [
         QuestionaryTypeMasterUI
-    ],
-    providers: [
-        //QuestionaryTypeService,
-       // QuestionaryTypeServiceCollection   
     ]
 })
 

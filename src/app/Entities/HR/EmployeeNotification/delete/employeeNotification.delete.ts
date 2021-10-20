@@ -10,7 +10,7 @@ import { EmployeeNotificationService } from '../employeeNotification.service';
   selector: 'hr-employeeNotification-delete',
   templateUrl: './employeeNotification.delete.html',
   styleUrls: ['./employeeNotification.delete.css'],
-  providers: [EmployeeNotificationService]
+  
 })
 export class EmployeeNotificationDeleteUI extends DeleteModal<EmployeeNotification> {
 

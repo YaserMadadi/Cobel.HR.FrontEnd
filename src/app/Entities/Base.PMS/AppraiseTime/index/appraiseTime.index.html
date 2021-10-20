@@ -13,9 +13,6 @@
   <!-- Quick Access Menu -->
   
   <dropDownMenu id='related-items-menu' class='float-right' [disabled]='currentInstance.id == 0'>
-    <a class='dropdown-item pointer' (click)='behavioralAppraise_Clicked(behavioralAppraiseEditUI)'>Add Behavioral Appraise</a>
-		<a class='dropdown-item pointer' (click)='functionalAppraise_Clicked(functionalAppraiseEditUI)'>Add Functional Appraise</a>
-		<a class='dropdown-item pointer' (click)='qualitativeAppraise_Clicked(qualitativeAppraiseEditUI)'>Add Qualitative Appraise</a>
 	
   </dropDownMenu>
   <table #appraiseTimeTable class='table table-hover indexTable'>
@@ -74,9 +71,3 @@
 </base-pms-appraiseTime-delete>
 
 
-<pms-behavioralAppraise-edit #behavioralAppraiseEditUI> <!--  (onClosed)='behavioralAppraiseEditUI_Closed($event)' -->
-</pms-behavioralAppraise-edit> 
-<pms-functionalAppraise-edit #functionalAppraiseEditUI> <!--  (onClosed)='functionalAppraiseEditUI_Closed($event)' -->
-</pms-functionalAppraise-edit> 
-<pms-qualitativeAppraise-edit #qualitativeAppraiseEditUI> <!--  (onClosed)='qualitativeAppraiseEditUI_Closed($event)' -->
-</pms-qualitativeAppraise-edit>

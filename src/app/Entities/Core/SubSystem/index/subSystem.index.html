@@ -1,0 +1,115 @@
+<fieldset class='border'>
+  <legend>SubSystem :</legend>
+
+  <index-button-manager [Id]='currentInstance.id'
+                        (onAddButtonClicked)='onAdd(subSystemEditUI)'
+                        (onDeleteButtonClicked)='onDelete(subSystemDeleteUI)'
+                        (onEditButtonClicked)='onEdit(subSystemEditUI)'
+                        (onRefreshButtonClicked)='onRefresh()'
+                        (onLogButtonClicked)='onLog(logViewerUI)'>
+    <div id='quick-menu'>
+
+    </div>
+    <div id='related-menu'>
+      <a class='dropdown-item pointer'
+         (click)='menu_Clicked(menuEditUI)'>Add Menu</a>
+    </div>
+  </index-button-manager>
+
+  <table #subSystemTable
+         class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Title'>Title</th>
+        <th title='Icon'>Icon</th>
+        <th title='Priority'>Priority</th>
+        <th title='Is Active'>Is Active</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control'
+                 #title='ngModel'
+                 id='title'
+                 name='title'
+                 title='Title'
+                 autocomplete='off'
+                 placeholder='Title'
+                 [(ngModel)]='filterInstance.title'
+                 type='text'
+                 maxlength='400'
+                 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control'
+                 #icon='ngModel'
+                 id='icon'
+                 name='icon'
+                 title='Icon'
+                 autocomplete='off'
+                 placeholder='Icon'
+                 [(ngModel)]='filterInstance.icon'
+                 type='text'
+                 maxlength='100'
+                 (keyup)='doFilter($event)'
+                 dir='ltr' />
+        </th>
+        <th>
+          <input class='form-control'
+                 #priority='ngModel'
+                 id='priority'
+                 name='priority'
+                 title='Priority'
+                 autocomplete='off'
+                 placeholder='Priority'
+                 [(ngModel)]='filterInstance.priority'
+                 type='number'
+                 (keyup)='doFilter($event)' />
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index'
+          (dblclick)='onDblClicked(subSystemMasterUI)'
+          (click)='onSelect(i)'
+          [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+        <td>{{ p.title }}</td>
+        <td>{{ p.icon }}</td>
+        <td>{{ p.priority | number }}</td>
+        <td>{{ p.isActive }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator
+             (onChangePage)='PageChanging($event)'
+             hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI
+            [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- SubSystem -->
+<core-subSystem-master #subSystemMasterUI>
+</core-subSystem-master>
+
+<core-subSystem-edit #subSystemEditUI
+                     (onClosed)='onEditModalClosed($event)'>
+</core-subSystem-edit>
+
+<core-subSystem-delete #subSystemDeleteUI
+                       (onClosed)='onDeleteModalClosed($event)'>
+</core-subSystem-delete>
+
+
+<core-menu-edit #menuEditUI>
+  <!--  (onClosed)='menuEditUI_Closed($event)' -->
+</core-menu-edit>

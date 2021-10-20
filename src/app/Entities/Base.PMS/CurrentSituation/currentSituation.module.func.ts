@@ -27,10 +27,6 @@ import { CurrentSituationSeekUI } from './seek/currentSituation.seek';
         CurrentSituationEditUI,
 		CurrentSituationDeleteUI,
 		CurrentSituationSeekUI
-    ],
-    providers: [
-       //CurrentSituationService,
-       // CurrentSituationServiceCollection,
     ]
 })
 

@@ -10,7 +10,7 @@ import { EntityService } from '../entity.service';
   selector: 'core-entity-delete',
   templateUrl: './entity.delete.html',
   styleUrls: ['./entity.delete.css'],
-  providers: [EntityService]
+  
 })
 export class EntityDeleteUI extends DeleteModal<Entity> {
 

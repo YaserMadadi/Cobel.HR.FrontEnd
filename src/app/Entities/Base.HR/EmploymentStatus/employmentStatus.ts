@@ -1,10 +1,10 @@
-﻿import { Directive, OnInit } from '@angular/core';
+import { Directive, OnInit } from '@angular/core';
 
 import { Info } from '../../../../xcore/Info';
 import { Validator } from '../../../../xcore/tools/Validator';
 import { BusinessObject } from '../../../../xcore/business-object';
-import { EmployeeDetail } from '../../HR/EmployeeDetail/employeeDetail';
 import { Employee } from '../../HR/Employee/employee';
+import { EmployeeDetail } from '../../HR/EmployeeDetail/employeeDetail';
 
 
 @Directive()
@@ -28,7 +28,7 @@ export class EmploymentStatus extends BusinessObject implements OnInit {
 
   //region Info
 
-  public static readonly Info: Info = new Info('Base.HR', 'EmploymentStatus', 'Employment Status');
+  public static readonly Info: Info = new Info('Base.HR', 'EmploymentStatus', 'EmploymentStatus');
 
   //endregion
 
@@ -44,9 +44,9 @@ export class EmploymentStatus extends BusinessObject implements OnInit {
 
   //#region Collection Properties
 
-  public listOfEmployeeDetail: EmployeeDetail[] = [];
+  public listOfEmployee: Employee[] = [];
 	
-	public listOfEmployee: Employee[] = [];
+	public listOfEmployeeDetail: EmployeeDetail[] = [];
 
   //#endregion
 

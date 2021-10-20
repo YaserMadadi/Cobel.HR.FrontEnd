@@ -20,10 +20,6 @@ import { StrategicObjectve_ModuleDetail } from './strategicObjectve.module.detai
     ],
     exports: [
         StrategicObjectveMasterUI
-    ],
-    providers: [
-        //StrategicObjectveService,
-       // StrategicObjectveServiceCollection   
     ]
 })
 

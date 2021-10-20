@@ -10,7 +10,7 @@ import { LanguageService } from '../language.service';
   selector: 'base-language-delete',
   templateUrl: './language.delete.html',
   styleUrls: ['./language.delete.css'],
-  providers: [LanguageService]
+  
 })
 export class LanguageDeleteUI extends DeleteModal<Language> {
 

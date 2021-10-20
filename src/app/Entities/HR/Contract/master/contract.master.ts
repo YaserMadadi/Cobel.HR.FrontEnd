@@ -12,11 +12,7 @@ import { ContractEditUI } from '../edit/contract.edit';
 @Component({
   selector: 'hr-contract-master',
   templateUrl: './contract.master.html',
-  styleUrls: ['./contract.master.css'],
-  providers: [
-    ContractService,
-    
-  ]
+  styleUrls: ['./contract.master.css']
 })
 export class ContractMasterUI extends MasterModal<Contract> {
 

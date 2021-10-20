@@ -67,7 +67,8 @@ export class FunctionalKPIEditUI extends EditModal<FunctionalKPI> implements IEd
     this.measurementUnitComponent.LoadList();
   }
   
-  InitFunctionalKPI(functionalKPI: FunctionalKPI) {
+  InitFunctionalKPI(functionalKPI: FunctionalKPI){
+    this.currentInstance = this.service.CreateInstance();
     if (!functionalKPI.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.functionalObjectiveComponent.instance = functionalKPI.functionalObjective;

@@ -20,10 +20,6 @@ import { FunctionalAppraise_ModuleDetail } from './functionalAppraise.module.det
     ],
     exports: [
         FunctionalAppraiseMasterUI
-    ],
-    providers: [
-        //FunctionalAppraiseService,
-       // FunctionalAppraiseServiceCollection   
     ]
 })
 

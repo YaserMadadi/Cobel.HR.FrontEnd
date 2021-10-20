@@ -20,10 +20,6 @@ import { ExpectedLevel_ModuleDetail } from './expectedLevel.module.detail';
     ],
     exports: [
         ExpectedLevelMasterUI
-    ],
-    providers: [
-        //ExpectedLevelService,
-       // ExpectedLevelServiceCollection   
     ]
 })
 

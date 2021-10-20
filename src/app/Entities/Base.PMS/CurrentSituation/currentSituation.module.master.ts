@@ -20,10 +20,6 @@ import { CurrentSituation_ModuleDetail } from './currentSituation.module.detail'
     ],
     exports: [
         CurrentSituationMasterUI
-    ],
-    providers: [
-        //CurrentSituationService,
-       // CurrentSituationServiceCollection   
     ]
 })
 

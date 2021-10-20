@@ -10,7 +10,7 @@ import { UnitService } from '../unit.service';
   selector: 'hr-unit-delete',
   templateUrl: './unit.delete.html',
   styleUrls: ['./unit.delete.css'],
-  providers: [UnitService]
+  
 })
 export class UnitDeleteUI extends DeleteModal<Unit> {
 

@@ -14,12 +14,7 @@ import { YearQuarterService } from '../../YearQuarter/yearQuarter.service';
 @Component({
   selector: 'base-year-master',
   templateUrl: './year.master.html',
-  styleUrls: ['./year.master.css'],
-  providers: [
-    YearService,
-    TargetSettingService,
-		YearQuarterService,
-  ]
+  styleUrls: ['./year.master.css']
 })
 export class YearMasterUI extends MasterModal<Year> {
 

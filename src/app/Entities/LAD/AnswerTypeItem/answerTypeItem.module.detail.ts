@@ -21,9 +21,6 @@ import { AnswerTypeItemServiceCollection } from './answerTypeItem.service.collec
   exports: [
     // No Item...
   ],
-  providers: [
-    //AnswerTypeItemService,
-    //AnswerTypeItemServiceCollection
-  ]
+  
 })
 export class AnswerTypeItem_ModuleDetail { }

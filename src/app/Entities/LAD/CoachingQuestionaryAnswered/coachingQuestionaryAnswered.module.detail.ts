@@ -21,9 +21,6 @@ import { CoachingQuestionaryAnsweredServiceCollection } from './coachingQuestion
   exports: [
     // No Item...
   ],
-  providers: [
-    //CoachingQuestionaryAnsweredService,
-    //CoachingQuestionaryAnsweredServiceCollection
-  ]
+  
 })
 export class CoachingQuestionaryAnswered_ModuleDetail { }

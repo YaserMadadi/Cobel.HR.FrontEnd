@@ -16,11 +16,8 @@ import { FunctionalObjectiveCommentDeleteUI } from '../../../PMS/FunctionalObjec
 @Component({
   selector: 'commenter-functionalObjectiveComment-detail',
   templateUrl: './commenter-functionalObjectiveComment.detail.html',
-  styleUrls: ['./commenter-functionalObjectiveComment.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./commenter-functionalObjectiveComment.detail.css']
+})
 export class Commenter_FunctionalObjectiveComment_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

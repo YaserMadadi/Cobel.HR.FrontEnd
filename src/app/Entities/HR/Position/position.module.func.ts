@@ -12,7 +12,7 @@ import { PositionSeekUI } from './seek/position.seek';
 
 import { Level_ModuleFunc } from '../Level/level.module.func';
 import { Unit_ModuleFunc } from '../Unit/unit.module.func';
-import { PositionCategory_ModuleFunc } from '../PositionCategory/positionCategory.module.func';
+import { PositionCategory_ModuleFunc } from '../../Base.HR/PositionCategory/positionCategory.module.func';
 
 @NgModule({
     declarations: [
@@ -32,10 +32,6 @@ import { PositionCategory_ModuleFunc } from '../PositionCategory/positionCategor
         PositionEditUI,
 		PositionDeleteUI,
 		PositionSeekUI
-    ],
-    providers: [
-       //PositionService,
-       // PositionServiceCollection,
     ]
 })
 

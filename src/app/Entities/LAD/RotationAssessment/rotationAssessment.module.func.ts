@@ -31,10 +31,6 @@ import { Position_ModuleFunc } from '../../HR/Position/position.module.func';
         RotationAssessmentEditUI,
 		RotationAssessmentDeleteUI,
 		RotationAssessmentSeekUI
-    ],
-    providers: [
-       //RotationAssessmentService,
-       // RotationAssessmentServiceCollection,
     ]
 })
 

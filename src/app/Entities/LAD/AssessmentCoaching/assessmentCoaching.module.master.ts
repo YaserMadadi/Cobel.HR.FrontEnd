@@ -20,10 +20,6 @@ import { AssessmentCoaching_ModuleDetail } from './assessmentCoaching.module.det
     ],
     exports: [
         AssessmentCoachingMasterUI
-    ],
-    providers: [
-        //AssessmentCoachingService,
-       // AssessmentCoachingServiceCollection   
     ]
 })
 

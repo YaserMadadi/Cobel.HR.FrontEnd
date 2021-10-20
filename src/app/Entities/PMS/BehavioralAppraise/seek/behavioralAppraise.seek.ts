@@ -26,7 +26,7 @@ export class BehavioralAppraiseSeekUI extends SeekModal<BehavioralAppraise> {
     this.onClose(this.behavioralAppraise);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

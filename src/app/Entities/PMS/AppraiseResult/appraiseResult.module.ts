@@ -29,10 +29,6 @@ import { AppraiseResult_ModuleMaster } from './appraiseResult.module.master';
   exports: [
     AppraiseResultIndexUI,
 		AppraiseResult_ModuleMaster,
-  ],
-  providers: [
-    // AppraiseResultService,
-    // AppraiseResultServiceCollection
-  ]
+   ]
 })
 export class AppraiseResultModule {}

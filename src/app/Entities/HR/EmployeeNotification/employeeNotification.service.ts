@@ -29,6 +29,10 @@ export class EmployeeNotificationService extends Service<EmployeeNotification> i
 
   //region Methods
 
+CreateInstance() {
+   return new EmployeeNotification();
+}
+
   RetrieveById(id: number): Promise<EmployeeNotification> {
     return super.RetrieveById(id);
   }

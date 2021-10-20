@@ -13,6 +13,7 @@ import { QualitativeAppraiseDeleteUI } from '../../QualitativeAppraise/delete/qu
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
 import { PositionController } from '../../../../../xcore/tools/controller.positions';
+import { MessageType } from '../../../../../xcore/tools/Enum';
 
 
 
@@ -20,8 +21,8 @@ import { PositionController } from '../../../../../xcore/tools/controller.positi
   selector: 'qualitativeKPI-qualitativeAppraise-detail',
   templateUrl: './qualitativeKPI-qualitativeAppraise.detail.html',
   styleUrls: ['./qualitativeKPI-qualitativeAppraise.detail.css'],
-  providers: [QualitativeKPIService]
-}) 
+  
+})
 
 @Injectable()
 export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<QualitativeKPI> {
@@ -30,9 +31,9 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
     super(qualitativeKPIService);
   }
 
-  public QualitativeAppraiseList : QualitativeAppraise[] = [];
-  
-  public currentQualitativeAppraise : QualitativeAppraise = new QualitativeAppraise();
+  public QualitativeAppraiseList: QualitativeAppraise[] = [];
+
+  public currentQualitativeAppraise: QualitativeAppraise = new QualitativeAppraise();
 
   private qualitativeKPI: QualitativeKPI = new QualitativeKPI();
 
@@ -44,7 +45,7 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
 
   public get QualitativeKPI(): QualitativeKPI { return this.qualitativeKPI }
 
-  public onReload(){
+  public onReload() {
     if (QualitativeKPI.NotConfirm(this.qualitativeKPI))
       return;
     this.qualitativeKPIService
@@ -63,25 +64,37 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
   }
 
   public onDblClicked(masterUI: QualitativeAppraiseMasterUI) {
+    if (!this.checkTargetSetting())
+      return;
     if (QualitativeAppraise.NotConfirm(this.currentQualitativeAppraise))
       return;
     masterUI.ShowDialog(this.currentQualitativeAppraise);
   }
 
-  
+  private checkTargetSetting(): boolean {
+    if (this.QualitativeKPI.qualitativeObjective.targetSetting.isLocked) {
+      MessageController.ShowMessage(MessageType.RecordIsLocked);
+      return false;
+    }
+    if (this.currentQualitativeAppraise.appraiser.id != AuthService.currentEmployee.id &&
+      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
+      MessageController.ShowMessage('You are not allowed to change this record of Appraisal!', toastType.error);
+      return;
+    }
+    return true;
+  }
 
   public onAdd(editUI: QualitativeAppraiseEditUI) {
+    if (!this.checkTargetSetting())
+      return;
     editUI.QualitativeKPI = this.qualitativeKPI;
     editUI.SetDefault();
     editUI.ShowDialog(new QualitativeAppraise());
   }
 
   public onEdit(editUI: QualitativeAppraiseEditUI) {
-    if (this.currentQualitativeAppraise.appraiser.id != AuthService.currentEmployee.id &&
-      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
-      MessageController.ShowMessage('You are not allowed to Edit this record of Appraisal!', toastType.error);
+    if (!this.checkTargetSetting())
       return;
-    }
     if (QualitativeAppraise.NotConfirm(this.currentQualitativeAppraise))
       return;
     editUI.QualitativeKPI = this.QualitativeKPI;
@@ -90,11 +103,8 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
   }
 
   public onDelete(deleteUI: QualitativeAppraiseDeleteUI) {
-    if (this.currentQualitativeAppraise.appraiser.id != AuthService.currentEmployee.id &&
-      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
-      MessageController.ShowMessage('You are not allowed to Delete this record of Appraisal!', toastType.error);
+    if (!this.checkTargetSetting())
       return;
-    }
     if (QualitativeAppraise.NotConfirm(this.currentQualitativeAppraise))
       return;
     deleteUI.ShowDialog(this.currentQualitativeAppraise);
@@ -104,7 +114,7 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
     this.onReload();
   }
 
-  public onDeleteModal_Closed(result:boolean) {
+  public onDeleteModal_Closed(result: boolean) {
     this.onReload();
   }
 }

@@ -40,7 +40,8 @@ export class DesirableSituationEditUI extends EditModal<DesirableSituation> impl
     
   }
   
-  InitDesirableSituation(desirableSituation: DesirableSituation) {
+  InitDesirableSituation(desirableSituation: DesirableSituation){
+    this.currentInstance = this.service.CreateInstance();
     if (!desirableSituation.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

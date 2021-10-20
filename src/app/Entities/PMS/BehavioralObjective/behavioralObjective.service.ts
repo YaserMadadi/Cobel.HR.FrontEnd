@@ -34,6 +34,10 @@ export class BehavioralObjectiveService extends Service<BehavioralObjective> imp
 
   //region Methods
 
+CreateInstance() {
+   return new BehavioralObjective();
+}
+
   RetrieveById(id: number): Promise<BehavioralObjective> {
     return super.RetrieveById(id);
   }

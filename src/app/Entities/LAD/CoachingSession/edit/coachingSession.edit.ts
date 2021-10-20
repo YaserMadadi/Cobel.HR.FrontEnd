@@ -55,7 +55,8 @@ export class CoachingSessionEditUI extends EditModal<CoachingSession> implements
     
   }
   
-  InitCoachingSession(coachingSession: CoachingSession) {
+  InitCoachingSession(coachingSession: CoachingSession){
+    this.currentInstance = this.service.CreateInstance();
     if (!coachingSession.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.coachingComponent.instance = coachingSession.coaching;

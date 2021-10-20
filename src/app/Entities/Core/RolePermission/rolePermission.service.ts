@@ -31,6 +31,10 @@ export class RolePermissionService extends Service<RolePermission> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new RolePermission();
+}
+
   RetrieveById(id: number): Promise<RolePermission> {
     return super.RetrieveById(id);
   }

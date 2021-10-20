@@ -26,7 +26,7 @@ export class StrategicObjectveSeekUI extends SeekModal<StrategicObjectve> {
     this.onClose(this.strategicObjectve);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

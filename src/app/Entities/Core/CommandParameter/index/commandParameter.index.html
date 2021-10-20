@@ -1,0 +1,105 @@
+
+<fieldset class='border'>
+  <legend>CommandParameter :</legend>
+  <div class='btn-group'>
+    <button name='addButton' class='xbtn btn-add' (click)='onAdd(commandParameterEditUI)'>Add</button>
+    <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
+    <button name='printButton' class='xbtn btn-extra' (click)='onPrint(commandParameterTable)'>Print</button>
+  </div>
+  <div class='btn-group float-right'>
+    <button class='xbtn btn-edit' (click)='onEdit(commandParameterEditUI)' [disabled]='currentInstance.id == 0'>Edit</button>
+    <button class='xbtn btn-delete' (click)='onDelete(commandParameterDeleteUI)' [disabled]='currentInstance.id == 0'>Delete</button>
+    <button class='xbtn btn-delete' (click)='onLog(logViewerUI)' [disabled]='currentInstance.id == 0'>Log</button>
+  </div>
+  <!-- Quick Access Menu -->
+    <dropDownMenu id='quick-menu' MenuTitle='Quick Access'>
+        
+		<a class='dropdown-item pointer' (click)='navigate("Core", "ExceptionLog", currentInstance.exceptionLog?.id)'>Manage ExceptionLog</a>
+    </dropDownMenu>
+  
+  <table #commandParameterTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='ExceptionLog_Id'>ExceptionLog_Id</th>
+        <th title='Name'>Name</th>
+        <th title='Value'>Value</th>
+        <th title='TypeName'>TypeName</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #exceptionLog='ngModel' id='exceptionLog' name='exceptionLog'
+										 title='ExceptionLog_Id'
+										 autocomplete='off'
+										 placeholder='ExceptionLog_Id'
+										[(ngModel)]='filterInstance.exceptionLog.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #name='ngModel' id='name' name='name'
+										 title='Name'
+										 autocomplete='off'
+										 placeholder='Name'
+										[(ngModel)]='filterInstance.name'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #value='ngModel' id='value' name='value'
+										 title='Value'
+										 autocomplete='off'
+										 placeholder='Value'
+										[(ngModel)]='filterInstance.value'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #typeName='ngModel' id='typeName' name='typeName'
+										 title='TypeName'
+										 autocomplete='off'
+										 placeholder='TypeName'
+										[(ngModel)]='filterInstance.typeName'
+										 type='text'
+										 maxlength='200'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(commandParameterMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.exceptionLog?.descriptor }}</td>
+				<td>{{ p.name }}</td>
+				<td>{{ p.value }}</td>
+				<td>{{ p.typeName }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- CommandParameter -->
+<core-commandParameter-master #commandParameterMasterUI>
+</core-commandParameter-master>
+
+<core-commandParameter-edit #commandParameterEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</core-commandParameter-edit>
+
+<core-commandParameter-delete #commandParameterDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</core-commandParameter-delete>
+

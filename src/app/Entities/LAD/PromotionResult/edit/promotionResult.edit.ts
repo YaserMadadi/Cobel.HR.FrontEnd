@@ -40,7 +40,8 @@ export class PromotionResultEditUI extends EditModal<PromotionResult> implements
     
   }
   
-  InitPromotionResult(promotionResult: PromotionResult) {
+  InitPromotionResult(promotionResult: PromotionResult){
+    this.currentInstance = this.service.CreateInstance();
     if (!promotionResult.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

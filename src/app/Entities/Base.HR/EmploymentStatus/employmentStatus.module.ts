@@ -1,4 +1,5 @@
-﻿import { NgModule } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -35,10 +36,6 @@ import { EmployeeDetail_ModuleMaster } from '../../HR/EmployeeDetail/employeeDet
   exports: [
     EmploymentStatusIndexUI,
 		EmploymentStatus_ModuleMaster,
-  ],
-  providers: [
-    // EmploymentStatusService,
-    // EmploymentStatusServiceCollection
-  ]
+   ]
 })
 export class EmploymentStatusModule {}

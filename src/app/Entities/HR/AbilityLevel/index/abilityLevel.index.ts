@@ -55,8 +55,7 @@ export class AbilityLevelIndexUI extends IndexView<AbilityLevel> implements Afte
 
   resetFilter() {
     this.filterInstance = AbilityLevel.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(abilityLevel: AbilityLevel) {

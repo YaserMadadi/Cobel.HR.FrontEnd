@@ -16,11 +16,8 @@ import { MilitaryServiceInclusiveDeleteUI } from '../../../HR/MilitaryServiceInc
 @Component({
   selector: 'inclusiveType-militaryServiceInclusive-detail',
   templateUrl: './inclusiveType-militaryServiceInclusive.detail.html',
-  styleUrls: ['./inclusiveType-militaryServiceInclusive.detail.css'],
-  providers: [InclusiveTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./inclusiveType-militaryServiceInclusive.detail.css']
+})
 export class InclusiveType_MilitaryServiceInclusive_DetailUI extends DetailView<InclusiveType> {
 
   constructor(private inclusiveTypeService: InclusiveTypeService) {

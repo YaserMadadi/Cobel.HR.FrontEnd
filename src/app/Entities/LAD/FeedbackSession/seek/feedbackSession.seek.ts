@@ -26,7 +26,7 @@ export class FeedbackSessionSeekUI extends SeekModal<FeedbackSession> {
     this.onClose(this.feedbackSession);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

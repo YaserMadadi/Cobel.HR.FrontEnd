@@ -10,7 +10,7 @@ import { OperationalAppraiseService } from '../operationalAppraise.service';
   selector: 'pms-operationalAppraise-delete',
   templateUrl: './operationalAppraise.delete.html',
   styleUrls: ['./operationalAppraise.delete.css'],
-  providers: [OperationalAppraiseService]
+  
 })
 export class OperationalAppraiseDeleteUI extends DeleteModal<OperationalAppraise> {
 

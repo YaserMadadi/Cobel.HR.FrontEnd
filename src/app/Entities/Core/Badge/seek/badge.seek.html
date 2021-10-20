@@ -1,0 +1,58 @@
+
+<XDialog Header='Search form of Badge' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='menuItem' class='col-sm-3 col-form-label'>MenuItem_Id : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #menuItem='ngModel' 
+                    #menuItemCombo='kendoDropDownList' 
+                    name='menuItem' 
+                    title='MenuItem_Id'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !menuItem.valid && menuItem.touched }" 
+                    [data]='menuItemComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='menuItemComponent.filterable'
+                    (filterChange)='menuItemComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.menuItem"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='menuItemComponent.addable'>
+                      <button class='btn btn-primary' (click)='menuItemComponent.onAdd(menuItemCombo, menuItemEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='badgeType' class='col-sm-3 col-form-label'>BadgeType_Id : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #badgeType='ngModel' 
+                    #badgeTypeCombo='kendoDropDownList' 
+                    name='badgeType' 
+                    title='BadgeType_Id'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !badgeType.valid && badgeType.touched }" 
+                    [data]='badgeTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='badgeTypeComponent.filterable'
+                    (filterChange)='badgeTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.badgeType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='badgeTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='badgeTypeComponent.onAdd(badgeTypeCombo, badgeTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

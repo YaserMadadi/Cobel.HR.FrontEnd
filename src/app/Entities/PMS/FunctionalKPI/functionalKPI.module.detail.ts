@@ -29,9 +29,6 @@ import { FunctionalKPIComment_ModuleMaster } from '../FunctionalKPIComment/funct
     FunctionalKPI_FunctionalAppraise_DetailUI,
 		FunctionalKPI_FunctionalKPIComment_DetailUI
   ],
-  providers: [
-    //FunctionalKPIService,
-    //FunctionalKPIServiceCollection
-  ]
+  
 })
 export class FunctionalKPI_ModuleDetail { }

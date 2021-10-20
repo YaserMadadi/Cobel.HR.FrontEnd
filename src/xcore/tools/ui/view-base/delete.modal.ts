@@ -31,8 +31,6 @@ export class DeleteModal<T extends BusinessObject>
     public ShowDialog(entity: T) {
         if (this.service.CheckPermission(PermissionType.Delete) === PermissionResult.Denied)
             return;
-        console.log('After Delete');
-
         this.currentInstance = entity;
         this.IsShown = true;
         this.onShownForm.emit(true);

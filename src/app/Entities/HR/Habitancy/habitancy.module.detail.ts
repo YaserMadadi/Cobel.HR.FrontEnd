@@ -21,9 +21,6 @@ import { HabitancyServiceCollection } from './habitancy.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //HabitancyService,
-    //HabitancyServiceCollection
-  ]
+  
 })
 export class Habitancy_ModuleDetail { }

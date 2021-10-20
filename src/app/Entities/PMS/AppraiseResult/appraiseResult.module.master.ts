@@ -20,10 +20,6 @@ import { AppraiseResult_ModuleDetail } from './appraiseResult.module.detail';
     ],
     exports: [
         AppraiseResultMasterUI
-    ],
-    providers: [
-        //AppraiseResultService,
-       // AppraiseResultServiceCollection   
     ]
 })
 

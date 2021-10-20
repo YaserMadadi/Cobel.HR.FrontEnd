@@ -31,6 +31,10 @@ export class AssessorService extends Service<Assessor> implements IService<Asses
 
   //region Methods
 
+CreateInstance() {
+   return new Assessor();
+}
+
   RetrieveById(id: number): Promise<Assessor> {
     return super.RetrieveById(id);
   }

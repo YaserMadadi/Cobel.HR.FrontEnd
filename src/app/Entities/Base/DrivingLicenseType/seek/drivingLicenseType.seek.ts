@@ -26,7 +26,7 @@ export class DrivingLicenseTypeSeekUI extends SeekModal<DrivingLicenseType> {
     this.onClose(this.drivingLicenseType);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

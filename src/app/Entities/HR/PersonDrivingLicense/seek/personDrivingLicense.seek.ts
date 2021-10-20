@@ -26,7 +26,7 @@ export class PersonDrivingLicenseSeekUI extends SeekModal<PersonDrivingLicense> 
     this.onClose(this.personDrivingLicense);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

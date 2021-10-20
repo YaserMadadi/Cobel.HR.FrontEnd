@@ -28,10 +28,6 @@ import { Province_ModuleFunc } from '../Province/province.module.func';
         CityEditUI,
 		CityDeleteUI,
 		CitySeekUI
-    ],
-    providers: [
-       //CityService,
-       // CityServiceCollection,
     ]
 })
 

@@ -20,10 +20,6 @@ import { YearQuarter_ModuleDetail } from './yearQuarter.module.detail';
     ],
     exports: [
         YearQuarterMasterUI
-    ],
-    providers: [
-        //YearQuarterService,
-       // YearQuarterServiceCollection   
     ]
 })
 

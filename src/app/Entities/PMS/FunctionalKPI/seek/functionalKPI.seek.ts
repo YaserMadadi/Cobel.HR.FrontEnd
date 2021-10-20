@@ -26,7 +26,7 @@ export class FunctionalKPISeekUI extends SeekModal<FunctionalKPI> {
     this.onClose(this.functionalKPI);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

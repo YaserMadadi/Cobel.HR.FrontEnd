@@ -28,10 +28,6 @@ import { Gender_ModuleFunc } from '../../Base/Gender/gender.module.func';
         AssessorEditUI,
 		AssessorDeleteUI,
 		AssessorSeekUI
-    ],
-    providers: [
-       //AssessorService,
-       // AssessorServiceCollection,
     ]
 })
 

@@ -10,7 +10,7 @@ import { DevelopmentGoalService } from '../developmentGoal.service';
   selector: 'lad-developmentGoal-delete',
   templateUrl: './developmentGoal.delete.html',
   styleUrls: ['./developmentGoal.delete.css'],
-  providers: [DevelopmentGoalService]
+  
 })
 export class DevelopmentGoalDeleteUI extends DeleteModal<DevelopmentGoal> {
 

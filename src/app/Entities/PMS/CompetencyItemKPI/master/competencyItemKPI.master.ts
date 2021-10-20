@@ -14,10 +14,7 @@ import { BehavioralKPIService } from '../../BehavioralKPI/behavioralKPI.service'
   selector: 'pms-competencyItemKPI-master',
   templateUrl: './competencyItemKPI.master.html',
   styleUrls: ['./competencyItemKPI.master.css'],
-  providers: [
-    CompetencyItemKPIService,
-    BehavioralKPIService,
-  ]
+  
 })
 export class CompetencyItemKPIMasterUI extends MasterModal<CompetencyItemKPI> {
 

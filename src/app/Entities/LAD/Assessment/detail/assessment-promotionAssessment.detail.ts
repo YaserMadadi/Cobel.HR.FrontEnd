@@ -16,11 +16,8 @@ import { PromotionAssessmentDeleteUI } from '../../PromotionAssessment/delete/pr
 @Component({
   selector: 'assessment-promotionAssessment-detail',
   templateUrl: './assessment-promotionAssessment.detail.html',
-  styleUrls: ['./assessment-promotionAssessment.detail.css'],
-  providers: [AssessmentService]
-}) 
-
-@Injectable()
+  styleUrls: ['./assessment-promotionAssessment.detail.css']
+})
 export class Assessment_PromotionAssessment_DetailUI extends DetailView<Assessment> {
 
   constructor(private assessmentService: AssessmentService) {

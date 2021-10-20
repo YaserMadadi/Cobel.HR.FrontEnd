@@ -14,12 +14,13 @@ import { PositionServiceCollection } from './position.service.collection';
 
 import { LevelService } from '../Level/level.service';
 import { UnitService } from '../Unit/unit.service';
-import { PositionCategoryService } from '../PositionCategory/positionCategory.service';
+import { PositionCategoryService } from '../../Base.HR/PositionCategory/positionCategory.service';
 import { PromotionAssessment } from '../../LAD/PromotionAssessment/promotionAssessment';
 import { ConfigTargetSetting } from '../../PMS/ConfigTargetSetting/configTargetSetting';
 import { TargetSetting } from '../../PMS/TargetSetting/targetSetting';
 import { PositionAssignment } from '../PositionAssignment/positionAssignment';
 import { RotationAssessment } from '../../LAD/RotationAssessment/rotationAssessment';
+import { PositionDivisionService } from '../../Base.HR/PositionDivision/positionDivision.service';
 
 
 @Injectable({ providedIn: 'root' })
@@ -28,7 +29,9 @@ export class PositionService extends Service<Position> implements IService<Posit
   constructor(public ServiceCollection: PositionServiceCollection,
 		public LevelService: LevelService,
 		public UnitService: UnitService,
-		public PositionCategoryService: PositionCategoryService) {
+    public positionDivisionService: PositionDivisionService,
+		public PositionCategoryService: PositionCategoryService,
+    public PositionDivisionService: PositionDivisionService) {
     super(ServiceCollection.API_Operation, Position.Info);
   }
 
@@ -37,6 +40,10 @@ export class PositionService extends Service<Position> implements IService<Posit
   }
 
   //region Methods
+
+CreateInstance() {
+   return new Position();
+}
 
   RetrieveById(id: number): Promise<Position> {
     return super.RetrieveById(id);

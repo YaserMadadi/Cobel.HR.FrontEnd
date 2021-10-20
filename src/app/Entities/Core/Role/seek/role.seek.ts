@@ -26,7 +26,7 @@ export class RoleSeekUI extends SeekModal<Role> {
     this.onClose(this.role);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

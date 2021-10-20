@@ -29,10 +29,6 @@ import { PropertyOption_ModuleMaster } from './propertyOption.module.master';
   exports: [
     PropertyOptionIndexUI,
 		PropertyOption_ModuleMaster,
-  ],
-  providers: [
-    // PropertyOptionService,
-    // PropertyOptionServiceCollection
-  ]
+   ]
 })
 export class PropertyOptionModule {}

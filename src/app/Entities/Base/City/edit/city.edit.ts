@@ -55,7 +55,8 @@ export class CityEditUI extends EditModal<City> implements IEditModal<City>  {
     this.provinceComponent.LoadList();
   }
   
-  InitCity(city: City) {
+  InitCity(city: City){
+    this.currentInstance = new City();
     if (!city.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.provinceComponent.instance = city.province;

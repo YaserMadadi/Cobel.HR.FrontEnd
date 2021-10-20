@@ -16,11 +16,8 @@ import { QualitativeAppraiseDeleteUI } from '../../../PMS/QualitativeAppraise/de
 @Component({
   selector: 'appraiser-qualitativeAppraise-detail',
   templateUrl: './appraiser-qualitativeAppraise.detail.html',
-  styleUrls: ['./appraiser-qualitativeAppraise.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./appraiser-qualitativeAppraise.detail.css']
+})
 export class Appraiser_QualitativeAppraise_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

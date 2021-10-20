@@ -15,11 +15,6 @@ import { QuestionaryItemService } from '../../QuestionaryItem/questionaryItem.se
   selector: 'lad-answerType-master',
   templateUrl: './answerType.master.html',
   styleUrls: ['./answerType.master.css'],
-  providers: [
-    AnswerTypeService,
-    AnswerTypeItemService,
-		QuestionaryItemService,
-  ]
 })
 export class AnswerTypeMasterUI extends MasterModal<AnswerType> {
 

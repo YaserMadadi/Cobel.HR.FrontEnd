@@ -40,7 +40,8 @@ export class ApproverTypeEditUI extends EditModal<ApproverType> implements IEdit
     
   }
   
-  InitApproverType(approverType: ApproverType) {
+  InitApproverType(approverType: ApproverType){
+    this.currentInstance = this.service.CreateInstance();
     if (!approverType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

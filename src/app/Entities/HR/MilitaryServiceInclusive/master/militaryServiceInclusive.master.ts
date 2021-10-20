@@ -12,11 +12,7 @@ import { MilitaryServiceInclusiveEditUI } from '../edit/militaryServiceInclusive
 @Component({
   selector: 'hr-militaryServiceInclusive-master',
   templateUrl: './militaryServiceInclusive.master.html',
-  styleUrls: ['./militaryServiceInclusive.master.css'],
-  providers: [
-    MilitaryServiceInclusiveService,
-    
-  ]
+  styleUrls: ['./militaryServiceInclusive.master.css']
 })
 export class MilitaryServiceInclusiveMasterUI extends MasterModal<MilitaryServiceInclusive> {
 

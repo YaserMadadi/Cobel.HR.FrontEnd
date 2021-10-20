@@ -30,6 +30,10 @@ export class QualitativeKPIService extends Service<QualitativeKPI> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new QualitativeKPI();
+}
+
   RetrieveById(id: number): Promise<QualitativeKPI> {
     return super.RetrieveById(id);
   }

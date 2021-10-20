@@ -32,10 +32,6 @@ import { BehavioralKPI_ModuleMaster } from '../BehavioralKPI/behavioralKPI.modul
   exports: [
     BehavioralObjectiveIndexUI,
 		BehavioralObjective_ModuleMaster,
-  ],
-  providers: [
-    // BehavioralObjectiveService,
-    // BehavioralObjectiveServiceCollection
-  ]
+   ]
 })
 export class BehavioralObjectiveModule {}

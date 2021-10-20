@@ -29,10 +29,6 @@ import { CriticalIncidentRecognition_ModuleMaster } from './criticalIncidentReco
   exports: [
     CriticalIncidentRecognitionIndexUI,
 		CriticalIncidentRecognition_ModuleMaster,
-  ],
-  providers: [
-    // CriticalIncidentRecognitionService,
-    // CriticalIncidentRecognitionServiceCollection
-  ]
+   ]
 })
 export class CriticalIncidentRecognitionModule {}

@@ -29,6 +29,10 @@ export class CoachingSessionService extends Service<CoachingSession> implements 
 
   //region Methods
 
+CreateInstance() {
+   return new CoachingSession();
+}
+
   RetrieveById(id: number): Promise<CoachingSession> {
     return super.RetrieveById(id);
   }

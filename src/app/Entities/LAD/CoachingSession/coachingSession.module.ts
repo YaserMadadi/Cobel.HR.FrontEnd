@@ -29,10 +29,6 @@ import { CoachingSession_ModuleMaster } from './coachingSession.module.master';
   exports: [
     CoachingSessionIndexUI,
 		CoachingSession_ModuleMaster,
-  ],
-  providers: [
-    // CoachingSessionService,
-    // CoachingSessionServiceCollection
-  ]
+   ]
 })
 export class CoachingSessionModule {}

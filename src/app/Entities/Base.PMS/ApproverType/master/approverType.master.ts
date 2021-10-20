@@ -14,10 +14,7 @@ import { AppraisalApproverConfigService } from '../../../PMS/AppraisalApproverCo
   selector: 'base-pms-approverType-master',
   templateUrl: './approverType.master.html',
   styleUrls: ['./approverType.master.css'],
-  providers: [
-    ApproverTypeService,
-    AppraisalApproverConfigService,
-  ]
+  
 })
 export class ApproverTypeMasterUI extends MasterModal<ApproverType> {
 

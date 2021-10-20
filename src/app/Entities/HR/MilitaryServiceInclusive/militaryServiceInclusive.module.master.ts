@@ -20,10 +20,6 @@ import { MilitaryServiceInclusive_ModuleDetail } from './militaryServiceInclusiv
     ],
     exports: [
         MilitaryServiceInclusiveMasterUI
-    ],
-    providers: [
-        //MilitaryServiceInclusiveService,
-       // MilitaryServiceInclusiveServiceCollection   
     ]
 })
 

@@ -16,11 +16,8 @@ import { RolePermissionDeleteUI } from '../../RolePermission/delete/rolePermissi
 @Component({
   selector: 'entity-rolePermission-detail',
   templateUrl: './entity-rolePermission.detail.html',
-  styleUrls: ['./entity-rolePermission.detail.css'],
-  providers: [EntityService]
-}) 
-
-@Injectable()
+  styleUrls: ['./entity-rolePermission.detail.css']
+})
 export class Entity_RolePermission_DetailUI extends DetailView<Entity> {
 
   constructor(private entityService: EntityService) {

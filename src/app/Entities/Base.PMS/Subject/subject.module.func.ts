@@ -27,10 +27,6 @@ import { SubjectSeekUI } from './seek/subject.seek';
         SubjectEditUI,
 		SubjectDeleteUI,
 		SubjectSeekUI
-    ],
-    providers: [
-       //SubjectService,
-       // SubjectServiceCollection,
     ]
 })
 

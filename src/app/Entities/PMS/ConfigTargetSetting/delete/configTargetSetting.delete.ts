@@ -10,7 +10,7 @@ import { ConfigTargetSettingService } from '../configTargetSetting.service';
   selector: 'pms-configTargetSetting-delete',
   templateUrl: './configTargetSetting.delete.html',
   styleUrls: ['./configTargetSetting.delete.css'],
-  providers: [ConfigTargetSettingService]
+  
 })
 export class ConfigTargetSettingDeleteUI extends DeleteModal<ConfigTargetSetting> {
 

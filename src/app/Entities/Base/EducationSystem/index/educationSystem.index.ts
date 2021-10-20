@@ -68,8 +68,7 @@ export class EducationSystemIndexUI extends IndexView<EducationSystem> implement
 
   resetFilter() {
     this.filterInstance = EducationSystem.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(educationSystem: EducationSystem) {

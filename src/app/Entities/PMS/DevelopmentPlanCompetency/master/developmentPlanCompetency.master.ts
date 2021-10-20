@@ -12,11 +12,7 @@ import { DevelopmentPlanCompetencyEditUI } from '../edit/developmentPlanCompeten
 @Component({
   selector: 'pms-developmentPlanCompetency-master',
   templateUrl: './developmentPlanCompetency.master.html',
-  styleUrls: ['./developmentPlanCompetency.master.css'],
-  providers: [
-    DevelopmentPlanCompetencyService,
-    
-  ]
+  styleUrls: ['./developmentPlanCompetency.master.css']
 })
 export class DevelopmentPlanCompetencyMasterUI extends MasterModal<DevelopmentPlanCompetency> {
 

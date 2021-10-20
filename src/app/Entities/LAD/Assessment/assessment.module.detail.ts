@@ -64,9 +64,6 @@ import { RotationAssessment_ModuleMaster } from '../RotationAssessment/rotationA
 		Assessment_PromotionAssessment_DetailUI,
 		Assessment_RotationAssessment_DetailUI
   ],
-  providers: [
-    //AssessmentService,
-    //AssessmentServiceCollection
-  ]
+  
 })
 export class Assessment_ModuleDetail { }

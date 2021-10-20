@@ -13,6 +13,7 @@ import { FinalAppraiseDeleteUI } from '../../FinalAppraise/delete/finalAppraise.
 import { MessageController } from '../../../../../xcore/tools/controller.message';
 import { MessageType } from '../../../../../xcore/tools/Enum';
 import { AuthService } from '../../../../../xcore/security/auth_service';
+import { PositionController } from '../../../../../xcore/tools/controller.positions';
 
 
 
@@ -20,7 +21,7 @@ import { AuthService } from '../../../../../xcore/security/auth_service';
   selector: 'targetSetting-finalAppraise-detail',
   templateUrl: './targetSetting-finalAppraise.detail.html',
   styleUrls: ['./targetSetting-finalAppraise.detail.css'],
-  providers: [TargetSettingService]
+  
 })
 
 @Injectable()
@@ -65,10 +66,14 @@ export class TargetSetting_FinalAppraise_DetailUI extends DetailView<TargetSetti
   public onDblClicked(masterUI: FinalAppraiseMasterUI) {
     if (FinalAppraise.NotConfirm(this.currentFinalAppraise))
       return;
+    this.currentFinalAppraise.targetSetting = this.TargetSetting;
     masterUI.ShowDialog(this.currentFinalAppraise);
   }
 
   public onAdd(editUI: FinalAppraiseEditUI) {
+    if (!this.checkTargetSetting()) {
+      return;
+    }
     editUI.TargetSetting = this.targetSetting;
     editUI.ShowDialog(new FinalAppraise());
   }
@@ -76,7 +81,10 @@ export class TargetSetting_FinalAppraise_DetailUI extends DetailView<TargetSetti
   public onEdit(editUI: FinalAppraiseEditUI) {
     if (FinalAppraise.NotConfirm(this.currentFinalAppraise))
       return;
-    if (AuthService.currentPositionList.filter(i => i.id == 2131 || i.parent.id == 2131).length == 0  //Position.Id = 2131 : HR position responsible
+    if (!this.checkTargetSetting()) {
+      return;
+    }
+    if (AuthService.currentPositionList.filter(i => i.id == PositionController.HR_PMS_Position_Id || i.parent.id == PositionController.HR_PMS_Position_Id).length == 0  //Position.Id = 2131 : HR position responsible
       && this.currentFinalAppraise.isApproved) {
       MessageController.ShowMessage(MessageType.NotEditable);
       return;
@@ -84,7 +92,22 @@ export class TargetSetting_FinalAppraise_DetailUI extends DetailView<TargetSetti
     editUI.ShowDialog(this.currentFinalAppraise);
   }
 
+  private checkTargetSetting(): boolean {
+    if (this.targetSetting.isLocked) {
+      MessageController.ShowMessage(MessageType.RecordIsLocked);
+      return false;
+    }
+    if (this.targetSetting.employee.id == AuthService.currentEmployee.id) {
+      MessageController.ShowMessage(MessageType.NotEditable);
+      return false;
+    }
+    return true;
+  }
+
   public onDelete(deleteUI: FinalAppraiseDeleteUI) {
+    if (!this.checkTargetSetting()) {
+      return;
+    }
     if (FinalAppraise.NotConfirm(this.currentFinalAppraise))
       return;
     deleteUI.ShowDialog(this.currentFinalAppraise);

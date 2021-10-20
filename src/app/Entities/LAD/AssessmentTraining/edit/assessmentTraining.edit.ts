@@ -68,7 +68,8 @@ export class AssessmentTrainingEditUI extends EditModal<AssessmentTraining> impl
     
   }
   
-  InitAssessmentTraining(assessmentTraining: AssessmentTraining) {
+  InitAssessmentTraining(assessmentTraining: AssessmentTraining){
+    this.currentInstance = this.service.CreateInstance();
     if (!assessmentTraining.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.assessmentComponent.instance = assessmentTraining.assessment;

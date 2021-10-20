@@ -35,10 +35,6 @@ import { YearQuarter_ModuleMaster } from '../YearQuarter/yearQuarter.module.mast
   exports: [
     YearIndexUI,
 		Year_ModuleMaster,
-  ],
-  providers: [
-    // YearService,
-    // YearServiceCollection
-  ]
+   ]
 })
 export class YearModule {}

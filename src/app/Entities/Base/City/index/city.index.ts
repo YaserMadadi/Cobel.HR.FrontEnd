@@ -88,8 +88,7 @@ export class CityIndexUI extends IndexView<City> implements AfterViewInit, IInde
 
   resetFilter() {
     this.filterInstance = City.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(city: City) {

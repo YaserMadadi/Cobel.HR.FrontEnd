@@ -24,9 +24,6 @@ import { IndividualDevelopmentPlan_ModuleMaster } from '../../PMS/IndividualDeve
   exports: [
     Subject_IndividualDevelopmentPlan_DetailUI
   ],
-  providers: [
-    //SubjectService,
-    //SubjectServiceCollection
-  ]
+  
 })
 export class Subject_ModuleDetail { }

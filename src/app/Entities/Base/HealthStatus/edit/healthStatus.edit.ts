@@ -40,7 +40,8 @@ export class HealthStatusEditUI extends EditModal<HealthStatus> implements IEdit
     
   }
   
-  InitHealthStatus(healthStatus: HealthStatus) {
+  InitHealthStatus(healthStatus: HealthStatus){
+    this.currentInstance = new HealthStatus();
     if (!healthStatus.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

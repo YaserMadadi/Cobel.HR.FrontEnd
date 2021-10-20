@@ -1,29 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { Md5 } from 'ts-md5';
+import { loginUser } from '../../../xcore/security/base/loginUser';
 import { AuthService } from '../../../xcore/security/auth_service';
-import { BaseToken } from '../../../xcore/security/base/base_token';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService)//, private route: ActivatedRoute, private router: Router) { }
+  {
 
-  baseToken: BaseToken = new BaseToken();
+  }
+
+  loginUser: loginUser = new loginUser();
+
+  private returnUrl: string = '';
 
   ngOnInit(): void {
+    //this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   async Authenticate(password: string) {
     //this.baseToken.password = Md5.hashStr(password).toString();
     //console.log(this.baseToken.password);
 
-    this.baseToken.password = password;
+    this.loginUser.password = password;
+    //this.logi .password = password;
 
-    await this.authService.Authenticate(this.baseToken);
+    await this.authService.Authenticate(this.loginUser);
+    // if (!result)
+    //   return;
+    // console.log(this.returnUrl);
+    // this.router.navigateByUrl(this.returnUrl);
+
   }
 
 }

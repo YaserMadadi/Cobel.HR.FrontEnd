@@ -1,4 +1,4 @@
-﻿import { Component, Injectable, Input } from '@angular/core';
+import { Component, Injectable, Input } from '@angular/core';
 
 import { DetailView } from '../../../../../xcore/tools/ui/view-base/detail.view';
 import { Info } from '../../../../../xcore/Info';
@@ -16,11 +16,8 @@ import { RelativeDeleteUI } from '../../../HR/Relative/delete/relative.delete';
 @Component({
   selector: 'relationType-relative-detail',
   templateUrl: './relationType-relative.detail.html',
-  styleUrls: ['./relationType-relative.detail.css'],
-  providers: [RelativeTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./relationType-relative.detail.css']
+})
 export class RelationType_Relative_DetailUI extends DetailView<RelativeType> {
 
   constructor(private relativeTypeService: RelativeTypeService) {

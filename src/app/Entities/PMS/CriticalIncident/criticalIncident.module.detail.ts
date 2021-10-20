@@ -24,9 +24,6 @@ import { CriticalIncidentRecognition_ModuleMaster } from '../CriticalIncidentRec
   exports: [
     CriticalIncident_CriticalIncidentRecognition_DetailUI
   ],
-  providers: [
-    //CriticalIncidentService,
-    //CriticalIncidentServiceCollection
-  ]
+  
 })
 export class CriticalIncident_ModuleDetail { }

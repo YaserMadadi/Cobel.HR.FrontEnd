@@ -16,11 +16,8 @@ import { PositionAssignmentDeleteUI } from '../../PositionAssignment/delete/posi
 @Component({
   selector: 'position-positionAssignment-detail',
   templateUrl: './position-positionAssignment.detail.html',
-  styleUrls: ['./position-positionAssignment.detail.css'],
-  providers: [PositionService]
-}) 
-
-@Injectable()
+  styleUrls: ['./position-positionAssignment.detail.css']
+})
 export class Position_PositionAssignment_DetailUI extends DetailView<Position> {
 
   constructor(private positionService: PositionService) {

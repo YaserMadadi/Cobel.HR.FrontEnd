@@ -26,7 +26,7 @@ export class AppraiseTimeSeekUI extends SeekModal<AppraiseTime> {
     this.onClose(this.appraiseTime);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

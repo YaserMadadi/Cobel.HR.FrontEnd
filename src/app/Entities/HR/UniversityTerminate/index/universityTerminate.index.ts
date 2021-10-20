@@ -54,8 +54,7 @@ export class UniversityTerminateIndexUI extends IndexView<UniversityTerminate> i
 
   resetFilter() {
     this.filterInstance = UniversityTerminate.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(universityTerminate: UniversityTerminate) {

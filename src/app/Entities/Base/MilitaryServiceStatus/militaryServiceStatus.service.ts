@@ -28,6 +28,10 @@ export class MilitaryServiceStatusService extends Service<MilitaryServiceStatus>
 
   //region Methods
 
+CreateInstance() {
+   return new MilitaryServiceStatus();
+}
+
   RetrieveById(id: number): Promise<MilitaryServiceStatus> {
     return super.RetrieveById(id);
   }

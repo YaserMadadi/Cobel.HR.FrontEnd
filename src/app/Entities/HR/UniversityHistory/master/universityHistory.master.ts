@@ -14,10 +14,7 @@ import { UniversityTerminateService } from '../../UniversityTerminate/university
   selector: 'hr-universityHistory-master',
   templateUrl: './universityHistory.master.html',
   styleUrls: ['./universityHistory.master.css'],
-  providers: [
-    UniversityHistoryService,
-    UniversityTerminateService,
-  ]
+  
 })
 export class UniversityHistoryMasterUI extends MasterModal<UniversityHistory> {
 

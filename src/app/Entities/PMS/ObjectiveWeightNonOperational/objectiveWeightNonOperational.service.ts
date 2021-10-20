@@ -29,6 +29,10 @@ export class ObjectiveWeightNonOperationalService extends Service<ObjectiveWeigh
 
   //region Methods
 
+CreateInstance() {
+   return new ObjectiveWeightNonOperational();
+}
+
   RetrieveById(id: number): Promise<ObjectiveWeightNonOperational> {
     return super.RetrieveById(id);
   }

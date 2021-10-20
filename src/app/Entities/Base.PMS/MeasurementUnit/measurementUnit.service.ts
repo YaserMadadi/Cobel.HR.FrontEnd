@@ -28,6 +28,10 @@ export class MeasurementUnitService extends Service<MeasurementUnit> implements 
 
   //region Methods
 
+CreateInstance() {
+   return new MeasurementUnit();
+}
+
   RetrieveById(id: number): Promise<MeasurementUnit> {
     return super.RetrieveById(id);
   }

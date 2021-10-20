@@ -16,11 +16,8 @@ import { VisionApprovedDeleteUI } from '../../VisionApproved/delete/visionApprov
 @Component({
   selector: 'vision-visionApproved-detail',
   templateUrl: './vision-visionApproved.detail.html',
-  styleUrls: ['./vision-visionApproved.detail.css'],
-  providers: [VisionService]
-}) 
-
-@Injectable()
+  styleUrls: ['./vision-visionApproved.detail.css']
+})
 export class Vision_VisionApproved_DetailUI extends DetailView<Vision> {
 
   constructor(private visionService: VisionService) {

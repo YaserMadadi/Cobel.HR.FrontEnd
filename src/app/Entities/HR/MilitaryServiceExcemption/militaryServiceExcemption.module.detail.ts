@@ -21,9 +21,6 @@ import { MilitaryServiceExcemptionServiceCollection } from './militaryServiceExc
   exports: [
     // No Item...
   ],
-  providers: [
-    //MilitaryServiceExcemptionService,
-    //MilitaryServiceExcemptionServiceCollection
-  ]
+  
 })
 export class MilitaryServiceExcemption_ModuleDetail { }

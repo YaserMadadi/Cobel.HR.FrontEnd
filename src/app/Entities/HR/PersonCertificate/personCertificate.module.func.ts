@@ -30,10 +30,6 @@ import { FieldCategory_ModuleFunc } from '../../Base/FieldCategory/fieldCategory
         PersonCertificateEditUI,
 		PersonCertificateDeleteUI,
 		PersonCertificateSeekUI
-    ],
-    providers: [
-       //PersonCertificateService,
-       // PersonCertificateServiceCollection,
     ]
 })
 

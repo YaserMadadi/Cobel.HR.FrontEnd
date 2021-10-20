@@ -27,10 +27,6 @@ import { DesirableSituationSeekUI } from './seek/desirableSituation.seek';
         DesirableSituationEditUI,
 		DesirableSituationDeleteUI,
 		DesirableSituationSeekUI
-    ],
-    providers: [
-       //DesirableSituationService,
-       // DesirableSituationServiceCollection,
     ]
 })
 

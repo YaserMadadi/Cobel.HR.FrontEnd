@@ -68,8 +68,7 @@ export class CourseIndexUI extends IndexView<Course> implements AfterViewInit, I
 
   resetFilter() {
     this.filterInstance = Course.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(course: Course) {

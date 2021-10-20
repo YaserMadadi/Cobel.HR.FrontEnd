@@ -12,11 +12,7 @@ import { AssessmentScoreEditUI } from '../edit/assessmentScore.edit';
 @Component({
   selector: 'lad-assessmentScore-master',
   templateUrl: './assessmentScore.master.html',
-  styleUrls: ['./assessmentScore.master.css'],
-  providers: [
-    AssessmentScoreService,
-    
-  ]
+  styleUrls: ['./assessmentScore.master.css']
 })
 export class AssessmentScoreMasterUI extends MasterModal<AssessmentScore> {
 

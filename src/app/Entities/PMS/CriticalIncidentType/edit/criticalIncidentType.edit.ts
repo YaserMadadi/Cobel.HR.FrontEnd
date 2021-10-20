@@ -40,7 +40,8 @@ export class CriticalIncidentTypeEditUI extends EditModal<CriticalIncidentType> 
     
   }
   
-  InitCriticalIncidentType(criticalIncidentType: CriticalIncidentType) {
+  InitCriticalIncidentType(criticalIncidentType: CriticalIncidentType){
+    this.currentInstance = this.service.CreateInstance();
     if (!criticalIncidentType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

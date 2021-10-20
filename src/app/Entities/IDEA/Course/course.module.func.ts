@@ -27,10 +27,6 @@ import { CourseSeekUI } from './seek/course.seek';
         CourseEditUI,
 		CourseDeleteUI,
 		CourseSeekUI
-    ],
-    providers: [
-       //CourseService,
-       // CourseServiceCollection,
     ]
 })
 

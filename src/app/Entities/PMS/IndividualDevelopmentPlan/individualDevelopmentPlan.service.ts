@@ -38,6 +38,10 @@ export class IndividualDevelopmentPlanService extends Service<IndividualDevelopm
 
   //region Methods
 
+CreateInstance() {
+   return new IndividualDevelopmentPlan();
+}
+
   RetrieveById(id: number): Promise<IndividualDevelopmentPlan> {
     return super.RetrieveById(id);
   }

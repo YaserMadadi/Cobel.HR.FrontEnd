@@ -13,13 +13,13 @@
           name='editButton'
           class='xbtn btn-edit'
           (click)='onEdit(finalAppraiseEditUI)'
-          [ngClass]="{ 'disabled' : currentFinalAppraise.id == 0 }">Edit</button>
+          [disabled]='currentFinalAppraise.id == 0'>Edit</button>
         <button type='button'
           name='deleteButton'
           class='xbtn btn-delete'
           (click)='onDelete(finalAppraiseDeleteUI)'
-          [ngClass]="{ 'disabled' : currentFinalAppraise.id == 0 }"
-          *ngIf='false'>Delete</button>
+          [disabled]='currentFinalAppraise.id == 0'
+          *ngIf='false'> Delete </button>
       </div>
       <div class='float-right'>
         <button type='button'

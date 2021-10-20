@@ -32,10 +32,6 @@ import { Assessment_ModuleMaster } from '../Assessment/assessment.module.master'
   exports: [
     AssessmentTypeIndexUI,
 		AssessmentType_ModuleMaster,
-  ],
-  providers: [
-    // AssessmentTypeService,
-    // AssessmentTypeServiceCollection
-  ]
+   ]
 })
 export class AssessmentTypeModule {}

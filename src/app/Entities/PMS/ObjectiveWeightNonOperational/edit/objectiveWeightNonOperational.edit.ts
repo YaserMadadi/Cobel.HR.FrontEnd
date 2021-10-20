@@ -55,7 +55,8 @@ export class ObjectiveWeightNonOperationalEditUI extends EditModal<ObjectiveWeig
     this.levelComponent.LoadList();
   }
   
-  InitObjectiveWeightNonOperational(objectiveWeightNonOperational: ObjectiveWeightNonOperational) {
+  InitObjectiveWeightNonOperational(objectiveWeightNonOperational: ObjectiveWeightNonOperational){
+    this.currentInstance = this.service.CreateInstance();
     if (!objectiveWeightNonOperational.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.levelComponent.instance = objectiveWeightNonOperational.level;

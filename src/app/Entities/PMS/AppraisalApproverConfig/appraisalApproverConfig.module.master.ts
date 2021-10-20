@@ -20,10 +20,6 @@ import { AppraisalApproverConfig_ModuleDetail } from './appraisalApproverConfig.
     ],
     exports: [
         AppraisalApproverConfigMasterUI
-    ],
-    providers: [
-        //AppraisalApproverConfigService,
-       // AppraisalApproverConfigServiceCollection   
     ]
 })
 

@@ -59,17 +59,7 @@ export class BehavioralAppraiseEditUI extends EditModal<BehavioralAppraise> impl
 
 
   //#endregion -- AppraiseType --
-  //#region -- AppraiseTime --
 
-  appraiseTimeComponent: ForeignComponent<AppraiseTime> = new ForeignComponent<AppraiseTime>(this.behavioralAppraiseService.AppraiseTimeService, false);
-
-  @Input()
-  public set AppraiseTime(value: AppraiseTime) {
-    this.currentInstance.appraiseTime = this.appraiseTimeComponent.instance = value;
-  }
-
-
-  //#endregion -- AppraiseTime --
   //#region -- Appraiser --
 
   appraiserComponent: ForeignComponent<Employee> = new ForeignComponent<Employee>(this.behavioralAppraiseService.EmployeeService);
@@ -96,22 +86,19 @@ export class BehavioralAppraiseEditUI extends EditModal<BehavioralAppraise> impl
   private loadLists() {
 
     this.appraiseTypeComponent.LoadList();
-    this.appraiseTimeComponent.LoadList();
-    this.currentInstance.appraiseTime.id = 1;
     this.currentInstance.appraiseType.id = 2;
   }
 
-  InitBehavioralAppraise(behavioralAppraise: BehavioralAppraise) {
+  InitBehavioralAppraise(behavioralAppraise: BehavioralAppraise){
+    this.currentInstance = this.service.CreateInstance();
     if (!behavioralAppraise.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.behavioralKPIComponent.instance = behavioralAppraise.behavioralKPI;
       this.appraiseTypeComponent.instance = behavioralAppraise.appraiseType;
-      this.appraiseTimeComponent.instance = behavioralAppraise.appraiseTime;
       //this.appraiserComponent.instance = behavioralAppraise.appraiser;
     } else {
       behavioralAppraise.behavioralKPI = this.behavioralKPIComponent.instance;
       behavioralAppraise.appraiseType = this.appraiseTypeComponent.instance;
-      behavioralAppraise.appraiseTime = this.appraiseTimeComponent.instance;
       behavioralAppraise.appraiser = AuthService.currentEmployee;
     }
     this.currentInstance = behavioralAppraise;
@@ -125,15 +112,11 @@ export class BehavioralAppraiseEditUI extends EditModal<BehavioralAppraise> impl
   }
 
   ResetForm() {
-    //this.BehavioralKPI = new BehavioralKPI();
     this.AppraiseType = new AppraiseType();
-    //	this.AppraiseTime = new AppraiseTime(1);
     this.Appraiser = AuthService.currentEmployee;
   }
 
   SetDefault() {
-    if (AppraiseTime.NotConfirm(this.currentInstance.appraiseTime))
-      return;
-    this.currentInstance.appraiseTime.id = 1;
+
   }
 }

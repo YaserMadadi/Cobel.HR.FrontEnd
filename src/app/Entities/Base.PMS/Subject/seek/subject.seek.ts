@@ -26,7 +26,7 @@ export class SubjectSeekUI extends SeekModal<Subject> {
     this.onClose(this.subject);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

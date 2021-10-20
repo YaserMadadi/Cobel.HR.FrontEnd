@@ -1,5 +1,6 @@
-﻿<fieldset class='border'>
-  <legend>Marital Status :</legend>
+
+<fieldset class='border'>
+  <legend>MaritalStatus :</legend>
   <div class='btn-group'>
     <button name='addButton' class='xbtn btn-add' (click)='onAdd(maritalStatusEditUI)'>Add</button>
     <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
@@ -20,17 +21,17 @@
     <thead>
       <tr>
         <th class='row-number'>Row</th>
-        <th title='English Title'>English Title</th>
-        <th title='Persian Title'>Persian Title</th>
-        <th width='100px' title='Is Active'>Is Active</th>
+        <th title='EnglishTitle'>EnglishTitle</th>
+        <th title='PersianTitle'>PersianTitle</th>
+        <th width='100px' title='IsActive'>IsActive</th>
       </tr>
       <tr name='secondRow'>
         <th class='row-number'></th>
         <th>
           <input class='form-control' #englishTitle='ngModel' id='englishTitle' name='englishTitle'
-										 title='English Title'
+										 title='EnglishTitle'
 										 autocomplete='off'
-										 placeholder='English Title'
+										 placeholder='EnglishTitle'
 										[(ngModel)]='filterInstance.englishTitle'
 										 type='text'
 										 maxlength='20'
@@ -38,9 +39,9 @@
         </th>
         <th>
           <input class='form-control' #persianTitle='ngModel' id='persianTitle' name='persianTitle'
-										 title='Persian Title'
+										 title='PersianTitle'
 										 autocomplete='off'
-										 placeholder='Persian Title'
+										 placeholder='PersianTitle'
 										[(ngModel)]='filterInstance.persianTitle'
 										 type='text'
 										 maxlength='40'
@@ -85,4 +86,4 @@
 
 
 <hr-person-edit #personEditUI> <!--  (onClosed)='personEditUI_Closed($event)' -->
-</hr-person-edit>
+</hr-person-edit> 

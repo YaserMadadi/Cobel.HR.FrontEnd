@@ -40,7 +40,8 @@ export class YearEditUI extends EditModal<Year> implements IEditModal<Year>  {
     
   }
   
-  InitYear(year: Year) {
+  InitYear(year: Year){
+    this.currentInstance = this.service.CreateInstance();
     if (!year.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

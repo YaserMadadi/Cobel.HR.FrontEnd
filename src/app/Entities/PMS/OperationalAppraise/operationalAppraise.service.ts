@@ -33,6 +33,10 @@ export class OperationalAppraiseService extends Service<OperationalAppraise> imp
 
   //region Methods
 
+CreateInstance() {
+   return new OperationalAppraise();
+}
+
   RetrieveById(id: number): Promise<OperationalAppraise> {
     return super.RetrieveById(id);
   }

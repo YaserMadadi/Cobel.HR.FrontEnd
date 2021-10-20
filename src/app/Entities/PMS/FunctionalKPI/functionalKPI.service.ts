@@ -33,6 +33,10 @@ export class FunctionalKPIService extends Service<FunctionalKPI> implements ISer
 
   //region Methods
 
+CreateInstance() {
+   return new FunctionalKPI();
+}
+
   RetrieveById(id: number): Promise<FunctionalKPI> {
     return super.RetrieveById(id);
   }

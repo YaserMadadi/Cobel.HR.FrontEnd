@@ -20,10 +20,6 @@ import { Passport_ModuleDetail } from './passport.module.detail';
     ],
     exports: [
         PassportMasterUI
-    ],
-    providers: [
-        //PassportService,
-       // PassportServiceCollection   
     ]
 })
 

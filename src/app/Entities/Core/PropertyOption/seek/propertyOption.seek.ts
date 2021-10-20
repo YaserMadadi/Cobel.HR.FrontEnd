@@ -26,7 +26,7 @@ export class PropertyOptionSeekUI extends SeekModal<PropertyOption> {
     this.onClose(this.propertyOption);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

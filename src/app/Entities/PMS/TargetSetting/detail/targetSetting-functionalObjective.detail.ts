@@ -20,10 +20,8 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'targetSetting-functionalObjective-detail',
   templateUrl: './targetSetting-functionalObjective.detail.html',
   styleUrls: ['./targetSetting-functionalObjective.detail.css'],
-  providers: [TargetSettingService]
+  
 })
-
-@Injectable()
 export class TargetSetting_FunctionalObjective_DetailUI extends DetailView<TargetSetting> {
 
   constructor(private targetSettingService: TargetSettingService) {
@@ -54,8 +52,6 @@ export class TargetSetting_FunctionalObjective_DetailUI extends DetailView<Targe
       .CollectionOfFunctionalObjective(this.targetSetting)
       .then(functionalObjectiveList => {
         this.FunctionalObjectiveList = functionalObjectiveList;
-        console.log(functionalObjectiveList);
-
         this.currentFunctionalObjective = new FunctionalObjective();
       });
   }
@@ -69,38 +65,43 @@ export class TargetSetting_FunctionalObjective_DetailUI extends DetailView<Targe
   public onDblClicked(masterUI: FunctionalObjectiveMasterUI) {
     if (FunctionalObjective.NotConfirm(this.currentFunctionalObjective))
       return;
+    this.currentFunctionalObjective.targetSetting = this.targetSetting;
     masterUI.ShowDialog(this.currentFunctionalObjective);
   }
 
-  private async loadTargetSetting(): Promise<Boolean> {
-    let targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
-    if (targetSetting.employee.id == AuthService.currentEmployee.id) {
-      MessageController.ShowMessage(MessageType.AddPermissionDenied);
+  private checkTargetSetting(): Boolean {
+    //this.targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
+    if(this.targetSetting.isLocked){
+      MessageController.ShowMessage(MessageType.RecordIsLocked);
+      return false;
+    }
+    if (this.targetSetting.employee.id == AuthService.currentEmployee.id) {
+      MessageController.ShowMessage(MessageType.NotEditable);
       return false;
     }
     return true;
   }
 
   public async onAdd(editUI: FunctionalObjectiveEditUI) {
-    let result = await this.loadTargetSetting();
-    if (!result)
+    if (!this.checkTargetSetting())
       return;
+      
     editUI.TargetSetting = this.targetSetting;
     editUI.ShowDialog(new FunctionalObjective());
   }
 
   public async onEdit(editUI: FunctionalObjectiveEditUI) {
-    let result = await this.loadTargetSetting();
-    if (!result)
+    if(!this.checkTargetSetting())
       return;
+
     editUI.TargetSetting = this.targetSetting;
     editUI.ShowDialog(this.currentFunctionalObjective);
   }
 
   public async onDelete(deleteUI: FunctionalObjectiveDeleteUI) {
-    let result = await this.loadTargetSetting();
-    if (!result)
+    if(!this.checkTargetSetting())
       return;
+
     deleteUI.ShowDialog(this.currentFunctionalObjective);
 
   }

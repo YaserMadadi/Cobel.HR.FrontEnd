@@ -41,18 +41,18 @@ export abstract class EndPointController {
         } else if (mode === CompileMode.LocalSSL) {
             EndPointController.protocol = 'https';
             EndPointController.ServerIP = 'localhost';
-            EndPointController.serverPort = 5001;
+            EndPointController.serverPort = 44337;
             EndPointController.servicePath = '';
         } else if (mode === CompileMode.Server) {
             EndPointController.protocol = 'http';
             EndPointController.ServerIP = 'hrcore.cobeldarou.com'; //172.20.6.118
             EndPointController.serverPort = 20440; // 44888
-            EndPointController.servicePath = 'Cobel.HR';
+            EndPointController.servicePath = 'HRServices';
         } else {
             EndPointController.protocol = 'https';
             EndPointController.ServerIP = 'hrcore.cobeldarou.com';
             EndPointController.serverPort = 20440;
-            EndPointController.servicePath = 'Cobel.HR';
+            EndPointController.servicePath = 'HRServices';
         }
 
         if (EndPointController.servicePath.length == 0)
@@ -75,7 +75,7 @@ export abstract class EndPointController {
 
     public static get Headers(): HttpHeaders {
         if (!this.headers.has('authentication') && StorageController.Token.length > 0) {
-            this.headers = this.headers.set('authentication', StorageController.Token);
+            this.headers = this.headers.set('Authorization', 'Bearer ' + StorageController.Token);
         }
         return this.headers;
     }
@@ -115,12 +115,15 @@ export abstract class EndPointController {
 
         switch (action) {
             case Actions.RetrieveAll: {
-                url += '/All';
+                url += '/RetrieveAll';
                 break;
             }
-            case Actions.RetrieveById:
+            case Actions.RetrieveById:{
+                url += `/RetrieveById/${id}`;
+                break;
+            }
             case Actions.Save: {
-                url += `/${id}`;
+                url += `/Save`;
                 break;
             }
             case Actions.SaveCollection: {

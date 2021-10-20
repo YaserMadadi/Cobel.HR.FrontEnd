@@ -10,7 +10,7 @@ import { HealthStatusService } from '../healthStatus.service';
   selector: 'base-healthStatus-delete',
   templateUrl: './healthStatus.delete.html',
   styleUrls: ['./healthStatus.delete.css'],
-  providers: [HealthStatusService]
+  
 })
 export class HealthStatusDeleteUI extends DeleteModal<HealthStatus> {
 

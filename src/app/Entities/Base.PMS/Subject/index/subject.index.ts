@@ -68,8 +68,7 @@ export class SubjectIndexUI extends IndexView<Subject> implements AfterViewInit,
 
   resetFilter() {
     this.filterInstance = Subject.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(subject: Subject) {

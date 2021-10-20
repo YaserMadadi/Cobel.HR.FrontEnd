@@ -10,7 +10,7 @@ import { CoachService } from '../coach.service';
   selector: 'lad-coach-delete',
   templateUrl: './coach.delete.html',
   styleUrls: ['./coach.delete.css'],
-  providers: [CoachService]
+  
 })
 export class CoachDeleteUI extends DeleteModal<Coach> {
 

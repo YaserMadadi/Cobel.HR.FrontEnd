@@ -26,7 +26,7 @@ export class AssessorConnectionLineSeekUI extends SeekModal<AssessorConnectionLi
     this.onClose(this.assessorConnectionLine);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

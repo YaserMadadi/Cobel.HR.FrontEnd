@@ -30,10 +30,6 @@ import { CompetencyItemKPI_ModuleFunc } from '../CompetencyItemKPI/competencyIte
         BehavioralKPIEditUI,
 		BehavioralKPIDeleteUI,
 		BehavioralKPISeekUI
-    ],
-    providers: [
-       //BehavioralKPIService,
-       // BehavioralKPIServiceCollection,
     ]
 })
 

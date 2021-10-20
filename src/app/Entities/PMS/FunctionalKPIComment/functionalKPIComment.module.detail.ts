@@ -21,9 +21,6 @@ import { FunctionalKPICommentServiceCollection } from './functionalKPIComment.se
   exports: [
     // No Item...
   ],
-  providers: [
-    //FunctionalKPICommentService,
-    //FunctionalKPICommentServiceCollection
-  ]
+  
 })
 export class FunctionalKPIComment_ModuleDetail { }

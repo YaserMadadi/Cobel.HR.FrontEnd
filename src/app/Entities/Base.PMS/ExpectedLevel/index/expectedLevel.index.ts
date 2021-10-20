@@ -68,8 +68,7 @@ export class ExpectedLevelIndexUI extends IndexView<ExpectedLevel> implements Af
 
   resetFilter() {
     this.filterInstance = ExpectedLevel.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(expectedLevel: ExpectedLevel) {

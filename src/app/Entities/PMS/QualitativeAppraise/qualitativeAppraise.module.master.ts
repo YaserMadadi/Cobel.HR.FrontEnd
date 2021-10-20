@@ -20,10 +20,6 @@ import { QualitativeAppraise_ModuleDetail } from './qualitativeAppraise.module.d
     ],
     exports: [
         QualitativeAppraiseMasterUI
-    ],
-    providers: [
-        //QualitativeAppraiseService,
-       // QualitativeAppraiseServiceCollection   
     ]
 })
 

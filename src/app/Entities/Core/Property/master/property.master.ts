@@ -14,10 +14,7 @@ import { PropertyOptionService } from '../../PropertyOption/propertyOption.servi
   selector: 'core-property-master',
   templateUrl: './property.master.html',
   styleUrls: ['./property.master.css'],
-  providers: [
-    PropertyService,
-    PropertyOptionService,
-  ]
+  
 })
 export class PropertyMasterUI extends MasterModal<Property> {
 

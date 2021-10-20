@@ -16,11 +16,8 @@ import { PersonDeleteUI } from '../../../HR/Person/delete/person.delete';
 @Component({
   selector: 'nationality-person-detail',
   templateUrl: './nationality-person.detail.html',
-  styleUrls: ['./nationality-person.detail.css'],
-  providers: [CountryService]
-}) 
-
-@Injectable()
+  styleUrls: ['./nationality-person.detail.css']
+})
 export class Nationality_Person_DetailUI extends DetailView<Country> {
 
   constructor(private countryService: CountryService) {

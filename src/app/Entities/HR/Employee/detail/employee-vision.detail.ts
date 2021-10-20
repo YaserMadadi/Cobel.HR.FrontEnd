@@ -16,11 +16,8 @@ import { VisionDeleteUI } from '../../../PMS/Vision/delete/vision.delete';
 @Component({
   selector: 'employee-vision-detail',
   templateUrl: './employee-vision.detail.html',
-  styleUrls: ['./employee-vision.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employee-vision.detail.css']
+})
 export class Employee_Vision_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

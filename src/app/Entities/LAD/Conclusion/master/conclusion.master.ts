@@ -12,11 +12,7 @@ import { ConclusionEditUI } from '../edit/conclusion.edit';
 @Component({
   selector: 'lad-conclusion-master',
   templateUrl: './conclusion.master.html',
-  styleUrls: ['./conclusion.master.css'],
-  providers: [
-    ConclusionService,
-    
-  ]
+  styleUrls: ['./conclusion.master.css']
 })
 export class ConclusionMasterUI extends MasterModal<Conclusion> {
 

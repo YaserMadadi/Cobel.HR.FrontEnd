@@ -20,10 +20,6 @@ import { CoachingQuestionary_ModuleDetail } from './coachingQuestionary.module.d
     ],
     exports: [
         CoachingQuestionaryMasterUI
-    ],
-    providers: [
-        //CoachingQuestionaryService,
-       // CoachingQuestionaryServiceCollection   
     ]
 })
 

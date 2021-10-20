@@ -10,7 +10,7 @@ import { MilitaryServiceExcemptionService } from '../militaryServiceExcemption.s
   selector: 'hr-militaryServiceExcemption-delete',
   templateUrl: './militaryServiceExcemption.delete.html',
   styleUrls: ['./militaryServiceExcemption.delete.css'],
-  providers: [MilitaryServiceExcemptionService]
+  
 })
 export class MilitaryServiceExcemptionDeleteUI extends DeleteModal<MilitaryServiceExcemption> {
 

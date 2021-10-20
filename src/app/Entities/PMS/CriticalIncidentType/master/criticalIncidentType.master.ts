@@ -14,10 +14,7 @@ import { CriticalIncidentService } from '../../CriticalIncident/criticalIncident
   selector: 'pms-criticalIncidentType-master',
   templateUrl: './criticalIncidentType.master.html',
   styleUrls: ['./criticalIncidentType.master.css'],
-  providers: [
-    CriticalIncidentTypeService,
-    CriticalIncidentService,
-  ]
+  
 })
 export class CriticalIncidentTypeMasterUI extends MasterModal<CriticalIncidentType> {
 

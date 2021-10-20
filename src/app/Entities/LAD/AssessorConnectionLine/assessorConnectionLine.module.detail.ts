@@ -21,9 +21,6 @@ import { AssessorConnectionLineServiceCollection } from './assessorConnectionLin
   exports: [
     // No Item...
   ],
-  providers: [
-    //AssessorConnectionLineService,
-    //AssessorConnectionLineServiceCollection
-  ]
+  
 })
 export class AssessorConnectionLine_ModuleDetail { }

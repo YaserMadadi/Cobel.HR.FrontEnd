@@ -32,10 +32,6 @@ import { Training_ModuleMaster } from '../Training/training.module.master';
   exports: [
     CourseIndexUI,
 		Course_ModuleMaster,
-  ],
-  providers: [
-    // CourseService,
-    // CourseServiceCollection
-  ]
+   ]
 })
 export class CourseModule {}

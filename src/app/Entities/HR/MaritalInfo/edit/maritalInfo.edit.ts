@@ -55,7 +55,8 @@ export class MaritalInfoEditUI extends EditModal<MaritalInfo> implements IEditMo
     
   }
   
-  InitMaritalInfo(maritalInfo: MaritalInfo) {
+  InitMaritalInfo(maritalInfo: MaritalInfo){
+    this.currentInstance = this.service.CreateInstance();
     if (!maritalInfo.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = maritalInfo.person;

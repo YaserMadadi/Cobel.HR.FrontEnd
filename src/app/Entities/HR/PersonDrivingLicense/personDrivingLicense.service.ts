@@ -31,6 +31,10 @@ export class PersonDrivingLicenseService extends Service<PersonDrivingLicense> i
 
   //region Methods
 
+CreateInstance() {
+   return new PersonDrivingLicense();
+}
+
   RetrieveById(id: number): Promise<PersonDrivingLicense> {
     return super.RetrieveById(id);
   }

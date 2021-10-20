@@ -14,7 +14,7 @@ import { UnitEditUI } from '../edit/unit.edit';
 import { UnitDeleteUI } from '../delete/unit.delete';
 
 import { Department } from '../../Department/department';
-import { PositionCategory } from '../../PositionCategory/positionCategory';
+import { PositionCategory } from '../../../Base.HR/PositionCategory/positionCategory';
 
 
 import { PaginatorComponent } from '../../../../../xcore/tools/ui/components/paginator/paginator.component';
@@ -72,8 +72,7 @@ export class UnitIndexUI extends IndexView<Unit> implements AfterViewInit, IInde
 
   resetFilter() {
     this.filterInstance = Unit.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(unit: Unit) {

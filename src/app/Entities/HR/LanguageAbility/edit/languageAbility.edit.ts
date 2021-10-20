@@ -118,7 +118,8 @@ export class LanguageAbilityEditUI extends EditModal<LanguageAbility> implements
 		this.listeningLevelComponent.LoadList();
   }
   
-  InitLanguageAbility(languageAbility: LanguageAbility) {
+  InitLanguageAbility(languageAbility: LanguageAbility){
+    this.currentInstance = this.service.CreateInstance();
     if (!languageAbility.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = languageAbility.person;

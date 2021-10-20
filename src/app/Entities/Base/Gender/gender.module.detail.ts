@@ -33,10 +33,6 @@ import { Person_ModuleMaster } from '../../HR/Person/person.module.master';
     Gender_Assessor_DetailUI,
 		Gender_Coach_DetailUI,
 		Gender_Person_DetailUI
-  ],
-  providers: [
-    //GenderService,
-    //GenderServiceCollection
   ]
 })
 export class Gender_ModuleDetail { }

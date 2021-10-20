@@ -21,9 +21,6 @@ import { CriticalIncidentRecognitionServiceCollection } from './criticalIncident
   exports: [
     // No Item...
   ],
-  providers: [
-    //CriticalIncidentRecognitionService,
-    //CriticalIncidentRecognitionServiceCollection
-  ]
+  
 })
 export class CriticalIncidentRecognition_ModuleDetail { }

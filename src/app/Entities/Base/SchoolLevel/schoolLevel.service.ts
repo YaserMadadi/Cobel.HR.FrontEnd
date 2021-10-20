@@ -28,6 +28,10 @@ export class SchoolLevelService extends Service<SchoolLevel> implements IService
 
   //region Methods
 
+CreateInstance() {
+   return new SchoolLevel();
+}
+
   RetrieveById(id: number): Promise<SchoolLevel> {
     return super.RetrieveById(id);
   }

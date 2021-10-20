@@ -17,7 +17,6 @@ import { AssessorConnectionLineDeleteUI } from '../../../LAD/AssessorConnectionL
   selector: 'connectionType-assessorConnectionLine-detail',
   templateUrl: './connectionType-assessorConnectionLine.detail.html',
   styleUrls: ['./connectionType-assessorConnectionLine.detail.css'],
-  providers: [ConnectionTypeService]
 }) 
 
 @Injectable()

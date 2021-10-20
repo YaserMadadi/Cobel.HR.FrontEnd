@@ -20,10 +20,6 @@ import { IndividualDevelopmentPlan_ModuleDetail } from './individualDevelopmentP
     ],
     exports: [
         IndividualDevelopmentPlanMasterUI
-    ],
-    providers: [
-        //IndividualDevelopmentPlanService,
-       // IndividualDevelopmentPlanServiceCollection   
     ]
 })
 

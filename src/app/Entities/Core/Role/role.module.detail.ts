@@ -29,9 +29,6 @@ import { RolePermission_ModuleMaster } from '../RolePermission/rolePermission.mo
     Role_RoleMember_DetailUI,
 		Role_RolePermission_DetailUI
   ],
-  providers: [
-    //RoleService,
-    //RoleServiceCollection
-  ]
+  
 })
 export class Role_ModuleDetail { }

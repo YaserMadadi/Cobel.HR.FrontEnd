@@ -10,7 +10,7 @@ import { CompetencyItemKPIService } from '../competencyItemKPI.service';
   selector: 'pms-competencyItemKPI-delete',
   templateUrl: './competencyItemKPI.delete.html',
   styleUrls: ['./competencyItemKPI.delete.css'],
-  providers: [CompetencyItemKPIService]
+  
 })
 export class CompetencyItemKPIDeleteUI extends DeleteModal<CompetencyItemKPI> {
 

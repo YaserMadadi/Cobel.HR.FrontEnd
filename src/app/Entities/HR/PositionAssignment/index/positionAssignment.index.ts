@@ -74,8 +74,7 @@ export class PositionAssignmentIndexUI extends IndexView<PositionAssignment> imp
 
   resetFilter() {
     this.filterInstance = PositionAssignment.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(positionAssignment: PositionAssignment) {

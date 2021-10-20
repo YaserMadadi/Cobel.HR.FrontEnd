@@ -16,11 +16,8 @@ import { ContractDeleteUI } from '../../Contract/delete/contract.delete';
 @Component({
   selector: 'employee-contract-detail',
   templateUrl: './employee-contract.detail.html',
-  styleUrls: ['./employee-contract.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employee-contract.detail.css']
+})
 export class Employee_Contract_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

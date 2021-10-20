@@ -30,10 +30,6 @@ import { MilitaryServiceStatus_ModuleFunc } from '../../Base/MilitaryServiceStat
         MilitaryServiceEditUI,
 		MilitaryServiceDeleteUI,
 		MilitaryServiceSeekUI
-    ],
-    providers: [
-       //MilitaryServiceService,
-       // MilitaryServiceServiceCollection,
     ]
 })
 

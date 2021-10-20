@@ -13,7 +13,7 @@ import { AppraisalApproverConfigMasterUI } from '../master/appraisalApproverConf
 import { AppraisalApproverConfigEditUI } from '../edit/appraisalApproverConfig.edit';
 import { AppraisalApproverConfigDeleteUI } from '../delete/appraisalApproverConfig.delete';
 
-import { PositionCategory } from '../../../HR/PositionCategory/positionCategory';
+import { PositionCategory } from '../../../Base.HR/PositionCategory/positionCategory';
 import { ApproverType } from '../../../Base.PMS/ApproverType/approverType';
 
 
@@ -55,8 +55,7 @@ export class AppraisalApproverConfigIndexUI extends IndexView<AppraisalApproverC
 
   resetFilter() {
     this.filterInstance = AppraisalApproverConfig.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(appraisalApproverConfig: AppraisalApproverConfig) {

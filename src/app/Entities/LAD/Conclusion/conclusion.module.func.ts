@@ -30,10 +30,6 @@ import { ConclusionType_ModuleFunc } from '../ConclusionType/conclusionType.modu
         ConclusionEditUI,
 		ConclusionDeleteUI,
 		ConclusionSeekUI
-    ],
-    providers: [
-       //ConclusionService,
-       // ConclusionServiceCollection,
     ]
 })
 

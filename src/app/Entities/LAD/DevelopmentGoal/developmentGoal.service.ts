@@ -29,6 +29,10 @@ export class DevelopmentGoalService extends Service<DevelopmentGoal> implements 
 
   //region Methods
 
+CreateInstance() {
+   return new DevelopmentGoal();
+}
+
   RetrieveById(id: number): Promise<DevelopmentGoal> {
     return super.RetrieveById(id);
   }

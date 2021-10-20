@@ -14,10 +14,7 @@ import { LanguageAbilityService } from '../../../HR/LanguageAbility/languageAbil
   selector: 'base-language-master',
   templateUrl: './language.master.html',
   styleUrls: ['./language.master.css'],
-  providers: [
-    LanguageService,
-    LanguageAbilityService,
-  ]
+  
 })
 export class LanguageMasterUI extends MasterModal<Language> {
 

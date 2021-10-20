@@ -40,7 +40,8 @@ export class SynonymEditUI extends EditModal<Synonym> implements IEditModal<Syno
     
   }
   
-  InitSynonym(synonym: Synonym) {
+  InitSynonym(synonym: Synonym){
+    this.currentInstance = this.service.CreateInstance();
     if (!synonym.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

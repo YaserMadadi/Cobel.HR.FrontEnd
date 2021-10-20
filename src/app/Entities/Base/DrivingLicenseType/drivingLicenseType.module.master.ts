@@ -20,10 +20,6 @@ import { DrivingLicenseType_ModuleDetail } from './drivingLicenseType.module.det
     ],
     exports: [
         DrivingLicenseTypeMasterUI
-    ],
-    providers: [
-        //DrivingLicenseTypeService,
-       // DrivingLicenseTypeServiceCollection   
     ]
 })
 

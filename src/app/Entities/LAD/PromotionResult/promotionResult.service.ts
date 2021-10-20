@@ -28,6 +28,10 @@ export class PromotionResultService extends Service<PromotionResult> implements 
 
   //region Methods
 
+CreateInstance() {
+   return new PromotionResult();
+}
+
   RetrieveById(id: number): Promise<PromotionResult> {
     return super.RetrieveById(id);
   }

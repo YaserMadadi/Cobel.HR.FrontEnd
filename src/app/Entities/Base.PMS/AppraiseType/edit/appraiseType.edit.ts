@@ -40,7 +40,8 @@ export class AppraiseTypeEditUI extends EditModal<AppraiseType> implements IEdit
     
   }
   
-  InitAppraiseType(appraiseType: AppraiseType) {
+  InitAppraiseType(appraiseType: AppraiseType){
+    this.currentInstance = this.service.CreateInstance();
     if (!appraiseType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

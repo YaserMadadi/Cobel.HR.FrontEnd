@@ -31,6 +31,10 @@ export class VisionCommentService extends Service<VisionComment> implements ISer
 
   //region Methods
 
+CreateInstance() {
+   return new VisionComment();
+}
+
   RetrieveById(id: number): Promise<VisionComment> {
     return super.RetrieveById(id);
   }

@@ -10,7 +10,7 @@ import { UniversityTerminateService } from '../universityTerminate.service';
   selector: 'hr-universityTerminate-delete',
   templateUrl: './universityTerminate.delete.html',
   styleUrls: ['./universityTerminate.delete.css'],
-  providers: [UniversityTerminateService]
+  
 })
 export class UniversityTerminateDeleteUI extends DeleteModal<UniversityTerminate> {
 

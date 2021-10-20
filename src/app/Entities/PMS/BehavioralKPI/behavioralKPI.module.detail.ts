@@ -24,9 +24,6 @@ import { BehavioralAppraise_ModuleMaster } from '../BehavioralAppraise/behaviora
   exports: [
     BehavioralKPI_BehavioralAppraise_DetailUI
   ],
-  providers: [
-    //BehavioralKPIService,
-    //BehavioralKPIServiceCollection
-  ]
+  
 })
 export class BehavioralKPI_ModuleDetail { }

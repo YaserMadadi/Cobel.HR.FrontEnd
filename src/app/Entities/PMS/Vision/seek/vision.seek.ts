@@ -26,7 +26,7 @@ export class VisionSeekUI extends SeekModal<Vision> {
     this.onClose(this.vision);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

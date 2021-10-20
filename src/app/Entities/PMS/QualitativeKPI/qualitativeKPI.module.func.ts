@@ -28,10 +28,6 @@ import { QualitativeObjective_ModuleFunc } from '../QualitativeObjective/qualita
         QualitativeKPIEditUI,
 		QualitativeKPIDeleteUI,
 		QualitativeKPISeekUI
-    ],
-    providers: [
-       //QualitativeKPIService,
-       // QualitativeKPIServiceCollection,
     ]
 })
 

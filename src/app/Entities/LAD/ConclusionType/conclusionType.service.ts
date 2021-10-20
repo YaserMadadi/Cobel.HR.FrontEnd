@@ -28,6 +28,10 @@ export class ConclusionTypeService extends Service<ConclusionType> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new ConclusionType();
+}
+
   RetrieveById(id: number): Promise<ConclusionType> {
     return super.RetrieveById(id);
   }

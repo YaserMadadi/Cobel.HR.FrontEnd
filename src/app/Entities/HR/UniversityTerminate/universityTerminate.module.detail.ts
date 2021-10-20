@@ -21,9 +21,6 @@ import { UniversityTerminateServiceCollection } from './universityTerminate.serv
   exports: [
     // No Item...
   ],
-  providers: [
-    //UniversityTerminateService,
-    //UniversityTerminateServiceCollection
-  ]
+  
 })
 export class UniversityTerminate_ModuleDetail { }

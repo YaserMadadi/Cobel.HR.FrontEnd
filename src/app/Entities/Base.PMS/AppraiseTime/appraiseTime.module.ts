@@ -38,10 +38,6 @@ import { QualitativeAppraise_ModuleMaster } from '../../PMS/QualitativeAppraise/
   exports: [
     AppraiseTimeIndexUI,
 		AppraiseTime_ModuleMaster,
-  ],
-  providers: [
-    // AppraiseTimeService,
-    // AppraiseTimeServiceCollection
-  ]
+   ]
 })
 export class AppraiseTimeModule {}

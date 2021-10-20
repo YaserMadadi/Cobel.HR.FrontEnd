@@ -16,11 +16,8 @@ import { TargetSettingDeleteUI } from '../../../PMS/TargetSetting/delete/targetS
 @Component({
   selector: 'position-targetSetting-detail',
   templateUrl: './position-targetSetting.detail.html',
-  styleUrls: ['./position-targetSetting.detail.css'],
-  providers: [PositionService]
-}) 
-
-@Injectable()
+  styleUrls: ['./position-targetSetting.detail.css']
+})
 export class Position_TargetSetting_DetailUI extends DetailView<Position> {
 
   constructor(private positionService: PositionService) {

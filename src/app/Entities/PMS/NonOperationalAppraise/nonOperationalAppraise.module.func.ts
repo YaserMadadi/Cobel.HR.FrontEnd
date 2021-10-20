@@ -32,10 +32,6 @@ import { ScoreCell_ModuleFunc } from '../ScoreCell/scoreCell.module.func';
         NonOperationalAppraiseEditUI,
 		NonOperationalAppraiseDeleteUI,
 		NonOperationalAppraiseSeekUI
-    ],
-    providers: [
-       //NonOperationalAppraiseService,
-       // NonOperationalAppraiseServiceCollection,
     ]
 })
 

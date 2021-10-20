@@ -20,10 +20,6 @@ import { AssessmentType_ModuleDetail } from './assessmentType.module.detail';
     ],
     exports: [
         AssessmentTypeMasterUI
-    ],
-    providers: [
-        //AssessmentTypeService,
-       // AssessmentTypeServiceCollection   
     ]
 })
 

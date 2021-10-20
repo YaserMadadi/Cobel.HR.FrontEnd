@@ -40,7 +40,8 @@ export class HabitancyTypeEditUI extends EditModal<HabitancyType> implements IEd
     
   }
   
-  InitHabitancyType(habitancyType: HabitancyType) {
+  InitHabitancyType(habitancyType: HabitancyType){
+    this.currentInstance = new HabitancyType();
     if (!habitancyType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

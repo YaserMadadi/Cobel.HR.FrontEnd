@@ -54,8 +54,7 @@ export class LogIndexUI extends IndexView<Log> implements AfterViewInit, IIndexV
 
   resetFilter() {
     this.filterInstance = Log.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(log: Log) {

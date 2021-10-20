@@ -10,7 +10,7 @@ import { FunctionalKPICommentService } from '../functionalKPIComment.service';
   selector: 'pms-functionalKPIComment-delete',
   templateUrl: './functionalKPIComment.delete.html',
   styleUrls: ['./functionalKPIComment.delete.css'],
-  providers: [FunctionalKPICommentService]
+  
 })
 export class FunctionalKPICommentDeleteUI extends DeleteModal<FunctionalKPIComment> {
 

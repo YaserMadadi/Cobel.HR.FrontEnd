@@ -24,9 +24,6 @@ import { Position_ModuleMaster } from '../Position/position.module.master';
   exports: [
     Unit_Position_DetailUI
   ],
-  providers: [
-    //UnitService,
-    //UnitServiceCollection
-  ]
+  
 })
 export class Unit_ModuleDetail { }

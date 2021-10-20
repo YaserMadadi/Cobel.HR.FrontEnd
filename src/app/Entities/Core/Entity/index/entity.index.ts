@@ -85,8 +85,7 @@ export class EntityIndexUI extends IndexView<Entity> implements AfterViewInit, I
 
   resetFilter() {
     this.filterInstance = Entity.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(entity: Entity) {

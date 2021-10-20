@@ -16,11 +16,8 @@ import { ConclusionDeleteUI } from '../../Conclusion/delete/conclusion.delete';
 @Component({
   selector: 'conclusionType-conclusion-detail',
   templateUrl: './conclusionType-conclusion.detail.html',
-  styleUrls: ['./conclusionType-conclusion.detail.css'],
-  providers: [ConclusionTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./conclusionType-conclusion.detail.css']
+})
 export class ConclusionType_Conclusion_DetailUI extends DetailView<ConclusionType> {
 
   constructor(private conclusionTypeService: ConclusionTypeService) {

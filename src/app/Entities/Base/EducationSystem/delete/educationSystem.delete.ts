@@ -10,7 +10,6 @@ import { EducationSystemService } from '../educationSystem.service';
   selector: 'base-educationSystem-delete',
   templateUrl: './educationSystem.delete.html',
   styleUrls: ['./educationSystem.delete.css'],
-  providers: [EducationSystemService]
 })
 export class EducationSystemDeleteUI extends DeleteModal<EducationSystem> {
 

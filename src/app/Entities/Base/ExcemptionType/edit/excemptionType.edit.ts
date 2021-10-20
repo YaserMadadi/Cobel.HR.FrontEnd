@@ -40,7 +40,8 @@ export class ExcemptionTypeEditUI extends EditModal<ExcemptionType> implements I
     
   }
   
-  InitExcemptionType(excemptionType: ExcemptionType) {
+  InitExcemptionType(excemptionType: ExcemptionType){
+    this.currentInstance = this.service.CreateInstance();
     if (!excemptionType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

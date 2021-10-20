@@ -14,10 +14,7 @@ import { TrainingService } from '../../Training/training.service';
   selector: 'idea-course-master',
   templateUrl: './course.master.html',
   styleUrls: ['./course.master.css'],
-  providers: [
-    CourseService,
-    TrainingService,
-  ]
+  
 })
 export class CourseMasterUI extends MasterModal<Course> {
 

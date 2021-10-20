@@ -24,9 +24,6 @@ import { IndividualDevelopmentPlan_ModuleMaster } from '../../PMS/IndividualDeve
   exports: [
     Priority_IndividualDevelopmentPlan_DetailUI
   ],
-  providers: [
-    //DevelopmentPlanPriorityService,
-    //DevelopmentPlanPriorityServiceCollection
-  ]
+  
 })
 export class DevelopmentPlanPriority_ModuleDetail { }

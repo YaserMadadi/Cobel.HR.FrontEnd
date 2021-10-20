@@ -21,9 +21,6 @@ import { WorkExperienceServiceCollection } from './workExperience.service.collec
   exports: [
     // No Item...
   ],
-  providers: [
-    //WorkExperienceService,
-    //WorkExperienceServiceCollection
-  ]
+  
 })
 export class WorkExperience_ModuleDetail { }

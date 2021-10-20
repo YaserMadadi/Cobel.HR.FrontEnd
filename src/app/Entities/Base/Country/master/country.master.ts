@@ -14,10 +14,7 @@ import { PersonService } from '../../../HR/Person/person.service';
   selector: 'base-country-master',
   templateUrl: './country.master.html',
   styleUrls: ['./country.master.css'],
-  providers: [
-    CountryService,
-    PersonService,
-  ]
+  
 })
 export class CountryMasterUI extends MasterModal<Country> {
 

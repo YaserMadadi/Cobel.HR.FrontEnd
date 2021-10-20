@@ -20,10 +20,6 @@ import { Message_ModuleDetail } from './message.module.detail';
     ],
     exports: [
         MessageMasterUI
-    ],
-    providers: [
-        //MessageService,
-       // MessageServiceCollection   
     ]
 })
 

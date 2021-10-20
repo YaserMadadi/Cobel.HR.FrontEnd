@@ -12,7 +12,7 @@ import { AuthGuard } from '../xcore/security/auth_guard';
 @Component({
   // tslint:disable-next-line
   selector: 'body',
-  template: '<router-outlet></router-outlet>',
+  templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
@@ -20,14 +20,17 @@ export class AppComponent implements OnInit {
   constructor(private router: Router, public authGuard: AuthGuard, private toast: ToastrService) {
     //StorageController.show('token');
     //StorageController.Clear();
-    environment.Debug = isDevMode();
-    MessageController.toaster = toast; 
+    //environment.Debug = isDevMode();
+    var debugMode = isDevMode();
+
+    MessageController.toaster = toast;
     console.log(`Application Started in : `);
     console.log(`Time : ${new Date().toLocaleTimeString()}`);
-    console.log(`DebugMode : ${environment.Debug}`);
-    EndPointController.InitUrl(environment.Debug ? CompileMode.Local : CompileMode.ServerSSL);
+    console.log(`DebugMode : ${debugMode}`);
+    EndPointController.InitUrl(debugMode ? CompileMode.LocalSSL : CompileMode.ServerSSL);
     console.log(`Mode : ${<CompileMode>EndPointController.Mode}.`);
-    console.log(`Url : ${EndPointController.BaseUrl}.`);
+    if (debugMode)
+      console.log(`Url : ${EndPointController.BaseUrl}.`);
   }
 
 

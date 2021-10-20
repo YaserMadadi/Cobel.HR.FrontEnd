@@ -1,4 +1,6 @@
-﻿import { Component } from '@angular/core';
+
+
+import { Component } from '@angular/core';
 
 import { DeleteModal } from '../../../../../xcore/tools/ui/view-base/delete.modal';
 
@@ -10,7 +12,7 @@ import { DevelopmentPlanTypeService } from '../developmentPlanType.service';
   selector: 'base-hr-developmentPlanType-delete',
   templateUrl: './developmentPlanType.delete.html',
   styleUrls: ['./developmentPlanType.delete.css'],
-  providers: [DevelopmentPlanTypeService]
+  
 })
 export class DevelopmentPlanTypeDeleteUI extends DeleteModal<DevelopmentPlanType> {
 

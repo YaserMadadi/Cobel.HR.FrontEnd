@@ -29,10 +29,6 @@ import { Contract_ModuleMaster } from './contract.module.master';
   exports: [
     ContractIndexUI,
 		Contract_ModuleMaster,
-  ],
-  providers: [
-    // ContractService,
-    // ContractServiceCollection
-  ]
+   ]
 })
 export class ContractModule {}

@@ -10,7 +10,7 @@ import { CourseService } from '../course.service';
   selector: 'idea-course-delete',
   templateUrl: './course.delete.html',
   styleUrls: ['./course.delete.css'],
-  providers: [CourseService]
+  
 })
 export class CourseDeleteUI extends DeleteModal<Course> {
 

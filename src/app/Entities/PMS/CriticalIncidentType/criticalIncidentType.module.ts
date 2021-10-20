@@ -32,10 +32,6 @@ import { CriticalIncident_ModuleMaster } from '../CriticalIncident/criticalIncid
   exports: [
     CriticalIncidentTypeIndexUI,
 		CriticalIncidentType_ModuleMaster,
-  ],
-  providers: [
-    // CriticalIncidentTypeService,
-    // CriticalIncidentTypeServiceCollection
-  ]
+   ]
 })
 export class CriticalIncidentTypeModule {}

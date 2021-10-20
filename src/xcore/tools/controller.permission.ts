@@ -7,37 +7,34 @@ import { PermissionResult, PermissionType } from "./Enum";
 import { Router } from "@angular/router";
 import { EndPointController } from "./controller.endPoint";
 import { RolePermission } from "../../app/Entities/Core/RolePermission/rolePermission";
+import { ResultData } from "./ResultData";
 
 @Injectable({ providedIn: 'root' })
 export class PermissionController {
 
-    constructor(private http: HttpClient,private router: Router) {
+    constructor(private http: HttpClient, private router: Router) {
 
     }
 
     public static RolePermissionList: RolePermission[] = [];
 
     public async loadPermission(employee_id: number) {
-        let url = EndPointController.BaseUrl + `Permission/Load/${employee_id}`;
-         let command = this.http.get<RolePermission[]>(url, {
-             withCredentials: false,
-             headers: EndPointController.Headers
-         });
-        let result = await command.toPromise<RolePermission[]>();
-        console.log('load Permissions is done! : ', result);
-        PermissionController.RolePermissionList = result.length == 0 ? [] : result;
-        // //this.router.navigate(['dashboard']);
-         this.router.navigate(['/Home','Home']);
+        let url = EndPointController.BaseUrl + `HR/Employee/${employee_id}/LoadPermission`;
+        let command = this.http.get<ResultData<RolePermission[]>>(url, {
+            withCredentials: false,
+            headers: EndPointController.Headers
+        });
+        let resultData = await command.toPromise<ResultData<RolePermission[]>>();
+        //console.log('load Permissions is done! : ', resultData);
+        PermissionController.RolePermissionList = !resultData.isSucceeded ? [] : resultData.data;
+        this.router.navigate(['/Home', 'Home']);
     }
 
     public static Check(info: Info, permissionType: PermissionType) {
-        //return PermissionResult.Granted;
         let permissionResult: PermissionResult = PermissionResult.Denied;
-        // console.log(info);
-        // console.log(PermissionManager.RolePermissionList);
         let selectedList = PermissionController.RolePermissionList.filter((rolePermission) => {
-             return (rolePermission.entity.schema === info.schema && rolePermission.entity.name === info.name);
-         });
+            return (rolePermission.entity.schema === info.schema && rolePermission.entity.name === info.name);
+        });
         switch (permissionType) {
             case PermissionType.ViewIndexPermission: {
                 selectedList.forEach((value) => {

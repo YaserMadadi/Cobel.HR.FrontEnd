@@ -27,6 +27,10 @@ export class MessageService extends Service<Message> implements IService<Message
 
   //region Methods
 
+CreateInstance() {
+   return new Message();
+}
+
   RetrieveById(id: number): Promise<Message> {
     return super.RetrieveById(id);
   }

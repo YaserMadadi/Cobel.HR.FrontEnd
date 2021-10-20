@@ -12,11 +12,7 @@ import { OperationalAppraiseEditUI } from '../edit/operationalAppraise.edit';
 @Component({
   selector: 'pms-operationalAppraise-master',
   templateUrl: './operationalAppraise.master.html',
-  styleUrls: ['./operationalAppraise.master.css'],
-  providers: [
-    OperationalAppraiseService,
-    
-  ]
+  styleUrls: ['./operationalAppraise.master.css']
 })
 export class OperationalAppraiseMasterUI extends MasterModal<OperationalAppraise> {
 

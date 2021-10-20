@@ -29,10 +29,6 @@ import { FunctionalObjectiveComment_ModuleMaster } from './functionalObjectiveCo
   exports: [
     FunctionalObjectiveCommentIndexUI,
 		FunctionalObjectiveComment_ModuleMaster,
-  ],
-  providers: [
-    // FunctionalObjectiveCommentService,
-    // FunctionalObjectiveCommentServiceCollection
-  ]
+   ]
 })
 export class FunctionalObjectiveCommentModule {}

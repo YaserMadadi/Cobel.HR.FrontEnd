@@ -56,8 +56,7 @@ export class PersonCertificateIndexUI extends IndexView<PersonCertificate> imple
 
   resetFilter() {
     this.filterInstance = PersonCertificate.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(personCertificate: PersonCertificate) {

@@ -10,7 +10,7 @@ import { RolePermissionService } from '../rolePermission.service';
   selector: 'core-rolePermission-delete',
   templateUrl: './rolePermission.delete.html',
   styleUrls: ['./rolePermission.delete.css'],
-  providers: [RolePermissionService]
+  
 })
 export class RolePermissionDeleteUI extends DeleteModal<RolePermission> {
 

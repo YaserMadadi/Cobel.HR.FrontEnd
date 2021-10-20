@@ -5,7 +5,7 @@ import { Validator } from '../../../../xcore/tools/Validator';
 import { BusinessObject } from '../../../../xcore/business-object';
 import { Position } from '../Position/position';
 import { Department } from '../Department/department';
-import { PositionCategory } from '../PositionCategory/positionCategory';
+import { PositionCategory } from '../../Base.HR/PositionCategory/positionCategory';
 
 
 @Directive()

@@ -54,8 +54,7 @@ export class PropertyOptionIndexUI extends IndexView<PropertyOption> implements 
 
   resetFilter() {
     this.filterInstance = PropertyOption.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(propertyOption: PropertyOption) {

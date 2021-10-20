@@ -1,4 +1,4 @@
-﻿import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 
 import { MasterModal } from '../../../../../xcore/tools/ui/view-base/master.modal';
 
@@ -12,11 +12,7 @@ import { DevelopmentPlanTypeEditUI } from '../edit/developmentPlanType.edit';
 @Component({
   selector: 'base-hr-developmentPlanType-master',
   templateUrl: './developmentPlanType.master.html',
-  styleUrls: ['./developmentPlanType.master.css'],
-  providers: [
-    DevelopmentPlanTypeService,
-    
-  ]
+  styleUrls: ['./developmentPlanType.master.css']
 })
 export class DevelopmentPlanTypeMasterUI extends MasterModal<DevelopmentPlanType> {
 

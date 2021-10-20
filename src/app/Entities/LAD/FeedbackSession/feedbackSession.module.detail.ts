@@ -21,9 +21,6 @@ import { FeedbackSessionServiceCollection } from './feedbackSession.service.coll
   exports: [
     // No Item...
   ],
-  providers: [
-    //FeedbackSessionService,
-    //FeedbackSessionServiceCollection
-  ]
+  
 })
 export class FeedbackSession_ModuleDetail { }

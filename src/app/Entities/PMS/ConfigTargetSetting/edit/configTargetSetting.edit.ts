@@ -8,8 +8,8 @@ import { EditModal } from '../../../../../xcore/tools/ui/view-base/edit.modal';
 import { ForeignComponent } from '../../../../../xcore/tools/foreign.component';
 import { ConfigTargetSetting } from '../configTargetSetting';
 import { ConfigTargetSettingService } from '../configTargetSetting.service';
-import { Position } from '../../../HR/Position/position';
-import { PositionEditUI } from '../../../HR/Position/edit/position.edit';
+import { PositionCategory } from '../../../Base.HR/PositionCategory/positionCategory';
+import { PositionCategoryEditUI } from '../../../Base.HR/PositionCategory/edit/positionCategory.edit';
 
 
 
@@ -19,26 +19,26 @@ import { PositionEditUI } from '../../../HR/Position/edit/position.edit';
   styleUrls: ['./configTargetSetting.edit.css']
 })
 export class ConfigTargetSettingEditUI extends EditModal<ConfigTargetSetting> implements IEditModal<ConfigTargetSetting>  {
-  
+
   constructor(private configTargetSettingService: ConfigTargetSettingService) {
-    super(configTargetSettingService); 
+    super(configTargetSettingService);
     this.currentInstance = new ConfigTargetSetting();
   }
 
   //#region Foreign Entities
-	
-	//#region -- Position --
 
-  positionComponent : ForeignComponent<Position> = new ForeignComponent<Position>(this.configTargetSettingService.PositionService);
+  //#region -- positionCategory --
+
+  positionCategoryComponent: ForeignComponent<PositionCategory> = new ForeignComponent<PositionCategory>(this.configTargetSettingService.positionCategoryService);
 
   @Input()
-  public set Position(value: Position) {
-    this.currentInstance.position = this.positionComponent.instance = value;
-  }  
+  public set positionCategory(value: PositionCategory) {
+    this.currentInstance.positionCategory = this.positionCategoryComponent.instance = value;
+  }
 
 
-  //#endregion -- Position --
-	//#endregion
+  //#endregion -- positionCategory --
+  //#endregion
 
   @ViewChild('configTargetSettingEditUI')
   private configTargetSettingEditUI: NgForm;
@@ -51,21 +51,22 @@ export class ConfigTargetSettingEditUI extends EditModal<ConfigTargetSetting> im
   }
 
   private loadLists() {
-    
-    
+    this.positionCategoryComponent.LoadList();
+
   }
-  
+
   InitConfigTargetSetting(configTargetSetting: ConfigTargetSetting) {
+    this.currentInstance = this.service.CreateInstance();
     if (!configTargetSetting.isNew) {
       // Fixed Properties : those you want to not Changable.
-      this.positionComponent.instance = configTargetSetting.position;
+      this.positionCategoryComponent.instance = configTargetSetting.positionCategory;
     } else {
-      configTargetSetting.position = this.positionComponent.instance;
+      configTargetSetting.positionCategory = this.positionCategoryComponent.instance;
     }
     this.currentInstance = configTargetSetting;
   }
 
   ResetForm() {
-    this.Position = new Position();
+    this.positionCategory = new PositionCategory();
   }
 }

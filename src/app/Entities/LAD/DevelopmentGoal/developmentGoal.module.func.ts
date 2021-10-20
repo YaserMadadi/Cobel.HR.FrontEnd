@@ -28,10 +28,6 @@ import { Assessment_ModuleFunc } from '../Assessment/assessment.module.func';
         DevelopmentGoalEditUI,
 		DevelopmentGoalDeleteUI,
 		DevelopmentGoalSeekUI
-    ],
-    providers: [
-       //DevelopmentGoalService,
-       // DevelopmentGoalServiceCollection,
     ]
 })
 

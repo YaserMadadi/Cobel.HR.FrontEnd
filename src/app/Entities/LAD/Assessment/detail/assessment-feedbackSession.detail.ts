@@ -16,11 +16,8 @@ import { FeedbackSessionDeleteUI } from '../../FeedbackSession/delete/feedbackSe
 @Component({
   selector: 'assessment-feedbackSession-detail',
   templateUrl: './assessment-feedbackSession.detail.html',
-  styleUrls: ['./assessment-feedbackSession.detail.css'],
-  providers: [AssessmentService]
-}) 
-
-@Injectable()
+  styleUrls: ['./assessment-feedbackSession.detail.css']
+})
 export class Assessment_FeedbackSession_DetailUI extends DetailView<Assessment> {
 
   constructor(private assessmentService: AssessmentService) {

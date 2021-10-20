@@ -16,12 +16,6 @@ import { AssessorService } from '../../../LAD/Assessor/assessor.service';
   selector: 'base-gender-master',
   templateUrl: './gender.master.html',
   styleUrls: ['./gender.master.css'],
-  providers: [
-    GenderService,
-    PersonService,
-		CoachService,
-		AssessorService,
-  ]
 })
 export class GenderMasterUI extends MasterModal<Gender> {
 

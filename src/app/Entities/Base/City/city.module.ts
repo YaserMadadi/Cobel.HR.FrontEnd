@@ -38,10 +38,6 @@ import { University_ModuleMaster } from '../University/university.module.master'
   exports: [
     CityIndexUI,
 		City_ModuleMaster,
-  ],
-  providers: [
-    // CityService,
-    // CityServiceCollection
-  ]
+   ]
 })
 export class CityModule {}

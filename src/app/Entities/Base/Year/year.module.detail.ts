@@ -28,10 +28,6 @@ import { YearQuarter_ModuleMaster } from '../YearQuarter/yearQuarter.module.mast
   exports: [
     Year_TargetSetting_DetailUI,
 		Year_YearQuarter_DetailUI
-  ],
-  providers: [
-    //YearService,
-    //YearServiceCollection
   ]
 })
 export class Year_ModuleDetail { }

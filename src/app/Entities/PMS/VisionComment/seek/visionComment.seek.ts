@@ -26,7 +26,7 @@ export class VisionCommentSeekUI extends SeekModal<VisionComment> {
     this.onClose(this.visionComment);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

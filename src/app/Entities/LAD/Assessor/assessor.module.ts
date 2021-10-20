@@ -35,10 +35,6 @@ import { AssessorConnectionLine_ModuleMaster } from '../AssessorConnectionLine/a
   exports: [
     AssessorIndexUI,
 		Assessor_ModuleMaster,
-  ],
-  providers: [
-    // AssessorService,
-    // AssessorServiceCollection
-  ]
+   ]
 })
 export class AssessorModule {}

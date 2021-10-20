@@ -32,10 +32,6 @@ import { BehavioralKPI_ModuleMaster } from '../BehavioralKPI/behavioralKPI.modul
   exports: [
     CompetencyItemKPIIndexUI,
 		CompetencyItemKPI_ModuleMaster,
-  ],
-  providers: [
-    // CompetencyItemKPIService,
-    // CompetencyItemKPIServiceCollection
-  ]
+   ]
 })
 export class CompetencyItemKPIModule {}

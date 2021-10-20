@@ -28,10 +28,6 @@ import { Assessment_ModuleFunc } from '../Assessment/assessment.module.func';
         FeedbackSessionEditUI,
 		FeedbackSessionDeleteUI,
 		FeedbackSessionSeekUI
-    ],
-    providers: [
-       //FeedbackSessionService,
-       // FeedbackSessionServiceCollection,
     ]
 })
 

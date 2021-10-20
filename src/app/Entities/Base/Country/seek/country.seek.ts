@@ -26,7 +26,7 @@ export class CountrySeekUI extends SeekModal<Country> {
     this.onClose(this.country);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

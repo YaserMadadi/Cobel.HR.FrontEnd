@@ -68,7 +68,8 @@ export class MilitaryServiceExcemptionEditUI extends EditModal<MilitaryServiceEx
     this.excemptionTypeComponent.LoadList();
   }
   
-  InitMilitaryServiceExcemption(militaryServiceExcemption: MilitaryServiceExcemption) {
+  InitMilitaryServiceExcemption(militaryServiceExcemption: MilitaryServiceExcemption){
+    this.currentInstance = this.service.CreateInstance();
     if (!militaryServiceExcemption.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.militaryServiceComponent.instance = militaryServiceExcemption.militaryService;

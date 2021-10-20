@@ -10,12 +10,15 @@ import { AppraiseResultService } from '../appraiseResult.service';
   selector: 'pms-appraiseResult-delete',
   templateUrl: './appraiseResult.delete.html',
   styleUrls: ['./appraiseResult.delete.css'],
-  providers: [AppraiseResultService]
+  
 })
 export class AppraiseResultDeleteUI extends DeleteModal<AppraiseResult> {
 
     constructor(private appraiseResultService: AppraiseResultService){
         super(appraiseResultService);
+        
     }
+
+    
 
 }

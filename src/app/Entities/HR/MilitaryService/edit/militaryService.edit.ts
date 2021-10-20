@@ -68,7 +68,8 @@ export class MilitaryServiceEditUI extends EditModal<MilitaryService> implements
     this.militaryServiceStatusComponent.LoadList();
   }
   
-  InitMilitaryService(militaryService: MilitaryService) {
+  InitMilitaryService(militaryService: MilitaryService){
+    this.currentInstance = this.service.CreateInstance();
     if (!militaryService.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = militaryService.person;

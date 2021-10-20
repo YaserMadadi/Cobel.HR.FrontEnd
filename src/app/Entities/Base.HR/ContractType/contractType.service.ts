@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Service } from '../../../../xcore/service/service';
 import { IService } from '../../../../xcore/service/base/service.interface';
@@ -21,6 +21,10 @@ export class ContractTypeService extends Service<ContractType> implements IServi
   constructor(public ServiceCollection: ContractTypeServiceCollection) {
     super(ServiceCollection.API_Operation, ContractType.Info);
   }
+
+  CreateInstance() {
+   return new ContractType();
+}
 
   CheckPermission(permissionType: PermissionType): PermissionResult {
     return PermissionController.Check(this.info, permissionType);

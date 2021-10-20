@@ -29,10 +29,6 @@ import { EmployeeNotification_ModuleMaster } from './employeeNotification.module
   exports: [
     EmployeeNotificationIndexUI,
 		EmployeeNotification_ModuleMaster,
-  ],
-  providers: [
-    // EmployeeNotificationService,
-    // EmployeeNotificationServiceCollection
-  ]
+   ]
 })
 export class EmployeeNotificationModule {}

@@ -1,4 +1,5 @@
-﻿import { NgModule } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -32,10 +33,6 @@ import { Relative_ModuleMaster } from '../../HR/Relative/relative.module.master'
   exports: [
     RelativeTypeIndexUI,
 		RelativeType_ModuleMaster,
-  ],
-  providers: [
-    // RelativeTypeService,
-    // RelativeTypeServiceCollection
-  ]
+   ]
 })
 export class RelativeTypeModule {}

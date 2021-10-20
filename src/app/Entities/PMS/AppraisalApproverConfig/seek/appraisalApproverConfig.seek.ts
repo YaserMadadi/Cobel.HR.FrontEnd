@@ -26,7 +26,7 @@ export class AppraisalApproverConfigSeekUI extends SeekModal<AppraisalApproverCo
     this.onClose(this.appraisalApproverConfig);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -16,11 +16,8 @@ import { CoachingDeleteUI } from '../../../LAD/Coaching/delete/coaching.delete';
 @Component({
   selector: 'employee-coaching-detail',
   templateUrl: './employee-coaching.detail.html',
-  styleUrls: ['./employee-coaching.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employee-coaching.detail.css']
+})
 export class Employee_Coaching_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

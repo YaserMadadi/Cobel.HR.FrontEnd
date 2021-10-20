@@ -12,11 +12,7 @@ import { FunctionalAppraiseEditUI } from '../edit/functionalAppraise.edit';
 @Component({
   selector: 'pms-functionalAppraise-master',
   templateUrl: './functionalAppraise.master.html',
-  styleUrls: ['./functionalAppraise.master.css'],
-  providers: [
-    FunctionalAppraiseService,
-    
-  ]
+  styleUrls: ['./functionalAppraise.master.css']
 })
 export class FunctionalAppraiseMasterUI extends MasterModal<FunctionalAppraise> {
 

@@ -29,10 +29,6 @@ import { VisionComment_ModuleMaster } from './visionComment.module.master';
   exports: [
     VisionCommentIndexUI,
 		VisionComment_ModuleMaster,
-  ],
-  providers: [
-    // VisionCommentService,
-    // VisionCommentServiceCollection
-  ]
+   ]
 })
 export class VisionCommentModule {}

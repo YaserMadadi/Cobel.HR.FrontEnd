@@ -20,10 +20,6 @@ import { Log_ModuleDetail } from './log.module.detail';
     ],
     exports: [
         LogMasterUI
-    ],
-    providers: [
-        //LogService,
-       // LogServiceCollection   
     ]
 })
 

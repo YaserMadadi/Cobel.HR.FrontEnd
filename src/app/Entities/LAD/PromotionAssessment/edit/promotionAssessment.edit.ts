@@ -92,7 +92,8 @@ export class PromotionAssessmentEditUI extends EditModal<PromotionAssessment> im
     this.promotionResultComponent.LoadList();
   }
   
-  InitPromotionAssessment(promotionAssessment: PromotionAssessment) {
+  InitPromotionAssessment(promotionAssessment: PromotionAssessment){
+    this.currentInstance = this.service.CreateInstance();
     if (!promotionAssessment.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.assessmentComponent.instance = promotionAssessment.assessment;

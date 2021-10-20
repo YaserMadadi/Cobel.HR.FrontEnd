@@ -28,6 +28,10 @@ export class ReligionService extends Service<Religion> implements IService<Relig
 
   //region Methods
 
+CreateInstance() {
+   return new Religion();
+}
+
   RetrieveById(id: number): Promise<Religion> {
     return super.RetrieveById(id);
   }

@@ -10,7 +10,7 @@ import { RoleMemberService } from '../roleMember.service';
   selector: 'core-roleMember-delete',
   templateUrl: './roleMember.delete.html',
   styleUrls: ['./roleMember.delete.css'],
-  providers: [RoleMemberService]
+  
 })
 export class RoleMemberDeleteUI extends DeleteModal<RoleMember> {
 

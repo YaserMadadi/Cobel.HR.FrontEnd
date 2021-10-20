@@ -28,10 +28,6 @@ import { Level_ModuleFunc } from '../../HR/Level/level.module.func';
         ObjectiveWeightNonOperationalEditUI,
 		ObjectiveWeightNonOperationalDeleteUI,
 		ObjectiveWeightNonOperationalSeekUI
-    ],
-    providers: [
-       //ObjectiveWeightNonOperationalService,
-       // ObjectiveWeightNonOperationalServiceCollection,
     ]
 })
 

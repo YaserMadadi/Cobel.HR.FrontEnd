@@ -27,10 +27,6 @@ import { GenderSeekUI } from './seek/gender.seek';
         GenderEditUI,
 		GenderDeleteUI,
 		GenderSeekUI
-    ],
-    providers: [
-       //GenderService,
-       // GenderServiceCollection,
     ]
 })
 

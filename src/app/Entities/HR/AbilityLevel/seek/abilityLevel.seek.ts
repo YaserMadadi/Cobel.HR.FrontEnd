@@ -26,7 +26,7 @@ export class AbilityLevelSeekUI extends SeekModal<AbilityLevel> {
     this.onClose(this.abilityLevel);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

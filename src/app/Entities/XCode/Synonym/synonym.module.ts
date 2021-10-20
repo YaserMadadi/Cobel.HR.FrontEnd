@@ -29,10 +29,6 @@ import { Synonym_ModuleMaster } from './synonym.module.master';
   exports: [
     SynonymIndexUI,
 		Synonym_ModuleMaster,
-  ],
-  providers: [
-    // SynonymService,
-    // SynonymServiceCollection
-  ]
+   ]
 })
 export class SynonymModule {}

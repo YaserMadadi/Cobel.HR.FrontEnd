@@ -12,11 +12,7 @@ import { SynonymEditUI } from '../edit/synonym.edit';
 @Component({
   selector: 'xcode-synonym-master',
   templateUrl: './synonym.master.html',
-  styleUrls: ['./synonym.master.css'],
-  providers: [
-    SynonymService,
-    
-  ]
+  styleUrls: ['./synonym.master.css']
 })
 export class SynonymMasterUI extends MasterModal<Synonym> {
 

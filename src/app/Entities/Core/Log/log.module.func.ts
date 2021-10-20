@@ -28,10 +28,6 @@ import { Person_ModuleFunc } from '../../HR/Person/person.module.func';
         LogEditUI,
 		LogDeleteUI,
 		LogSeekUI
-    ],
-    providers: [
-       //LogService,
-       // LogServiceCollection,
     ]
 })
 

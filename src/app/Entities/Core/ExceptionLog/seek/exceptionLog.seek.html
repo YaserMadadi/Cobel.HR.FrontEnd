@@ -1,0 +1,111 @@
+
+<XDialog Header='Search form of ExceptionLog' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='date' class='col-sm-3 col-form-label'>Date : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #date='ngModel' id='date' name='date'
+										 title='Date'
+										 autocomplete='off'
+										 placeholder='Date'
+										[(ngModel)]='exceptionLog.date'
+										 type='date'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='time' class='col-sm-3 col-form-label'>Time : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #time='ngModel' id='time' name='time'
+										 title='Time'
+										 autocomplete='off'
+										 placeholder='Time'
+										[(ngModel)]='exceptionLog.time'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='commandName' class='col-sm-3 col-form-label'>CommandName : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #commandName='ngModel' id='commandName' name='commandName'
+										 title='CommandName'
+										 autocomplete='off'
+										 placeholder='CommandName'
+										[(ngModel)]='exceptionLog.commandName'
+										 type='text'
+										 maxlength='2000'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='exceptionType' class='col-sm-3 col-form-label'>ExceptionType : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #exceptionType='ngModel' id='exceptionType' name='exceptionType'
+										 title='ExceptionType'
+										 autocomplete='off'
+										 placeholder='ExceptionType'
+										[(ngModel)]='exceptionLog.exceptionType'
+										 type='text'
+										 maxlength='100'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='errorMessage' class='col-sm-3 col-form-label'>ErrorMessage : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #errorMessage='ngModel' id='errorMessage' name='errorMessage'
+										 title='ErrorMessage'
+										 autocomplete='off'
+										 placeholder='ErrorMessage'
+										[(ngModel)]='exceptionLog.errorMessage'
+										 type='text'
+										 maxlength='2000'
+										 dir='ltr' />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='errorNumber' class='col-sm-3 col-form-label'>ErrorNumber : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #errorNumber='ngModel' id='errorNumber' name='errorNumber'
+										 title='ErrorNumber'
+										 autocomplete='off'
+										 placeholder='ErrorNumber'
+										[(ngModel)]='exceptionLog.errorNumber'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='errorCode' class='col-sm-3 col-form-label'>ErrorCode : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #errorCode='ngModel' id='errorCode' name='errorCode'
+										 title='ErrorCode'
+										 autocomplete='off'
+										 placeholder='ErrorCode'
+										[(ngModel)]='exceptionLog.errorCode'
+										 type='number'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='jsonValue' class='col-sm-3 col-form-label'>Json : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #jsonValue='ngModel' id='jsonValue' name='jsonValue'
+										 title='Json'
+										 autocomplete='off'
+										 placeholder='Json'
+										[(ngModel)]='exceptionLog.jsonValue'
+										 type='text'
+										 maxlength='-1'
+										 dir='ltr' />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

@@ -1,0 +1,52 @@
+
+<XDialog Header='Delete Confirmation Form of ExceptionLog' 
+    [IsShown]='IsShown' 
+    (OnClosed)='onCancel()'
+    [ModalType]='3'>
+    <div class='delete-frame'>
+        <p></p>
+        <p>You are going to Delete the record of ExceptionLog! </p>
+        <br>
+        <div class='margin20'>
+            
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Date : </label>
+                <label class='col-sm-8'>{{ currentInstance?.date | date:'fullDate' }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Time : </label>
+                <label class='col-sm-8'>{{ currentInstance?.time }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>CommandName : </label>
+                <label class='col-sm-8'>{{ currentInstance?.commandName }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>ExceptionType : </label>
+                <label class='col-sm-8'>{{ currentInstance?.exceptionType }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>ErrorMessage : </label>
+                <label class='col-sm-8'>{{ currentInstance?.errorMessage }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>ErrorNumber : </label>
+                <label class='col-sm-8'>{{ currentInstance?.errorNumber | number }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>ErrorCode : </label>
+                <label class='col-sm-8'>{{ currentInstance?.errorCode | number }}</label>
+            </div>
+            <div class='form-group row'>
+                <label class='col-sm-4 titleControl'>Json : </label>
+                <label class='col-sm-8'>{{ currentInstance?.jsonValue }}</label>
+            </div>
+        </div>
+        <br>
+        <p>Do You Confirm?  </p>
+    </div>
+    <div class='modal-footer'>
+      <button class='xbtn btn-delete modal-footer-button' type='button' (click)='onDelete()'>Ok, Delete it</button>
+      <button class='xbtn btn-edit modal-footer-button' type='button' (click)='onCancel()'>Cancel</button>
+    </div>
+</XDialog>

@@ -22,7 +22,6 @@ import { PersonDrivingLicense_ModuleFunc } from './PersonDrivingLicense/personDr
 import { Position_ModuleFunc } from './Position/position.module.func';
 import { PositionAssignment_ModuleFunc } from './PositionAssignment/positionAssignment.module.func';
 import { PositionAssignmentRepeal_ModuleFunc } from './PositionAssignmentRepeal/positionAssignmentRepeal.module.func';
-import { PositionCategory_ModuleFunc } from './PositionCategory/positionCategory.module.func';
 import { Relative_ModuleFunc } from './Relative/relative.module.func';
 import { SchoolHistory_ModuleFunc } from './SchoolHistory/schoolHistory.module.func';
 import { Unit_ModuleFunc } from './Unit/unit.module.func';
@@ -32,9 +31,9 @@ import { WorkExperience_ModuleFunc } from './WorkExperience/workExperience.modul
 
 
 @NgModule({
-  declarations: [],
-  imports: [
-    AbilityLevel_ModuleFunc,
+	declarations: [],
+	imports: [
+		AbilityLevel_ModuleFunc,
 		Contract_ModuleFunc,
 		Department_ModuleFunc,
 		Employee_ModuleFunc,
@@ -56,17 +55,16 @@ import { WorkExperience_ModuleFunc } from './WorkExperience/workExperience.modul
 		Position_ModuleFunc,
 		PositionAssignment_ModuleFunc,
 		PositionAssignmentRepeal_ModuleFunc,
-		PositionCategory_ModuleFunc,
 		Relative_ModuleFunc,
 		SchoolHistory_ModuleFunc,
 		Unit_ModuleFunc,
 		UniversityHistory_ModuleFunc,
 		UniversityTerminate_ModuleFunc,
 		WorkExperience_ModuleFunc,
-		
-  ],
-  exports: [
-    AbilityLevel_ModuleFunc,
+
+	],
+	exports: [
+		AbilityLevel_ModuleFunc,
 		Contract_ModuleFunc,
 		Department_ModuleFunc,
 		Employee_ModuleFunc,
@@ -88,14 +86,13 @@ import { WorkExperience_ModuleFunc } from './WorkExperience/workExperience.modul
 		Position_ModuleFunc,
 		PositionAssignment_ModuleFunc,
 		PositionAssignmentRepeal_ModuleFunc,
-		PositionCategory_ModuleFunc,
 		Relative_ModuleFunc,
 		SchoolHistory_ModuleFunc,
 		Unit_ModuleFunc,
 		UniversityHistory_ModuleFunc,
 		UniversityTerminate_ModuleFunc,
 		WorkExperience_ModuleFunc,
-		
-  ]
+
+	]
 })
 export class HR_ModuleFunc { }

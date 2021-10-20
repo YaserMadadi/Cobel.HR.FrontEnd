@@ -16,11 +16,8 @@ import { TargetSettingDeleteUI } from '../../../PMS/TargetSetting/delete/targetS
 @Component({
   selector: 'year-targetSetting-detail',
   templateUrl: './year-targetSetting.detail.html',
-  styleUrls: ['./year-targetSetting.detail.css'],
-  providers: [YearService]
-}) 
-
-@Injectable()
+  styleUrls: ['./year-targetSetting.detail.css']
+})
 export class Year_TargetSetting_DetailUI extends DetailView<Year> {
 
   constructor(private yearService: YearService) {

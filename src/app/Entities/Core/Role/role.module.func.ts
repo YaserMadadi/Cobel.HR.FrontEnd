@@ -27,10 +27,6 @@ import { RoleSeekUI } from './seek/role.seek';
         RoleEditUI,
 		RoleDeleteUI,
 		RoleSeekUI
-    ],
-    providers: [
-       //RoleService,
-       // RoleServiceCollection,
     ]
 })
 

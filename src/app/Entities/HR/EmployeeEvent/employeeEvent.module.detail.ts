@@ -21,9 +21,6 @@ import { EmployeeEventServiceCollection } from './employeeEvent.service.collecti
   exports: [
     // No Item...
   ],
-  providers: [
-    //EmployeeEventService,
-    //EmployeeEventServiceCollection
-  ]
+  
 })
 export class EmployeeEvent_ModuleDetail { }

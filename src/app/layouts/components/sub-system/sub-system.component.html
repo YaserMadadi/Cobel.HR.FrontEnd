@@ -1,0 +1,14 @@
+<div class='mat-app-background'>
+        <button mat-button
+                class='head'
+                [matMenuTriggerFor]="subSystems">{{ SelectedSubSystem?.title }}</button>
+        <mat-menu #subSystems="matMenu"
+                  class='mat-menu-panel'>
+                <button mat-menu-item
+                        class='item'
+                        *ngFor='let subSystem of subSystemList'
+                        (click)='onSelect(subSystem.id)'>{{ subSystem.title }}</button>
+
+        </mat-menu>
+</div>
+<!-- <app-sidebar-nav [navItems]="menu" [perfectScrollbar] ></app-sidebar-nav> -->

@@ -33,10 +33,6 @@ import { PersonConnection_ModuleMaster } from '../../HR/PersonConnection/personC
     ConnectionType_AssessorConnectionLine_DetailUI,
 		ConnectionType_CoachConnectionLine_DetailUI,
 		ConnectionType_PersonConnection_DetailUI
-  ],
-  providers: [
-    //ConnectionTypeService,
-    //ConnectionTypeServiceCollection
   ]
 })
 export class ConnectionType_ModuleDetail { }

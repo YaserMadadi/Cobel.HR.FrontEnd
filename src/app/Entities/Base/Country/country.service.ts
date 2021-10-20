@@ -28,6 +28,10 @@ export class CountryService extends Service<Country> implements IService<Country
 
   //region Methods
 
+CreateInstance() {
+   return new Country();
+}
+
   RetrieveById(id: number): Promise<Country> {
     return super.RetrieveById(id);
   }

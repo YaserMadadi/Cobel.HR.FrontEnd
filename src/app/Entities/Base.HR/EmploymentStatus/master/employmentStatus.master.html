@@ -1,25 +1,26 @@
-﻿<XDialog Header='Employment Status Management form'
+
+<XDialog Header='EmploymentStatus Management form'
     [IsShown]='IsShown' 
     (OnClosed)='onClose()'
     [ModalType]='2'>
     <div class='master-content'>
         <fieldset class='border rounded'>
-            <legend>Employment Status : </legend>
+            <legend>EmploymentStatus : </legend>
             <div>
                 <div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>English Title : 
+                    <label class='col-sm-4 titleControl'>EnglishTitle : 
                         <guide (onClick)='onGuid("EnglishTitle")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.englishTitle }}</label>
                 </div>
 				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Persian Title : 
+                    <label class='col-sm-4 titleControl'>PersianTitle : 
                         <guide (onClick)='onGuid("PersianTitle")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.persianTitle }}</label>
                 </div>
 				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Is Active : 
+                    <label class='col-sm-4 titleControl'>IsActive : 
                         <guide (onClick)='onGuid("IsActive")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
@@ -29,7 +30,7 @@
         </fieldset>
         <hr/>
         <tabset #tabset>
-            <tab heading='Employee Detail'>
+            <tab heading='EmployeeDetail'>
                 <employmentStatus-employeeDetail-detail 
                     #base_hrEmploymentStatusEmployeeDetailDetail
                     [EmploymentStatus]='currentInstance'>

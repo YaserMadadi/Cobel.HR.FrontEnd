@@ -32,10 +32,6 @@ import { FunctionalKPI_ModuleMaster } from '../../PMS/FunctionalKPI/functionalKP
   exports: [
     MeasurementUnitIndexUI,
 		MeasurementUnit_ModuleMaster,
-  ],
-  providers: [
-    // MeasurementUnitService,
-    // MeasurementUnitServiceCollection
-  ]
+   ]
 })
 export class MeasurementUnitModule {}

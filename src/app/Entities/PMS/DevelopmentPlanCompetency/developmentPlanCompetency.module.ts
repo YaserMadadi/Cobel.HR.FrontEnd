@@ -29,10 +29,6 @@ import { DevelopmentPlanCompetency_ModuleMaster } from './developmentPlanCompete
   exports: [
     DevelopmentPlanCompetencyIndexUI,
 		DevelopmentPlanCompetency_ModuleMaster,
-  ],
-  providers: [
-    // DevelopmentPlanCompetencyService,
-    // DevelopmentPlanCompetencyServiceCollection
-  ]
+   ]
 })
 export class DevelopmentPlanCompetencyModule {}

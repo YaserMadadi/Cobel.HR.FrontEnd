@@ -28,6 +28,10 @@ export class ExpectedLevelService extends Service<ExpectedLevel> implements ISer
 
   //region Methods
 
+CreateInstance() {
+   return new ExpectedLevel();
+}
+
   RetrieveById(id: number): Promise<ExpectedLevel> {
     return super.RetrieveById(id);
   }

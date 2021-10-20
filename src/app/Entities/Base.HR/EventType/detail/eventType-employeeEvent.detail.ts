@@ -1,4 +1,4 @@
-﻿import { Component, Injectable, Input } from '@angular/core';
+import { Component, Injectable, Input } from '@angular/core';
 
 import { DetailView } from '../../../../../xcore/tools/ui/view-base/detail.view';
 import { Info } from '../../../../../xcore/Info';
@@ -16,11 +16,8 @@ import { EmployeeEventDeleteUI } from '../../../HR/EmployeeEvent/delete/employee
 @Component({
   selector: 'eventType-employeeEvent-detail',
   templateUrl: './eventType-employeeEvent.detail.html',
-  styleUrls: ['./eventType-employeeEvent.detail.css'],
-  providers: [EventTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./eventType-employeeEvent.detail.css']
+})
 export class EventType_EmployeeEvent_DetailUI extends DetailView<EventType> {
 
   constructor(private eventTypeService: EventTypeService) {

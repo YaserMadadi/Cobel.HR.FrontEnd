@@ -42,53 +42,6 @@ export class AppraiseTimeIndexUI extends IndexView<AppraiseTime> implements Afte
 
   
   
-  //#region BehavioralAppraise
-
-  public behavioralAppraise_Clicked(behavioralAppraiseEditUI: BehavioralAppraiseEditUI) {
-    behavioralAppraiseEditUI.AppraiseTime = this.currentInstance;
-    behavioralAppraiseEditUI.ShowDialog(new BehavioralAppraise());
-  }
-                    
-  public behavioralAppraiseEditUI_Closed(behavioralAppraise: BehavioralAppraise) {
-    if (!behavioralAppraise)
-      return;
-    this.onRefresh();
-  }
-  
-  //#endregion BehavioralAppraise
-
-  //#region FunctionalAppraise
-
-  public functionalAppraise_Clicked(functionalAppraiseEditUI: FunctionalAppraiseEditUI) {
-    functionalAppraiseEditUI.AppraiseTime = this.currentInstance;
-    functionalAppraiseEditUI.ShowDialog(new FunctionalAppraise());
-  }
-                    
-  public functionalAppraiseEditUI_Closed(functionalAppraise: FunctionalAppraise) {
-    if (!functionalAppraise)
-      return;
-    this.onRefresh();
-  }
-  
-  //#endregion FunctionalAppraise
-
-  //#region QualitativeAppraise
-
-  public qualitativeAppraise_Clicked(qualitativeAppraiseEditUI: QualitativeAppraiseEditUI) {
-    qualitativeAppraiseEditUI.AppraiseTime = this.currentInstance;
-    qualitativeAppraiseEditUI.ShowDialog(new QualitativeAppraise());
-  }
-                    
-  public qualitativeAppraiseEditUI_Closed(qualitativeAppraise: QualitativeAppraise) {
-    if (!qualitativeAppraise)
-      return;
-    this.onRefresh();
-  }
-  
-  //#endregion QualitativeAppraise
-
-
-  
   @ViewChild('Paginator')
   PaginatorComponent: PaginatorComponent; 
 
@@ -102,8 +55,7 @@ export class AppraiseTimeIndexUI extends IndexView<AppraiseTime> implements Afte
 
   resetFilter() {
     this.filterInstance = AppraiseTime.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(appraiseTime: AppraiseTime) {

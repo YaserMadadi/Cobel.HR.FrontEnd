@@ -40,7 +40,8 @@ export class ExpectedLevelEditUI extends EditModal<ExpectedLevel> implements IEd
     
   }
   
-  InitExpectedLevel(expectedLevel: ExpectedLevel) {
+  InitExpectedLevel(expectedLevel: ExpectedLevel){
+    this.currentInstance = this.service.CreateInstance();
     if (!expectedLevel.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

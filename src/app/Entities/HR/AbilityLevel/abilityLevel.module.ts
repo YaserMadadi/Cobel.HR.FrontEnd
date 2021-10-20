@@ -35,10 +35,6 @@ import { LanguageAbility_ModuleMaster } from '../LanguageAbility/languageAbility
   exports: [
     AbilityLevelIndexUI,
 		AbilityLevel_ModuleMaster,
-  ],
-  providers: [
-    // AbilityLevelService,
-    // AbilityLevelServiceCollection
-  ]
+   ]
 })
 export class AbilityLevelModule {}

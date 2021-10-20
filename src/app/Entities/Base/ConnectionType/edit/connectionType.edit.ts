@@ -40,7 +40,8 @@ export class ConnectionTypeEditUI extends EditModal<ConnectionType> implements I
     
   }
   
-  InitConnectionType(connectionType: ConnectionType) {
+  InitConnectionType(connectionType: ConnectionType){
+    this.currentInstance = new ConnectionType();
     if (!connectionType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

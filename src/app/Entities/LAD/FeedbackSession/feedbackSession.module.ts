@@ -29,10 +29,6 @@ import { FeedbackSession_ModuleMaster } from './feedbackSession.module.master';
   exports: [
     FeedbackSessionIndexUI,
 		FeedbackSession_ModuleMaster,
-  ],
-  providers: [
-    // FeedbackSessionService,
-    // FeedbackSessionServiceCollection
-  ]
+   ]
 })
 export class FeedbackSessionModule {}

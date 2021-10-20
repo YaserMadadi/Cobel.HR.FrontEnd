@@ -56,8 +56,7 @@ export class AssessorConnectionLineIndexUI extends IndexView<AssessorConnectionL
 
   resetFilter() {
     this.filterInstance = AssessorConnectionLine.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(assessorConnectionLine: AssessorConnectionLine) {

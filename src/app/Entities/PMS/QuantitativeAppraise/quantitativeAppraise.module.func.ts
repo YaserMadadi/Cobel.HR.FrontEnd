@@ -28,10 +28,6 @@ import { TargetSetting_ModuleFunc } from '../TargetSetting/targetSetting.module.
         QuantitativeAppraiseEditUI,
 		QuantitativeAppraiseDeleteUI,
 		QuantitativeAppraiseSeekUI
-    ],
-    providers: [
-       //QuantitativeAppraiseService,
-       // QuantitativeAppraiseServiceCollection,
     ]
 })
 

@@ -1,4 +1,5 @@
-﻿import { NgModule } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 
 import { AppraiseTime_ModuleFunc } from './AppraiseTime/appraiseTime.module.func';
 import { AppraiseType_ModuleFunc } from './AppraiseType/appraiseType.module.func';
@@ -10,12 +11,13 @@ import { DevelopmentPlanPriority_ModuleFunc } from './DevelopmentPlanPriority/de
 import { ExpectedLevel_ModuleFunc } from './ExpectedLevel/expectedLevel.module.func';
 import { MeasurementUnit_ModuleFunc } from './MeasurementUnit/measurementUnit.module.func';
 import { Subject_ModuleFunc } from './Subject/subject.module.func';
+import { TargetSettingType_ModuleFunc } from './TargetSettingType/targetSettingType.module.func';
 
 
 @NgModule({
   declarations: [],
   imports: [
-		AppraiseTime_ModuleFunc,
+    AppraiseTime_ModuleFunc,
 		AppraiseType_ModuleFunc,
 		ApprovementType_ModuleFunc,
 		ApproverType_ModuleFunc,
@@ -25,10 +27,11 @@ import { Subject_ModuleFunc } from './Subject/subject.module.func';
 		ExpectedLevel_ModuleFunc,
 		MeasurementUnit_ModuleFunc,
 		Subject_ModuleFunc,
+		TargetSettingType_ModuleFunc,
 		
   ],
   exports: [
-		AppraiseTime_ModuleFunc,
+    AppraiseTime_ModuleFunc,
 		AppraiseType_ModuleFunc,
 		ApprovementType_ModuleFunc,
 		ApproverType_ModuleFunc,
@@ -38,6 +41,7 @@ import { Subject_ModuleFunc } from './Subject/subject.module.func';
 		ExpectedLevel_ModuleFunc,
 		MeasurementUnit_ModuleFunc,
 		Subject_ModuleFunc,
+		TargetSettingType_ModuleFunc,
 		
   ]
 })

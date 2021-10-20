@@ -29,10 +29,6 @@ import { Relative_ModuleMaster } from './relative.module.master';
   exports: [
     RelativeIndexUI,
 		Relative_ModuleMaster,
-  ],
-  providers: [
-    // RelativeService,
-    // RelativeServiceCollection
-  ]
+   ]
 })
 export class RelativeModule {}

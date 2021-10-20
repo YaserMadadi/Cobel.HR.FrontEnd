@@ -29,10 +29,6 @@ import { NonOperationalAppraise_ModuleMaster } from './nonOperationalAppraise.mo
   exports: [
     NonOperationalAppraiseIndexUI,
 		NonOperationalAppraise_ModuleMaster,
-  ],
-  providers: [
-    // NonOperationalAppraiseService,
-    // NonOperationalAppraiseServiceCollection
-  ]
+   ]
 })
 export class NonOperationalAppraiseModule {}

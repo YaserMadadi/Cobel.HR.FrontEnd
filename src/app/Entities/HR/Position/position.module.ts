@@ -46,10 +46,6 @@ import { TargetSetting_ModuleMaster } from '../../PMS/TargetSetting/targetSettin
   exports: [
     PositionIndexUI,
 		Position_ModuleMaster,
-  ],
-  providers: [
-    // PositionService,
-    // PositionServiceCollection
-  ]
+   ]
 })
 export class PositionModule {}

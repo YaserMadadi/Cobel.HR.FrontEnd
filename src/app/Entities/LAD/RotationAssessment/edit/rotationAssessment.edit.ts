@@ -79,7 +79,8 @@ export class RotationAssessmentEditUI extends EditModal<RotationAssessment> impl
     
   }
   
-  InitRotationAssessment(rotationAssessment: RotationAssessment) {
+  InitRotationAssessment(rotationAssessment: RotationAssessment){
+    this.currentInstance = this.service.CreateInstance();
     if (!rotationAssessment.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.assessmentComponent.instance = rotationAssessment.assessment;

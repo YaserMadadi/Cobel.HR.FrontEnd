@@ -29,6 +29,10 @@ export class LogService extends Service<Log> implements IService<Log> {
 
   //region Methods
 
+CreateInstance() {
+   return new Log();
+}
+
   RetrieveById(id: number): Promise<Log> {
     return super.RetrieveById(id);
   }

@@ -1,4 +1,5 @@
-﻿import { NgModule } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -23,10 +24,6 @@ import { Person_ModuleMaster } from '../../HR/Person/person.module.master';
   ],
   exports: [
     MaritalStatus_Person_DetailUI
-  ],
-  providers: [
-    //MaritalStatusService,
-    //MaritalStatusServiceCollection
   ]
 })
 export class MaritalStatus_ModuleDetail { }

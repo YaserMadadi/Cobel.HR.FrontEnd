@@ -1,12 +1,12 @@
 import { Location } from '@angular/common';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { EventEmitter, Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { EventEmitter, Injectable, isDevMode } from '@angular/core';
 import { Router } from '@angular/router';
 import { Md5 } from 'ts-md5';
-import { BaseTokenResult } from './base/base_token_result';
-import { BaseToken } from './base/base_token';
+import { AccessToken } from './base/base_token_result';
+import { LoginUser } from './base/base_token';
 import { Info } from '../Info';
-import { MessageController } from '../tools/controller.message';
+import { MessageController, toastType } from '../tools/controller.message';
 import { Result } from '../tools/Result';
 import { AuthGuard } from './auth_guard';
 import { StorageController } from '../tools/controller.storage';
@@ -19,6 +19,7 @@ import { Person } from '../../app/Entities/HR/Person/person';
 import { EmployeeService } from '../../app/Entities/HR/Employee/employee.service';
 import { Position } from '../../app/Entities/HR/Position/position';
 import { PositionService } from '../../app/Entities/HR/Position/position.service';
+import { ResultData } from '../tools/ResultData';
 
 // import { PersonService } from '../../app/Entities/HR/Person/person.service';
 
@@ -64,6 +65,20 @@ export class AuthService extends EndPointController {
 
 	//#endregion
 
+	//#region	CurrentEmployeeManager
+
+	private static _currentEmployeeManager: Employee;
+
+	public static get currentEmployeeManager(): Employee {
+		return this._currentEmployeeManager;
+	}
+
+	public static set currentEmployeeManager(v: Employee) {
+		this._currentEmployee = v;
+	}
+	//#endregion
+
+
 	//#region CurrentPositions
 
 	private static _currentPositionList: Position[] = [];
@@ -78,55 +93,73 @@ export class AuthService extends EndPointController {
 
 	//#endregion
 
-	public async Authenticate(baseToken: BaseToken) {
-		let url = EndPointController.BaseUrl + 'Authenticate';
-		// console.log('URL : ', url);
-		// console.log('Base Token : ', baseToken);
+	public async Authenticate(loginUser: LoginUser) {
+		let url = EndPointController.BaseUrl + 'Authenticate/Login';
 		let h: HttpHeaders = new HttpHeaders();
-		let command = this.http.post<BaseTokenResult>(url, baseToken,
+		let command = this.http.post<ResultData<AccessToken>>(url, loginUser,
 			{
 				withCredentials: false,
-				//headers:h
 			});
 
-		return command.toPromise<BaseTokenResult>()
+		return command.toPromise<ResultData<AccessToken>>()
 			.then(authResult => {
+				console.log(authResult);
 				if (authResult && authResult.id > 0) {
-					this.LogedIn(authResult);
+					this.LogedIn(authResult.data);
 				}
 				else {
-					alert('Login Failed!');
+					console.warn(authResult.data.token);
 					MessageController.ShowMessage(MessageType.UserNameOrPasswordNotAccepted);
+					AuthGuard.Clear();
 				}
 			},
 				(error) => {
-					MessageController.ShowMessage(MessageType.UserNameOrPasswordNotAccepted);
+					if (!(error instanceof HttpErrorResponse)) {
+						MessageController.ShowMessage(MessageType.UserNameOrPasswordNotAccepted);
+					} else {
+
+						let result = <ResultData<AccessToken>>error.error;
+
+						console.log('Result in Error Handler : ', result);
+
+						if (result && result.message && result.message.length > 0)
+
+							MessageController.ShowMessage(result.message, toastType.error);
+
+						else
+
+							MessageController.ShowMessage(MessageType.UserNameOrPasswordNotAccepted);
+						// else if (result && result.sqlMessage && result.sqlMessage.length > 0)
+
+						// 	MessageController.ShowMessage(result.sqlMessage, toastType.error);
+
+						// else
+
+						// 	MessageController.ShowMessage(`Error in ${action} • More Details : ${error}`, toastType.error);
+					}
 					console.log('Error : ', error);
 					AuthGuard.Clear();
 				});
 	}
 
-	async LogedIn(baseTokenResult: BaseTokenResult) {
-		StorageController.Token = baseTokenResult.token;
-		StorageController.Set('token', baseTokenResult.token);
-		StorageController.Set('SamAccount', baseTokenResult.samAccount);
-		StorageController.Set('Person_Id', baseTokenResult.person_Id);
-		AuthGuard.Person_Id = baseTokenResult.person_Id;
-		AuthGuard.SAMAccount = baseTokenResult.samAccount;
-		AuthGuard.DisplayName = baseTokenResult.displayName;
-		MessageController.DisplayName = baseTokenResult.displayName;
+	async LogedIn(accessToken: AccessToken) {
+		if (isDevMode())
+			console.log(accessToken);
+		StorageController.Token = accessToken.token;
+		AuthGuard.Person_Id = accessToken.person_Id;
+		AuthGuard.SAMAccount = accessToken.samAccount;
+		AuthGuard.DisplayName = accessToken.displayName;
+		MessageController.DisplayName = accessToken.displayName;
 		MessageController.ShowMessage(MessageType.Welcome);
-		this.permissionController.loadPermission(baseTokenResult.employee_Id);
-		this.loadEmployee(baseTokenResult.employee_Id);
-		this.loadPerson(baseTokenResult.person_Id);
+		this.permissionController.loadPermission(accessToken.employee_Id);
+		this.loadEmployee(accessToken.employee_Id);
+		this.loadPerson(accessToken.person_Id);
 	}
 
 	private loadPerson(person_id: number) {
 		this.employeeService.PersonService.RetrieveById(person_id)
 			.then(person => {
 				AuthService.currentPerson = person;
-				console.log('Current Person : ', person);
-
 			});
 	}
 
@@ -135,15 +168,13 @@ export class AuthService extends EndPointController {
 			.then(employee => {
 				AuthService.currentEmployee = employee;
 				this.loadPositionList(employee);
-				//console.log('Current Employee : ', employee);
 			});
 	}
 
 	private loadPositionList(employee: Employee) {
-		console.log('load Position');
-		
 		this.employeeService.ServiceCollection.CollectionOfPositionAssignment(employee)
 			.then(list => {
+				console.table(list);
 				list.forEach(PositionAssignmentItem => {
 					this.positionService.RetrieveById(PositionAssignmentItem.position.id)
 						.then(position => {
@@ -159,7 +190,6 @@ export class AuthService extends EndPointController {
 
 	SignOut() {
 		AuthGuard.SignOut();
-		//AuthService.CurrentUserAccount = new UserAccount();
 		MessageController.DisplayName = '';
 	}
 
@@ -189,36 +219,6 @@ export class AuthService extends EndPointController {
 			);
 	}
 
-	// private getActiveSession(sessionID: string) {
-	// 	//let userAccount: UserAccount = new UserAccount();
-	// 	//userAccount.currentSessionID = sessionID;
-	// 	let url = ServiceConfig.BaseUrl + 'Auth';
-	// let command = this.http.post<UserAccount>(url, userAccount, {
-	// 	withCredentials: true
-	// });
-	// return command.toPromise<UserAccount>()
-	// 	.then(
-	// 		(userAccount: UserAccount) => {
-	// 			console.log('user: ', userAccount);
-	// 			if (userAccount && userAccount.id > 0) {
-	// 				AuthService.CurrentUserAccount = userAccount;
-	// 				StorageController.SaveSessionID(userAccount.currentSessionID);
-	// 				this.loadDependencies();
-	// 				this.router.navigate(['dashboard']);
-	// 			} else {
-	// 				console.log('error in UserAccount');
-	// 				this.router.navigate(['login']);
-	// 			}
-	// 			return userAccount;
-	// 		},
-	// 		(error) => {
-	// 			console.log('error : ', error);
-	// 			AuthService.CurrentUserAccount = new UserAccount();
-	// 			AuthGuard.Clear();
-	// 			this.router.navigate(['login']);
-	// 		});
-	//}
-
 	public static isAuthenticated() {
 		return AuthService; //&& AuthService.CurrentUserAccount && AuthService.CurrentUserAccount.currentSessionID !== '';
 
@@ -227,11 +227,6 @@ export class AuthService extends EndPointController {
 	public isAuthenticated() {
 		return AuthService.isAuthenticated();
 	}
-
-	// isAdmin() {
-	// 	return AuthService.CurrentUserAccount && AuthService.CurrentUserAccount.userName ? AuthService.CurrentUserAccount.userName.toLowerCase().includes('y.madadi-temp') : false;
-	// }
-
 
 }
 

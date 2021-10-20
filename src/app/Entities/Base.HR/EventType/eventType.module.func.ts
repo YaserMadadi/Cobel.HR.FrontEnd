@@ -1,4 +1,4 @@
-﻿import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { XCommonModule } from '../../../../xcore/xcommon.module';
@@ -27,10 +27,6 @@ import { EventTypeSeekUI } from './seek/eventType.seek';
         EventTypeEditUI,
 		EventTypeDeleteUI,
 		EventTypeSeekUI
-    ],
-    providers: [
-       //EventTypeService,
-       // EventTypeServiceCollection,
     ]
 })
 

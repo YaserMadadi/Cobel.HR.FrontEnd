@@ -56,10 +56,6 @@ import { RotationAssessment_ModuleMaster } from '../RotationAssessment/rotationA
   exports: [
     AssessmentIndexUI,
 		Assessment_ModuleMaster,
-  ],
-  providers: [
-    // AssessmentService,
-    // AssessmentServiceCollection
-  ]
+   ]
 })
 export class AssessmentModule {}

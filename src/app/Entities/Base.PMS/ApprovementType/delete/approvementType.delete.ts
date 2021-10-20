@@ -10,7 +10,7 @@ import { ApprovementTypeService } from '../approvementType.service';
   selector: 'base-pms-approvementType-delete',
   templateUrl: './approvementType.delete.html',
   styleUrls: ['./approvementType.delete.css'],
-  providers: [ApprovementTypeService]
+  
 })
 export class ApprovementTypeDeleteUI extends DeleteModal<ApprovementType> {
 

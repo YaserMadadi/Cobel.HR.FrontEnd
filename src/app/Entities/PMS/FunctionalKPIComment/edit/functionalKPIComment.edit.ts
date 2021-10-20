@@ -69,7 +69,8 @@ export class FunctionalKPICommentEditUI extends EditModal<FunctionalKPIComment> 
     
   }
   
-  InitFunctionalKPIComment(functionalKPIComment: FunctionalKPIComment) {
+  InitFunctionalKPIComment(functionalKPIComment: FunctionalKPIComment){
+    this.currentInstance = this.service.CreateInstance();
     if (!functionalKPIComment.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.functionalKPIComponent.instance = functionalKPIComment.functionalKPI;

@@ -10,7 +10,7 @@ import { CoachConnectionLineService } from '../coachConnectionLine.service';
   selector: 'lad-coachConnectionLine-delete',
   templateUrl: './coachConnectionLine.delete.html',
   styleUrls: ['./coachConnectionLine.delete.css'],
-  providers: [CoachConnectionLineService]
+  
 })
 export class CoachConnectionLineDeleteUI extends DeleteModal<CoachConnectionLine> {
 

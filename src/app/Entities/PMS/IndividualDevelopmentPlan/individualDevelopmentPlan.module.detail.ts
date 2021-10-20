@@ -24,9 +24,6 @@ import { DevelopmentPlanCompetency_ModuleMaster } from '../DevelopmentPlanCompet
   exports: [
     IndividualDevelopmentPlan_DevelopmentPlanCompetency_DetailUI
   ],
-  providers: [
-    //IndividualDevelopmentPlanService,
-    //IndividualDevelopmentPlanServiceCollection
-  ]
+  
 })
 export class IndividualDevelopmentPlan_ModuleDetail { }

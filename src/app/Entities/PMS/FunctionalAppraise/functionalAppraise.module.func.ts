@@ -27,17 +27,12 @@ import { AppraiseTime_ModuleFunc } from '../../Base.PMS/AppraiseTime/appraiseTim
         XCommonModule,
         FunctionalKPI_ModuleFunc,
 		Employee_ModuleFunc,
-		AppraiseType_ModuleFunc,
-		AppraiseTime_ModuleFunc
+		AppraiseType_ModuleFunc
     ],
     exports: [
         FunctionalAppraiseEditUI,
 		FunctionalAppraiseDeleteUI,
 		FunctionalAppraiseSeekUI
-    ],
-    providers: [
-       //FunctionalAppraiseService,
-       // FunctionalAppraiseServiceCollection,
     ]
 })
 

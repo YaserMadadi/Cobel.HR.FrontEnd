@@ -27,10 +27,6 @@ import { DevelopmentPlanPrioritySeekUI } from './seek/developmentPlanPriority.se
         DevelopmentPlanPriorityEditUI,
 		DevelopmentPlanPriorityDeleteUI,
 		DevelopmentPlanPrioritySeekUI
-    ],
-    providers: [
-       //DevelopmentPlanPriorityService,
-       // DevelopmentPlanPriorityServiceCollection,
     ]
 })
 

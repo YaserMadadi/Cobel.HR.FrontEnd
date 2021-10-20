@@ -32,10 +32,6 @@ import { MilitaryServiceExcemption_ModuleMaster } from '../../HR/MilitaryService
   exports: [
     ExcemptionTypeIndexUI,
 		ExcemptionType_ModuleMaster,
-  ],
-  providers: [
-    // ExcemptionTypeService,
-    // ExcemptionTypeServiceCollection
-  ]
+   ]
 })
 export class ExcemptionTypeModule {}

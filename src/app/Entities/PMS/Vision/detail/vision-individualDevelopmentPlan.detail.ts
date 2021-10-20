@@ -16,11 +16,8 @@ import { IndividualDevelopmentPlanDeleteUI } from '../../IndividualDevelopmentPl
 @Component({
   selector: 'vision-individualDevelopmentPlan-detail',
   templateUrl: './vision-individualDevelopmentPlan.detail.html',
-  styleUrls: ['./vision-individualDevelopmentPlan.detail.css'],
-  providers: [VisionService]
-}) 
-
-@Injectable()
+  styleUrls: ['./vision-individualDevelopmentPlan.detail.css']
+})
 export class Vision_IndividualDevelopmentPlan_DetailUI extends DetailView<Vision> {
 
   constructor(private visionService: VisionService) {

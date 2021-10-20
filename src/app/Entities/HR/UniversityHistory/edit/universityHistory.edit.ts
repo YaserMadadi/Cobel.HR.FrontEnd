@@ -122,7 +122,8 @@ export class UniversityHistoryEditUI extends EditModal<UniversityHistory> implem
 		this.certificationTypeComponent.LoadList();
   }
   
-  InitUniversityHistory(universityHistory: UniversityHistory) {
+  InitUniversityHistory(universityHistory: UniversityHistory){
+    this.currentInstance = this.service.CreateInstance();
     if (!universityHistory.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = universityHistory.person;

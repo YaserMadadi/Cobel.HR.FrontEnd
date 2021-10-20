@@ -20,10 +20,6 @@ import { VisionComment_ModuleDetail } from './visionComment.module.detail';
     ],
     exports: [
         VisionCommentMasterUI
-    ],
-    providers: [
-        //VisionCommentService,
-       // VisionCommentServiceCollection   
     ]
 })
 

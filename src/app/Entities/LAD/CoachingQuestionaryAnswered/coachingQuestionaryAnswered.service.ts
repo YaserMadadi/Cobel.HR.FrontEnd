@@ -31,6 +31,10 @@ export class CoachingQuestionaryAnsweredService extends Service<CoachingQuestion
 
   //region Methods
 
+CreateInstance() {
+   return new CoachingQuestionaryAnswered();
+}
+
   RetrieveById(id: number): Promise<CoachingQuestionaryAnswered> {
     return super.RetrieveById(id);
   }

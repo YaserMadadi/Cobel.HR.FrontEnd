@@ -28,6 +28,10 @@ export class DesirableSituationService extends Service<DesirableSituation> imple
 
   //region Methods
 
+CreateInstance() {
+   return new DesirableSituation();
+}
+
   RetrieveById(id: number): Promise<DesirableSituation> {
     return super.RetrieveById(id);
   }

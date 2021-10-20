@@ -12,13 +12,14 @@ import { BehavioralAppraiseDeleteUI } from '../../BehavioralAppraise/delete/beha
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
 import { PositionController } from '../../../../../xcore/tools/controller.positions';
+import { MessageType } from '../../../../../xcore/tools/Enum';
 
 @Component({
   selector: 'behavioralKPI-behavioralAppraise-detail',
   templateUrl: './behavioralKPI-behavioralAppraise.detail.html',
   styleUrls: ['./behavioralKPI-behavioralAppraise.detail.css'],
-  providers: [BehavioralKPIService]
-}) 
+  
+})
 
 @Injectable()
 export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<BehavioralKPI> {
@@ -27,9 +28,9 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
     super(behavioralKPIService);
   }
 
-  public BehavioralAppraiseList : BehavioralAppraise[] = [];
-  
-  public currentBehavioralAppraise : BehavioralAppraise = new BehavioralAppraise();
+  public BehavioralAppraiseList: BehavioralAppraise[] = [];
+
+  public currentBehavioralAppraise: BehavioralAppraise = new BehavioralAppraise();
 
   private behavioralKPI: BehavioralKPI = new BehavioralKPI();
 
@@ -41,8 +42,7 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
 
   public get BehavioralKPI(): BehavioralKPI { return this.behavioralKPI }
 
-  public onReload(){
-    console.log('hi',this.behavioralKPI);
+  public onReload() {
     if (BehavioralKPI.NotConfirm(this.behavioralKPI))
       return;
     this.behavioralKPIService
@@ -61,19 +61,34 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
   }
 
   public onDblClicked(masterUI: BehavioralAppraiseMasterUI) {
+    if (!this.checkTargetSetting())
+      return;
     if (BehavioralAppraise.NotConfirm(this.currentBehavioralAppraise))
       return;
     masterUI.ShowDialog(this.currentBehavioralAppraise);
   }
 
+  private checkTargetSetting(): boolean {
+    if (this.behavioralKPI.behavioralObjective.targetSetting.isLocked) {
+      MessageController.ShowMessage(MessageType.RecordIsLocked);
+      return false;
+    }
+
+    return true;
+  }
+
   public onAdd(editUI: BehavioralAppraiseEditUI) {
+    if (!this.checkTargetSetting())
+      return;
     editUI.BehavioralKPI = this.behavioralKPI;
     editUI.SetDefault();
     editUI.ShowDialog(new BehavioralAppraise());
   }
 
   public onEdit(editUI: BehavioralAppraiseEditUI) {
-    if (this.currentBehavioralAppraise.appraiser.id != AuthService.currentEmployee.id &&
+    if (!this.checkTargetSetting())
+      return;
+    if (this.currentBehavioralAppraise?.appraiser?.id != AuthService.currentEmployee.id &&
       AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
       MessageController.ShowMessage('You are not allowed to Edit this record of Appraisal!', toastType.error);
       return;
@@ -84,6 +99,8 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
   }
 
   public onDelete(deleteUI: BehavioralAppraiseDeleteUI) {
+    if (!this.checkTargetSetting())
+      return;
     if (this.currentBehavioralAppraise.appraiser.id != AuthService.currentEmployee.id &&
       AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
       MessageController.ShowMessage('You are not allowed to Delete this record of Appraisal!', toastType.error);
@@ -98,7 +115,7 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
     this.onReload();
   }
 
-  public onDeleteModal_Closed(result:boolean) {
+  public onDeleteModal_Closed(result: boolean) {
     this.onReload();
   }
 }

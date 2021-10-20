@@ -32,10 +32,6 @@ import { PositionAssignmentRepeal_ModuleMaster } from '../PositionAssignmentRepe
   exports: [
     PositionAssignmentIndexUI,
 		PositionAssignment_ModuleMaster,
-  ],
-  providers: [
-    // PositionAssignmentService,
-    // PositionAssignmentServiceCollection
-  ]
+   ]
 })
 export class PositionAssignmentModule {}

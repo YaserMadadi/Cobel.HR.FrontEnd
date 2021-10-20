@@ -80,10 +80,6 @@ import { WorkExperience_ModuleMaster } from '../WorkExperience/workExperience.mo
   exports: [
     PersonIndexUI,
 		Person_ModuleMaster,
-  ],
-  providers: [
-    // PersonService,
-    // PersonServiceCollection
-  ]
+   ]
 })
 export class PersonModule {}

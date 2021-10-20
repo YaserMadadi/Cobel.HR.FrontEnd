@@ -30,10 +30,6 @@ import { MeasurementUnit_ModuleFunc } from '../../Base.PMS/MeasurementUnit/measu
         FunctionalKPIEditUI,
 		FunctionalKPIDeleteUI,
 		FunctionalKPISeekUI
-    ],
-    providers: [
-       //FunctionalKPIService,
-       // FunctionalKPIServiceCollection,
     ]
 })
 

@@ -17,7 +17,6 @@ import { UniversityDeleteUI } from '../../University/delete/university.delete';
   selector: 'city-university-detail',
   templateUrl: './city-university.detail.html',
   styleUrls: ['./city-university.detail.css'],
-  providers: [CityService]
 }) 
 
 @Injectable()

@@ -16,11 +16,8 @@ import { YearQuarterDeleteUI } from '../../YearQuarter/delete/yearQuarter.delete
 @Component({
   selector: 'quarter-yearQuarter-detail',
   templateUrl: './quarter-yearQuarter.detail.html',
-  styleUrls: ['./quarter-yearQuarter.detail.css'],
-  providers: [QuarterService]
-}) 
-
-@Injectable()
+  styleUrls: ['./quarter-yearQuarter.detail.css']
+})
 export class Quarter_YearQuarter_DetailUI extends DetailView<Quarter> {
 
   constructor(private quarterService: QuarterService) {

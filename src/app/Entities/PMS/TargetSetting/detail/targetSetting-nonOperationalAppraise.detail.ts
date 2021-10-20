@@ -16,11 +16,8 @@ import { NonOperationalAppraiseDeleteUI } from '../../NonOperationalAppraise/del
 @Component({
   selector: 'targetSetting-nonOperationalAppraise-detail',
   templateUrl: './targetSetting-nonOperationalAppraise.detail.html',
-  styleUrls: ['./targetSetting-nonOperationalAppraise.detail.css'],
-  providers: [TargetSettingService]
-}) 
-
-@Injectable()
+  styleUrls: ['./targetSetting-nonOperationalAppraise.detail.css']
+})
 export class TargetSetting_NonOperationalAppraise_DetailUI extends DetailView<TargetSetting> {
 
   constructor(private targetSettingService: TargetSettingService) {

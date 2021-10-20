@@ -56,8 +56,7 @@ export class TrainingIndexUI extends IndexView<Training> implements AfterViewIni
 
   resetFilter() {
     this.filterInstance = Training.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(training: Training) {

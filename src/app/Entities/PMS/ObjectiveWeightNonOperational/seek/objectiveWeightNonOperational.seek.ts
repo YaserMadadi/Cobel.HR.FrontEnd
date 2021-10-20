@@ -26,7 +26,7 @@ export class ObjectiveWeightNonOperationalSeekUI extends SeekModal<ObjectiveWeig
     this.onClose(this.objectiveWeightNonOperational);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

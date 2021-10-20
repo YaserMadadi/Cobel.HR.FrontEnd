@@ -28,10 +28,6 @@ import { Person_ModuleFunc } from '../Person/person.module.func';
         WorkExperienceEditUI,
 		WorkExperienceDeleteUI,
 		WorkExperienceSeekUI
-    ],
-    providers: [
-       //WorkExperienceService,
-       // WorkExperienceServiceCollection,
     ]
 })
 

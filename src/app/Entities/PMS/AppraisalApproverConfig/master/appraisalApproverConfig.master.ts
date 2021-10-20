@@ -12,11 +12,7 @@ import { AppraisalApproverConfigEditUI } from '../edit/appraisalApproverConfig.e
 @Component({
   selector: 'pms-appraisalApproverConfig-master',
   templateUrl: './appraisalApproverConfig.master.html',
-  styleUrls: ['./appraisalApproverConfig.master.css'],
-  providers: [
-    AppraisalApproverConfigService,
-    
-  ]
+  styleUrls: ['./appraisalApproverConfig.master.css']
 })
 export class AppraisalApproverConfigMasterUI extends MasterModal<AppraisalApproverConfig> {
 

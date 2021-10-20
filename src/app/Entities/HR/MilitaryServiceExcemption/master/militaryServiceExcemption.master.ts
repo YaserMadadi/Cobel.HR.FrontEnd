@@ -12,11 +12,7 @@ import { MilitaryServiceExcemptionEditUI } from '../edit/militaryServiceExcempti
 @Component({
   selector: 'hr-militaryServiceExcemption-master',
   templateUrl: './militaryServiceExcemption.master.html',
-  styleUrls: ['./militaryServiceExcemption.master.css'],
-  providers: [
-    MilitaryServiceExcemptionService,
-    
-  ]
+  styleUrls: ['./militaryServiceExcemption.master.css']
 })
 export class MilitaryServiceExcemptionMasterUI extends MasterModal<MilitaryServiceExcemption> {
 

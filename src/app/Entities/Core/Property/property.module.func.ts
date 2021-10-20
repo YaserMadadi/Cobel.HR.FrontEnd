@@ -28,10 +28,6 @@ import { Entity_ModuleFunc } from '../Entity/entity.module.func';
         PropertyEditUI,
 		PropertyDeleteUI,
 		PropertySeekUI
-    ],
-    providers: [
-       //PropertyService,
-       // PropertyServiceCollection,
     ]
 })
 

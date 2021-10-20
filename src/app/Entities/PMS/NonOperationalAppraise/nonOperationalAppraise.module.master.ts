@@ -20,10 +20,6 @@ import { NonOperationalAppraise_ModuleDetail } from './nonOperationalAppraise.mo
     ],
     exports: [
         NonOperationalAppraiseMasterUI
-    ],
-    providers: [
-        //NonOperationalAppraiseService,
-       // NonOperationalAppraiseServiceCollection   
     ]
 })
 

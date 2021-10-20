@@ -28,10 +28,6 @@ import { UniversityHistory_ModuleFunc } from '../UniversityHistory/universityHis
         UniversityTerminateEditUI,
 		UniversityTerminateDeleteUI,
 		UniversityTerminateSeekUI
-    ],
-    providers: [
-       //UniversityTerminateService,
-       // UniversityTerminateServiceCollection,
     ]
 })
 

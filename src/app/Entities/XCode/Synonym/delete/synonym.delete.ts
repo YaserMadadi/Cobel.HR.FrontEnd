@@ -10,7 +10,7 @@ import { SynonymService } from '../synonym.service';
   selector: 'xcode-synonym-delete',
   templateUrl: './synonym.delete.html',
   styleUrls: ['./synonym.delete.css'],
-  providers: [SynonymService]
+  
 })
 export class SynonymDeleteUI extends DeleteModal<Synonym> {
 

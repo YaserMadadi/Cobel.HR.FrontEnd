@@ -33,10 +33,6 @@ import { University_ModuleMaster } from '../University/university.module.master'
     City_Habitancy_DetailUI,
 		BirthCity_Person_DetailUI,
 		City_University_DetailUI
-  ],
-  providers: [
-    //CityService,
-    //CityServiceCollection
   ]
 })
 export class City_ModuleDetail { }

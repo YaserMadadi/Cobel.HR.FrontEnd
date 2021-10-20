@@ -24,9 +24,6 @@ import { Unit_ModuleMaster } from '../Unit/unit.module.master';
   exports: [
     Department_Unit_DetailUI
   ],
-  providers: [
-    //DepartmentService,
-    //DepartmentServiceCollection
-  ]
+  
 })
 export class Department_ModuleDetail { }

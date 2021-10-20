@@ -57,8 +57,7 @@ export class AssessmentTrainingIndexUI extends IndexView<AssessmentTraining> imp
 
   resetFilter() {
     this.filterInstance = AssessmentTraining.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(assessmentTraining: AssessmentTraining) {

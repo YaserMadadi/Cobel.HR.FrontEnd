@@ -10,8 +10,8 @@ import { Unit } from '../unit';
 import { UnitService } from '../unit.service';
 import { Department } from '../../Department/department';
 import { DepartmentEditUI } from '../../Department/edit/department.edit';
-import { PositionCategory } from '../../PositionCategory/positionCategory';
-import { PositionCategoryEditUI } from '../../PositionCategory/edit/positionCategory.edit';
+import { PositionCategory } from '../../../Base.HR/PositionCategory/positionCategory';
+import { PositionCategoryEditUI } from '../../../Base.HR/PositionCategory/edit/positionCategory.edit';
 
 
 
@@ -69,7 +69,8 @@ export class UnitEditUI extends EditModal<Unit> implements IEditModal<Unit>  {
     this.positionCategoryComponent.LoadList();
   }
 
-  InitUnit(unit: Unit) {
+  InitUnit(unit: Unit){
+    this.currentInstance = this.service.CreateInstance();
     if (!unit.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.departmentComponent.instance = unit.department;

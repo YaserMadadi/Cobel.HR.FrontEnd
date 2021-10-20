@@ -14,10 +14,7 @@ import { CityService } from '../../City/city.service';
   selector: 'base-province-master',
   templateUrl: './province.master.html',
   styleUrls: ['./province.master.css'],
-  providers: [
-    ProvinceService,
-    CityService,
-  ]
+  
 })
 export class ProvinceMasterUI extends MasterModal<Province> {
 

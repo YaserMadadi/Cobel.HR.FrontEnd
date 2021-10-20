@@ -10,7 +10,6 @@ import { CountryService } from '../country.service';
   selector: 'base-country-delete',
   templateUrl: './country.delete.html',
   styleUrls: ['./country.delete.css'],
-  providers: [CountryService]
 })
 export class CountryDeleteUI extends DeleteModal<Country> {
 

@@ -16,11 +16,8 @@ import { DevelopmentPlanCompetencyDeleteUI } from '../../DevelopmentPlanCompeten
 @Component({
   selector: 'individualDevelopmentPlan-developmentPlanCompetency-detail',
   templateUrl: './individualDevelopmentPlan-developmentPlanCompetency.detail.html',
-  styleUrls: ['./individualDevelopmentPlan-developmentPlanCompetency.detail.css'],
-  providers: [IndividualDevelopmentPlanService]
-}) 
-
-@Injectable()
+  styleUrls: ['./individualDevelopmentPlan-developmentPlanCompetency.detail.css']
+})
 export class IndividualDevelopmentPlan_DevelopmentPlanCompetency_DetailUI extends DetailView<IndividualDevelopmentPlan> {
 
   constructor(private individualDevelopmentPlanService: IndividualDevelopmentPlanService) {

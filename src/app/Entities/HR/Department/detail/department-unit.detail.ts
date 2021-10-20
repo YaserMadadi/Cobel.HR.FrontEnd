@@ -17,7 +17,7 @@ import { UnitDeleteUI } from '../../Unit/delete/unit.delete';
   selector: 'department-unit-detail',
   templateUrl: './department-unit.detail.html',
   styleUrls: ['./department-unit.detail.css'],
-  providers: [DepartmentService]
+  
 })
 
 @Injectable()

@@ -40,7 +40,8 @@ export class AssessmentTypeEditUI extends EditModal<AssessmentType> implements I
     
   }
   
-  InitAssessmentType(assessmentType: AssessmentType) {
+  InitAssessmentType(assessmentType: AssessmentType){
+    this.currentInstance = this.service.CreateInstance();
     if (!assessmentType.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

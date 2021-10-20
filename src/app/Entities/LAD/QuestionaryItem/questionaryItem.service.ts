@@ -32,6 +32,10 @@ export class QuestionaryItemService extends Service<QuestionaryItem> implements 
 
   //region Methods
 
+CreateInstance() {
+   return new QuestionaryItem();
+}
+
   RetrieveById(id: number): Promise<QuestionaryItem> {
     return super.RetrieveById(id);
   }

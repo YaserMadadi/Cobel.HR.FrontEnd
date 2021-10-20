@@ -68,7 +68,8 @@ export class PersonCertificateEditUI extends EditModal<PersonCertificate> implem
     this.fieldCategoryComponent.LoadList();
   }
   
-  InitPersonCertificate(personCertificate: PersonCertificate) {
+  InitPersonCertificate(personCertificate: PersonCertificate){
+    this.currentInstance = this.service.CreateInstance();
     if (!personCertificate.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = personCertificate.person;

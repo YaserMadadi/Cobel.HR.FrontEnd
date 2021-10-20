@@ -56,6 +56,10 @@ export class PersonService extends Service<Person> implements IService<Person> {
 
   //region Methods
 
+CreateInstance() {
+   return new Person();
+}
+
   RetrieveById(id: number): Promise<Person> {
     return super.RetrieveById(id);
   }

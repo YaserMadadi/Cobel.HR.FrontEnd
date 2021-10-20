@@ -20,10 +20,6 @@ import { EmployeeEvent_ModuleDetail } from './employeeEvent.module.detail';
     ],
     exports: [
         EmployeeEventMasterUI
-    ],
-    providers: [
-        //EmployeeEventService,
-       // EmployeeEventServiceCollection   
     ]
 })
 

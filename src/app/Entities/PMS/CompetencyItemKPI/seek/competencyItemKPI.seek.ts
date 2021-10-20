@@ -26,7 +26,7 @@ export class CompetencyItemKPISeekUI extends SeekModal<CompetencyItemKPI> {
     this.onClose(this.competencyItemKPI);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

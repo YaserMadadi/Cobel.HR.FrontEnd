@@ -68,8 +68,7 @@ export class CriticalIncidentTypeIndexUI extends IndexView<CriticalIncidentType>
 
   resetFilter() {
     this.filterInstance = CriticalIncidentType.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(criticalIncidentType: CriticalIncidentType) {

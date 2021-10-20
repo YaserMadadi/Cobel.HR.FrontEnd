@@ -32,10 +32,6 @@ import { YearQuarter_ModuleMaster } from '../YearQuarter/yearQuarter.module.mast
   exports: [
     QuarterIndexUI,
 		Quarter_ModuleMaster,
-  ],
-  providers: [
-    // QuarterService,
-    // QuarterServiceCollection
-  ]
+   ]
 })
 export class QuarterModule {}

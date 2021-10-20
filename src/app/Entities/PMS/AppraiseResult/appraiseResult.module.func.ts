@@ -32,10 +32,6 @@ import { AppraiseTime_ModuleFunc } from '../../Base.PMS/AppraiseTime/appraiseTim
         AppraiseResultEditUI,
 		AppraiseResultDeleteUI,
 		AppraiseResultSeekUI
-    ],
-    providers: [
-       //AppraiseResultService,
-       // AppraiseResultServiceCollection,
     ]
 })
 

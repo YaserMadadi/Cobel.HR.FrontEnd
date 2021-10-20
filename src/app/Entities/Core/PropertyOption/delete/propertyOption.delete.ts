@@ -10,7 +10,7 @@ import { PropertyOptionService } from '../propertyOption.service';
   selector: 'core-propertyOption-delete',
   templateUrl: './propertyOption.delete.html',
   styleUrls: ['./propertyOption.delete.css'],
-  providers: [PropertyOptionService]
+  
 })
 export class PropertyOptionDeleteUI extends DeleteModal<PropertyOption> {
 

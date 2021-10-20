@@ -30,10 +30,6 @@ import { Employee_ModuleFunc } from '../../HR/Employee/employee.module.func';
         FinalApprovementEditUI,
 		FinalApprovementDeleteUI,
 		FinalApprovementSeekUI
-    ],
-    providers: [
-       //FinalApprovementService,
-       // FinalApprovementServiceCollection,
     ]
 })
 

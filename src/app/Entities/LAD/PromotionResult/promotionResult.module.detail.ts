@@ -24,9 +24,6 @@ import { PromotionAssessment_ModuleMaster } from '../PromotionAssessment/promoti
   exports: [
     PromotionResult_PromotionAssessment_DetailUI
   ],
-  providers: [
-    //PromotionResultService,
-    //PromotionResultServiceCollection
-  ]
+  
 })
 export class PromotionResult_ModuleDetail { }

@@ -26,7 +26,7 @@ export class PersonSeekUI extends SeekModal<Person> {
     this.onClose(this.person);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

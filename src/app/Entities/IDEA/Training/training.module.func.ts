@@ -30,10 +30,6 @@ import { Course_ModuleFunc } from '../Course/course.module.func';
         TrainingEditUI,
 		TrainingDeleteUI,
 		TrainingSeekUI
-    ],
-    providers: [
-       //TrainingService,
-       // TrainingServiceCollection,
     ]
 })
 

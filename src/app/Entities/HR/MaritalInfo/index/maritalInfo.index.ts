@@ -54,8 +54,7 @@ export class MaritalInfoIndexUI extends IndexView<MaritalInfo> implements AfterV
 
   resetFilter() {
     this.filterInstance = MaritalInfo.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(maritalInfo: MaritalInfo) {

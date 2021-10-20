@@ -14,10 +14,7 @@ import { PersonService } from '../../../HR/Person/person.service';
   selector: 'base-religion-master',
   templateUrl: './religion.master.html',
   styleUrls: ['./religion.master.css'],
-  providers: [
-    ReligionService,
-    PersonService,
-  ]
+  
 })
 export class ReligionMasterUI extends MasterModal<Religion> {
 

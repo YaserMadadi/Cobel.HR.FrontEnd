@@ -20,10 +20,6 @@ import { PositionAssignment_ModuleDetail } from './positionAssignment.module.det
     ],
     exports: [
         PositionAssignmentMasterUI
-    ],
-    providers: [
-        //PositionAssignmentService,
-       // PositionAssignmentServiceCollection   
     ]
 })
 

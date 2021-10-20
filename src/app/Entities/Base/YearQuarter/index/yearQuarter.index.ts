@@ -57,8 +57,7 @@ export class YearQuarterIndexUI extends IndexView<YearQuarter> implements AfterV
 
   resetFilter() {
     this.filterInstance = YearQuarter.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(yearQuarter: YearQuarter) {

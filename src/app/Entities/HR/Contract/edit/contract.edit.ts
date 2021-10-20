@@ -68,7 +68,8 @@ export class ContractEditUI extends EditModal<Contract> implements IEditModal<Co
     this.contractTypeComponent.LoadList();
   }
   
-  InitContract(contract: Contract) {
+  InitContract(contract: Contract){
+    this.currentInstance = this.service.CreateInstance();
     if (!contract.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.employeeComponent.instance = contract.employee;

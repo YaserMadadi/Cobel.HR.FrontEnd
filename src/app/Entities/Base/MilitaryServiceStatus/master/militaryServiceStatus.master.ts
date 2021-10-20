@@ -14,10 +14,7 @@ import { MilitaryServiceService } from '../../../HR/MilitaryService/militaryServ
   selector: 'base-militaryServiceStatus-master',
   templateUrl: './militaryServiceStatus.master.html',
   styleUrls: ['./militaryServiceStatus.master.css'],
-  providers: [
-    MilitaryServiceStatusService,
-    MilitaryServiceService,
-  ]
+  
 })
 export class MilitaryServiceStatusMasterUI extends MasterModal<MilitaryServiceStatus> {
 

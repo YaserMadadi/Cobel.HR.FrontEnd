@@ -28,6 +28,10 @@ export class UniversityFieldCategoryService extends Service<UniversityFieldCateg
 
   //region Methods
 
+CreateInstance() {
+   return new UniversityFieldCategory();
+}
+
   RetrieveById(id: number): Promise<UniversityFieldCategory> {
     return super.RetrieveById(id);
   }

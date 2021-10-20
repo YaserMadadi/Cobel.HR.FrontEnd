@@ -28,10 +28,6 @@ import { UniversityFieldCategory_ModuleFunc } from '../UniversityFieldCategory/u
         FieldOfStudyEditUI,
 		FieldOfStudyDeleteUI,
 		FieldOfStudySeekUI
-    ],
-    providers: [
-       //FieldOfStudyService,
-       // FieldOfStudyServiceCollection,
     ]
 })
 

@@ -35,10 +35,6 @@ import { FunctionalKPIComment_ModuleMaster } from '../FunctionalKPIComment/funct
   exports: [
     FunctionalKPIIndexUI,
 		FunctionalKPI_ModuleMaster,
-  ],
-  providers: [
-    // FunctionalKPIService,
-    // FunctionalKPIServiceCollection
-  ]
+   ]
 })
 export class FunctionalKPIModule {}

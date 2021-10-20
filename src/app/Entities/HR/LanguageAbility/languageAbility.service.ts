@@ -33,6 +33,10 @@ export class LanguageAbilityService extends Service<LanguageAbility> implements 
 
   //region Methods
 
+CreateInstance() {
+   return new LanguageAbility();
+}
+
   RetrieveById(id: number): Promise<LanguageAbility> {
     return super.RetrieveById(id);
   }

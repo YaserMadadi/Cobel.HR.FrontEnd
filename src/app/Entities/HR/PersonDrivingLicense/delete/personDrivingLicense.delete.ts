@@ -10,7 +10,7 @@ import { PersonDrivingLicenseService } from '../personDrivingLicense.service';
   selector: 'hr-personDrivingLicense-delete',
   templateUrl: './personDrivingLicense.delete.html',
   styleUrls: ['./personDrivingLicense.delete.css'],
-  providers: [PersonDrivingLicenseService]
+  
 })
 export class PersonDrivingLicenseDeleteUI extends DeleteModal<PersonDrivingLicense> {
 

@@ -27,10 +27,6 @@ import { ConnectionTypeSeekUI } from './seek/connectionType.seek';
         ConnectionTypeEditUI,
 		ConnectionTypeDeleteUI,
 		ConnectionTypeSeekUI
-    ],
-    providers: [
-       //ConnectionTypeService,
-       // ConnectionTypeServiceCollection,
     ]
 })
 

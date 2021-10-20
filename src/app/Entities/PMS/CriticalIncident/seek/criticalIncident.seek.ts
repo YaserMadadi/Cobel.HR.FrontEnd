@@ -26,7 +26,7 @@ export class CriticalIncidentSeekUI extends SeekModal<CriticalIncident> {
     this.onClose(this.criticalIncident);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

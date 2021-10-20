@@ -68,8 +68,7 @@ export class DepartmentIndexUI extends IndexView<Department> implements AfterVie
 
   resetFilter() {
     this.filterInstance = Department.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(department: Department) {

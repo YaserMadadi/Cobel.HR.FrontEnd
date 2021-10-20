@@ -63,18 +63,22 @@ export class FunctionalObjectiveEditUI extends EditModal<FunctionalObjective> im
   private loadLists() {
     this.targetSettingServiceExtended.collectionOfParentFunctionalObjective(this.currentInstance.targetSetting)
       .then(list => {
+        console.log('Parental Objective : ', list);
+
         this.parentalFunctionalObjectiveComponent.list = list;
       });
 
   }
 
   InitFunctionalObjective(functionalObjective: FunctionalObjective) {
+    this.currentInstance = this.service.CreateInstance();
+
     if (!functionalObjective.isNew) {
       // Fixed Properties : those you want to not Changable.
-     // this.targetSettingComponent.instance = functionalObjective.targetSetting;
+      this.targetSettingComponent.instance = functionalObjective.targetSetting;
     } else {
-      this.functionalObjectiveEditUI.reset();
-      //functionalObjective.targetSetting = this.targetSettingComponent.instance;
+      //this.functionalObjectiveEditUI.reset();
+      functionalObjective.targetSetting = this.targetSettingComponent.instance;
     }
     this.currentInstance = functionalObjective;
   }

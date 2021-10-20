@@ -12,11 +12,7 @@ import { ObjectiveWeightNonOperationalEditUI } from '../edit/objectiveWeightNonO
 @Component({
   selector: 'pms-objectiveWeightNonOperational-master',
   templateUrl: './objectiveWeightNonOperational.master.html',
-  styleUrls: ['./objectiveWeightNonOperational.master.css'],
-  providers: [
-    ObjectiveWeightNonOperationalService,
-    
-  ]
+  styleUrls: ['./objectiveWeightNonOperational.master.css']
 })
 export class ObjectiveWeightNonOperationalMasterUI extends MasterModal<ObjectiveWeightNonOperational> {
 

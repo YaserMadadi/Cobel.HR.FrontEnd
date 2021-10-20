@@ -15,7 +15,7 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: 'Home',
-    pathMatch:'full'
+    pathMatch: 'full'
   },
   // {
   //   path: 'IndividualDevelopmentPlan',
@@ -49,6 +49,8 @@ export const routes: Routes = [
     data: {
       title: '....'
     },
+    
+
     children: [
       {
         path: 'Home',
@@ -56,6 +58,7 @@ export const routes: Routes = [
       },
       {
         path: 'base',
+        //canActivateChild: [ AuthGuard ],
         loadChildren: () => import('./layouts/components/base/base.module').then(m => m.BaseModule)
       },
       {

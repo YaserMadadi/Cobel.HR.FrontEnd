@@ -20,10 +20,6 @@ import { Entity_ModuleDetail } from './entity.module.detail';
     ],
     exports: [
         EntityMasterUI
-    ],
-    providers: [
-        //EntityService,
-       // EntityServiceCollection   
     ]
 })
 

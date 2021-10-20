@@ -26,7 +26,7 @@ export class FunctionalAppraiseSeekUI extends SeekModal<FunctionalAppraise> {
     this.onClose(this.functionalAppraise);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

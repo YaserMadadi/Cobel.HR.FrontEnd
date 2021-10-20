@@ -31,6 +31,10 @@ export class AssessmentScoreService extends Service<AssessmentScore> implements 
 
   //region Methods
 
+CreateInstance() {
+   return new AssessmentScore();
+}
+
   RetrieveById(id: number): Promise<AssessmentScore> {
     return super.RetrieveById(id);
   }

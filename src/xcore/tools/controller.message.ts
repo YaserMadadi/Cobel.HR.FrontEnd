@@ -169,6 +169,14 @@ export class MessageController {
                 header = 'Incorrect UserName or Password';
                 break;
             }
+            case MessageType.AuthenticationError:{
+                header = 'Authentication Error!'                
+                break;
+            }
+            case MessageType.RecordIsLocked:{
+                header = 'Current Record is Locked and it can not edited!'                
+                break;
+            }
         }
 
         return header;
@@ -179,12 +187,12 @@ export class MessageController {
         this.type = toastType.error;
         switch (messageType) {
             case MessageType.ViewLogPermissionDenied: {
-                message = `your Access to View record Logs of this Entity is denied by IDP Admin!...`;
+                message = `your Access to View record Logs of this Entity is denied by Admin!...`;
                 this.type = toastType.warning;
                 break;
             }
             case MessageType.ViewIndexPermissionDenied: {
-                message = 'your Access to View Index Page of this Entity is denied by IDP Admin!...';
+                message = 'your Access to View Index Page of this Entity is denied by Admin!...';
                 this.type = toastType.warning;
                 break;
             }
@@ -265,6 +273,11 @@ export class MessageController {
             }
             case MessageType.UserNameOrPasswordNotAccepted: {
                 message = 'UserName or Password is not Valid!';
+                this.type = toastType.error;
+                break;
+            }
+            case MessageType.AuthenticationError: {
+                message = 'Your Authentication Information is Expired! Please Login Again...';
                 this.type = toastType.error;
                 break;
             }

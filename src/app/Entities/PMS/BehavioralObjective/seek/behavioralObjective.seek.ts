@@ -26,7 +26,7 @@ export class BehavioralObjectiveSeekUI extends SeekModal<BehavioralObjective> {
     this.onClose(this.behavioralObjective);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

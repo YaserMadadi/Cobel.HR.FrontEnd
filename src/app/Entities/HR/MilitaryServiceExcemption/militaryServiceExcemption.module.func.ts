@@ -30,10 +30,6 @@ import { ExcemptionType_ModuleFunc } from '../../Base/ExcemptionType/excemptionT
         MilitaryServiceExcemptionEditUI,
 		MilitaryServiceExcemptionDeleteUI,
 		MilitaryServiceExcemptionSeekUI
-    ],
-    providers: [
-       //MilitaryServiceExcemptionService,
-       // MilitaryServiceExcemptionServiceCollection,
     ]
 })
 

@@ -31,6 +31,10 @@ export class RelativeService extends Service<Relative> implements IService<Relat
 
   //region Methods
 
+CreateInstance() {
+   return new Relative();
+}
+
   RetrieveById(id: number): Promise<Relative> {
     return super.RetrieveById(id);
   }

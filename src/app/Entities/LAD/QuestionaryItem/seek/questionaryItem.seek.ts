@@ -26,7 +26,7 @@ export class QuestionaryItemSeekUI extends SeekModal<QuestionaryItem> {
     this.onClose(this.questionaryItem);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

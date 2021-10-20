@@ -32,10 +32,6 @@ import { PersonCertificate_ModuleMaster } from '../../HR/PersonCertificate/perso
   exports: [
     FieldCategoryIndexUI,
 		FieldCategory_ModuleMaster,
-  ],
-  providers: [
-    // FieldCategoryService,
-    // FieldCategoryServiceCollection
-  ]
+   ]
 })
 export class FieldCategoryModule {}

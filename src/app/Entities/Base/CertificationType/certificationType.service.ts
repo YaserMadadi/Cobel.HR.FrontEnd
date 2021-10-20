@@ -28,6 +28,10 @@ export class CertificationTypeService extends Service<CertificationType> impleme
 
   //region Methods
 
+CreateInstance() {
+   return new CertificationType();
+}
+
   RetrieveById(id: number): Promise<CertificationType> {
     return super.RetrieveById(id);
   }

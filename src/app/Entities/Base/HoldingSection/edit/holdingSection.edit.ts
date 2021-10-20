@@ -40,7 +40,8 @@ export class HoldingSectionEditUI extends EditModal<HoldingSection> implements I
     
   }
   
-  InitHoldingSection(holdingSection: HoldingSection) {
+  InitHoldingSection(holdingSection: HoldingSection){
+    this.currentInstance = new HoldingSection();
     if (!holdingSection.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

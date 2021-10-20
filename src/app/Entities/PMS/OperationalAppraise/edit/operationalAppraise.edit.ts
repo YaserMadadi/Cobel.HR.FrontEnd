@@ -81,7 +81,8 @@ export class OperationalAppraiseEditUI extends EditModal<OperationalAppraise> im
     
   }
   
-  InitOperationalAppraise(operationalAppraise: OperationalAppraise) {
+  InitOperationalAppraise(operationalAppraise: OperationalAppraise){
+    this.currentInstance = this.service.CreateInstance();
     if (!operationalAppraise.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.targetSettingComponent.instance = operationalAppraise.targetSetting;

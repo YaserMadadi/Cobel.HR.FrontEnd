@@ -1,4 +1,5 @@
-﻿import { NgModule } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -29,10 +30,6 @@ import { DevelopmentPlanType_ModuleMaster } from './developmentPlanType.module.m
   exports: [
     DevelopmentPlanTypeIndexUI,
 		DevelopmentPlanType_ModuleMaster,
-  ],
-  providers: [
-    // DevelopmentPlanTypeService,
-    // DevelopmentPlanTypeServiceCollection
-  ]
+   ]
 })
 export class DevelopmentPlanTypeModule {}

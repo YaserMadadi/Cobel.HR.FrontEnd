@@ -73,8 +73,7 @@ export class QuestionaryItemIndexUI extends IndexView<QuestionaryItem> implement
 
   resetFilter() {
     this.filterInstance = QuestionaryItem.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(questionaryItem: QuestionaryItem) {

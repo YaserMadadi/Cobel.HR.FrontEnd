@@ -16,11 +16,8 @@ import { HabitancyDeleteUI } from '../../../HR/Habitancy/delete/habitancy.delete
 @Component({
   selector: 'habitancyType-habitancy-detail',
   templateUrl: './habitancyType-habitancy.detail.html',
-  styleUrls: ['./habitancyType-habitancy.detail.css'],
-  providers: [HabitancyTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./habitancyType-habitancy.detail.css']
+})
 export class HabitancyType_Habitancy_DetailUI extends DetailView<HabitancyType> {
 
   constructor(private habitancyTypeService: HabitancyTypeService) {

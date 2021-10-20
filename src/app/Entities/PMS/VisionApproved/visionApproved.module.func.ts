@@ -32,10 +32,6 @@ import { ApprovementType_ModuleFunc } from '../../Base.PMS/ApprovementType/appro
         VisionApprovedEditUI,
 		VisionApprovedDeleteUI,
 		VisionApprovedSeekUI
-    ],
-    providers: [
-       //VisionApprovedService,
-       // VisionApprovedServiceCollection,
     ]
 })
 

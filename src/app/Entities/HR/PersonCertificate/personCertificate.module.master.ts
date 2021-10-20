@@ -20,10 +20,6 @@ import { PersonCertificate_ModuleDetail } from './personCertificate.module.detai
     ],
     exports: [
         PersonCertificateMasterUI
-    ],
-    providers: [
-        //PersonCertificateService,
-       // PersonCertificateServiceCollection   
     ]
 })
 

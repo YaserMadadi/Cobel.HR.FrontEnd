@@ -16,11 +16,8 @@ import { VisionCommentDeleteUI } from '../../../PMS/VisionComment/delete/visionC
 @Component({
   selector: 'commentator-visionComment-detail',
   templateUrl: './commentator-visionComment.detail.html',
-  styleUrls: ['./commentator-visionComment.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./commentator-visionComment.detail.css']
+})
 export class Commentator_VisionComment_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

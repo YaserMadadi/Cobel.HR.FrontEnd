@@ -32,10 +32,6 @@ import { AssessmentTraining_ModuleMaster } from '../../LAD/AssessmentTraining/as
   exports: [
     YearQuarterIndexUI,
 		YearQuarter_ModuleMaster,
-  ],
-  providers: [
-    // YearQuarterService,
-    // YearQuarterServiceCollection
-  ]
+   ]
 })
 export class YearQuarterModule {}

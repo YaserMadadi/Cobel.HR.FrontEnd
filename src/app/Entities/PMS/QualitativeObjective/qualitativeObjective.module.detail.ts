@@ -24,9 +24,6 @@ import { QualitativeKPI_ModuleMaster } from '../QualitativeKPI/qualitativeKPI.mo
   exports: [
     QualitativeObjective_QualitativeKPI_DetailUI
   ],
-  providers: [
-    //QualitativeObjectiveService,
-    //QualitativeObjectiveServiceCollection
-  ]
+  
 })
 export class QualitativeObjective_ModuleDetail { }

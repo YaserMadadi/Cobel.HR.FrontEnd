@@ -27,10 +27,6 @@ import { AnswerTypeSeekUI } from './seek/answerType.seek';
         AnswerTypeEditUI,
 		AnswerTypeDeleteUI,
 		AnswerTypeSeekUI
-    ],
-    providers: [
-       //AnswerTypeService,
-       // AnswerTypeServiceCollection,
     ]
 })
 

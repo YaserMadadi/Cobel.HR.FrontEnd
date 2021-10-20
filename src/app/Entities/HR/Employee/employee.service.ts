@@ -56,6 +56,10 @@ export class EmployeeService extends Service<Employee> implements IService<Emplo
 
   //region Methods
 
+CreateInstance() {
+   return new Employee();
+}
+
   RetrieveById(id: number): Promise<Employee> {
     return super.RetrieveById(id);
   }

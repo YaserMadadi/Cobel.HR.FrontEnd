@@ -28,10 +28,6 @@ import { Employee_ModuleFunc } from '../../HR/Employee/employee.module.func';
         ImpersonateEditUI,
 		ImpersonateDeleteUI,
 		ImpersonateSeekUI
-    ],
-    providers: [
-       //ImpersonateService,
-       // ImpersonateServiceCollection,
     ]
 })
 

@@ -16,11 +16,8 @@ import { AssessmentScoreDeleteUI } from '../../../LAD/AssessmentScore/delete/ass
 @Component({
   selector: 'competencyItem-assessmentScore-detail',
   templateUrl: './competencyItem-assessmentScore.detail.html',
-  styleUrls: ['./competencyItem-assessmentScore.detail.css'],
-  providers: [CompetencyItemService]
-}) 
-
-@Injectable()
+  styleUrls: ['./competencyItem-assessmentScore.detail.css']
+})
 export class CompetencyItem_AssessmentScore_DetailUI extends DetailView<CompetencyItem> {
 
   constructor(private competencyItemService: CompetencyItemService) {

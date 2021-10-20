@@ -71,8 +71,7 @@ export class FieldOfStudyIndexUI extends IndexView<FieldOfStudy> implements Afte
 
   resetFilter() {
     this.filterInstance = FieldOfStudy.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(fieldOfStudy: FieldOfStudy) {

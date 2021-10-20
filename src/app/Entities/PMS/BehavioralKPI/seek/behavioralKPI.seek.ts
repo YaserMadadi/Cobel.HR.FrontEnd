@@ -26,7 +26,7 @@ export class BehavioralKPISeekUI extends SeekModal<BehavioralKPI> {
     this.onClose(this.behavioralKPI);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -12,11 +12,7 @@ import { FinalAppraiseEditUI } from '../edit/finalAppraise.edit';
 @Component({
   selector: 'pms-finalAppraise-master',
   templateUrl: './finalAppraise.master.html',
-  styleUrls: ['./finalAppraise.master.css'],
-  providers: [
-    FinalAppraiseService,
-    
-  ]
+  styleUrls: ['./finalAppraise.master.css']
 })
 export class FinalAppraiseMasterUI extends MasterModal<FinalAppraise> {
 

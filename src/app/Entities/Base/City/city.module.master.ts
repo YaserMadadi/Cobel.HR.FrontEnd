@@ -20,10 +20,6 @@ import { City_ModuleDetail } from './city.module.detail';
     ],
     exports: [
         CityMasterUI
-    ],
-    providers: [
-        //CityService,
-       // CityServiceCollection   
     ]
 })
 

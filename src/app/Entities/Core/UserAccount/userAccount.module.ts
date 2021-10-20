@@ -29,10 +29,6 @@ import { UserAccount_ModuleMaster } from './userAccount.module.master';
   exports: [
     UserAccountIndexUI,
 		UserAccount_ModuleMaster,
-  ],
-  providers: [
-    // UserAccountService,
-    // UserAccountServiceCollection
-  ]
+   ]
 })
 export class UserAccountModule {}

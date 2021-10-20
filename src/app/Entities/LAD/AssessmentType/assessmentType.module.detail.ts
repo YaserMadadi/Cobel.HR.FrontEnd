@@ -24,9 +24,6 @@ import { Assessment_ModuleMaster } from '../Assessment/assessment.module.master'
   exports: [
     AssessmentType_Assessment_DetailUI
   ],
-  providers: [
-    //AssessmentTypeService,
-    //AssessmentTypeServiceCollection
-  ]
+  
 })
 export class AssessmentType_ModuleDetail { }

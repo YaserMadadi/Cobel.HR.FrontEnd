@@ -20,10 +20,6 @@ import { ConfigQualitativeObjective_ModuleDetail } from './configQualitativeObje
     ],
     exports: [
         ConfigQualitativeObjectiveMasterUI
-    ],
-    providers: [
-        //ConfigQualitativeObjectiveService,
-       // ConfigQualitativeObjectiveServiceCollection   
     ]
 })
 

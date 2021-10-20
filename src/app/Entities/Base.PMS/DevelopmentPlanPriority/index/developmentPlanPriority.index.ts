@@ -52,8 +52,7 @@ export class DevelopmentPlanPriorityIndexUI extends IndexView<DevelopmentPlanPri
 
   resetFilter() {
     this.filterInstance = DevelopmentPlanPriority.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(developmentPlanPriority: DevelopmentPlanPriority) {

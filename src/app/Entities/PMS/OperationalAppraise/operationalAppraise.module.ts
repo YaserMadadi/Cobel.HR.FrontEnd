@@ -29,10 +29,6 @@ import { OperationalAppraise_ModuleMaster } from './operationalAppraise.module.m
   exports: [
     OperationalAppraiseIndexUI,
 		OperationalAppraise_ModuleMaster,
-  ],
-  providers: [
-    // OperationalAppraiseService,
-    // OperationalAppraiseServiceCollection
-  ]
+   ]
 })
 export class OperationalAppraiseModule {}

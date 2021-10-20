@@ -54,8 +54,7 @@ export class WorkExperienceIndexUI extends IndexView<WorkExperience> implements 
 
   resetFilter() {
     this.filterInstance = WorkExperience.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(workExperience: WorkExperience) {

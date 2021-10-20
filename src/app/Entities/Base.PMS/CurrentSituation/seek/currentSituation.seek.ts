@@ -26,7 +26,7 @@ export class CurrentSituationSeekUI extends SeekModal<CurrentSituation> {
     this.onClose(this.currentSituation);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -33,6 +33,10 @@ export class HabitancyService extends Service<Habitancy> implements IService<Hab
 
   //region Methods
 
+CreateInstance() {
+   return new Habitancy();
+}
+
   RetrieveById(id: number): Promise<Habitancy> {
     return super.RetrieveById(id);
   }

@@ -1,0 +1,49 @@
+
+<div class='detail-part'>
+  <fieldset>
+    <div id='button-section'>
+      <div class='btn-group ' role='group' aria-label='Basic example'>
+        <button type='button' name='addButton' class='xbtn btn-add' 
+                  (click)='onAdd(menuEditUI)' >Add</button>
+        <button type='button' name='editButton' class='xbtn btn-edit' 
+                  (click)='onEdit(menuEditUI)' [disabled]='currentMenu.id == 0'>Edit</button>
+        <button type='button' name='deleteButton' class='xbtn btn-delete' 
+                  (click)='onDelete(menuDeleteUI)' [disabled]='currentMenu.id == 0'>Delete</button>
+      </div>
+      <div class='float-right'>
+        <button type='button' name='refreshButton' class='xbtn btn-refresh'
+                (click)='onReload()'>Refresh</button>
+      </div>
+      
+    </div>
+    <div class='detail-grid'>
+      <table class='table table-hover' >
+        <thead class='thead'>
+          <tr class='header-row'>
+            <th class='row-number'>Row</th>
+            <th> Menu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let menu of MenuList; let i = index' 
+                (dblclick)='onDblClicked(menuMasterUI)' 
+                (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : menu.id === currentMenu.id, 'free-row': menu.id !== currentMenu.id  }">
+            <td class='row-number'>{{i+1}}</td>
+            <td>
+                {{ menu.descriptor }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+  <core-menu-edit #menuEditUI 
+    (onClosed)='onEditModal_Closed($event)'>
+  </core-menu-edit>
+  <core-menu-delete #menuDeleteUI 
+    (onClosed)='onDeleteModal_Closed($event)'>
+  </core-menu-delete>
+  <core-menu-master #menuMasterUI >
+  </core-menu-master>
+</div>

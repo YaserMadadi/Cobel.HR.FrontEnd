@@ -29,10 +29,6 @@ import { ConfigQualitativeKPI_ModuleMaster } from './configQualitativeKPI.module
   exports: [
     ConfigQualitativeKPIIndexUI,
 		ConfigQualitativeKPI_ModuleMaster,
-  ],
-  providers: [
-    // ConfigQualitativeKPIService,
-    // ConfigQualitativeKPIServiceCollection
-  ]
+   ]
 })
 export class ConfigQualitativeKPIModule {}

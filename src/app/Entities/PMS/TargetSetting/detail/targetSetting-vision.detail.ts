@@ -17,7 +17,7 @@ import { VisionDeleteUI } from '../../Vision/delete/vision.delete';
   selector: 'targetSetting-vision-detail',
   templateUrl: './targetSetting-vision.detail.html',
   styleUrls: ['./targetSetting-vision.detail.css'],
-  providers: [TargetSettingService]
+  
 })
 
 @Injectable()
@@ -36,7 +36,6 @@ export class TargetSetting_Vision_DetailUI extends DetailView<TargetSetting> {
   @Input()
   public set TargetSetting(value: TargetSetting) {
     this.targetSetting = value;
-    console.log('target Setting : ', this.targetSetting);
     this.onReload();
   }
 
@@ -45,10 +44,7 @@ export class TargetSetting_Vision_DetailUI extends DetailView<TargetSetting> {
   public onReload() {
     if (TargetSetting.NotConfirm(this.targetSetting))
       return;
-      console.log('target Setting 2 : ', this.targetSetting);
-    this.targetSettingService
-      .ServiceCollection
-      .CollectionOfVision(this.targetSetting)
+    this.targetSettingService.ServiceCollection.CollectionOfVision(this.targetSetting)
       .then(visionList => {
         this.VisionList = visionList;
         this.currentVision = new Vision();
@@ -67,16 +63,17 @@ export class TargetSetting_Vision_DetailUI extends DetailView<TargetSetting> {
     masterUI.ShowDialog(this.currentVision);
   }
 
-  // public onAdd(editUI: VisionEditUI) {
-  //   editUI.TargetSetting = this.targetSetting;
-  //   editUI.ShowDialog(new Vision());
-  // }
+  public onAdd(editUI: VisionEditUI) {
+    editUI.Employee = this.targetSetting.employee;
+    //editUI.po
+    editUI.ShowDialog(new Vision());
+  }
 
-  // public onEdit(editUI: VisionEditUI) {
-  //   if (Vision.NotConfirm(this.currentVision))
-  //     return;
-  //   editUI.ShowDialog(this.currentVision);
-  // }
+  public onEdit(editUI: VisionEditUI) {
+    if (Vision.NotConfirm(this.currentVision))
+      return;
+    editUI.ShowDialog(this.currentVision);
+  }
 
   // public onDelete(deleteUI: VisionDeleteUI) {
   //   if (Vision.NotConfirm(this.currentVision))

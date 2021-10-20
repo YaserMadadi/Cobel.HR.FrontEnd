@@ -21,9 +21,6 @@ import { AppraisalApproverConfigServiceCollection } from './appraisalApproverCon
   exports: [
     // No Item...
   ],
-  providers: [
-    //AppraisalApproverConfigService,
-    //AppraisalApproverConfigServiceCollection
-  ]
+  
 })
 export class AppraisalApproverConfig_ModuleDetail { }

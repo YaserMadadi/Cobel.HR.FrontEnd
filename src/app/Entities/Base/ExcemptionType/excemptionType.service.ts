@@ -28,6 +28,10 @@ export class ExcemptionTypeService extends Service<ExcemptionType> implements IS
 
   //region Methods
 
+CreateInstance() {
+   return new ExcemptionType();
+}
+
   RetrieveById(id: number): Promise<ExcemptionType> {
     return super.RetrieveById(id);
   }

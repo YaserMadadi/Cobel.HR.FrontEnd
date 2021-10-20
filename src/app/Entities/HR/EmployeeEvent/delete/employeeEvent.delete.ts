@@ -10,7 +10,7 @@ import { EmployeeEventService } from '../employeeEvent.service';
   selector: 'hr-employeeEvent-delete',
   templateUrl: './employeeEvent.delete.html',
   styleUrls: ['./employeeEvent.delete.css'],
-  providers: [EmployeeEventService]
+  
 })
 export class EmployeeEventDeleteUI extends DeleteModal<EmployeeEvent> {
 

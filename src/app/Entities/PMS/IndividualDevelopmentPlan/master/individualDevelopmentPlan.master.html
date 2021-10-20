@@ -64,7 +64,7 @@
             <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
         </fieldset>
         <hr/>
-        <tabset #tabset>
+        <tabset #tabset *ngIf='false'>
             <tab heading='Development Plan Competency'>
                 <individualDevelopmentPlan-developmentPlanCompetency-detail 
                     #pmsIndividualDevelopmentPlanDevelopmentPlanCompetencyDetail

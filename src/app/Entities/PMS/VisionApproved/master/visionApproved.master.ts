@@ -13,10 +13,6 @@ import { VisionApprovedEditUI } from '../edit/visionApproved.edit';
   selector: 'pms-visionApproved-master',
   templateUrl: './visionApproved.master.html',
   styleUrls: ['./visionApproved.master.css'],
-  providers: [
-    VisionApprovedService,
-    
-  ]
 })
 export class VisionApprovedMasterUI extends MasterModal<VisionApproved> {
 

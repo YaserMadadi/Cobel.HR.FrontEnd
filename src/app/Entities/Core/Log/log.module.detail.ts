@@ -21,9 +21,6 @@ import { LogServiceCollection } from './log.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //LogService,
-    //LogServiceCollection
-  ]
+  
 })
 export class Log_ModuleDetail { }

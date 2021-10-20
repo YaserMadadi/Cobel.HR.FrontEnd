@@ -10,7 +10,8 @@ import { PositionAssignment } from '../PositionAssignment/positionAssignment';
 import { RotationAssessment } from '../../LAD/RotationAssessment/rotationAssessment';
 import { Level } from '../Level/level';
 import { Unit } from '../Unit/unit';
-import { PositionCategory } from '../PositionCategory/positionCategory';
+import { PositionCategory } from '../../Base.HR/PositionCategory/positionCategory';
+import { PositionDivision } from '../../Base.HR/PositionDivision/positionDivision';
 
 
 @Directive()
@@ -51,6 +52,8 @@ export class Position extends BusinessObject implements OnInit {
 	public unit: Unit = new Unit();
 	
 	public positionCategory: PositionCategory = new PositionCategory();
+	
+  public positionDivision: PositionDivision = new PositionDivision();
 	
 	public capacity: number = 0;
 	

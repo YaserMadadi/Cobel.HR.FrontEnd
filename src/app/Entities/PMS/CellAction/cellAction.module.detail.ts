@@ -21,9 +21,6 @@ import { CellActionServiceCollection } from './cellAction.service.collection';
   exports: [
     // No Item...
   ],
-  providers: [
-    //CellActionService,
-    //CellActionServiceCollection
-  ]
+  
 })
 export class CellAction_ModuleDetail { }

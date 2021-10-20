@@ -29,10 +29,6 @@ import { VisionApproved_ModuleMaster } from './visionApproved.module.master';
   exports: [
     VisionApprovedIndexUI,
 		VisionApproved_ModuleMaster,
-  ],
-  providers: [
-    // VisionApprovedService,
-    // VisionApprovedServiceCollection
-  ]
+   ]
 })
 export class VisionApprovedModule {}

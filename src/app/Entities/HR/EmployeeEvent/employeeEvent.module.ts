@@ -29,10 +29,6 @@ import { EmployeeEvent_ModuleMaster } from './employeeEvent.module.master';
   exports: [
     EmployeeEventIndexUI,
 		EmployeeEvent_ModuleMaster,
-  ],
-  providers: [
-    // EmployeeEventService,
-    // EmployeeEventServiceCollection
-  ]
+   ]
 })
 export class EmployeeEventModule {}

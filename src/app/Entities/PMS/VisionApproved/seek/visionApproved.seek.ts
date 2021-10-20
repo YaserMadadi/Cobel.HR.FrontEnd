@@ -26,7 +26,7 @@ export class VisionApprovedSeekUI extends SeekModal<VisionApproved> {
     this.onClose(this.visionApproved);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

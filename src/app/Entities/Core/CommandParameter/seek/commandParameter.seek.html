@@ -1,0 +1,74 @@
+
+<XDialog Header='Search form of CommandParameter' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='exceptionLog' class='col-sm-3 col-form-label'>ExceptionLog_Id : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #exceptionLog='ngModel' 
+                    #exceptionLogCombo='kendoDropDownList' 
+                    name='exceptionLog' 
+                    title='ExceptionLog_Id'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !exceptionLog.valid && exceptionLog.touched }" 
+                    [data]='exceptionLogComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='exceptionLogComponent.filterable'
+                    (filterChange)='exceptionLogComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.exceptionLog"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='exceptionLogComponent.addable'>
+                      <button class='btn btn-primary' (click)='exceptionLogComponent.onAdd(exceptionLogCombo, exceptionLogEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='name' class='col-sm-3 col-form-label'>Name : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #name='ngModel' id='name' name='name'
+										 title='Name'
+										 autocomplete='off'
+										 placeholder='Name'
+										[(ngModel)]='commandParameter.name'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='value' class='col-sm-3 col-form-label'>Value : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #value='ngModel' id='value' name='value'
+										 title='Value'
+										 autocomplete='off'
+										 placeholder='Value'
+										[(ngModel)]='commandParameter.value'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='typeName' class='col-sm-3 col-form-label'>TypeName : </label>
+            <div class='col-sm-9'>
+              <input class='form-control' #typeName='ngModel' id='typeName' name='typeName'
+										 title='TypeName'
+										 autocomplete='off'
+										 placeholder='TypeName'
+										[(ngModel)]='commandParameter.typeName'
+										 type='text'
+										 maxlength='200'
+										 />
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

@@ -20,10 +20,6 @@ import { CertificationType_ModuleDetail } from './certificationType.module.detai
     ],
     exports: [
         CertificationTypeMasterUI
-    ],
-    providers: [
-        //CertificationTypeService,
-       // CertificationTypeServiceCollection   
     ]
 })
 

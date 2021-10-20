@@ -12,11 +12,7 @@ import { DevelopmentGoalEditUI } from '../edit/developmentGoal.edit';
 @Component({
   selector: 'lad-developmentGoal-master',
   templateUrl: './developmentGoal.master.html',
-  styleUrls: ['./developmentGoal.master.css'],
-  providers: [
-    DevelopmentGoalService,
-    
-  ]
+  styleUrls: ['./developmentGoal.master.css']
 })
 export class DevelopmentGoalMasterUI extends MasterModal<DevelopmentGoal> {
 

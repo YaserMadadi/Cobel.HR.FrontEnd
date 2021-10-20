@@ -1,4 +1,5 @@
-﻿import { NgModule } from '@angular/core';
+
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -20,10 +21,6 @@ import { DevelopmentPlanTypeServiceCollection } from './developmentPlanType.serv
   ],
   exports: [
     // No Item...
-  ],
-  providers: [
-    //DevelopmentPlanTypeService,
-    //DevelopmentPlanTypeServiceCollection
   ]
 })
 export class DevelopmentPlanType_ModuleDetail { }

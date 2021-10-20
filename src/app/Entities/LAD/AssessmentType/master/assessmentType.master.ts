@@ -14,10 +14,7 @@ import { AssessmentService } from '../../Assessment/assessment.service';
   selector: 'lad-assessmentType-master',
   templateUrl: './assessmentType.master.html',
   styleUrls: ['./assessmentType.master.css'],
-  providers: [
-    AssessmentTypeService,
-    AssessmentService,
-  ]
+  
 })
 export class AssessmentTypeMasterUI extends MasterModal<AssessmentType> {
 

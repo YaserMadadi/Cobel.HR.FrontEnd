@@ -21,9 +21,6 @@ import { SchoolHistoryServiceCollection } from './schoolHistory.service.collecti
   exports: [
     // No Item...
   ],
-  providers: [
-    //SchoolHistoryService,
-    //SchoolHistoryServiceCollection
-  ]
+  
 })
 export class SchoolHistory_ModuleDetail { }

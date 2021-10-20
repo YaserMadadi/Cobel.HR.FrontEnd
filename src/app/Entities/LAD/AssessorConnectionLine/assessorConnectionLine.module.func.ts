@@ -30,10 +30,6 @@ import { ConnectionType_ModuleFunc } from '../../Base/ConnectionType/connectionT
         AssessorConnectionLineEditUI,
 		AssessorConnectionLineDeleteUI,
 		AssessorConnectionLineSeekUI
-    ],
-    providers: [
-       //AssessorConnectionLineService,
-       // AssessorConnectionLineServiceCollection,
     ]
 })
 

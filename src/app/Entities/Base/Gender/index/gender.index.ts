@@ -102,7 +102,7 @@ export class GenderIndexUI extends IndexView<Gender> implements AfterViewInit, I
 
   resetFilter() {
     this.filterInstance = Gender.SeekInstance();
-    
+    this.currentInstance = new Gender();
     
   }
 

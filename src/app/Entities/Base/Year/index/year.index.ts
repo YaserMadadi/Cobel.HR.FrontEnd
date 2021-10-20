@@ -85,8 +85,7 @@ export class YearIndexUI extends IndexView<Year> implements AfterViewInit, IInde
 
   resetFilter() {
     this.filterInstance = Year.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(year: Year) {

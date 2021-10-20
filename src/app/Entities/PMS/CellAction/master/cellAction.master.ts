@@ -12,11 +12,7 @@ import { CellActionEditUI } from '../edit/cellAction.edit';
 @Component({
   selector: 'pms-cellAction-master',
   templateUrl: './cellAction.master.html',
-  styleUrls: ['./cellAction.master.css'],
-  providers: [
-    CellActionService,
-    
-  ]
+  styleUrls: ['./cellAction.master.css']
 })
 export class CellActionMasterUI extends MasterModal<CellAction> {
 

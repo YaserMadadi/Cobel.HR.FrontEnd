@@ -40,7 +40,8 @@ export class CourseEditUI extends EditModal<Course> implements IEditModal<Course
     
   }
   
-  InitCourse(course: Course) {
+  InitCourse(course: Course){
+    this.currentInstance = this.service.CreateInstance();
     if (!course.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

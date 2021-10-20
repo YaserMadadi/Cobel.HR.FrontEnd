@@ -1,0 +1,71 @@
+
+<XDialog Header='ExceptionLog Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>ExceptionLog : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Date : 
+                        <guide (onClick)='onGuid("Date")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.date | date:'fullDate' }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Time : 
+                        <guide (onClick)='onGuid("Time")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.time }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>CommandName : 
+                        <guide (onClick)='onGuid("CommandName")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.commandName }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>ExceptionType : 
+                        <guide (onClick)='onGuid("ExceptionType")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.exceptionType }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>ErrorMessage : 
+                        <guide (onClick)='onGuid("ErrorMessage")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.errorMessage }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>ErrorNumber : 
+                        <guide (onClick)='onGuid("ErrorNumber")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.errorNumber | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>ErrorCode : 
+                        <guide (onClick)='onGuid("ErrorCode")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.errorCode | number }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Json : 
+                        <guide (onClick)='onGuid("JsonValue")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.jsonValue }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+        </fieldset>
+        <hr/>
+        <tabset #tabset>
+            <tab heading='CommandParameter'>
+                <exceptionLog-commandParameter-detail 
+                    #coreExceptionLogCommandParameterDetail
+                    [ExceptionLog]='currentInstance'>
+                </exceptionLog-commandParameter-detail>
+            </tab>
+        </tabset>
+    </div>
+</XDialog>

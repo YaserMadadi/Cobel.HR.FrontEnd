@@ -10,7 +10,7 @@ import { BehavioralObjectiveService } from '../behavioralObjective.service';
   selector: 'pms-behavioralObjective-delete',
   templateUrl: './behavioralObjective.delete.html',
   styleUrls: ['./behavioralObjective.delete.css'],
-  providers: [BehavioralObjectiveService]
+  
 })
 export class BehavioralObjectiveDeleteUI extends DeleteModal<BehavioralObjective> {
 

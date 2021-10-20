@@ -33,6 +33,10 @@ export class PromotionAssessmentService extends Service<PromotionAssessment> imp
 
   //region Methods
 
+CreateInstance() {
+   return new PromotionAssessment();
+}
+
   RetrieveById(id: number): Promise<PromotionAssessment> {
     return super.RetrieveById(id);
   }

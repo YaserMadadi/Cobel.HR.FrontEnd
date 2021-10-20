@@ -68,7 +68,8 @@ export class ConclusionEditUI extends EditModal<Conclusion> implements IEditModa
     this.conclusionTypeComponent.LoadList();
   }
   
-  InitConclusion(conclusion: Conclusion) {
+  InitConclusion(conclusion: Conclusion){
+    this.currentInstance = this.service.CreateInstance();
     if (!conclusion.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.assessmentComponent.instance = conclusion.assessment;

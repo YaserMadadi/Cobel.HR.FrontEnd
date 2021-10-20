@@ -12,11 +12,7 @@ import { BehavioralAppraiseEditUI } from '../edit/behavioralAppraise.edit';
 @Component({
   selector: 'pms-behavioralAppraise-master',
   templateUrl: './behavioralAppraise.master.html',
-  styleUrls: ['./behavioralAppraise.master.css'],
-  providers: [
-    BehavioralAppraiseService,
-    
-  ]
+  styleUrls: ['./behavioralAppraise.master.css']
 })
 export class BehavioralAppraiseMasterUI extends MasterModal<BehavioralAppraise> {
 

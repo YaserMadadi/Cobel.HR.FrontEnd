@@ -10,7 +10,7 @@ import { DesirableSituationService } from '../desirableSituation.service';
   selector: 'base-pms-desirableSituation-delete',
   templateUrl: './desirableSituation.delete.html',
   styleUrls: ['./desirableSituation.delete.css'],
-  providers: [DesirableSituationService]
+  
 })
 export class DesirableSituationDeleteUI extends DeleteModal<DesirableSituation> {
 

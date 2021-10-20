@@ -31,6 +31,10 @@ export class ConclusionService extends Service<Conclusion> implements IService<C
 
   //region Methods
 
+CreateInstance() {
+   return new Conclusion();
+}
+
   RetrieveById(id: number): Promise<Conclusion> {
     return super.RetrieveById(id);
   }

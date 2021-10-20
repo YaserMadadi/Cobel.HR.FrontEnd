@@ -30,10 +30,6 @@ import { Employee_ModuleFunc } from '../../HR/Employee/employee.module.func';
         VisionCommentEditUI,
 		VisionCommentDeleteUI,
 		VisionCommentSeekUI
-    ],
-    providers: [
-       //VisionCommentService,
-       // VisionCommentServiceCollection,
     ]
 })
 

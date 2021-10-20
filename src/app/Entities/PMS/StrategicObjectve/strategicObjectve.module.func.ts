@@ -27,10 +27,6 @@ import { StrategicObjectveSeekUI } from './seek/strategicObjectve.seek';
         StrategicObjectveEditUI,
 		StrategicObjectveDeleteUI,
 		StrategicObjectveSeekUI
-    ],
-    providers: [
-       //StrategicObjectveService,
-       // StrategicObjectveServiceCollection,
     ]
 })
 

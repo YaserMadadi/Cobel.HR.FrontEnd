@@ -32,10 +32,6 @@ import { DevelopmentPlanCompetency_ModuleMaster } from '../DevelopmentPlanCompet
   exports: [
     IndividualDevelopmentPlanIndexUI,
 		IndividualDevelopmentPlan_ModuleMaster,
-  ],
-  providers: [
-    // IndividualDevelopmentPlanService,
-    // IndividualDevelopmentPlanServiceCollection
-  ]
+   ]
 })
 export class IndividualDevelopmentPlanModule {}

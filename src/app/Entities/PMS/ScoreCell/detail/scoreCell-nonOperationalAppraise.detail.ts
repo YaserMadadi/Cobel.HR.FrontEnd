@@ -16,11 +16,8 @@ import { NonOperationalAppraiseDeleteUI } from '../../NonOperationalAppraise/del
 @Component({
   selector: 'scoreCell-nonOperationalAppraise-detail',
   templateUrl: './scoreCell-nonOperationalAppraise.detail.html',
-  styleUrls: ['./scoreCell-nonOperationalAppraise.detail.css'],
-  providers: [ScoreCellService]
-}) 
-
-@Injectable()
+  styleUrls: ['./scoreCell-nonOperationalAppraise.detail.css']
+})
 export class ScoreCell_NonOperationalAppraise_DetailUI extends DetailView<ScoreCell> {
 
   constructor(private scoreCellService: ScoreCellService) {

@@ -30,6 +30,10 @@ export class CompetencyItemKPIService extends Service<CompetencyItemKPI> impleme
 
   //region Methods
 
+CreateInstance() {
+   return new CompetencyItemKPI();
+}
+
   RetrieveById(id: number): Promise<CompetencyItemKPI> {
     return super.RetrieveById(id);
   }

@@ -16,11 +16,8 @@ import { AssessmentTrainingDeleteUI } from '../../../LAD/AssessmentTraining/dele
 @Component({
   selector: 'deadLine-assessmentTraining-detail',
   templateUrl: './deadLine-assessmentTraining.detail.html',
-  styleUrls: ['./deadLine-assessmentTraining.detail.css'],
-  providers: [YearQuarterService]
-}) 
-
-@Injectable()
+  styleUrls: ['./deadLine-assessmentTraining.detail.css']
+})
 export class DeadLine_AssessmentTraining_DetailUI extends DetailView<YearQuarter> {
 
   constructor(private yearQuarterService: YearQuarterService) {

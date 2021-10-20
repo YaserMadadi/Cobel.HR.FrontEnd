@@ -55,7 +55,8 @@ export class PassportEditUI extends EditModal<Passport> implements IEditModal<Pa
     
   }
   
-  InitPassport(passport: Passport) {
+  InitPassport(passport: Passport){
+    this.currentInstance = this.service.CreateInstance();
     if (!passport.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.personComponent.instance = passport.person;

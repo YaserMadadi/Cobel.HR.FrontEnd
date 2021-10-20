@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Service } from '../../../../xcore/service/service';
 import { IService } from '../../../../xcore/service/base/service.interface';
@@ -21,6 +21,10 @@ export class EventTypeService extends Service<EventType> implements IService<Eve
   constructor(public ServiceCollection: EventTypeServiceCollection) {
     super(ServiceCollection.API_Operation, EventType.Info);
   }
+
+  CreateInstance() {
+   return new EventType();
+}
 
   CheckPermission(permissionType: PermissionType): PermissionResult {
     return PermissionController.Check(this.info, permissionType);

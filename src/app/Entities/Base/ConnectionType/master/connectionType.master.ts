@@ -15,13 +15,7 @@ import { PersonConnectionService } from '../../../HR/PersonConnection/personConn
 @Component({
   selector: 'base-connectionType-master',
   templateUrl: './connectionType.master.html',
-  styleUrls: ['./connectionType.master.css'],
-  providers: [
-    ConnectionTypeService,
-    CoachConnectionLineService,
-		AssessorConnectionLineService,
-		PersonConnectionService,
-  ]
+  styleUrls: ['./connectionType.master.css']
 })
 export class ConnectionTypeMasterUI extends MasterModal<ConnectionType> {
 

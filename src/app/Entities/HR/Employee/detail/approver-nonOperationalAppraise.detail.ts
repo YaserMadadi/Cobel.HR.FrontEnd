@@ -16,11 +16,8 @@ import { NonOperationalAppraiseDeleteUI } from '../../../PMS/NonOperationalAppra
 @Component({
   selector: 'approver-nonOperationalAppraise-detail',
   templateUrl: './approver-nonOperationalAppraise.detail.html',
-  styleUrls: ['./approver-nonOperationalAppraise.detail.css'],
-  providers: [EmployeeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./approver-nonOperationalAppraise.detail.css']
+})
 export class Approver_NonOperationalAppraise_DetailUI extends DetailView<Employee> {
 
   constructor(private employeeService: EmployeeService) {

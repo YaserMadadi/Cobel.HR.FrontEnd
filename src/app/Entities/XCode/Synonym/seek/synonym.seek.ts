@@ -26,7 +26,7 @@ export class SynonymSeekUI extends SeekModal<Synonym> {
     this.onClose(this.synonym);
   }
 
-  cancleButton_Clicked() {
+  cancelButton_Clicked() {
     this.onClose(null);
   }
 }

@@ -29,10 +29,6 @@ import { AnswerTypeItem_ModuleMaster } from './answerTypeItem.module.master';
   exports: [
     AnswerTypeItemIndexUI,
 		AnswerTypeItem_ModuleMaster,
-  ],
-  providers: [
-    // AnswerTypeItemService,
-    // AnswerTypeItemServiceCollection
-  ]
+   ]
 })
 export class AnswerTypeItemModule {}

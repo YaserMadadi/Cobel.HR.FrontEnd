@@ -6,46 +6,31 @@
     #configTargetSettingEditUI='ngForm'
     autocomplete='off'>
     <div class='form-margin'>
-      <!-- Position -->
+      <!-- positionCategory -->
       <div class='form-group'>
-        <guide (onClick)='onGuid("Position_Id")'></guide>
-        <label for='position' class='col-form-label'>Position : </label>
-        <span class='help-block col-form-label' *ngIf='!position.valid && position.touched && !position.disabled'>( Value is not Valid! )</span>
-        <kendo-dropdownlist #position='ngModel' 
-                    #positionCombo='kendoDropDownList' 
-                    name='position' 
-                    title='Position'
+        <guide (onClick)='onGuid("positionCategory_Id")'></guide>
+        <label for='positionCategory' class='col-form-label'>positionCategory : </label>
+        <span class='help-block col-form-label' *ngIf='!positionCategory.valid && positionCategory.touched && !positionCategory.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #positionCategory='ngModel' 
+                    #positionCategoryCombo='kendoDropDownList' 
+                    name='positionCategory' 
+                    title='positionCategory'
                     class='form-control'
-                    [ngClass]="{ 'error' : !position.valid && position.touched }" 
-                    [data]='positionComponent.list'
+                    [ngClass]="{ 'error' : !positionCategory.valid && positionCategory.touched }" 
+                    [data]='positionCategoryComponent.list'
                     [textField]="'descriptor'"
                     [valueField]="'id'" 
-                    [filterable]='positionComponent.filterable'
-                    (filterChange)='positionComponent.DoFilter($event)'
-                    [(ngModel)]="currentInstance.position"
+                    [filterable]='positionCategoryComponent.filterable'
+                    (filterChange)='positionCategoryComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.positionCategory"
                      required 
                     [disabled]='IsLocked'>
-                    <ng-template kendoDropDownListFooterTemplate *ngIf='positionComponent.addable'>
-                      <button class='btn btn-primary' (click)='positionComponent.onAdd(positionCombo, positionEditUI)'>Add New</button>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='positionCategoryComponent.addable'>
+                      <button class='btn btn-primary' (click)='positionCategoryComponent.onAdd(positionCategoryCombo, positionCategoryEditUI)'>Add New</button>
                     </ng-template>
                 </kendo-dropdownlist>
       </div>
 			<!-- FromDate -->
-      <div class='form-group'>
-        <guide (onClick)='onGuid("FromDate")'></guide>
-        <label for='fromDate' class='col-form-label'>From Date : </label>
-        <span class='help-block col-form-label' *ngIf='!fromDate.valid && fromDate.touched && !fromDate.disabled'>( Value is not Valid! )</span>
-        <input type='date' 
-                    title=From Date 
-                    [ngClass]="{ 'error' : !fromDate.valid && fromDate.touched }" 
-                    class='form-control' 
-                    #fromDate='ngModel' 
-                    name='fromDate'
-                    [ngModel]="currentInstance.fromDate | date:'yyyy-MM-dd'"
-                    (ngModelChange)='currentInstance.fromDate = $event'
-                    [disabled]='IsLocked'
-                     required >
-      </div>
 			<!-- QuantitativeWeight -->
       <div class='form-group'>
         <guide (onClick)='onGuid("QuantitativeWeight")'></guide>
@@ -59,7 +44,7 @@
             class='form-control'
             [ngClass]="{ 'error' : !quantitativeWeight.valid && quantitativeWeight.touched }" 
             [value]='currentInstance.quantitativeWeight' 
-            [min]='-2147483648' [max]='2147483647' 
+            [min]='0' [max]='100' 
             [(ngModel)]='currentInstance.quantitativeWeight'
             [format]="'n0'" 
             [decimals]='0'
@@ -80,7 +65,7 @@
             class='form-control'
             [ngClass]="{ 'error' : !qualitativeWeight.valid && qualitativeWeight.touched }" 
             [value]='currentInstance.qualitativeWeight' 
-            [min]='-2147483648' [max]='2147483647' 
+            [min]='0' [max]='100' 
             [(ngModel)]='currentInstance.qualitativeWeight'
             [format]="'n0'" 
             [decimals]='0'
@@ -101,7 +86,7 @@
             class='form-control'
             [ngClass]="{ 'error' : !qualitativeNonBehavioralWeight.valid && qualitativeNonBehavioralWeight.touched }" 
             [value]='currentInstance.qualitativeNonBehavioralWeight' 
-            [min]='-2147483648' [max]='2147483647' 
+            [min]='0' [max]='100' 
             [(ngModel)]='currentInstance.qualitativeNonBehavioralWeight'
             [format]="'n0'" 
             [decimals]='0'
@@ -122,7 +107,7 @@
             class='form-control'
             [ngClass]="{ 'error' : !qualitativeBehavioralWeight.valid && qualitativeBehavioralWeight.touched }" 
             [value]='currentInstance.qualitativeBehavioralWeight' 
-            [min]='-2147483648' [max]='2147483647' 
+            [min]='0' [max]='100' 
             [(ngModel)]='currentInstance.qualitativeBehavioralWeight'
             [format]="'n0'" 
             [decimals]='0'
@@ -143,14 +128,14 @@
             [disabled]='!configTargetSettingEditUI.valid || IsLocked' 
             [hidden]='IsEditMode' 
             (click)='onSave(currentInstance, configTargetSettingEditUI, true)'>Save</button>
-      <button id='cancle-button'
+      <button id='cancel-button'
             class='xbtn btn-delete modal-footer-button' 
             [disabled]='IsLocked'
-            (click)='onClose()'>Cancle</button>
+            (click)='onClose()'>Cancel</button>
     </div>
   </form>
 </XDialog>
 
-<hr-position-edit #positionEditUI 
-    (onClosed)='positionComponent.onClosed($event)'>
-</hr-position-edit>
+<base-hr-positionCategory-edit #positionCategoryEditUI 
+    (onClosed)='positionCategoryComponent.onClosed($event)'>
+</base-hr-positionCategory-edit>

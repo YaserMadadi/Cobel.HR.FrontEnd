@@ -1,4 +1,6 @@
-﻿import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
+
+
+import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
 
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { IndexView } from '../../../../../xcore/tools/ui/view-base/index.view';
@@ -68,8 +70,7 @@ export class EventTypeIndexUI extends IndexView<EventType> implements AfterViewI
 
   resetFilter() {
     this.filterInstance = EventType.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(eventType: EventType) {

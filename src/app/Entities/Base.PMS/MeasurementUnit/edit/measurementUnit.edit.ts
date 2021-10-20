@@ -40,7 +40,8 @@ export class MeasurementUnitEditUI extends EditModal<MeasurementUnit> implements
     
   }
   
-  InitMeasurementUnit(measurementUnit: MeasurementUnit) {
+  InitMeasurementUnit(measurementUnit: MeasurementUnit){
+    this.currentInstance = this.service.CreateInstance();
     if (!measurementUnit.isNew) {
       // Fixed Properties : those you want to not Changable.
       // No Item...

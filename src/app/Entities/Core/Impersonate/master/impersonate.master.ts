@@ -12,11 +12,7 @@ import { ImpersonateEditUI } from '../edit/impersonate.edit';
 @Component({
   selector: 'core-impersonate-master',
   templateUrl: './impersonate.master.html',
-  styleUrls: ['./impersonate.master.css'],
-  providers: [
-    ImpersonateService,
-    
-  ]
+  styleUrls: ['./impersonate.master.css']
 })
 export class ImpersonateMasterUI extends MasterModal<Impersonate> {
 

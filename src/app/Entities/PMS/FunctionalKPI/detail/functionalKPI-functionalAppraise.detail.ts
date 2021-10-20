@@ -13,6 +13,7 @@ import { FunctionalAppraiseDeleteUI } from '../../FunctionalAppraise/delete/func
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
 import { PositionController } from '../../../../../xcore/tools/controller.positions';
+import { MessageType } from '../../../../../xcore/tools/Enum';
 
 
 
@@ -20,7 +21,7 @@ import { PositionController } from '../../../../../xcore/tools/controller.positi
   selector: 'functionalKPI-functionalAppraise-detail',
   templateUrl: './functionalKPI-functionalAppraise.detail.html',
   styleUrls: ['./functionalKPI-functionalAppraise.detail.css'],
-  providers: [FunctionalKPIService]
+  
 })
 
 @Injectable()
@@ -63,19 +64,33 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
   }
 
   public onDblClicked(masterUI: FunctionalAppraiseMasterUI) {
+    if (!this.checkStatus())
+      return;
     if (FunctionalAppraise.NotConfirm(this.currentFunctionalAppraise))
       return;
     masterUI.ShowDialog(this.currentFunctionalAppraise);
   }
 
+  private checkStatus() {
+    if (this.functionalKPI.functionalObjective.targetSetting.isLocked) {
+      MessageController.ShowMessage(MessageType.RecordIsLocked);
+      return false;
+    }
+    return true;
+  }
+
   public onAdd(editUI: FunctionalAppraiseEditUI) {
+    if (!this.checkStatus())
+      return;
     editUI.FunctionalKPI = this.functionalKPI;
     editUI.SetDefault();
     editUI.ShowDialog(new FunctionalAppraise());
   }
 
   public onEdit(editUI: FunctionalAppraiseEditUI) {
-    console.log('PositionList : ', AuthService.currentPositionList);
+    //console.log('PositionList : ', AuthService.currentPositionList);
+    if (!this.checkStatus())
+      return;
     if (this.currentFunctionalAppraise.appraiser.id != AuthService.currentEmployee.id &&
       AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
       MessageController.ShowMessage('You are not allowed to Edit this record of Appraisal!', toastType.error);
@@ -87,6 +102,8 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
   }
 
   public onDelete(deleteUI: FunctionalAppraiseDeleteUI) {
+    if (!this.checkStatus())
+      return;
     if (this.currentFunctionalAppraise.appraiser.id != AuthService.currentEmployee.id &&
       AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
       MessageController.ShowMessage('You are not allowed to Delete this record of Appraisal!', toastType.error);

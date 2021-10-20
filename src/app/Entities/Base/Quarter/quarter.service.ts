@@ -28,6 +28,10 @@ export class QuarterService extends Service<Quarter> implements IService<Quarter
 
   //region Methods
 
+CreateInstance() {
+   return new Quarter();
+}
+
   RetrieveById(id: number): Promise<Quarter> {
     return super.RetrieveById(id);
   }

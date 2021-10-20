@@ -88,21 +88,42 @@
             [disabled]='IsLocked'
              required ></kendo-numerictextbox>
       </div>
-			<!-- FinalScore -->
+			<!-- EmployeeScore -->
       <div class='form-group' *ngIf='false'>
-        <guide (onClick)='onGuid("FinalScore")'></guide>
-        <label for='finalScore' class='col-form-label'>Final Score : </label>
-        <span class='help-block col-form-label' *ngIf='!finalScore.valid && finalScore.touched && !finalScore.disabled'>( Value is not Valid! )</span>
+        <guide (onClick)='onGuid("EmployeeScore")'></guide>
+        <label for='employeeScore' class='col-form-label'>Final Score : </label>
+        <span class='help-block col-form-label' *ngIf='!employeeScore.valid && employeeScore.touched && !employeeScore.disabled'>( Value is not Valid! )</span>
         
-        <kendo-numerictextbox #finalScore='ngModel' 
-            name='finalScore' 
+        <kendo-numerictextbox #employeeScore='ngModel' 
+            name='employeeScore' 
             title='Final Score' 
             placeholder='Final Score'
             class='form-control'
-            [ngClass]="{ 'error' : !finalScore.valid && finalScore.touched }" 
-            [value]='currentInstance.finalScore' 
+            [ngClass]="{ 'error' : !employeeScore.valid && employeeScore.touched }" 
+            [value]='currentInstance.employeeScore' 
             [min]='0' [max]='180' 
-            [(ngModel)]='currentInstance.finalScore'
+            [(ngModel)]='currentInstance.employeeScore'
+            [format]="'n2'" 
+            [decimals]='2'
+            [spinners]='false'
+            [disabled]='IsLocked'
+             required ></kendo-numerictextbox>
+      </div>
+      <!-- ManagerScore -->
+      <div class='form-group' *ngIf='false'>
+        <guide (onClick)='onGuid("ManagerScore")'></guide>
+        <label for='managerScore' class='col-form-label'>Final Score : </label>
+        <span class='help-block col-form-label' *ngIf='!managerScore.valid && managerScore.touched && !managerScore.disabled'>( Value is not Valid! )</span>
+        
+        <kendo-numerictextbox #managerScore='ngModel' 
+            name='managerScore' 
+            title='Final Score' 
+            placeholder='Final Score'
+            class='form-control'
+            [ngClass]="{ 'error' : !managerScore.valid && managerScore.touched }" 
+            [value]='currentInstance.managerScore' 
+            [min]='0' [max]='180' 
+            [(ngModel)]='currentInstance.managerScore'
             [format]="'n2'" 
             [decimals]='2'
             [spinners]='false'
@@ -138,10 +159,10 @@
             [disabled]='!qualitativeKPIEditUI.valid || IsLocked' 
             [hidden]='IsEditMode' 
             (click)='onSave(currentInstance, qualitativeKPIEditUI, true)'>Save</button>
-      <button id='cancle-button'
+      <button id='cancel-button'
             class='xbtn btn-delete modal-footer-button' 
             [disabled]='IsLocked'
-            (click)='onClose()'>Cancle</button>
+            (click)='onClose()'>Cancel</button>
     </div>
   </form>
 </XDialog>

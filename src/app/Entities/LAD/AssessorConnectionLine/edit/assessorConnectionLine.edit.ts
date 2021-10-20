@@ -68,7 +68,8 @@ export class AssessorConnectionLineEditUI extends EditModal<AssessorConnectionLi
     this.connectionTypeComponent.LoadList();
   }
   
-  InitAssessorConnectionLine(assessorConnectionLine: AssessorConnectionLine) {
+  InitAssessorConnectionLine(assessorConnectionLine: AssessorConnectionLine){
+    this.currentInstance = this.service.CreateInstance();
     if (!assessorConnectionLine.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.assessorComponent.instance = assessorConnectionLine.assessor;

@@ -88,8 +88,7 @@ export class AssessorIndexUI extends IndexView<Assessor> implements AfterViewIni
 
   resetFilter() {
     this.filterInstance = Assessor.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(assessor: Assessor) {

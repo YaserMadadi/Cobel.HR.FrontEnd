@@ -14,12 +14,7 @@ import { RoleMemberService } from '../../RoleMember/roleMember.service';
 @Component({
   selector: 'core-role-master',
   templateUrl: './role.master.html',
-  styleUrls: ['./role.master.css'],
-  providers: [
-    RoleService,
-    RolePermissionService,
-		RoleMemberService,
-  ]
+  styleUrls: ['./role.master.css']
 })
 export class RoleMasterUI extends MasterModal<Role> {
 

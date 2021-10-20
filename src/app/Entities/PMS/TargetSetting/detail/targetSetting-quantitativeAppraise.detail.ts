@@ -16,11 +16,8 @@ import { QuantitativeAppraiseDeleteUI } from '../../QuantitativeAppraise/delete/
 @Component({
   selector: 'targetSetting-quantitativeAppraise-detail',
   templateUrl: './targetSetting-quantitativeAppraise.detail.html',
-  styleUrls: ['./targetSetting-quantitativeAppraise.detail.css'],
-  providers: [TargetSettingService]
-}) 
-
-@Injectable()
+  styleUrls: ['./targetSetting-quantitativeAppraise.detail.css']
+})
 export class TargetSetting_QuantitativeAppraise_DetailUI extends DetailView<TargetSetting> {
 
   constructor(private targetSettingService: TargetSettingService) {

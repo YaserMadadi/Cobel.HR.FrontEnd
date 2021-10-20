@@ -16,11 +16,8 @@ import { RotationAssessmentDeleteUI } from '../../RotationAssessment/delete/rota
 @Component({
   selector: 'assessment-rotationAssessment-detail',
   templateUrl: './assessment-rotationAssessment.detail.html',
-  styleUrls: ['./assessment-rotationAssessment.detail.css'],
-  providers: [AssessmentService]
-}) 
-
-@Injectable()
+  styleUrls: ['./assessment-rotationAssessment.detail.css']
+})
 export class Assessment_RotationAssessment_DetailUI extends DetailView<Assessment> {
 
   constructor(private assessmentService: AssessmentService) {

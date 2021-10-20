@@ -16,11 +16,8 @@ import { PersonDeleteUI } from '../../../HR/Person/delete/person.delete';
 @Component({
   selector: 'religion-person-detail',
   templateUrl: './religion-person.detail.html',
-  styleUrls: ['./religion-person.detail.css'],
-  providers: [ReligionService]
-}) 
-
-@Injectable()
+  styleUrls: ['./religion-person.detail.css']
+})
 export class Religion_Person_DetailUI extends DetailView<Religion> {
 
   constructor(private religionService: ReligionService) {

@@ -51,8 +51,7 @@ export class StrategicObjectveIndexUI extends IndexView<StrategicObjectve> imple
 
   resetFilter() {
     this.filterInstance = StrategicObjectve.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(strategicObjectve: StrategicObjectve) {

@@ -14,10 +14,7 @@ import { CoachingQuestionaryAnsweredService } from '../../CoachingQuestionaryAns
   selector: 'lad-questionaryItem-master',
   templateUrl: './questionaryItem.master.html',
   styleUrls: ['./questionaryItem.master.css'],
-  providers: [
-    QuestionaryItemService,
-    CoachingQuestionaryAnsweredService,
-  ]
+  
 })
 export class QuestionaryItemMasterUI extends MasterModal<QuestionaryItem> {
 

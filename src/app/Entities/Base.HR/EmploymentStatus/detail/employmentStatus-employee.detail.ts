@@ -1,4 +1,4 @@
-﻿import { Component, Injectable, Input } from '@angular/core';
+import { Component, Injectable, Input } from '@angular/core';
 
 import { DetailView } from '../../../../../xcore/tools/ui/view-base/detail.view';
 import { Info } from '../../../../../xcore/Info';
@@ -16,11 +16,8 @@ import { EmployeeDeleteUI } from '../../../HR/Employee/delete/employee.delete';
 @Component({
   selector: 'employmentStatus-employee-detail',
   templateUrl: './employmentStatus-employee.detail.html',
-  styleUrls: ['./employmentStatus-employee.detail.css'],
-  providers: [EmploymentStatusService]
-}) 
-
-@Injectable()
+  styleUrls: ['./employmentStatus-employee.detail.css']
+})
 export class EmploymentStatus_Employee_DetailUI extends DetailView<EmploymentStatus> {
 
   constructor(private employmentStatusService: EmploymentStatusService) {

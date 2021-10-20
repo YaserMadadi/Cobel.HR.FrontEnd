@@ -10,7 +10,7 @@ import { QuantitativeAppraiseService } from '../quantitativeAppraise.service';
   selector: 'pms-quantitativeAppraise-delete',
   templateUrl: './quantitativeAppraise.delete.html',
   styleUrls: ['./quantitativeAppraise.delete.css'],
-  providers: [QuantitativeAppraiseService]
+  
 })
 export class QuantitativeAppraiseDeleteUI extends DeleteModal<QuantitativeAppraise> {
 

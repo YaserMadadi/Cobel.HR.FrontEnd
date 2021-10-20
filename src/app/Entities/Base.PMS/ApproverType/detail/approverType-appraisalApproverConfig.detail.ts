@@ -16,11 +16,8 @@ import { AppraisalApproverConfigDeleteUI } from '../../../PMS/AppraisalApproverC
 @Component({
   selector: 'approverType-appraisalApproverConfig-detail',
   templateUrl: './approverType-appraisalApproverConfig.detail.html',
-  styleUrls: ['./approverType-appraisalApproverConfig.detail.css'],
-  providers: [ApproverTypeService]
-}) 
-
-@Injectable()
+  styleUrls: ['./approverType-appraisalApproverConfig.detail.css']
+})
 export class ApproverType_AppraisalApproverConfig_DetailUI extends DetailView<ApproverType> {
 
   constructor(private approverTypeService: ApproverTypeService) {

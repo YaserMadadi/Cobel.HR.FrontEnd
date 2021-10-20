@@ -20,10 +20,6 @@ import { RotationAssessment_ModuleDetail } from './rotationAssessment.module.det
     ],
     exports: [
         RotationAssessmentMasterUI
-    ],
-    providers: [
-        //RotationAssessmentService,
-       // RotationAssessmentServiceCollection   
     ]
 })
 

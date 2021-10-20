@@ -29,6 +29,10 @@ export class ConfigQualitativeKPIService extends Service<ConfigQualitativeKPI> i
 
   //region Methods
 
+CreateInstance() {
+   return new ConfigQualitativeKPI();
+}
+
   RetrieveById(id: number): Promise<ConfigQualitativeKPI> {
     return super.RetrieveById(id);
   }

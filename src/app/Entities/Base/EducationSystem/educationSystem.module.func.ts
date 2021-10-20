@@ -27,10 +27,6 @@ import { EducationSystemSeekUI } from './seek/educationSystem.seek';
         EducationSystemEditUI,
 		EducationSystemDeleteUI,
 		EducationSystemSeekUI
-    ],
-    providers: [
-       //EducationSystemService,
-       // EducationSystemServiceCollection,
     ]
 })
 

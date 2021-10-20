@@ -14,9 +14,15 @@ export class ServiceCollection<T extends BusinessObject> {
             //console.log(`Error in Collection Of ${targetInfo.fullName}..`, entity);
             return Promise.resolve([]);
         }
-        
+
         return this.api_operation.CollectionOf<U>(sourcEntity, entity, extendedPath)
-            .then(list => list,
+            .then(resultData => {
+                if (!resultData.isSucceeded) {
+                    MessageController.ShowMessage(resultData.message, toastType.error);
+                    return [];
+                }
+                return resultData.data;
+            },
                 error => {
                     console.log(`Error in CollectionOf${entity.info.name} from ${sourcEntity.info.fullName}. Error : ${error}`);
                     this.errorHandler(error, 'بازیابی رکوردهای وابسته');

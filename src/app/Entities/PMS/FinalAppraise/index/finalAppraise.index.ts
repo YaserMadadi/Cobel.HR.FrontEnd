@@ -54,8 +54,7 @@ export class FinalAppraiseIndexUI extends IndexView<FinalAppraise> implements Af
 
   resetFilter() {
     this.filterInstance = FinalAppraise.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(finalAppraise: FinalAppraise) {

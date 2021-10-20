@@ -16,7 +16,7 @@ import { PositionDeleteUI } from '../delete/position.delete';
 import { Level } from '../../Level/level';
 import { Unit } from '../../Unit/unit';
 import { UnitEditUI } from '../../Unit/edit/unit.edit';
-import { PositionCategory } from '../../PositionCategory/positionCategory';
+
 
 
 
@@ -54,7 +54,7 @@ export class PositionIndexUI extends IndexView<Position> implements AfterViewIni
   //#region ConfigTargetSetting
 
   public configTargetSetting_Clicked(configTargetSettingEditUI: ConfigTargetSettingEditUI) {
-    configTargetSettingEditUI.Position = this.currentInstance;
+   // configTargetSettingEditUI.positionCategory = this.currentInstance;
     configTargetSettingEditUI.ShowDialog(new ConfigTargetSetting());
   }
                     
@@ -113,8 +113,7 @@ export class PositionIndexUI extends IndexView<Position> implements AfterViewIni
 
   resetFilter() {
     this.filterInstance = Position.SeekInstance();
-    
-    
+    super.resetFilter();
   }
 
   public onEditModalClosed(position: Position) {
