@@ -4,11 +4,6 @@ import { MasterModal } from '../../../../../xcore/tools/ui/view-base/master.moda
 
 import { PositionCategory } from '../positionCategory';
 import { PositionCategoryService } from '../positionCategory.service';
-import { PositionCategoryDeleteUI } from '../delete/positionCategory.delete';
-import { PositionCategoryEditUI } from '../edit/positionCategory.edit';
-import { UnitService } from '../../../HR/Unit/unit.service';
-import { AppraisalApproverConfigService } from '../../../PMS/AppraisalApproverConfig/appraisalApproverConfig.service';
-import { PositionService } from '../../../HR/Position/position.service';
 
 
 

@@ -29,7 +29,6 @@ export class PositionService extends Service<Position> implements IService<Posit
   constructor(public ServiceCollection: PositionServiceCollection,
 		public LevelService: LevelService,
 		public UnitService: UnitService,
-    public positionDivisionService: PositionDivisionService,
 		public PositionCategoryService: PositionCategoryService,
     public PositionDivisionService: PositionDivisionService) {
     super(ServiceCollection.API_Operation, Position.Info);

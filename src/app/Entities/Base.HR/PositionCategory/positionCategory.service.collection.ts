@@ -10,6 +10,7 @@ import { PositionCategory } from './positionCategory';
 import { AppraisalApproverConfig } from '../../PMS/AppraisalApproverConfig/appraisalApproverConfig';
 import { Position } from '../../HR/Position/position';
 import { Unit } from '../../HR/Unit/unit';
+import { ConfigTargetSetting } from '../../PMS/ConfigTargetSetting/configTargetSetting';
 
 
 @Injectable({ providedIn: 'root' })
@@ -21,16 +22,12 @@ export class PositionCategoryServiceCollection extends ServiceCollection<Positio
 
   //region CollectionMethods
 
-  CollectionOfAppraisalApproverConfig_DepartmentCategory(departmentCategory: PositionCategory, appraisalApproverConfig: AppraisalApproverConfig = AppraisalApproverConfig.SeekInstance()): Promise<AppraisalApproverConfig[]> {
-    return super.CollectionOf<AppraisalApproverConfig>(departmentCategory, appraisalApproverConfig, 'DepartmentCategory');
-  }
-
   CollectionOfPosition(positionCategory: PositionCategory, position: Position = Position.SeekInstance()): Promise<Position[]> {
     return super.CollectionOf<Position>(positionCategory, position);
   }
 
-  CollectionOfUnit(positionCategory: PositionCategory, unit: Unit = Unit.SeekInstance()): Promise<Unit[]> {
-    return super.CollectionOf<Unit>(positionCategory, unit);
+  CollectionOfConfigTargetSetting(positionCategory: PositionCategory, configTargetSetting: ConfigTargetSetting = ConfigTargetSetting.SeekInstance()): Promise<ConfigTargetSetting[]> {
+    return super.CollectionOf<ConfigTargetSetting>(positionCategory, configTargetSetting);
   }
 
 	//endregion

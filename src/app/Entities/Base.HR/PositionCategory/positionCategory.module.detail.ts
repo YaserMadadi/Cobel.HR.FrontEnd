@@ -9,31 +9,27 @@ import { PositionCategoryService } from './positionCategory.service';
 import { PositionCategoryServiceCollection } from './positionCategory.service.collection';
 
 
-import { DepartmentCategory_AppraisalApproverConfig_DetailUI } from './detail/departmentCategory-appraisalApproverConfig.detail';
-import { AppraisalApproverConfig_ModuleMaster } from '../../PMS/AppraisalApproverConfig/appraisalApproverConfig.module.master';
+import { PositionCategory_ConfigTargetSetting_DetailUI } from './detail/positionCategory-configTargetSetting.detail';
 import { PositionCategory_Position_DetailUI } from './detail/positionCategory-position.detail';
 import { Position_ModuleMaster } from '../../HR/Position/position.module.master';
-import { PositionCategory_Unit_DetailUI } from './detail/positionCategory-unit.detail';
 import { Unit_ModuleMaster } from '../../HR/Unit/unit.module.master';
+import { ConfigTargetSetting_ModuleMaster } from '../../PMS/ConfigTargetSetting/configTargetSetting.module.master';
 
 @NgModule({
   declarations: [
-    DepartmentCategory_AppraisalApproverConfig_DetailUI,
 		PositionCategory_Position_DetailUI,
-		PositionCategory_Unit_DetailUI
+    PositionCategory_ConfigTargetSetting_DetailUI
   ],
   imports: [
     FormsModule,
     CommonModule,
     SharedModule,
-		AppraisalApproverConfig_ModuleMaster,
+		ConfigTargetSetting_ModuleMaster,
 		Position_ModuleMaster,
-		Unit_ModuleMaster,
   ],
   exports: [
-    DepartmentCategory_AppraisalApproverConfig_DetailUI,
 		PositionCategory_Position_DetailUI,
-		PositionCategory_Unit_DetailUI
+    PositionCategory_ConfigTargetSetting_DetailUI
   ]
 })
 export class PositionCategory_ModuleDetail { }

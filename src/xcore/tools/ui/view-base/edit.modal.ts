@@ -13,15 +13,8 @@ export class EditModal<T extends BusinessObject> implements IEditModal<T>{
         this.currentInstance = service?.CreateInstance();
     }
 
-<<<<<<< HEAD
-    Init(entity: T): void {  
-=======
-
-
     Init(entity: T): void {
->>>>>>> f3216e97c398a4b47eb4b5690b4d0f0918904e94
         //throw new Error("Method not implemented.");
-        
     }
 
     AfterShown(): void {

@@ -4,11 +4,11 @@
     <div id='button-section'>
       <div class='btn-group ' role='group' aria-label='Basic example'>
         <button type='button' name='addButton' class='xbtn btn-add' 
-                  (click)='onAdd(appraisalApproverConfigEditUI)' >Add</button>
+                  (click)='onAdd(configTargetSettingEditUI)' >Add</button>
         <button type='button' name='editButton' class='xbtn btn-edit' 
-                  (click)='onEdit(appraisalApproverConfigEditUI)' [disabled]='currentAppraisalApproverConfig.id == 0'>Edit</button>
+                  (click)='onEdit(configTargetSettingEditUI)' [disabled]='currentConfigTargetSetting.id == 0'>Edit</button>
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
-                  (click)='onDelete(appraisalApproverConfigDeleteUI)' [disabled]='currentAppraisalApproverConfig.id == 0'>Delete</button>
+                  (click)='onDelete(configTargetSettingDeleteUI)' [disabled]='currentConfigTargetSetting.id == 0'>Delete</button>
       </div>
       <div class='float-right'>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'
@@ -23,29 +23,29 @@
         <thead class='thead'>
           <tr class='header-row'>
             <th class='row-number'>Row</th>
-            <th> AppraisalApproverConfig</th>
+            <th> ConfigTargetSetting</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor='let appraisalApproverConfig of AppraisalApproverConfigList; let i = index' 
-                (dblclick)='onDblClicked(appraisalApproverConfigMasterUI)' 
+          <tr *ngFor='let configTargetSetting of ConfigTargetSettingList; let i = index' 
+                (dblclick)='onDblClicked(configTargetSettingMasterUI)' 
                 (click)='onSelect(i)'
-                [ngClass]="{ 'selected-row' : appraisalApproverConfig.id === currentAppraisalApproverConfig.id, 'free-row': appraisalApproverConfig.id !== currentAppraisalApproverConfig.id  }">
+                [ngClass]="{ 'selected-row' : configTargetSetting.id === currentConfigTargetSetting.id, 'free-row': configTargetSetting.id !== currentConfigTargetSetting.id  }">
             <td class='row-number'>{{i+1}}</td>
             <td>
-                {{ appraisalApproverConfig.descriptor }}
+                {{ configTargetSetting.descriptor }}
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </fieldset>
-  <pms-appraisalApproverConfig-edit #appraisalApproverConfigEditUI 
+  <pms-configTargetSetting-edit #configTargetSettingEditUI 
     (onClosed)='onEditModal_Closed($event)'>
-  </pms-appraisalApproverConfig-edit>
-  <pms-appraisalApproverConfig-delete #appraisalApproverConfigDeleteUI 
+  </pms-configTargetSetting-edit>
+  <pms-configTargetSetting-delete #configTargetSettingDeleteUI 
     (onClosed)='onDeleteModal_Closed($event)'>
-  </pms-appraisalApproverConfig-delete>
-  <pms-appraisalApproverConfig-master #appraisalApproverConfigMasterUI >
-  </pms-appraisalApproverConfig-master>
+  </pms-configTargetSetting-delete>
+  <pms-configTargetSetting-master #configTargetSettingMasterUI >
+  </pms-configTargetSetting-master>
 </div>

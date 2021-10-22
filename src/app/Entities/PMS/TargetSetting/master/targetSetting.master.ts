@@ -96,11 +96,12 @@ export class TargetSettingMasterUI extends MasterModal<TargetSetting> {
               this.idpFormTabItem.headLine = 'IDP Form';
 
             });
-        } else { // PositionCategory.Id = 1 : Operational
+        } else { // PositionDivision.Id = 1 : Operational
           this.targetSettingService
             .PositionService
+            .PositionCategoryService
             .ServiceCollection
-            .CollectionOfConfigTargetSetting(this.position)
+            .CollectionOfConfigTargetSetting(this.position.positionCategory)
             .then(configTargetSettingList => {
 
               if (configTargetSettingList.length > 0) {

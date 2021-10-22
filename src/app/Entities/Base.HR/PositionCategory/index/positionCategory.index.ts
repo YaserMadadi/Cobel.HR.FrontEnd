@@ -40,23 +40,6 @@ export class PositionCategoryIndexUI extends IndexView<PositionCategory> impleme
     this.onRefresh();
   }
 
-  
-  
-  //#region Unit
-
-  public unit_Clicked(unitEditUI: UnitEditUI) {
-    unitEditUI.PositionCategory = this.currentInstance;
-    unitEditUI.ShowDialog(new Unit());
-  }
-                    
-  public unitEditUI_Closed(unit: Unit) {
-    if (!unit)
-      return;
-    this.onRefresh();
-  }
-  
-  //#endregion Unit
-
 
   //#region Position
 
@@ -75,8 +58,8 @@ export class PositionCategoryIndexUI extends IndexView<PositionCategory> impleme
 
 
   
-  @ViewChild('Paginator')
-  PaginatorComponent: PaginatorComponent; 
+  // @ViewChild('Paginator')
+  // PaginatorComponent: PaginatorComponent; 
 
   PageChanging(pageNumber: number) {
     this.onSeek(pageNumber);
