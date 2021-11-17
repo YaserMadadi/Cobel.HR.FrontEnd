@@ -139,8 +139,8 @@ export class IndexView<T extends BusinessObject> implements IIndexView<T>, OnIni
             this.businessObjectService.Seek(this.filterInstance)
                 .then(list => {
                     // console.log('Seek result', list);
+                    this.currentInstance = this.businessObjectService.CreateInstance(); //<T>this.currentInstance.SeekInstance;
                     this.list = list;
-                    this.currentInstance = <T>this.currentInstance.SeekInstance;
                     this.paginatorComponent?.RefreshUI(list[0]?.paginate);
                 });
         }

@@ -22,7 +22,7 @@ import { Person } from '../../../HR/Person/person';
 
 
 @Component({
-  selector: 'base.hr-maritalStatus-index',
+  selector: 'base-hr-maritalStatus-index',
   templateUrl: './maritalStatus.index.html',
   styleUrls: ['./maritalStatus.index.css']
 })

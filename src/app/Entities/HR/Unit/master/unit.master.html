@@ -1,46 +1,49 @@
 ﻿<XDialog Header='Unit Management form'
-    [IsShown]='IsShown' 
-    (OnClosed)='onClose()'
-    [ModalType]='2'>
+         [IsShown]='IsShown'
+         (OnClosed)='onClose()'
+         [ModalType]='2'>
     <div class='master-content'>
         <fieldset class='border rounded'>
             <legend>Unit : </legend>
             <div>
                 <div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Title : 
+                    <label class='col-sm-4 titleControl'>Title :
                         <guide (onClick)='onGuid("Title")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.title }}</label>
                 </div>
-				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Department : 
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Department :
                         <guide (onClick)='onGuid("Department_Id")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.department?.descriptor }}</label>
                 </div>
-				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Position Category : 
-                        <guide (onClick)='onGuid("PositionCategory_Id")'></guide>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Position Division :
+                        <guide (onClick)='onGuid("PositionDivision_Id")'></guide>
                     </label>
-                    <label class='col-sm-8'>{{ currentInstance.positionCategory?.descriptor }}</label>
+                    <label class='col-sm-8'>{{ currentInstance.positionDivision?.descriptor }}</label>
                 </div>
-				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Is Active : 
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Is Active :
                         <guide (onClick)='onGuid("IsActive")'></guide>
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.isActive | bitToActive }}</label>
                 </div>
             </div>
-            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+            <button class='xbtn btn-refresh float-right'
+                    (click)='onReload()'>reload...</button>
+            <log-button [CurrentInstance]='currentInstance'></log-button>
         </fieldset>
-        <hr/>
+        <hr />
         <tabset #tabset>
             <tab heading='Position'>
-                <unit-position-detail 
-                    #hrUnitPositionDetail
-                    [Unit]='currentInstance'>
+                <unit-position-detail #hrUnitPositionDetail
+                                      [Unit]='currentInstance'>
                 </unit-position-detail>
+                
             </tab>
         </tabset>
     </div>
+   
 </XDialog>

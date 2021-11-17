@@ -20,7 +20,7 @@ import { PaginatorComponent } from '../../../../../xcore/tools/ui/components/pag
 
 
 @Component({
-  selector: 'base.hr-developmentPlanType-index',
+  selector: 'base-hr-developmentPlanType-index',
   templateUrl: './developmentPlanType.index.html',
   styleUrls: ['./developmentPlanType.index.css']
 })

@@ -77,8 +77,8 @@ export class EmployeeDetailEditUI extends EditModal<EmployeeDetail> implements I
   }
 
   private loadLists() {
-    
-    
+    this.employmentStatusComponent.LoadList();
+    this.holdingSectionComponent.LoadList();
   }
   
   InitEmployeeDetail(employeeDetail: EmployeeDetail){

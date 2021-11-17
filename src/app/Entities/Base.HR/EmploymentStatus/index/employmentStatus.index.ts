@@ -24,7 +24,7 @@ import { EmployeeDetail } from '../../../HR/EmployeeDetail/employeeDetail';
 
 
 @Component({
-  selector: 'base.hr-employmentStatus-index',
+  selector: 'base-hr-employmentStatus-index',
   templateUrl: './employmentStatus.index.html',
   styleUrls: ['./employmentStatus.index.css']
 })

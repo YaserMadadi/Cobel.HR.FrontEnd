@@ -1,0 +1,8 @@
+<button class='xbtn btn-log float-right bi bi-clock-history'
+        style='font-size: 18px;'
+        (click)='onLog(logViewerUI)'></button>
+<!--LogViewer Component-->
+<log-viewer #logViewerUI
+            [Entity]='currentInstance'>
+
+</log-viewer>

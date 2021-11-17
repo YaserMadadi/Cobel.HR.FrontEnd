@@ -22,7 +22,7 @@ import { Position } from '../../../HR/Position/position';
 
 
 @Component({
-  selector: 'base.hr-positionDivision-index',
+  selector: 'base-hr-positionDivision-index',
   templateUrl: './positionDivision.index.html',
   styleUrls: ['./positionDivision.index.css']
 })

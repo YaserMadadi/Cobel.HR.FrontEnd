@@ -10,8 +10,8 @@ import { Unit } from '../unit';
 import { UnitService } from '../unit.service';
 import { Department } from '../../Department/department';
 import { DepartmentEditUI } from '../../Department/edit/department.edit';
-import { PositionCategory } from '../../../Base.HR/PositionCategory/positionCategory';
-import { PositionCategoryEditUI } from '../../../Base.HR/PositionCategory/edit/positionCategory.edit';
+import { PositionDivision } from '../../../Base.HR/PositionDivision/positionDivision';
+import { PositionDivisionEditUI } from '../../../Base.HR/PositionDivision/edit/positionDivision.edit';
 
 
 
@@ -40,17 +40,17 @@ export class UnitEditUI extends EditModal<Unit> implements IEditModal<Unit>  {
 
 
   //#endregion -- Department --
-  //#region -- PositionCategory --
+  //#region -- PositionDivision --
 
-  positionCategoryComponent: ForeignComponent<PositionCategory> = new ForeignComponent<PositionCategory>(this.unitService.PositionCategoryService, false);
+  positionDivisionComponent: ForeignComponent<PositionDivision> = new ForeignComponent<PositionDivision>(this.unitService.PositionDivisionService);
 
   @Input()
-  public set PositionCategory(value: PositionCategory) {
-    this.currentInstance.positionCategory = this.positionCategoryComponent.instance = value;
+  public set PositionDivision(value: PositionDivision) {
+    this.currentInstance.positionDivision = this.positionDivisionComponent.instance = value;
   }
 
 
-  //#endregion -- PositionCategory --
+  //#endregion -- PositionDivision --
   //#endregion
 
   @ViewChild('unitEditUI')
@@ -66,7 +66,7 @@ export class UnitEditUI extends EditModal<Unit> implements IEditModal<Unit>  {
   private loadLists() {
 
     this.departmentComponent.LoadList();
-    this.positionCategoryComponent.LoadList();
+    this.positionDivisionComponent.LoadList();
   }
 
   InitUnit(unit: Unit){
@@ -74,16 +74,16 @@ export class UnitEditUI extends EditModal<Unit> implements IEditModal<Unit>  {
     if (!unit.isNew) {
       // Fixed Properties : those you want to not Changable.
       this.departmentComponent.instance = unit.department;
-      this.positionCategoryComponent.instance = unit.positionCategory;
+      this.positionDivisionComponent.instance = unit.positionDivision;
     } else {
       unit.department = this.departmentComponent.instance;
-      unit.positionCategory = this.positionCategoryComponent.instance;
+      unit.positionDivision = this.positionDivisionComponent.instance;
     }
     this.currentInstance = unit;
   }
 
   ResetForm() {
     this.Department = new Department();
-    this.PositionCategory = new PositionCategory();
+    this.PositionDivision = new PositionDivision();
   }
 }

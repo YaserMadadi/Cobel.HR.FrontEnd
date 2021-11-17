@@ -20,7 +20,7 @@ import { FunctionalKPI } from '../../../PMS/FunctionalKPI/functionalKPI';
 
 
 @Component({
-  selector: 'base.pms-measurementUnit-index',
+  selector: 'base-pms-measurementUnit-index',
   templateUrl: './measurementUnit.index.html',
   styleUrls: ['./measurementUnit.index.css']
 })

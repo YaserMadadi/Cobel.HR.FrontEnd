@@ -20,7 +20,7 @@ import { VisionApproved } from '../../../PMS/VisionApproved/visionApproved';
 
 
 @Component({
-  selector: 'base.pms-approvementType-index',
+  selector: 'base-pms-approvementType-index',
   templateUrl: './approvementType.index.html',
   styleUrls: ['./approvementType.index.css']
 })

@@ -18,7 +18,7 @@ import { PaginatorComponent } from '../../../../../xcore/tools/ui/components/pag
 
 
 @Component({
-  selector: 'base.pms-developmentPlanPriority-index',
+  selector: 'base-pms-developmentPlanPriority-index',
   templateUrl: './developmentPlanPriority.index.html',
   styleUrls: ['./developmentPlanPriority.index.css']
 })

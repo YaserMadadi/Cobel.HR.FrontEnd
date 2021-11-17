@@ -24,15 +24,15 @@ import { EntityComparatorComponent } from "./entity-comparator/entity-comparator
     imports: [
         FormsModule,
         CommonModule,
-        SharedModule,
-        //XModalModule,
-        NgxJsonViewerModule,
-        XCommonModule,
+        //SharedModule,
+        XModalModule,
+        NgxJsonViewerModule, 
+        //XCommonModule,
     ],
     exports: [
         LogViewerComponent,
         NgxJsonViewerModule,
-        XCommonModule,
+        //XCommonModule,
         EntityComparatorComponent
     ]
 })

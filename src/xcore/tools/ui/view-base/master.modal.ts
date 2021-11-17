@@ -2,6 +2,9 @@ import { Output, EventEmitter, Input, ViewChild, Directive } from "@angular/core
 import { BusinessObject } from "../../../business-object";
 import { TabsetComponent } from "ngx-bootstrap/tabs";
 import { IService } from "../../../service/base/service.interface";
+import { LogViewerComponent } from "../log-viewer/log-viewer.component";
+import { PermissionController } from "../../controller.permission";
+import { PermissionResult, PermissionType } from "../../Enum";
 
 @Directive()
 export class MasterModal<T extends BusinessObject>  {
@@ -15,6 +18,12 @@ export class MasterModal<T extends BusinessObject>  {
     onReload() {
         this.service.RetrieveById(this.currentInstance.id)
             .then(entity => this.currentInstance = entity);
+    }
+
+    onLog(logViewerComponent: LogViewerComponent) {
+        if (PermissionController.Check(logViewerComponent.Entity.info, PermissionType.ViewLog) == PermissionResult.Denied)
+            return;
+        logViewerComponent.onLoad();
     }
 
     onGuid(propertyName: string) {

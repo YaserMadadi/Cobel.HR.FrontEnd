@@ -22,7 +22,7 @@ import { Contract } from '../../../HR/Contract/contract';
 
 
 @Component({
-  selector: 'base.hr-contractType-index',
+  selector: 'base-hr-contractType-index',
   templateUrl: './contractType.index.html',
   styleUrls: ['./contractType.index.css']
 })

@@ -20,7 +20,7 @@ import { PaginatorComponent } from '../../../../../xcore/tools/ui/components/pag
 
 
 @Component({
-  selector: 'base.hr-relativeType-index',
+  selector: 'base-hr-relativeType-index',
   templateUrl: './relativeType.index.html',
   styleUrls: ['./relativeType.index.css']
 })

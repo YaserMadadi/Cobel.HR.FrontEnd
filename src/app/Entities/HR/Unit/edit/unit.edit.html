@@ -46,27 +46,27 @@
                     </ng-template>
                 </kendo-dropdownlist>
       </div>
-			<!-- PositionCategory -->
+			<!-- PositionDivision -->
       <div class='form-group'>
-        <guide (onClick)='onGuid("PositionCategory_Id")'></guide>
-        <label for='positionCategory' class='col-form-label'>Position Category : </label>
-        <span class='help-block col-form-label' *ngIf='!positionCategory.valid && positionCategory.touched && !positionCategory.disabled'>( Value is not Valid! )</span>
-        <kendo-dropdownlist #positionCategory='ngModel' 
-                    #positionCategoryCombo='kendoDropDownList' 
-                    name='positionCategory' 
-                    title='Position Category'
+        <guide (onClick)='onGuid("PositionDivision_Id")'></guide>
+        <label for='positionDivision' class='col-form-label'>Position Division : </label>
+        <span class='help-block col-form-label' *ngIf='!positionDivision.valid && positionDivision.touched && !positionDivision.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #positionDivision='ngModel' 
+                    #positionDivisionCombo='kendoDropDownList' 
+                    name='positionDivision' 
+                    title='Position Division'
                     class='form-control'
-                    [ngClass]="{ 'error' : !positionCategory.valid && positionCategory.touched }" 
-                    [data]='positionCategoryComponent.list'
+                    [ngClass]="{ 'error' : !positionDivision.valid && positionDivision.touched }" 
+                    [data]='positionDivisionComponent.list'
                     [textField]="'descriptor'"
                     [valueField]="'id'" 
-                    [filterable]='positionCategoryComponent.filterable'
-                    (filterChange)='positionCategoryComponent.DoFilter($event)'
-                    [(ngModel)]="currentInstance.positionCategory"
+                    [filterable]='positionDivisionComponent.filterable'
+                    (filterChange)='positionDivisionComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.positionDivision"
                      required 
                     [disabled]='IsLocked'>
-                    <ng-template kendoDropDownListFooterTemplate *ngIf='positionCategoryComponent.addable'>
-                      <button class='btn btn-primary' (click)='positionCategoryComponent.onAdd(positionCategoryCombo, positionCategoryEditUI)'>Add New</button>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='positionDivisionComponent.addable'>
+                      <button class='btn btn-primary' (click)='positionDivisionComponent.onAdd(positionDivisionCombo, positionDivisionEditUI)'>Add New</button>
                     </ng-template>
                 </kendo-dropdownlist>
       </div>
@@ -107,6 +107,6 @@
 <hr-department-edit #departmentEditUI 
     (onClosed)='departmentComponent.onClosed($event)'>
 </hr-department-edit>
-<base-hr-positionCategory-edit #positionCategoryEditUI 
-    (onClosed)='positionCategoryComponent.onClosed($event)'>
-</base-hr-positionCategory-edit>
+<base-hr-positionDivision-edit #positionDivisionEditUI 
+    (onClosed)='positionDivisionComponent.onClosed($event)'>
+</base-hr-positionDivision-edit>

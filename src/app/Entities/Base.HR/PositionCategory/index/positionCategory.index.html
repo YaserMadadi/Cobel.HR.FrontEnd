@@ -1,8 +1,5 @@
- Test
- 
- <!--
 <fieldset class='border'>
-  <legend>PositionCategory :</legend>
+  <legend>Position Category :</legend>
   <div class='btn-group'>
     <button name='addButton' class='xbtn btn-add' (click)='onAdd(positionCategoryEditUI)'>Add</button>
     <button name='refreshButton' class='xbtn btn-refresh' (click)='onRefresh()'>Refresh</button>
@@ -54,15 +51,15 @@
   <hr>
   <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
   <hr>
-</fieldset>-->
+</fieldset>
 
 <!--LogViewer Component-->
-<!-- <log-viewer #logViewerUI [Entity]='currentInstance'>
+<log-viewer #logViewerUI [Entity]='currentInstance'>
 
-</log-viewer> -->
+</log-viewer> 
 
 
-<!-- PositionCategory 
+<!-- PositionCategory -->
 <base-hr-positionCategory-master #positionCategoryMasterUI>
 </base-hr-positionCategory-master>
 
@@ -73,8 +70,8 @@
 <base-hr-positionCategory-delete #positionCategoryDeleteUI 
                 (onClosed)='onDeleteModalClosed($event)'>
 </base-hr-positionCategory-delete>
--->
 
 
-<!-- <hr-position-edit #positionEditUI> 
-</hr-position-edit>  -->
+
+<hr-position-edit #positionEditUI> 
+</hr-position-edit> 

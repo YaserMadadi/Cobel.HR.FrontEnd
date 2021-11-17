@@ -20,7 +20,7 @@ import { IndividualDevelopmentPlan } from '../../../PMS/IndividualDevelopmentPla
 
 
 @Component({
-  selector: 'base.pms-subject-index',
+  selector: 'base-pms-subject-index',
   templateUrl: './subject.index.html',
   styleUrls: ['./subject.index.css']
 })

@@ -20,7 +20,7 @@ import { AppraisalApproverConfig } from '../../../PMS/AppraisalApproverConfig/ap
 
 
 @Component({
-  selector: 'base.pms-approverType-index',
+  selector: 'base-pms-approverType-index',
   templateUrl: './approverType.index.html',
   styleUrls: ['./approverType.index.css']
 })

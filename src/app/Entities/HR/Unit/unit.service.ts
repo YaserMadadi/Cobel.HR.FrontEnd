@@ -13,8 +13,8 @@ import { Unit } from './unit';
 import { UnitServiceCollection } from './unit.service.collection';
 
 import { DepartmentService } from '../Department/department.service';
-import { PositionCategoryService } from '../../Base.HR/PositionCategory/positionCategory.service';
 import { Position } from '../Position/position';
+import { PositionDivisionService } from '../../Base.HR/PositionDivision/positionDivision.service';
 
 
 @Injectable({ providedIn: 'root' })
@@ -22,7 +22,7 @@ export class UnitService extends Service<Unit> implements IService<Unit> {
 
   constructor(public ServiceCollection: UnitServiceCollection,
 		public DepartmentService: DepartmentService,
-		public PositionCategoryService: PositionCategoryService) {
+		public PositionDivisionService: PositionDivisionService) {
     super(ServiceCollection.API_Operation, Unit.Info);
   }
 

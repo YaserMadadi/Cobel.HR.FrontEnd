@@ -34,6 +34,8 @@ import { GuideModule } from './tools/ui/components/guide/guide.module';
 import { CdatePipe } from './tools/ui/pipes/cdate.pipe';
 import { TabItemComponent } from './tools/tabItem.component';
 import { IndexButtonManagerComponent } from './tools/ui/components/index-button-manager/index-button-manager.component';
+import { LogViewerModule } from './tools/ui/log-viewer/logViewer.Module';
+import { LogButtonModule } from './tools/ui/components/log-button/log-button.module';
 
 @NgModule({
     declarations: [
@@ -53,7 +55,6 @@ import { IndexButtonManagerComponent } from './tools/ui/components/index-button-
         IsZeroPipe,
         NumberPipe,
         CdatePipe,
-        //TabItemComponent
     ],
     imports: [
         //BrowserAnimationsModule,
@@ -72,6 +73,8 @@ import { IndexButtonManagerComponent } from './tools/ui/components/index-button-
         BsDropdownModule.forRoot(),
         //DpDatePickerModule,
         GuideModule,
+        LogViewerModule,
+        LogButtonModule
     ],
     exports: [
 
@@ -104,6 +107,8 @@ import { IndexButtonManagerComponent } from './tools/ui/components/index-button-
         IsZeroPipe,
         NumberPipe,
         GuideModule,
+        LogViewerModule,
+        LogButtonModule
        // TabItemComponent
     ]
 })

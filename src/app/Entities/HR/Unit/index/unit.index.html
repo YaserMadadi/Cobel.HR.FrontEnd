@@ -11,7 +11,7 @@
       <a class='dropdown-item pointer'
          (click)='navigate("HR", "Department", currentInstance.department?.id)'>Manage Department</a>
       <a class='dropdown-item pointer'
-         (click)='navigate("HR", "PositionCategory", currentInstance.positionCategory?.id)'>Manage Position Category</a>
+         (click)='navigate("HR", "PositionDivision", currentInstance.positionDivision?.id)'>Manage Position Division</a>
     </div>
     <div id='related-menu'>
       <a class='dropdown-item pointer'
@@ -26,7 +26,7 @@
         <th class='row-number'>Row</th>
         <th title='Title'>Title</th>
         <th title='Department'>Department</th>
-        <th title='Position Category'>Position Category</th>
+        <th title='Position Division'>Position Division</th>
         <th width='100px'
             title='Is Active'>Is Active</th>
       </tr>
@@ -60,13 +60,13 @@
         </th>
         <th>
           <input class='form-control'
-                 #positionCategory='ngModel'
-                 id='positionCategory'
-                 name='positionCategory'
-                 title='Position Category'
+                 #positionDivision='ngModel'
+                 id='positionDivision'
+                 name='positionDivision'
+                 title='Position Division'
                  autocomplete='off'
-                 placeholder='Position Category'
-                 [(ngModel)]='filterInstance.positionCategory.descriptor'
+                 placeholder='Position Division'
+                 [(ngModel)]='filterInstance.positionDivision.descriptor'
                  type='text'
                  maxlength='50'
                  (keyup)='doFilter($event)' />
@@ -84,7 +84,7 @@
         <td class='row-number'>{{ i+1 }}</td>
         <td>{{ p.title }}</td>
         <td>{{ p.department?.descriptor }}</td>
-        <td>{{ p.positionCategory?.descriptor }}</td>
+        <td>{{ p.positionDivision?.descriptor }}</td>
         <td width='100px'><input type='checkbox'
                  disabled
                  [(ngModel)]='p.isActive' /></td>

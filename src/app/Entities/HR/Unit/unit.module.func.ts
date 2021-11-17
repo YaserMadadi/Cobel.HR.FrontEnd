@@ -11,7 +11,7 @@ import { UnitDeleteUI } from './delete/unit.delete';
 import { UnitSeekUI } from './seek/unit.seek';
 
 import { Department_ModuleFunc } from '../Department/department.module.func';
-import { PositionCategory_ModuleFunc } from '../../Base.HR/PositionCategory/positionCategory.module.func';
+import { PositionDivision_ModuleFunc } from '../../Base.HR/PositionDivision/positionDivision.module.func';
 
 @NgModule({
     declarations: [
@@ -24,7 +24,7 @@ import { PositionCategory_ModuleFunc } from '../../Base.HR/PositionCategory/posi
         CommonModule,
         XCommonModule,
         Department_ModuleFunc,
-        PositionCategory_ModuleFunc
+        PositionDivision_ModuleFunc
     ],
     exports: [
         UnitEditUI,

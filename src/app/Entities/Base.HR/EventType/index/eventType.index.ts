@@ -22,7 +22,7 @@ import { EmployeeEvent } from '../../../HR/EmployeeEvent/employeeEvent';
 
 
 @Component({
-  selector: 'base.hr-eventType-index',
+  selector: 'base-hr-eventType-index',
   templateUrl: './eventType.index.html',
   styleUrls: ['./eventType.index.css']
 })

@@ -5,7 +5,7 @@ import { Validator } from '../../../../xcore/tools/Validator';
 import { BusinessObject } from '../../../../xcore/business-object';
 import { Position } from '../Position/position';
 import { Department } from '../Department/department';
-import { PositionCategory } from '../../Base.HR/PositionCategory/positionCategory';
+import { PositionDivision } from '../../Base.HR/PositionDivision/positionDivision';
 
 
 @Directive()
@@ -39,7 +39,7 @@ export class Unit extends BusinessObject implements OnInit {
 	
 	public department: Department = new Department();
 	
-	public positionCategory: PositionCategory = new PositionCategory();
+	public positionDivision: PositionDivision = new PositionDivision();
 	
 	public isActive: boolean = false;
 
@@ -66,7 +66,7 @@ export class Unit extends BusinessObject implements OnInit {
   public static Validate(unit: Unit) : boolean {
     let result = Validator.Validate(unit.title) &&
 					Validator.Validate(unit.department) &&
-					Validator.Validate(unit.positionCategory);
+					Validator.Validate(unit.positionDivision);
     if(result === false)
       console.log('Unit is unvalid : ', unit);
     return result;

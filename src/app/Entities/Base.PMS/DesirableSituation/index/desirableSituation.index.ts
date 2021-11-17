@@ -20,7 +20,7 @@ import { IndividualDevelopmentPlan } from '../../../PMS/IndividualDevelopmentPla
 
 
 @Component({
-  selector: 'base.pms-desirableSituation-index',
+  selector: 'base-pms-desirableSituation-index',
   templateUrl: './desirableSituation.index.html',
   styleUrls: ['./desirableSituation.index.css']
 })

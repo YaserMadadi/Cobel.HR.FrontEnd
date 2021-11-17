@@ -24,9 +24,9 @@ import { Position } from '../../../HR/Position/position';
 
 
 @Component({
-  selector: 'base.hr-positionCategory-index',
-  templateUrl: './positionCategory.index.html',
-  styleUrls: ['./positionCategory.index.css']
+  selector: 'base-hr-positionCategory-index',
+  templateUrl: './positionCategory.index.html', 
+  styleUrls: ['./positionCategory.index.css'] 
 })
 export class PositionCategoryIndexUI extends IndexView<PositionCategory> implements AfterViewInit, IIndexView<PositionCategory> {
 

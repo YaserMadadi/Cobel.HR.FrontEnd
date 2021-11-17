@@ -24,7 +24,7 @@ import { QualitativeAppraise } from '../../../PMS/QualitativeAppraise/qualitativ
 
 
 @Component({
-  selector: 'base.pms-appraiseType-index',
+  selector: 'base-pms-appraiseType-index',
   templateUrl: './appraiseType.index.html',
   styleUrls: ['./appraiseType.index.css']
 })

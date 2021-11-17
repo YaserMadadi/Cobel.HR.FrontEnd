@@ -22,7 +22,7 @@ import { TargetSetting } from '../../../PMS/TargetSetting/targetSetting';
 
 
 @Component({
-  selector: 'base.pms-targetSettingType-index',
+  selector: 'base-pms-targetSettingType-index',
   templateUrl: './targetSettingType.index.html',
   styleUrls: ['./targetSettingType.index.css']
 })

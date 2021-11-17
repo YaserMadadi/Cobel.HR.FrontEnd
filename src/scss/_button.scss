@@ -74,6 +74,20 @@ button.xbtn{
         }
     }
 
+    &.btn-log {
+        $color: #4faa13;//#8BC34A;
+        color: $color;
+        &:hover{
+            border-color: $color;
+        }
+        &:disabled{
+            color: $disabled-color;
+        }
+        &:focus {
+            border-color: $color;
+        }
+    }
+
     
     &.btn-extra{
         $color: #ff8201;

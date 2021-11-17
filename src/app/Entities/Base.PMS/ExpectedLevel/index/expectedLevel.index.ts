@@ -20,7 +20,7 @@ import { BehavioralObjective } from '../../../PMS/BehavioralObjective/behavioral
 
 
 @Component({
-  selector: 'base.pms-expectedLevel-index',
+  selector: 'base-pms-expectedLevel-index',
   templateUrl: './expectedLevel.index.html',
   styleUrls: ['./expectedLevel.index.css']
 })
