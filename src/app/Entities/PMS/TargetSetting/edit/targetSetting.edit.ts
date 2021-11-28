@@ -39,10 +39,20 @@ export class TargetSettingEditUI extends EditModal<TargetSetting> implements IEd
 
   @Input()
   public set Employee(value: Employee) {
-    this.currentInstance.employee = this.employeeComponent.instance = value;
+    this.currentInstance.appraiser = this.appraiserComponent.instance = value;
   }
 
-  //#endregion -- Employee --
+  //#endregion -- Appraiser --
+  //#region -- Appraiser --
+
+  appraiserComponent: ForeignComponent<Employee> = new ForeignComponent<Employee>(this.targetSettingService.EmployeeService);
+
+  @Input()
+  public set Appraiser(value: Employee) {
+    this.currentInstance.appraiser = this.appraiserComponent.instance = value;
+  }
+
+  //#endregion -- Appraiser --
   //#region -- Position --
 
   positionComponent: ForeignComponent<Position> = new ForeignComponent<Position>(this.targetSettingService.PositionService);
@@ -103,10 +113,12 @@ export class TargetSettingEditUI extends EditModal<TargetSetting> implements IEd
       this.employeeComponent.instance = targetSetting.employee;
       this.positionComponent.instance = targetSetting.position;
       this.yearComponent.instance = targetSetting.year;
+      this.appraiserComponent.instance = targetSetting.appraiser;
     } else {
       targetSetting.employee = this.employeeComponent.instance;
       targetSetting.position = this.positionComponent.instance;
       targetSetting.year = this.yearComponent.instance;
+      targetSetting.appraiser = this.appraiserComponent.instance;
     }
     this.currentInstance = targetSetting;
   }
@@ -115,5 +127,6 @@ export class TargetSettingEditUI extends EditModal<TargetSetting> implements IEd
     this.Employee = new Employee();
     this.Position = new Position();
     this.Year = new Year();
+    this.Appraiser = new Employee();
   }
 }

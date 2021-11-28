@@ -20,7 +20,7 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'targetSetting-qualitativeObjective-detail',
   templateUrl: './targetSetting-qualitativeObjective.detail.html',
   styleUrls: ['./targetSetting-qualitativeObjective.detail.css'],
-  
+
 })
 
 @Injectable()
@@ -52,6 +52,7 @@ export class TargetSetting_QualitativeObjective_DetailUI extends DetailView<Targ
       .CollectionOfQualitativeObjective(this.targetSetting)
       .then(qualitativeObjectiveList => {
         this.QualitativeObjectiveList = qualitativeObjectiveList;
+        this.QualitativeObjectiveList.forEach(i => i.targetSetting = this.targetSetting);
         this.currentQualitativeObjective = new QualitativeObjective();
       });
   }
@@ -83,7 +84,7 @@ export class TargetSetting_QualitativeObjective_DetailUI extends DetailView<Targ
   }
 
   public async onAdd(editUI: QualitativeObjectiveEditUI) {
-    
+
     if (!this.checkTargetSetting())
       return;
 
@@ -95,10 +96,11 @@ export class TargetSetting_QualitativeObjective_DetailUI extends DetailView<Targ
   public async onEdit(editUI: QualitativeObjectiveEditUI) {
     if (QualitativeObjective.NotConfirm(this.currentQualitativeObjective))
       return;
-
+    console.log('test');
     if (!this.checkTargetSetting())
       return;
-    
+
+    console.log('After Check TargetSetting ', this.currentQualitativeObjective);
     editUI.TargetSetting = this.targetSetting;
     editUI.ShowDialog(this.currentQualitativeObjective);
   }
@@ -109,7 +111,7 @@ export class TargetSetting_QualitativeObjective_DetailUI extends DetailView<Targ
 
     if (!this.checkTargetSetting())
       return;
-    
+
     deleteUI.ShowDialog(this.currentQualitativeObjective);
   }
 

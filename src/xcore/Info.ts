@@ -25,3 +25,7 @@ export class Info {
     return this.name.length === 0;
   }
 }
+
+
+
+

@@ -155,6 +155,7 @@ export class IndexView<T extends BusinessObject> implements IIndexView<T>, OnIni
 
     public onSelect(i: number) {
         this.currentInstance = this.list[i];
+        console.log(this.currentInstance);
     }
 
     public onDblClicked(masterUI: MasterModal<T>) {

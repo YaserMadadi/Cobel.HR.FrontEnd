@@ -52,6 +52,7 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
       .CollectionOfBehavioralObjective(this.targetSetting)
       .then(behavioralObjectiveList => {
         this.BehavioralObjectiveList = behavioralObjectiveList;
+        this.BehavioralObjectiveList.forEach(i => i.targetSetting = this.targetSetting);
         this.currentBehavioralObjective = new BehavioralObjective();
       });
   }

@@ -5,4 +5,6 @@ export class PositionController {
 
     //this Position_Id is realted to PMS responsible for.
     public static HR_PMS_Position_Id: number = 2131;
+
+    public static Admin_Employee_Id: number = 5774;
 }

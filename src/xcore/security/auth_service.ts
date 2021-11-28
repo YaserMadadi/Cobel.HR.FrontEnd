@@ -121,7 +121,6 @@ export class AuthService extends EndPointController {
 						let result = <ResultData<AccessToken>>error.error;
 
 						console.log('Result in Error Handler : ', result);
-
 						if (result && result.message && result.message.length > 0)
 
 							MessageController.ShowMessage(result.message, toastType.error);

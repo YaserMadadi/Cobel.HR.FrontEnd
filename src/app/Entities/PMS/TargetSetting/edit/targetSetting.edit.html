@@ -54,7 +54,30 @@
                     </ng-template>
                 </kendo-dropdownlist>
       </div>
-
+      <!-- Appraiser -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("Appraiser_Id")'></guide>
+        <label for='appraiser' class='col-form-label'>Appraiser : </label>
+        <span class='help-block col-form-label' *ngIf='!appraiser.valid && appraiser.touched && !appraiser.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #appraiser='ngModel' 
+                    #appraiserCombo='kendoDropDownList' 
+                    name='appraiser' 
+                    title='Appraiser' 
+                    class='form-control'
+                    [ngClass]="{ 'error' : !appraiser.valid && appraiser.touched }" 
+                    [data]='appraiserComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='appraiserComponent.filterable'
+                    (filterChange)='appraiserComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.appraiser"
+                    required 
+                    [disabled]='IsLocked'>
+                    <!-- <ng-template kendoDropDownListFooterTemplate *ngIf='appraiserComponent.addable'>
+                      <button class='btn btn-primary' (click)='appraiserComponent.onAdd(appraiserCombo, appraiserEditUI)'>Add New</button>
+                    </ng-template> -->
+                </kendo-dropdownlist>
+      </div>
       <!-- TargetSettingType -->
       <div class='form-group'>
         <guide (onClick)='onGuid("TargetSettingType_Id")'></guide>

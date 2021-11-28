@@ -193,6 +193,8 @@ sub{
   margin-left: auto !important;
 }
 
+
+
 .indexTable{
 
     font-size: 13px;
@@ -275,7 +277,7 @@ td{
 
 .titleControl{
     text-align: right;
-    //font-weight: bold;
+    font-weight: 500;
 }
 
 .detail-grid{
@@ -314,8 +316,9 @@ td{
 }
 
 .form-control {
-    font-size: 12px;
-    height: auto;
+    font-size: 13px;
+    min-height: 40px;
+    padding: 0;
 }
 
 .dp-material{
@@ -428,6 +431,14 @@ legend{
 
 .app-header {
     height: 65px;
+}
+
+.k-input {
+    height: calc(1.42857em + 19px);
+}
+input.form-control {
+    padding: 10px;
+    height: 40px; 
 }
 
 

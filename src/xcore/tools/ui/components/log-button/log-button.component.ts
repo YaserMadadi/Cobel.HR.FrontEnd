@@ -19,9 +19,15 @@ export class LogButtonComponent implements OnInit {
   @Input('CurrentInstance')
   public currentInstance: BusinessObject;
 
-  onLog(logViewer: LogViewerComponent) {
-    if (PermissionController.Check(logViewer.Entity.info, PermissionType.ViewLog) == PermissionResult.Denied)
-      return;
+  
+
+  onLog() {
+    // if (PermissionController.Check(logViewer.Entity.info, PermissionType.ViewLog) == PermissionResult.Denied)
+    //   return;
+    //logViewer.onLoad();
+    console.log('LogViewer Button');
+    let logViewer : LogViewerComponent = this.viewContainerRef.createComponent<LogViewerComponent>(LogViewerComponent).instance;
+    logViewer.Entity = this.currentInstance;
     logViewer.onLoad();
   }
 

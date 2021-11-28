@@ -22,7 +22,8 @@
                 [disabled]='currentBehavioralKPI.id == 0'
                 *ngIf='false'>Delete</button>
       </div>
-      <div class='float-right'>
+      <div class='float-right d-flex' >
+        <log-button [CurrentInstance]='currentBehavioralKPI' ></log-button>
         <button type='button'
                 name='refreshButton'
                 class='xbtn btn-refresh'

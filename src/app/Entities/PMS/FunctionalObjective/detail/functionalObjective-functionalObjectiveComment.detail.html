@@ -9,7 +9,8 @@
         <button type='button' name='deleteButton' class='xbtn btn-delete' 
                   (click)='onDelete(functionalObjectiveCommentDeleteUI)' [disabled]='currentFunctionalObjectiveComment.id == 0'>Delete</button>
       </div>
-      <div class='float-right'>
+      <div class='float-right d-flex' >
+        <log-button [CurrentInstance]='currentFunctionalObjectiveComment' ></log-button>
         <button type='button' name='refreshButton' class='xbtn btn-refresh'
                 (click)='onReload()'>Refresh</button>
       </div>

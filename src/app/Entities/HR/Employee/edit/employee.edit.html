@@ -132,85 +132,10 @@
                 </kendo-dropdownlist>
       </div>
 			<!-- LastCity -->
-      <div class='form-group'>
-        <guide (onClick)='onGuid("LastCity")'></guide>
-        <label for='lastCity' class='col-form-label'>Last City : </label>
-        <span class='help-block col-form-label' *ngIf='!lastCity.valid && lastCity.touched && !lastCity.disabled'>( Value is not Valid! )</span>
-        <input type='text' 
-                    title='Last City' 
-                    [ngClass]="{ 'error' : !lastCity.valid && lastCity.touched }" 
-                    class='form-control ' 
-                    #lastCity='ngModel' 
-                    name='lastCity' 
-                    placeholder='... Last City' 
-                    [(ngModel)]='currentInstance.lastCity' 
-                    [disabled]='IsLocked'
-                    maxlength='200'  dir='ltr'  required  />
-      </div>
 			<!-- LastDepartment -->
-      <div class='form-group'>
-        <guide (onClick)='onGuid("LastDepartment")'></guide>
-        <label for='lastDepartment' class='col-form-label'>Last Department : </label>
-        <span class='help-block col-form-label' *ngIf='!lastDepartment.valid && lastDepartment.touched && !lastDepartment.disabled'>( Value is not Valid! )</span>
-        <input type='text' 
-                    title='Last Department' 
-                    [ngClass]="{ 'error' : !lastDepartment.valid && lastDepartment.touched }" 
-                    class='form-control ' 
-                    #lastDepartment='ngModel' 
-                    name='lastDepartment' 
-                    placeholder='... Last Department' 
-                    [(ngModel)]='currentInstance.lastDepartment' 
-                    [disabled]='IsLocked'
-                    maxlength='200'  dir='ltr'  required  />
-      </div>
 			<!-- LastPosition -->
-      <div class='form-group'>
-        <guide (onClick)='onGuid("LastPosition")'></guide>
-        <label for='lastPosition' class='col-form-label'>Last Position : </label>
-        <span class='help-block col-form-label' *ngIf='!lastPosition.valid && lastPosition.touched && !lastPosition.disabled'>( Value is not Valid! )</span>
-        <input type='text' 
-                    title='Last Position' 
-                    [ngClass]="{ 'error' : !lastPosition.valid && lastPosition.touched }" 
-                    class='form-control ' 
-                    #lastPosition='ngModel' 
-                    name='lastPosition' 
-                    placeholder='... Last Position' 
-                    [(ngModel)]='currentInstance.lastPosition' 
-                    [disabled]='IsLocked'
-                    maxlength='300'  dir='ltr'  required  />
-      </div>
 			<!-- StartWorkingInHoldingDate -->
-      <div class='form-group'>
-        <guide (onClick)='onGuid("StartWorkingInHoldingDate")'></guide>
-        <label for='startWorkingInHoldingDate' class='col-form-label'>Start Working In Holding Date : </label>
-        <span class='help-block col-form-label' *ngIf='!startWorkingInHoldingDate.valid && startWorkingInHoldingDate.touched && !startWorkingInHoldingDate.disabled'>( Value is not Valid! )</span>
-        <input type='date' 
-                    title=Start Working In Holding Date 
-                    [ngClass]="{ 'error' : !startWorkingInHoldingDate.valid && startWorkingInHoldingDate.touched }" 
-                    class='form-control' 
-                    #startWorkingInHoldingDate='ngModel' 
-                    name='startWorkingInHoldingDate'
-                    [ngModel]="currentInstance.startWorkingInHoldingDate | date:'yyyy-MM-dd'"
-                    (ngModelChange)='currentInstance.startWorkingInHoldingDate = $event'
-                    [disabled]='IsLocked'
-                     required >
-      </div>
 			<!-- LastTerminationDate -->
-      <div class='form-group'>
-        <guide (onClick)='onGuid("LastTerminationDate")'></guide>
-        <label for='lastTerminationDate' class='col-form-label'>Last Termination Date : </label>
-        <span class='help-block col-form-label' *ngIf='!lastTerminationDate.valid && lastTerminationDate.touched && !lastTerminationDate.disabled'>( Value is not Valid! )</span>
-        <input type='text' 
-                    title='Last Termination Date' 
-                    [ngClass]="{ 'error' : !lastTerminationDate.valid && lastTerminationDate.touched }" 
-                    class='form-control ' 
-                    #lastTerminationDate='ngModel' 
-                    name='lastTerminationDate' 
-                    placeholder='... Last Termination Date' 
-                    [(ngModel)]='currentInstance.lastTerminationDate' 
-                    [disabled]='IsLocked'
-                    maxlength='10'  dir='ltr'  required  />
-      </div>
 			
     </div>
     <div class='modal-footer'>

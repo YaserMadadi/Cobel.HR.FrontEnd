@@ -50,6 +50,7 @@ export class EditModal<T extends BusinessObject> implements IEditModal<T>{
         //     this.ResetForm();
         if (this.service.CheckPermission(permissionType) === PermissionResult.Denied)
             return;
+        console.log(entity);
         // if(entity.isNew)
         //     this.EditUI.reset();
         this.IsShown = true;

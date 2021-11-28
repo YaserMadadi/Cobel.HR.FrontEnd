@@ -116,6 +116,7 @@ export class TargetSetting extends BusinessObject implements OnInit {
     let result = Validator.Validate(targetSetting.employee) &&
       Validator.Validate(targetSetting.position) &&
       Validator.Validate(targetSetting.year) &&
+      Validator.Validate(targetSetting.appraiser) &&
       Validator.Validate(targetSetting.targetSettingType);
     if (result === false)
       console.log('TargetSetting is unvalid : ', targetSetting);
