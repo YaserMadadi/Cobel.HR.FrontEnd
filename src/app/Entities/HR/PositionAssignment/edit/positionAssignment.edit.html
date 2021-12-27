@@ -24,7 +24,7 @@
                     (filterChange)='employeeComponent.DoFilter($event)'
                     [(ngModel)]="currentInstance.employee"
                      required 
-                    [disabled]='IsLocked'>
+                    [disabled]='IsLocked || currentInstance.employee.id > 0'>
                     <ng-template kendoDropDownListFooterTemplate *ngIf='employeeComponent.addable'>
                       <button class='btn btn-primary' (click)='employeeComponent.onAdd(employeeCombo, employeeEditUI)'>Add New</button>
                     </ng-template>
