@@ -72,6 +72,10 @@ export class TargetSetting_QualitativeObjective_DetailUI extends DetailView<Targ
 
   private checkTargetSetting(): Boolean {
     //let targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
+    if (this.currentQualitativeObjective.targetSetting.targetSettingMode.id != 2) {
+      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+      return false;
+    }
     if (this.currentQualitativeObjective.targetSetting.employee.id == AuthService.currentEmployee.id) {
       MessageController.ShowMessage(MessageType.AddPermissionDenied);
       return false;

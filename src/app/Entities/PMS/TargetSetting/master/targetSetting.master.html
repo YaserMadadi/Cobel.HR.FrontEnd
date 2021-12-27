@@ -22,6 +22,12 @@
                     <label class='col-sm-8'>{{ currentInstance.targetSettingType?.descriptor }}</label>
                 </div>
                 <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Target Setting Mode :
+                        <guide (onClick)='onGuid("TargetSettingMode_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.targetSettingMode?.descriptor }}</label>
+                </div>
+                <div class='form-group row'>
                     <label class='col-sm-4 titleControl'>Appraiser :
                         <guide (onClick)='onGuid("Appraiser_Id")'></guide>
                     </label>

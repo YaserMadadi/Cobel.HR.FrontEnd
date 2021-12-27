@@ -102,6 +102,30 @@
                     </ng-template> -->
                 </kendo-dropdownlist>
       </div>
+      <!-- TargetSettingMode -->
+      <div class='form-group'>
+        <guide (onClick)='onGuid("TargetSettingMode_Id")'></guide>
+        <label for='targetSettingMode' class='col-form-label'>TargetSettingMode : </label>
+        <span class='help-block col-form-label' *ngIf='!targetSettingMode.valid && targetSettingMode.touched && !targetSettingMode.disabled'>( Value is not Valid! )</span>
+        <kendo-dropdownlist #targetSettingMode='ngModel' 
+                    #targetSettingModeCombo='kendoDropDownList' 
+                    name='targetSettingMode' 
+                    title='TargetSettingMode'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !targetSettingMode.valid && targetSettingMode.touched }" 
+                    [data]='targetSettingModeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='targetSettingModeComponent.filterable'
+                    (filterChange)='targetSettingModeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.targetSettingMode"
+                     required 
+                    [disabled]='IsLocked'>
+                    <!-- <ng-template kendoDropDownListFooterTemplate *ngIf='targetSettingModeComponent.addable'>
+                      <button class='btn btn-primary' (click)='targetSettingModeComponent.onAdd(targetSettingModeCombo, targetSettingModeEditUI)'>Add New</button>
+                    </ng-template> -->
+                </kendo-dropdownlist>
+      </div>
 
 			<!-- Year -->
       <div class='form-group'>

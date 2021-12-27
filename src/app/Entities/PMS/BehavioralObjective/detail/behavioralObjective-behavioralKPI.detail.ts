@@ -20,7 +20,7 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'behavioralObjective-behavioralKPI-detail',
   templateUrl: './behavioralObjective-behavioralKPI.detail.html',
   styleUrls: ['./behavioralObjective-behavioralKPI.detail.css'],
-  
+
 })
 
 @Injectable()
@@ -71,6 +71,10 @@ export class BehavioralObjective_BehavioralKPI_DetailUI extends DetailView<Behav
 
   private checkTargetSetting(): Boolean {
     //let targetSetting = await this.behavioralObjectiveService.TargetSettingService.RetrieveById(this.behavioralObjective.targetSetting.id);
+    if (this.behavioralObjective.targetSetting.targetSettingMode.id != 2) {
+      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+      return false;
+    }
     if (this.behavioralObjective.targetSetting.employee.id == AuthService.currentEmployee.id) {
       MessageController.ShowMessage(MessageType.NotEditable);
       return false;

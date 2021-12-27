@@ -15,6 +15,7 @@ import { PositionEditUI } from '../../../HR/Position/edit/position.edit';
 import { Year } from '../../../Base/Year/year';
 import { YearEditUI } from '../../../Base/Year/edit/year.edit';
 import { TargetSettingType } from '../../../Base.PMS/TargetSettingType/targetSettingType';
+import { TargetSettingMode } from '../../../Base.PMS/TargetSettingMode/targetSettingMode';
 
 
 
@@ -65,7 +66,7 @@ export class TargetSettingEditUI extends EditModal<TargetSetting> implements IEd
 
   //#endregion -- Position --
 
-  //#region -- Position --
+  //#region -- targetSettingType --
 
   targetSettingTypeComponent: ForeignComponent<TargetSettingType> = new ForeignComponent<TargetSettingType>(this.targetSettingService.TargetSettingTypeService, false);
 
@@ -75,7 +76,19 @@ export class TargetSettingEditUI extends EditModal<TargetSetting> implements IEd
   }
 
 
-  //#endregion -- Position --
+  //#endregion -- targetSettingType --
+
+    //#region -- targetSettingMode --
+
+    targetSettingModeComponent: ForeignComponent<TargetSettingMode> = new ForeignComponent<TargetSettingMode>(this.targetSettingService.TargetSettingModeService, false);
+
+    @Input()
+    public set TargetSettingMode(value: TargetSettingMode) {
+      this.currentInstance.targetSettingMode = this.targetSettingModeComponent.instance = value;
+    }
+  
+  
+    //#endregion -- targetSettingMode --
 
   //#region -- Year --
 
@@ -102,6 +115,7 @@ export class TargetSettingEditUI extends EditModal<TargetSetting> implements IEd
 
   private loadLists() {
     this.targetSettingTypeComponent.LoadList();
+    this.targetSettingModeComponent.LoadList();
     this.yearComponent.LoadList();
 
   }

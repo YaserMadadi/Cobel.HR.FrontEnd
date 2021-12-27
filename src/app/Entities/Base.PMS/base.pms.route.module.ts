@@ -15,6 +15,7 @@ import { ApprovementTypeIndexUI } from './ApprovementType/index/approvementType.
 import { DevelopmentPlanPriorityIndexUI } from './DevelopmentPlanPriority/index/developmentPlanPriority.index';
 import { SubjectIndexUI } from './Subject/index/subject.index';
 import { CurrentSituationIndexUI } from './CurrentSituation/index/currentSituation.index';
+import { TargetSettingModeIndexUI } from './TargetSettingMode/index/targetSettingMode.index';
 
 const base_pms_routes : Routes = [
   { path: 'AppraiseTime', redirectTo: 'AppraiseTime/0' },
@@ -39,6 +40,8 @@ const base_pms_routes : Routes = [
 	{ path: 'Subject/:id', component: SubjectIndexUI, canActivate: [AuthGuard], data: { title: 'Subject' }  },
 	{ path: 'TargetSettingType', redirectTo: 'TargetSettingType/0' },
 	{ path: 'TargetSettingType/:id', component: TargetSettingTypeIndexUI, canActivate: [AuthGuard], data: { title: 'TargetSettingType' }  },
+	{ path: 'TargetSettingMode', redirectTo: 'TargetSettingMode/0' },
+	{ path: 'TargetSettingMode/:id', component: TargetSettingModeIndexUI, canActivate: [AuthGuard], data: { title: 'TargetSettingMode' }  },
 	
 ];
 

@@ -33,6 +33,7 @@ import { QuantitativeAppraise_ModuleFunc } from './QuantitativeAppraise/quantita
 import { ScoreCell_ModuleFunc } from './ScoreCell/scoreCell.module.func';
 import { StrategicObjectve_ModuleFunc } from './StrategicObjectve/strategicObjectve.module.func';
 import { TargetSetting_ModuleFunc } from './TargetSetting/targetSetting.module.func';
+import { TargetSettingPhase_ModuleFunc } from './TargetSettingPhase/targetSettingPhase.module.func';
 import { Vision_ModuleFunc } from './Vision/vision.module.func';
 import { VisionApproved_ModuleFunc } from './VisionApproved/visionApproved.module.func';
 import { VisionComment_ModuleFunc } from './VisionComment/visionComment.module.func';
@@ -74,6 +75,7 @@ import { VisionComment_ModuleFunc } from './VisionComment/visionComment.module.f
 		ScoreCell_ModuleFunc,
 		StrategicObjectve_ModuleFunc,
 		TargetSetting_ModuleFunc,
+		TargetSettingPhase_ModuleFunc,
 		Vision_ModuleFunc,
 		VisionApproved_ModuleFunc,
 		VisionComment_ModuleFunc,
@@ -113,6 +115,7 @@ import { VisionComment_ModuleFunc } from './VisionComment/visionComment.module.f
 		ScoreCell_ModuleFunc,
 		StrategicObjectve_ModuleFunc,
 		TargetSetting_ModuleFunc,
+		TargetSettingPhase_ModuleFunc,
 		Vision_ModuleFunc,
 		VisionApproved_ModuleFunc,
 		VisionComment_ModuleFunc,

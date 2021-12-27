@@ -18,7 +18,7 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'behavioralKPI-behavioralAppraise-detail',
   templateUrl: './behavioralKPI-behavioralAppraise.detail.html',
   styleUrls: ['./behavioralKPI-behavioralAppraise.detail.css'],
-  
+
 })
 
 @Injectable()
@@ -69,7 +69,18 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
   }
 
   private checkTargetSetting(): boolean {
-    if (this.behavioralKPI.behavioralObjective.targetSetting.isLocked) {
+    if (this.behavioralKPI.behavioralObjective.targetSetting.employee.id == AuthService.currentEmployee.id &&
+      this.behavioralKPI.behavioralObjective.targetSetting.targetSettingMode.id != 3) { // targetSettingMode.id = 3 : Self Appraising Mode
+      MessageController.ShowMessage(MessageType.NotSelfAppraisingMode);
+      return false;
+    } 
+    
+    if (this.behavioralKPI.behavioralObjective.targetSetting.employee.id != AuthService.currentEmployee.id &&
+      this.behavioralKPI.behavioralObjective.targetSetting.targetSettingMode.id != 4) { // targetSettingMode.id = 4 : Manager Appraising Mode
+      MessageController.ShowMessage(MessageType.NotManagerAppraisingMode);
+      return false;
+    }
+    if (this.behavioralKPI.behavioralObjective.targetSetting.isLocked || this.behavioralKPI.behavioralObjective.targetSetting.targetSettingMode.id == 5) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }

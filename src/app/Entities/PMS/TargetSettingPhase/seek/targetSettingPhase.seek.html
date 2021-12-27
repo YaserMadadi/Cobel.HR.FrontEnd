@@ -1,0 +1,81 @@
+
+<XDialog Header='Search form of TargetSettingPhase' 
+  [IsShown]='IsShown'
+  (OnClosed)='cancleButton_Clicked()'>
+  <div>
+    <!--
+          <div class='form-group row'>
+            <label for='year' class='col-sm-3 col-form-label'>Year_Id : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #year='ngModel' 
+                    #yearCombo='kendoDropDownList' 
+                    name='year' 
+                    title='Year_Id'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !year.valid && year.touched }" 
+                    [data]='yearComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='yearComponent.filterable'
+                    (filterChange)='yearComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.year"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='yearComponent.addable'>
+                      <button class='btn btn-primary' (click)='yearComponent.onAdd(yearCombo, yearEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='targetSettingType' class='col-sm-3 col-form-label'>TargetSettingType_Id : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #targetSettingType='ngModel' 
+                    #targetSettingTypeCombo='kendoDropDownList' 
+                    name='targetSettingType' 
+                    title='TargetSettingType_Id'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !targetSettingType.valid && targetSettingType.touched }" 
+                    [data]='targetSettingTypeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='targetSettingTypeComponent.filterable'
+                    (filterChange)='targetSettingTypeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.targetSettingType"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='targetSettingTypeComponent.addable'>
+                      <button class='btn btn-primary' (click)='targetSettingTypeComponent.onAdd(targetSettingTypeCombo, targetSettingTypeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>
+          <div class='form-group row'>
+            <label for='targetSettingMode' class='col-sm-3 col-form-label'>TargetSettingMode_Id : </label>
+            <div class='col-sm-9'>
+              <kendo-dropdownlist #targetSettingMode='ngModel' 
+                    #targetSettingModeCombo='kendoDropDownList' 
+                    name='targetSettingMode' 
+                    title='TargetSettingMode_Id'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !targetSettingMode.valid && targetSettingMode.touched }" 
+                    [data]='targetSettingModeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='targetSettingModeComponent.filterable'
+                    (filterChange)='targetSettingModeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance.targetSettingMode"
+                     required 
+                    [disabled]='IsLocked'>
+                    <ng-template kendoDropDownListFooterTemplate *ngIf='targetSettingModeComponent.addable'>
+                      <button class='btn btn-primary' (click)='targetSettingModeComponent.onAdd(targetSettingModeCombo, targetSettingModeEditUI)'>Add New</button>
+                    </ng-template>
+                </kendo-dropdownlist>
+            </div>
+          </div>-->
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-secondary' (click)='cancleButton_Clicked()'>Cancel</button>
+    <button type='button' class='btn btn-primary' (click)='seekButton_Clicked()'>Search</button>
+  </div>
+</XDialog>

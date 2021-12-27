@@ -116,8 +116,14 @@ export class PersonEditUI extends EditModal<Person> implements IEditModal<Person
   }
 
   private loadLists() {
-    
-    
+    this.genderComponent.LoadList();
+    this.maritalStatusComponent.LoadList();
+    this.birthCityComponent.LoadList();
+    this.nationalityComponent.LoadList();
+    this.religionComponent.LoadList();
+    this.healthStatusComponent.LoadList();
+    this.healthStatusComponent.LoadList();
+
   }
   
   InitPerson(person: Person){

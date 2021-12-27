@@ -21,7 +21,7 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'qualitativeKPI-qualitativeAppraise-detail',
   templateUrl: './qualitativeKPI-qualitativeAppraise.detail.html',
   styleUrls: ['./qualitativeKPI-qualitativeAppraise.detail.css'],
-  
+
 })
 
 @Injectable()
@@ -72,7 +72,19 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
   }
 
   private checkTargetSetting(): boolean {
-    if (this.QualitativeKPI.qualitativeObjective.targetSetting.isLocked) {
+    if (this.QualitativeKPI.qualitativeObjective.targetSetting.employee.id == AuthService.currentEmployee.id &&
+      this.QualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id != 3) { // targetSettingMode.id = 3 : Self Appraising Mode
+      MessageController.ShowMessage(MessageType.NotSelfAppraisingMode);
+      return false;
+    }
+
+    if (this.QualitativeKPI.qualitativeObjective.targetSetting.employee.id != AuthService.currentEmployee.id &&
+      this.QualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id != 4) { // targetSettingMode.id = 4 : Manager Appraising Mode
+      MessageController.ShowMessage(MessageType.NotManagerAppraisingMode);
+      return false;
+    }
+    if (this.QualitativeKPI.qualitativeObjective.targetSetting.isLocked ||
+      this.QualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id == 5) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }

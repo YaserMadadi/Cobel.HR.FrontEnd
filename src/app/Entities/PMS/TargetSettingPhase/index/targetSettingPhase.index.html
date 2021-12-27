@@ -1,0 +1,93 @@
+
+<fieldset class='border'>
+  <legend>TargetSettingPhase :</legend>
+  <index-button-manager [Id]='currentInstance.id'
+                          (onAddButtonClicked)='onAdd(targetSettingPhaseEditUI)'
+                          (onDeleteButtonClicked)='onDelete(targetSettingPhaseDeleteUI)'
+                          (onEditButtonClicked)='onEdit(targetSettingPhaseEditUI)'
+                          (onRefreshButtonClicked)='onRefresh()'
+                          (onLogButtonClicked)='onLog(logViewerUI)'>
+        <div id='quick-menu'>
+            
+		<a class='dropdown-item pointer' (click)='navigate("Base", "Year", currentInstance.year?.id)'>Manage Year</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "TargetSettingType", currentInstance.targetSettingType?.id)'>Manage TargetSettingType</a>
+		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "TargetSettingMode", currentInstance.targetSettingMode?.id)'>Manage TargetSettingMode</a>
+        </div>
+        <div id='related-menu'>
+            
+        </div>
+    </index-button-manager>
+  <table #targetSettingPhaseTable class='table table-hover indexTable'>
+    <thead>
+      <tr>
+        <th class='row-number'>Row</th>
+        <th title='Year_Id'>Year_Id</th>
+        <th title='TargetSettingType_Id'>TargetSettingType_Id</th>
+        <th title='TargetSettingMode_Id'>TargetSettingMode_Id</th>
+      </tr>
+      <tr name='secondRow'>
+        <th class='row-number'></th>
+        <th>
+          <input class='form-control' #year='ngModel' id='year' name='year'
+										 title='Year_Id'
+										 autocomplete='off'
+										 placeholder='Year_Id'
+										[(ngModel)]='filterInstance.year.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #targetSettingType='ngModel' id='targetSettingType' name='targetSettingType'
+										 title='TargetSettingType_Id'
+										 autocomplete='off'
+										 placeholder='TargetSettingType_Id'
+										[(ngModel)]='filterInstance.targetSettingType.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+        <th>
+          <input class='form-control' #targetSettingMode='ngModel' id='targetSettingMode' name='targetSettingMode'
+										 title='TargetSettingMode_Id'
+										 autocomplete='off'
+										 placeholder='TargetSettingMode_Id'
+										[(ngModel)]='filterInstance.targetSettingMode.descriptor'
+										 type='text'
+										 maxlength='50'
+										 (keyup)='doFilter($event)' />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(targetSettingPhaseMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+        <td class='row-number'>{{ i+1 }}</td>
+				<td>{{ p.year?.descriptor }}</td>
+				<td>{{ p.targetSettingType?.descriptor }}</td>
+				<td>{{ p.targetSettingMode?.descriptor }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <hr>
+</fieldset>
+
+<!--LogViewer Component-->
+<log-viewer #logViewerUI [Entity]='currentInstance'>
+
+</log-viewer>
+
+
+<!-- TargetSettingPhase -->
+<pms-targetSettingPhase-master #targetSettingPhaseMasterUI>
+</pms-targetSettingPhase-master>
+
+<pms-targetSettingPhase-edit #targetSettingPhaseEditUI
+                (onClosed)='onEditModalClosed($event)'>
+</pms-targetSettingPhase-edit>
+
+<pms-targetSettingPhase-delete #targetSettingPhaseDeleteUI 
+                (onClosed)='onDeleteModalClosed($event)'>
+</pms-targetSettingPhase-delete>
+

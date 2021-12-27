@@ -20,7 +20,7 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'targetSetting-behavioralObjective-detail',
   templateUrl: './targetSetting-behavioralObjective.detail.html',
   styleUrls: ['./targetSetting-behavioralObjective.detail.css'],
-  
+
 })
 
 @Injectable()
@@ -72,11 +72,15 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
 
   private async checkTargetSetting(): Promise<Boolean> {
     //let targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
-    if (this.currentBehavioralObjective.targetSetting.employee.id == AuthService.currentEmployee.id) {
+    if (this.currentBehavioralObjective.targetSetting.targetSettingMode.id != 2) {
+      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+      return false;
+    }
+    if (this.currentBehavioralObjective.targetSetting.employee.id == AuthService.currentEmployee.id) { // TargetSettingMode_Id = 2 : Target Reviewing
       MessageController.ShowMessage(MessageType.NotEditable);
       return false;
     }
-    if(this.currentBehavioralObjective.targetSetting.isLocked){
+    if (this.currentBehavioralObjective.targetSetting.isLocked) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }

@@ -281,6 +281,21 @@ export class MessageController {
                 this.type = toastType.error;
                 break;
             }
+            case MessageType.NotTargetReviewingMode: {
+                message = 'Target Setting Mode is not in Target Reviewing Mode. So you are not be able to do Target Reviewing! ';
+                this.type = toastType.warning;                
+                break;
+            }
+            case MessageType.NotSelfAppraisingMode: {
+                message = 'Target Setting Mode is not in Self Appraising Mode. So you are not be able to do Self Appraising! ';
+                this.type = toastType.warning;                
+                break;
+            }
+            case MessageType.NotManagerAppraisingMode: {
+                message = 'Target Setting Mode is not in Manager Appraising Mode. So you are not be able to do Manager Appraising! ';
+                this.type = toastType.warning;                
+                break;
+            }
         }
 
         return `<hr>Dear User .. ${this.DisplayName}<br>${message}`;

@@ -11,6 +11,7 @@ import { DevelopmentPlanPriority_ModuleFunc } from './DevelopmentPlanPriority/de
 import { ExpectedLevel_ModuleFunc } from './ExpectedLevel/expectedLevel.module.func';
 import { MeasurementUnit_ModuleFunc } from './MeasurementUnit/measurementUnit.module.func';
 import { Subject_ModuleFunc } from './Subject/subject.module.func';
+import { TargetSettingMode_ModuleFunc } from './TargetSettingMode/targetSettingMode.module.func';
 import { TargetSettingType_ModuleFunc } from './TargetSettingType/targetSettingType.module.func';
 
 
@@ -28,6 +29,7 @@ import { TargetSettingType_ModuleFunc } from './TargetSettingType/targetSettingT
 		MeasurementUnit_ModuleFunc,
 		Subject_ModuleFunc,
 		TargetSettingType_ModuleFunc,
+		TargetSettingMode_ModuleFunc,
 		
   ],
   exports: [
@@ -42,6 +44,7 @@ import { TargetSettingType_ModuleFunc } from './TargetSettingType/targetSettingT
 		MeasurementUnit_ModuleFunc,
 		Subject_ModuleFunc,
 		TargetSettingType_ModuleFunc,
+		TargetSettingMode_ModuleFunc,
 		
   ]
 })

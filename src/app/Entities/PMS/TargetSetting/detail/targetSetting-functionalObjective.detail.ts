@@ -20,7 +20,7 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'targetSetting-functionalObjective-detail',
   templateUrl: './targetSetting-functionalObjective.detail.html',
   styleUrls: ['./targetSetting-functionalObjective.detail.css'],
-  
+
 })
 export class TargetSetting_FunctionalObjective_DetailUI extends DetailView<TargetSetting> {
 
@@ -71,8 +71,12 @@ export class TargetSetting_FunctionalObjective_DetailUI extends DetailView<Targe
 
   private checkTargetSetting(): Boolean {
     //this.targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
-    if(this.targetSetting.isLocked){
+    if (this.targetSetting.isLocked) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
+      return false;
+    }
+    if (this.targetSetting.targetSettingMode.id != 2) {
+      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
       return false;
     }
     if (this.targetSetting.employee.id == AuthService.currentEmployee.id) {
@@ -85,13 +89,13 @@ export class TargetSetting_FunctionalObjective_DetailUI extends DetailView<Targe
   public async onAdd(editUI: FunctionalObjectiveEditUI) {
     if (!this.checkTargetSetting())
       return;
-      
+
     editUI.TargetSetting = this.targetSetting;
     editUI.ShowDialog(new FunctionalObjective());
   }
 
   public async onEdit(editUI: FunctionalObjectiveEditUI) {
-    if(!this.checkTargetSetting())
+    if (!this.checkTargetSetting())
       return;
 
     editUI.TargetSetting = this.targetSetting;
@@ -99,7 +103,7 @@ export class TargetSetting_FunctionalObjective_DetailUI extends DetailView<Targe
   }
 
   public async onDelete(deleteUI: FunctionalObjectiveDeleteUI) {
-    if(!this.checkTargetSetting())
+    if (!this.checkTargetSetting())
       return;
 
     deleteUI.ShowDialog(this.currentFunctionalObjective);

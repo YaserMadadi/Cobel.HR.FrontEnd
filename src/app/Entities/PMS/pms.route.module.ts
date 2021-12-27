@@ -39,6 +39,7 @@ import { VisionApprovedIndexUI } from './VisionApproved/index/visionApproved.ind
 import { QualitativeKPIIndexUI } from './QualitativeKPI/index/qualitativeKPI.index';
 import { VisionCommentIndexUI } from './VisionComment/index/visionComment.index';
 import { FinalAppraiseIndexUI } from './FinalAppraise/index/finalAppraise.index';
+import { TargetSettingPhaseIndexUI } from './TargetSettingPhase/index/targetSettingPhase.index';
 
 const pms_routes : Routes = [
   { path: 'AppraisalApproverConfig', redirectTo: 'AppraisalApproverConfig/0' },
@@ -107,6 +108,8 @@ const pms_routes : Routes = [
 	{ path: 'StrategicObjectve/:id', component: StrategicObjectveIndexUI, canActivate: [AuthGuard], data: { title: 'StrategicObjectve' }  },
 	{ path: 'TargetSetting', redirectTo: 'TargetSetting/0' },
 	{ path: 'TargetSetting/:id', component: TargetSettingIndexUI, canActivate: [AuthGuard], data: { title: 'Performance Management' }  },
+	{ path: 'TargetSettingPhase', redirectTo: 'TargetSettingPhase/0' },
+	{ path: 'TargetSettingPhase/:id', component: TargetSettingPhaseIndexUI, canActivate: [AuthGuard], data: { title: 'Target Setting Phase' }  },
 	{ path: 'Vision', redirectTo: 'Vision/0' },
 	{ path: 'Vision/:id', component: VisionIndexUI, canActivate: [AuthGuard], data: { title: 'Vision' }  },
 	{ path: 'VisionApproved', redirectTo: 'VisionApproved/0' },

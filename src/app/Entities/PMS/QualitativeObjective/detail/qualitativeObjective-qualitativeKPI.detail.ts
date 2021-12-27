@@ -75,6 +75,12 @@ export class QualitativeObjective_QualitativeKPI_DetailUI extends DetailView<Qua
       MessageController.ShowMessage(MessageType.AddPermissionDenied);
       return false;
     }
+
+    if (this.currentQualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id != 2) {
+      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+      return false;
+    }
+
     if (this.currentQualitativeKPI.qualitativeObjective.targetSetting.isLocked) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;

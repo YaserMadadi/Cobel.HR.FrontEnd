@@ -15,6 +15,7 @@ import { Employee } from '../../HR/Employee/employee';
 import { Position } from '../../HR/Position/position';
 import { Year } from '../../Base/Year/year';
 import { TargetSettingType } from '../../Base.PMS/TargetSettingType/targetSettingType';
+import { TargetSettingMode } from '../../Base.PMS/TargetSettingMode/targetSettingMode';
 
 
 @Directive()
@@ -53,6 +54,8 @@ export class TargetSetting extends BusinessObject implements OnInit {
   public date: Date = new Date();
 
   public targetSettingType: TargetSettingType = new TargetSettingType();
+  
+  public targetSettingMode: TargetSettingMode = new TargetSettingMode();
 
   public appraiser: Employee = new Employee();
 
@@ -117,7 +120,9 @@ export class TargetSetting extends BusinessObject implements OnInit {
       Validator.Validate(targetSetting.position) &&
       Validator.Validate(targetSetting.year) &&
       Validator.Validate(targetSetting.appraiser) &&
-      Validator.Validate(targetSetting.targetSettingType);
+      Validator.Validate(targetSetting.targetSettingType) &&
+      Validator.Validate(targetSetting.targetSettingMode);
+      
     if (result === false)
       console.log('TargetSetting is unvalid : ', targetSetting);
     return result;

@@ -75,17 +75,23 @@ export class TargetSettingIndexUI extends IndexView<TargetSetting> implements Af
     if (this.Id == 0) {
       this.filterInstance.paginate.currentPage = pageNumber;
       console.log('position List : ', AuthService.currentPositionList);
+      console.log('current Employee : ', AuthService.currentEmployee);
+      
       // this section detect if current user is a HR position responsible for PMS -> Load All
       if (AuthService.currentPositionList.filter(i => i.id == PositionController.HR_PMS_Position_Id || 
                                                   i.parent.id == PositionController.HR_PMS_Position_Id).length > 0 ||
                                                     AuthService.currentEmployee.id == PositionController.Admin_Employee_Id) { // Position_Id = 2131 : HRD Senior Specialist	
         this.targetSettingService.Seek(this.filterInstance)
-          .then(list => this.list = list);
+          .then(list => {
+            this.list = list;
+            console.log('Seek List : ', this.list);
+          });
 
       } else {
         this.EmployeeExtendedService.loadTargetSettings(AuthService.currentEmployee)
           .then(list => {
             this.list = list;
+            console.log('LoadChildTargetSetting List : ', this.list);
           });
       }
       this.currentInstance = new TargetSetting();

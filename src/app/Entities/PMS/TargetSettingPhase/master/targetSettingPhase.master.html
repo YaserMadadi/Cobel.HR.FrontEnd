@@ -1,0 +1,34 @@
+<XDialog Header='TargetSettingPhase Management form'
+    [IsShown]='IsShown' 
+    (OnClosed)='onClose()'
+    [ModalType]='2'>
+    <div class='master-content'>
+        <fieldset class='border rounded'>
+            <legend>TargetSettingPhase : </legend>
+            <div>
+                <div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>Year_Id : 
+                        <guide (onClick)='onGuid("Year_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.year?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>TargetSettingType : 
+                        <guide (onClick)='onGuid("TargetSettingType_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.targetSettingType?.descriptor }}</label>
+                </div>
+				<div class='form-group row'>
+                    <label class='col-sm-4 titleControl'>TargetSettingMode : 
+                        <guide (onClick)='onGuid("TargetSettingMode_Id")'></guide>
+                    </label>
+                    <label class='col-sm-8'>{{ currentInstance.targetSettingMode?.descriptor }}</label>
+                </div>
+            </div>
+            <button class='xbtn btn-refresh float-right' (click)='onReload()'>reload...</button>
+            <log-button [CurrentInstance]='currentInstance'></log-button>
+        </fieldset>
+        <hr/>
+        <!-- DetailPart -->
+    </div>
+</XDialog>

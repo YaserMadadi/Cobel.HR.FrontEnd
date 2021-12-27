@@ -47,7 +47,11 @@ export enum MessageType {
     QuestionnaireIsDone,
     QuestionnaireIsNotAvailable,
     AuthenticationError,
-    RecordIsLocked
+    RecordIsLocked,
+    NotTargetReviewingMode,
+    NotSelfAppraisingMode,
+    NotManagerAppraisingMode,
+    TargetSettingIsLocked
 }
 
 export enum Status{

@@ -12,7 +12,6 @@ import { AppraiseResultEditUI } from '../../AppraiseResult/edit/appraiseResult.e
 import { AppraiseResultDeleteUI } from '../../AppraiseResult/delete/appraiseResult.delete';
 
 
-
 @Component({
   selector: 'targetSetting-appraiseResult-detail',
   templateUrl: './targetSetting-appraiseResult.detail.html',

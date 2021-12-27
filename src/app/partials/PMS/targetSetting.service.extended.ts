@@ -8,6 +8,7 @@ import { FunctionalObjective } from "../../Entities/PMS/FunctionalObjective/func
 import { EndPointController } from "../../../xcore/tools/controller.endPoint";
 import { Injectable } from "@angular/core";
 import { TargetSettingTypeService } from "../../Entities/Base.PMS/TargetSettingType/targetSettingType.service";
+import { TargetSettingModeService } from "../../Entities/Base.PMS/TargetSettingMode/targetSettingMode.service";
 
 @Injectable({
     providedIn:'root'
@@ -16,10 +17,11 @@ export class TargetSettingServiceExtended extends TargetSettingService {
     constructor(serviceCollection: TargetSettingServiceCollection,
         employeeService: EmployeeService,
         targetSettingTypeService: TargetSettingTypeService,
+        targetSettingModeService: TargetSettingModeService,
         yearService: YearService,
         positionService: PositionService) {
 
-        super(serviceCollection, employeeService, positionService, targetSettingTypeService, yearService);
+        super(serviceCollection, employeeService, positionService, targetSettingTypeService, targetSettingModeService, yearService);
     }
 
     collectionOfParentFunctionalObjective(targetSetting: TargetSetting): Promise<FunctionalObjective[]> {

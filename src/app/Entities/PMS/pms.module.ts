@@ -1,4 +1,4 @@
-﻿import {NgModule} from '@angular/core';
+﻿import { NgModule } from '@angular/core';
 
 import { AppraisalApproverConfigModule } from './AppraisalApproverConfig/appraisalApproverConfig.module';
 import { AppraiseResultModule } from './AppraiseResult/appraiseResult.module';
@@ -37,11 +37,12 @@ import { VisionModule } from './Vision/vision.module';
 import { VisionApprovedModule } from './VisionApproved/visionApproved.module';
 import { VisionCommentModule } from './VisionComment/visionComment.module';
 import { PMS_RouteModule } from './pms.route.module';
+import { TargetSettingPhaseModule } from './TargetSettingPhase/targetSettingPhase.module';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    AppraisalApproverConfigModule,
+	declarations: [],
+	imports: [
+		AppraisalApproverConfigModule,
 		AppraiseResultModule,
 		BehavioralAppraiseModule,
 		BehavioralKPIModule,
@@ -74,13 +75,14 @@ import { PMS_RouteModule } from './pms.route.module';
 		ScoreCellModule,
 		StrategicObjectveModule,
 		TargetSettingModule,
+		TargetSettingPhaseModule,
 		VisionModule,
 		VisionApprovedModule,
 		VisionCommentModule,
 		PMS_RouteModule
-  ],
-  exports: [
-    AppraisalApproverConfigModule,
+	],
+	exports: [
+		AppraisalApproverConfigModule,
 		AppraiseResultModule,
 		BehavioralAppraiseModule,
 		BehavioralKPIModule,
@@ -113,10 +115,11 @@ import { PMS_RouteModule } from './pms.route.module';
 		ScoreCellModule,
 		StrategicObjectveModule,
 		TargetSettingModule,
+		TargetSettingPhaseModule,
 		VisionModule,
 		VisionApprovedModule,
 		VisionCommentModule,
 		PMS_RouteModule
-  ]
+	]
 })
 export class PMS_Module { }

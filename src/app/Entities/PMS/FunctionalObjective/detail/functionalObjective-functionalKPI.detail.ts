@@ -21,7 +21,7 @@ import { TargetSetting } from '../../TargetSetting/targetSetting';
   selector: 'functionalObjective-functionalKPI-detail',
   templateUrl: './functionalObjective-functionalKPI.detail.html',
   styleUrls: ['./functionalObjective-functionalKPI.detail.css'],
-  
+
 })
 
 @Injectable()
@@ -74,7 +74,12 @@ export class FunctionalObjective_FunctionalKPI_DetailUI extends DetailView<Funct
   private async checkTargetSetting(): Promise<Boolean> {
     //var targetSetting = await this.functionalObjectiveService.TargetSettingService.RetrieveById(this.functionalObjective.targetSetting.id);
     //this.functionalObjective.targetSetting = targetSetting;
-    if (this.functionalObjective.targetSetting.employee.id == AuthService.currentEmployee.id || this.functionalObjective.targetSetting.isLocked) {
+    if (this.functionalObjective.targetSetting.targetSettingMode.id != 2) {
+      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+      return false;
+    }
+    if (this.functionalObjective.targetSetting.employee.id == AuthService.currentEmployee.id ||
+      this.functionalObjective.targetSetting.isLocked) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }

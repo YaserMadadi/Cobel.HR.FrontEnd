@@ -13,6 +13,7 @@ import { MeasurementUnitModule } from './MeasurementUnit/measurementUnit.module'
 import { SubjectModule } from './Subject/subject.module';
 import { TargetSettingTypeModule } from './TargetSettingType/targetSettingType.module';
 import { Base_PMS_RouteModule } from './base.pms.route.module';
+import { TargetSettingModeModule } from './TargetSettingMode/targetSettingMode.module';
 
 @NgModule({
   declarations: [],
@@ -28,6 +29,7 @@ import { Base_PMS_RouteModule } from './base.pms.route.module';
 		MeasurementUnitModule,
 		SubjectModule,
 		TargetSettingTypeModule,
+		TargetSettingModeModule,
 		Base_PMS_RouteModule
   ],
   exports: [
@@ -41,6 +43,7 @@ import { Base_PMS_RouteModule } from './base.pms.route.module';
 		ExpectedLevelModule,
 		MeasurementUnitModule,
 		SubjectModule,
+		TargetSettingModeModule,
 		TargetSettingTypeModule,
 		Base_PMS_RouteModule
   ]
