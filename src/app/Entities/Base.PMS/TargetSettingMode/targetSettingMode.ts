@@ -19,6 +19,7 @@ export class TargetSettingMode extends BusinessObject implements OnInit {
     
   }
     
+  ///test
   ngOnInit() {
     
   }
