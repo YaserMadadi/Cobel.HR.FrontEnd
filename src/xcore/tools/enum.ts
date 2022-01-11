@@ -51,6 +51,7 @@ export enum MessageType {
     NotTargetReviewingMode,
     NotSelfAppraisingMode,
     NotManagerAppraisingMode,
+    YouAreNotAppraiser,
     TargetSettingIsLocked
 }
 

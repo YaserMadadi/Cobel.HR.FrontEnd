@@ -72,21 +72,25 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
   }
 
   private checkStatus() {
-    if (this.functionalKPI.functionalObjective.targetSetting.employee.id == AuthService.currentEmployee.id &&
-      this.functionalKPI.functionalObjective.targetSetting.targetSettingMode.id != 3) { // targetSettingMode.id = 3 : Self Appraising Mode
-      MessageController.ShowMessage(MessageType.NotSelfAppraisingMode);
-      return false;
-    } 
-    
-    if (this.functionalKPI.functionalObjective.targetSetting.employee.id != AuthService.currentEmployee.id &&
-      this.functionalKPI.functionalObjective.targetSetting.targetSettingMode.id != 4) { // targetSettingMode.id = 4 : Manager Appraising Mode
-      MessageController.ShowMessage(MessageType.NotManagerAppraisingMode);
-      return false;
-    }
-
     if (this.functionalKPI.functionalObjective.targetSetting.isLocked || 
       this.functionalKPI.functionalObjective.targetSetting.targetSettingMode.id == 5) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
+      return false;
+    }
+    // if (this.functionalKPI.functionalObjective.targetSetting.employee.id == AuthService.currentEmployee.id &&
+    //   this.functionalKPI.functionalObjective.targetSetting.targetSettingMode.id != 3) { // targetSettingMode.id = 3 : Self Appraising Mode
+    //   MessageController.ShowMessage(MessageType.NotSelfAppraisingMode);
+    //   return false;
+    // } 
+    
+    // if (this.functionalKPI.functionalObjective.targetSetting.employee.id != AuthService.currentEmployee.id &&
+    //   this.functionalKPI.functionalObjective.targetSetting.targetSettingMode.id != 4) { // targetSettingMode.id = 4 : Manager Appraising Mode
+    //   MessageController.ShowMessage(MessageType.NotManagerAppraisingMode);
+    //   return false;
+    // }
+    if (this.functionalKPI.functionalObjective.targetSetting.appraiser.id != AuthService.currentEmployee.id &&
+      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
+      MessageController.ShowMessage(MessageType.YouAreNotAppraiser);
       return false;
     }
 

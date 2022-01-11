@@ -20,7 +20,6 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'targetSetting-qualitativeObjective-detail',
   templateUrl: './targetSetting-qualitativeObjective.detail.html',
   styleUrls: ['./targetSetting-qualitativeObjective.detail.css'],
-
 })
 
 @Injectable()
@@ -39,6 +38,7 @@ export class TargetSetting_QualitativeObjective_DetailUI extends DetailView<Targ
   @Input()
   public set TargetSetting(value: TargetSetting) {
     this.targetSetting = value;
+    this.currentQualitativeObjective.targetSetting = this.targetSetting;
     this.onReload();
   }
 
@@ -72,16 +72,16 @@ export class TargetSetting_QualitativeObjective_DetailUI extends DetailView<Targ
 
   private checkTargetSetting(): Boolean {
     //let targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
-    if (this.currentQualitativeObjective.targetSetting.targetSettingMode.id != 2) {
-      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
-      return false;
-    }
-    if (this.currentQualitativeObjective.targetSetting.employee.id == AuthService.currentEmployee.id) {
-      MessageController.ShowMessage(MessageType.AddPermissionDenied);
-      return false;
-    }
-    if (this.currentQualitativeObjective.targetSetting.isLocked) {
+    if (this.targetSetting.isLocked) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
+      return false;
+    }
+    // if (this.currentQualitativeObjective.targetSetting.targetSettingMode.id != 2) {
+    //   MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+    //   return false;
+    // }
+    if (this.targetSetting.employee.id == AuthService.currentEmployee.id) {
+      MessageController.ShowMessage(MessageType.AddPermissionDenied);
       return false;
     }
     return true;

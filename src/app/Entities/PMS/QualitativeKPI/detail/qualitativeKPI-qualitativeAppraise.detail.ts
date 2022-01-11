@@ -72,26 +72,30 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
   }
 
   private checkTargetSetting(): boolean {
-    if (this.QualitativeKPI.qualitativeObjective.targetSetting.employee.id == AuthService.currentEmployee.id &&
-      this.QualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id != 3) { // targetSettingMode.id = 3 : Self Appraising Mode
-      MessageController.ShowMessage(MessageType.NotSelfAppraisingMode);
-      return false;
-    }
-
-    if (this.QualitativeKPI.qualitativeObjective.targetSetting.employee.id != AuthService.currentEmployee.id &&
-      this.QualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id != 4) { // targetSettingMode.id = 4 : Manager Appraising Mode
-      MessageController.ShowMessage(MessageType.NotManagerAppraisingMode);
-      return false;
-    }
-    if (this.QualitativeKPI.qualitativeObjective.targetSetting.isLocked ||
-      this.QualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id == 5) {
+    if (this.qualitativeKPI.qualitativeObjective.targetSetting.isLocked) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }
-    if (this.currentQualitativeAppraise.appraiser.id != AuthService.currentEmployee.id &&
+    // if (this.QualitativeKPI.qualitativeObjective.targetSetting.employee.id == AuthService.currentEmployee.id &&
+    //   this.QualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id != 3) { // targetSettingMode.id = 3 : Self Appraising Mode
+    //   MessageController.ShowMessage(MessageType.NotSelfAppraisingMode);
+    //   return false;
+    // }
+
+    // if (this.QualitativeKPI.qualitativeObjective.targetSetting.employee.id != AuthService.currentEmployee.id &&
+    //   this.QualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id != 4) { // targetSettingMode.id = 4 : Manager Appraising Mode
+    //   MessageController.ShowMessage(MessageType.NotManagerAppraisingMode);
+    //   return false;
+    // }
+    // if (this.QualitativeKPI.qualitativeObjective.targetSetting.isLocked ||
+    //   this.QualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id == 5) {
+    //   MessageController.ShowMessage(MessageType.RecordIsLocked);
+    //   return false;
+    // }
+    if (this.qualitativeKPI.qualitativeObjective.targetSetting.appraiser.id != AuthService.currentEmployee.id &&
       AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
-      MessageController.ShowMessage('You are not allowed to change this record of Appraisal!', toastType.error);
-      return;
+      MessageController.ShowMessage(MessageType.YouAreNotAppraiser);
+      return false;
     }
     return true;
   }

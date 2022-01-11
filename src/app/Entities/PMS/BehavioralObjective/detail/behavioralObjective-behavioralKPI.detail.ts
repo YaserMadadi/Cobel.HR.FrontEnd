@@ -39,6 +39,7 @@ export class BehavioralObjective_BehavioralKPI_DetailUI extends DetailView<Behav
   @Input()
   public set BehavioralObjective(value: BehavioralObjective) {
     this.behavioralObjective = value;
+    this.currentBehavioralKPI.behavioralObjective = this.behavioralObjective;
     this.onReload();
   }
 

@@ -75,10 +75,10 @@ export class TargetSetting_FunctionalObjective_DetailUI extends DetailView<Targe
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }
-    if (this.targetSetting.targetSettingMode.id != 2) {
-      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
-      return false;
-    }
+    // if (this.targetSetting.targetSettingMode.id != 2) {
+    //   MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+    //   return false;
+    // }
     if (this.targetSetting.employee.id == AuthService.currentEmployee.id) {
       MessageController.ShowMessage(MessageType.NotEditable);
       return false;

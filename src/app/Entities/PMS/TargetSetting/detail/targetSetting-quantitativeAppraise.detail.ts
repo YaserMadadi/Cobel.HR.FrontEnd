@@ -33,6 +33,7 @@ export class TargetSetting_QuantitativeAppraise_DetailUI extends DetailView<Targ
   @Input()
   public set TargetSetting(value: TargetSetting) {
     this.targetSetting = value;
+    this.currentQuantitativeAppraise.targetSetting = this.targetSetting;
     this.onReload();
   }
 

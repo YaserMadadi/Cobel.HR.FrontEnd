@@ -103,7 +103,7 @@
                 </kendo-dropdownlist>
       </div>
       <!-- TargetSettingMode -->
-      <div class='form-group'>
+      <!-- <div class='form-group'>
         <guide (onClick)='onGuid("TargetSettingMode_Id")'></guide>
         <label for='targetSettingMode' class='col-form-label'>TargetSettingMode : </label>
         <span class='help-block col-form-label' *ngIf='!targetSettingMode.valid && targetSettingMode.touched && !targetSettingMode.disabled'>( Value is not Valid! )</span>
@@ -120,12 +120,9 @@
                     (filterChange)='targetSettingModeComponent.DoFilter($event)'
                     [(ngModel)]="currentInstance.targetSettingMode"
                      required 
-                    [disabled]='IsLocked'>
-                    <!-- <ng-template kendoDropDownListFooterTemplate *ngIf='targetSettingModeComponent.addable'>
-                      <button class='btn btn-primary' (click)='targetSettingModeComponent.onAdd(targetSettingModeCombo, targetSettingModeEditUI)'>Add New</button>
-                    </ng-template> -->
+                    [disabled]='IsLocked'> 
                 </kendo-dropdownlist>
-      </div>
+      </div> -->
 
 			<!-- Year -->
       <div class='form-group'>

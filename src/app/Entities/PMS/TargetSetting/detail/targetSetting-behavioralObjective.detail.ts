@@ -39,6 +39,7 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
   @Input()
   public set TargetSetting(value: TargetSetting) {
     this.targetSetting = value;
+    this.currentBehavioralObjective.targetSetting = this.targetSetting;
     this.onReload();
   }
 
@@ -71,17 +72,16 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
   }
 
   private async checkTargetSetting(): Promise<Boolean> {
-    //let targetSetting = await this.targetSettingService.RetrieveById(this.targetSetting.id);
-    if (this.currentBehavioralObjective.targetSetting.targetSettingMode.id != 2) {
-      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
-      return false;
-    }
-    if (this.currentBehavioralObjective.targetSetting.employee.id == AuthService.currentEmployee.id) { // TargetSettingMode_Id = 2 : Target Reviewing
-      MessageController.ShowMessage(MessageType.NotEditable);
-      return false;
-    }
     if (this.currentBehavioralObjective.targetSetting.isLocked) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
+      return false;
+    }
+    // if (this.currentBehavioralObjective.targetSetting.targetSettingMode.id != 2) {
+    //   MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+    //   return false;
+    // }
+    if (this.currentBehavioralObjective.targetSetting.employee.id == AuthService.currentEmployee.id) { // TargetSettingMode_Id = 2 : Target Reviewing
+      MessageController.ShowMessage(MessageType.NotEditable);
       return false;
     }
     return true;
