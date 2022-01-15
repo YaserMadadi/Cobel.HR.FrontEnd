@@ -13,6 +13,7 @@ import { BehavioralKPIDeleteUI } from '../../BehavioralKPI/delete/behavioralKPI.
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController } from '../../../../../xcore/tools/controller.message';
 import { MessageType } from '../../../../../xcore/tools/Enum';
+import { PositionController } from '../../../../../xcore/tools/controller.positions';
 
 
 
@@ -71,15 +72,23 @@ export class BehavioralObjective_BehavioralKPI_DetailUI extends DetailView<Behav
   }
 
   private checkTargetSetting(): Boolean {
-    //let targetSetting = await this.behavioralObjectiveService.TargetSettingService.RetrieveById(this.behavioralObjective.targetSetting.id);
-    if (this.behavioralObjective.targetSetting.targetSettingMode.id != 2) {
-      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+    // if (this.behavioralObjective.targetSetting.targetSettingMode.id != 2) {
+    //   MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+    //   return false;
+    // }
+    if (this.behavioralObjective.targetSetting.isLocked) {
+      MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }
-    if (this.behavioralObjective.targetSetting.employee.id == AuthService.currentEmployee.id) {
-      MessageController.ShowMessage(MessageType.NotEditable);
+
+    if (!PositionController.IsCurrentUser(this.behavioralObjective.targetSetting.appraiser) &&
+      !PositionController.IsPMSAdmin() &&
+      !PositionController.IsAdmin()) {
+      MessageController.ShowMessage(MessageType.YouAreNotAppraiser);
       return false;
     }
+
+
     return true;
   }
 

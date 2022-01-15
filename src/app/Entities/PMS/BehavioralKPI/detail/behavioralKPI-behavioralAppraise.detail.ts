@@ -87,8 +87,9 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
     // }
 
 
-    if (this.behavioralKPI.behavioralObjective.targetSetting.appraiser.id != AuthService.currentEmployee.id &&
-      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
+    if (!PositionController.IsCurrentUser(this.behavioralKPI.behavioralObjective.targetSetting.appraiser) &&
+      !PositionController.IsPMSAdmin() &&
+      !PositionController.IsAdmin()) {
       MessageController.ShowMessage(MessageType.YouAreNotAppraiser);
       return false;
     }

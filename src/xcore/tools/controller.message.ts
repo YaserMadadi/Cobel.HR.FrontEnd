@@ -301,6 +301,11 @@ export class MessageController {
                 this.type = toastType.warning;                
                 break;
             }
+            // case MessageType.YouAreNotAppraiser: {
+            //     message = 'You are not allowed to change this record of Appraisal!!! ';
+            //     this.type = toastType.warning;                
+            //     break;
+            // }
         }
 
         return `<hr>Dear User .. ${this.DisplayName}<br>${message}`;

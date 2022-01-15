@@ -13,6 +13,7 @@ import { FunctionalObjectiveDeleteUI } from '../../FunctionalObjective/delete/fu
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController } from '../../../../../xcore/tools/controller.message';
 import { MessageType } from '../../../../../xcore/tools/Enum';
+import { PositionController } from '../../../../../xcore/tools/controller.positions';
 
 
 
@@ -79,8 +80,10 @@ export class TargetSetting_FunctionalObjective_DetailUI extends DetailView<Targe
     //   MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
     //   return false;
     // }
-    if (this.targetSetting.employee.id == AuthService.currentEmployee.id) {
-      MessageController.ShowMessage(MessageType.NotEditable);
+    if (!PositionController.IsCurrentUser(this.targetSetting.appraiser) &&
+      !PositionController.IsPMSAdmin() &&
+      !PositionController.IsAdmin()) {
+      MessageController.ShowMessage(MessageType.YouAreNotAppraiser);
       return false;
     }
     return true;

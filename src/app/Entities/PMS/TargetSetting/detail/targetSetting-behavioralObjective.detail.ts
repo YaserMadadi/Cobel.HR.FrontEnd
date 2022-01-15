@@ -13,6 +13,7 @@ import { BehavioralObjectiveDeleteUI } from '../../BehavioralObjective/delete/be
 import { MessageController } from '../../../../../xcore/tools/controller.message';
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageType } from '../../../../../xcore/tools/Enum';
+import { PositionController } from '../../../../../xcore/tools/controller.positions';
 
 
 
@@ -72,18 +73,24 @@ export class TargetSetting_BehavioralObjective_DetailUI extends DetailView<Targe
   }
 
   private async checkTargetSetting(): Promise<Boolean> {
+    
     if (this.currentBehavioralObjective.targetSetting.isLocked) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }
-    // if (this.currentBehavioralObjective.targetSetting.targetSettingMode.id != 2) {
+    
+    // if (this.currentBehavioralObjective.targetSetting.targetSettingMode.id != 2) {  // TargetSettingMode_Id = 2 : Target Reviewing
     //   MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
     //   return false;
     // }
-    if (this.currentBehavioralObjective.targetSetting.employee.id == AuthService.currentEmployee.id) { // TargetSettingMode_Id = 2 : Target Reviewing
-      MessageController.ShowMessage(MessageType.NotEditable);
+
+    if (!PositionController.IsCurrentUser(this.targetSetting.appraiser) &&
+      !PositionController.IsPMSAdmin() &&
+      !PositionController.IsAdmin()) {
+      MessageController.ShowMessage(MessageType.YouAreNotAppraiser);
       return false;
     }
+    
     return true;
   }
 

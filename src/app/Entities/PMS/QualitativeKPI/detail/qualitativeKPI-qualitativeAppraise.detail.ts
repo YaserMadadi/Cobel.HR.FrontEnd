@@ -59,6 +59,7 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
 
   public onSelect(i: number) {
     this.currentQualitativeAppraise = this.QualitativeAppraiseList[i];
+    this.currentQualitativeAppraise.qualitativeKPI = this.qualitativeKPI;
     if (QualitativeAppraise.NotConfirm(this.currentQualitativeAppraise))
       this.currentQualitativeAppraise = new QualitativeAppraise();
   }
@@ -92,8 +93,9 @@ export class QualitativeKPI_QualitativeAppraise_DetailUI extends DetailView<Qual
     //   MessageController.ShowMessage(MessageType.RecordIsLocked);
     //   return false;
     // }
-    if (this.qualitativeKPI.qualitativeObjective.targetSetting.appraiser.id != AuthService.currentEmployee.id &&
-      AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
+    if (!PositionController.IsCurrentUser(this.qualitativeKPI.qualitativeObjective.targetSetting.appraiser) &&
+      !PositionController.IsPMSAdmin() &&
+      !PositionController.IsAdmin()) {
       MessageController.ShowMessage(MessageType.YouAreNotAppraiser);
       return false;
     }

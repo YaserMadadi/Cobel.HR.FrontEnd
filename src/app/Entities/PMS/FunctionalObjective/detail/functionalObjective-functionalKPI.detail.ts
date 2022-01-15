@@ -14,6 +14,7 @@ import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageType } from '../../../../../xcore/tools/Enum';
 import { MessageController } from '../../../../../xcore/tools/controller.message';
 import { TargetSetting } from '../../TargetSetting/targetSetting';
+import { PositionController } from '../../../../../xcore/tools/controller.positions';
 
 
 
@@ -72,17 +73,23 @@ export class FunctionalObjective_FunctionalKPI_DetailUI extends DetailView<Funct
   }
 
   private async checkTargetSetting(): Promise<Boolean> {
-    //var targetSetting = await this.functionalObjectiveService.TargetSettingService.RetrieveById(this.functionalObjective.targetSetting.id);
-    //this.functionalObjective.targetSetting = targetSetting;
-    if (this.functionalObjective.targetSetting.targetSettingMode.id != 2) {
-      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
-      return false;
-    }
-    if (this.functionalObjective.targetSetting.employee.id == AuthService.currentEmployee.id ||
-      this.functionalObjective.targetSetting.isLocked) {
+    // if (this.functionalObjective.targetSetting.targetSettingMode.id != 2) {
+    //   MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+    //   return false;
+    // }
+    
+    if (this.functionalObjective.targetSetting.isLocked) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }
+
+    if (!PositionController.IsCurrentUser(this.functionalObjective.targetSetting.appraiser) &&
+      !PositionController.IsPMSAdmin() &&
+      !PositionController.IsAdmin()) {
+      MessageController.ShowMessage(MessageType.YouAreNotAppraiser);
+      return false;
+    }
+
     return true;
   }
 

@@ -13,6 +13,7 @@ import { QualitativeKPIDeleteUI } from '../../QualitativeKPI/delete/qualitativeK
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController } from '../../../../../xcore/tools/controller.message';
 import { MessageType } from '../../../../../xcore/tools/Enum';
+import { PositionController } from '../../../../../xcore/tools/controller.positions';
 
 
 
@@ -20,7 +21,7 @@ import { MessageType } from '../../../../../xcore/tools/Enum';
   selector: 'qualitativeObjective-qualitativeKPI-detail',
   templateUrl: './qualitativeObjective-qualitativeKPI.detail.html',
   styleUrls: ['./qualitativeObjective-qualitativeKPI.detail.css'],
-  
+
 })
 
 @Injectable()
@@ -70,19 +71,21 @@ export class QualitativeObjective_QualitativeKPI_DetailUI extends DetailView<Qua
   }
 
   private async checkTargetSetting(): Promise<Boolean> {
-    //let targetSetting = await this.qualitativeObjectiveService.TargetSettingService.RetrieveById(this.qualitativeObjective.targetSetting.id);
-    if (this.currentQualitativeKPI.qualitativeObjective.targetSetting.employee.id == AuthService.currentEmployee.id) {
-      MessageController.ShowMessage(MessageType.AddPermissionDenied);
-      return false;
-    }
 
-    if (this.currentQualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id != 2) {
-      MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
-      return false;
-    }
-
-    if (this.currentQualitativeKPI.qualitativeObjective.targetSetting.isLocked) {
+    if (this.qualitativeObjective.targetSetting.isLocked) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
+      return false;
+    }
+
+    // if (this.currentQualitativeKPI.qualitativeObjective.targetSetting.targetSettingMode.id != 2) {
+    //   MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
+    //   return false;
+    // }
+
+    if (!PositionController.IsCurrentUser(this.qualitativeObjective.targetSetting.appraiser) &&
+      !PositionController.IsPMSAdmin() &&
+      !PositionController.IsAdmin()) {
+      MessageController.ShowMessage(MessageType.YouAreNotAppraiser);
       return false;
     }
 

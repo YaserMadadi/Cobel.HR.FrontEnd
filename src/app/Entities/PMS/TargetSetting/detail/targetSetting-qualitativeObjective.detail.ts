@@ -13,6 +13,7 @@ import { QualitativeObjectiveDeleteUI } from '../../QualitativeObjective/delete/
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController } from '../../../../../xcore/tools/controller.message';
 import { MessageType } from '../../../../../xcore/tools/Enum';
+import { PositionController } from '../../../../../xcore/tools/controller.positions';
 
 
 
@@ -80,8 +81,10 @@ export class TargetSetting_QualitativeObjective_DetailUI extends DetailView<Targ
     //   MessageController.ShowMessage(MessageType.NotTargetReviewingMode);
     //   return false;
     // }
-    if (this.targetSetting.employee.id == AuthService.currentEmployee.id) {
-      MessageController.ShowMessage(MessageType.AddPermissionDenied);
+    if (!PositionController.IsCurrentUser(this.targetSetting.appraiser) &&
+      !PositionController.IsPMSAdmin() &&
+      !PositionController.IsAdmin()) {
+      MessageController.ShowMessage(MessageType.YouAreNotAppraiser);
       return false;
     }
     return true;
