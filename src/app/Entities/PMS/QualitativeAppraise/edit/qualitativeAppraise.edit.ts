@@ -14,8 +14,6 @@ import { Employee } from '../../../HR/Employee/employee';
 import { EmployeeEditUI } from '../../../HR/Employee/edit/employee.edit';
 import { AppraiseType } from '../../../Base.PMS/AppraiseType/appraiseType';
 import { AppraiseTypeEditUI } from '../../../Base.PMS/AppraiseType/edit/appraiseType.edit';
-import { AppraiseTime } from '../../../Base.PMS/AppraiseTime/appraiseTime';
-import { AppraiseTimeEditUI } from '../../../Base.PMS/AppraiseTime/edit/appraiseTime.edit';
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
 
@@ -107,16 +105,11 @@ export class QualitativeAppraiseEditUI extends EditModal<QualitativeAppraise> im
   }
 
   SetDefault() {
-    // this.AppraiseTime = this.appraiseTimeComponent.list[0];
-    // this.currentInstance.appraiseTime = this.appraiseTimeComponent.list[0];
-    //console.log('App Time : ', this.appraiseTimeComponent.list);
   }
 
   ResetForm() {
     this.QualitativeKPI = new QualitativeKPI();
     this.Appraiser = AuthService.currentEmployee;
     this.AppraiseType = new AppraiseType();
-    //this.currentInstance.appraiseTime.id = 1;
-    //this.AppraiseTime = new AppraiseTime();
   }
 }

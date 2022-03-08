@@ -15,7 +15,6 @@
         
 		<a class='dropdown-item pointer' (click)='navigate("PMS", "TargetSetting", currentInstance.targetSetting?.id)'>Manage Target Setting</a>
 		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "AppraiseType", currentInstance.appraiseType?.id)'>Manage Appraise Type</a>
-		<a class='dropdown-item pointer' (click)='navigate("Base.PMS", "AppraiseTime", currentInstance.appraiseTime?.id)'>Manage Appraise Time</a>
     </dropDownMenu>
   
   <table #appraiseResultTable class='table table-hover indexTable'>
@@ -24,7 +23,6 @@
         <th class='row-number'>Row</th>
         <th title='Target Setting'>Target Setting</th>
         <th title='Appraise Type'>Appraise Type</th>
-        <th title='Appraise Time'>Appraise Time</th>
         <th title='Functional Score'>Functional Score</th>
         <th title='Behavioral Score'>Behavioral Score</th>
         <th title='Total Score'>Total Score</th>
@@ -48,16 +46,6 @@
 										 autocomplete='off'
 										 placeholder='Appraise Type'
 										[(ngModel)]='filterInstance.appraiseType.descriptor'
-										 type='text'
-										 maxlength='50'
-										 (keyup)='doFilter($event)' />
-        </th>
-        <th>
-          <input class='form-control' #appraiseTime='ngModel' id='appraiseTime' name='appraiseTime'
-										 title='Appraise Time'
-										 autocomplete='off'
-										 placeholder='Appraise Time'
-										[(ngModel)]='filterInstance.appraiseTime.descriptor'
 										 type='text'
 										 maxlength='50'
 										 (keyup)='doFilter($event)' />
@@ -97,7 +85,6 @@
         <td class='row-number'>{{ i+1 }}</td>
 				<td>{{ p.targetSetting?.descriptor }}</td>
 				<td>{{ p.appraiseType?.descriptor }}</td>
-				<td>{{ p.appraiseTime?.descriptor }}</td>
 				<td>{{ p.functionalScore | number }}</td>
 				<td>{{ p.behavioralScore | number }}</td>
 				<td>{{ p.totalScore | number }}</td>

@@ -50,29 +50,6 @@
             </div>
           </div>
           <div class='form-group row'>
-            <label for='appraiseTime' class='col-sm-3 col-form-label'>Appraise Time : </label>
-            <div class='col-sm-9'>
-              <kendo-dropdownlist #appraiseTime='ngModel' 
-                    #appraiseTimeCombo='kendoDropDownList' 
-                    name='appraiseTime' 
-                    title='Appraise Time'
-                    class='form-control'
-                    [ngClass]="{ 'error' : !appraiseTime.valid && appraiseTime.touched }" 
-                    [data]='appraiseTimeComponent.list'
-                    [textField]="'descriptor'"
-                    [valueField]="'id'" 
-                    [filterable]='appraiseTimeComponent.filterable'
-                    (filterChange)='appraiseTimeComponent.DoFilter($event)'
-                    [(ngModel)]="currentInstance.appraiseTime"
-                     required 
-                    [disabled]='IsLocked'>
-                    <ng-template kendoDropDownListFooterTemplate *ngIf='appraiseTimeComponent.addable'>
-                      <button class='btn btn-primary' (click)='appraiseTimeComponent.onAdd(appraiseTimeCombo, appraiseTimeEditUI)'>Add New</button>
-                    </ng-template>
-                </kendo-dropdownlist>
-            </div>
-          </div>
-          <div class='form-group row'>
             <label for='acceptedLevel' class='col-sm-3 col-form-label'>Accepted Level : </label>
             <div class='col-sm-9'>
               <kendo-dropdownlist #acceptedLevel='ngModel' 

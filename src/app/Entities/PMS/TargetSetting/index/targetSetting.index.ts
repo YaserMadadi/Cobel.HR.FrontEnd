@@ -74,13 +74,13 @@ export class TargetSettingIndexUI extends IndexView<TargetSetting> implements Af
   async onSeek(pageNumber: number) {
     if (this.Id == 0) {
       this.filterInstance.paginate.currentPage = pageNumber;
-      console.log('position List : ', AuthService.currentPositionList);
-      console.log('current Employee : ', AuthService.currentEmployee);
-      
+      //console.log('position List : ', AuthService.currentPositionList);
+      //console.log('current Employee : ', AuthService.currentEmployee);
+
       // this section detect if current user is a HR position responsible for PMS -> Load All
-      if (AuthService.currentPositionList.filter(i => i.id == PositionController.HR_PMS_Position_Id || 
-                                                  i.parent.id == PositionController.HR_PMS_Position_Id).length > 0 ||
-                                                    AuthService.currentEmployee.id == PositionController.Admin_Employee_Id) { // Position_Id = 2131 : HRD Senior Specialist	
+      if (AuthService.currentPositionList.filter(i => i.id == PositionController.HR_PMS_Position_Id ||
+        i.parent.id == PositionController.HR_PMS_Position_Id).length > 0 ||
+        AuthService.currentEmployee.id == PositionController.System_Admin_Employee_Id) { // Position_Id = 2131 : HRD Senior Specialist	
         this.targetSettingService.Seek(this.filterInstance)
           .then(list => {
             this.list = list;
@@ -88,7 +88,7 @@ export class TargetSettingIndexUI extends IndexView<TargetSetting> implements Af
           });
 
       } else {
-        this.EmployeeExtendedService.loadTargetSettings(AuthService.currentEmployee)
+        this.EmployeeExtendedService.loadTargetSettings(AuthService.currentEmployee, this.filterInstance)
           .then(list => {
             this.list = list;
             console.log('LoadChildTargetSetting List : ', this.list);

@@ -1,7 +1,6 @@
 
 import { NgModule } from '@angular/core';
 
-import { AppraiseTime_ModuleFunc } from './AppraiseTime/appraiseTime.module.func';
 import { AppraiseType_ModuleFunc } from './AppraiseType/appraiseType.module.func';
 import { ApprovementType_ModuleFunc } from './ApprovementType/approvementType.module.func';
 import { ApproverType_ModuleFunc } from './ApproverType/approverType.module.func';
@@ -18,7 +17,6 @@ import { TargetSettingType_ModuleFunc } from './TargetSettingType/targetSettingT
 @NgModule({
   declarations: [],
   imports: [
-    AppraiseTime_ModuleFunc,
 		AppraiseType_ModuleFunc,
 		ApprovementType_ModuleFunc,
 		ApproverType_ModuleFunc,
@@ -33,7 +31,6 @@ import { TargetSettingType_ModuleFunc } from './TargetSettingType/targetSettingT
 		
   ],
   exports: [
-    AppraiseTime_ModuleFunc,
 		AppraiseType_ModuleFunc,
 		ApprovementType_ModuleFunc,
 		ApproverType_ModuleFunc,

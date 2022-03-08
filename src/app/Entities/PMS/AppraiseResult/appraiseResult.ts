@@ -5,7 +5,6 @@ import { Validator } from '../../../../xcore/tools/Validator';
 import { BusinessObject } from '../../../../xcore/business-object';
 import { TargetSetting } from '../TargetSetting/targetSetting';
 import { AppraiseType } from '../../Base.PMS/AppraiseType/appraiseType';
-import { AppraiseTime } from '../../Base.PMS/AppraiseTime/appraiseTime';
 import { ScoreCell } from '../ScoreCell/scoreCell';
 
 
@@ -39,8 +38,6 @@ export class AppraiseResult extends BusinessObject implements OnInit {
 	public targetSetting: TargetSetting = new TargetSetting();
 	
 	public appraiseType: AppraiseType = new AppraiseType();
-	
-	public appraiseTime: AppraiseTime = new AppraiseTime();
 	
 	public functionalScore: number = 0;
 	
@@ -76,8 +73,7 @@ export class AppraiseResult extends BusinessObject implements OnInit {
 
   public static Validate(appraiseResult: AppraiseResult) : boolean {
     let result = Validator.Validate(appraiseResult.targetSetting) &&
-					Validator.Validate(appraiseResult.appraiseType) &&
-					Validator.Validate(appraiseResult.appraiseTime);
+					Validator.Validate(appraiseResult.appraiseType);
     if(result === false)
       console.log('AppraiseResult is unvalid : ', appraiseResult);
     return result;

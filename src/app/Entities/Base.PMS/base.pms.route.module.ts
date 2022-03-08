@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../../../xcore/security/auth_guard';
 
 import { DesirableSituationIndexUI } from './DesirableSituation/index/desirableSituation.index';
-import { AppraiseTimeIndexUI } from './AppraiseTime/index/appraiseTime.index';
 import { AppraiseTypeIndexUI } from './AppraiseType/index/appraiseType.index';
 import { TargetSettingTypeIndexUI } from './TargetSettingType/index/targetSettingType.index';
 import { MeasurementUnitIndexUI } from './MeasurementUnit/index/measurementUnit.index';
@@ -18,8 +17,6 @@ import { CurrentSituationIndexUI } from './CurrentSituation/index/currentSituati
 import { TargetSettingModeIndexUI } from './TargetSettingMode/index/targetSettingMode.index';
 
 const base_pms_routes : Routes = [
-  { path: 'AppraiseTime', redirectTo: 'AppraiseTime/0' },
-	{ path: 'AppraiseTime/:id', component: AppraiseTimeIndexUI, canActivate: [AuthGuard], data: { title: 'AppraiseTime' }  },
 	{ path: 'AppraiseType', redirectTo: 'AppraiseType/0' },
 	{ path: 'AppraiseType/:id', component: AppraiseTypeIndexUI, canActivate: [AuthGuard], data: { title: 'AppraiseType' }  },
 	{ path: 'ApprovementType', redirectTo: 'ApprovementType/0' },

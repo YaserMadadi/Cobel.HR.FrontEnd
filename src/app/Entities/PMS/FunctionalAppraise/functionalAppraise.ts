@@ -6,7 +6,6 @@ import { BusinessObject } from '../../../../xcore/business-object';
 import { FunctionalKPI } from '../FunctionalKPI/functionalKPI';
 import { Employee } from '../../HR/Employee/employee';
 import { AppraiseType } from '../../Base.PMS/AppraiseType/appraiseType';
-import { AppraiseTime } from '../../Base.PMS/AppraiseTime/appraiseTime';
 
 
 @Directive()

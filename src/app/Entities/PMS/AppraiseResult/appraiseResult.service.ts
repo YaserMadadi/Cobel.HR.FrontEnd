@@ -14,7 +14,6 @@ import { AppraiseResultServiceCollection } from './appraiseResult.service.collec
 
 import { TargetSettingService } from '../TargetSetting/targetSetting.service';
 import { AppraiseTypeService } from '../../Base.PMS/AppraiseType/appraiseType.service';
-import { AppraiseTimeService } from '../../Base.PMS/AppraiseTime/appraiseTime.service';
 
 
 @Injectable({ providedIn: 'root' })
@@ -22,8 +21,7 @@ export class AppraiseResultService extends Service<AppraiseResult> implements IS
 
   constructor(public ServiceCollection: AppraiseResultServiceCollection,
 		public TargetSettingService: TargetSettingService,
-		public AppraiseTypeService: AppraiseTypeService,
-		public AppraiseTimeService: AppraiseTimeService) {
+		public AppraiseTypeService: AppraiseTypeService) {
     super(ServiceCollection.API_Operation, AppraiseResult.Info);
   }
 

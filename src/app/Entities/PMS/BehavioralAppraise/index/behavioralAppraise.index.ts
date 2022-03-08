@@ -16,7 +16,6 @@ import { BehavioralAppraiseDeleteUI } from '../delete/behavioralAppraise.delete'
 import { BehavioralKPI } from '../../BehavioralKPI/behavioralKPI';
 import { BehavioralKPIEditUI } from '../../BehavioralKPI/edit/behavioralKPI.edit';
 import { AppraiseType } from '../../../Base.PMS/AppraiseType/appraiseType';
-import { AppraiseTime } from '../../../Base.PMS/AppraiseTime/appraiseTime';
 import { Employee } from '../../../HR/Employee/employee';
 import { EmployeeEditUI } from '../../../HR/Employee/edit/employee.edit';
 
