@@ -15,7 +15,6 @@ import { QualitativeAppraiseServiceCollection } from './qualitativeAppraise.serv
 import { QualitativeKPIService } from '../QualitativeKPI/qualitativeKPI.service';
 import { EmployeeService } from '../../HR/Employee/employee.service';
 import { AppraiseTypeService } from '../../Base.PMS/AppraiseType/appraiseType.service';
-import { AppraiseTimeService } from '../../Base.PMS/AppraiseTime/appraiseTime.service';
 
 
 @Injectable({ providedIn: 'root' })

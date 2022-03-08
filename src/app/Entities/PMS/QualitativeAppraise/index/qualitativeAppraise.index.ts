@@ -18,7 +18,6 @@ import { QualitativeKPIEditUI } from '../../QualitativeKPI/edit/qualitativeKPI.e
 import { Employee } from '../../../HR/Employee/employee';
 import { EmployeeEditUI } from '../../../HR/Employee/edit/employee.edit';
 import { AppraiseType } from '../../../Base.PMS/AppraiseType/appraiseType';
-import { AppraiseTime } from '../../../Base.PMS/AppraiseTime/appraiseTime';
 
 
 

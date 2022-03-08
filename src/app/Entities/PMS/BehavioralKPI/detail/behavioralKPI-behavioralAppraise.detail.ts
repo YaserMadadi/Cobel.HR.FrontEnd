@@ -37,7 +37,7 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
   @Input()
   public set BehavioralKPI(value: BehavioralKPI) {
     this.behavioralKPI = value;
-    this.currentBehavioralAppraise.behavioralKPI = this.behavioralKPI;
+
     this.onReload();
   }
 
@@ -57,6 +57,7 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
 
   public onSelect(i: number) {
     this.currentBehavioralAppraise = this.BehavioralAppraiseList[i];
+    this.currentBehavioralAppraise.behavioralKPI = this.behavioralKPI;
     if (BehavioralAppraise.NotConfirm(this.currentBehavioralAppraise))
       this.currentBehavioralAppraise = new BehavioralAppraise();
   }
@@ -70,7 +71,7 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
   }
 
   private checkTargetSetting(): boolean {
-    if (this.behavioralKPI.behavioralObjective.targetSetting.isLocked || this.behavioralKPI.behavioralObjective.targetSetting.targetSettingMode.id == 5) {
+    if (this.behavioralKPI.behavioralObjective.targetSetting.isLocked) { //|| this.behavioralKPI.behavioralObjective.targetSetting.targetSettingMode.id == 5) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }
@@ -108,14 +109,11 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
   public onEdit(editUI: BehavioralAppraiseEditUI) {
     if (!this.checkTargetSetting())
       return;
-    console.log('test');
     if (this.currentBehavioralAppraise.appraiser.id != AuthService.currentEmployee.id &&
       AuthService.currentPositionList.filter(p => p.id == PositionController.HR_PMS_Position_Id).length == 0) {
       MessageController.ShowMessage('You are not allowed to Edit this record of Appraisal!', toastType.error);
       return;
     }
-    console.log('after test');
-
     if (BehavioralAppraise.NotConfirm(this.currentBehavioralAppraise))
       return;
     editUI.ShowDialog(this.currentBehavioralAppraise);

@@ -14,7 +14,6 @@ import { BehavioralAppraiseServiceCollection } from './behavioralAppraise.servic
 
 import { BehavioralKPIService } from '../BehavioralKPI/behavioralKPI.service';
 import { AppraiseTypeService } from '../../Base.PMS/AppraiseType/appraiseType.service';
-import { AppraiseTimeService } from '../../Base.PMS/AppraiseTime/appraiseTime.service';
 import { EmployeeService } from '../../HR/Employee/employee.service';
 
 

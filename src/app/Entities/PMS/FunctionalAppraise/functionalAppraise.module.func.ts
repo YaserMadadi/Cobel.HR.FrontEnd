@@ -13,7 +13,6 @@ import { FunctionalAppraiseSeekUI } from './seek/functionalAppraise.seek';
 import { FunctionalKPI_ModuleFunc } from '../FunctionalKPI/functionalKPI.module.func';
 import { Employee_ModuleFunc } from '../../HR/Employee/employee.module.func';
 import { AppraiseType_ModuleFunc } from '../../Base.PMS/AppraiseType/appraiseType.module.func';
-import { AppraiseTime_ModuleFunc } from '../../Base.PMS/AppraiseTime/appraiseTime.module.func';
 
 @NgModule({
     declarations: [

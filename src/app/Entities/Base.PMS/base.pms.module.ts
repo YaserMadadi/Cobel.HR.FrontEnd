@@ -1,7 +1,6 @@
 
 import {NgModule} from '@angular/core';
 
-import { AppraiseTimeModule } from './AppraiseTime/appraiseTime.module';
 import { AppraiseTypeModule } from './AppraiseType/appraiseType.module';
 import { ApprovementTypeModule } from './ApprovementType/approvementType.module';
 import { ApproverTypeModule } from './ApproverType/approverType.module';
@@ -18,7 +17,6 @@ import { TargetSettingModeModule } from './TargetSettingMode/targetSettingMode.m
 @NgModule({
   declarations: [],
   imports: [
-    AppraiseTimeModule,
 		AppraiseTypeModule,
 		ApprovementTypeModule,
 		ApproverTypeModule,
@@ -33,7 +31,6 @@ import { TargetSettingModeModule } from './TargetSettingMode/targetSettingMode.m
 		Base_PMS_RouteModule
   ],
   exports: [
-    AppraiseTimeModule,
 		AppraiseTypeModule,
 		ApprovementTypeModule,
 		ApproverTypeModule,

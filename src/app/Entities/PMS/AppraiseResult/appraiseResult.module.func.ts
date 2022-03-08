@@ -12,7 +12,6 @@ import { AppraiseResultSeekUI } from './seek/appraiseResult.seek';
 
 import { TargetSetting_ModuleFunc } from '../TargetSetting/targetSetting.module.func';
 import { AppraiseType_ModuleFunc } from '../../Base.PMS/AppraiseType/appraiseType.module.func';
-import { AppraiseTime_ModuleFunc } from '../../Base.PMS/AppraiseTime/appraiseTime.module.func';
 
 @NgModule({
     declarations: [
@@ -26,7 +25,6 @@ import { AppraiseTime_ModuleFunc } from '../../Base.PMS/AppraiseTime/appraiseTim
         XCommonModule,
         TargetSetting_ModuleFunc,
 		AppraiseType_ModuleFunc,
-		AppraiseTime_ModuleFunc
     ],
     exports: [
         AppraiseResultEditUI,

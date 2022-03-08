@@ -5,7 +5,6 @@ import { Validator } from '../../../../xcore/tools/Validator';
 import { BusinessObject } from '../../../../xcore/business-object';
 import { BehavioralKPI } from '../BehavioralKPI/behavioralKPI';
 import { AppraiseType } from '../../Base.PMS/AppraiseType/appraiseType';
-import { AppraiseTime } from '../../Base.PMS/AppraiseTime/appraiseTime';
 import { Employee } from '../../HR/Employee/employee';
 
 

@@ -19,7 +19,7 @@ export abstract class EndPointController {
 
     protected static ServerIP: string = 'localhost';
 
-    protected static serverPort: number = 44314; //Server:44888; Local:9025
+    protected static serverPort: number = 0; //Server:44888; Local:9025
 
     protected static servicePath: string = '';// '/PortalService'
 

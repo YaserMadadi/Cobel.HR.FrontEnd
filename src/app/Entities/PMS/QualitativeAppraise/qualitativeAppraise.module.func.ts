@@ -13,7 +13,6 @@ import { QualitativeAppraiseSeekUI } from './seek/qualitativeAppraise.seek';
 import { QualitativeKPI_ModuleFunc } from '../QualitativeKPI/qualitativeKPI.module.func';
 import { Employee_ModuleFunc } from '../../HR/Employee/employee.module.func';
 import { AppraiseType_ModuleFunc } from '../../Base.PMS/AppraiseType/appraiseType.module.func';
-import { AppraiseTime_ModuleFunc } from '../../Base.PMS/AppraiseTime/appraiseTime.module.func';
 
 @NgModule({
     declarations: [

@@ -12,7 +12,6 @@ import { BehavioralAppraiseSeekUI } from './seek/behavioralAppraise.seek';
 
 import { BehavioralKPI_ModuleFunc } from '../BehavioralKPI/behavioralKPI.module.func';
 import { AppraiseType_ModuleFunc } from '../../Base.PMS/AppraiseType/appraiseType.module.func';
-import { AppraiseTime_ModuleFunc } from '../../Base.PMS/AppraiseTime/appraiseTime.module.func';
 import { Employee_ModuleFunc } from '../../HR/Employee/employee.module.func';
 
 @NgModule({

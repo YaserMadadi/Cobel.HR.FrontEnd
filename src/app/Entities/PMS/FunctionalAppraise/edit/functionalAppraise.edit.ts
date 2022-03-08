@@ -14,8 +14,6 @@ import { Employee } from '../../../HR/Employee/employee';
 import { EmployeeEditUI } from '../../../HR/Employee/edit/employee.edit';
 import { AppraiseType } from '../../../Base.PMS/AppraiseType/appraiseType';
 import { AppraiseTypeEditUI } from '../../../Base.PMS/AppraiseType/edit/appraiseType.edit';
-import { AppraiseTime } from '../../../Base.PMS/AppraiseTime/appraiseTime';
-import { AppraiseTimeEditUI } from '../../../Base.PMS/AppraiseTime/edit/appraiseTime.edit';
 import { AuthService } from '../../../../../xcore/security/auth_service';
 import { MessageController, toastType } from '../../../../../xcore/tools/controller.message';
 
@@ -112,7 +110,6 @@ export class FunctionalAppraiseEditUI extends EditModal<FunctionalAppraise> impl
     this.Appraiser = AuthService.currentEmployee;
 
     //this.AppraiseType = new AppraiseType(2);
-    //this.AppraiseTime = new AppraiseTime(1);
   }
 
   SetDefault() {

@@ -59,6 +59,7 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
 
   public onSelect(i: number) {
     this.currentFunctionalAppraise = this.FunctionalAppraiseList[i];
+    this.currentFunctionalAppraise.functionalKPI = this.functionalKPI;
     if (FunctionalAppraise.NotConfirm(this.currentFunctionalAppraise))
       this.currentFunctionalAppraise = new FunctionalAppraise();
   }
@@ -72,8 +73,8 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
   }
 
   private checkStatus() {
-    if (this.functionalKPI.functionalObjective.targetSetting.isLocked ||
-      this.functionalKPI.functionalObjective.targetSetting.targetSettingMode.id == 5) {
+    if (this.functionalKPI.functionalObjective.targetSetting.isLocked ) { //||
+      //this.functionalKPI.functionalObjective.targetSetting.targetSettingMode.id == 5) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }

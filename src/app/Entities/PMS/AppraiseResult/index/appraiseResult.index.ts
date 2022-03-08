@@ -16,7 +16,6 @@ import { AppraiseResultDeleteUI } from '../delete/appraiseResult.delete';
 import { TargetSetting } from '../../TargetSetting/targetSetting';
 import { TargetSettingEditUI } from '../../TargetSetting/edit/targetSetting.edit';
 import { AppraiseType } from '../../../Base.PMS/AppraiseType/appraiseType';
-import { AppraiseTime } from '../../../Base.PMS/AppraiseTime/appraiseTime';
 
 
 

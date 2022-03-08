@@ -18,12 +18,6 @@
                     </label>
                     <label class='col-sm-8'>{{ currentInstance.appraiseType?.descriptor }}</label>
                 </div>
-				<div class='form-group row'>
-                    <label class='col-sm-4 titleControl'>Appraise Time : 
-                        <guide (onClick)='onGuid("AppraiseTime_Id")'></guide>
-                    </label>
-                    <label class='col-sm-8'>{{ currentInstance.appraiseTime?.descriptor }}</label>
-                </div>
 				<div class='form-group row' *ngIf='position.positionCategory.id == 2'>
                     <label class='col-sm-4 titleControl'>Functional Score : 
                         <guide (onClick)='onGuid("FunctionalScore")'></guide>

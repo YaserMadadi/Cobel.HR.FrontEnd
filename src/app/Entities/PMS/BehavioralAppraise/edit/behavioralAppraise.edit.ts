@@ -12,8 +12,6 @@ import { BehavioralKPI } from '../../BehavioralKPI/behavioralKPI';
 import { BehavioralKPIEditUI } from '../../BehavioralKPI/edit/behavioralKPI.edit';
 import { AppraiseType } from '../../../Base.PMS/AppraiseType/appraiseType';
 import { AppraiseTypeEditUI } from '../../../Base.PMS/AppraiseType/edit/appraiseType.edit';
-import { AppraiseTime } from '../../../Base.PMS/AppraiseTime/appraiseTime';
-import { AppraiseTimeEditUI } from '../../../Base.PMS/AppraiseTime/edit/appraiseTime.edit';
 import { Employee } from '../../../HR/Employee/employee';
 import { EmployeeEditUI } from '../../../HR/Employee/edit/employee.edit';
 import { AuthService } from '../../../../../xcore/security/auth_service';

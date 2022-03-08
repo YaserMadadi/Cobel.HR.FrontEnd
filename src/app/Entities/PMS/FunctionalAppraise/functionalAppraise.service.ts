@@ -15,7 +15,6 @@ import { FunctionalAppraiseServiceCollection } from './functionalAppraise.servic
 import { FunctionalKPIService } from '../FunctionalKPI/functionalKPI.service';
 import { EmployeeService } from '../../HR/Employee/employee.service';
 import { AppraiseTypeService } from '../../Base.PMS/AppraiseType/appraiseType.service';
-import { AppraiseTimeService } from '../../Base.PMS/AppraiseTime/appraiseTime.service';
 
 
 @Injectable({ providedIn: 'root' })

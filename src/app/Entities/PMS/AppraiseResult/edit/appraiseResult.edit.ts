@@ -12,8 +12,6 @@ import { TargetSetting } from '../../TargetSetting/targetSetting';
 import { TargetSettingEditUI } from '../../TargetSetting/edit/targetSetting.edit';
 import { AppraiseType } from '../../../Base.PMS/AppraiseType/appraiseType';
 import { AppraiseTypeEditUI } from '../../../Base.PMS/AppraiseType/edit/appraiseType.edit';
-import { AppraiseTime } from '../../../Base.PMS/AppraiseTime/appraiseTime';
-import { AppraiseTimeEditUI } from '../../../Base.PMS/AppraiseTime/edit/appraiseTime.edit';
 
 
 
@@ -53,17 +51,7 @@ export class AppraiseResultEditUI extends EditModal<AppraiseResult> implements I
 
 
   //#endregion -- AppraiseType --
-	//#region -- AppraiseTime --
 
-  appraiseTimeComponent : ForeignComponent<AppraiseTime> = new ForeignComponent<AppraiseTime>(this.appraiseResultService.AppraiseTimeService);
-
-  @Input()
-  public set AppraiseTime(value: AppraiseTime) {
-    this.currentInstance.appraiseTime = this.appraiseTimeComponent.instance = value;
-  }  
-
-
-  //#endregion -- AppraiseTime --
 	//#endregion
 
   @ViewChild('appraiseResultEditUI')
@@ -79,7 +67,6 @@ export class AppraiseResultEditUI extends EditModal<AppraiseResult> implements I
   private loadLists() {
     
     this.appraiseTypeComponent.LoadList();
-		this.appraiseTimeComponent.LoadList();
   }
   
   InitAppraiseResult(appraiseResult: AppraiseResult){
@@ -88,11 +75,9 @@ export class AppraiseResultEditUI extends EditModal<AppraiseResult> implements I
       // Fixed Properties : those you want to not Changable.
       this.targetSettingComponent.instance = appraiseResult.targetSetting;
 			this.appraiseTypeComponent.instance = appraiseResult.appraiseType;
-			this.appraiseTimeComponent.instance = appraiseResult.appraiseTime;
     } else {
       appraiseResult.targetSetting = this.targetSettingComponent.instance;
 			appraiseResult.appraiseType = this.appraiseTypeComponent.instance;
-			appraiseResult.appraiseTime = this.appraiseTimeComponent.instance;
     }
     this.currentInstance = appraiseResult;
   }
@@ -100,6 +85,5 @@ export class AppraiseResultEditUI extends EditModal<AppraiseResult> implements I
   ResetForm() {
     this.TargetSetting = new TargetSetting();
 		this.AppraiseType = new AppraiseType();
-		this.AppraiseTime = new AppraiseTime();
   }
 }
