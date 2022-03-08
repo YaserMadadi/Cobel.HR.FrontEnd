@@ -60,6 +60,7 @@ export class BehavioralObjective_BehavioralKPI_DetailUI extends DetailView<Behav
 
   public onSelect(i: number) {
     this.currentBehavioralKPI = this.BehavioralKPIList[i];
+    this.currentBehavioralKPI.behavioralObjective = this.behavioralObjective;
     if (BehavioralKPI.NotConfirm(this.currentBehavioralKPI))
       this.currentBehavioralKPI = new BehavioralKPI();
   }

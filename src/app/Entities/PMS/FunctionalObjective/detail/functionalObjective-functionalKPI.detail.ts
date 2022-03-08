@@ -60,6 +60,7 @@ export class FunctionalObjective_FunctionalKPI_DetailUI extends DetailView<Funct
 
   public onSelect(i: number) {
     this.currentFunctionalKPI = this.FunctionalKPIList[i];
+    this.currentFunctionalKPI.functionalObjective = this.functionalObjective;
     if (FunctionalKPI.NotConfirm(this.currentFunctionalKPI))
       this.currentFunctionalKPI = new FunctionalKPI();
   }
@@ -67,7 +68,6 @@ export class FunctionalObjective_FunctionalKPI_DetailUI extends DetailView<Funct
   public onDblClicked(masterUI: FunctionalKPIMasterUI) {
     if (FunctionalKPI.NotConfirm(this.currentFunctionalKPI))
       return;
-    console.log(this.functionalObjective.targetSetting);
     this.currentFunctionalKPI.functionalObjective = this.functionalObjective;
     masterUI.ShowDialog(this.currentFunctionalKPI);
   }

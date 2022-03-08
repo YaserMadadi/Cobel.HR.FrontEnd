@@ -117,7 +117,10 @@ export class TargetSettingEditUI extends EditModal<TargetSetting> implements IEd
     this.targetSettingTypeComponent.LoadList();
     this.targetSettingModeComponent.LoadList();
     this.yearComponent.LoadList();
-
+    
+    //                         ||||
+    //must be removed later ...vvvv
+    this.currentInstance.targetSettingMode.id = 1;
   }
 
   InitTargetSetting(targetSetting: TargetSetting) {

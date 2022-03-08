@@ -57,6 +57,7 @@ export class BehavioralKPI_BehavioralAppraise_DetailUI extends DetailView<Behavi
 
   public onSelect(i: number) {
     this.currentBehavioralAppraise = this.BehavioralAppraiseList[i];
+    this.currentBehavioralAppraise.behavioralKPI = this.behavioralKPI;
     if (BehavioralAppraise.NotConfirm(this.currentBehavioralAppraise))
       this.currentBehavioralAppraise = new BehavioralAppraise();
   }

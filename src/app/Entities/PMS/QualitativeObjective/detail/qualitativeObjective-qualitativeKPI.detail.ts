@@ -59,6 +59,7 @@ export class QualitativeObjective_QualitativeKPI_DetailUI extends DetailView<Qua
 
   public onSelect(i: number) {
     this.currentQualitativeKPI = this.QualitativeKPIList[i];
+    this.currentQualitativeKPI.qualitativeObjective = this.qualitativeObjective;
     if (QualitativeKPI.NotConfirm(this.currentQualitativeKPI))
       this.currentQualitativeKPI = new QualitativeKPI();
   }

@@ -14,11 +14,16 @@ import { BehavioralKPIService } from '../../BehavioralKPI/behavioralKPI.service'
   selector: 'pms-behavioralObjective-master',
   templateUrl: './behavioralObjective.master.html',
   styleUrls: ['./behavioralObjective.master.css'],
-  
+
 })
 export class BehavioralObjectiveMasterUI extends MasterModal<BehavioralObjective> {
 
   constructor(private behavioralObjectiveService: BehavioralObjectiveService) {
     super(behavioralObjectiveService);
+  }
+
+  onAfterReload() {
+    console.log('After Reload!', this.currentInstance);
+    //this.currentInstance.targetSetting = 
   }
 }

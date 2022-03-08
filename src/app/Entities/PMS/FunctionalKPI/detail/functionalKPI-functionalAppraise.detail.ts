@@ -53,12 +53,14 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
       .CollectionOfFunctionalAppraise(this.functionalKPI)
       .then(functionalAppraiseList => {
         this.FunctionalAppraiseList = functionalAppraiseList;
+        
         this.currentFunctionalAppraise = new FunctionalAppraise();
       });
   }
 
   public onSelect(i: number) {
     this.currentFunctionalAppraise = this.FunctionalAppraiseList[i];
+    this.currentFunctionalAppraise.functionalKPI = this.functionalKPI;
     if (FunctionalAppraise.NotConfirm(this.currentFunctionalAppraise))
       this.currentFunctionalAppraise = new FunctionalAppraise();
   }
@@ -72,11 +74,16 @@ export class FunctionalKPI_FunctionalAppraise_DetailUI extends DetailView<Functi
   }
 
   private checkStatus() {
+    console.log('test');
+
     if (this.functionalKPI.functionalObjective.targetSetting.isLocked ||
       this.functionalKPI.functionalObjective.targetSetting.targetSettingMode.id == 5) {
       MessageController.ShowMessage(MessageType.RecordIsLocked);
       return false;
     }
+
+    console.log('Appraiser2 : ',this.functionalKPI);
+
     // if (this.functionalKPI.functionalObjective.targetSetting.employee.id == AuthService.currentEmployee.id &&
     //   this.functionalKPI.functionalObjective.targetSetting.targetSettingMode.id != 3) { // targetSettingMode.id = 3 : Self Appraising Mode
     //   MessageController.ShowMessage(MessageType.NotSelfAppraisingMode);

@@ -17,7 +17,14 @@ export class MasterModal<T extends BusinessObject>  {
 
     onReload() {
         this.service.RetrieveById(this.currentInstance.id)
-            .then(entity => this.currentInstance = entity);
+            .then(entity => {
+                this.currentInstance = entity;
+                this.onAfterReload();
+            });
+    }
+
+    onAfterReload() {
+
     }
 
     onLog(logViewerComponent: LogViewerComponent) {
@@ -48,12 +55,7 @@ export class MasterModal<T extends BusinessObject>  {
         if (this.tabset?.tabs?.length > 0) {
             this.tabset.tabs[0].selectTab.emit();
         }
-        // if (!AuthGuard.IsAuthenticated) {
-        //     AuthGuard.SignOut();
-        //     return;
-        // }
         this.IsShown = true;
-        //this.onShown.emit(true);
         this.onShown();
     }
 
