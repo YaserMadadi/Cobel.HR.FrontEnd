@@ -46,10 +46,16 @@
                                 {
                                     "type": "anyComponentStyle",
                                     "maximumWarning": "6kb"
-                                }
+                                  },
+                                  {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                  }
                             ],
-                            "outputHashing": "all",
                             "aot": true,
+                            "outputHashing": "all",
+                            "optimization": true,
                             "namedChunks": false,
                             "extractLicenses": true,
                             "buildOptimizer": true,
@@ -161,6 +167,6 @@
         }
     },
     "cli": {
-        "analytics": false,
+        "analytics": false
     }
 }

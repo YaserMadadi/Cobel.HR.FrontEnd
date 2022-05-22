@@ -67,7 +67,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(positionAssignmentMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(positionAssignmentMasterUI)' (click)='onSelect(i)' [ngClass]="p.id == currentInstance.id ? 'selected-row' : ( i % 2 == 0 ? 'free-row' : 'free-row-even')">
         <td class='row-number'>{{ i+1 }}</td>
 				<td>{{ p.employee?.descriptor }}</td>
 				<td>{{ p.position?.descriptor }}</td>

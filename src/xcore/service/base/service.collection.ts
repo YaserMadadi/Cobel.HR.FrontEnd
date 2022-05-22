@@ -38,8 +38,8 @@ export class ServiceCollection<T extends BusinessObject> {
 
             if (result && result.message && result.message.length > 0)
                 MessageController.ShowMessage(result.message, toastType.error);
-            else if (result && result.sqlMessage && result.sqlMessage.length > 0)
-                MessageController.ShowMessage(result.sqlMessage, toastType.error);
+            // else if (result && result.sqlMessage && result.sqlMessage.length > 0)
+            //     MessageController.ShowMessage(result.sqlMessage, toastType.error);
             else
                 MessageController.ShowMessage(`خطا در ${action} اطلاعات : ${error}`, toastType.error);
         } else {

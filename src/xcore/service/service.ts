@@ -202,8 +202,8 @@ export class Service<T extends BusinessObject> implements IService<T> {
 
             if (result && result.message && result.message.length > 0)
                 MessageController.ShowMessage(result.message, toastType.error);
-            else if (result && result.sqlMessage && result.sqlMessage.length > 0)
-                MessageController.ShowMessage(result.sqlMessage, toastType.error);
+            // else if (result && result.sqlMessage && result.sqlMessage.length > 0)
+            //     MessageController.ShowMessage(result.sqlMessage, toastType.error);
             else
                 MessageController.ShowMessage(`Error in ${action} • More Details : ${error}`, toastType.error);
         } else {
