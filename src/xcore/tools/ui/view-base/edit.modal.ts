@@ -46,8 +46,6 @@ export class EditModal<T extends BusinessObject> implements IEditModal<T>{
 
     public ShowDialog(entity: T): void {
         let permissionType = entity.isNew ? PermissionType.Add : PermissionType.Edit;
-        // if (permissionType == PermissionType.Add)
-        //     this.ResetForm();
         if (this.service.CheckPermission(permissionType) === PermissionResult.Denied)
             return;
         console.log(entity);

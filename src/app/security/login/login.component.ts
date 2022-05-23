@@ -26,11 +26,9 @@ export class LoginComponent implements OnInit {
 
   async Authenticate(password: string) {
     //this.baseToken.password = Md5.hashStr(password).toString();
-    //console.log(this.baseToken.password);
+    //console.log(password);
 
     this.loginUser.password = password;
-    //this.logi .password = password;
-
     await this.authService.Authenticate(this.loginUser);
     // if (!result)
     //   return;

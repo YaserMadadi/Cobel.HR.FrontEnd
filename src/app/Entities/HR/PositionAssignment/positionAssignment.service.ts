@@ -32,9 +32,13 @@ export class PositionAssignmentService extends Service<PositionAssignment> imple
 
   //region Methods
 
-CreateInstance() {
-   return new PositionAssignment();
-}
+  CreateInstance() : PositionAssignment {
+    return new PositionAssignment();
+  }
+
+  CreateSeekInstance(): PositionAssignment {
+      return PositionAssignment.SeekInstance();
+  }
 
   RetrieveById(id: number): Promise<PositionAssignment> {
     return super.RetrieveById(id);

@@ -59,7 +59,19 @@
                                     "with": "src/environments/environment.prod.ts"
                                 }
                             ]
-                        }
+                        },
+                        "development": {
+                            "optimization": false,
+                            "outputHashing": "none",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": false,
+                            "statsJson": false,
+                            "progress": true,
+                            "vendorChunk": true,
+                            "buildOptimizer": false
+                          }
                     }
                 },  
                 "serve": {
@@ -70,6 +82,9 @@
                     "configurations": {
                         "production": {
                             "browserTarget": "ng:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "ng:build:development"
                         }
                     }
                 },
@@ -161,6 +176,6 @@
         }
     },
     "cli": {
-        "analytics": false,
+        "analytics": false
     }
 }

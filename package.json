@@ -19,9 +19,11 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "serve" : "ng serve  --configuration development",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
-    "start": "node --max_old_space_size=12000 node_modules/@angular/cli/bin/ng serve",
-    "build": "node --max_old_space_size=12000 node_modules/@angular/cli/bin/ng build --configuration production --aot --optimization",
+    "start": "ng serve --configuration development",
+    "watch": "ng serve --watch --configuration development",
+    "build": "node --max_old_space_size=12000 node_modules/@angular/cli/bin/ng build --configuration production --aot --optimization --source-map false",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

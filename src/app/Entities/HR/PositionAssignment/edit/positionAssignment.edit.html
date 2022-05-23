@@ -86,11 +86,16 @@
                     [disabled]='IsLocked'
                     maxlength='2000'  />
       </div>
-			<!-- IsAlive -->
-      <div class='form-group'>
+
+      <!-- IsAlive -->
+      <!-- 
+        ------------------------------ ATTENTION  ----------------------------------------------------------------  
+        When a record instered into the PositionAssignmentRepeal is automatcly set to False, otherwise set to True
+        ---------------------------------------------------------------------------------------------------------- 
+      -->
+      <!-- <div class='form-group'>
         <guide (onClick)='onGuid("IsAlive")'></guide>
         <label for='isAlive' class='col-form-label'>Is Alive : </label>
-        <!--IsAlive do not Required-->
         <input type='checkbox' 
                 #isAlive 
                 id = 'isAlive'
@@ -98,7 +103,7 @@
                 kendoCheckBox
                 [checked] = 'currentInstance.isAlive'
                 [(ngModel)] = 'currentInstance.isAlive' /> 
-      </div>
+      </div> -->
 			
     </div>
     <div class='modal-footer'>
