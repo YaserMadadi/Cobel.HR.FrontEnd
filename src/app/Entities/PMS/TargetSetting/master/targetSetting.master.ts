@@ -17,7 +17,6 @@ import { QualitativeObjectiveService } from '../../QualitativeObjective/qualitat
 import { Position } from '../../../HR/Position/position';
 import { ConfigTargetSetting } from '../../ConfigTargetSetting/configTargetSetting';
 import { TabItemComponent } from '../../../../../xcore/tools/tabItem.component';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 

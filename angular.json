@@ -26,7 +26,7 @@
                                 "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
                             },
                             "src/assets/css/pro/css/fontawesome.css",
-                            "node_modules/@coreui/icons/css/coreui-icons.min.css",
+                            "node_modules/@coreui/icons/css/all.min.css",
                             "node_modules/flag-icon-css/css/flag-icon.min.css",
                             "node_modules/simple-line-icons/css/simple-line-icons.css",
                             "src/scss/style.scss"
@@ -46,10 +46,16 @@
                                 {
                                     "type": "anyComponentStyle",
                                     "maximumWarning": "6kb"
-                                }
+                                  },
+                                  {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                  }
                             ],
-                            "outputHashing": "all",
                             "aot": true,
+                            "outputHashing": "all",
+                            "optimization": true,
                             "namedChunks": false,
                             "extractLicenses": true,
                             "buildOptimizer": true,

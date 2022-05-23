@@ -11,50 +11,64 @@
 
     </div>
     <div id='related-menu'>
-      <a class='dropdown-item pointer' (click)='unit_Clicked(unitEditUI)'>Add Unit</a>
+      <a class='dropdown-item pointer'
+         (click)='unit_Clicked(unitEditUI)'>Add Unit</a>
     </div>
   </index-button-manager>
 
 
-  <table #departmentTable class='table table-hover indexTable'>
+  <table #departmentTable
+         class='table table-hover indexTable'>
     <thead>
       <tr>
         <th class='row-number'>Row</th>
         <th title='Title'>Title</th>
-        <th width='100px' title='Is Active'>Is Active</th>
+        <th width='100px'
+            title='Is Active'>Is Active</th>
       </tr>
       <tr name='secondRow'>
         <th class='row-number'></th>
         <th>
-          <input class='form-control' #title='ngModel' id='title' name='title'
-										 title='Title'
-										 autocomplete='off'
-										 placeholder='Title'
-										[(ngModel)]='filterInstance.title'
-										 type='text'
-										 maxlength='400'
-										 (keyup)='doFilter($event)' />
+          <input class='form-control'
+                 #title='ngModel'
+                 id='title'
+                 name='title'
+                 title='Title'
+                 autocomplete='off'
+                 placeholder='Title'
+                 [(ngModel)]='filterInstance.title'
+                 type='text'
+                 maxlength='400'
+                 (keyup)='doFilter($event)' />
         </th>
         <th>
-          
+
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor='let p of list; let i = index' (dblclick)='onDblClicked(departmentMasterUI)' (click)='onSelect(i)' [ngClass]="{ 'selected-row' : p.id == currentInstance.id, 'free-row' : p.id != currentInstance.id }">
+      <tr *ngFor='let p of list; let i = index'
+          (dblclick)='onDblClicked(departmentMasterUI)'
+          (click)='onSelect(i)'
+          [ngClass]="p.id == currentInstance.id ? 'selected-row' : ( i % 2 == 0 ? 'free-row' : 'free-row-even')">
         <td class='row-number'>{{ i+1 }}</td>
-				<td>{{ p.title }}</td>
-				<td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isActive' /></td>
+        <td>{{ p.title }}</td>
+        <td width='100px'><input type='checkbox'
+                 disabled
+                 [(ngModel)]='p.isActive' /></td>
       </tr>
     </tbody>
   </table>
   <hr>
-  <paginator #Paginator (onChangePage)='PageChanging($event)' hidden></paginator>
+  <paginator #Paginator
+             (onChangePage)='PageChanging($event)'
+             hidden></paginator>
   <hr>
 </fieldset>
 
 <!--LogViewer Component-->
-<log-viewer #logViewerUI [Entity]='currentInstance'>
+<log-viewer #logViewerUI
+            [Entity]='currentInstance'>
 
 </log-viewer>
 
@@ -64,13 +78,14 @@
 </hr-department-master>
 
 <hr-department-edit #departmentEditUI
-                (onClosed)='onEditModalClosed($event)'>
+                    (onClosed)='onEditModalClosed($event)'>
 </hr-department-edit>
 
-<hr-department-delete #departmentDeleteUI 
-                (onClosed)='onDeleteModalClosed($event)'>
+<hr-department-delete #departmentDeleteUI
+                      (onClosed)='onDeleteModalClosed($event)'>
 </hr-department-delete>
 
 
-<hr-unit-edit #unitEditUI> <!--  (onClosed)='unitEditUI_Closed($event)' -->
+<hr-unit-edit #unitEditUI>
+  <!--  (onClosed)='unitEditUI_Closed($event)' -->
 </hr-unit-edit>

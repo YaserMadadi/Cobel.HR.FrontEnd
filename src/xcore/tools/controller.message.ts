@@ -1,5 +1,5 @@
 import { MessageType, PermissionType } from "./Enum";
-import { Result } from "./Result";
+import { Result, ResultType } from "./Result";
 import { ToastrService } from 'ngx-toastr';
 
 export enum toastType {
@@ -21,6 +21,23 @@ export class MessageController {
 
     public static DisplayName: string = '';
 
+    private static getToastType(result: Result) {
+        switch (result.resultType) {
+            case ResultType.error:
+                return toastType.error;
+            case ResultType.info:
+                return toastType.info;
+            case ResultType.successful:
+                return toastType.success;
+            case ResultType.warning:
+                return toastType.warning;
+            default:
+                return toastType.info;
+        }
+    }
+
+
+
     public static ShowMessage(value: string, type: toastType);
     public static ShowMessage(value: MessageType);
     public static ShowMessage(value: Result);
@@ -33,7 +50,7 @@ export class MessageController {
                 return;
             }
             message = value.message.replace('\r\n', '<hr>');
-            this.type = toastType.error;
+            this.type = this.getToastType(value);
         }
         else if (typeof value === 'string') {
             message = value.replace('\r\n', '<hr>');
@@ -50,7 +67,7 @@ export class MessageController {
 
     private static show(message: string, messageType: MessageType = null) {
         let header = this.GetHeader(messageType);
-        
+
         switch (this.type) {
             case toastType.success: {
                 this.toaster.success(message, header);
@@ -108,12 +125,12 @@ export class MessageController {
 
 
     private static GetHeader(messageType: MessageType = null): string {
-        if(messageType == null){
-            switch(this.type){
-                case toastType.success : return 'Successed...';
-                case toastType.warning : return 'Warning!';
-                case toastType.info : return 'Attention Please!';
-                case toastType.error : return 'Error!';
+        if (messageType == null) {
+            switch (this.type) {
+                case toastType.success: return 'Successed...';
+                case toastType.warning: return 'Warning!';
+                case toastType.info: return 'Attention Please!';
+                case toastType.error: return 'Error!';
             }
         }
 
@@ -165,16 +182,16 @@ export class MessageController {
                 header = 'Evaluation is Finished!';
                 break;
             }
-            case MessageType.UserNameOrPasswordNotAccepted:{
+            case MessageType.UserNameOrPasswordNotAccepted: {
                 header = 'Incorrect UserName or Password';
                 break;
             }
-            case MessageType.AuthenticationError:{
-                header = 'Authentication Error!'                
+            case MessageType.AuthenticationError: {
+                header = 'Authentication Error!'
                 break;
             }
-            case MessageType.RecordIsLocked:{
-                header = 'Current Record is Locked and it can not edited!'                
+            case MessageType.RecordIsLocked: {
+                header = 'Current Record is Locked and it can not edited!'
                 break;
             }
         }
@@ -283,22 +300,22 @@ export class MessageController {
             }
             case MessageType.NotTargetReviewingMode: {
                 message = 'Target Setting Mode is not in Target Reviewing Mode. So you are not be able to do Target Reviewing! ';
-                this.type = toastType.warning;                
+                this.type = toastType.warning;
                 break;
             }
             case MessageType.NotSelfAppraisingMode: {
                 message = 'Target Setting Mode is not in Self Appraising Mode. So you are not be able to do Self Appraising! ';
-                this.type = toastType.warning;                
+                this.type = toastType.warning;
                 break;
             }
             case MessageType.NotManagerAppraisingMode: {
                 message = 'Target Setting Mode is not in Manager Appraising Mode. So you are not be able to do Manager Appraising! ';
-                this.type = toastType.warning;                
+                this.type = toastType.warning;
                 break;
             }
             case MessageType.YouAreNotAppraiser: {
                 message = 'You are not allowed to change this record of Appraisal!!! ';
-                this.type = toastType.warning;                
+                this.type = toastType.warning;
                 break;
             }
             // case MessageType.YouAreNotAppraiser: {
