@@ -1,0 +1,20 @@
+<hr>
+<div class="row col">
+    <h2>Coaching Information ... </h2>
+</div>
+<div class='row' *ngIf='CoachingList.length == 0'>
+    <div class="col text-secondary">
+
+        There is no coaching Information for {{ Employee.descriptor }}
+    </div>
+</div>
+<div class="row col" *ngFor='let item of CoachingList'>
+    <ol>
+        <li>Name of coach : {{ item.coach.descriptor }}</li>
+        <li>The purpose of coaching : {{ item.porpuse }}</li>
+        <li>No. of coaching session : {{ item.sessionCount }}</li>
+        <!-- <li>Starting date of coaching : {{ item.startDate | date:'dd.MM.yyyy' }}</li>
+        <li>Finishing date of coaching : {{ item.finishDate | date:'dd.MM.yyyy' }}</li> -->
+        <li>The avarage of effectiveness of coaching proccess : {{ item.effectiveness }}</li>
+    </ol>
+</div>

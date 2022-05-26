@@ -1,0 +1,71 @@
+<XDialog Header='Run Coaching Questionnaire'
+         [IsShown]='IsShown'
+         (OnClosed)='onClose()'
+         [ModalType]='2'>
+    <div class='master-content'>
+        <table>
+
+            <tr class='header'>
+                <td class='index'>ردیف</td>
+                <td class='title'>عنوان</td>
+                <td class='option'
+                    *ngFor='let answerItem of getAnswerType(2)'>{{ answerItem.title }}</td>
+            </tr>
+            <tr *ngFor='let item of QuestionItems5; let i = index'>
+                <td class='index'>{{ i+1 }}</td>
+                <td class='title'>{{ item.questionTitle }}</td>
+                <td class='option'
+                    *ngFor='let answerItem of getAnswerType(2)'>
+                    <input type="radio"
+                           [value]="answerItem.value"
+                           [name]='item.id.toString()'
+                           [(ngModel)]='item.descriptor'>
+                </td>
+
+            </tr>
+        </table>
+
+        <table *ngIf='QuestionItems3.length > 0'>
+            <tr class='header'>
+                <td class='index'>ردیف</td>
+                <td class='title'>عنوان</td>
+                <td class='option'
+                    *ngFor='let answerItem of getAnswerType(3)'>{{ answerItem.title }}</td>
+            </tr>
+            <tr *ngFor='let item of QuestionItems3; let i = index'>
+                <td class='index'>{{ i+1 }}</td>
+                <td class='title'>{{ item.questionTitle }}</td>
+                <td class='option'
+                    *ngFor='let answerItem of getAnswerType(3)'>
+                    <input type="radio"
+                           [value]="answerItem.value"
+                           [name]='item.id.toString()'
+                           [(ngModel)]='item.descriptor'>
+                </td>
+            </tr>
+        </table>
+
+        <table *ngIf='QuestionItemsText.length > 0'>
+            <tr class='header'>
+                <td class='index'>ردیف</td>
+                <td class='title-text'>عنوان</td>
+                <td class='option'
+                    *ngFor='let answerItem of getAnswerType(1)'>{{ answerItem.title }}</td>
+            </tr>
+            <tr *ngFor='let item of QuestionItemsText; let i = index'>
+                <td class='index'>{{ i+1 }}</td>
+                <td class='title-text'>{{ item.questionTitle }}</td>
+                <td style="width: 100%;">
+                    <textarea id="answer"
+                              name="answer"
+                              rows="4"
+                              type="string"
+                              [(ngModel)]='item.descriptor'></textarea>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <button class='btn btn-outline-primary btn-lg btn-block'
+                (click)='SubmitQuestionnaire()'>پایـــان</button>
+    </div>
+</XDialog>

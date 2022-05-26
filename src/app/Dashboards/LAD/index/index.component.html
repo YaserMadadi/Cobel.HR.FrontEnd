@@ -1,0 +1,120 @@
+<fieldset class='border'>
+    <legend>L&D Dashboard :</legend>
+    <div class="row justify-content-md-center">
+        <div class="col-2">
+            <div class="text-center">
+                <kendo-dropdownlist #person='ngModel' 
+                    #personCombo='kendoDropDownList' 
+                    name='person' 
+                    title='Person'
+                    class='form-control'
+                    [ngClass]="{ 'error' : !person.valid && person.touched }" 
+                    [data]='employeeComponent.list'
+                    [textField]="'descriptor'"
+                    [valueField]="'id'" 
+                    [filterable]='employeeComponent.filterable'
+                    (filterChange)='employeeComponent.DoFilter($event)'
+                    [(ngModel)]="currentInstance"
+                     required 
+                    [disabled]='IsLocked'>
+                </kendo-dropdownlist>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-2">
+            <div class="text-center">
+                <img [src]='currentInstance.person.pictureUrl' />
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col xborder">
+            <table>
+                <tr>
+                    <td>Sure name & Name </td>
+                    <td>{{ currentInstance.person.englishLastName +',' + currentInstance.person.englishFirstName}}</td>
+                </tr>
+                <tr>
+                    <td>Position</td>
+                    <td>{{ currentInstance.lastPosition }}</td>
+                </tr>
+                <!-- <tr>
+                    <td>Grade</td>
+                    <td>{{ currentInstance.currentGrade }}</td>
+                </tr> -->
+                <tr>
+                    <td>Personnel Code</td>
+                    <td>{{ currentInstance.lastEmployeeCode }}</td>
+                </tr>
+                <tr></tr>
+            </table>
+
+        </div>
+
+        <div class="col xborder">
+            <table>
+                <tr>
+                    <td>Hiring Date</td>
+                    <td>...</td>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <td>
+                        {{ currentInstance.lastDepartment }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Direct Manager</td>
+                    <td>
+                        ...
+                        <!-- <a [routerLink]="['/Dash','L&DDashboard',currentInstancePosition.manager.id]">{{
+                            currentInstancePosition.manager.descriptor }}</a> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date </td>
+                    <td>{{ currentDate | date:'dd/MM/yyyy' }}</td>
+                    <!-- <td>{{ currentInstanceReportLine.fromDate | date:'dd.MM.yyyy' }}</td> -->
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col xborder">
+            <table>
+                <tr>
+                    <td class='text-right'>Status</td>
+                    <td> {{ currentInstance.isActive }} </td>
+                </tr>
+                <div *ngIf='!currentInstance.isActive && currentInstance.lastTerminationDate != ""'>
+                    <tr >
+                        <td class='text-right' >Termination Date : </td>
+                        <td> {{ currentInstance.lastTerminationDate | date:'dd/MM/yyyy'  }} </td>
+                    </tr>
+                    <!-- <tr >
+                        <td class='text-right' >Termination Type : </td>
+                        <td>{{ terminate.terminationType.descriptor }}</td>
+                    </tr> -->
+                </div>
+            </table>
+        </div>
+    </div>
+    <!-- Appraisal Dashboard -->
+    <!-- <appraisal-dashboard #appraisalDashboard [Person]='currentInstance'></appraisal-dashboard> -->
+
+    <!-- Assessment Result -->
+    <!-- <assessment-result [Person]='currentInstance'></assessment-result> -->
+
+    <!-- Coaching Information -->
+    <!-- <coaching-information [Person]='currentInstance'></coaching-information> -->
+
+    <!-- Training History -->
+    <!-- <training-history [Person]='currentInstance'></training-history> -->
+
+
+
+</fieldset>

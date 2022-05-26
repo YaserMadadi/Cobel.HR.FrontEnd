@@ -1,0 +1,44 @@
+<hr>
+<div class="row col">
+
+    <h2>Appraisal Information</h2>
+</div>
+<div class="row">
+    <div class="col">
+        <!-- <canvas baseChart class="chart" [datasets]="chartData" [labels]="chartLabels" [options]="lineChartOptions"
+            [colors]="lineChartColours" [legend]="lineChartLegend" [chartType]="lineChartType"
+            (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas> -->
+    </div>
+</div>
+<div *ngIf='oldRangeAppraisal'>
+    <hr>
+    <div class="row" >
+        <div class="col">
+            <div class="alert alert-warning" role="alert">
+                <h1 class="alert-heading">Attention!</h1>
+                Appraisal Scores in before 2019 were calculated in 0 to 5 range.
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row col">
+    <table>
+        <h2>Critical Incidents</h2>
+        <tr>
+            <td >Number of <i class='text-success'>Green Cards </i> : </td>
+                                                        <!-- 1 : Green Card -->
+            <td><span class="badge bg-success">{{ CriticalIncidentTypeCount(1) }}</span></td>
+        </tr>
+        <tr>
+            <td> Number of <i class='text-warning'>Yellow Cards </i> : </td>
+                                                        <!-- 2 : Yellow Card -->
+            <td><span class="badge bg-warning">{{ CriticalIncidentTypeCount(2) }}</span></td>
+        </tr>
+        <tr>
+            <td>Number of <i class='text-danger'>Red Cards </i> : </td>
+                                                        <!-- 3 : Red Card -->
+            <td><span class="badge bg-danger">{{ CriticalIncidentTypeCount(3) }}</span></td>
+        </tr>
+    </table>
+</div>

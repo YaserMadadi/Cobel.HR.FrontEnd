@@ -1,4 +1,4 @@
-﻿import {NgModule} from '@angular/core';
+﻿import { NgModule } from '@angular/core';
 
 import { CertificationTypeModule } from './CertificationType/certificationType.module';
 import { CityModule } from './City/city.module';
@@ -28,9 +28,9 @@ import { YearQuarterModule } from './YearQuarter/yearQuarter.module';
 import { Base_RouteModule } from './base.route.module';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CertificationTypeModule,
+	declarations: [],
+	imports: [
+		CertificationTypeModule,
 		CityModule,
 		ConnectionTypeModule,
 		CountryModule,
@@ -56,9 +56,9 @@ import { Base_RouteModule } from './base.route.module';
 		YearModule,
 		YearQuarterModule,
 		Base_RouteModule
-  ],
-  exports: [
-    CertificationTypeModule,
+	],
+	exports: [
+		CertificationTypeModule,
 		CityModule,
 		ConnectionTypeModule,
 		CountryModule,
@@ -84,6 +84,6 @@ import { Base_RouteModule } from './base.route.module';
 		YearModule,
 		YearQuarterModule,
 		Base_RouteModule
-  ]
+	]
 })
 export class Base_Module { }

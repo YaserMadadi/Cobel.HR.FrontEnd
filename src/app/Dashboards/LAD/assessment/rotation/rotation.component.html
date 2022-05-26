@@ -1,0 +1,17 @@
+<table *ngIf='currentRotationAssessment.id > 0'>
+    <h2>Rotation Info</h2>
+    <tr>
+        <td>Rotation Date :</td>
+        <td> ** vNext **
+            <!-- {{ currentRotationAssessment.promotedDate | date:'dd/MM/yyyy' }} -->
+        </td>
+    </tr>
+    <!-- <tr>
+        <td>Previous Position :</td>
+        <td>{{ currentRotationAssessment.currentPosition.descriptor }}</td>
+    </tr> -->
+    <tr>
+        <td>Proposed Position :</td>
+        <td>{{ currentRotationAssessment.proposedPosition.descriptor }}</td>
+    </tr>
+</table>

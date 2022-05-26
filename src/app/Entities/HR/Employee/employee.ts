@@ -80,6 +80,8 @@ export class Employee extends BusinessObject implements OnInit {
 	
 	public lastTerminationDate: string = '';
 
+	public isActive: boolean = true;
+
 	//#endregion
 
   //#region Collection Properties
