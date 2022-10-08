@@ -1,0 +1,55 @@
+<fieldset class='border'>
+    <legend>Coaching Questionarie :</legend>
+    <table #coachingQuestionnaireTable class='table table-hover indexTable'>
+        <thead>
+            <tr>
+                <th>Row</th>
+                <th title='Questionnaire Type'>Questionnaire Type</th>
+                <th title='Assessment'>Assessment</th>
+                <th title='Responder Person'>Responder Person</th>
+                <th width='100px' title='Is Available'>Is Available</th>
+                <th width='100px' title='Is Done'>Is Done</th>
+            </tr>
+            <!-- <tr name='secondRow'>
+                <th></th>
+                <th>
+                    <input class='form-control' #QuestionnaireType='ngModel' id='QuestionnaireType' name='QuestionnaireType'
+                        title='Questionnaire Type' autocomplete='off' placeholder='Questionnaire Type'
+                        [(ngModel)]='filterCoachingQuestionnaire.QuestionnaireType.descriptor' type='text' maxlength='50'
+                        (keyup)='doFilter($event)' />
+                </th>
+                <th>
+                    <input class='form-control' #assessment='ngModel' id='assessment' name='assessment'
+                        title='Assessment' autocomplete='off' placeholder='Assessment'
+                        [(ngModel)]='filterCoachingQuestionnaire.assessment.descriptor' type='text' maxlength='50'
+                        (keyup)='doFilter($event)' />
+                </th>
+                <th>
+                    <input class='form-control' #responderPerson='ngModel' id='responderPerson' name='responderPerson'
+                        title='Responder Person' autocomplete='off' placeholder='Responder Person'
+                        [(ngModel)]='filterCoachingQuestionnaire.responderPerson.descriptor' type='text' maxlength='50'
+                        (keyup)='doFilter($event)' />
+                </th>
+                <th>
+
+                </th>
+                <th>
+ 
+                </th>
+            </tr> -->
+        </thead>
+        <tbody>
+            <tr *ngFor='let p of coachingQuestionnaireList; let i = index' (dblclick)='onDblClicked(runQuestionnaireUI)' (click)='onSelect(i)'
+                [ngClass]="{ 'selected-row' : p.id == currentCoachingQuestionnaire.id, 'free-row' : p.id != currentCoachingQuestionnaire.id }">
+                <td>{{ i+1 }}</td>
+                <td>{{ p.QuestionnaireType?.descriptor }}</td>
+                <td>{{ p.assessment?.descriptor }}</td>
+                <td>{{ p.responsiblePerson?.descriptor }}</td>
+                <td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isAvailable' /></td>
+                <td width='100px'><input type='checkbox' disabled [(ngModel)]='p.isDone' /></td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+
+<run-questionnaire #runQuestionnaireUI [CoachingQuestionnaire]='currentCoachingQuestionnaire' (onClosed)='onRefresh()'></run-questionnaire>

@@ -1,0 +1,73 @@
+<hr>
+<div class="row col">
+    <h2>Assessment History</h2>
+</div>
+<div class="row col">
+    <div class='text-secondary' *ngIf='assessmentList.length == 0'>
+        There is no Assessment for the current Person
+    </div>
+</div>
+
+<tabset #tabset *ngIf='assessmentList.length > 0'>
+    <!-- <tab heading='Person Position'>
+        <hr-manager-personPosition-detail 
+            #hrManagerPersonPositionDetail
+            [Manager]='currentInstance'>
+        </hr-manager-personPosition-detail> 
+    </tab> -->
+    <tab heading='{{ assessment.assessmentType.descriptor }} ({{ assessment.assessmentDate }})'
+        *ngFor='let assessment of assessmentList; let i = index'>
+        <div class="row">
+            <div class="col">
+                <!-- <canvas baseChart class="chart" [datasets]="barChartData[i]" [labels]="barChartLabels"
+                    [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+                    (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"
+                    *ngIf='barChartData.length >= i'></canvas> -->
+
+
+            </div>
+        </div>
+        <hr>
+        <div class='row'>
+            <div class="col">
+                <table>
+                    <h3>Assessment Info</h3>
+                    <tr>
+                        <td>Assessment Date</td>
+                        <td>{{ assessment.assessmentDate | date:'dd.MM.yyyy' }}</td>
+                    </tr>
+                    <tr>
+                        <td>Position :</td>
+                        <td> ** vNext ** </td>
+                    </tr>
+                    <tr>
+                        <td>Assessor : </td>
+                        <td>{{ assessment.assessor.descriptor }}</td>
+                    </tr>
+                    <tr>
+                        <td>Assessment Type : </td>
+                        <td>{{ assessment.assessmentType.descriptor }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class='col'>
+                <lad-rotation *ngIf='assessment.assessmentType.id === 4' [assessment]='assessment'></lad-rotation>
+                <lad-promotion *ngIf='assessment.assessmentType.id === 2' [assessment]='assessment'></lad-promotion>
+            </div>
+
+        </div>
+
+        <!-- Conclusion -->
+        <lad-conclusion [Assessment]='assessment'></lad-conclusion>
+    </tab>
+</tabset>
+<hr>
+
+
+
+
+<hr>
+<div class="row col">
+    <button class='btn btn-block btn-outline-primary' (click)='openActionPlan(actionPlan)'>View Action Plan</button>
+</div>
+<lad-action-plan #actionPlan></lad-action-plan>

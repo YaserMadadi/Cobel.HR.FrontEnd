@@ -1,0 +1,131 @@
+<XDialog Header='Action Plan Form' [IsShown]='IsShown' (OnClosed)='onCancel()' [ModalType]='2'>
+
+    <div class="row">
+        <div class='col-12'>
+            <div class="row">
+                <div class="col-2">
+                    <img [src]='Employee?.person?.pictureUrl' />
+                </div>
+                <div class="col xborder">
+                    <table>
+                        <tr>
+                            <td>Sure name & Name </td>
+                            <td>{{ Employee?.person.englishLastName +',' + Employee?.person.englishFirstName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Position</td>
+                            <td>{{ Employee?.lastPosition }}</td>
+                        </tr>
+                        <tr>
+                            <td>Personnel Code</td>
+                            <td>{{ Employee?.lastEmployeeCode }}</td>
+                        </tr>
+                        <tr>
+                            <td>Hire Date</td>
+                            <td>
+                                <!-- {{ Employee?.lastHireDate }} -->
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col xborder">
+                    <table>
+                        <tr>
+                            <td>Department</td>
+                            <td>
+                                {{ Employee.lastDepartment }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Direct Manager</td>
+                            <td>
+                                <!-- {{ EmployeePosition.manager.descriptor }} -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date </td>
+                            <td>{{ currentDate | date:'dd/MM/yyyy' }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <fieldset class='xborder'>
+                        <legend>Development Goals :</legend>
+                        <div class="row col text-secondary" *ngIf='DevelopmentGoalList.length == 0'>
+                            There is no Item to show for {{ Employee?.descriptor }}
+                        </div>
+                        <ul>
+                            <li *ngFor='let developmentGoal of DevelopmentGoalList'>{{ developmentGoal.note }}</li>
+                        </ul>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <fieldset class='xborder'>
+                        <legend>Training :</legend>
+                        <div class="row col text-secondary" *ngIf='TrainingList.length == 0'>
+                            There is no Item to show for {{ Employee?.descriptor }}
+                        </div>
+                        <table *ngIf='TrainingList.length !== 0'>
+                            <thead>
+                                <tr>
+                                    <th>Course</th>
+                                    <th>DeadLine</th>
+                                    <th>Responsible</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let trainingItem of TrainingList'>
+                                    <td>{{ trainingItem.course }}</td>
+                                    <td>{{ trainingItem.deadLine.descriptor }}</td>
+                                    <td>{{ trainingItem.responsible }}</td>
+                                    <td> ... </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <ul>
+                            <li >{{ training.courseTitle }}</li>
+                        </ul> -->
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <fieldset class='xborder'>
+                        <legend>Coaching :</legend>
+                        <div class="row col text-secondary" *ngIf='CoachingList.length == 0'>
+                            There is no Item to show for {{ Employee?.descriptor }}
+                        </div>
+                        <table *ngIf='CoachingList.length !== 0'>
+                            <thead>
+                                <tr>
+                                    <th>Coach Name</th>
+                                    <th>Purpose</th>
+                                    <th>Total Session </th>
+                                    <th>Runned Session</th>
+                                    <th>Status </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let coaching of CoachingList'>
+                                    <td>{{ coaching.coach.descriptor }}</td>
+                                    <td>{{ coaching.porpuse }}</td>
+                                    <td>{{ coaching.sessionCount }}</td>
+                                    <td>{{ coaching.runnedSessionCount }}</td>
+                                    <td>{{ (coaching.isFinished ? 'Finished' : 'Running') }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <ul>
+                            <li >{{ coaching.porpuse }}</li>
+                        </ul> -->
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</XDialog>

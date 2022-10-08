@@ -95,6 +95,8 @@ export class Person extends BusinessObject implements OnInit {
 	
 	public childCount: number = 0;
 
+  	public pictureUrl: string = '';
+
 	//#endregion
 
   //#region Collection Properties

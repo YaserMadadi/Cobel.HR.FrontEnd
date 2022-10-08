@@ -115,7 +115,6 @@ import { SubSystemComponent } from './layouts/components/sub-system/sub-system.c
     P500Component,
     LoginComponent,
     SubSystemComponent,
-    
   ],
   providers: [Info,
     PermissionController,

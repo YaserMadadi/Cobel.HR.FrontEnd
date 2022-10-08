@@ -1,9 +1,16 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
     "importHelpers": true,
     "outDir": "./dist/out-tsc",
+    // "rootDirs": [
+    //   "src/xcore"
+    // ],
+    "paths":{
+      "xcore/*":["xcore/*"],
+      "Entities/*":["app/Entities/*" ]
+    },
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",

@@ -1,0 +1,31 @@
+<hr>
+<div class='row col'>
+    <div class="row xborder">
+        <div class="row col-auto">
+            <h2>Training History Information</h2>
+        </div>
+        <div class="row col-auto">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Title</td>
+                        <td>Period</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let item of trainingList'>
+                        <td>{{ item.course.title }}</td>
+                        <td>{{ item.executiveYear }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row col" *ngFor='let item of trainingList'>
+    <ul>
+        <li>Period : {{ item.executiveYear }}</li>
+        <li>Title : {{ item.courseTitle }}</li>
+    </ul>
+</div> -->

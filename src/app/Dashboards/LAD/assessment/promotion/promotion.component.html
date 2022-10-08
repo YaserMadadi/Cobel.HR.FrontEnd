@@ -1,0 +1,22 @@
+<table *ngIf='currentPromotionAssessment.id > 0'>
+    <h2>Promotion Info</h2>
+    <tr>
+        <td>Promoted Date :</td>
+        <td>  ** vNext **
+            <!-- {{ currentPromotionAssessment.promotedDate | date:'dd/MM/yyyy' }} -->
+        </td>
+    </tr>
+    <!-- <tr>
+        <td>Previous Position :</td>
+        <td>{{ currentPromotionAssessment.currentPosition.descriptor }}</td>
+    </tr> -->
+    <tr>
+        <td>Proposed Position :</td>
+        <td>{{ currentPromotionAssessment.proposedPosition.descriptor }}</td>
+    </tr>
+    <tr>
+        <td>The Result of Promotion : </td>
+        <td>{{ currentPromotionAssessment.promotionResult.descriptor }}</td>
+    </tr>
+</table>
+

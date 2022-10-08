@@ -1,0 +1,39 @@
+<hr>
+<div class="row col">
+    <h3>Development Goal</h3>
+
+</div>
+<div class='row col'>
+    <p>
+        {{ developmentGoal.note }}
+    </p>
+    <div class='text-secondary' *ngIf='developmentGoal.id == 0'>
+        There is no Item to Show to {{ Assessment.employee.descriptor }}
+    </div>
+</div>
+<hr>
+<div class="row col">
+    <h3>Conclusion ... </h3>
+</div>
+<div class="row col">
+    <ol>
+        <h3 class='text-success'>3 top strengths based on assessment results:</h3>
+        <li *ngFor='let conclusion of strengthConclusions'>{{ conclusion.note }}</li>
+        <div class='text-secondary' *ngIf='strengthConclusions.length == 0'>
+            There is no Item to Show to  {{ Assessment.employee.descriptor }}
+        </div>
+    </ol>
+</div>
+<div class="row">
+
+    <div class="col">
+
+        <ol>
+            <h3 class='text-danger'>3 top development needs based on assessment results:</h3>
+            <li *ngFor='let conclusion of needsToDevelopConclusions'>{{ conclusion.note }}</li>
+            <div class='text-secondary' *ngIf='needsToDevelopConclusions.length == 0'>
+                There is no Item to Show
+            </div>
+        </ol>
+    </div>
+</div>
